@@ -1,4 +1,7 @@
 begin_unit
+begin_comment
+comment|/*  * GIT - The information manager from hell  *  * Copyright (C) Linus Torvalds, 2005  */
+end_comment
 begin_include
 include|#
 directive|include
