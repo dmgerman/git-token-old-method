@@ -404,10 +404,6 @@ decl_stmt|,
 name|changed
 decl_stmt|;
 name|unsigned
-name|int
-name|mode
-decl_stmt|;
-name|unsigned
 name|long
 name|size
 decl_stmt|;

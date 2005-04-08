@@ -517,8 +517,6 @@ name|stat
 name|st
 decl_stmt|;
 name|int
-name|i
-decl_stmt|,
 name|fd
 decl_stmt|,
 name|ret
@@ -1017,8 +1015,6 @@ name|sha1
 argument_list|)
 decl_stmt|;
 name|int
-name|i
-decl_stmt|,
 name|fd
 decl_stmt|;
 name|fd
@@ -1338,6 +1334,11 @@ argument_list|(
 literal|"open failed"
 argument_list|)
 return|;
+name|size
+operator|=
+literal|0
+expr_stmt|;
+comment|// avoid gcc warning
 name|map
 operator|=
 operator|(

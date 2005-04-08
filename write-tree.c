@@ -141,8 +141,6 @@ name|long
 name|size
 decl_stmt|,
 name|offset
-decl_stmt|,
-name|val
 decl_stmt|;
 name|int
 name|i
