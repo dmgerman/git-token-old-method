@@ -116,6 +116,10 @@ argument_list|,
 literal|' '
 argument_list|)
 decl_stmt|;
+name|unsigned
+name|int
+name|mode
+decl_stmt|;
 if|if
 condition|(
 name|size
@@ -126,6 +130,18 @@ literal|20
 operator|||
 operator|!
 name|path
+operator|||
+name|sscanf
+argument_list|(
+name|data
+argument_list|,
+literal|"%o"
+argument_list|,
+operator|&
+name|mode
+argument_list|)
+operator|!=
+literal|1
 condition|)
 return|return
 operator|-
@@ -147,6 +163,13 @@ name|mark_needs_sha1
 argument_list|(
 name|sha1
 argument_list|,
+name|S_ISDIR
+argument_list|(
+name|mode
+argument_list|)
+condition|?
+literal|"tree"
+else|:
 literal|"blob"
 argument_list|,
 name|file_sha1
