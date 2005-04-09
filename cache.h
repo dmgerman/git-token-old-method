@@ -288,6 +288,25 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
+name|write_cache
+parameter_list|(
+name|int
+name|newfd
+parameter_list|,
+name|struct
+name|cache_entry
+modifier|*
+modifier|*
+name|cache
+parameter_list|,
+name|int
+name|entries
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
 name|cache_name_pos
 parameter_list|(
 specifier|const
@@ -297,6 +316,29 @@ name|name
 parameter_list|,
 name|int
 name|namelen
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|add_cache_entry
+parameter_list|(
+name|struct
+name|cache_entry
+modifier|*
+name|ce
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|remove_file_from_cache
+parameter_list|(
+name|char
+modifier|*
+name|path
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -508,6 +550,7 @@ specifier|extern
 name|int
 name|get_sha1_hex
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|hex
@@ -525,6 +568,7 @@ name|char
 modifier|*
 name|sha1_to_hex
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -533,7 +577,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* static buffer! */
+comment|/* static buffer result! */
 end_comment
 begin_comment
 comment|/* General helper functions */
