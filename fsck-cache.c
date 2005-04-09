@@ -153,6 +153,9 @@ name|file_sha1
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
@@ -288,6 +291,9 @@ literal|1
 expr_stmt|;
 comment|/* "parent " +<hex sha1> + '\n' */
 block|}
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function

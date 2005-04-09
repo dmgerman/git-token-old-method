@@ -1536,10 +1536,6 @@ name|st
 argument_list|)
 condition|)
 block|{
-name|map
-operator|=
-name|NULL
-expr_stmt|;
 name|size
 operator|=
 name|st
@@ -1553,7 +1549,7 @@ expr_stmt|;
 if|if
 condition|(
 name|size
-operator|>
+operator|>=
 sizeof|sizeof
 argument_list|(
 expr|struct

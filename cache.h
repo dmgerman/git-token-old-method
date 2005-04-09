@@ -193,7 +193,6 @@ name|short
 name|namelen
 decl_stmt|;
 DECL|member|name
-name|unsigned
 name|char
 name|name
 index|[
