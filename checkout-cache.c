@@ -47,6 +47,12 @@ decl_stmt|;
 name|long
 name|wrote
 decl_stmt|;
+name|char
+name|type
+index|[
+literal|20
+index|]
+decl_stmt|;
 name|new
 operator|=
 name|read_sha1_file
@@ -55,7 +61,7 @@ name|ce
 operator|->
 name|sha1
 argument_list|,
-literal|"blob"
+name|type
 argument_list|,
 operator|&
 name|size
@@ -65,6 +71,13 @@ if|if
 condition|(
 operator|!
 name|new
+operator|||
+name|strcmp
+argument_list|(
+name|type
+argument_list|,
+literal|"blob"
+argument_list|)
 condition|)
 block|{
 name|fprintf
