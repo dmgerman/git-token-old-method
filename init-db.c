@@ -42,7 +42,7 @@ if|if
 condition|(
 name|mkdir
 argument_list|(
-literal|".dircache"
+literal|".git"
 argument_list|,
 literal|0755
 argument_list|)
@@ -52,7 +52,7 @@ condition|)
 block|{
 name|perror
 argument_list|(
-literal|"unable to create .dircache"
+literal|"unable to create .git directory"
 argument_list|)
 expr_stmt|;
 name|exit
