@@ -1197,7 +1197,7 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"-R"
+literal|"-r"
 argument_list|)
 condition|)
 block|{
