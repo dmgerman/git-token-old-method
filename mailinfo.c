@@ -25,6 +25,7 @@ end_include
 begin_decl_stmt
 DECL|variable|cmitmsg
 DECL|variable|patchfile
+DECL|variable|filelist
 specifier|static
 name|FILE
 modifier|*
@@ -32,6 +33,9 @@ name|cmitmsg
 decl_stmt|,
 modifier|*
 name|patchfile
+decl_stmt|,
+modifier|*
+name|filelist
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -871,6 +875,7 @@ case|case
 literal|'\n'
 case|:
 break|break;
+comment|/* patch tends to special-case these things.. */
 case|case
 literal|'~'
 case|:
@@ -909,9 +914,11 @@ operator|!
 name|len
 condition|)
 return|return;
-name|printf
+name|fprintf
 argument_list|(
-literal|"filename: %.*s\n"
+name|filelist
+argument_list|,
+literal|"%.*s\n"
 argument_list|,
 name|len
 argument_list|,
@@ -1236,7 +1243,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"mailinfo msg-file path-file< email\n"
+literal|"mailinfo msg-file path-file filelist-file< email\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -1264,7 +1271,7 @@ if|if
 condition|(
 name|argc
 operator|!=
-literal|3
+literal|4
 condition|)
 name|usage
 argument_list|()
@@ -1324,6 +1331,38 @@ argument_list|(
 name|argv
 index|[
 literal|2
+index|]
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+name|filelist
+operator|=
+name|fopen
+argument_list|(
+name|argv
+index|[
+literal|3
+index|]
+argument_list|,
+literal|"w"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|filelist
+condition|)
+block|{
+name|perror
+argument_list|(
+name|argv
+index|[
+literal|3
 index|]
 argument_list|)
 expr_stmt|;
