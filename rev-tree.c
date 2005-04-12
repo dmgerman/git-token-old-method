@@ -1081,18 +1081,18 @@ condition|)
 continue|continue;
 name|printf
 argument_list|(
-literal|"%x %s"
-argument_list|,
-name|marked
-argument_list|(
-name|rev
-argument_list|)
+literal|"%s:%d"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
 name|rev
 operator|->
 name|sha1
+argument_list|)
+argument_list|,
+name|marked
+argument_list|(
+name|rev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1109,7 +1109,7 @@ condition|)
 block|{
 name|printf
 argument_list|(
-literal|" %s"
+literal|" %s:%d"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1118,6 +1118,13 @@ operator|->
 name|parent
 operator|->
 name|sha1
+argument_list|)
+argument_list|,
+name|marked
+argument_list|(
+name|p
+operator|->
+name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
