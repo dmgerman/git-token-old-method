@@ -254,11 +254,10 @@ literal|"blob"
 argument_list|)
 condition|)
 block|{
-name|fprintf
+return|return
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"checkout-cache: unable to read sha1 file of %s (%s)\n"
+literal|"checkout-cache: unable to read sha1 file of %s (%s)"
 argument_list|,
 name|ce
 operator|->
@@ -271,10 +270,6 @@ operator|->
 name|sha1
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 name|fd
@@ -297,11 +292,15 @@ operator|<
 literal|0
 condition|)
 block|{
-name|fprintf
+name|free
 argument_list|(
-name|stderr
-argument_list|,
-literal|"checkout-cache: unable to create %s (%s)\n"
+name|new
+argument_list|)
+expr_stmt|;
+return|return
+name|error
+argument_list|(
+literal|"checkout-cache: unable to create %s (%s)"
 argument_list|,
 name|ce
 operator|->
@@ -312,15 +311,6 @@ argument_list|(
 name|errno
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
-name|new
-argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 name|wrote
@@ -347,26 +337,21 @@ expr_stmt|;
 if|if
 condition|(
 name|wrote
-operator|==
+operator|!=
 name|size
 condition|)
 return|return
-literal|0
-return|;
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"checkout-cache: unable to write %s\n"
+literal|"checkout-cache: unable to write %s"
 argument_list|,
 name|ce
 operator|->
 name|name
 argument_list|)
-expr_stmt|;
+return|;
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 end_function
@@ -600,16 +585,9 @@ operator|<
 literal|0
 condition|)
 block|{
-name|fprintf
+name|die
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Invalid cache\n"
-argument_list|)
-expr_stmt|;
-name|exit
-argument_list|(
-literal|1
+literal|"invalid cache"
 argument_list|)
 expr_stmt|;
 block|}

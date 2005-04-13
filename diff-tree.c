@@ -86,7 +86,7 @@ name|size
 operator|<
 name|len
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"corrupt tree file"
 argument_list|)
@@ -190,7 +190,7 @@ argument_list|)
 operator|!=
 literal|1
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"corrupt tree file"
 argument_list|)
@@ -487,7 +487,7 @@ argument_list|,
 literal|"tree"
 argument_list|)
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"corrupt tree sha %s"
 argument_list|,
@@ -997,7 +997,7 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|usage
+name|die
 argument_list|(
 literal|"diff-tree: internal error"
 argument_list|)
@@ -1078,9 +1078,14 @@ argument_list|,
 literal|"tree"
 argument_list|)
 condition|)
-name|usage
+name|die
 argument_list|(
-literal|"unable to read source tree"
+literal|"unable to read source tree (%s)"
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|old
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tree2
@@ -1107,9 +1112,14 @@ argument_list|,
 literal|"tree"
 argument_list|)
 condition|)
-name|usage
+name|die
 argument_list|(
-literal|"unable to read destination tree"
+literal|"unable to read destination tree (%s)"
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|new
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|retval

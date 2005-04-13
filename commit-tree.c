@@ -675,7 +675,7 @@ condition|(
 operator|!
 name|pw
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"You don't exist. Go away!"
 argument_list|)

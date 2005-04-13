@@ -1143,7 +1143,7 @@ name|newfd
 operator|<
 literal|0
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"unable to create new cachefile"
 argument_list|)
@@ -1168,7 +1168,7 @@ name|entries
 operator|<
 literal|0
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"cache corrupted"
 argument_list|)
@@ -1273,7 +1273,7 @@ argument_list|()
 expr_stmt|;
 continue|continue;
 block|}
-name|usage
+name|die
 argument_list|(
 literal|"unknown option %s"
 argument_list|,
@@ -1311,7 +1311,7 @@ argument_list|(
 name|path
 argument_list|)
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"Unable to add %s to database"
 argument_list|,
@@ -1337,7 +1337,7 @@ argument_list|,
 literal|".git/index"
 argument_list|)
 condition|)
-name|usage
+name|die
 argument_list|(
 literal|"Unable to write new cachefile"
 argument_list|)
