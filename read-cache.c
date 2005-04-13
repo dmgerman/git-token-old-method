@@ -1431,6 +1431,7 @@ name|changed
 init|=
 literal|0
 decl_stmt|;
+comment|/* nsec seems unreliable - not all filesystems support it, so 	 * as long as it is in the inode cache you get right nsec 	 * but after it gets flushed, you get zero nsec. */
 if|if
 condition|(
 name|ce
@@ -1448,6 +1449,9 @@ operator|->
 name|st_mtim
 operator|.
 name|tv_sec
+ifdef|#
+directive|ifdef
+name|NSEC
 operator|||
 name|ce
 operator|->
@@ -1464,6 +1468,8 @@ operator|->
 name|st_mtim
 operator|.
 name|tv_nsec
+endif|#
+directive|endif
 condition|)
 name|changed
 operator||=
@@ -1486,6 +1492,9 @@ operator|->
 name|st_ctim
 operator|.
 name|tv_sec
+ifdef|#
+directive|ifdef
+name|NSEC
 operator|||
 name|ce
 operator|->
@@ -1502,6 +1511,8 @@ operator|->
 name|st_ctim
 operator|.
 name|tv_nsec
+endif|#
+directive|endif
 condition|)
 name|changed
 operator||=
