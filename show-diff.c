@@ -462,9 +462,10 @@ name|printf
 argument_list|(
 literal|"%.*s:  "
 argument_list|,
+name|ce_namelen
+argument_list|(
 name|ce
-operator|->
-name|namelen
+argument_list|)
 argument_list|,
 name|ce
 operator|->
