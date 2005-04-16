@@ -231,7 +231,7 @@ name|len
 parameter_list|,
 name|stage
 parameter_list|)
-value|((len) | ((stage)<< 12))
+value|htons((len) | ((stage)<< 12))
 end_define
 begin_decl_stmt
 DECL|variable|sha1_file_directory
