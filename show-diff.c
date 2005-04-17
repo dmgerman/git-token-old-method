@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"cache.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<ctype.h>
-end_include
 begin_decl_stmt
 DECL|variable|diff_cmd
 specifier|static
