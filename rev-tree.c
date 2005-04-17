@@ -191,6 +191,8 @@ operator|=
 name|lookup_rev
 argument_list|(
 name|sha1
+argument_list|,
+literal|"commit"
 argument_list|)
 expr_stmt|;
 name|rev
@@ -248,6 +250,8 @@ argument_list|(
 name|rev
 argument_list|,
 name|parent
+argument_list|,
+literal|"commit"
 argument_list|)
 expr_stmt|;
 block|}
@@ -523,6 +527,8 @@ name|sha1
 index|[
 name|i
 index|]
+argument_list|,
+literal|"commit"
 argument_list|)
 argument_list|,
 literal|1

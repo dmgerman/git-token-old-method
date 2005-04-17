@@ -92,7 +92,11 @@ condition|)
 block|{
 name|printf
 argument_list|(
-literal|"unreachable %s\n"
+literal|"unreachable %s %s\n"
+argument_list|,
+name|rev
+operator|->
+name|tag
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -122,7 +126,11 @@ literal|0
 case|:
 name|printf
 argument_list|(
-literal|"bad %s\n"
+literal|"bad %s %s\n"
+argument_list|,
+name|rev
+operator|->
+name|tag
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -138,7 +146,11 @@ name|USED
 case|:
 name|printf
 argument_list|(
-literal|"missing %s\n"
+literal|"missing %s, %s\n"
+argument_list|,
+name|rev
+operator|->
+name|tag
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -154,7 +166,11 @@ name|SEEN
 case|:
 name|printf
 argument_list|(
-literal|"dangling %s\n"
+literal|"dangling %s %s\n"
+argument_list|,
+name|rev
+operator|->
+name|tag
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -183,12 +199,17 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|tag
+name|ptag
 parameter_list|,
 name|unsigned
 name|char
 modifier|*
 name|child
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|ctag
 parameter_list|)
 block|{
 name|struct
@@ -201,9 +222,13 @@ argument_list|(
 name|lookup_rev
 argument_list|(
 name|parent
+argument_list|,
+name|ptag
 argument_list|)
 argument_list|,
 name|child
+argument_list|,
+name|ctag
 argument_list|)
 decl_stmt|;
 name|child_rev
@@ -225,6 +250,7 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|tag
@@ -238,6 +264,8 @@ init|=
 name|lookup_rev
 argument_list|(
 name|sha1
+argument_list|,
+name|tag
 argument_list|)
 decl_stmt|;
 name|rev
@@ -388,6 +416,10 @@ name|mark_needs_sha1
 argument_list|(
 name|sha1
 argument_list|,
+literal|"tree"
+argument_list|,
+name|file_sha1
+argument_list|,
 name|S_ISDIR
 argument_list|(
 name|mode
@@ -396,8 +428,6 @@ condition|?
 literal|"tree"
 else|:
 literal|"blob"
-argument_list|,
-name|file_sha1
 argument_list|)
 expr_stmt|;
 block|}
@@ -479,9 +509,11 @@ name|mark_needs_sha1
 argument_list|(
 name|sha1
 argument_list|,
-literal|"tree"
+literal|"commit"
 argument_list|,
 name|tree_sha1
+argument_list|,
+literal|"tree"
 argument_list|)
 expr_stmt|;
 name|data
@@ -534,6 +566,8 @@ argument_list|,
 literal|"commit"
 argument_list|,
 name|parent_sha1
+argument_list|,
+literal|"commit"
 argument_list|)
 expr_stmt|;
 name|data
@@ -1108,6 +1142,8 @@ argument_list|(
 name|lookup_rev
 argument_list|(
 name|head_sha1
+argument_list|,
+literal|"commit"
 argument_list|)
 argument_list|,
 name|REACHABLE
