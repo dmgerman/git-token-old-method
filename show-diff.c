@@ -492,7 +492,7 @@ name|char
 modifier|*
 name|show_diff_usage
 init|=
-literal|"show-diff [-s] [-q] [-z] [paths...]"
+literal|"show-diff [-q] [-s] [-z] [paths...]"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -707,12 +707,10 @@ argument_list|,
 literal|"-z"
 argument_list|)
 condition|)
-block|{
 name|machine_readable
 operator|=
 literal|1
 expr_stmt|;
-block|}
 else|else
 name|usage
 argument_list|(
