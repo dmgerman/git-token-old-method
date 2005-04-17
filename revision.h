@@ -487,6 +487,10 @@ name|struct
 name|revision
 modifier|*
 name|rev
+parameter_list|,
+name|unsigned
+name|int
+name|mask
 parameter_list|)
 block|{
 name|struct
@@ -505,14 +509,14 @@ name|rev
 operator|->
 name|flags
 operator|&
-name|REACHABLE
+name|mask
 condition|)
 return|return;
 name|rev
 operator|->
 name|flags
 operator||=
-name|REACHABLE
+name|mask
 operator||
 name|USED
 expr_stmt|;
@@ -526,6 +530,8 @@ argument_list|(
 name|p
 operator|->
 name|parent
+argument_list|,
+name|mask
 argument_list|)
 expr_stmt|;
 name|p
@@ -550,6 +556,10 @@ modifier|*
 name|buf
 parameter_list|)
 block|{
+name|unsigned
+name|long
+name|date
+decl_stmt|;
 if|if
 condition|(
 name|memcmp
@@ -598,7 +608,8 @@ literal|'>'
 condition|)
 comment|/* nada */
 empty_stmt|;
-return|return
+name|date
+operator|=
 name|strtoul
 argument_list|(
 name|buf
@@ -607,6 +618,19 @@ name|NULL
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|date
+operator|==
+name|ULONG_MAX
+condition|)
+name|date
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|date
 return|;
 block|}
 end_function
