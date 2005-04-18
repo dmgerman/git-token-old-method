@@ -2241,9 +2241,6 @@ name|ok_to_add
 operator|=
 literal|1
 expr_stmt|;
-name|active_nr
-operator|--
-expr_stmt|;
 if|if
 condition|(
 operator|!
