@@ -14,7 +14,7 @@ name|char
 modifier|*
 name|diff_cmd
 init|=
-literal|"diff -L '%s' -u -N  - '%s'"
+literal|"diff -L 'a/%s' -L 'b/%s' -p -u - '%s'"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -214,6 +214,8 @@ name|strlen
 argument_list|(
 name|label_sq
 argument_list|)
+operator|*
+literal|2
 operator|+
 name|strlen
 argument_list|(
@@ -241,6 +243,8 @@ argument_list|,
 name|cmd_size
 argument_list|,
 name|diff_cmd
+argument_list|,
+name|label_sq
 argument_list|,
 name|label_sq
 argument_list|,
