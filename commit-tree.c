@@ -419,6 +419,11 @@ modifier|*
 name|dst
 init|=
 name|p
+decl_stmt|,
+modifier|*
+name|src
+init|=
+name|p
 decl_stmt|;
 for|for
 control|(
@@ -429,9 +434,9 @@ block|{
 name|c
 operator|=
 operator|*
-name|p
+name|src
 expr_stmt|;
-name|p
+name|src
 operator|++
 expr_stmt|;
 switch|switch
