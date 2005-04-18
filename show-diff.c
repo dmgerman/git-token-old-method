@@ -27,6 +27,26 @@ init|=
 literal|"-p -u"
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|diff_arg_forward
+specifier|static
+name|char
+modifier|*
+name|diff_arg_forward
+init|=
+literal|" - '%s'"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|diff_arg_reverse
+specifier|static
+name|char
+modifier|*
+name|diff_arg_reverse
+init|=
+literal|" '%s' -"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|prepare_diff_cmd
 specifier|static
@@ -212,15 +232,11 @@ name|unsigned
 name|long
 name|long
 name|old_size
+parameter_list|,
+name|int
+name|reverse
 parameter_list|)
 block|{
-specifier|static
-name|char
-modifier|*
-name|diff_arg
-init|=
-literal|" - '%s'"
-decl_stmt|;
 name|FILE
 modifier|*
 name|f
@@ -250,6 +266,16 @@ name|label
 argument_list|)
 else|:
 name|name_sq
+decl_stmt|;
+name|char
+modifier|*
+name|diff_arg
+init|=
+name|reverse
+condition|?
+name|diff_arg_reverse
+else|:
+name|diff_arg_forward
 decl_stmt|;
 name|int
 name|cmd_size
@@ -409,6 +435,9 @@ name|struct
 name|cache_entry
 modifier|*
 name|ce
+parameter_list|,
+name|int
+name|reverse
 parameter_list|)
 block|{
 name|char
@@ -476,6 +505,8 @@ argument_list|,
 name|old
 argument_list|,
 name|size
+argument_list|,
+name|reverse
 argument_list|)
 expr_stmt|;
 block|}
@@ -627,6 +658,11 @@ init|=
 literal|0
 decl_stmt|;
 name|int
+name|reverse
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|entries
 init|=
 name|read_cache
@@ -652,6 +688,24 @@ operator|==
 literal|'-'
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+literal|1
+index|]
+argument_list|,
+literal|"-R"
+argument_list|)
+condition|)
+name|reverse
+operator|=
+literal|1
+expr_stmt|;
+elseif|else
 if|if
 condition|(
 operator|!
@@ -935,6 +989,8 @@ condition|)
 name|show_diff_empty
 argument_list|(
 name|ce
+argument_list|,
+name|reverse
 argument_list|)
 expr_stmt|;
 block|}
@@ -1053,6 +1109,8 @@ argument_list|,
 name|old
 argument_list|,
 name|size
+argument_list|,
+name|reverse
 argument_list|)
 expr_stmt|;
 name|free
