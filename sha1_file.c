@@ -1014,6 +1014,7 @@ name|was_commit
 init|=
 literal|0
 decl_stmt|;
+name|unsigned
 name|char
 name|tree_sha1
 index|[
@@ -1097,7 +1098,9 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|NULL
+return|;
 block|}
 operator|*
 name|size
