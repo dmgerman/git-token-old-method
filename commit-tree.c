@@ -1273,7 +1273,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * Having more than two parents may be strange, but hey, there's  * no conceptual reason why the file format couldn't accept multi-way  * merges. It might be the "union" of several packages, for example.  *  * I don't really expect that to happen, but this is here to make  * it clear that _conceptually_ it's ok..  */
+comment|/*  * Having more than two parents is not strange at all, and this is  * how multi-way merges are represented.  */
 end_comment
 begin_define
 DECL|macro|MAXPARENT
@@ -1282,6 +1282,16 @@ directive|define
 name|MAXPARENT
 value|(16)
 end_define
+begin_decl_stmt
+DECL|variable|commit_tree_usage
+specifier|static
+name|char
+modifier|*
+name|commit_tree_usage
+init|=
+literal|"commit-tree<sha1> [-p<sha1>]*< changelog"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|main
 name|int
@@ -1414,7 +1424,7 @@ literal|0
 condition|)
 name|usage
 argument_list|(
-literal|"commit-tree<sha1> [-p<sha1>]*< changelog"
+name|commit_tree_usage
 argument_list|)
 expr_stmt|;
 name|check_valid
@@ -1486,7 +1496,7 @@ argument_list|)
 condition|)
 name|usage
 argument_list|(
-literal|"commit-tree<sha1> [-p<sha1>]*< changelog"
+name|commit_tree_usage
 argument_list|)
 expr_stmt|;
 name|check_valid
