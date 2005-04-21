@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<sys/param.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"cache.h"
 end_include
 begin_decl_stmt
