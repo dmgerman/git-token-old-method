@@ -369,6 +369,12 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|item
+operator|->
+name|tree
+condition|)
 name|add_ref
 argument_list|(
 operator|&
@@ -422,6 +428,11 @@ argument_list|(
 name|parent
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|new_parent
+condition|)
+block|{
 name|commit_list_insert
 argument_list|(
 name|new_parent
@@ -445,6 +456,7 @@ operator|->
 name|object
 argument_list|)
 expr_stmt|;
+block|}
 name|bufptr
 operator|+=
 literal|48
