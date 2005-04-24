@@ -111,10 +111,6 @@ if|if
 condition|(
 name|obj
 operator|->
-name|parsed
-operator|&&
-name|obj
-operator|->
 name|type
 operator|!=
 name|commit_type
