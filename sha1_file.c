@@ -1246,6 +1246,7 @@ modifier|*
 name|buf
 parameter_list|,
 name|unsigned
+name|long
 name|len
 parameter_list|,
 specifier|const
@@ -1301,7 +1302,7 @@ name|sprintf
 argument_list|(
 name|hdr
 argument_list|,
-literal|"%s %d"
+literal|"%s %lu"
 argument_list|,
 name|type
 argument_list|,
