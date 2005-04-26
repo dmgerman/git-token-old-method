@@ -111,7 +111,7 @@ literal|8192
 expr_stmt|;
 name|buffer
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 argument_list|)
@@ -317,7 +317,7 @@ argument_list|)
 expr_stmt|;
 name|buffer
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|buffer
 argument_list|,

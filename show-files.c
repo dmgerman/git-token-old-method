@@ -146,7 +146,7 @@ argument_list|)
 expr_stmt|;
 name|dir
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|dir
 argument_list|,
@@ -162,7 +162,7 @@ expr_stmt|;
 block|}
 name|name
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|len
 operator|+

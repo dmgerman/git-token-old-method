@@ -278,7 +278,7 @@ argument_list|)
 expr_stmt|;
 name|objs
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|objs
 argument_list|,
@@ -401,7 +401,7 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

@@ -63,7 +63,7 @@ name|commit
 modifier|*
 name|ret
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -503,7 +503,7 @@ name|commit_list
 modifier|*
 name|new_list
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

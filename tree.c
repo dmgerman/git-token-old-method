@@ -84,7 +84,7 @@ name|cache_entry
 modifier|*
 name|ce
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 argument_list|)
@@ -293,7 +293,7 @@ name|char
 modifier|*
 name|newbase
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|baselen
 operator|+
@@ -508,7 +508,7 @@ name|tree
 modifier|*
 name|ret
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -789,7 +789,7 @@ literal|1
 return|;
 name|entry
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

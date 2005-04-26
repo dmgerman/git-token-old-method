@@ -58,7 +58,7 @@ name|blob
 modifier|*
 name|ret
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
