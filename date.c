@@ -586,6 +586,16 @@ block|, }
 block|,
 comment|/* Eastern Europe, USSR Zone 1 */
 block|{
+literal|"EEST"
+block|,
+operator|+
+literal|2
+block|,
+literal|1
+block|, }
+block|,
+comment|/* Eastern European Daylight */
+block|{
 literal|"WAST"
 block|,
 operator|+
@@ -962,6 +972,15 @@ index|]
 operator|.
 name|dst
 expr_stmt|;
+comment|/* Only use the tz name offset if we don't have anything better */
+if|if
+condition|(
+operator|*
+name|offset
+operator|==
+operator|-
+literal|1
+condition|)
 operator|*
 name|offset
 operator|=
