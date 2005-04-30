@@ -1204,6 +1204,8 @@ operator|=
 name|strtoul
 argument_list|(
 name|end
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|end
@@ -1220,6 +1222,17 @@ condition|)
 name|num3
 operator|-=
 literal|1900
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|num3
+operator|<
+literal|38
+condition|)
+name|num3
+operator|+=
+literal|100
 expr_stmt|;
 name|tm
 operator|->
