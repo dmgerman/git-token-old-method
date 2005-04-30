@@ -1385,9 +1385,17 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+name|tm
+operator|.
+name|tm_isdst
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|offset
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 for|for
 control|(
@@ -1507,6 +1515,7 @@ operator|+=
 name|match
 expr_stmt|;
 block|}
+comment|/* mktime uses local timezone */
 name|then
 operator|=
 name|my_mktime
@@ -1515,7 +1524,27 @@ operator|&
 name|tm
 argument_list|)
 expr_stmt|;
-comment|/* mktime uses local timezone */
+if|if
+condition|(
+name|offset
+operator|==
+operator|-
+literal|1
+condition|)
+name|offset
+operator|=
+operator|(
+name|then
+operator|-
+name|mktime
+argument_list|(
+operator|&
+name|tm
+argument_list|)
+operator|)
+operator|/
+literal|60
+expr_stmt|;
 if|if
 condition|(
 name|then
