@@ -318,7 +318,7 @@ name|argc
 operator|!=
 literal|3
 operator|||
-name|get_sha1_hex
+name|get_sha1
 argument_list|(
 name|argv
 index|[
@@ -328,7 +328,7 @@ argument_list|,
 name|rev1key
 argument_list|)
 operator|||
-name|get_sha1_hex
+name|get_sha1
 argument_list|(
 name|argv
 index|[
