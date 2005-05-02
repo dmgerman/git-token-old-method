@@ -439,9 +439,9 @@ index|]
 operator|=
 name|i
 condition|?
-literal|"l/"
+literal|"b/"
 else|:
-literal|"k/"
+literal|"a/"
 expr_stmt|;
 name|path1
 index|[
