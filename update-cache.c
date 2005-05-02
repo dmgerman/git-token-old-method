@@ -1047,7 +1047,7 @@ end_function
 begin_function
 DECL|function|refresh_cache
 specifier|static
-name|void
+name|int
 name|refresh_cache
 parameter_list|(
 name|void
@@ -1055,6 +1055,11 @@ parameter_list|)
 block|{
 name|int
 name|i
+decl_stmt|;
+name|int
+name|has_errors
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -1101,6 +1106,10 @@ name|ce
 operator|->
 name|name
 argument_list|)
+expr_stmt|;
+name|has_errors
+operator|=
+literal|1
 expr_stmt|;
 while|while
 condition|(
@@ -1163,6 +1172,7 @@ operator|-
 name|ENOENT
 operator|)
 condition|)
+block|{
 name|printf
 argument_list|(
 literal|"%s: needs update\n"
@@ -1172,6 +1182,11 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+name|has_errors
+operator|=
+literal|1
+expr_stmt|;
+block|}
 continue|continue;
 block|}
 name|active_cache
@@ -1182,6 +1197,9 @@ operator|=
 name|new
 expr_stmt|;
 block|}
+return|return
+name|has_errors
+return|;
 block|}
 end_function
 begin_comment
@@ -1490,6 +1508,10 @@ decl_stmt|,
 name|newfd
 decl_stmt|,
 name|entries
+decl_stmt|,
+name|has_errors
+init|=
+literal|0
 decl_stmt|;
 name|int
 name|allow_options
@@ -1680,6 +1702,8 @@ literal|"--refresh"
 argument_list|)
 condition|)
 block|{
+name|has_errors
+operator||=
 name|refresh_cache
 argument_list|()
 expr_stmt|;
@@ -1830,7 +1854,7 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-literal|0
+name|has_errors
 return|;
 block|}
 end_function
