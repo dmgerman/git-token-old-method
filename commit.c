@@ -336,6 +336,12 @@ argument_list|,
 name|commit_type
 argument_list|)
 condition|)
+block|{
+name|free
+argument_list|(
+name|buffer
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 argument_list|(
@@ -351,6 +357,7 @@ name|sha1
 argument_list|)
 argument_list|)
 return|;
+block|}
 name|get_sha1_hex
 argument_list|(
 name|bufptr
