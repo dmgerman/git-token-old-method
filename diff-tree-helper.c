@@ -225,9 +225,7 @@ name|cp
 argument_list|,
 name|one
 operator|->
-name|u
-operator|.
-name|sha1
+name|blob_sha1
 argument_list|)
 condition|)
 return|return
@@ -545,9 +543,7 @@ name|cp
 argument_list|,
 name|old
 operator|.
-name|u
-operator|.
-name|sha1
+name|blob_sha1
 argument_list|)
 condition|)
 return|return
@@ -585,9 +581,7 @@ name|cp
 argument_list|,
 name|new
 operator|.
-name|u
-operator|.
-name|sha1
+name|blob_sha1
 argument_list|)
 condition|)
 return|return
