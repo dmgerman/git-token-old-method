@@ -1066,7 +1066,7 @@ continue|continue;
 if|if
 condition|(
 operator|!
-name|stat
+name|lstat
 argument_list|(
 name|ce
 operator|->

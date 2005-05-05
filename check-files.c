@@ -106,9 +106,9 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|fstat
+name|lstat
 argument_list|(
-name|fd
+name|path
 argument_list|,
 operator|&
 name|st
@@ -118,7 +118,7 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"fstat(%s): %s"
+literal|"lstat(%s): %s"
 argument_list|,
 name|path
 argument_list|,
