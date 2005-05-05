@@ -397,6 +397,11 @@ index|]
 operator|=
 literal|'\0'
 expr_stmt|;
+name|create_directories
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|symlink
