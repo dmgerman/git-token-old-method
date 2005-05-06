@@ -1034,6 +1034,9 @@ parameter_list|,
 name|unsigned
 name|int
 parameter_list|,
+name|void
+modifier|*
+parameter_list|,
 name|unsigned
 name|long
 parameter_list|)
@@ -1056,6 +1059,10 @@ parameter_list|,
 name|int
 name|is_dir
 parameter_list|,
+name|unsigned
+name|int
+name|flags
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1074,6 +1081,14 @@ parameter_list|,
 name|unsigned
 name|int
 name|namelen
+parameter_list|,
+name|void
+modifier|*
+name|content
+parameter_list|,
+name|unsigned
+name|int
+name|contentsize
 parameter_list|)
 block|{
 name|char
@@ -1121,6 +1136,8 @@ argument_list|,
 name|headerfilename
 argument_list|,
 literal|0100600
+argument_list|,
+name|NULL
 argument_list|,
 name|size
 argument_list|)
@@ -1210,6 +1227,8 @@ literal|"pax_global_header"
 argument_list|,
 literal|0100600
 argument_list|,
+name|NULL
+argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
@@ -1273,6 +1292,10 @@ parameter_list|,
 name|unsigned
 name|int
 name|mode
+parameter_list|,
+name|void
+modifier|*
+name|buffer
 parameter_list|,
 name|unsigned
 name|long
@@ -1401,6 +1424,8 @@ argument_list|(
 name|mode
 argument_list|)
 argument_list|,
+literal|0
+argument_list|,
 name|basepath
 argument_list|,
 name|prefix
@@ -1408,6 +1433,10 @@ argument_list|,
 name|path
 argument_list|,
 name|namelen
+argument_list|,
+name|buffer
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|header
@@ -1846,6 +1875,8 @@ name|path
 argument_list|,
 name|mode
 argument_list|,
+name|eltbuf
+argument_list|,
 name|eltsize
 argument_list|)
 expr_stmt|;
@@ -2247,6 +2278,8 @@ argument_list|,
 name|basedir
 argument_list|,
 literal|040755
+argument_list|,
+name|NULL
 argument_list|,
 literal|0
 argument_list|)
