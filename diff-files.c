@@ -621,7 +621,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|stat
+name|lstat
 argument_list|(
 name|ce
 operator|->
