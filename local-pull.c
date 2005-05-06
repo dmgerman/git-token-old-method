@@ -75,15 +75,6 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|verbose
-specifier|static
-name|int
-name|verbose
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|path
 specifier|static
 name|char
@@ -91,38 +82,6 @@ modifier|*
 name|path
 decl_stmt|;
 end_decl_stmt
-begin_function
-DECL|function|say
-specifier|static
-name|void
-name|say
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|fmt
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|hex
-parameter_list|)
-block|{
-if|if
-condition|(
-name|verbose
-condition|)
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-name|fmt
-argument_list|,
-name|hex
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_function
 DECL|function|fetch
 name|int
@@ -259,7 +218,7 @@ name|dest_filename
 argument_list|)
 condition|)
 block|{
-name|say
+name|pull_say
 argument_list|(
 literal|"link %s\n"
 argument_list|,
@@ -306,7 +265,7 @@ name|dest_filename
 argument_list|)
 condition|)
 block|{
-name|say
+name|pull_say
 argument_list|(
 literal|"symlink %s\n"
 argument_list|,
@@ -508,7 +467,7 @@ name|st_size
 argument_list|)
 expr_stmt|;
 else|else
-name|say
+name|pull_say
 argument_list|(
 literal|"copy %s\n"
 argument_list|,
@@ -712,7 +671,7 @@ index|]
 operator|==
 literal|'v'
 condition|)
-name|verbose
+name|get_verbosely
 operator|=
 literal|1
 expr_stmt|;

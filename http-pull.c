@@ -442,7 +442,6 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-comment|/*printf("Getting %s\n", hex);*/
 if|if
 condition|(
 name|curl_easy_perform
@@ -528,6 +527,13 @@ name|hex
 argument_list|)
 return|;
 block|}
+name|pull_say
+argument_list|(
+literal|"got %s\n"
+argument_list|,
+name|hex
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -641,6 +647,25 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|argv
+index|[
+name|arg
+index|]
+index|[
+literal|1
+index|]
+operator|==
+literal|'v'
+condition|)
+block|{
+name|get_verbosely
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|arg
 operator|++
 expr_stmt|;
@@ -656,7 +681,7 @@ condition|)
 block|{
 name|usage
 argument_list|(
-literal|"http-pull [-c] [-t] [-a] commit-id url"
+literal|"git-http-pull [-c] [-t] [-a] [-v] commit-id url"
 argument_list|)
 expr_stmt|;
 return|return
