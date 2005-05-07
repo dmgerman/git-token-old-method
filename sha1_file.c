@@ -2297,6 +2297,11 @@ argument_list|(
 name|fd
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|compressed
+argument_list|)
+expr_stmt|;
 name|ret
 operator|=
 name|link
