@@ -537,6 +537,28 @@ name|namelen
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|ADD_CACHE_OK_TO_ADD
+define|#
+directive|define
+name|ADD_CACHE_OK_TO_ADD
+value|1
+end_define
+begin_comment
+DECL|macro|ADD_CACHE_OK_TO_ADD
+comment|/* Ok to add */
+end_comment
+begin_define
+DECL|macro|ADD_CACHE_OK_TO_REPLACE
+define|#
+directive|define
+name|ADD_CACHE_OK_TO_REPLACE
+value|2
+end_define
+begin_comment
+DECL|macro|ADD_CACHE_OK_TO_REPLACE
+comment|/* Ok to replace file/directory */
+end_comment
 begin_function_decl
 specifier|extern
 name|int
@@ -548,7 +570,7 @@ modifier|*
 name|ce
 parameter_list|,
 name|int
-name|ok_to_add
+name|option
 parameter_list|)
 function_decl|;
 end_function_decl
