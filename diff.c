@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<limits.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -30,6 +35,7 @@ end_include
 begin_decl_stmt
 DECL|variable|diff_opts
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|diff_opts
@@ -49,6 +55,7 @@ name|void
 parameter_list|)
 block|{
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|external_diff_cmd
@@ -71,14 +78,14 @@ return|;
 comment|/* 	 * Default values above are meant to match the 	 * Linux kernel development style.  Examples of 	 * alternative styles you can specify via environment 	 * variables are: 	 * 	 * GIT_DIFF_OPTS="-c"; 	 */
 if|if
 condition|(
-name|getenv
+name|gitenv
 argument_list|(
 literal|"GIT_EXTERNAL_DIFF"
 argument_list|)
 condition|)
 name|external_diff_cmd
 operator|=
-name|getenv
+name|gitenv
 argument_list|(
 literal|"GIT_EXTERNAL_DIFF"
 argument_list|)
@@ -86,7 +93,7 @@ expr_stmt|;
 comment|/* In case external diff fails... */
 name|diff_opts
 operator|=
-name|getenv
+name|gitenv
 argument_list|(
 literal|"GIT_DIFF_OPTS"
 argument_list|)
