@@ -36,6 +36,9 @@ name|unsigned
 name|long
 name|size
 decl_stmt|;
+name|int
+name|ret
+decl_stmt|;
 name|buffer
 operator|=
 name|read_object_with_reference
@@ -59,7 +62,8 @@ return|return
 operator|-
 literal|1
 return|;
-return|return
+name|ret
+operator|=
 name|read_tree
 argument_list|(
 name|buffer
@@ -68,6 +72,14 @@ name|size
 argument_list|,
 name|stage
 argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|buffer
+argument_list|)
+expr_stmt|;
+return|return
+name|ret
 return|;
 block|}
 end_function
