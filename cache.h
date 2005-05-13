@@ -144,6 +144,13 @@ name|DT_REG
 value|2
 end_define
 begin_define
+DECL|macro|DT_LNK
+define|#
+directive|define
+name|DT_LNK
+value|3
+end_define
+begin_define
 DECL|macro|DTYPE
 define|#
 directive|define
