@@ -305,6 +305,13 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+name|git_prefix
+init|=
+literal|"# mode: "
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
 name|diff_cmd
 init|=
 literal|"diff -L'%s%s' -L'%s%s'"
@@ -589,9 +596,9 @@ index|]
 condition|)
 name|printf
 argument_list|(
-literal|"Created: %s (mode:%s)\n"
+literal|"%s. %s %s\n"
 argument_list|,
-name|name
+name|git_prefix
 argument_list|,
 name|temp
 index|[
@@ -599,6 +606,8 @@ literal|1
 index|]
 operator|.
 name|mode
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -615,12 +624,22 @@ index|]
 condition|)
 name|printf
 argument_list|(
-literal|"Deleted: %s\n"
+literal|"%s%s . %s\n"
+argument_list|,
+name|git_prefix
+argument_list|,
+name|temp
+index|[
+literal|0
+index|]
+operator|.
+name|mode
 argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 name|strcmp
@@ -640,12 +659,11 @@ operator|.
 name|mode
 argument_list|)
 condition|)
-block|{
 name|printf
 argument_list|(
-literal|"Mode changed: %s (%s->%s)\n"
+literal|"%s%s %s %s\n"
 argument_list|,
-name|name
+name|git_prefix
 argument_list|,
 name|temp
 index|[
@@ -660,9 +678,10 @@ literal|1
 index|]
 operator|.
 name|mode
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
-comment|/* Be careful.  We do not want to diff between 		 * symlink and a file. 		 */
 if|if
 condition|(
 name|strncmp
@@ -674,13 +693,6 @@ index|]
 operator|.
 name|mode
 argument_list|,
-literal|"120"
-argument_list|,
-literal|3
-argument_list|)
-operator|!=
-name|strncmp
-argument_list|(
 name|temp
 index|[
 literal|1
@@ -688,11 +700,10 @@ index|]
 operator|.
 name|mode
 argument_list|,
-literal|"120"
-argument_list|,
 literal|3
 argument_list|)
 condition|)
+comment|/* we do not run diff between different kind 			 * of objects. 			 */
 name|exit
 argument_list|(
 literal|0
