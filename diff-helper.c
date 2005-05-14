@@ -266,10 +266,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|parse_diff_tree_output
+DECL|function|parse_diff_raw_output
 specifier|static
 name|int
-name|parse_diff_tree_output
+name|parse_diff_raw_output
 parameter_list|(
 specifier|const
 name|char
@@ -672,14 +672,14 @@ return|;
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|diff_tree_helper_usage
+DECL|variable|diff_helper_usage
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|diff_tree_helper_usage
+name|diff_helper_usage
 init|=
-literal|"diff-tree-helper [-R] [-z] paths..."
+literal|"git-diff-helper [-R] [-z] paths..."
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -770,7 +770,7 @@ expr_stmt|;
 else|else
 name|usage
 argument_list|(
-name|diff_tree_helper_usage
+name|diff_helper_usage
 argument_list|)
 expr_stmt|;
 name|ac
@@ -808,7 +808,7 @@ condition|)
 break|break;
 name|status
 operator|=
-name|parse_diff_tree_output
+name|parse_diff_raw_output
 argument_list|(
 name|sb
 operator|.
