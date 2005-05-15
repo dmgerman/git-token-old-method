@@ -130,7 +130,7 @@ argument_list|)
 expr_stmt|;
 name|changed
 operator|=
-name|cache_match_stat
+name|ce_match_stat
 argument_list|(
 name|ce
 argument_list|,

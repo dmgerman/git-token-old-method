@@ -649,7 +649,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|cache_match_stat
+name|ce_match_stat
 parameter_list|(
 name|struct
 name|cache_entry
