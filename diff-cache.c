@@ -547,7 +547,7 @@ operator|>
 literal|1
 operator|)
 operator|&&
-name|same_name
+name|ce_same_name
 argument_list|(
 name|ce
 argument_list|,
@@ -692,7 +692,7 @@ do|while
 condition|(
 name|entries
 operator|&&
-name|same_name
+name|ce_same_name
 argument_list|(
 name|ce
 argument_list|,

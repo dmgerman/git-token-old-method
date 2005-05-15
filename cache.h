@@ -611,7 +611,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|remove_entry_at
+name|remove_cache_entry_at
 parameter_list|(
 name|int
 name|pos
@@ -632,7 +632,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|same_name
+name|ce_same_name
 parameter_list|(
 name|struct
 name|cache_entry

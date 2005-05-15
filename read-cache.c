@@ -539,9 +539,9 @@ begin_comment
 comment|/* Remove entry, return true if there are more entries to go.. */
 end_comment
 begin_function
-DECL|function|remove_entry_at
+DECL|function|remove_cache_entry_at
 name|int
-name|remove_entry_at
+name|remove_cache_entry_at
 parameter_list|(
 name|int
 name|pos
@@ -649,7 +649,7 @@ argument_list|,
 name|path
 argument_list|)
 condition|)
-name|remove_entry_at
+name|remove_cache_entry_at
 argument_list|(
 name|pos
 argument_list|)
@@ -660,9 +660,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|same_name
+DECL|function|ce_same_name
 name|int
-name|same_name
+name|ce_same_name
 parameter_list|(
 name|struct
 name|cache_entry
@@ -871,7 +871,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|remove_entry_at
+name|remove_cache_entry_at
 argument_list|(
 name|pos
 argument_list|)
@@ -1001,7 +1001,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|remove_entry_at
+name|remove_cache_entry_at
 argument_list|(
 name|pos
 argument_list|)
@@ -1116,7 +1116,7 @@ condition|)
 block|{
 while|while
 condition|(
-name|same_name
+name|ce_same_name
 argument_list|(
 name|active_cache
 index|[
@@ -1134,7 +1134,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|remove_entry_at
+name|remove_cache_entry_at
 argument_list|(
 name|pos
 argument_list|)
