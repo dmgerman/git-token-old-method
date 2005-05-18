@@ -289,7 +289,12 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|name
+name|name_a
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|name_b
 parameter_list|,
 name|struct
 name|diff_tempfile
@@ -345,16 +350,34 @@ specifier|const
 name|char
 modifier|*
 name|name_sq
-init|=
-name|sq_expand
-argument_list|(
-name|name
-argument_list|)
+index|[
+literal|2
+index|]
 decl_stmt|;
 name|char
 modifier|*
 name|cmd
 decl_stmt|;
+name|name_sq
+index|[
+literal|0
+index|]
+operator|=
+name|sq_expand
+argument_list|(
+name|name_a
+argument_list|)
+expr_stmt|;
+name|name_sq
+index|[
+literal|1
+index|]
+operator|=
+name|sq_expand
+argument_list|(
+name|name_b
+argument_list|)
+expr_stmt|;
 comment|/* diff_cmd and diff_arg have 6 %s in total which makes 	 * the sum of these strings 12 bytes larger than required. 	 * we use 2 spaces around diff-opts, and we need to count 	 * terminating NUL, so we subtract 9 here. 	 */
 name|int
 name|cmd_size
@@ -457,6 +480,9 @@ name|i
 index|]
 operator|=
 name|name_sq
+index|[
+name|i
+index|]
 expr_stmt|;
 block|}
 name|cmd_size
@@ -580,9 +606,9 @@ name|printf
 argument_list|(
 literal|"diff --git a/%s b/%s\n"
 argument_list|,
-name|name
+name|name_a
 argument_list|,
-name|name
+name|name_b
 argument_list|)
 expr_stmt|;
 if|if
@@ -681,6 +707,31 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|strcmp
+argument_list|(
+name|name_a
+argument_list|,
+name|name_b
+argument_list|)
+condition|)
+block|{
+name|printf
+argument_list|(
+literal|"rename old %s\n"
+argument_list|,
+name|name_a
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"rename new %s\n"
+argument_list|,
+name|name_b
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|strncmp
 argument_list|(
 name|temp
@@ -762,7 +813,7 @@ name|pos
 decl_stmt|,
 name|len
 decl_stmt|;
-comment|/* We do not read the cache ourselves here, because the 	 * benchmark with my previous version that always reads cache 	 * shows that it makes things worse for diff-tree comparing 	 * two linux-2.6 kernel trees in an already checked out work 	 * tree.  This is because most diff-tree comparison deals with 	 * only a small number of files, while reading the cache is 	 * expensive for a large project, and its cost outweighs the 	 * savings we get by not inflating the object to a temporary 	 * file.  Practically, this code only helps when we are used 	 * by diff-cache --cached, which does read the cache before 	 * calling us. 	 */
+comment|/* We do not read the cache ourselves here, because the 	 * benchmark with my previous version that always reads cache 	 * shows that it makes things worse for diff-tree comparing 	 * two linux-2.6 kernel trees in an already checked out work 	 * tree.  This is because most diff-tree comparisons deal with 	 * only a small number of files, while reading the cache is 	 * expensive for a large project, and its cost outweighs the 	 * savings we get by not inflating the object to a temporary 	 * file.  Practically, this code only helps when we are used 	 * by diff-cache --cached, which does read the cache before 	 * calling us. 	 */
 if|if
 condition|(
 operator|!
@@ -1486,6 +1537,11 @@ name|char
 modifier|*
 name|name
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|other
+parameter_list|,
 name|struct
 name|diff_spec
 modifier|*
@@ -1538,6 +1594,9 @@ argument_list|)
 expr_stmt|;
 name|prepare_temp_file
 argument_list|(
+name|other
+condition|?
+else|:
 name|name
 argument_list|,
 operator|&
@@ -1638,8 +1697,12 @@ init|=
 name|external_diff
 argument_list|()
 decl_stmt|;
+comment|/* not passing rename patch to external ones */
 if|if
 condition|(
+operator|!
+name|other
+operator|&&
 name|pgm
 condition|)
 block|{
@@ -1724,6 +1787,11 @@ name|two
 condition|)
 name|builtin_diff
 argument_list|(
+name|name
+argument_list|,
+name|other
+condition|?
+else|:
 name|name
 argument_list|,
 name|temp
@@ -1947,6 +2015,8 @@ name|concatpath
 else|:
 name|base
 argument_list|,
+name|NULL
+argument_list|,
 name|one
 argument_list|,
 name|two
@@ -2107,6 +2177,8 @@ name|concatpath
 else|:
 name|base
 argument_list|,
+name|NULL
+argument_list|,
 operator|&
 name|spec
 index|[
@@ -2136,6 +2208,8 @@ block|{
 name|run_external_diff
 argument_list|(
 name|path
+argument_list|,
+name|NULL
 argument_list|,
 name|NULL
 argument_list|,
