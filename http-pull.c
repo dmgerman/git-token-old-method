@@ -119,6 +119,7 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+name|unsigned
 name|char
 name|expn
 index|[
@@ -278,6 +279,7 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+name|unsigned
 name|char
 name|real_sha1
 index|[

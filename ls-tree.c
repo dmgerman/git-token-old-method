@@ -101,7 +101,6 @@ modifier|*
 name|buffer
 parameter_list|,
 specifier|const
-name|unsigned
 name|char
 modifier|*
 name|type

@@ -824,7 +824,7 @@ specifier|extern
 name|int
 name|write_sha1_file
 parameter_list|(
-name|char
+name|void
 modifier|*
 name|buf
 parameter_list|,
@@ -1052,7 +1052,6 @@ modifier|*
 name|sha1
 parameter_list|,
 specifier|const
-name|unsigned
 name|char
 modifier|*
 name|required_type
