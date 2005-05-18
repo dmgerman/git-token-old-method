@@ -1240,6 +1240,15 @@ operator|!=
 literal|'/'
 condition|)
 continue|continue;
+if|if
+condition|(
+operator|!
+name|S_ISDIR
+argument_list|(
+name|mode
+argument_list|)
+condition|)
+continue|continue;
 block|}
 if|if
 condition|(
