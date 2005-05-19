@@ -410,7 +410,7 @@ name|char
 modifier|*
 name|ls_tree_usage
 init|=
-literal|"ls-tree [-r] [-z]<key>"
+literal|"git-ls-tree [-r] [-z]<key>"
 decl_stmt|;
 end_decl_stmt
 begin_function

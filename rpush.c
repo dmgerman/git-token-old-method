@@ -84,7 +84,7 @@ condition|)
 block|{
 name|perror
 argument_list|(
-literal|"rpush: read "
+literal|"git-rpush: read "
 argument_list|)
 expr_stmt|;
 return|return;
@@ -128,7 +128,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"rpush: could not find %s\n"
+literal|"git-rpush: could not find %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -176,7 +176,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"rpush: write closed"
+literal|"git-rpush: write closed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -184,7 +184,7 @@ else|else
 block|{
 name|perror
 argument_list|(
-literal|"rpush: write "
+literal|"git-rpush: write "
 argument_list|)
 expr_stmt|;
 block|}
@@ -274,7 +274,7 @@ condition|)
 block|{
 name|usage
 argument_list|(
-literal|"rpush [-c] [-t] [-a] commit-id url"
+literal|"git-rpush [-c] [-t] [-a] commit-id url"
 argument_list|)
 expr_stmt|;
 return|return

@@ -8,7 +8,7 @@ directive|include
 file|"cache.h"
 end_include
 begin_comment
-comment|/*  * Default to not allowing changes to the list of files. The  * tool doesn't actually care, but this makes it harder to add  * files to the revision control by mistake by doing something  * like "update-cache *" and suddenly having all the object  * files be revision controlled.  */
+comment|/*  * Default to not allowing changes to the list of files. The  * tool doesn't actually care, but this makes it harder to add  * files to the revision control by mistake by doing something  * like "git-update-cache *" and suddenly having all the object  * files be revision controlled.  */
 end_comment
 begin_decl_stmt
 DECL|variable|allow_add
@@ -775,7 +775,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * "refresh" does not calculate a new sha1 file or bring the  * cache up-to-date for mode/content changes. But what it  * _does_ do is to "re-match" the stat information of a file  * with the cache, so that you can refresh the cache for a  * file that hasn't been changed but where the stat entry is  * out of date.  *  * For example, you'd want to do this after doing a "read-tree",  * to link up the stat cache details with the proper files.  */
+comment|/*  * "refresh" does not calculate a new sha1 file or bring the  * cache up-to-date for mode/content changes. But what it  * _does_ do is to "re-match" the stat information of a file  * with the cache, so that you can refresh the cache for a  * file that hasn't been changed but where the stat entry is  * out of date.  *  * For example, you'd want to do this after doing a "git-read-tree",  * to link up the stat cache details with the proper files.  */
 end_comment
 begin_function
 DECL|function|refresh_entry
@@ -1596,7 +1596,7 @@ name|argc
 condition|)
 name|die
 argument_list|(
-literal|"update-cache: --cacheinfo<mode><sha1><path>"
+literal|"git-update-cache: --cacheinfo<mode><sha1><path>"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1627,7 +1627,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"update-cache: --cacheinfo cannot add %s"
+literal|"git-update-cache: --cacheinfo cannot add %s"
 argument_list|,
 name|argv
 index|[
@@ -1664,7 +1664,7 @@ literal|1
 condition|)
 name|die
 argument_list|(
-literal|"update-cache: --force-remove<path>"
+literal|"git-update-cache: --force-remove<path>"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1681,7 +1681,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"update-cache: --force-remove cannot remove %s"
+literal|"git-update-cache: --force-remove cannot remove %s"
 argument_list|,
 name|argv
 index|[

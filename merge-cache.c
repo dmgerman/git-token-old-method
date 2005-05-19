@@ -208,7 +208,7 @@ name|active_nr
 condition|)
 name|die
 argument_list|(
-literal|"merge-cache: %s not in the cache"
+literal|"git-merge-cache: %s not in the cache"
 argument_list|,
 name|path
 argument_list|)
@@ -403,7 +403,7 @@ name|found
 condition|)
 name|die
 argument_list|(
-literal|"merge-cache: %s not in the cache"
+literal|"git-merge-cache: %s not in the cache"
 argument_list|,
 name|path
 argument_list|)
@@ -550,7 +550,7 @@ literal|3
 condition|)
 name|usage
 argument_list|(
-literal|"merge-cache [-o]<merge-program> (-a |<filename>*)"
+literal|"git-merge-cache [-o]<merge-program> (-a |<filename>*)"
 argument_list|)
 expr_stmt|;
 name|read_cache
@@ -656,7 +656,7 @@ continue|continue;
 block|}
 name|die
 argument_list|(
-literal|"merge-cache: unknown option %s"
+literal|"git-merge-cache: unknown option %s"
 argument_list|,
 name|arg
 argument_list|)
