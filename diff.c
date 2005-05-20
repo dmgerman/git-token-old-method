@@ -2047,7 +2047,7 @@ expr_stmt|;
 operator|*
 name|arg
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|execvp
 argument_list|(
@@ -2623,7 +2623,7 @@ name|s
 operator|->
 name|data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_function
@@ -2831,6 +2831,7 @@ block|}
 end_function
 begin_function
 DECL|function|estimate_similarity
+specifier|static
 name|int
 name|estimate_similarity
 parameter_list|(

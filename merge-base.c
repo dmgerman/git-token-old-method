@@ -79,6 +79,7 @@ block|}
 end_function
 begin_function
 DECL|function|common_ancestor
+specifier|static
 name|struct
 name|commit
 modifier|*

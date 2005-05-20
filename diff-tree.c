@@ -1537,7 +1537,7 @@ argument_list|,
 operator|&
 name|size1
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -1566,7 +1566,7 @@ argument_list|,
 operator|&
 name|size2
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -1658,7 +1658,7 @@ else|:
 name|line_termination
 operator|)
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|0
 argument_list|)
@@ -1728,7 +1728,7 @@ else|:
 name|line_termination
 operator|)
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|0
 argument_list|)
@@ -1744,7 +1744,7 @@ argument_list|,
 operator|&
 name|size
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

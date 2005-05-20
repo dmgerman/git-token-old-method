@@ -1383,6 +1383,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|variable|cache_file
+specifier|static
 name|struct
 name|cache_file
 name|cache_file

@@ -2130,6 +2130,7 @@ comment|/* get commit time from committer line of commit object */
 end_comment
 begin_function
 DECL|function|commit_time
+specifier|static
 name|time_t
 name|commit_time
 parameter_list|(

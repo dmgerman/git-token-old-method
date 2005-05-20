@@ -149,6 +149,7 @@ block|}
 end_function
 begin_function
 DECL|function|process_commit
+specifier|static
 name|void
 name|process_commit
 parameter_list|(

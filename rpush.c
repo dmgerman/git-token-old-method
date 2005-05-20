@@ -21,6 +21,7 @@ file|<errno.h>
 end_include
 begin_function
 DECL|function|service
+specifier|static
 name|void
 name|service
 parameter_list|(
