@@ -96,6 +96,15 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|reverse_diff
+specifier|static
+name|int
+name|reverse_diff
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|diff_score_opt
 specifier|static
 name|int
@@ -1634,7 +1643,7 @@ name|detect_rename
 argument_list|,
 name|diff_score_opt
 argument_list|,
-literal|0
+name|reverse_diff
 argument_list|,
 operator|(
 name|generate_patch
@@ -1704,7 +1713,7 @@ name|detect_rename
 argument_list|,
 name|diff_score_opt
 argument_list|,
-literal|0
+name|reverse_diff
 argument_list|,
 operator|(
 name|generate_patch
@@ -2539,7 +2548,7 @@ name|char
 modifier|*
 name|diff_tree_usage
 init|=
-literal|"git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-m] [-s] [-v]<tree-ish><tree-ish>"
+literal|"git-diff-tree [-p] [-r] [-z] [--stdin] [-M] [-R] [-m] [-s] [-v]<tree-ish><tree-ish>"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2670,6 +2679,23 @@ argument_list|)
 condition|)
 block|{
 name|recursive
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-R"
+argument_list|)
+condition|)
+block|{
+name|reverse_diff
 operator|=
 literal|1
 expr_stmt|;
