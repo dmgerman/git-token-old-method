@@ -112,6 +112,7 @@ parameter_list|,
 name|int
 name|minimum_score
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|pickaxe
