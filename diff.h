@@ -112,6 +112,10 @@ parameter_list|,
 name|int
 name|minimum_score
 parameter_list|,
+name|char
+modifier|*
+name|pickaxe
+parameter_list|,
 name|int
 name|reverse
 parameter_list|,

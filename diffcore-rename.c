@@ -485,7 +485,7 @@ parameter_list|)
 block|{
 comment|/* The rank is used to sort the final output, because there 	 * are certain dependencies. 	 * 	 *  - rank #0 depends on deleted ones. 	 *  - rank #1 depends on kept files before they are modified. 	 *  - rank #2 depends on kept files after they are modified; 	 *    currently not used. 	 * 	 * Therefore, the final output order should be: 	 * 	 *  1. rank #0 rename/copy diffs. 	 *  2. deletions in the original. 	 *  3. rank #1 rename/copy diffs. 	 *  4. additions and modifications in the original. 	 *  5. rank #2 rename/copy diffs; currently not used. 	 * 	 * To achieve this sort order, we give xform_work the number 	 * above. 	 */
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|dp
 init|=
@@ -530,7 +530,7 @@ directive|if
 literal|0
 end_if
 begin_else
-unit|static void debug_filespec(struct diff_filespec *s, int x, const char *one) { 	fprintf(stderr, "queue[%d] %s (%s) %s %06o %s\n", 		x, one, 		s->path, 		s->file_valid ? "valid" : "invalid", 		s->mode, 		s->sha1_valid ? sha1_to_hex(s->sha1) : ""); 	fprintf(stderr, "queue[%d] %s size %lu flags %d\n", 		x, one, 		s->size, s->xfrm_flags); }  static void debug_filepair(const struct diff_file_pair *p, int i) { 	debug_filespec(p->one, i, "one"); 	debug_filespec(p->two, i, "two"); 	fprintf(stderr, "pair flags %d, orig order %d, score %d\n", 		(p->xfrm_work& ((1<<RENAME_SCORE_SHIFT) - 1)), 		p->orig_order, 		(p->xfrm_work>> RENAME_SCORE_SHIFT)); }  static void debug_queue(const char *msg, struct diff_queue_struct *q) { 	int i; 	if (msg) 		fprintf(stderr, "%s\n", msg); 	fprintf(stderr, "q->nr = %d\n", q->nr); 	for (i = 0; i< q->nr; i++) { 		struct diff_file_pair *p = q->queue[i]; 		debug_filepair(p, i); 	} }
+unit|static void debug_filespec(struct diff_filespec *s, int x, const char *one) { 	fprintf(stderr, "queue[%d] %s (%s) %s %06o %s\n", 		x, one, 		s->path, 		s->file_valid ? "valid" : "invalid", 		s->mode, 		s->sha1_valid ? sha1_to_hex(s->sha1) : ""); 	fprintf(stderr, "queue[%d] %s size %lu flags %d\n", 		x, one, 		s->size, s->xfrm_flags); }  static void debug_filepair(const struct diff_filepair *p, int i) { 	debug_filespec(p->one, i, "one"); 	debug_filespec(p->two, i, "two"); 	fprintf(stderr, "pair flags %d, orig order %d, score %d\n", 		(p->xfrm_work& ((1<<RENAME_SCORE_SHIFT) - 1)), 		p->orig_order, 		(p->xfrm_work>> RENAME_SCORE_SHIFT)); }  static void debug_queue(const char *msg, struct diff_queue_struct *q) { 	int i; 	if (msg) 		fprintf(stderr, "%s\n", msg); 	fprintf(stderr, "q->nr = %d\n", q->nr); 	for (i = 0; i< q->nr; i++) { 		struct diff_filepair *p = q->queue[i]; 		debug_filepair(p, i); 	} }
 else|#
 directive|else
 end_else
@@ -574,7 +574,7 @@ parameter_list|)
 block|{
 specifier|const
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|a
 init|=
@@ -582,7 +582,7 @@ operator|*
 operator|(
 specifier|const
 expr|struct
-name|diff_file_pair
+name|diff_filepair
 operator|*
 operator|*
 operator|)
@@ -590,7 +590,7 @@ name|a_
 decl_stmt|;
 specifier|const
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|b
 init|=
@@ -598,7 +598,7 @@ operator|*
 operator|(
 specifier|const
 expr|struct
-name|diff_file_pair
+name|diff_filepair
 operator|*
 operator|*
 operator|)
@@ -735,7 +735,7 @@ name|nr
 condition|)
 block|{
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|p
 init|=
@@ -895,7 +895,6 @@ operator|=
 operator|&
 name|stay
 expr_stmt|;
-comment|/* NEEDSWORK: 	 * (1) make sure we properly ignore but pass trees. 	 * 	 * (2) make sure we do right thing on the same path deleted 	 *     and created in the same patch. 	 */
 for|for
 control|(
 name|i
@@ -913,7 +912,7 @@ operator|++
 control|)
 block|{
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|p
 init|=
@@ -1469,7 +1468,7 @@ argument_list|)
 expr_stmt|;
 name|flush_rest
 label|:
-comment|/* At this point, we have found some renames and copies and they 	 * are kept in outq.  The original list is still in *q. 	 * 	 * Scan the original list and move them into the outq; we will sort 	 * outq and swap it into the queue supplied to pass that to 	 * downstream, so we assign the sort keys in this loop. 	 * 	 * See comments at the top of record_rename_pair for numbers used 	 * to assign xfrm_work. 	 * 	 * Note that we have not annotated the diff_file_pair with any comment 	 * so there is nothing other than p to free. 	 */
+comment|/* At this point, we have found some renames and copies and they 	 * are kept in outq.  The original list is still in *q. 	 * 	 * Scan the original list and move them into the outq; we will sort 	 * outq and swap it into the queue supplied to pass that to 	 * downstream, so we assign the sort keys in this loop. 	 * 	 * See comments at the top of record_rename_pair for numbers used 	 * to assign xfrm_work. 	 * 	 * Note that we have not annotated the diff_filepair with any comment 	 * so there is nothing other than p to free. 	 */
 for|for
 control|(
 name|i
@@ -1487,7 +1486,7 @@ operator|++
 control|)
 block|{
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|dp
 decl_stmt|,
@@ -1694,7 +1693,7 @@ operator|++
 control|)
 block|{
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|p
 init|=
@@ -1803,7 +1802,7 @@ condition|)
 block|{
 comment|/* rename or copy */
 name|struct
-name|diff_file_pair
+name|diff_filepair
 modifier|*
 name|dp
 init|=

@@ -72,6 +72,16 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|pickaxe
+specifier|static
+name|char
+modifier|*
+name|pickaxe
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* A file entry went away or appeared */
 end_comment
@@ -711,7 +721,7 @@ name|char
 modifier|*
 name|diff_cache_usage
 init|=
-literal|"git-diff-cache [-p] [-r] [-z] [-m] [-M] [-C] [-R] [--cached]<tree-ish>"
+literal|"git-diff-cache [-p] [-r] [-z] [-m] [-M] [-C] [-R] [-S<string>] [--cached]<tree-ish>"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -901,6 +911,25 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"-S"
+argument_list|)
+condition|)
+block|{
+name|pickaxe
+operator|=
+name|arg
+operator|+
+literal|2
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"-m"
 argument_list|)
 condition|)
@@ -960,6 +989,8 @@ argument_list|(
 name|detect_rename
 argument_list|,
 name|diff_score_opt
+argument_list|,
+name|pickaxe
 argument_list|,
 name|reverse_diff
 argument_list|,
