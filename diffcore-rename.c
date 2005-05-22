@@ -535,7 +535,7 @@ directive|if
 literal|0
 end_if
 begin_else
-unit|static void debug_filespec(struct diff_filespec *s, int x, const char *one) { 	fprintf(stderr, "queue[%d] %s (%s) %s %06o %s\n", 		x, one, 		s->path, 		s->file_valid ? "valid" : "invalid", 		s->mode, 		s->sha1_valid ? sha1_to_hex(s->sha1) : ""); 	fprintf(stderr, "queue[%d] %s size %lu flags %d\n", 		x, one, 		s->size, s->xfrm_flags); }  static void debug_filepair(const struct diff_filepair *p, int i) { 	debug_filespec(p->one, i, "one"); 	debug_filespec(p->two, i, "two"); 	fprintf(stderr, "pair flags %d, orig order %d, score %d\n", 		(p->xfrm_work& ((1<<RENAME_SCORE_SHIFT) - 1)), 		p->orig_order, 		(p->xfrm_work>> RENAME_SCORE_SHIFT)); }  static void debug_queue(const char *msg, struct diff_queue_struct *q) { 	int i; 	if (msg) 		fprintf(stderr, "%s\n", msg); 	fprintf(stderr, "q->nr = %d\n", q->nr); 	for (i = 0; i< q->nr; i++) { 		struct diff_filepair *p = q->queue[i]; 		debug_filepair(p, i); 	} }
+unit|static void debug_filespec(struct diff_filespec *s, int x, const char *one) { 	fprintf(stderr, "queue[%d] %s (%s) %s %06o %s\n", 		x, one, 		s->path, 		DIFF_FILE_VALID(s) ? "valid" : "invalid", 		s->mode, 		s->sha1_valid ? sha1_to_hex(s->sha1) : ""); 	fprintf(stderr, "queue[%d] %s size %lu flags %d\n", 		x, one, 		s->size, s->xfrm_flags); }  static void debug_filepair(const struct diff_filepair *p, int i) { 	debug_filespec(p->one, i, "one"); 	debug_filespec(p->two, i, "two"); 	fprintf(stderr, "pair flags %d, orig order %d, score %d\n", 		(p->xfrm_work& ((1<<RENAME_SCORE_SHIFT) - 1)), 		p->orig_order, 		(p->xfrm_work>> RENAME_SCORE_SHIFT)); }  static void debug_queue(const char *msg, struct diff_queue_struct *q) { 	int i; 	if (msg) 		fprintf(stderr, "%s\n", msg); 	fprintf(stderr, "q->nr = %d\n", q->nr); 	for (i = 0; i< q->nr; i++) { 		struct diff_filepair *p = q->queue[i]; 		debug_filepair(p, i); 	} }
 else|#
 directive|else
 end_else
@@ -755,11 +755,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 continue|continue;
 comment|/* removed is fine */
@@ -934,20 +935,22 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|one
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 continue|continue;
 comment|/* ignore nonsense */
@@ -966,11 +969,12 @@ elseif|else
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 name|diff_rename_pool_add
 argument_list|(
@@ -1512,20 +1516,22 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|one
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 block|{
 if|if
 condition|(
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 block|{
 comment|/* creation */
@@ -1558,11 +1564,12 @@ elseif|else
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 block|{
 comment|/* deletion */
@@ -1716,11 +1723,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|one
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 block|{
 comment|/* created */
@@ -1755,11 +1763,12 @@ elseif|else
 if|if
 condition|(
 operator|!
+name|DIFF_FILE_VALID
+argument_list|(
 name|p
 operator|->
 name|two
-operator|->
-name|file_valid
+argument_list|)
 condition|)
 block|{
 comment|/* deleted */
