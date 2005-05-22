@@ -5,16 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<stdarg.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"cache.h"
 end_include
 begin_include

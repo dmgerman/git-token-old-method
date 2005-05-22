@@ -34,11 +34,6 @@ include|#
 directive|include
 file|"cache.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<string.h>
-end_include
 begin_comment
 comment|/* the delta object definition (it can alias any other object) */
 end_comment
