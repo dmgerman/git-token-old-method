@@ -101,7 +101,7 @@ name|mode
 argument_list|)
 condition|)
 return|return;
-comment|/* rename/copy patch for tree does not make sense. */
+comment|/* no trees, please */
 if|if
 condition|(
 name|pool
@@ -324,6 +324,28 @@ decl_stmt|;
 name|int
 name|score
 decl_stmt|;
+comment|/* We deal only with regular files.  Symlink renames are handled 	 * only when they are exact matches --- in other words, no edits 	 * after renaming. 	 */
+if|if
+condition|(
+operator|!
+name|S_ISREG
+argument_list|(
+name|src
+operator|->
+name|mode
+argument_list|)
+operator|||
+operator|!
+name|S_ISREG
+argument_list|(
+name|dst
+operator|->
+name|mode
+argument_list|)
+condition|)
+return|return
+literal|0
+return|;
 name|delta_size
 operator|=
 operator|(
@@ -1089,7 +1111,7 @@ name|two
 argument_list|)
 condition|)
 continue|continue;
-comment|/* ignore nonsense */
+comment|/* unmerged */
 else|else
 name|diff_rename_pool_add
 argument_list|(
@@ -1660,17 +1682,7 @@ name|one
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|DIFF_FILE_VALID
-argument_list|(
-name|p
-operator|->
-name|two
-argument_list|)
-condition|)
-block|{
-comment|/* creation */
+comment|/* creation or unmerged entries */
 name|dp
 operator|=
 name|diff_queue
@@ -1693,8 +1705,6 @@ name|xfrm_work
 operator|=
 literal|4
 expr_stmt|;
-block|}
-comment|/* otherwise it is a nonsense; just ignore it */
 block|}
 elseif|else
 if|if
@@ -1867,7 +1877,7 @@ name|one
 argument_list|)
 condition|)
 block|{
-comment|/* created */
+comment|/* created or unmerged */
 if|if
 condition|(
 name|p
@@ -2138,7 +2148,7 @@ operator|->
 name|two
 argument_list|)
 expr_stmt|;
-name|free
+name|diff_free_filepair
 argument_list|(
 name|p
 argument_list|)
