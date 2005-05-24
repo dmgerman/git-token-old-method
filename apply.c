@@ -642,7 +642,7 @@ end_comment
 begin_function
 DECL|function|parse_traditional_patch
 specifier|static
-name|int
+name|void
 name|parse_traditional_patch
 parameter_list|(
 specifier|const
