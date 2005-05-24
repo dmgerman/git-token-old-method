@@ -400,6 +400,12 @@ block|{
 case|case
 literal|'$'
 case|:
+case|case
+literal|'\\'
+case|:
+case|case
+literal|'`'
+case|:
 name|putchar
 argument_list|(
 literal|'\\'
@@ -468,6 +474,13 @@ expr_stmt|;
 name|printf
 argument_list|(
 literal|"echo $commit> .git/refs/heads/'%s'\n"
+argument_list|,
+name|dst_branch
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"echo 'Committed (to %s):' ; cat .cmitmsg; echo\n"
 argument_list|,
 name|dst_branch
 argument_list|)
