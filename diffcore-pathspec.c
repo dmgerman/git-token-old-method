@@ -100,7 +100,10 @@ name|int
 name|len
 init|=
 name|s
-operator|->
+index|[
+name|i
+index|]
+operator|.
 name|len
 decl_stmt|;
 if|if
@@ -109,7 +112,10 @@ operator|!
 name|strncmp
 argument_list|(
 name|s
-operator|->
+index|[
+name|i
+index|]
+operator|.
 name|spec
 argument_list|,
 name|name
