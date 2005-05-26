@@ -1699,6 +1699,8 @@ name|buf
 operator|=
 name|xmalloc
 argument_list|(
+literal|1
+operator|+
 operator|*
 name|size
 argument_list|)
@@ -1770,6 +1772,14 @@ condition|)
 comment|/* nothing */
 empty_stmt|;
 block|}
+name|buf
+index|[
+operator|*
+name|size
+index|]
+operator|=
+literal|0
+expr_stmt|;
 name|inflateEnd
 argument_list|(
 operator|&
