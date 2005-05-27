@@ -4614,6 +4614,10 @@ operator|->
 name|score
 operator|=
 name|score
+operator|*
+name|MAX_SCORE
+operator|/
+literal|100
 expr_stmt|;
 name|dp
 operator|->
