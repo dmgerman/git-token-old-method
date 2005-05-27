@@ -59,6 +59,8 @@ condition|(
 name|diff_populate_filespec
 argument_list|(
 name|one
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 return|return
