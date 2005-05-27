@@ -186,6 +186,13 @@ name|minimum_score
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|DIFF_PICKAXE_ALL
+define|#
+directive|define
+name|DIFF_PICKAXE_ALL
+value|1
+end_define
 begin_function_decl
 specifier|extern
 name|void
@@ -195,6 +202,9 @@ specifier|const
 name|char
 modifier|*
 name|needle
+parameter_list|,
+name|int
+name|opts
 parameter_list|)
 function_decl|;
 end_function_decl
