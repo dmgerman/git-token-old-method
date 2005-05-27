@@ -237,6 +237,17 @@ value|(S_ISREG(mode) ? (S_IFREG | ce_permissions(mode)) : \ 	S_ISLNK(mode) ? S_I
 end_define
 begin_function_decl
 specifier|extern
+name|void
+name|diff_free_filepair
+parameter_list|(
+name|struct
+name|diff_filepair
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|int
 name|diff_unmodified_pair
 parameter_list|(
