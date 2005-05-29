@@ -187,7 +187,6 @@ name|short
 name|int
 name|score
 decl_stmt|;
-comment|/* only valid when one and two are 				   * different paths 				   */
 DECL|member|source_stays
 name|char
 name|source_stays
@@ -211,6 +210,16 @@ name|p
 parameter_list|)
 define|\
 value|(!DIFF_FILE_VALID((p)->one)&& !DIFF_FILE_VALID((p)->two))
+end_define
+begin_define
+DECL|macro|DIFF_PAIR_RENAME
+define|#
+directive|define
+name|DIFF_PAIR_RENAME
+parameter_list|(
+name|p
+parameter_list|)
+value|(strcmp((p)->one->path, (p)->two->path))
 end_define
 begin_define
 DECL|macro|DIFF_PAIR_TYPE_CHANGED
