@@ -4653,6 +4653,11 @@ name|pickaxe_opts
 parameter_list|,
 name|int
 name|break_opt
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|orderfile
 parameter_list|)
 block|{
 if|if
@@ -4700,6 +4705,15 @@ argument_list|(
 name|pickaxe
 argument_list|,
 name|pickaxe_opts
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|orderfile
+condition|)
+name|diffcore_order
+argument_list|(
+name|orderfile
 argument_list|)
 expr_stmt|;
 block|}
