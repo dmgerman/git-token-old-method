@@ -1575,6 +1575,28 @@ literal|0
 return|;
 block|}
 end_function
+begin_function
+DECL|function|gitdiff_dissimilarity
+specifier|static
+name|int
+name|gitdiff_dissimilarity
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|line
+parameter_list|,
+name|struct
+name|patch
+modifier|*
+name|patch
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_comment
 comment|/*  * This is normal for a diff that doesn't change anything: we'll fall through  * into the next diff. Tell the parser to break out.  */
 end_comment
@@ -1996,6 +2018,12 @@ block|{
 literal|"similarity index "
 block|,
 name|gitdiff_similarity
+block|}
+block|,
+block|{
+literal|"dissimilarity index "
+block|,
+name|gitdiff_dissimilarity
 block|}
 block|,
 block|{
