@@ -238,6 +238,15 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|void
+name|diffcore_break
+parameter_list|(
+name|int
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
 name|diffcore_std
 parameter_list|(
 specifier|const
@@ -259,6 +268,9 @@ name|pickaxe
 parameter_list|,
 name|int
 name|pickaxe_opts
+parameter_list|,
+name|int
+name|break_opt
 parameter_list|)
 function_decl|;
 end_function_decl
