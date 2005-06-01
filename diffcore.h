@@ -276,17 +276,6 @@ name|p
 parameter_list|)
 value|((p)->one->mode != (p)->two->mode)
 end_define
-begin_define
-DECL|macro|DIFF_FILE_CANON_MODE
-define|#
-directive|define
-name|DIFF_FILE_CANON_MODE
-parameter_list|(
-name|mode
-parameter_list|)
-define|\
-value|(S_ISREG(mode) ? (S_IFREG | ce_permissions(mode)) : \ 	S_ISLNK(mode) ? S_IFLNK : S_IFDIR)
-end_define
 begin_function_decl
 specifier|extern
 name|void
