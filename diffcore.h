@@ -45,13 +45,6 @@ begin_comment
 DECL|macro|DEFAULT_BREAK_SCORE
 comment|/* minimum for break to happen (99%)*/
 end_comment
-begin_define
-DECL|macro|RENAME_DST_MATCHED
-define|#
-directive|define
-name|RENAME_DST_MATCHED
-value|01
-end_define
 begin_struct
 DECL|struct|diff_filespec
 struct|struct

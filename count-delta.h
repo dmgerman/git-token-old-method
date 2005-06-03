@@ -14,8 +14,7 @@ directive|define
 name|COUNT_DELTA_H
 end_define
 begin_function_decl
-name|unsigned
-name|long
+name|int
 name|count_delta
 parameter_list|(
 name|void
@@ -23,6 +22,16 @@ modifier|*
 parameter_list|,
 name|unsigned
 name|long
+parameter_list|,
+name|unsigned
+name|long
+modifier|*
+name|src_copied
+parameter_list|,
+name|unsigned
+name|long
+modifier|*
+name|literal_added
 parameter_list|)
 function_decl|;
 end_function_decl
