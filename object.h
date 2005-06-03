@@ -113,6 +113,7 @@ name|object
 modifier|*
 name|lookup_object
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -124,6 +125,7 @@ begin_function_decl
 name|void
 name|created_object
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -145,6 +147,7 @@ name|object
 modifier|*
 name|parse_object
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*

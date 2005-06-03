@@ -60,6 +60,7 @@ name|tag
 modifier|*
 name|lookup_tag
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*

@@ -1331,6 +1331,7 @@ DECL|function|check_sha1_signature
 name|int
 name|check_sha1_signature
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*

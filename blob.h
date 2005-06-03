@@ -42,6 +42,7 @@ name|blob
 modifier|*
 name|lookup_blob
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*

@@ -89,6 +89,7 @@ name|commit
 modifier|*
 name|lookup_commit
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -102,6 +103,7 @@ name|commit
 modifier|*
 name|lookup_commit_reference
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
