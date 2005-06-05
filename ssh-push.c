@@ -101,7 +101,7 @@ condition|)
 block|{
 name|perror
 argument_list|(
-literal|"git-rpush: read "
+literal|"git-ssh-push: read "
 argument_list|)
 expr_stmt|;
 return|return
@@ -155,7 +155,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"git-rpush: could not find %s\n"
+literal|"git-ssh-push: could not find %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -226,7 +226,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"git-rpush: write closed"
+literal|"git-ssh-push: write closed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -234,7 +234,7 @@ else|else
 block|{
 name|perror
 argument_list|(
-literal|"git-rpush: write "
+literal|"git-ssh-push: write "
 argument_list|)
 expr_stmt|;
 block|}
@@ -352,7 +352,7 @@ literal|0
 condition|)
 name|perror
 argument_list|(
-literal|"rpush: read "
+literal|"git-ssh-push: read "
 argument_list|)
 expr_stmt|;
 return|return;
@@ -457,7 +457,7 @@ condition|)
 block|{
 name|usage
 argument_list|(
-literal|"git-rpush [-c] [-t] [-a] commit-id url"
+literal|"git-ssh-push [-c] [-t] [-a] commit-id url"
 argument_list|)
 expr_stmt|;
 return|return
@@ -490,7 +490,7 @@ argument_list|,
 operator|&
 name|fd_out
 argument_list|,
-literal|"git-rpull"
+literal|"git-ssh-pull"
 argument_list|,
 name|url
 argument_list|,
