@@ -5929,6 +5929,16 @@ modifier|*
 name|list
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|list
+condition|)
+name|die
+argument_list|(
+literal|"No changes"
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|list
