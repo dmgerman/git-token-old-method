@@ -554,12 +554,12 @@ name|ce
 argument_list|,
 name|src
 index|[
-literal|1
+literal|0
 index|]
 argument_list|,
 name|src
 index|[
-literal|2
+literal|1
 index|]
 argument_list|)
 operator|)
@@ -609,7 +609,7 @@ name|CHECK_OLD
 argument_list|(
 name|src
 index|[
-literal|1
+literal|0
 index|]
 argument_list|)
 expr_stmt|;
@@ -617,7 +617,7 @@ name|CHECK_OLD
 argument_list|(
 name|src
 index|[
-literal|2
+literal|1
 index|]
 argument_list|)
 expr_stmt|;
