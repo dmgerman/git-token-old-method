@@ -84,6 +84,11 @@ name|object_list
 modifier|*
 name|attached_deltas
 decl_stmt|;
+DECL|member|util
+name|void
+modifier|*
+name|util
+decl_stmt|;
 block|}
 struct|;
 end_struct
