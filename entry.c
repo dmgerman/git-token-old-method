@@ -756,7 +756,7 @@ if|if
 condition|(
 name|state
 operator|->
-name|update
+name|refresh_cache
 condition|)
 block|{
 name|struct
