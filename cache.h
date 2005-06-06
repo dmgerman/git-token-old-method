@@ -338,6 +338,13 @@ name|CE_STAGEMASK
 value|(0x3000)
 end_define
 begin_define
+DECL|macro|CE_UPDATE
+define|#
+directive|define
+name|CE_UPDATE
+value|(0x4000)
+end_define
+begin_define
 DECL|macro|CE_STAGESHIFT
 define|#
 directive|define
