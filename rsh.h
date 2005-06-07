@@ -22,6 +22,7 @@ name|int
 modifier|*
 name|fd_out
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|remote_prog
