@@ -1125,16 +1125,6 @@ operator|->
 name|object
 operator|.
 name|util
-operator|||
-operator|(
-name|item
-operator|->
-name|object
-operator|.
-name|flags
-operator|&
-name|UNINTERESTING
-operator|)
 condition|)
 block|{
 name|die
@@ -1573,14 +1563,6 @@ name|commit_list
 modifier|*
 name|next
 decl_stmt|;
-name|commit_list_insert
-argument_list|(
-name|head
-argument_list|,
-operator|&
-name|pending
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|next
@@ -2006,6 +1988,14 @@ name|flags
 operator|&
 name|UNINTERESTING
 decl_stmt|;
+name|commit
+operator|->
+name|object
+operator|.
+name|flags
+operator||=
+name|UNINTERESTING
+expr_stmt|;
 if|if
 condition|(
 name|uninteresting
@@ -2016,14 +2006,6 @@ operator|!
 name|visited
 condition|)
 block|{
-name|commit
-operator|->
-name|object
-operator|.
-name|flags
-operator||=
-name|UNINTERESTING
-expr_stmt|;
 return|return;
 comment|// we only need to recurse if
 comment|//      we are not on the boundary, and,
