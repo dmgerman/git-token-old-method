@@ -2301,6 +2301,14 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|ce
+operator|->
+name|ce_mode
+condition|)
+continue|continue;
+if|if
+condition|(
 name|ce_write
 argument_list|(
 operator|&
