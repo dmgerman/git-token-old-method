@@ -2701,8 +2701,8 @@ decl_stmt|;
 if|if
 condition|(
 name|git_hdr_len
-operator|<
-literal|0
+operator|<=
+name|len
 condition|)
 continue|continue;
 if|if
