@@ -2851,6 +2851,10 @@ condition|(
 operator|!
 name|pgm
 operator|&&
+name|one
+operator|&&
+name|two
+operator|&&
 name|DIFF_FILE_VALID
 argument_list|(
 name|one
