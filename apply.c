@@ -4709,7 +4709,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"%s: %s\n"
+literal|"%s: %s"
+argument_list|,
+name|old_name
 argument_list|,
 name|strerror
 argument_list|(
