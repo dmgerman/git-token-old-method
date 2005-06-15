@@ -2295,6 +2295,7 @@ expr_stmt|;
 name|read_cache_unmerged
 argument_list|()
 expr_stmt|;
+continue|continue;
 block|}
 comment|/* "-m" stands for "merge", meaning we start in stage 1 */
 if|if
