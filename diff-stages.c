@@ -31,6 +31,15 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|find_copies_harder
+specifier|static
+name|int
+name|find_copies_harder
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|diff_setup_opt
 specifier|static
 name|int
@@ -107,7 +116,7 @@ name|char
 modifier|*
 name|diff_stages_usage
 init|=
-literal|"git-diff-stages [-p] [-r] [-z] [-M] [-C] [-R] [-S<string>] [-O<orderfile>]<stage1><stage2> [<path>...]"
+literal|"git-diff-stages [-p] [-r] [-z] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O<orderfile>] [-S<string>] [--pickaxe-all]<stage1><stage2> [<path>...]"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -343,6 +352,8 @@ name|two
 operator|->
 name|ce_mode
 operator|)
+operator|||
+name|find_copies_harder
 condition|)
 name|diff_change
 argument_list|(
@@ -571,6 +582,21 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"--find-copies-harder"
+argument_list|)
+condition|)
+name|find_copies_harder
+operator|=
+literal|1
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"-z"
 argument_list|)
 condition|)
@@ -735,6 +761,12 @@ name|stage2
 operator|<=
 literal|3
 operator|)
+operator|||
+name|find_copies_harder
+operator|&&
+name|detect_rename
+operator|!=
+name|DIFF_DETECT_COPY
 condition|)
 name|usage
 argument_list|(

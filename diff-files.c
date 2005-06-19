@@ -20,7 +20,7 @@ name|char
 modifier|*
 name|diff_files_usage
 init|=
-literal|"git-diff-files [-p] [-q] [-r] [-z] [-M] [-C] [-R] [-S<string>] [-O<orderfile>] [paths...]"
+literal|"git-diff-files [-p] [-q] [-r] [-z] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O<orderfile>] [-S<string>] [--pickaxe-all] [<path>...]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -37,6 +37,15 @@ DECL|variable|detect_rename
 specifier|static
 name|int
 name|detect_rename
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|find_copies_harder
+specifier|static
+name|int
+name|find_copies_harder
 init|=
 literal|0
 decl_stmt|;
@@ -602,6 +611,24 @@ operator|=
 name|DIFF_DETECT_COPY
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+literal|1
+index|]
+argument_list|,
+literal|"--find-copies-harder"
+argument_list|)
+condition|)
+name|find_copies_harder
+operator|=
+literal|1
+expr_stmt|;
 else|else
 name|usage
 argument_list|(
@@ -615,6 +642,19 @@ name|argc
 operator|--
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|find_copies_harder
+operator|&&
+name|detect_rename
+operator|!=
+name|DIFF_DETECT_COPY
+condition|)
+name|usage
+argument_list|(
+name|diff_files_usage
+argument_list|)
+expr_stmt|;
 comment|/* At this point, if argc == 1, then we are doing everything. 	 * Otherwise argv[1] .. argv[argc-1] have the explicit paths. 	 */
 if|if
 condition|(
@@ -783,9 +823,8 @@ condition|(
 operator|!
 name|changed
 operator|&&
-name|detect_rename
-operator|<
-name|DIFF_DETECT_COPY
+operator|!
+name|find_copies_harder
 condition|)
 continue|continue;
 name|oldmode
@@ -812,7 +851,15 @@ name|ce
 operator|->
 name|sha1
 argument_list|,
+operator|(
+name|changed
+condition|?
 name|null_sha1
+else|:
+name|ce
+operator|->
+name|sha1
+operator|)
 argument_list|,
 name|ce
 operator|->
