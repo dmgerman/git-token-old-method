@@ -641,6 +641,9 @@ modifier|*
 name|d
 init|=
 name|pp
+decl_stmt|,
+modifier|*
+name|dp
 decl_stmt|;
 if|if
 condition|(
@@ -721,6 +724,8 @@ argument_list|(
 literal|"internal error in merge #4"
 argument_list|)
 expr_stmt|;
+name|dp
+operator|=
 name|diff_queue
 argument_list|(
 name|outq
@@ -733,6 +738,14 @@ name|c
 operator|->
 name|two
 argument_list|)
+expr_stmt|;
+name|dp
+operator|->
+name|score
+operator|=
+name|p
+operator|->
+name|score
 expr_stmt|;
 name|diff_free_filespec_data
 argument_list|(
@@ -843,12 +856,6 @@ name|p
 operator|->
 name|broken_pair
 operator|&&
-name|p
-operator|->
-name|score
-operator|==
-literal|0
-operator|&&
 operator|!
 name|strcmp
 argument_list|(
@@ -902,12 +909,6 @@ condition|(
 name|pp
 operator|->
 name|broken_pair
-operator|&&
-name|p
-operator|->
-name|score
-operator|==
-literal|0
 operator|&&
 operator|!
 name|strcmp
