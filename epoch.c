@@ -2561,6 +2561,15 @@ if|if
 condition|(
 operator|!
 name|reversed
+condition|)
+return|return
+name|ret
+return|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|reversed
 operator|->
 name|next
 condition|)
