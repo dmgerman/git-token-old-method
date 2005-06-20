@@ -35,6 +35,13 @@ directive|define
 name|COUNTED
 value|(1u<< 2)
 end_define
+begin_define
+DECL|macro|SHOWN
+define|#
+directive|define
+name|SHOWN
+value|(LAST_EPOCH_FLAG<< 2)
+end_define
 begin_decl_stmt
 DECL|variable|rev_list_usage
 specifier|static
@@ -171,6 +178,14 @@ modifier|*
 name|commit
 parameter_list|)
 block|{
+name|commit
+operator|->
+name|object
+operator|.
+name|flags
+operator||=
+name|SHOWN
+expr_stmt|;
 if|if
 condition|(
 name|show_breaks
@@ -341,7 +356,11 @@ name|object
 operator|.
 name|flags
 operator|&
+operator|(
 name|UNINTERESTING
+operator||
+name|SHOWN
+operator|)
 condition|)
 return|return
 name|CONTINUE

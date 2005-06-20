@@ -98,6 +98,13 @@ directive|define
 name|DUPCHECK
 value|(1u<<6)
 end_define
+begin_define
+DECL|macro|LAST_EPOCH_FLAG
+define|#
+directive|define
+name|LAST_EPOCH_FLAG
+value|(1u<<6)
+end_define
 begin_endif
 endif|#
 directive|endif
