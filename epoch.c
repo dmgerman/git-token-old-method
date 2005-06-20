@@ -1006,6 +1006,7 @@ name|item
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|item
 operator|->
 name|object
@@ -1013,27 +1014,6 @@ operator|.
 name|util
 condition|)
 block|{
-name|die
-argument_list|(
-literal|"%s:%d:%s: logic error: this should not have happened - commit %s"
-argument_list|,
-name|__FILE__
-argument_list|,
-name|__LINE__
-argument_list|,
-name|__FUNCTION__
-argument_list|,
-name|sha1_to_hex
-argument_list|(
-name|item
-operator|->
-name|object
-operator|.
-name|sha1
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|new_mass_counter
 argument_list|(
 name|list
@@ -1076,6 +1056,7 @@ operator|&
 name|pending
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 while|while
 condition|(
