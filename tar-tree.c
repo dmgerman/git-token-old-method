@@ -2399,6 +2399,11 @@ name|basedir
 condition|)
 name|write_header
 argument_list|(
+operator|(
+name|unsigned
+name|char
+operator|*
+operator|)
 literal|"0"
 argument_list|,
 name|TYPEFLAG_DIR
