@@ -1608,6 +1608,10 @@ parameter_list|,
 name|int
 modifier|*
 name|offset
+parameter_list|,
+name|int
+modifier|*
+name|tm_gmt
 parameter_list|)
 block|{
 name|int
@@ -1656,11 +1660,18 @@ argument_list|,
 name|tm
 argument_list|)
 condition|)
+block|{
+operator|*
+name|tm_gmt
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|end
 operator|-
 name|date
 return|;
+block|}
 block|}
 comment|/* 	 * Check for special formats: num[:-/]num[same]num 	 */
 switch|switch
@@ -2101,6 +2112,8 @@ name|int
 name|offset
 decl_stmt|,
 name|sign
+decl_stmt|,
+name|tm_gmt
 decl_stmt|;
 name|time_t
 name|then
@@ -2150,6 +2163,10 @@ name|offset
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|tm_gmt
+operator|=
+literal|0
 expr_stmt|;
 for|for
 control|(
@@ -2219,6 +2236,9 @@ name|tm
 argument_list|,
 operator|&
 name|offset
+argument_list|,
+operator|&
+name|tm_gmt
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2307,6 +2327,11 @@ operator|-
 literal|1
 condition|)
 return|return;
+if|if
+condition|(
+operator|!
+name|tm_gmt
+condition|)
 name|then
 operator|-=
 name|offset
