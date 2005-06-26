@@ -1828,6 +1828,9 @@ argument_list|(
 name|delta_buf
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
