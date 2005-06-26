@@ -163,6 +163,9 @@ name|size
 argument_list|,
 operator|&
 name|delta_size
+argument_list|,
+operator|~
+literal|0UL
 argument_list|)
 expr_stmt|;
 comment|/* Estimate the edit size by interpreting delta. */
