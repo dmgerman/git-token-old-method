@@ -159,6 +159,17 @@ modifier|*
 name|base_name
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|pack_file_sha1
+specifier|static
+name|unsigned
+name|char
+name|pack_file_sha1
+index|[
+literal|20
+index|]
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|delta_against
 specifier|static
@@ -576,6 +587,10 @@ block|}
 name|sha1close
 argument_list|(
 name|f
+argument_list|,
+name|pack_file_sha1
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|mb
@@ -641,7 +656,7 @@ index|[
 literal|256
 index|]
 decl_stmt|;
-comment|/* 	 * Write the first-level table (the list is sorted, 	 * but we use a 256-entry lookup to be able to avoid 	 * having to do eight extra binary search iterations) 	 */
+comment|/* 	 * Write the first-level table (the list is sorted, 	 * but we use a 256-entry lookup to be able to avoid 	 * having to do eight extra binary search iterations). 	 */
 for|for
 control|(
 name|i
@@ -787,9 +802,22 @@ literal|20
 argument_list|)
 expr_stmt|;
 block|}
+name|sha1write
+argument_list|(
+name|f
+argument_list|,
+name|pack_file_sha1
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
 name|sha1close
 argument_list|(
 name|f
+argument_list|,
+name|NULL
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
