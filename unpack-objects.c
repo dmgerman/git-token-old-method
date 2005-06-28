@@ -1555,8 +1555,6 @@ argument_list|(
 name|entry
 argument_list|,
 name|pack
-operator|+
-literal|5
 argument_list|,
 name|size
 argument_list|,
