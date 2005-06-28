@@ -734,6 +734,14 @@ operator|=
 literal|"blob"
 expr_stmt|;
 break|break;
+case|case
+literal|'G'
+case|:
+name|type_s
+operator|=
+literal|"tag"
+expr_stmt|;
+break|break;
 default|default:
 goto|goto
 name|err_finish
@@ -1481,6 +1489,9 @@ literal|'T'
 case|:
 case|case
 literal|'B'
+case|:
+case|case
+literal|'G'
 case|:
 name|unpack_non_delta_entry
 argument_list|(
