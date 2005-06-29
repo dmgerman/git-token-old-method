@@ -1647,7 +1647,6 @@ operator|=
 name|i
 expr_stmt|;
 block|}
-comment|/* next time around the largest possible output is 1 + 4 + 3 */
 if|if
 condition|(
 name|max_size
@@ -1672,6 +1671,7 @@ return|return
 name|NULL
 return|;
 block|}
+comment|/* next time around the largest possible output is 1 + 4 + 3 */
 if|if
 condition|(
 name|outpos
