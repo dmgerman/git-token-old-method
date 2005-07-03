@@ -37,7 +37,7 @@ name|char
 name|pack_usage
 index|[]
 init|=
-literal|"git-pack-objects [--window=N] [--depth=N] {--stdout | base-name}< object-list"
+literal|"git-pack-objects [--incremental] [--window=N] [--depth=N] {--stdout | base-name}< object-list"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -92,6 +92,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_decl_stmt
+DECL|variable|incremental
+specifier|static
+name|int
+name|incremental
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 DECL|variable|sorted_by_sha
 DECL|variable|sorted_by_type
@@ -1049,6 +1058,16 @@ name|object_entry
 modifier|*
 name|entry
 decl_stmt|;
+if|if
+condition|(
+name|incremental
+operator|&&
+name|has_sha1_pack
+argument_list|(
+name|sha1
+argument_list|)
+condition|)
+return|return;
 if|if
 condition|(
 name|idx
@@ -2185,6 +2204,23 @@ operator|==
 literal|'-'
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+literal|"--incremental"
+argument_list|,
+name|arg
+argument_list|)
+condition|)
+block|{
+name|incremental
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
 if|if
 condition|(
 operator|!
