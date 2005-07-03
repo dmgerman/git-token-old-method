@@ -354,7 +354,7 @@ argument_list|)
 expr_stmt|;
 name|next
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 else|else

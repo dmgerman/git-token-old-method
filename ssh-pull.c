@@ -168,6 +168,7 @@ block|}
 end_function
 begin_function
 DECL|function|get_version
+specifier|static
 name|int
 name|get_version
 parameter_list|(

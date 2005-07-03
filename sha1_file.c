@@ -2715,6 +2715,7 @@ block|}
 end_function
 begin_function
 DECL|function|unpack_sha1_rest
+specifier|static
 name|void
 modifier|*
 name|unpack_sha1_rest

@@ -94,7 +94,9 @@ specifier|static
 name|BN_CTX
 modifier|*
 name|get_BN_CTX
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -120,7 +122,9 @@ name|struct
 name|fraction
 modifier|*
 name|new_zero
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|struct
 name|fraction
@@ -343,7 +347,9 @@ name|struct
 name|fraction
 modifier|*
 name|get_one
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -377,7 +383,9 @@ name|struct
 name|fraction
 modifier|*
 name|get_zero
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 if|if
 condition|(
