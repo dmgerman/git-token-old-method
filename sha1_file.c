@@ -1483,6 +1483,16 @@ name|index
 operator|=
 name|idx_map
 expr_stmt|;
+operator|*
+name|idx_map_
+operator|=
+name|idx_map
+expr_stmt|;
+operator|*
+name|idx_size_
+operator|=
+name|idx_size
+expr_stmt|;
 comment|/* check index map */
 if|if
 condition|(
@@ -1572,16 +1582,6 @@ argument_list|(
 literal|"wrong index file size"
 argument_list|)
 return|;
-operator|*
-name|idx_map_
-operator|=
-name|idx_map
-expr_stmt|;
-operator|*
-name|idx_size_
-operator|=
-name|idx_size
-expr_stmt|;
 return|return
 literal|0
 return|;
@@ -4245,6 +4245,7 @@ decl_stmt|;
 name|z_stream
 name|stream
 decl_stmt|;
+name|unsigned
 name|char
 modifier|*
 name|buffer
@@ -4739,6 +4740,7 @@ modifier|*
 name|p
 parameter_list|)
 block|{
+name|unsigned
 name|int
 modifier|*
 name|level1_ofs
