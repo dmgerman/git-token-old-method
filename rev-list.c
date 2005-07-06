@@ -2501,10 +2501,10 @@ condition|)
 continue|continue;
 name|insert_by_date
 argument_list|(
+name|commit
+argument_list|,
 operator|&
 name|list
-argument_list|,
-name|commit
 argument_list|)
 expr_stmt|;
 block|}

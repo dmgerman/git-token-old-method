@@ -1235,10 +1235,10 @@ argument_list|)
 expr_stmt|;
 name|insert_by_date
 argument_list|(
+name|parent
+argument_list|,
 operator|&
 name|pending
-argument_list|,
-name|parent
 argument_list|)
 expr_stmt|;
 name|commit_list_insert
@@ -1268,10 +1268,10 @@ argument_list|)
 condition|)
 name|insert_by_date
 argument_list|(
+name|parent
+argument_list|,
 operator|&
 name|pending
-argument_list|,
-name|parent
 argument_list|)
 expr_stmt|;
 name|add
