@@ -103,7 +103,7 @@ name|mkdir
 argument_list|(
 name|buf
 argument_list|,
-literal|0755
+literal|0777
 argument_list|)
 condition|)
 block|{
@@ -141,7 +141,7 @@ name|mkdir
 argument_list|(
 name|buf
 argument_list|,
-literal|0755
+literal|0777
 argument_list|)
 condition|)
 continue|continue;
