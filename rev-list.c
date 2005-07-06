@@ -57,13 +57,6 @@ directive|define
 name|SHOWN
 value|(1u<< 3)
 end_define
-begin_define
-DECL|macro|DUPCHECK
-define|#
-directive|define
-name|DUPCHECK
-value|(1u<< 4)
-end_define
 begin_decl_stmt
 DECL|variable|rev_list_usage
 specifier|static
@@ -2563,7 +2556,7 @@ name|object
 operator|.
 name|flags
 operator|&
-name|DUPCHECK
+name|SEEN
 condition|)
 continue|continue;
 name|commit
@@ -2572,7 +2565,7 @@ name|object
 operator|.
 name|flags
 operator||=
-name|DUPCHECK
+name|SEEN
 expr_stmt|;
 name|insert
 argument_list|(
