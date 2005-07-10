@@ -1175,11 +1175,7 @@ name|unsigned
 name|percentage
 init|=
 operator|(
-operator|(
-literal|1
-operator|+
 name|nr
-operator|)
 operator|*
 literal|100
 operator|)
@@ -1389,6 +1385,8 @@ control|)
 name|unpack_one
 argument_list|(
 name|i
+operator|+
+literal|1
 argument_list|,
 name|nr_objects
 argument_list|)
