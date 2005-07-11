@@ -219,7 +219,7 @@ condition|)
 return|return
 name|NULL
 return|;
-if|if
+while|while
 condition|(
 name|obj
 operator|->
@@ -229,6 +229,8 @@ name|tag_type
 condition|)
 name|obj
 operator|=
+name|parse_object
+argument_list|(
 operator|(
 operator|(
 expr|struct
@@ -239,6 +241,9 @@ name|obj
 operator|)
 operator|->
 name|tagged
+operator|->
+name|sha1
+argument_list|)
 expr_stmt|;
 return|return
 name|check_commit

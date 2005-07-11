@@ -1957,7 +1957,7 @@ name|name
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Tag object? Look what it points to.. 	 */
-if|if
+while|while
 condition|(
 name|object
 operator|->
@@ -2008,9 +2008,14 @@ argument_list|)
 expr_stmt|;
 name|object
 operator|=
+name|parse_object
+argument_list|(
 name|tag
 operator|->
 name|tagged
+operator|->
+name|sha1
+argument_list|)
 expr_stmt|;
 block|}
 comment|/* 	 * Commit object? Just return it, we'll do all the complex 	 * reachability crud. 	 */
