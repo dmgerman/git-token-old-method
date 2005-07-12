@@ -1423,6 +1423,7 @@ begin_function_decl
 name|void
 name|parse_date
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|date

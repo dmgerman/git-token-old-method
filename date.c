@@ -1370,6 +1370,7 @@ parameter_list|,
 name|char
 name|c
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|date
@@ -1596,6 +1597,7 @@ specifier|static
 name|int
 name|match_digit
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|date
@@ -1985,6 +1987,7 @@ specifier|static
 name|int
 name|match_tz
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|date
@@ -2092,6 +2095,7 @@ DECL|function|parse_date
 name|void
 name|parse_date
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|date
