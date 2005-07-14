@@ -441,6 +441,8 @@ operator||
 name|O_TRUNC
 operator||
 name|O_CREAT
+operator||
+name|O_EXCL
 argument_list|,
 name|mode
 argument_list|)
@@ -477,6 +479,8 @@ operator||
 name|O_TRUNC
 operator||
 name|O_CREAT
+operator||
+name|O_EXCL
 argument_list|,
 name|mode
 argument_list|)
