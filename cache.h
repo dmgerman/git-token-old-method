@@ -1173,6 +1173,11 @@ name|size
 parameter_list|,
 name|int
 name|stage
+parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|paths
 parameter_list|)
 function_decl|;
 end_function_decl
