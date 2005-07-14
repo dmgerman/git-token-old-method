@@ -1331,7 +1331,7 @@ name|size
 argument_list|,
 literal|1
 argument_list|,
-name|NULL
+name|pathspec
 argument_list|)
 condition|)
 name|die
@@ -1353,9 +1353,6 @@ expr_stmt|;
 name|diffcore_std
 argument_list|(
 name|pathspec
-condition|?
-else|:
-name|NULL
 argument_list|,
 name|detect_rename
 argument_list|,
