@@ -20,6 +20,7 @@ end_include
 begin_function
 DECL|function|contains
 specifier|static
+name|unsigned
 name|int
 name|contains
 parameter_list|(
@@ -38,6 +39,10 @@ name|long
 name|len
 parameter_list|)
 block|{
+name|unsigned
+name|int
+name|cnt
+decl_stmt|;
 name|unsigned
 name|long
 name|offset
@@ -73,6 +78,11 @@ name|one
 operator|->
 name|data
 expr_stmt|;
+name|cnt
+operator|=
+literal|0
+expr_stmt|;
+comment|/* Yes, I've heard of strstr(), but the thing is *data may 	 * not be NUL terminated.  Sue me. 	 */
 for|for
 control|(
 name|offset
@@ -88,10 +98,12 @@ condition|;
 name|offset
 operator|++
 control|)
+block|{
+comment|/* we count non-overlapping occurrences of needle */
 if|if
 condition|(
 operator|!
-name|strncmp
+name|memcmp
 argument_list|(
 name|needle
 argument_list|,
@@ -102,11 +114,20 @@ argument_list|,
 name|len
 argument_list|)
 condition|)
-return|return
+block|{
+name|offset
+operator|+=
+name|len
+operator|-
 literal|1
-return|;
+expr_stmt|;
+name|cnt
+operator|++
+expr_stmt|;
+block|}
+block|}
 return|return
-literal|0
+name|cnt
 return|;
 block|}
 end_function
