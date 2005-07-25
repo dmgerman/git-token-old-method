@@ -3225,7 +3225,7 @@ name|status
 condition|)
 block|{
 case|case
-literal|'C'
+name|DIFF_STATUS_COPIED
 case|:
 name|sprintf
 argument_list|(
@@ -3261,7 +3261,7 @@ name|msg_
 expr_stmt|;
 break|break;
 case|case
-literal|'R'
+name|DIFF_STATUS_RENAMED
 case|:
 name|sprintf
 argument_list|(
@@ -3297,7 +3297,7 @@ name|msg_
 expr_stmt|;
 break|break;
 case|case
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 case|:
 if|if
 condition|(
@@ -4116,10 +4116,10 @@ name|status
 condition|)
 block|{
 case|case
-literal|'C'
+name|DIFF_STATUS_COPIED
 case|:
 case|case
-literal|'R'
+name|DIFF_STATUS_RENAMED
 case|:
 name|two_paths
 operator|=
@@ -4127,10 +4127,10 @@ literal|1
 expr_stmt|;
 break|break;
 case|case
-literal|'N'
+name|DIFF_STATUS_ADDED
 case|:
 case|case
-literal|'D'
+name|DIFF_STATUS_DELETED
 case|:
 name|two_paths
 operator|=
@@ -4822,7 +4822,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'U'
+name|DIFF_STATUS_UNMERGED
 expr_stmt|;
 elseif|else
 if|if
@@ -4839,7 +4839,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'N'
+name|DIFF_STATUS_ADDED
 expr_stmt|;
 elseif|else
 if|if
@@ -4856,7 +4856,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'D'
+name|DIFF_STATUS_DELETED
 expr_stmt|;
 elseif|else
 if|if
@@ -4870,7 +4870,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'T'
+name|DIFF_STATUS_TYPE_CHANGED
 expr_stmt|;
 comment|/* from this point on, we are dealing with a pair 		 * whose both sides are valid and of the same type, i.e. 		 * either in-place edit or rename/copy edit. 		 */
 elseif|else
@@ -4893,7 +4893,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'C'
+name|DIFF_STATUS_COPIED
 expr_stmt|;
 continue|continue;
 block|}
@@ -4959,7 +4959,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'C'
+name|DIFF_STATUS_COPIED
 expr_stmt|;
 break|break;
 block|}
@@ -4974,7 +4974,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'R'
+name|DIFF_STATUS_RENAMED
 expr_stmt|;
 block|}
 elseif|else
@@ -5013,7 +5013,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 expr_stmt|;
 else|else
 block|{
@@ -5033,7 +5033,7 @@ name|p
 operator|->
 name|status
 operator|=
-literal|'X'
+name|DIFF_STATUS_UNKNOWN
 expr_stmt|;
 block|}
 block|}
@@ -5124,7 +5124,7 @@ name|p
 operator|->
 name|status
 operator|==
-literal|'X'
+name|DIFF_STATUS_UNKNOWN
 operator|)
 condition|)
 continue|continue;
@@ -5286,11 +5286,10 @@ name|strchr
 argument_list|(
 name|filter
 argument_list|,
-literal|'A'
+name|DIFF_STATUS_FILTER_AON
 argument_list|)
 condition|)
 block|{
-comment|/* All-or-none */
 name|int
 name|found
 decl_stmt|;
@@ -5335,7 +5334,7 @@ name|p
 operator|->
 name|status
 operator|==
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 operator|)
 operator|&&
 operator|(
@@ -5348,7 +5347,7 @@ name|strchr
 argument_list|(
 name|filter
 argument_list|,
-literal|'B'
+name|DIFF_STATUS_FILTER_BROKEN
 argument_list|)
 operator|)
 operator|||
@@ -5362,7 +5361,7 @@ name|strchr
 argument_list|(
 name|filter
 argument_list|,
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 argument_list|)
 operator|)
 operator|)
@@ -5374,7 +5373,7 @@ name|p
 operator|->
 name|status
 operator|!=
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 operator|)
 operator|&&
 name|strchr
@@ -5462,7 +5461,7 @@ name|p
 operator|->
 name|status
 operator|==
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 operator|)
 operator|&&
 operator|(
@@ -5475,7 +5474,7 @@ name|strchr
 argument_list|(
 name|filter
 argument_list|,
-literal|'B'
+name|DIFF_STATUS_FILTER_BROKEN
 argument_list|)
 operator|)
 operator|||
@@ -5489,7 +5488,7 @@ name|strchr
 argument_list|(
 name|filter
 argument_list|,
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 argument_list|)
 operator|)
 operator|)
@@ -5501,7 +5500,7 @@ name|p
 operator|->
 name|status
 operator|!=
-literal|'M'
+name|DIFF_STATUS_MODIFIED
 operator|)
 operator|&&
 name|strchr
