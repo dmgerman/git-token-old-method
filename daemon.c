@@ -1248,6 +1248,13 @@ operator|<
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|errno
+operator|!=
+name|EINTR
+condition|)
+block|{
 name|error
 argument_list|(
 literal|"select failed, resuming: %s"
@@ -1263,6 +1270,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 continue|continue;
 block|}
 for|for
