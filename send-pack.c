@@ -714,7 +714,9 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-operator|(
+name|list
+condition|)
+block|{
 name|new
 operator|=
 name|pop_most_recent_commit
@@ -724,11 +726,7 @@ name|list
 argument_list|,
 literal|1
 argument_list|)
-operator|)
-operator|!=
-name|NULL
-condition|)
-block|{
+expr_stmt|;
 if|if
 condition|(
 name|new
