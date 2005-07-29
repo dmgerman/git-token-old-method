@@ -1993,12 +1993,7 @@ expr_stmt|;
 comment|// avoid gcc warning
 name|map
 operator|=
-operator|(
-name|void
-operator|*
-operator|)
-operator|-
-literal|1
+name|MAP_FAILED
 expr_stmt|;
 if|if
 condition|(
@@ -2061,16 +2056,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|-
-literal|1
-operator|==
-operator|(
-name|int
-operator|)
-operator|(
-name|long
-operator|)
 name|map
+operator|==
+name|MAP_FAILED
 condition|)
 return|return
 name|error
