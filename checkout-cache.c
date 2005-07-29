@@ -217,8 +217,8 @@ DECL|variable|checkout_cache_usage
 specifier|static
 specifier|const
 name|char
-modifier|*
 name|checkout_cache_usage
+index|[]
 init|=
 literal|"git-checkout-cache [-u] [-q] [-a] [-f] [-n] [--prefix=<string>] [--]<file>..."
 decl_stmt|;
