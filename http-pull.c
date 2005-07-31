@@ -68,33 +68,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-name|LIBCURL_VERSION_NUM
-operator|<
-literal|0x070907
-end_if
-begin_define
-DECL|macro|curl_easy_setopt
-define|#
-directive|define
-name|curl_easy_setopt
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|,
-name|c
-parameter_list|)
-value|do {
-comment|/* nothing */
-value|} while(0)
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|curl
 specifier|static
@@ -1081,6 +1054,11 @@ argument_list|,
 name|curl_ssl_verify
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|LIBCURL_VERSION_NUM
+operator|>=
+literal|0x070907
 name|curl_easy_setopt
 argument_list|(
 name|curl
@@ -1090,6 +1068,8 @@ argument_list|,
 name|CURL_NETRC_OPTIONAL
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|base
 operator|=
 name|url
