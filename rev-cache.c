@@ -34,6 +34,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|rle_free
+specifier|static
 name|struct
 name|rev_list_elem
 modifier|*
