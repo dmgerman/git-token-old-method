@@ -1033,9 +1033,7 @@ block|{
 case|case
 literal|0
 case|:
-return|return
-literal|0
-return|;
+return|return;
 case|case
 operator|-
 name|ERR_RUN_COMMAND_FORK
