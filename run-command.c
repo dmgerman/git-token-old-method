@@ -15,15 +15,13 @@ directive|include
 file|<sys/wait.h>
 end_include
 begin_function
-DECL|function|run_external_command
-specifier|static
+DECL|function|run_command_v
 name|int
-name|run_external_command
+name|run_command_v
 parameter_list|(
 name|int
 name|argc
 parameter_list|,
-specifier|const
 name|char
 modifier|*
 modifier|*
@@ -68,10 +66,16 @@ operator|)
 name|argv
 argument_list|)
 expr_stmt|;
-return|return
-operator|-
-name|ERR_RUN_COMMAND_EXEC
-return|;
+name|die
+argument_list|(
+literal|"exec %s failed."
+argument_list|,
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 for|for
 control|(
@@ -196,7 +200,6 @@ block|{
 name|int
 name|argc
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|argv
@@ -212,17 +215,6 @@ decl_stmt|;
 name|va_list
 name|param
 decl_stmt|;
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"run-command %s (%d)\n"
-argument_list|,
-name|cmd
-argument_list|,
-name|ERR_RUN_COMMAND_EXEC
-argument_list|)
-expr_stmt|;
 name|va_start
 argument_list|(
 name|param
@@ -235,6 +227,10 @@ index|[
 literal|0
 index|]
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|cmd
 expr_stmt|;
 name|argc
@@ -291,7 +287,7 @@ name|cmd
 argument_list|)
 return|;
 return|return
-name|run_external_command
+name|run_command_v
 argument_list|(
 name|argc
 argument_list|,
