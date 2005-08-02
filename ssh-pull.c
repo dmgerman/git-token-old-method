@@ -59,6 +59,18 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_function
+DECL|function|prefetch
+name|void
+name|prefetch
+parameter_list|(
+name|unsigned
+name|char
+modifier|*
+name|sha1
+parameter_list|)
+block|{ }
+end_function
+begin_function
 DECL|function|fetch
 name|int
 name|fetch
