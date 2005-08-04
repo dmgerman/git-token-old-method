@@ -752,6 +752,12 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+name|FILE
+modifier|*
+name|out
+init|=
+name|cmitmsg
+decl_stmt|;
 name|char
 modifier|*
 name|sub
@@ -794,12 +800,6 @@ argument_list|,
 name|date
 argument_list|)
 expr_stmt|;
-name|FILE
-modifier|*
-name|out
-init|=
-name|cmitmsg
-decl_stmt|;
 do|do
 block|{
 if|if
