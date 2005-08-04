@@ -182,6 +182,7 @@ else|else
 block|{
 if|if
 condition|(
+operator|!
 name|quiet
 condition|)
 name|die
@@ -710,6 +711,7 @@ if|if
 condition|(
 name|err
 operator|&&
+operator|!
 name|quiet
 condition|)
 name|die
