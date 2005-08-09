@@ -2721,6 +2721,9 @@ literal|"patch fragment without header at line %d: %.*s"
 argument_list|,
 name|linenr
 argument_list|,
+operator|(
+name|int
+operator|)
 name|len
 operator|-
 literal|1
@@ -4617,7 +4620,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"patch failed: %s:%d"
+literal|"patch failed: %s:%ld"
 argument_list|,
 name|patch
 operator|->
