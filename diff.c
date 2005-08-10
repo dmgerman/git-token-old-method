@@ -600,6 +600,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|diff_cmd
 init|=
 literal|"diff -L%s%s -L%s%s"
@@ -607,6 +608,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|diff_arg
 init|=
 literal|"%s %s||:"
@@ -3995,6 +3997,7 @@ block|{
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|err
 init|=
 literal|"path %s cannot be expressed without -z"
