@@ -6981,6 +6981,11 @@ name|stream
 operator|.
 name|next_in
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|*
+operator|)
 name|buffer
 expr_stmt|;
 do|do

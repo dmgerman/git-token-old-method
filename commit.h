@@ -226,6 +226,9 @@ name|CMIT_FMT_SHORT
 block|,
 DECL|enumerator|CMIT_FMT_FULL
 name|CMIT_FMT_FULL
+block|,
+DECL|enumerator|CMIT_FMT_ONELINE
+name|CMIT_FMT_ONELINE
 block|, }
 enum|;
 end_enum
