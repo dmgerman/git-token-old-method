@@ -223,6 +223,14 @@ init|=
 literal|"git-checkout-cache [-u] [-q] [-a] [-f] [-n] [--prefix=<string>] [--]<file>..."
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|cache_file
+specifier|static
+name|struct
+name|cache_file
+name|cache_file
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|main
 name|int
@@ -243,10 +251,6 @@ decl_stmt|,
 name|force_filename
 init|=
 literal|0
-decl_stmt|;
-name|struct
-name|cache_file
-name|cache_file
 decl_stmt|;
 name|int
 name|newfd
