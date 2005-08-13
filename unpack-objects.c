@@ -42,7 +42,7 @@ name|char
 name|unpack_usage
 index|[]
 init|=
-literal|"git-unpack-objects< pack-file"
+literal|"git-unpack-objects [-q]< pack-file"
 decl_stmt|;
 end_decl_stmt
 begin_comment
