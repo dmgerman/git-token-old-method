@@ -211,10 +211,10 @@ directive|ifndef
 name|__attribute__
 end_ifndef
 begin_define
-DECL|macro|__attribute
+DECL|macro|__attribute__
 define|#
 directive|define
-name|__attribute
+name|__attribute__
 parameter_list|(
 name|x
 parameter_list|)
