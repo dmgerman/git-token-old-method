@@ -201,10 +201,6 @@ define|#
 directive|define
 name|NORETURN
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -219,6 +215,10 @@ parameter_list|(
 name|x
 parameter_list|)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
