@@ -153,12 +153,12 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|prefix
+DECL|variable|commit_prefix
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|prefix
+name|commit_prefix
 init|=
 literal|""
 decl_stmt|;
@@ -275,7 +275,7 @@ condition|(
 name|show_breaks
 condition|)
 block|{
-name|prefix
+name|commit_prefix
 operator|=
 literal|"| "
 expr_stmt|;
@@ -290,7 +290,7 @@ operator|&
 name|DISCONTINUITY
 condition|)
 block|{
-name|prefix
+name|commit_prefix
 operator|=
 literal|"^ "
 expr_stmt|;
@@ -307,7 +307,7 @@ operator|&
 name|BOUNDARY
 condition|)
 block|{
-name|prefix
+name|commit_prefix
 operator|=
 literal|"= "
 expr_stmt|;
@@ -317,7 +317,7 @@ name|printf
 argument_list|(
 literal|"%s%s"
 argument_list|,
-name|prefix
+name|commit_prefix
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2400,14 +2400,6 @@ name|list
 init|=
 name|NULL
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|prefix
-init|=
-name|setup_git_directory
-argument_list|()
-decl_stmt|;
 name|int
 name|i
 decl_stmt|,
@@ -2415,6 +2407,9 @@ name|limited
 init|=
 literal|0
 decl_stmt|;
+name|setup_git_directory
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -2575,12 +2570,12 @@ name|commit_format
 operator|==
 name|CMIT_FMT_ONELINE
 condition|)
-name|prefix
+name|commit_prefix
 operator|=
 literal|""
 expr_stmt|;
 else|else
-name|prefix
+name|commit_prefix
 operator|=
 literal|"commit "
 expr_stmt|;
