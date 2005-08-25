@@ -2623,6 +2623,9 @@ condition|)
 break|break;
 if|if
 condition|(
+operator|!
+name|c
+operator|||
 name|c
 operator|==
 literal|'*'
