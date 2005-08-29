@@ -1789,7 +1789,9 @@ continue|continue;
 case|case
 literal|'\n'
 case|:
-break|break;
+return|return
+name|NULL
+return|;
 case|case
 literal|'\t'
 case|:
