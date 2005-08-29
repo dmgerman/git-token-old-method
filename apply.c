@@ -6974,6 +6974,9 @@ name|p
 operator|->
 name|new_name
 condition|?
+name|p
+operator|->
+name|new_name
 else|:
 name|p
 operator|->

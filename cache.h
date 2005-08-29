@@ -248,6 +248,11 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__GNUC__
+end_ifdef
 begin_define
 DECL|macro|gitenv
 define|#
@@ -258,6 +263,24 @@ name|e
 parameter_list|)
 value|(getenv(e) ? : gitenv_bc(e))
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|gitenv
+define|#
+directive|define
+name|gitenv
+parameter_list|(
+name|e
+parameter_list|)
+value|(getenv(e) ? getenv(e) : gitenv_bc(e))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*  * Basic data structures for the directory cache  */
 end_comment
@@ -380,9 +403,7 @@ decl_stmt|;
 DECL|member|name
 name|char
 name|name
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 block|}
 struct|;
@@ -1966,9 +1987,7 @@ decl_stmt|;
 DECL|member|base
 name|char
 name|base
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 comment|/* more */
 block|}
@@ -2039,9 +2058,7 @@ decl_stmt|;
 DECL|member|pack_name
 name|char
 name|pack_name
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 comment|/* something like ".git/objects/pack/xxxxx.pack" */
 block|}
@@ -2118,9 +2135,7 @@ comment|/* when renaming */
 DECL|member|name
 name|char
 name|name
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 block|}
 struct|;

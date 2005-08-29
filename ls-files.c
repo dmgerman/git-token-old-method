@@ -1075,9 +1075,7 @@ decl_stmt|;
 DECL|member|name
 name|char
 name|name
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 block|}
 struct|;
