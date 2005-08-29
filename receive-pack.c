@@ -134,9 +134,7 @@ decl_stmt|;
 DECL|member|ref_name
 name|char
 name|ref_name
-index|[
-literal|0
-index|]
+index|[]
 decl_stmt|;
 block|}
 struct|;
@@ -1433,13 +1431,9 @@ argument_list|(
 literal|".git"
 argument_list|)
 expr_stmt|;
-name|setenv
+name|putenv
 argument_list|(
-literal|"GIT_DIR"
-argument_list|,
-literal|"."
-argument_list|,
-literal|1
+literal|"GIT_DIR=."
 argument_list|)
 expr_stmt|;
 if|if
