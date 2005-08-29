@@ -370,7 +370,9 @@ decl_stmt|;
 DECL|member|dep
 name|char
 name|dep
-index|[]
+index|[
+literal|0
+index|]
 decl_stmt|;
 comment|/* more */
 block|}
