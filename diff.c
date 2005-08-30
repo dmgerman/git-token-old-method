@@ -3608,7 +3608,6 @@ operator|-
 literal|'0'
 expr_stmt|;
 block|}
-operator|*
 name|cp
 operator|++
 expr_stmt|;
