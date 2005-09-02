@@ -2298,6 +2298,7 @@ name|packed_git
 modifier|*
 name|parse_pack_index_file
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
