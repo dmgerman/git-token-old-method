@@ -263,6 +263,13 @@ name|ret
 return|;
 block|}
 end_function
+begin_define
+DECL|macro|DBRT_DEBUG
+define|#
+directive|define
+name|DBRT_DEBUG
+value|0
+end_define
 begin_function
 DECL|function|unpack_trees_rec
 specifier|static
@@ -424,6 +431,9 @@ name|NULL
 expr_stmt|;
 block|}
 block|}
+if|#
+directive|if
+name|DBRT_DEBUG
 if|if
 condition|(
 name|first
@@ -435,6 +445,8 @@ argument_list|,
 name|first
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 for|for
 control|(
 name|i
@@ -466,6 +478,9 @@ operator|&
 name|df_conflict_list
 condition|)
 continue|continue;
+if|#
+directive|if
+name|DBRT_DEBUG
 name|printf
 argument_list|(
 literal|"%d %s\n"
@@ -482,6 +497,8 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -968,6 +985,9 @@ block|{
 name|int
 name|ret
 decl_stmt|;
+if|#
+directive|if
+name|DBRT_DEBUG
 name|printf
 argument_list|(
 literal|"%s:\n"
@@ -1025,6 +1045,8 @@ literal|"\n"
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|ret
 operator|=
 name|fn
@@ -1032,6 +1054,9 @@ argument_list|(
 name|src
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|DBRT_DEBUG
 name|printf
 argument_list|(
 literal|"Added %d entries\n"
@@ -1039,6 +1064,8 @@ argument_list|,
 name|ret
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 operator|*
 name|indpos
 operator|+=
