@@ -180,6 +180,9 @@ operator|-
 name|len
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|NO_GETDOMAINNAME
 if|if
 condition|(
 operator|!
@@ -223,6 +226,8 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 comment|/* And set the default date */
 name|datestamp
 argument_list|(
