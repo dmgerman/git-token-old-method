@@ -1,4 +1,7 @@
 begin_unit
+begin_comment
+comment|/*  * Copyright (C) 2005 Rene Scharfe  */
+end_comment
 begin_include
 include|#
 directive|include
