@@ -529,7 +529,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-cache: unable to read sha1 file of %s (%s)"
+literal|"git-checkout-index: unable to read sha1 file of %s (%s)"
 argument_list|,
 name|path
 argument_list|,
@@ -586,7 +586,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-cache: unable to create file %s (%s)"
+literal|"git-checkout-index: unable to create file %s (%s)"
 argument_list|,
 name|path
 argument_list|,
@@ -627,7 +627,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-cache: unable to write file %s"
+literal|"git-checkout-index: unable to write file %s"
 argument_list|,
 name|path
 argument_list|)
@@ -670,7 +670,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-cache: unable to create symlink %s (%s)"
+literal|"git-checkout-index: unable to create symlink %s (%s)"
 argument_list|,
 name|path
 argument_list|,
@@ -696,7 +696,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-cache: unknown file mode for %s"
+literal|"git-checkout-index: unknown file mode for %s"
 argument_list|,
 name|path
 argument_list|)
@@ -845,7 +845,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"git-checkout-cache: %s already exists\n"
+literal|"git-checkout-index: %s already exists\n"
 argument_list|,
 name|path
 argument_list|)
