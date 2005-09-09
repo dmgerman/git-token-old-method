@@ -1828,7 +1828,7 @@ argument_list|()
 expr_stmt|;
 name|curl_ssl_verify
 operator|=
-name|gitenv
+name|getenv
 argument_list|(
 literal|"GIT_SSL_NO_VERIFY"
 argument_list|)

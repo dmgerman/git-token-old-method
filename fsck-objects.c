@@ -1965,7 +1965,7 @@ name|git_dir
 decl_stmt|;
 name|git_dir
 operator|=
-name|gitenv
+name|getenv
 argument_list|(
 name|GIT_DIR_ENVIRONMENT
 argument_list|)

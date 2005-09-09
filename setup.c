@@ -384,7 +384,7 @@ name|X_OK
 argument_list|)
 operator|&&
 operator|(
-name|gitenv
+name|getenv
 argument_list|(
 name|DB_ENVIRONMENT
 argument_list|)
@@ -427,7 +427,7 @@ decl_stmt|;
 comment|/* 	 * If GIT_DIR is set explicitly, we're not going 	 * to do any discovery 	 */
 if|if
 condition|(
-name|gitenv
+name|getenv
 argument_list|(
 name|GIT_DIR_ENVIRONMENT
 argument_list|)
