@@ -43,6 +43,15 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|index_only
+specifier|static
+name|int
+name|index_only
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|head_idx
 specifier|static
 name|int
@@ -1624,6 +1633,11 @@ name|st
 decl_stmt|;
 if|if
 condition|(
+name|index_only
+condition|)
+return|return;
+if|if
+condition|(
 operator|!
 name|lstat
 argument_list|(
@@ -2790,7 +2804,7 @@ name|char
 name|read_tree_usage
 index|[]
 init|=
-literal|"git-read-tree (<sha> | -m [-u]<sha1> [<sha2> [<sha3>]])"
+literal|"git-read-tree (<sha> | -m [-u | -i]<sha1> [<sha2> [<sha3>]])"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2892,7 +2906,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|/* "-u" means "update", meaning that a merge will update the working directory */
+comment|/* "-u" means "update", meaning that a merge will update 		 * the working tree. 		 */
 if|if
 condition|(
 operator|!
@@ -2905,6 +2919,24 @@ argument_list|)
 condition|)
 block|{
 name|update
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+comment|/* "-i" means "index only", meaning that a merge will 		 * not even look at the working tree. 		 */
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-i"
+argument_list|)
+condition|)
+block|{
+name|index_only
 operator|=
 literal|1
 expr_stmt|;
@@ -3015,6 +3047,20 @@ literal|1
 expr_stmt|;
 continue|continue;
 block|}
+comment|/* using -u and -i at the same time makes no sense */
+if|if
+condition|(
+literal|1
+operator|<
+name|index_only
+operator|+
+name|update
+condition|)
+name|usage
+argument_list|(
+name|read_tree_usage
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|get_sha1
