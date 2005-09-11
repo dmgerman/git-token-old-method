@@ -1197,6 +1197,11 @@ return|return
 operator|-
 literal|1
 return|;
+name|free
+argument_list|(
+name|newbase
+argument_list|)
+expr_stmt|;
 block|}
 name|free
 argument_list|(
