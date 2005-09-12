@@ -563,7 +563,7 @@ condition|(
 operator|!
 name|strchr
 argument_list|(
-literal|"MCRNDU"
+literal|"AMCRDU"
 argument_list|,
 name|status
 argument_list|)
