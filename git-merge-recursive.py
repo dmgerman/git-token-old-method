@@ -292,7 +292,7 @@ newline|'\n'
 name|'runProgram'
 op|'('
 op|'['
-string|"'git-update-cache'"
+string|"'git-update-index'"
 op|','
 string|"'-q'"
 op|','
@@ -1341,7 +1341,7 @@ indent|'            '
 name|'runProgram'
 op|'('
 op|'['
-string|"'git-update-cache'"
+string|"'git-update-index'"
 op|','
 string|"'--add'"
 op|','
@@ -1360,7 +1360,7 @@ indent|'            '
 name|'runProgram'
 op|'('
 op|'['
-string|"'git-update-cache'"
+string|"'git-update-index'"
 op|','
 string|"'--add'"
 op|','
@@ -1406,7 +1406,7 @@ indent|'            '
 name|'runProgram'
 op|'('
 op|'['
-string|"'git-update-cache'"
+string|"'git-update-index'"
 op|','
 string|"'--force-remove'"
 op|','
