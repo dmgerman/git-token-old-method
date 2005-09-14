@@ -503,7 +503,11 @@ name|'re'
 op|'.'
 name|'compile'
 op|'('
-string|"'([0-9]+) ([a-z0-9]+) ([0-9a-f]{40})\\t(.*)'"
+string|"r'^([0-7]+) (\\S+) ([0-9a-f]{40})\\t(.*)$'"
+op|','
+name|'re'
+op|'.'
+name|'S'
 op|')'
 newline|'\n'
 DECL|function|getFilesAndDirs
@@ -711,7 +715,11 @@ name|'re'
 op|'.'
 name|'compile'
 op|'('
-string|"'^([0-9]+) ([0-9a-f]{40}) ([1-3])\\t(.*)$'"
+string|"r'^([0-7]+) ([0-9a-f]{40}) ([1-3])\\t(.*)$'"
+op|','
+name|'re'
+op|'.'
+name|'S'
 op|')'
 newline|'\n'
 DECL|function|unmergedCacheEntries
