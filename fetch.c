@@ -1054,6 +1054,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|save_commit_buffer
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|write_ref
