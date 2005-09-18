@@ -77,6 +77,12 @@ struct|;
 end_struct
 begin_decl_stmt
 specifier|extern
+name|int
+name|save_commit_buffer
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
 specifier|const
 name|char
 modifier|*

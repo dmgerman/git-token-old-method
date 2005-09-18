@@ -749,14 +749,14 @@ name|p
 operator|->
 name|score
 expr_stmt|;
-name|diff_free_filespec
+name|diff_free_filespec_data
 argument_list|(
 name|d
 operator|->
 name|two
 argument_list|)
 expr_stmt|;
-name|diff_free_filespec
+name|diff_free_filespec_data
 argument_list|(
 name|c
 operator|->

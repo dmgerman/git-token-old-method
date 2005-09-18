@@ -2232,6 +2232,11 @@ operator|+=
 literal|48
 expr_stmt|;
 block|}
+name|free
+argument_list|(
+name|buf
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
