@@ -2092,7 +2092,7 @@ comment|/* Gr. strptime is crap for this; it doesn't have a way to require RFC28
 end_comment
 begin_function
 DECL|function|parse_date
-name|void
+name|int
 name|parse_date
 parameter_list|(
 specifier|const
@@ -2330,7 +2330,10 @@ operator|==
 operator|-
 literal|1
 condition|)
-return|return;
+return|return
+operator|-
+literal|1
+return|;
 if|if
 condition|(
 operator|!
@@ -2363,6 +2366,7 @@ operator|=
 literal|'-'
 expr_stmt|;
 block|}
+return|return
 name|snprintf
 argument_list|(
 name|result
@@ -2383,7 +2387,7 @@ name|offset
 operator|%
 literal|60
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
