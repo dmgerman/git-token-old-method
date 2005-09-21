@@ -606,6 +606,7 @@ name|char
 modifier|*
 name|prefix
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -626,6 +627,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|prefix_path
@@ -638,6 +640,7 @@ parameter_list|,
 name|int
 name|len
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|path
@@ -763,6 +766,7 @@ specifier|extern
 name|int
 name|remove_file_from_cache
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|path
