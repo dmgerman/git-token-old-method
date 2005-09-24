@@ -266,6 +266,13 @@ return|;
 name|free
 argument_list|(
 name|entry
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|entry
 argument_list|)
 expr_stmt|;
 name|entry
@@ -1035,6 +1042,10 @@ operator|-
 literal|1
 decl_stmt|;
 name|save_commit_buffer
+operator|=
+literal|0
+expr_stmt|;
+name|track_object_refs
 operator|=
 literal|0
 expr_stmt|;
