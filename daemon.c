@@ -268,9 +268,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|lognotice
+DECL|function|loginfo
 name|void
-name|lognotice
+name|loginfo
 parameter_list|(
 specifier|const
 name|char
@@ -326,7 +326,7 @@ name|int
 name|dirlen
 parameter_list|)
 block|{
-name|lognotice
+name|loginfo
 argument_list|(
 literal|"Request for '%s'"
 argument_list|,
@@ -1200,7 +1200,7 @@ operator|->
 name|sin6_port
 expr_stmt|;
 block|}
-name|lognotice
+name|loginfo
 argument_list|(
 literal|"Connection from %s:%d"
 argument_list|,
