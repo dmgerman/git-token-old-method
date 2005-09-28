@@ -190,6 +190,7 @@ block|}
 end_function
 begin_function
 DECL|function|objerror
+specifier|static
 name|int
 name|objerror
 parameter_list|(
@@ -240,6 +241,7 @@ block|}
 end_function
 begin_function
 DECL|function|objwarning
+specifier|static
 name|int
 name|objwarning
 parameter_list|(

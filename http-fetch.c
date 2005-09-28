@@ -134,6 +134,7 @@ struct|;
 end_struct
 begin_decl_stmt
 DECL|variable|alt
+specifier|static
 name|struct
 name|alt_base
 modifier|*
@@ -1892,6 +1893,7 @@ block|}
 end_function
 begin_function
 DECL|function|fetch_object
+specifier|static
 name|int
 name|fetch_object
 parameter_list|(
