@@ -1672,7 +1672,7 @@ end_define
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__CYGWIN__
+name|NO_IPV6
 end_ifndef
 begin_function
 DECL|function|git_tcp_connect
@@ -1993,7 +1993,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/* __CYGWIN__ */
+comment|/* NO_IPV6 */
 end_comment
 begin_function
 DECL|function|git_tcp_connect
@@ -2377,7 +2377,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __CYGWIN__ */
+comment|/* NO_IPV6 */
 end_comment
 begin_comment
 comment|/*  * Yeah, yeah, fixme. Need to pass in the heads etc.  */
