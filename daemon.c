@@ -256,6 +256,7 @@ block|}
 end_function
 begin_function
 DECL|function|logerror
+specifier|static
 name|void
 name|logerror
 parameter_list|(
@@ -295,6 +296,7 @@ block|}
 end_function
 begin_function
 DECL|function|loginfo
+specifier|static
 name|void
 name|loginfo
 parameter_list|(
