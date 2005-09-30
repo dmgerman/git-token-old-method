@@ -4360,7 +4360,13 @@ break|break;
 default|default:
 name|die
 argument_list|(
-literal|"corrupted pack file"
+literal|"corrupted pack file %s containing object of kind %d"
+argument_list|,
+name|p
+operator|->
+name|pack_name
+argument_list|,
+name|kind
 argument_list|)
 expr_stmt|;
 block|}
@@ -4547,7 +4553,13 @@ break|break;
 default|default:
 name|die
 argument_list|(
-literal|"corrupted pack file"
+literal|"corrupted pack file %s containing object of kind %d"
+argument_list|,
+name|p
+operator|->
+name|pack_name
+argument_list|,
+name|kind
 argument_list|)
 expr_stmt|;
 block|}
@@ -5070,7 +5082,11 @@ name|retval
 condition|)
 name|die
 argument_list|(
-literal|"corrupted pack file"
+literal|"corrupted pack file %s"
+argument_list|,
+name|p
+operator|->
+name|pack_name
 argument_list|)
 expr_stmt|;
 return|return
