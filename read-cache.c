@@ -2317,10 +2317,7 @@ condition|(
 name|active_cache
 condition|)
 return|return
-name|error
-argument_list|(
-literal|"more than one cachefile"
-argument_list|)
+name|active_nr
 return|;
 name|errno
 operator|=
@@ -2342,20 +2339,27 @@ name|fd
 operator|<
 literal|0
 condition|)
-return|return
-operator|(
+block|{
+if|if
+condition|(
 name|errno
 operator|==
 name|ENOENT
-operator|)
-condition|?
+condition|)
+return|return
 literal|0
-else|:
-name|error
-argument_list|(
-literal|"open failed"
-argument_list|)
 return|;
+name|die
+argument_list|(
+literal|"index file open failed (%s)"
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|size
 operator|=
 literal|0
@@ -2430,12 +2434,16 @@ name|map
 operator|==
 name|MAP_FAILED
 condition|)
-return|return
-name|error
+name|die
 argument_list|(
-literal|"mmap failed"
+literal|"index file mmap failed (%s)"
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 name|hdr
 operator|=
 name|map
@@ -2548,12 +2556,11 @@ name|errno
 operator|=
 name|EINVAL
 expr_stmt|;
-return|return
-name|error
+name|die
 argument_list|(
-literal|"verify header failed"
+literal|"index file corrupt"
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_define
