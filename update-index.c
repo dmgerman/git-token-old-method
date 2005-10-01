@@ -1844,6 +1844,11 @@ block|}
 block|}
 if|if
 condition|(
+name|active_cache_changed
+condition|)
+block|{
+if|if
+condition|(
 name|write_cache
 argument_list|(
 name|newfd
@@ -1864,6 +1869,7 @@ argument_list|(
 literal|"Unable to write new cachefile"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|has_errors
 condition|?
