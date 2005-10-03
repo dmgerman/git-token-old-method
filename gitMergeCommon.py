@@ -1414,9 +1414,13 @@ op|'='
 name|'os'
 op|'.'
 name|'environ'
-op|'['
+op|'.'
+name|'get'
+op|'('
 string|"'GIT_DIR'"
-op|']'
+op|','
+string|"'.git'"
+op|')'
 op|'+'
 string|"'/merge-tmp-index'"
 newline|'\n'
