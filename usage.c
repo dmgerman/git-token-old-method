@@ -74,7 +74,7 @@ argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
-literal|1
+literal|129
 argument_list|)
 expr_stmt|;
 block|}
@@ -118,7 +118,7 @@ argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
-literal|1
+literal|128
 argument_list|)
 expr_stmt|;
 block|}
