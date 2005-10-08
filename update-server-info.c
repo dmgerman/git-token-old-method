@@ -4,6 +4,11 @@ include|#
 directive|include
 file|"cache.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"object.h"
+end_include
 begin_decl_stmt
 DECL|variable|update_server_info_usage
 specifier|static
@@ -37,6 +42,10 @@ name|force
 init|=
 literal|0
 decl_stmt|;
+name|track_object_refs
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|i
