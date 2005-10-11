@@ -6493,7 +6493,6 @@ comment|/*  * Move the just written object into its final resting place  */
 end_comment
 begin_function
 DECL|function|move_temp_to_file
-specifier|static
 name|int
 name|move_temp_to_file
 parameter_list|(
