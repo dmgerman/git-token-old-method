@@ -2187,6 +2187,9 @@ name|path
 parameter_list|,
 name|int
 name|path_len
+parameter_list|,
+name|int
+name|local
 parameter_list|)
 block|{
 name|struct
@@ -2332,6 +2335,12 @@ operator|->
 name|pack_use_cnt
 operator|=
 literal|0
+expr_stmt|;
+name|p
+operator|->
+name|pack_local
+operator|=
+name|local
 expr_stmt|;
 return|return
 name|p
@@ -2545,6 +2554,9 @@ parameter_list|(
 name|char
 modifier|*
 name|objdir
+parameter_list|,
+name|int
+name|local
 parameter_list|)
 block|{
 name|char
@@ -2668,6 +2680,8 @@ argument_list|,
 name|len
 operator|+
 name|namelen
+argument_list|,
+name|local
 argument_list|)
 expr_stmt|;
 if|if
@@ -2722,6 +2736,8 @@ name|prepare_packed_git_one
 argument_list|(
 name|get_object_directory
 argument_list|()
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|prepare_alt_odb
@@ -2756,6 +2772,8 @@ argument_list|(
 name|alt
 operator|->
 name|base
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
