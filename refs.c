@@ -14,11 +14,6 @@ include|#
 directive|include
 file|<errno.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<ctype.h>
-end_include
 begin_comment
 comment|/* We allow "recursive" symbolic refs. Only within reason, though */
 end_comment
