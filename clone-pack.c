@@ -41,7 +41,7 @@ name|char
 name|clone_pack_usage
 index|[]
 init|=
-literal|"git-clone-pack [-q] [--exec=<git-upload-pack>] [<host>:]<directory> [<heads>]*"
+literal|"git-clone-pack [-q] [--keep] [--exec=<git-upload-pack>] [<host>:]<directory> [<heads>]*"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1145,6 +1145,13 @@ argument_list|,
 name|final
 argument_list|)
 expr_stmt|;
+name|chmod
+argument_list|(
+name|final
+argument_list|,
+literal|0444
+argument_list|)
+expr_stmt|;
 name|snprintf
 argument_list|(
 name|final
@@ -1167,6 +1174,13 @@ argument_list|(
 name|idx
 argument_list|,
 name|final
+argument_list|)
+expr_stmt|;
+name|chmod
+argument_list|(
+name|final
+argument_list|,
+literal|0444
 argument_list|)
 expr_stmt|;
 return|return
