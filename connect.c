@@ -17,6 +17,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"refs.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<sys/wait.h>
 end_include
 begin_include
