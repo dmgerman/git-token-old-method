@@ -2335,6 +2335,9 @@ name|char
 modifier|*
 modifier|*
 name|match
+parameter_list|,
+name|int
+name|ignore_funny
 parameter_list|)
 function_decl|;
 end_function_decl
