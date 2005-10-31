@@ -170,6 +170,18 @@ name|pathname
 argument_list|)
 expr_stmt|;
 block|}
+name|pathname
+index|[
+name|len
+index|]
+operator|=
+literal|0
+expr_stmt|;
+name|rmdir
+argument_list|(
+name|pathname
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -291,13 +303,7 @@ condition|(
 operator|!
 name|d
 condition|)
-name|die
-argument_list|(
-literal|"unable to open %s"
-argument_list|,
-name|pathname
-argument_list|)
-expr_stmt|;
+continue|continue;
 name|prune_dir
 argument_list|(
 name|i
@@ -397,6 +403,9 @@ name|prune_packed_usage
 argument_list|)
 expr_stmt|;
 block|}
+name|sync
+argument_list|()
+expr_stmt|;
 name|prune_packed_objects
 argument_list|()
 expr_stmt|;

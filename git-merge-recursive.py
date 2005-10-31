@@ -42,7 +42,7 @@ name|'path'
 op|'.'
 name|'append'
 op|'('
-string|"'@@GIT_PYTHON_PATH@@'"
+string|"'''@@GIT_PYTHON_PATH@@'''"
 op|')'
 newline|'\n'
 name|'from'
