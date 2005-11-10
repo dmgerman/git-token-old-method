@@ -133,7 +133,7 @@ name|char
 name|apply_usage
 index|[]
 init|=
-literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--index-info] [-z]<patch>..."
+literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [-z]<patch>..."
 decl_stmt|;
 end_decl_stmt
 begin_comment
