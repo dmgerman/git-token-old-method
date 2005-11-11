@@ -1977,7 +1977,7 @@ name|'newPath'
 op|'='
 name|'path'
 op|'+'
-string|"'_'"
+string|"'~'"
 op|'+'
 name|'branch'
 newline|'\n'
@@ -2009,7 +2009,7 @@ name|'newPath'
 op|'='
 name|'path'
 op|'+'
-string|"'_'"
+string|"'~'"
 op|'+'
 name|'branch'
 op|'+'
