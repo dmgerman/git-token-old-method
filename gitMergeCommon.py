@@ -1,4 +1,11 @@
 begin_unit
+comment|'#'
+nl|'\n'
+comment|'# Copyright (C) 2005 Fredrik Kuivinen'
+nl|'\n'
+comment|'#'
+nl|'\n'
+nl|'\n'
 name|'import'
 name|'sys'
 op|','

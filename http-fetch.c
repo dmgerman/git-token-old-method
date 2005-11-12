@@ -1500,6 +1500,15 @@ name|curl_low_speed_time
 argument_list|)
 expr_stmt|;
 block|}
+name|curl_easy_setopt
+argument_list|(
+name|result
+argument_list|,
+name|CURLOPT_FOLLOWLOCATION
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
@@ -4106,7 +4115,9 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Getting alternates list\n"
+literal|"Getting alternates list for %s\n"
+argument_list|,
+name|base
 argument_list|)
 expr_stmt|;
 name|url
@@ -4812,7 +4823,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Getting pack list\n"
+literal|"Getting pack list for %s\n"
+argument_list|,
+name|repo
+operator|->
+name|base
 argument_list|)
 expr_stmt|;
 name|url
