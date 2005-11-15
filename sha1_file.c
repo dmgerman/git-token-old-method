@@ -2219,6 +2219,7 @@ name|void
 modifier|*
 name|idx_map
 decl_stmt|;
+name|unsigned
 name|char
 name|sha1
 index|[
