@@ -4368,12 +4368,6 @@ if|if
 condition|(
 operator|!
 name|patchsize
-operator|&&
-operator|!
-name|metadata_changes
-argument_list|(
-name|patch
-argument_list|)
 condition|)
 block|{
 specifier|static
@@ -4424,20 +4418,27 @@ name|is_binary
 operator|=
 literal|1
 expr_stmt|;
+comment|/* Empty patch cannot be applied if: 		 * - it is a binary patch or 		 * - metadata does not change and is not a binary patch. 		 */
 if|if
 condition|(
+operator|(
+name|apply
+operator|||
+name|check
+operator|)
+operator|&&
+operator|(
 name|patch
 operator|->
 name|is_binary
-operator|&&
+operator|||
 operator|!
-name|apply
-operator|&&
-operator|!
-name|check
+name|metadata_changes
+argument_list|(
+name|patch
+argument_list|)
+operator|)
 condition|)
-empty_stmt|;
-else|else
 name|die
 argument_list|(
 literal|"patch with only garbage at line %d"
