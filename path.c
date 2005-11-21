@@ -620,7 +620,9 @@ specifier|static
 name|char
 modifier|*
 name|current_dir
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 return|return
 name|getcwd
