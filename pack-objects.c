@@ -2957,7 +2957,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"expected sha1, got garbage"
+literal|"expected sha1, got garbage:\n %s"
+argument_list|,
+name|line
 argument_list|)
 expr_stmt|;
 name|hash
