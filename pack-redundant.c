@@ -2565,9 +2565,6 @@ decl_stmt|,
 modifier|*
 name|l
 decl_stmt|;
-name|int
-name|i
-decl_stmt|;
 name|llist_init
 argument_list|(
 operator|&
@@ -2579,10 +2576,6 @@ condition|(
 name|pl
 condition|)
 block|{
-name|i
-operator|=
-literal|0
-expr_stmt|;
 name|hint
 operator|=
 name|NULL
