@@ -2437,6 +2437,7 @@ name|sa
 operator|.
 name|sin_addr
 argument_list|,
+operator|*
 name|ap
 argument_list|,
 name|he
