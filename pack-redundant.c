@@ -49,6 +49,7 @@ modifier|*
 name|next
 decl_stmt|;
 DECL|member|sha1
+name|unsigned
 name|char
 modifier|*
 name|sha1
@@ -494,6 +495,7 @@ name|llist_item
 modifier|*
 name|after
 parameter_list|,
+name|unsigned
 name|char
 modifier|*
 name|sha1
@@ -612,6 +614,7 @@ name|llist
 modifier|*
 name|list
 parameter_list|,
+name|unsigned
 name|char
 modifier|*
 name|sha1
@@ -645,6 +648,7 @@ name|llist
 modifier|*
 name|list
 parameter_list|,
+name|unsigned
 name|char
 modifier|*
 name|sha1
@@ -768,6 +772,7 @@ modifier|*
 name|list
 parameter_list|,
 specifier|const
+name|unsigned
 name|char
 modifier|*
 name|sha1
@@ -3059,10 +3064,12 @@ name|llist
 modifier|*
 name|ignore
 decl_stmt|;
+name|unsigned
 name|char
 modifier|*
 name|sha1
-decl_stmt|,
+decl_stmt|;
+name|char
 name|buf
 index|[
 literal|42
@@ -3496,6 +3503,10 @@ name|stderr
 argument_list|,
 literal|"%luMB of redundant packs in total.\n"
 argument_list|,
+operator|(
+name|unsigned
+name|long
+operator|)
 name|pack_set_bytecount
 argument_list|(
 name|red
