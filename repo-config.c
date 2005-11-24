@@ -17,7 +17,7 @@ name|char
 name|git_config_set_usage
 index|[]
 init|=
-literal|"git-config-set [--get | --get-all | --replace-all | --unset | --unset-all] name [value [value_regex]]"
+literal|"git-repo-config [--get | --get-all | --replace-all | --unset | --unset-all] name [value [value_regex]]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
