@@ -1831,7 +1831,7 @@ name|fd
 decl_stmt|;
 name|char
 modifier|*
-name|config_file
+name|config_filename
 init|=
 name|strdup
 argument_list|(
@@ -2073,7 +2073,7 @@ if|if
 condition|(
 name|stat
 argument_list|(
-name|config_file
+name|config_filename
 argument_list|,
 operator|&
 name|st
@@ -2422,7 +2422,7 @@ name|in_fd
 operator|=
 name|open
 argument_list|(
-name|config_file
+name|config_filename
 argument_list|,
 name|O_RDONLY
 argument_list|,
@@ -2670,7 +2670,7 @@ argument_list|)
 expr_stmt|;
 name|unlink
 argument_list|(
-name|config_file
+name|config_filename
 argument_list|)
 expr_stmt|;
 block|}
@@ -2685,7 +2685,7 @@ name|rename
 argument_list|(
 name|lock_file
 argument_list|,
-name|config_file
+name|config_filename
 argument_list|)
 operator|<
 literal|0
