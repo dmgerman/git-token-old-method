@@ -919,6 +919,9 @@ argument_list|(
 literal|"GIT_DIR=."
 argument_list|)
 expr_stmt|;
+name|check_repository_format
+argument_list|()
+expr_stmt|;
 return|return
 name|current_dir
 argument_list|()
