@@ -45,6 +45,7 @@ modifier|*
 name|name
 decl_stmt|;
 DECL|member|read
+specifier|const
 name|char
 modifier|*
 function_decl|(
@@ -283,6 +284,9 @@ name|var_usage
 argument_list|)
 expr_stmt|;
 block|}
+name|setup_git_directory
+argument_list|()
+expr_stmt|;
 name|setup_ident
 argument_list|()
 expr_stmt|;
