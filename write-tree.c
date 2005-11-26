@@ -427,9 +427,6 @@ name|funny
 decl_stmt|;
 name|int
 name|entries
-init|=
-name|read_cache
-argument_list|()
 decl_stmt|;
 name|unsigned
 name|char
@@ -438,6 +435,14 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+name|setup_git_directory
+argument_list|()
+expr_stmt|;
+name|entries
+operator|=
+name|read_cache
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|argc
