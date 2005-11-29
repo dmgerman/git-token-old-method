@@ -5795,7 +5795,13 @@ operator|->
 name|url
 argument_list|)
 expr_stmt|;
-comment|/* Freeing the token causes a segfault... 	free(lock->token); */
+name|free
+argument_list|(
+name|lock
+operator|->
+name|token
+argument_list|)
+expr_stmt|;
 name|free
 argument_list|(
 name|lock
@@ -7294,6 +7300,18 @@ name|i
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+operator|!
+name|remote
+operator|->
+name|url
+condition|)
+name|usage
+argument_list|(
+name|http_push_usage
+argument_list|)
+expr_stmt|;
 name|memset
 argument_list|(
 name|remote_dir_exists
