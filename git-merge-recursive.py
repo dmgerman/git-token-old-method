@@ -586,6 +586,8 @@ string|"'-r'"
 op|','
 string|"'-z'"
 op|','
+string|"'-t'"
+op|','
 name|'tree'
 op|']'
 op|')'
