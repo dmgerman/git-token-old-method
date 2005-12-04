@@ -121,6 +121,9 @@ name|char
 modifier|*
 name|prefix
 parameter_list|,
+name|int
+name|prefix_len
+parameter_list|,
 specifier|const
 name|char
 modifier|*

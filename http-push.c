@@ -4480,9 +4480,9 @@ argument_list|(
 name|ctx
 operator|->
 name|cdata
+argument_list|)
 operator|-
 literal|15
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|strcpy
@@ -5795,7 +5795,13 @@ operator|->
 name|url
 argument_list|)
 expr_stmt|;
-comment|/* Freeing the token causes a segfault... 	free(lock->token); */
+name|free
+argument_list|(
+name|lock
+operator|->
+name|token
+argument_list|)
+expr_stmt|;
 name|free
 argument_list|(
 name|lock
@@ -7148,6 +7154,9 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+name|setup_git_directory
+argument_list|()
+expr_stmt|;
 name|setup_ident
 argument_list|()
 expr_stmt|;
@@ -7294,6 +7303,18 @@ name|i
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+operator|!
+name|remote
+operator|->
+name|url
+condition|)
+name|usage
+argument_list|(
+name|http_push_usage
+argument_list|)
+expr_stmt|;
 name|memset
 argument_list|(
 name|remote_dir_exists
