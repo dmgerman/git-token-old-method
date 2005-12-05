@@ -2,12 +2,7 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|<string.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<ctype.h>
+file|"../git-compat-util.h"
 end_include
 begin_function
 DECL|function|gitstrcasestr
