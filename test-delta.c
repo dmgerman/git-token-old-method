@@ -179,6 +179,10 @@ name|st
 operator|.
 name|st_size
 expr_stmt|;
+if|if
+condition|(
+name|from_size
+condition|)
 name|from_buf
 operator|=
 name|mmap
@@ -195,6 +199,11 @@ name|fd
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+else|else
+name|from_buf
+operator|=
+literal|""
 expr_stmt|;
 if|if
 condition|(
@@ -270,6 +279,10 @@ name|st
 operator|.
 name|st_size
 expr_stmt|;
+if|if
+condition|(
+name|data_size
+condition|)
 name|data_buf
 operator|=
 name|mmap
@@ -286,6 +299,11 @@ name|fd
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+else|else
+name|data_buf
+operator|=
+literal|""
 expr_stmt|;
 if|if
 condition|(
