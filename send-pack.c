@@ -1013,6 +1013,23 @@ return|return
 operator|-
 literal|1
 return|;
+if|if
+condition|(
+operator|!
+name|remote_refs
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"No refs in common and none specified; doing nothing.\n"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 comment|/* 	 * Finally, tell the other end! 	 */
 name|new_refs
 operator|=

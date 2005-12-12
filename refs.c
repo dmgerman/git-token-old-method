@@ -1590,6 +1590,20 @@ argument_list|(
 name|ref
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|safe_create_leading_directories
+argument_list|(
+name|filename
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to create leading directory for %s"
+argument_list|,
+name|filename
+argument_list|)
+expr_stmt|;
 name|retval
 operator|=
 name|write_ref_file
@@ -1859,6 +1873,20 @@ operator|=
 name|ref_lock_file_name
 argument_list|(
 name|ref
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|safe_create_leading_directories
+argument_list|(
+name|filename
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to create leading directory for %s"
+argument_list|,
+name|filename
 argument_list|)
 expr_stmt|;
 name|fd

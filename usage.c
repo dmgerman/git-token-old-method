@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"git-compat-util.h"
 end_include
 begin_function
 DECL|function|report
