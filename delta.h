@@ -76,14 +76,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* the smallest possible delta size is 4 bytes */
+comment|/* the smallest possible delta size is 2 bytes (empty to empty) */
 end_comment
 begin_define
 DECL|macro|DELTA_SIZE_MIN
 define|#
 directive|define
 name|DELTA_SIZE_MIN
-value|4
+value|2
 end_define
 begin_comment
 comment|/*  * This must be called twice on the delta data buffer, first to get the  * expected reference buffer size, and again to get the result buffer size.  */
