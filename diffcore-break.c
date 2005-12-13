@@ -141,6 +141,16 @@ operator|->
 name|size
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|base_size
+operator|<
+name|MINIMUM_BREAK_SIZE
+condition|)
+return|return
+literal|0
+return|;
+comment|/* we do not break too small filepair */
 name|delta
 operator|=
 name|diff_delta
@@ -474,14 +484,6 @@ argument_list|,
 operator|&
 name|score
 argument_list|)
-operator|&&
-name|MINIMUM_BREAK_SIZE
-operator|<=
-name|p
-operator|->
-name|one
-operator|->
-name|size
 condition|)
 block|{
 comment|/* Split this into delete and create */
