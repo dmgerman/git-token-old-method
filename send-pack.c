@@ -960,6 +960,11 @@ decl_stmt|;
 name|int
 name|new_refs
 decl_stmt|;
+name|int
+name|ret
+init|=
+literal|0
+decl_stmt|;
 comment|/* No funny business with the matcher */
 name|remote_tail
 operator|=
@@ -1147,6 +1152,11 @@ name|old_sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
+operator|-
+literal|2
+expr_stmt|;
 continue|continue;
 block|}
 comment|/* We assume that local is fsck-clean.  Otherwise 			 * you _could_ have an old tag which points at 			 * something you do not have, which may or may not 			 * be a commit. 			 */
@@ -1183,6 +1193,11 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
+operator|-
+literal|2
+expr_stmt|;
 continue|continue;
 block|}
 block|}
@@ -1215,6 +1230,11 @@ name|error
 argument_list|(
 literal|"cannot happen anymore"
 argument_list|)
+expr_stmt|;
+name|ret
+operator|=
+operator|-
+literal|3
 expr_stmt|;
 continue|continue;
 block|}
@@ -1330,7 +1350,7 @@ name|out
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+name|ret
 return|;
 block|}
 end_function
