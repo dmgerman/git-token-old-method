@@ -166,7 +166,7 @@ block|{
 name|int
 name|ret
 init|=
-name|read
+name|xread
 argument_list|(
 literal|0
 argument_list|,
@@ -199,17 +199,6 @@ argument_list|(
 literal|"early EOF"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|errno
-operator|==
-name|EAGAIN
-operator|||
-name|errno
-operator|==
-name|EINTR
-condition|)
-continue|continue;
 name|die
 argument_list|(
 literal|"read error on input: %s"
@@ -1586,7 +1575,7 @@ block|{
 name|int
 name|ret
 init|=
-name|write
+name|xwrite
 argument_list|(
 literal|1
 argument_list|,
@@ -1599,30 +1588,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|ret
-condition|)
-break|break;
-if|if
-condition|(
-name|ret
-operator|<
+operator|<=
 literal|0
 condition|)
-block|{
-if|if
-condition|(
-name|errno
-operator|==
-name|EAGAIN
-operator|||
-name|errno
-operator|==
-name|EINTR
-condition|)
-continue|continue;
 break|break;
-block|}
 name|len
 operator|-=
 name|ret
