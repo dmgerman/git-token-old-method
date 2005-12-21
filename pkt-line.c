@@ -38,7 +38,7 @@ block|{
 name|int
 name|ret
 init|=
-name|write
+name|xwrite
 argument_list|(
 name|fd
 argument_list|,
@@ -74,17 +74,6 @@ argument_list|(
 literal|"write error (disk full?)"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|errno
-operator|==
-name|EAGAIN
-operator|||
-name|errno
-operator|==
-name|EINTR
-condition|)
-continue|continue;
 name|die
 argument_list|(
 literal|"write error (%s)"
@@ -308,7 +297,7 @@ block|{
 name|int
 name|ret
 init|=
-name|read
+name|xread
 argument_list|(
 name|fd
 argument_list|,
@@ -327,18 +316,6 @@ name|ret
 operator|<
 literal|0
 condition|)
-block|{
-if|if
-condition|(
-name|errno
-operator|==
-name|EINTR
-operator|||
-name|errno
-operator|==
-name|EAGAIN
-condition|)
-continue|continue;
 name|die
 argument_list|(
 literal|"read error (%s)"
@@ -349,7 +326,6 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
