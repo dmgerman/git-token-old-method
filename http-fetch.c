@@ -3494,7 +3494,7 @@ condition|(
 name|i
 operator|+
 literal|52
-operator|<
+operator|<=
 name|buffer
 operator|.
 name|posn
@@ -3553,6 +3553,12 @@ block|}
 default|default:
 while|while
 condition|(
+name|i
+operator|<
+name|buffer
+operator|.
+name|posn
+operator|&&
 name|data
 index|[
 name|i
