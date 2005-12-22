@@ -1543,7 +1543,7 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"warning: ignoring %s; "
-literal|"cannot handle more than %d refs"
+literal|"cannot handle more than %d refs\n"
 argument_list|,
 name|refname
 argument_list|,
@@ -2900,7 +2900,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"'%s' is not a valid ref.\n"
+literal|"'%s' is not a valid ref."
 argument_list|,
 name|ref_name
 index|[
