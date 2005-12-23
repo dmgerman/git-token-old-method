@@ -425,6 +425,11 @@ literal|0xf
 index|]
 expr_stmt|;
 block|}
+operator|*
+name|buf
+operator|=
+literal|'\0'
+expr_stmt|;
 return|return
 name|buffer
 return|;
