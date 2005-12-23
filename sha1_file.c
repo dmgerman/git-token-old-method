@@ -425,6 +425,11 @@ literal|0xf
 index|]
 expr_stmt|;
 block|}
+operator|*
+name|buf
+operator|=
+literal|'\0'
+expr_stmt|;
 return|return
 name|buffer
 return|;
@@ -2434,6 +2439,12 @@ name|local
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|path_len
+operator|>
+literal|44
+operator|)
+operator|&&
 operator|!
 name|get_sha1_hex
 argument_list|(
@@ -2441,9 +2452,7 @@ name|path
 operator|+
 name|path_len
 operator|-
-literal|40
-operator|-
-literal|4
+literal|44
 argument_list|,
 name|sha1
 argument_list|)
@@ -6437,7 +6446,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"unable to write sha1 filename %s: %s"
+literal|"unable to write sha1 filename %s: %s\n"
 argument_list|,
 name|filename
 argument_list|,
@@ -6603,7 +6612,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"sha1 file %s: %s"
+literal|"sha1 file %s: %s\n"
 argument_list|,
 name|filename
 argument_list|,
@@ -6651,7 +6660,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"unable to create temporary sha1 filename %s: %s"
+literal|"unable to create temporary sha1 filename %s: %s\n"
 argument_list|,
 name|tmpfile
 argument_list|,
@@ -7109,7 +7118,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"write closed"
+literal|"write closed\n"
 argument_list|)
 expr_stmt|;
 block|}
