@@ -3379,7 +3379,7 @@ name|st
 decl_stmt|;
 if|if
 condition|(
-name|stat
+name|lstat
 argument_list|(
 name|one
 operator|->
