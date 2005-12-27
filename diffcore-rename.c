@@ -1477,6 +1477,10 @@ name|rename_dst_nr
 operator|==
 literal|0
 operator|||
+name|rename_src_nr
+operator|==
+literal|0
+operator|||
 operator|(
 literal|0
 operator|<
