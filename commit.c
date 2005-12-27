@@ -2949,6 +2949,12 @@ name|count
 operator|++
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|count
+condition|)
+return|return;
 comment|/* allocate an array to help sort the list */
 name|nodes
 operator|=
