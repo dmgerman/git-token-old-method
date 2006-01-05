@@ -8071,8 +8071,6 @@ operator||
 name|O_EXCL
 operator||
 name|O_WRONLY
-operator||
-name|O_TRUNC
 argument_list|,
 operator|(
 name|mode
