@@ -8071,8 +8071,6 @@ operator||
 name|O_EXCL
 operator||
 name|O_WRONLY
-operator||
-name|O_TRUNC
 argument_list|,
 operator|(
 name|mode
@@ -8323,6 +8321,9 @@ operator|!=
 name|EEXIST
 condition|)
 break|break;
+operator|++
+name|nr
+expr_stmt|;
 block|}
 block|}
 name|die
