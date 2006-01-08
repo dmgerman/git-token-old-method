@@ -2,6 +2,11 @@ begin_unit
 begin_include
 include|#
 directive|include
+file|"cache.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"tree.h"
 end_include
 begin_include
@@ -18,11 +23,6 @@ begin_include
 include|#
 directive|include
 file|"tag.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"cache.h"
 end_include
 begin_include
 include|#

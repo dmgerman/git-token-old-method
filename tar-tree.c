@@ -2434,7 +2434,7 @@ name|NULL
 argument_list|,
 name|basedir
 argument_list|,
-literal|040755
+literal|040777
 argument_list|,
 name|NULL
 argument_list|,

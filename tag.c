@@ -2,12 +2,12 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|"tag.h"
+file|"cache.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"tag.h"
 end_include
 begin_decl_stmt
 DECL|variable|tag_type
