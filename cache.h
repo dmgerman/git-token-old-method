@@ -242,9 +242,10 @@ DECL|member|name
 name|char
 name|name
 index|[
-literal|0
+name|FLEX_ARRAY
 index|]
 decl_stmt|;
+comment|/* more */
 block|}
 struct|;
 end_struct
@@ -1924,7 +1925,7 @@ DECL|member|base
 name|char
 name|base
 index|[
-literal|0
+name|FLEX_ARRAY
 index|]
 decl_stmt|;
 comment|/* more */
@@ -1997,14 +1998,15 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+comment|/* something like ".git/objects/pack/xxxxx.pack" */
 DECL|member|pack_name
 name|char
 name|pack_name
 index|[
-literal|0
+name|FLEX_ARRAY
 index|]
 decl_stmt|;
-comment|/* something like ".git/objects/pack/xxxxx.pack" */
+comment|/* more */
 block|}
 modifier|*
 name|packed_git
@@ -2080,9 +2082,10 @@ DECL|member|name
 name|char
 name|name
 index|[
-literal|0
+name|FLEX_ARRAY
 index|]
 decl_stmt|;
+comment|/* more */
 block|}
 struct|;
 end_struct
