@@ -3797,7 +3797,7 @@ name|full_index
 condition|?
 literal|40
 else|:
-name|DIFF_DEFAULT_INDEX_ABBREV
+name|DEFAULT_ABBREV
 decl_stmt|;
 name|memcpy
 argument_list|(
@@ -4638,7 +4638,7 @@ name|options
 operator|->
 name|abbrev
 operator|=
-name|DIFF_DEFAULT_ABBREV
+name|DEFAULT_ABBREV
 expr_stmt|;
 elseif|else
 if|if

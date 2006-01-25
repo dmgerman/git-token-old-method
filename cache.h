@@ -1564,6 +1564,20 @@ end_function_decl
 begin_comment
 comment|/* Convert to/from hex/sha1 representation */
 end_comment
+begin_define
+DECL|macro|MINIMUM_ABBREV
+define|#
+directive|define
+name|MINIMUM_ABBREV
+value|4
+end_define
+begin_define
+DECL|macro|DEFAULT_ABBREV
+define|#
+directive|define
+name|DEFAULT_ABBREV
+value|7
+end_define
 begin_function_decl
 specifier|extern
 name|int
