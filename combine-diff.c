@@ -2297,11 +2297,6 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-name|putchar
-argument_list|(
-literal|' '
-argument_list|)
-expr_stmt|;
 name|puts
 argument_list|(
 name|ll
@@ -2356,7 +2351,7 @@ expr_stmt|;
 block|}
 name|printf
 argument_list|(
-literal|" %.*s\n"
+literal|"%.*s\n"
 argument_list|,
 name|sl
 operator|->
@@ -3057,7 +3052,13 @@ condition|)
 continue|continue;
 name|printf
 argument_list|(
-literal|"diff --combined "
+literal|"diff --%s "
+argument_list|,
+name|dense
+condition|?
+literal|"cc"
+else|:
+literal|"combined"
 argument_list|)
 expr_stmt|;
 if|if
