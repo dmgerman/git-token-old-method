@@ -449,8 +449,6 @@ argument_list|(
 name|commit_format
 argument_list|,
 name|commit
-operator|->
-name|buffer
 argument_list|,
 operator|~
 literal|0
