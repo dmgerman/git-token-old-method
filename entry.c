@@ -482,12 +482,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|char
-name|target
-index|[
-literal|1024
-index|]
-decl_stmt|;
 name|new
 operator|=
 name|read_sha1_file
@@ -634,27 +628,11 @@ break|break;
 case|case
 name|S_IFLNK
 case|:
-name|memcpy
-argument_list|(
-name|target
-argument_list|,
-name|new
-argument_list|,
-name|size
-argument_list|)
-expr_stmt|;
-name|target
-index|[
-name|size
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
 if|if
 condition|(
 name|symlink
 argument_list|(
-name|target
+name|new
 argument_list|,
 name|path
 argument_list|)
@@ -668,7 +646,8 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"git-checkout-index: unable to create symlink %s (%s)"
+literal|"git-checkout-index: unable to create "
+literal|"symlink %s (%s)"
 argument_list|,
 name|path
 argument_list|,
