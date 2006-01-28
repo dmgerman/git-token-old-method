@@ -392,9 +392,10 @@ modifier|*
 name|parent_sha1
 parameter_list|,
 specifier|const
-name|char
+name|struct
+name|commit
 modifier|*
-name|msg
+name|commit
 parameter_list|)
 block|{
 specifier|static
@@ -417,6 +418,15 @@ init|=
 name|diff_options
 operator|.
 name|abbrev
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|msg
+init|=
+name|commit
+operator|->
+name|buffer
 decl_stmt|;
 if|if
 condition|(
@@ -500,7 +510,7 @@ name|pretty_print_commit
 argument_list|(
 name|commit_format
 argument_list|,
-name|msg
+name|commit
 argument_list|,
 name|len
 argument_list|,
@@ -514,6 +524,8 @@ name|this_header
 argument_list|)
 operator|-
 name|offset
+argument_list|,
+name|abbrev
 argument_list|)
 expr_stmt|;
 return|return
@@ -616,8 +628,6 @@ argument_list|,
 name|NULL
 argument_list|,
 name|commit
-operator|->
-name|buffer
 argument_list|)
 expr_stmt|;
 name|diff_root_tree
@@ -721,8 +731,6 @@ operator|.
 name|sha1
 argument_list|,
 name|commit
-operator|->
-name|buffer
 argument_list|)
 expr_stmt|;
 name|diff_tree_sha1_top

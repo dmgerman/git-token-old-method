@@ -1290,8 +1290,6 @@ argument_list|(
 name|CMIT_FMT_ONELINE
 argument_list|,
 name|commit
-operator|->
-name|buffer
 argument_list|,
 operator|~
 literal|0
@@ -1302,6 +1300,8 @@ sizeof|sizeof
 argument_list|(
 name|pretty
 argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 else|else

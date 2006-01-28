@@ -459,8 +459,6 @@ argument_list|(
 name|commit_format
 argument_list|,
 name|commit
-operator|->
-name|buffer
 argument_list|,
 operator|~
 literal|0
@@ -471,6 +469,8 @@ sizeof|sizeof
 argument_list|(
 name|pretty_header
 argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|printf
