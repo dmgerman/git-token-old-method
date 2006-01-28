@@ -678,6 +678,11 @@ decl_stmt|;
 block|}
 name|combine
 struct|;
+name|int
+name|num_compare_stages
+init|=
+literal|0
+decl_stmt|;
 name|combine
 operator|.
 name|p
@@ -809,6 +814,10 @@ literal|2
 operator|<=
 name|stage
 condition|)
+block|{
+name|num_compare_stages
+operator|++
+expr_stmt|;
 name|memcpy
 argument_list|(
 name|combine
@@ -829,6 +838,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
+block|}
 comment|/* diff against the proper unmerged stage */
 if|if
 condition|(
@@ -851,6 +861,10 @@ expr_stmt|;
 if|if
 condition|(
 name|combine_merges
+operator|&&
+name|num_compare_stages
+operator|==
+literal|2
 condition|)
 block|{
 name|show_combined_diff
@@ -869,8 +883,26 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|combine
+operator|.
+name|p
+operator|.
+name|path
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
+name|free
+argument_list|(
+name|combine
+operator|.
+name|p
+operator|.
+name|path
+argument_list|)
+expr_stmt|;
 comment|/* 			 * Show the diff for the 'ce' if we found the one 			 * from the desired stage. 			 */
 name|show_unmerge
 argument_list|(
