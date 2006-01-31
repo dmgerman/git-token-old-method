@@ -55,6 +55,15 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|p_value
+specifier|static
+name|int
+name|p_value
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|allow_binary_replacement
 specifier|static
 name|int
@@ -161,7 +170,7 @@ name|char
 name|apply_usage
 index|[]
 init|=
-literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [-z]<patch>..."
+literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [-z] [-pNUM]<patch>..."
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -957,11 +966,6 @@ modifier|*
 name|patch
 parameter_list|)
 block|{
-name|int
-name|p_value
-init|=
-literal|1
-decl_stmt|;
 name|char
 modifier|*
 name|name
@@ -9094,6 +9098,30 @@ expr_stmt|;
 name|excludes
 operator|=
 name|x
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strncmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-p"
+argument_list|,
+literal|2
+argument_list|)
+condition|)
+block|{
+name|p_value
+operator|=
+name|atoi
+argument_list|(
+name|arg
+operator|+
+literal|2
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
