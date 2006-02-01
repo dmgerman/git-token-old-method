@@ -2023,7 +2023,6 @@ name|active_request_slot
 modifier|*
 name|slot
 decl_stmt|;
-specifier|static
 name|struct
 name|slot_results
 name|results
@@ -3015,7 +3014,6 @@ name|active_request_slot
 modifier|*
 name|slot
 decl_stmt|;
-specifier|static
 name|struct
 name|alternates_request
 name|alt_req
@@ -3264,7 +3262,6 @@ name|active_request_slot
 modifier|*
 name|slot
 decl_stmt|;
-specifier|static
 name|struct
 name|slot_results
 name|results
@@ -3706,7 +3703,6 @@ name|active_request_slot
 modifier|*
 name|slot
 decl_stmt|;
-specifier|static
 name|struct
 name|slot_results
 name|results
@@ -4841,7 +4837,6 @@ name|active_request_slot
 modifier|*
 name|slot
 decl_stmt|;
-specifier|static
 name|struct
 name|slot_results
 name|results
