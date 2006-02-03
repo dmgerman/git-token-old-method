@@ -2666,7 +2666,7 @@ index|]
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"-%lu,%lu "
+literal|" -%lu,%lu"
 argument_list|,
 name|l0
 argument_list|,
@@ -2810,19 +2810,6 @@ argument_list|(
 name|combine_marker
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|" +%lu,%lu "
-argument_list|,
-name|lno
-operator|+
-literal|1
-argument_list|,
-name|hunk_end
-operator|-
-name|lno
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -2847,6 +2834,19 @@ argument_list|,
 name|cnt
 argument_list|,
 name|i
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|" +%lu,%lu "
+argument_list|,
+name|lno
+operator|+
+literal|1
+argument_list|,
+name|hunk_end
+operator|-
+name|lno
 argument_list|)
 expr_stmt|;
 for|for
@@ -3910,7 +3910,7 @@ literal|"%s%s"
 argument_list|,
 name|i
 condition|?
-literal|".."
+literal|","
 else|:
 literal|""
 argument_list|,
@@ -3930,7 +3930,7 @@ expr_stmt|;
 block|}
 name|printf
 argument_list|(
-literal|"->%s\n"
+literal|"..%s\n"
 argument_list|,
 name|find_unique_abbrev
 argument_list|(
