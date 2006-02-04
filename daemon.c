@@ -610,13 +610,26 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|strict_paths
+operator|&&
+operator|*
+name|dir
+operator|==
+literal|'~'
+condition|)
+empty_stmt|;
+comment|/* allow user relative paths */
+elseif|else
+if|if
+condition|(
 operator|*
 name|dir
 operator|!=
 literal|'/'
 condition|)
 block|{
-comment|/* Forbid possible base-path evasion using ~paths. */
+comment|/* otherwise allow only absolute */
 name|logerror
 argument_list|(
 literal|"'%s': Non-absolute path denied (base-path active)"
@@ -628,6 +641,8 @@ return|return
 name|NULL
 return|;
 block|}
+else|else
+block|{
 name|snprintf
 argument_list|(
 name|rpath
@@ -645,6 +660,7 @@ name|dir
 operator|=
 name|rpath
 expr_stmt|;
+block|}
 block|}
 name|path
 operator|=
