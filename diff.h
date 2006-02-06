@@ -394,9 +394,6 @@ specifier|const
 name|char
 modifier|*
 name|header
-parameter_list|,
-name|int
-name|show_empty
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -414,8 +411,6 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-parameter_list|,
-name|int
 parameter_list|,
 name|int
 parameter_list|)

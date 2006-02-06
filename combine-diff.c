@@ -3172,9 +3172,6 @@ specifier|const
 name|char
 modifier|*
 name|header
-parameter_list|,
-name|int
-name|show_empty
 parameter_list|)
 block|{
 name|unsigned
@@ -4067,9 +4064,6 @@ modifier|*
 name|header
 parameter_list|,
 name|int
-name|show_empty_merge
-parameter_list|,
-name|int
 name|dense
 parameter_list|)
 block|{
@@ -4258,8 +4252,6 @@ block|}
 if|if
 condition|(
 name|num_paths
-operator|||
-name|show_empty_merge
 condition|)
 block|{
 for|for
@@ -4296,8 +4288,6 @@ argument_list|,
 name|dense
 argument_list|,
 name|header
-argument_list|,
-name|show_empty_merge
 argument_list|)
 condition|)
 name|header
