@@ -1708,10 +1708,11 @@ operator|->
 name|sha1
 argument_list|)
 condition|)
-name|release_object_request
-argument_list|(
 name|obj_req
-argument_list|)
+operator|->
+name|state
+operator|=
+name|COMPLETE
 expr_stmt|;
 else|else
 name|start_object_request
@@ -2510,15 +2511,12 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|start_active_slot
 argument_list|(
 name|slot
 argument_list|)
 condition|)
-block|{
-return|return;
-block|}
-else|else
 block|{
 name|got_alternates
 operator|=
@@ -2531,8 +2529,8 @@ name|in_use
 operator|=
 literal|0
 expr_stmt|;
-return|return;
 block|}
+return|return;
 block|}
 block|}
 elseif|else
@@ -4411,18 +4409,11 @@ name|ret
 operator|=
 name|error
 argument_list|(
-literal|"unable to write sha1 filename %s: %s"
+literal|"unable to write sha1 filename %s"
 argument_list|,
 name|obj_req
 operator|->
 name|filename
-argument_list|,
-name|strerror
-argument_list|(
-name|obj_req
-operator|->
-name|rename
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
