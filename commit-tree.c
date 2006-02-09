@@ -444,6 +444,9 @@ decl_stmt|;
 name|setup_ident
 argument_list|()
 expr_stmt|;
+name|setup_git_directory
+argument_list|()
+expr_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
@@ -471,9 +474,6 @@ name|usage
 argument_list|(
 name|commit_tree_usage
 argument_list|)
-expr_stmt|;
-name|setup_git_directory
-argument_list|()
 expr_stmt|;
 name|check_valid
 argument_list|(
