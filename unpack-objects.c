@@ -1310,16 +1310,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|unsigned
-name|version
-init|=
-name|ntohl
-argument_list|(
-name|hdr
-operator|->
-name|hdr_version
-argument_list|)
-decl_stmt|;
-name|unsigned
 name|nr_objects
 init|=
 name|ntohl
@@ -1347,15 +1337,24 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|version
-operator|!=
-name|PACK_VERSION
+operator|!
+name|pack_version_ok
+argument_list|(
+name|hdr
+operator|->
+name|hdr_version
+argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"unable to handle pack file version %d"
+literal|"unknown pack file version %d"
 argument_list|,
-name|version
+name|ntohl
+argument_list|(
+name|hdr
+operator|->
+name|hdr_version
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fprintf
