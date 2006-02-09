@@ -4612,11 +4612,10 @@ name|i
 decl_stmt|,
 name|num_paths
 decl_stmt|;
-name|diff_setup
-argument_list|(
-operator|&
 name|diffopts
-argument_list|)
+operator|=
+operator|*
+name|opt
 expr_stmt|;
 name|diffopts
 operator|.
@@ -4706,6 +4705,12 @@ name|sha1
 argument_list|,
 literal|""
 argument_list|,
+operator|&
+name|diffopts
+argument_list|)
+expr_stmt|;
+name|diffcore_std
+argument_list|(
 operator|&
 name|diffopts
 argument_list|)
