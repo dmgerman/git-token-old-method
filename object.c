@@ -357,7 +357,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|count
+name|obj_allocs
 condition|;
 name|i
 operator|++
