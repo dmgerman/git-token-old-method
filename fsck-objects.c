@@ -358,7 +358,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|nr_objs
+name|obj_allocs
 condition|;
 name|i
 operator|++
@@ -374,6 +374,12 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|obj
+condition|)
+continue|continue;
 if|if
 condition|(
 operator|!
