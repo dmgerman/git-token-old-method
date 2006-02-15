@@ -2452,6 +2452,7 @@ name|unsigned
 name|long
 modifier|*
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 parameter_list|,

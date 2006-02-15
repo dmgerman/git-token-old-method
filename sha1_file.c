@@ -4199,6 +4199,7 @@ name|long
 modifier|*
 name|store_size
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 name|delta_chain_length
@@ -4278,6 +4279,7 @@ literal|0
 expr_stmt|;
 else|else
 block|{
+name|unsigned
 name|int
 name|chain_length
 init|=
