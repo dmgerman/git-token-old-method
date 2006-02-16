@@ -182,6 +182,8 @@ literal|"--sparse"
 block|,
 literal|"--topo-order"
 block|,
+literal|"--date-order"
+block|,
 literal|"--unpacked"
 block|,
 name|NULL
