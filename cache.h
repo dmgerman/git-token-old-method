@@ -1850,7 +1850,7 @@ name|char
 modifier|*
 name|git_author_info
 parameter_list|(
-name|void
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1861,7 +1861,7 @@ name|char
 modifier|*
 name|git_committer_info
 parameter_list|(
-name|void
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
