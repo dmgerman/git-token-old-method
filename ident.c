@@ -193,43 +193,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|au_env
-specifier|static
-specifier|const
-name|char
-name|au_env
-index|[]
-init|=
-literal|"GIT_AUTHOR_NAME"
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|co_env
-specifier|static
-specifier|const
-name|char
-name|co_env
-index|[]
-init|=
-literal|"GIT_COMMITTER_NAME"
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|env_hint
-specifier|static
-specifier|const
-name|char
-name|env_hint
-index|[]
-init|=
-literal|"\n*** Environment problem:\n"
-literal|"*** Your name cannot be determined from your system services (gecos).\n"
-literal|"*** You would need to set %s and %s\n"
-literal|"*** environment variables; otherwise you won't be able to perform\n"
-literal|"*** certain operations because of \"empty ident\" errors.\n\n"
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|setup_ident
 name|int
@@ -275,39 +238,6 @@ name|git_default_name
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|*
-name|git_default_name
-condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|getenv
-argument_list|(
-name|au_env
-argument_list|)
-operator|||
-operator|!
-name|getenv
-argument_list|(
-name|co_env
-argument_list|)
-condition|)
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-name|env_hint
-argument_list|,
-name|au_env
-argument_list|,
-name|co_env
-argument_list|)
-expr_stmt|;
-block|}
 comment|/* Make up a fake email address (name + '@' + hostname [+ '.' + domainname]) */
 name|len
 operator|=
@@ -837,6 +767,44 @@ name|offset
 return|;
 block|}
 end_function
+begin_decl_stmt
+DECL|variable|au_env
+specifier|static
+specifier|const
+name|char
+name|au_env
+index|[]
+init|=
+literal|"GIT_AUTHOR_NAME"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|co_env
+specifier|static
+specifier|const
+name|char
+name|co_env
+index|[]
+init|=
+literal|"GIT_COMMITTER_NAME"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|env_hint
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|env_hint
+init|=
+literal|"\n*** Environment problem:\n"
+literal|"*** Your name cannot be determined from your system services (gecos).\n"
+literal|"*** You would need to set %s and %s\n"
+literal|"*** environment variables; otherwise you won't be able to perform\n"
+literal|"*** certain operations because of \"empty ident\" errors.\n"
+literal|"*** Alternatively, you can use user.name configuration variable.\n\n"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|get_ident
 specifier|static
@@ -859,6 +827,9 @@ specifier|const
 name|char
 modifier|*
 name|date_str
+parameter_list|,
+name|int
+name|error_on_no_name
 parameter_list|)
 block|{
 specifier|static
@@ -900,10 +871,37 @@ condition|(
 operator|!
 operator|*
 name|name
-operator|||
-operator|!
-operator|*
-name|email
+condition|)
+block|{
+if|if
+condition|(
+name|name
+operator|==
+name|git_default_name
+operator|&&
+name|env_hint
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+name|env_hint
+argument_list|,
+name|au_env
+argument_list|,
+name|co_env
+argument_list|)
+expr_stmt|;
+name|env_hint
+operator|=
+name|NULL
+expr_stmt|;
+comment|/* warn only once, for "git-var -l" */
+block|}
+if|if
+condition|(
+name|error_on_no_name
 condition|)
 name|die
 argument_list|(
@@ -914,6 +912,7 @@ argument_list|,
 name|email
 argument_list|)
 expr_stmt|;
+block|}
 name|strcpy
 argument_list|(
 name|date
@@ -1050,7 +1049,8 @@ name|char
 modifier|*
 name|git_author_info
 parameter_list|(
-name|void
+name|int
+name|error_on_no_name
 parameter_list|)
 block|{
 return|return
@@ -1070,6 +1070,8 @@ name|getenv
 argument_list|(
 literal|"GIT_AUTHOR_DATE"
 argument_list|)
+argument_list|,
+name|error_on_no_name
 argument_list|)
 return|;
 block|}
@@ -1081,7 +1083,8 @@ name|char
 modifier|*
 name|git_committer_info
 parameter_list|(
-name|void
+name|int
+name|error_on_no_name
 parameter_list|)
 block|{
 return|return
@@ -1101,6 +1104,8 @@ name|getenv
 argument_list|(
 literal|"GIT_COMMITTER_DATE"
 argument_list|)
+argument_list|,
+name|error_on_no_name
 argument_list|)
 return|;
 block|}
