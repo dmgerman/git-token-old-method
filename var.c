@@ -53,7 +53,7 @@ modifier|*
 name|read
 function_decl|)
 parameter_list|(
-name|void
+name|int
 parameter_list|)
 function_decl|;
 block|}
@@ -127,7 +127,9 @@ argument_list|,
 name|ptr
 operator|->
 name|read
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -194,7 +196,9 @@ operator|=
 name|ptr
 operator|->
 name|read
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
