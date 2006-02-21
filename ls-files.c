@@ -3950,6 +3950,9 @@ operator|+
 name|prefix_offset
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
 block|}
 return|return
 name|errors
