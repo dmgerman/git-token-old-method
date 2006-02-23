@@ -2939,7 +2939,7 @@ name|ENOENT
 condition|)
 name|error
 argument_list|(
-literal|"unable to open object pack directory: %s: %s\n"
+literal|"unable to open object pack directory: %s: %s"
 argument_list|,
 name|path
 argument_list|,
@@ -7592,7 +7592,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"Couldn't open %s for %s\n"
+literal|"Couldn't open %s for %s"
 argument_list|,
 name|tmpfile
 argument_list|,
@@ -7888,7 +7888,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"File %s has bad hash\n"
+literal|"File %s has bad hash"
 argument_list|,
 name|sha1_to_hex
 argument_list|(

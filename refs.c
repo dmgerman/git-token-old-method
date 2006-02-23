@@ -1476,7 +1476,7 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"Couldn't write %s\n"
+literal|"Couldn't write %s"
 argument_list|,
 name|filename
 argument_list|)
