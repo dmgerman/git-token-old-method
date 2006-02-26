@@ -67,13 +67,6 @@ begin_comment
 comment|/* Low bits are used by rev-list */
 end_comment
 begin_define
-DECL|macro|UNINTERESTING
-define|#
-directive|define
-name|UNINTERESTING
-value|(1u<<10)
-end_define
-begin_define
 DECL|macro|BOUNDARY
 define|#
 directive|define
