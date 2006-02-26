@@ -57,7 +57,10 @@ name|DT_UNKNOWN
 argument_list|)
 operator|&&
 operator|!
+name|defined
+argument_list|(
 name|NO_D_TYPE_IN_DIRENT
+argument_list|)
 end_if
 begin_define
 DECL|macro|DTYPE

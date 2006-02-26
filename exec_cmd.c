@@ -72,7 +72,9 @@ specifier|const
 name|char
 modifier|*
 name|git_exec_path
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 specifier|const
 name|char
