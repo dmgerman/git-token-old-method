@@ -3283,6 +3283,11 @@ specifier|const
 name|char
 modifier|*
 name|header
+parameter_list|,
+name|struct
+name|diff_options
+modifier|*
+name|opt
 parameter_list|)
 block|{
 name|unsigned
@@ -3349,6 +3354,17 @@ name|null_sha1
 argument_list|,
 literal|20
 argument_list|)
+decl_stmt|;
+name|int
+name|abbrev
+init|=
+name|opt
+operator|->
+name|full_index
+condition|?
+literal|40
+else|:
+name|DEFAULT_ABBREV
 decl_stmt|;
 comment|/* Read the result of merge first */
 if|if
@@ -4076,7 +4092,7 @@ index|]
 operator|.
 name|sha1
 argument_list|,
-name|DEFAULT_ABBREV
+name|abbrev
 argument_list|)
 expr_stmt|;
 name|printf
@@ -4101,7 +4117,7 @@ name|elem
 operator|->
 name|sha1
 argument_list|,
-name|DEFAULT_ABBREV
+name|abbrev
 argument_list|)
 expr_stmt|;
 name|printf
@@ -4799,6 +4815,8 @@ argument_list|,
 name|dense
 argument_list|,
 name|header
+argument_list|,
+name|opt
 argument_list|)
 return|;
 block|}
