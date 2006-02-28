@@ -31,6 +31,13 @@ directive|define
 name|TREECHANGE
 value|(1u<<2)
 end_define
+begin_define
+DECL|macro|SHOWN
+define|#
+directive|define
+name|SHOWN
+value|(1u<<3)
+end_define
 begin_struct
 DECL|struct|rev_info
 struct|struct
@@ -68,6 +75,11 @@ DECL|member|dense
 name|unsigned
 name|int
 name|dense
+range|:
+literal|1
+decl_stmt|,
+DECL|member|no_merges
+name|no_merges
 range|:
 literal|1
 decl_stmt|,
