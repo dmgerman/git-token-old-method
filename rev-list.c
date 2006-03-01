@@ -40,26 +40,15 @@ directive|include
 file|"revision.h"
 end_include
 begin_comment
-comment|/* bits #0-3 in revision.h */
+comment|/* bits #0-4 in revision.h */
 end_comment
 begin_define
 DECL|macro|COUNTED
 define|#
 directive|define
 name|COUNTED
-value|(1u<< 4)
+value|(1u<<5)
 end_define
-begin_define
-DECL|macro|TMP_MARK
-define|#
-directive|define
-name|TMP_MARK
-value|(1u<< 5)
-end_define
-begin_comment
-DECL|macro|TMP_MARK
-comment|/* for isolated cases; clean after use */
-end_comment
 begin_decl_stmt
 DECL|variable|rev_list_usage
 specifier|static
