@@ -37,11 +37,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"epoch.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"diff.h"
 end_include
 begin_define
