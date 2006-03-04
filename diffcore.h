@@ -46,18 +46,18 @@ value|30000
 end_define
 begin_comment
 DECL|macro|DEFAULT_BREAK_SCORE
-comment|/* minimum for break to happen (50%)*/
+comment|/* minimum for break to happen (50%) */
 end_comment
 begin_define
 DECL|macro|DEFAULT_MERGE_SCORE
 define|#
 directive|define
 name|DEFAULT_MERGE_SCORE
-value|48000
+value|36000
 end_define
 begin_comment
 DECL|macro|DEFAULT_MERGE_SCORE
-comment|/* maximum for break-merge to happen (80%)*/
+comment|/* maximum for break-merge to happen 60%) */
 end_comment
 begin_define
 DECL|macro|MINIMUM_BREAK_SIZE
