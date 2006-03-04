@@ -164,8 +164,6 @@ literal|"--max-age="
 block|,
 literal|"--max-count="
 block|,
-literal|"--merge-order"
-block|,
 literal|"--min-age="
 block|,
 literal|"--no-merges"
@@ -177,8 +175,6 @@ block|,
 literal|"--parents"
 block|,
 literal|"--pretty"
-block|,
-literal|"--show-breaks"
 block|,
 literal|"--sparse"
 block|,
