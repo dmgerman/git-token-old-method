@@ -38,6 +38,7 @@ specifier|extern
 name|int
 name|execv_git_cmd
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -53,6 +54,7 @@ specifier|extern
 name|int
 name|execl_git_cmd
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|cmd
