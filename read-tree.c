@@ -1747,6 +1747,8 @@ name|ce
 argument_list|,
 operator|&
 name|state
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 block|}
