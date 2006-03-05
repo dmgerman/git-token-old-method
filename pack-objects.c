@@ -148,11 +148,6 @@ name|int
 name|preferred_base
 decl_stmt|;
 comment|/* we do not pack this, but is encouraged to 				 * be used as the base objectto delta huge 				 * objects against. 				 */
-DECL|member|based_on_preferred
-name|int
-name|based_on_preferred
-decl_stmt|;
-comment|/* current delta candidate is a preferred 				 * one, or delta against a preferred one. 				 */
 block|}
 struct|;
 end_struct
@@ -1045,8 +1040,6 @@ operator|&
 name|delta_size
 argument_list|,
 literal|0
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -4245,12 +4238,6 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-DECL|member|delta_index
-name|void
-modifier|*
-modifier|*
-name|delta_index
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -4294,19 +4281,6 @@ init|=
 name|old
 operator|->
 name|entry
-decl_stmt|;
-name|int
-name|old_preferred
-init|=
-operator|(
-name|old_entry
-operator|->
-name|preferred_base
-operator|||
-name|old_entry
-operator|->
-name|based_on_preferred
-operator|)
 decl_stmt|;
 name|unsigned
 name|long
@@ -4439,18 +4413,6 @@ name|cur_entry
 operator|->
 name|delta
 condition|)
-block|{
-if|if
-condition|(
-name|cur_entry
-operator|->
-name|based_on_preferred
-condition|)
-block|{
-if|if
-condition|(
-name|old_preferred
-condition|)
 name|max_size
 operator|=
 name|cur_entry
@@ -4459,31 +4421,6 @@ name|delta_size
 operator|-
 literal|1
 expr_stmt|;
-else|else
-comment|/* trying with non-preferred one when we 				 * already have a delta based on preferred 				 * one is pointless. 				 */
-return|return
-operator|-
-literal|1
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|old_preferred
-condition|)
-name|max_size
-operator|=
-name|cur_entry
-operator|->
-name|delta_size
-operator|-
-literal|1
-expr_stmt|;
-else|else
-comment|/* otherwise...  even if delta with a 			 * preferred one produces a bigger result than 			 * what we currently have, which is based on a 			 * non-preferred one, it is OK. 			 */
-empty_stmt|;
-block|}
 if|if
 condition|(
 name|sizediff
@@ -4514,10 +4451,6 @@ operator|&
 name|delta_size
 argument_list|,
 name|max_size
-argument_list|,
-name|old
-operator|->
-name|delta_index
 argument_list|)
 expr_stmt|;
 if|if
@@ -4549,12 +4482,6 @@ operator|->
 name|depth
 operator|+
 literal|1
-expr_stmt|;
-name|cur_entry
-operator|->
-name|based_on_preferred
-operator|=
-name|old_preferred
 expr_stmt|;
 name|free
 argument_list|(
@@ -4783,13 +4710,6 @@ name|free
 argument_list|(
 name|n
 operator|->
-name|delta_index
-argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
-name|n
-operator|->
 name|data
 argument_list|)
 expr_stmt|;
@@ -4905,6 +4825,13 @@ literal|0
 condition|)
 break|break;
 block|}
+if|#
+directive|if
+literal|0
+comment|/* if we made n a delta, and if n is already at max 		 * depth, leaving it in the window is pointless.  we 		 * should evict it first. 		 * ... in theory only; somehow this makes things worse. 		 */
+block|if (entry->delta&& depth<= entry->depth) 			continue;
+endif|#
+directive|endif
 name|idx
 operator|++
 expr_stmt|;
@@ -4943,17 +4870,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
-name|free
-argument_list|(
-name|array
-index|[
-name|i
-index|]
-operator|.
-name|delta_index
-argument_list|)
-expr_stmt|;
 name|free
 argument_list|(
 name|array
@@ -4964,7 +4880,6 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-block|}
 name|free
 argument_list|(
 name|array
