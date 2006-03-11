@@ -57,7 +57,7 @@ name|char
 name|http_push_usage
 index|[]
 init|=
-literal|"git-http-push [--complete] [--force] [--verbose]<url><ref> [<ref>...]\n"
+literal|"git-http-push [--all] [--force] [--verbose]<remote> [<head>...]\n"
 decl_stmt|;
 end_decl_stmt
 begin_ifndef
@@ -3968,6 +3968,10 @@ operator|==
 name|CURLE_OK
 condition|)
 block|{
+if|if
+condition|(
+name|push_verbosely
+condition|)
 name|fprintf
 argument_list|(
 name|stderr
@@ -4728,7 +4732,7 @@ end_function
 begin_function
 DECL|function|add_send_request
 specifier|static
-name|void
+name|int
 name|add_send_request
 parameter_list|(
 name|struct
@@ -4796,7 +4800,9 @@ operator||
 name|PUSHING
 operator|)
 condition|)
-return|return;
+return|return
+literal|0
+return|;
 name|target
 operator|=
 name|find_sha1_pack
@@ -4821,7 +4827,9 @@ name|flags
 operator||=
 name|REMOTE
 expr_stmt|;
-return|return;
+return|return
+literal|0
+return|;
 block|}
 name|obj
 operator|->
@@ -4899,6 +4907,9 @@ expr_stmt|;
 name|step_active_slots
 argument_list|()
 expr_stmt|;
+return|return
+literal|1
+return|;
 block|}
 end_function
 begin_function
@@ -4979,14 +4990,14 @@ operator|->
 name|url
 argument_list|)
 operator|+
-literal|65
+literal|64
 argument_list|)
 expr_stmt|;
 name|sprintf
 argument_list|(
 name|url
 argument_list|,
-literal|"%s/objects/pack/pack-%s.pack"
+literal|"%sobjects/pack/pack-%s.pack"
 argument_list|,
 name|remote
 operator|->
@@ -5102,7 +5113,7 @@ name|sprintf
 argument_list|(
 name|url
 argument_list|,
-literal|"%s/objects/pack/pack-%s.idx"
+literal|"%sobjects/pack/pack-%s.idx"
 argument_list|,
 name|remote
 operator|->
@@ -5533,14 +5544,14 @@ operator|->
 name|url
 argument_list|)
 operator|+
-literal|21
+literal|20
 argument_list|)
 expr_stmt|;
 name|sprintf
 argument_list|(
 name|url
 argument_list|,
-literal|"%s/objects/info/packs"
+literal|"%sobjects/info/packs"
 argument_list|,
 name|remote
 operator|->
@@ -7253,7 +7264,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Unable to start request\n"
+literal|"Unable to start MKCOL request\n"
 argument_list|)
 expr_stmt|;
 name|free
@@ -7668,7 +7679,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Unable to start request\n"
+literal|"Unable to start LOCK request\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -9582,7 +9593,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Unable to start request\n"
+literal|"Unable to start PROPFIND request\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -9913,7 +9924,7 @@ end_function
 begin_function
 DECL|function|get_delta
 specifier|static
-name|void
+name|int
 name|get_delta
 parameter_list|(
 name|struct
@@ -9943,6 +9954,11 @@ name|objects
 decl_stmt|,
 modifier|*
 name|pending
+decl_stmt|;
+name|int
+name|count
+init|=
+literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -9994,6 +10010,8 @@ operator|&
 name|UNINTERESTING
 operator|)
 condition|)
+name|count
+operator|+=
 name|add_send_request
 argument_list|(
 operator|&
@@ -10174,6 +10192,8 @@ operator|&
 name|UNINTERESTING
 operator|)
 condition|)
+name|count
+operator|+=
 name|add_send_request
 argument_list|(
 name|objects
@@ -10190,6 +10210,9 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+return|return
+name|count
+return|;
 block|}
 end_function
 begin_function
@@ -12065,6 +12088,9 @@ name|rev_info
 name|revs
 decl_stmt|;
 name|int
+name|objects_to_send
+decl_stmt|;
+name|int
 name|rc
 init|=
 literal|0
@@ -12475,11 +12501,6 @@ literal|0
 return|;
 block|}
 name|int
-name|ret
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|new_refs
 init|=
 literal|0
@@ -12622,7 +12643,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
-name|ret
+name|rc
 operator|=
 operator|-
 literal|2
@@ -12660,7 +12681,7 @@ argument_list|(
 literal|"cannot happen anymore"
 argument_list|)
 expr_stmt|;
-name|ret
+name|rc
 operator|=
 operator|-
 literal|3
@@ -12924,6 +12945,8 @@ operator|.
 name|commits
 argument_list|)
 expr_stmt|;
+name|objects_to_send
+operator|=
 name|get_delta
 argument_list|(
 operator|&
@@ -12939,6 +12962,19 @@ comment|/* Push missing objects to remote, this would be a 		   convenient time 
 name|pushing
 operator|=
 literal|1
+expr_stmt|;
+if|if
+condition|(
+name|objects_to_send
+condition|)
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"    sending %d objects\n"
+argument_list|,
+name|objects_to_send
+argument_list|)
 expr_stmt|;
 name|fill_active_slots
 argument_list|()
