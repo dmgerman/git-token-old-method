@@ -557,6 +557,8 @@ operator|=
 name|xmalloc
 argument_list|(
 name|size
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -579,6 +581,14 @@ name|close
 argument_list|(
 name|fd
 argument_list|)
+expr_stmt|;
+name|buf
+index|[
+name|size
+operator|++
+index|]
+operator|=
+literal|'\n'
 expr_stmt|;
 name|entry
 operator|=
