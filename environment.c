@@ -54,7 +54,7 @@ DECL|variable|warn_ambiguous_refs
 name|int
 name|warn_ambiguous_refs
 init|=
-literal|0
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

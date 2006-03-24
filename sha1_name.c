@@ -1326,7 +1326,7 @@ name|fmt
 index|[]
 init|=
 block|{
-literal|"/%.*s"
+literal|"%.*s"
 block|,
 literal|"refs/%.*s"
 block|,
@@ -1458,16 +1458,6 @@ block|{
 if|if
 condition|(
 name|already_found
-operator|&&
-operator|!
-name|memcmp
-argument_list|(
-name|sha1
-argument_list|,
-name|sha1_from_ref
-argument_list|,
-literal|20
-argument_list|)
 condition|)
 name|fprintf
 argument_list|(
