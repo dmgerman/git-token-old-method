@@ -1247,6 +1247,13 @@ else|:
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|c1
+operator|!=
+literal|1
+condition|)
+block|{
 name|memcpy
 argument_list|(
 name|buf
@@ -1273,6 +1280,7 @@ argument_list|,
 name|c1
 argument_list|)
 expr_stmt|;
+block|}
 name|memcpy
 argument_list|(
 name|buf
@@ -1303,6 +1311,13 @@ else|:
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|c2
+operator|!=
+literal|1
+condition|)
+block|{
 name|memcpy
 argument_list|(
 name|buf
@@ -1329,6 +1344,7 @@ argument_list|,
 name|c2
 argument_list|)
 expr_stmt|;
+block|}
 name|memcpy
 argument_list|(
 name|buf
