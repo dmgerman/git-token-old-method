@@ -3195,7 +3195,10 @@ name|die
 argument_list|(
 literal|"'%s': %s"
 argument_list|,
-name|arg
+name|argv
+index|[
+name|j
+index|]
 argument_list|,
 name|strerror
 argument_list|(
