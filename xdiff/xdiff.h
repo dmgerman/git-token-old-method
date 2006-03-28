@@ -54,6 +54,11 @@ define|#
 directive|define
 name|XDL_PATCH_IGNOREBSPACE
 value|(1<< 8)
+DECL|macro|XDL_EMIT_FUNCNAMES
+define|#
+directive|define
+name|XDL_EMIT_FUNCNAMES
+value|(1<< 0)
 DECL|macro|XDL_MMB_READONLY
 define|#
 directive|define
@@ -167,6 +172,11 @@ block|{
 DECL|member|ctxlen
 name|long
 name|ctxlen
+decl_stmt|;
+DECL|member|flags
+name|unsigned
+name|long
+name|flags
 decl_stmt|;
 block|}
 DECL|typedef|xdemitconf_t
