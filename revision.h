@@ -49,6 +49,13 @@ begin_comment
 DECL|macro|TMP_MARK
 comment|/* for isolated cases; clean after use */
 end_comment
+begin_define
+DECL|macro|BOUNDARY
+define|#
+directive|define
+name|BOUNDARY
+value|(1u<<5)
+end_define
 begin_struct_decl
 struct_decl|struct
 name|rev_info
@@ -164,6 +171,11 @@ literal|1
 decl_stmt|,
 DECL|member|unpacked
 name|unpacked
+range|:
+literal|1
+decl_stmt|,
+DECL|member|boundary
+name|boundary
 range|:
 literal|1
 decl_stmt|;
