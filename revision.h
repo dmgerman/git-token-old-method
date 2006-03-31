@@ -178,6 +178,11 @@ DECL|member|boundary
 name|boundary
 range|:
 literal|1
+decl_stmt|,
+DECL|member|parents
+name|parents
+range|:
+literal|1
 decl_stmt|;
 comment|/* special limits */
 DECL|member|max_count
