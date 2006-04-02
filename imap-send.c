@@ -1538,7 +1538,7 @@ operator|*
 name|s
 condition|)
 return|return
-literal|0
+name|NULL
 return|;
 while|while
 condition|(
@@ -1570,10 +1570,10 @@ block|{
 operator|*
 name|s
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 return|return
-literal|0
+name|NULL
 return|;
 block|}
 if|if
@@ -1669,7 +1669,7 @@ condition|)
 operator|*
 name|s
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 return|return
@@ -2390,7 +2390,7 @@ name|get_cmd_result
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 name|bufl
@@ -2640,7 +2640,7 @@ name|cb
 operator|.
 name|data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 else|else
@@ -2670,7 +2670,7 @@ name|cmd
 operator|->
 name|next
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 operator|*
 name|imap
@@ -3154,7 +3154,7 @@ name|cur
 operator|->
 name|val
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* for clean bail */
 if|if
@@ -3592,7 +3592,7 @@ expr_stmt|;
 operator|*
 name|curp
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 return|return
 literal|0
@@ -3602,7 +3602,7 @@ label|:
 operator|*
 name|curp
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 return|return
 operator|-
@@ -3675,7 +3675,7 @@ block|{
 return|return
 name|parse_imap_list
 argument_list|(
-literal|0
+name|NULL
 argument_list|,
 name|sp
 argument_list|)
@@ -4318,7 +4318,7 @@ name|parse_response_code
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 name|cmd
 argument_list|)
@@ -4531,7 +4531,7 @@ name|cb
 operator|.
 name|data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -4820,7 +4820,7 @@ name|issue_imap_cmd
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|"CREATE \"%.*s\""
 argument_list|,
@@ -5097,7 +5097,7 @@ name|imap_exec
 argument_list|(
 name|ictx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|"LOGOUT"
 argument_list|)
@@ -5704,7 +5704,7 @@ name|parse_response_code
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 name|rsp
 argument_list|)
@@ -5720,7 +5720,7 @@ name|imap_exec
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|"CAPABILITY"
 argument_list|)
@@ -5892,7 +5892,7 @@ name|imap_exec
 argument_list|(
 name|ctx
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 literal|"LOGIN \"%s\" \"%s\""
 argument_list|,
@@ -5951,7 +5951,7 @@ name|gen
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+name|NULL
 return|;
 block|}
 end_function
@@ -7483,7 +7483,7 @@ name|store_t
 modifier|*
 name|ctx
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|int
 name|uid
