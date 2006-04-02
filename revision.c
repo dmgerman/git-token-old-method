@@ -3515,15 +3515,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
-name|revs
-operator|->
-name|max_age
-operator|!=
-operator|-
-literal|1
-operator|)
-operator|||
 name|revs
 operator|->
 name|topo_order
