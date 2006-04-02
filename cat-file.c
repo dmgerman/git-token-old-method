@@ -12,6 +12,16 @@ include|#
 directive|include
 file|"exec_cmd.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"tag.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"tree.h"
+end_include
 begin_function
 DECL|function|flush_buffer
 specifier|static
@@ -616,7 +626,7 @@ name|strcmp
 argument_list|(
 name|type
 argument_list|,
-literal|"tree"
+name|tree_type
 argument_list|)
 condition|)
 return|return
@@ -666,7 +676,7 @@ name|strcmp
 argument_list|(
 name|type
 argument_list|,
-literal|"tag"
+name|tag_type
 argument_list|)
 condition|)
 return|return

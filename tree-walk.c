@@ -9,6 +9,11 @@ include|#
 directive|include
 file|"tree-walk.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"tree.h"
+end_include
 begin_function
 DECL|function|fill_tree_descriptor
 name|void
@@ -50,7 +55,7 @@ name|read_object_with_reference
 argument_list|(
 name|sha1
 argument_list|,
-literal|"tree"
+name|tree_type
 argument_list|,
 operator|&
 name|size

@@ -1240,7 +1240,7 @@ name|object
 operator|.
 name|sha1
 argument_list|,
-literal|"tree"
+name|tree_type
 argument_list|,
 operator|&
 name|real
