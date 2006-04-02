@@ -393,10 +393,6 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|buf
-operator|+=
-name|size
-expr_stmt|;
 name|offset
 operator|+=
 name|size
