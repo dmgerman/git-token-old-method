@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"quote.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"tree.h"
+end_include
 begin_struct
 DECL|struct|treeent
 specifier|static
@@ -479,7 +484,7 @@ name|buffer
 argument_list|,
 name|offset
 argument_list|,
-literal|"tree"
+name|tree_type
 argument_list|,
 name|sha1
 argument_list|)
