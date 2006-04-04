@@ -18,6 +18,15 @@ directive|define
 name|XUTILS_H
 end_define
 begin_function_decl
+name|long
+name|xdl_bogosqrt
+parameter_list|(
+name|long
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|int
 name|xdl_emit_diffrec
 parameter_list|(
