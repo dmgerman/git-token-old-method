@@ -7,6 +7,16 @@ include|#
 directive|include
 file|"cache.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"commit.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"tree.h"
+end_include
 begin_define
 DECL|macro|BLOCKING
 define|#
@@ -479,7 +489,7 @@ name|check_valid
 argument_list|(
 name|tree_sha1
 argument_list|,
-literal|"tree"
+name|tree_type
 argument_list|)
 expr_stmt|;
 for|for
@@ -554,7 +564,7 @@ index|[
 name|parents
 index|]
 argument_list|,
-literal|"commit"
+name|commit_type
 argument_list|)
 expr_stmt|;
 if|if
@@ -715,7 +725,7 @@ name|buffer
 argument_list|,
 name|size
 argument_list|,
-literal|"commit"
+name|commit_type
 argument_list|,
 name|commit_sha1
 argument_list|)

@@ -12,6 +12,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"blob.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"diff.h"
 end_include
 begin_include
@@ -705,7 +710,7 @@ name|strcmp
 argument_list|(
 name|type
 argument_list|,
-literal|"blob"
+name|blob_type
 argument_list|)
 condition|)
 name|die
