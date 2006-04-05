@@ -6893,6 +6893,12 @@ operator|!
 name|p
 condition|)
 break|break;
+name|msg
+operator|->
+name|data
+operator|=
+name|p
+expr_stmt|;
 block|}
 name|r
 operator|=
