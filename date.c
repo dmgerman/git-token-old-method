@@ -1550,9 +1550,9 @@ name|is_date
 argument_list|(
 name|num3
 argument_list|,
-name|num2
-argument_list|,
 name|num
+argument_list|,
+name|num2
 argument_list|,
 name|tm
 argument_list|)
@@ -1565,9 +1565,9 @@ name|is_date
 argument_list|(
 name|num3
 argument_list|,
-name|num
-argument_list|,
 name|num2
+argument_list|,
+name|num
 argument_list|,
 name|tm
 argument_list|)
