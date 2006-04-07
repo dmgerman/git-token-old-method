@@ -107,6 +107,8 @@ name|get_delta_hdr_size
 argument_list|(
 operator|&
 name|data
+argument_list|,
+name|top
 argument_list|)
 expr_stmt|;
 name|dst_size
@@ -115,6 +117,8 @@ name|get_delta_hdr_size
 argument_list|(
 operator|&
 name|data
+argument_list|,
+name|top
 argument_list|)
 expr_stmt|;
 name|added_literal
