@@ -4071,13 +4071,20 @@ name|data
 operator|=
 name|delta_head
 expr_stmt|;
+comment|/* ignore base size */
 name|get_delta_hdr_size
 argument_list|(
 operator|&
 name|data
+argument_list|,
+name|delta_head
+operator|+
+sizeof|sizeof
+argument_list|(
+name|delta_head
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* ignore base size */
 comment|/* Read the result size */
 name|result_size
 operator|=
@@ -4085,6 +4092,13 @@ name|get_delta_hdr_size
 argument_list|(
 operator|&
 name|data
+argument_list|,
+name|delta_head
+operator|+
+sizeof|sizeof
+argument_list|(
+name|delta_head
+argument_list|)
 argument_list|)
 expr_stmt|;
 operator|*

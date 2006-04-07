@@ -102,6 +102,12 @@ name|char
 modifier|*
 modifier|*
 name|datap
+parameter_list|,
+specifier|const
+name|unsigned
+name|char
+modifier|*
+name|top
 parameter_list|)
 block|{
 specifier|const
@@ -157,6 +163,10 @@ condition|(
 name|cmd
 operator|&
 literal|0x80
+operator|&&
+name|data
+operator|<
+name|top
 condition|)
 do|;
 operator|*
