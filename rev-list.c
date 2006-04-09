@@ -40,14 +40,14 @@ directive|include
 file|"revision.h"
 end_include
 begin_comment
-comment|/* bits #0-5 in revision.h */
+comment|/* bits #0-6 in revision.h */
 end_comment
 begin_define
 DECL|macro|COUNTED
 define|#
 directive|define
 name|COUNTED
-value|(1u<<6)
+value|(1u<<7)
 end_define
 begin_decl_stmt
 DECL|variable|rev_list_usage
