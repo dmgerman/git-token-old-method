@@ -3560,6 +3560,9 @@ argument_list|(
 name|revs
 operator|->
 name|prune_data
+argument_list|,
+operator|&
+name|diff_opt
 argument_list|)
 expr_stmt|;
 name|revs
