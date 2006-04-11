@@ -3257,7 +3257,7 @@ condition|)
 block|{
 name|path
 operator|=
-name|index
+name|strchr
 argument_list|(
 name|path
 operator|+
@@ -3594,7 +3594,7 @@ name|char
 modifier|*
 name|c
 init|=
-name|index
+name|strchr
 argument_list|(
 name|name
 argument_list|,
@@ -3746,7 +3746,7 @@ name|char
 modifier|*
 name|c
 init|=
-name|index
+name|strchr
 argument_list|(
 name|name
 argument_list|,
@@ -6987,7 +6987,7 @@ condition|)
 block|{
 name|path
 operator|=
-name|index
+name|strchr
 argument_list|(
 name|path
 operator|+
