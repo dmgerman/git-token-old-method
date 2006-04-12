@@ -15,12 +15,12 @@ directive|include
 file|<ctype.h>
 end_include
 begin_comment
-comment|/*  * Remove empty lines from the beginning and end.  *  * Turn multiple consecutive empty lines into just one  * empty line.  */
+comment|/*  * Remove empty lines from the beginning and end.  *  * Turn multiple consecutive empty lines into just one  * empty line.  Return true if it is an incomplete line.  */
 end_comment
 begin_function
 DECL|function|cleanup
 specifier|static
-name|void
+name|int
 name|cleanup
 parameter_list|(
 name|char
@@ -101,7 +101,13 @@ operator|>
 literal|1
 condition|)
 do|;
+return|return
+literal|0
+return|;
 block|}
+return|return
+literal|1
+return|;
 block|}
 end_function
 begin_function
@@ -124,6 +130,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|int
+name|incomplete
+init|=
+literal|0
+decl_stmt|;
 name|char
 name|line
 index|[
@@ -145,6 +156,8 @@ name|stdin
 argument_list|)
 condition|)
 block|{
+name|incomplete
+operator|=
 name|cleanup
 argument_list|(
 name|line
@@ -196,6 +209,15 @@ name|empties
 operator|++
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|incomplete
+condition|)
+name|putchar
+argument_list|(
+literal|'\n'
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
