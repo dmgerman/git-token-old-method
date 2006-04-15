@@ -2209,6 +2209,12 @@ if|if
 condition|(
 name|do_diff
 condition|)
+block|{
+name|printf
+argument_list|(
+literal|"---\n"
+argument_list|)
+expr_stmt|;
 name|log_tree_commit
 argument_list|(
 operator|&
@@ -2217,6 +2223,7 @@ argument_list|,
 name|commit
 argument_list|)
 expr_stmt|;
+block|}
 name|shown
 operator|=
 literal|1
