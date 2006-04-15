@@ -595,7 +595,10 @@ argument_list|,
 name|argv
 argument_list|)
 argument_list|,
+operator|&
 name|opt
+operator|->
+name|diffopt
 argument_list|)
 expr_stmt|;
 name|diff_setup_done
