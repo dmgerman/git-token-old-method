@@ -1600,6 +1600,12 @@ name|shown
 init|=
 literal|0
 decl_stmt|;
+name|rev
+operator|.
+name|abbrev
+operator|=
+name|DEFAULT_ABBREV
+expr_stmt|;
 name|argc
 operator|=
 name|setup_revisions
