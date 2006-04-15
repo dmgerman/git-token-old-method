@@ -1714,6 +1714,13 @@ argument_list|,
 name|commit
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|revs
+operator|->
+name|no_walk
+condition|)
+return|return;
 name|parent
 operator|=
 name|commit
@@ -4172,6 +4179,13 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|revs
+operator|->
+name|no_walk
+condition|)
+return|return;
 if|if
 condition|(
 name|revs
