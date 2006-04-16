@@ -314,6 +314,17 @@ name|buffer
 decl_stmt|;
 if|if
 condition|(
+name|opt
+operator|->
+name|use_precomputed_header
+condition|)
+return|return
+name|opt
+operator|->
+name|use_precomputed_header
+return|;
+if|if
+condition|(
 operator|!
 name|opt
 operator|->
