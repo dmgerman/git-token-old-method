@@ -2102,6 +2102,12 @@ literal|1
 expr_stmt|;
 name|rev
 operator|.
+name|always_show_header
+operator|=
+literal|1
+expr_stmt|;
+name|rev
+operator|.
 name|ignore_merges
 operator|=
 literal|0
