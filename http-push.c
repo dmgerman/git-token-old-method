@@ -305,35 +305,35 @@ name|LOCK_REFRESH
 value|30
 end_define
 begin_comment
-comment|/* bits #0-6 in revision.h */
+comment|/* bits #0-15 in revision.h */
 end_comment
 begin_define
 DECL|macro|LOCAL
 define|#
 directive|define
 name|LOCAL
-value|(1u<< 7)
+value|(1u<<16)
 end_define
 begin_define
 DECL|macro|REMOTE
 define|#
 directive|define
 name|REMOTE
-value|(1u<< 8)
+value|(1u<<17)
 end_define
 begin_define
 DECL|macro|FETCHING
 define|#
 directive|define
 name|FETCHING
-value|(1u<< 9)
+value|(1u<<18)
 end_define
 begin_define
 DECL|macro|PUSHING
 define|#
 directive|define
 name|PUSHING
-value|(1u<< 10)
+value|(1u<<19)
 end_define
 begin_comment
 comment|/* We allow "recursive" symbolic refs. Only within reason, though */
