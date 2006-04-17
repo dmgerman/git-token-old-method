@@ -31,20 +31,20 @@ begin_comment
 comment|/* The MIN_FILE_SIZE indicates the absolute minimal file size that    can be processed. As indicated above, the first and last    RABIN_WINDOW_SIZE - 1 bytes are skipped.    In order to get at least an average of 12 samples    per bit in the final message digest, require at least 3 * MD_LENGTH    complete windows in the file.  */
 end_comment
 begin_define
-DECL|macro|MIN_FILE_SIZE
+DECL|macro|GB_SIMM_MIN_FILE_SIZE
 define|#
 directive|define
-name|MIN_FILE_SIZE
+name|GB_SIMM_MIN_FILE_SIZE
 value|(3 * MD_LENGTH + 2 * (RABIN_WINDOW_SIZE - 1))
 end_define
 begin_comment
 comment|/* Limit matching algorithm to files less than 256 MB, so we can use    32 bit integers everywhere without fear of overflow. For larger    files we should add logic to mmap the file by piece and accumulate    the frequency counts. */
 end_comment
 begin_define
-DECL|macro|MAX_FILE_SIZE
+DECL|macro|GB_SIMM_MAX_FILE_SIZE
 define|#
 directive|define
-name|MAX_FILE_SIZE
+name|GB_SIMM_MAX_FILE_SIZE
 value|(256*1024*1024 - 1)
 end_define
 begin_function_decl
@@ -61,6 +61,20 @@ parameter_list|,
 name|u_char
 modifier|*
 name|md
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|double
+name|gb_simm_score
+parameter_list|(
+name|u_char
+modifier|*
+name|l
+parameter_list|,
+name|u_char
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
