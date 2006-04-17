@@ -2404,12 +2404,6 @@ name|topo_sort_default_getter
 expr_stmt|;
 name|revs
 operator|->
-name|header_prefix
-operator|=
-literal|""
-expr_stmt|;
-name|revs
-operator|->
 name|commit_format
 operator|=
 name|CMIT_FMT_DEFAULT
@@ -3352,12 +3346,6 @@ name|verbose_header
 operator|=
 literal|1
 expr_stmt|;
-name|revs
-operator|->
-name|header_prefix
-operator|=
-literal|"diff-tree "
-expr_stmt|;
 continue|continue;
 block|}
 if|if
@@ -3378,12 +3366,6 @@ operator|->
 name|verbose_header
 operator|=
 literal|1
-expr_stmt|;
-name|revs
-operator|->
-name|header_prefix
-operator|=
-literal|"diff-tree "
 expr_stmt|;
 name|revs
 operator|->
