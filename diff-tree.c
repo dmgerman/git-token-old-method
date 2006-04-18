@@ -394,6 +394,12 @@ name|abbrev
 operator|=
 literal|0
 expr_stmt|;
+name|opt
+operator|->
+name|diff
+operator|=
+literal|1
+expr_stmt|;
 name|argc
 operator|=
 name|setup_revisions
