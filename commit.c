@@ -2731,7 +2731,7 @@ name|CMIT_FMT_EMAIL
 condition|)
 name|subject
 operator|=
-literal|"Subject: "
+literal|"Subject: [PATCH] "
 expr_stmt|;
 if|if
 condition|(
