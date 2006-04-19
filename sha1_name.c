@@ -27,7 +27,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"diff.h"
+file|"tree-walk.h"
 end_include
 begin_function
 DECL|function|find_short_object_filename
