@@ -6268,9 +6268,13 @@ decl_stmt|;
 name|char
 name|line
 index|[
+literal|40
+operator|+
+literal|1
+operator|+
 name|PATH_MAX
 operator|+
-literal|20
+literal|2
 index|]
 decl_stmt|;
 name|int
