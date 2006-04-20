@@ -2203,7 +2203,7 @@ name|cmd_show
 block|}
 block|,
 block|{
-literal|"format-patch"
+literal|"fmt-patch"
 block|,
 name|cmd_format_patch
 block|}
