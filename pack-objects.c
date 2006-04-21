@@ -5330,8 +5330,7 @@ operator|>=
 name|max_size
 condition|)
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 name|delta_buf
 operator|=
