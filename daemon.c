@@ -2257,10 +2257,7 @@ argument_list|(
 name|sockfd
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
-comment|/* not fatal */
+continue|continue;
 block|}
 if|if
 condition|(
