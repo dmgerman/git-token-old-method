@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"cache-tree.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"tree-walk.h"
 end_include
 begin_include
