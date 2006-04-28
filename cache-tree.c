@@ -1791,6 +1791,7 @@ condition|(
 name|dryrun
 condition|)
 block|{
+name|unsigned
 name|char
 name|hdr
 index|[
