@@ -269,6 +269,12 @@ literal|"show"
 block|,
 name|cmd_show
 block|}
+block|,
+block|{
+literal|"push"
+block|,
+name|cmd_push
+block|}
 block|, 	}
 struct|;
 name|int
