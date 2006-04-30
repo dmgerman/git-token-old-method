@@ -1694,6 +1694,9 @@ name|die
 argument_list|(
 literal|"more than %d trees given: '%s'"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|ARRAY_SIZE
 argument_list|(
 name|ent
