@@ -283,7 +283,7 @@ name|cmd_count_objects
 block|}
 block|,
 block|{
-literal|"diffn"
+literal|"diff"
 block|,
 name|cmd_diff
 block|}
