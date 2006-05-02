@@ -271,7 +271,7 @@ name|cmd_show
 block|}
 block|,
 block|{
-literal|"diffn"
+literal|"diff"
 block|,
 name|cmd_diff
 block|}
