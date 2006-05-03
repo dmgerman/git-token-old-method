@@ -2881,7 +2881,7 @@ argument_list|,
 operator|&
 name|revs
 operator|->
-name|diffopt
+name|pruning
 argument_list|)
 expr_stmt|;
 name|ret
@@ -2904,7 +2904,7 @@ argument_list|(
 operator|&
 name|revs
 operator|->
-name|diffopt
+name|pruning
 argument_list|)
 expr_stmt|;
 return|return
@@ -2973,7 +2973,7 @@ argument_list|,
 operator|&
 name|revs
 operator|->
-name|diffopt
+name|pruning
 argument_list|)
 expr_stmt|;
 name|ret
@@ -2990,7 +2990,7 @@ argument_list|(
 operator|&
 name|revs
 operator|->
-name|diffopt
+name|pruning
 argument_list|)
 expr_stmt|;
 return|return
@@ -4632,7 +4632,7 @@ argument_list|,
 operator|&
 name|rev
 operator|.
-name|diffopt
+name|pruning
 argument_list|)
 expr_stmt|;
 name|prepare_revision_walk
