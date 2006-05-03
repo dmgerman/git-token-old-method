@@ -42,9 +42,9 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|only_use_symrefs
+DECL|variable|prefer_symlink_refs
 name|int
-name|only_use_symrefs
+name|prefer_symlink_refs
 init|=
 literal|0
 decl_stmt|;
