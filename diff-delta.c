@@ -1662,8 +1662,6 @@ name|outpos
 decl_stmt|,
 name|outsize
 decl_stmt|,
-name|hash_mask
-decl_stmt|,
 name|val
 decl_stmt|;
 name|int
@@ -1835,12 +1833,6 @@ name|trg_buf
 operator|+
 name|trg_size
 expr_stmt|;
-name|hash_mask
-operator|=
-name|index
-operator|->
-name|hash_mask
-expr_stmt|;
 name|outpos
 operator|++
 expr_stmt|;
@@ -1960,6 +1952,8 @@ name|i
 operator|=
 name|val
 operator|&
+name|index
+operator|->
 name|hash_mask
 expr_stmt|;
 for|for
