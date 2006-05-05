@@ -2680,6 +2680,11 @@ name|space
 parameter_list|,
 name|int
 name|abbrev
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|subject
 parameter_list|)
 block|{
 name|int
@@ -2716,23 +2721,6 @@ name|commit
 operator|->
 name|buffer
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|subject
-init|=
-name|NULL
-decl_stmt|;
-if|if
-condition|(
-name|fmt
-operator|==
-name|CMIT_FMT_EMAIL
-condition|)
-name|subject
-operator|=
-literal|"Subject: [PATCH] "
-expr_stmt|;
 if|if
 condition|(
 name|fmt
