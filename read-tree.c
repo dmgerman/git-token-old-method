@@ -4050,6 +4050,8 @@ comment|/* 	 * When reading only one tree (either the most basic form, 	 * "-m e
 if|if
 condition|(
 name|trees
+operator|&&
+name|trees
 operator|->
 name|item
 operator|&&
