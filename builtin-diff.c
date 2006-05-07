@@ -402,7 +402,6 @@ name|unsigned
 name|tmp
 decl_stmt|;
 specifier|const
-specifier|const
 name|unsigned
 name|char
 modifier|*
