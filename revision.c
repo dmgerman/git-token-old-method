@@ -3380,8 +3380,6 @@ name|arg
 argument_list|,
 name|sha1
 argument_list|)
-operator|<
-literal|0
 condition|)
 block|{
 name|int
@@ -3496,8 +3494,6 @@ name|def
 argument_list|,
 name|sha1
 argument_list|)
-operator|<
-literal|0
 condition|)
 name|die
 argument_list|(
