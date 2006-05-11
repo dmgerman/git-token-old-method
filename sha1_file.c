@@ -5765,7 +5765,7 @@ argument_list|(
 operator|*
 operator|(
 operator|(
-name|int
+name|uint32_t
 operator|*
 operator|)
 operator|(
