@@ -2308,7 +2308,7 @@ name|fixed
 condition|)
 name|push_arg
 argument_list|(
-literal|"-H"
+literal|"-F"
 argument_list|)
 expr_stmt|;
 if|if
