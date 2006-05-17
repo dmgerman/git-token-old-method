@@ -1039,6 +1039,12 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
+name|log_all_ref_updates
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
 name|warn_ambiguous_refs
 decl_stmt|;
 end_decl_stmt
