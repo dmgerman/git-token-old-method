@@ -8393,7 +8393,10 @@ if|if
 condition|(
 operator|!
 name|cached
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|lstat
 argument_list|(
@@ -8430,6 +8433,7 @@ name|errno
 argument_list|)
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 operator|!
