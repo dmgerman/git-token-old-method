@@ -1502,6 +1502,7 @@ name|len
 operator|=
 name|at_mark
 expr_stmt|;
+break|break;
 block|}
 block|}
 comment|/* Accept only unambiguous ref paths. */
