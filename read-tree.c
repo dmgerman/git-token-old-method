@@ -3259,7 +3259,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Bind merge.  *  * Keep the index entries at stage0, collapse stage1 but make sure  * stage0 does not have anything in prefix.  */
+comment|/*  * Bind merge.  *  * Keep the index entries at stage0, collapse stage1 but make sure  * stage0 does not have anything there.  */
 end_comment
 begin_function
 DECL|function|bind_merge
@@ -3310,19 +3310,8 @@ argument_list|)
 return|;
 if|if
 condition|(
-operator|!
 name|a
-condition|)
-return|return
-name|merged_entry
-argument_list|(
-name|old
-argument_list|,
-name|NULL
-argument_list|)
-return|;
-if|if
-condition|(
+operator|&&
 name|old
 condition|)
 name|die
@@ -3334,6 +3323,18 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|a
+condition|)
+return|return
+name|keep_entry
+argument_list|(
+name|old
+argument_list|)
+return|;
+else|else
 return|return
 name|merged_entry
 argument_list|(
