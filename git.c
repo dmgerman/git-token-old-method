@@ -293,6 +293,12 @@ literal|"grep"
 block|,
 name|cmd_grep
 block|}
+block|,
+block|{
+literal|"rev-list"
+block|,
+name|cmd_rev_list
+block|}
 block|, 	}
 struct|;
 name|int
