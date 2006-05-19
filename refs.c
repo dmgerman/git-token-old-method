@@ -1669,7 +1669,6 @@ name|lock
 operator|->
 name|force_write
 operator|=
-operator|!
 name|lstat
 argument_list|(
 name|lock
@@ -1679,7 +1678,7 @@ argument_list|,
 operator|&
 name|st
 argument_list|)
-operator|||
+operator|&&
 name|errno
 operator|==
 name|ENOENT
