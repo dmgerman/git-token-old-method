@@ -223,6 +223,12 @@ DECL|member|abbrev
 name|int
 name|abbrev
 decl_stmt|;
+DECL|member|stat_sep
+specifier|const
+name|char
+modifier|*
+name|stat_sep
+decl_stmt|;
 DECL|member|nr_paths
 name|int
 name|nr_paths
@@ -250,6 +256,14 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|char
+name|mime_boundary_leader
+index|[]
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 specifier|extern
 name|void
