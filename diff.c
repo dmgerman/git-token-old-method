@@ -2433,9 +2433,7 @@ name|strtol
 argument_list|(
 name|plus
 argument_list|,
-name|line
-operator|+
-name|len
+name|NULL
 argument_list|,
 literal|10
 argument_list|)
