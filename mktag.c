@@ -163,8 +163,10 @@ operator|<
 literal|64
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"wanna fool me ? you obviously got the size wrong !\n"
+argument_list|)
 return|;
 name|buffer
 index|[
@@ -190,8 +192,12 @@ literal|7
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"char%d: does not start with \"object \"\n"
+argument_list|,
+literal|0
+argument_list|)
 return|;
 if|if
 condition|(
@@ -205,8 +211,12 @@ name|sha1
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"char%d: could not get SHA1 hash\n"
+argument_list|,
+literal|7
+argument_list|)
 return|;
 comment|/* Verify type line */
 name|type_line
@@ -229,8 +239,12 @@ literal|6
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"char%d: could not find \"\\ntype \"\n"
+argument_list|,
+literal|47
+argument_list|)
 return|;
 comment|/* Verify tag-line */
 name|tag_line
@@ -248,8 +262,14 @@ operator|!
 name|tag_line
 condition|)
 return|return
+name|error
+argument_list|(
+literal|"char%td: could not find next \"\\n\"\n"
+argument_list|,
+name|type_line
 operator|-
-literal|1
+name|buffer
+argument_list|)
 return|;
 name|tag_line
 operator|++
@@ -273,8 +293,14 @@ operator|==
 literal|'\n'
 condition|)
 return|return
+name|error
+argument_list|(
+literal|"char%td: no \"tag \" found\n"
+argument_list|,
+name|tag_line
 operator|-
-literal|1
+name|buffer
+argument_list|)
 return|;
 comment|/* Get the actual type */
 name|typelen
@@ -298,8 +324,16 @@ name|type
 argument_list|)
 condition|)
 return|return
+name|error
+argument_list|(
+literal|"char%td: type too long\n"
+argument_list|,
+name|type_line
+operator|+
+literal|5
 operator|-
-literal|1
+name|buffer
+argument_list|)
 return|;
 name|memcpy
 argument_list|(
@@ -332,8 +366,12 @@ name|sha1
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"char%d: could not get SHA1 hash but this is really odd since i got it before !\n"
+argument_list|,
+literal|7
+argument_list|)
 return|;
 if|if
 condition|(
@@ -345,8 +383,14 @@ name|type
 argument_list|)
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"char%d: could not verify object %s\n"
+argument_list|,
+literal|7
+argument_list|,
+name|sha1
+argument_list|)
 return|;
 comment|/* Verify the tag-name: we don't allow control characters or spaces in it */
 name|tag_line
@@ -382,8 +426,14 @@ literal|' '
 condition|)
 continue|continue;
 return|return
+name|error
+argument_list|(
+literal|"char%td: could not verify tag name\n"
+argument_list|,
+name|tag_line
 operator|-
-literal|1
+name|buffer
+argument_list|)
 return|;
 block|}
 comment|/* Verify the tagger line */
@@ -412,8 +462,14 @@ literal|'\n'
 operator|)
 condition|)
 return|return
+name|error
+argument_list|(
+literal|"char%td: could not find \"tagger\"\n"
+argument_list|,
+name|tagger_line
 operator|-
-literal|1
+name|buffer
+argument_list|)
 return|;
 comment|/* The actual stuff afterwards we don't care about.. */
 return|return
