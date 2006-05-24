@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"diff.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"builtin.h"
+end_include
 begin_decl_stmt
 DECL|variable|diff_options
 specifier|static
@@ -334,9 +339,9 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|main
+DECL|function|cmd_diff_stages
 name|int
-name|main
+name|cmd_diff_stages
 parameter_list|(
 name|int
 name|ac
@@ -346,6 +351,11 @@ name|char
 modifier|*
 modifier|*
 name|av
+parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|envp
 parameter_list|)
 block|{
 name|int
