@@ -64,6 +64,7 @@ name|int
 name|mode
 decl_stmt|;
 DECL|member|name
+specifier|const
 name|char
 modifier|*
 name|name
@@ -104,6 +105,16 @@ DECL|member|object
 name|struct
 name|object
 name|object
+decl_stmt|;
+DECL|member|buffer
+name|void
+modifier|*
+name|buffer
+decl_stmt|;
+DECL|member|size
+name|unsigned
+name|long
+name|size
 decl_stmt|;
 DECL|member|entries
 name|struct
