@@ -56,7 +56,7 @@ DECL|variable|track_object_refs
 name|int
 name|track_object_refs
 init|=
-literal|1
+literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
