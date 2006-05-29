@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"dir.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"cache-tree.h"
+end_include
 begin_decl_stmt
 DECL|variable|builtin_rm_usage
 specifier|static
@@ -628,6 +633,13 @@ condition|)
 name|die
 argument_list|(
 literal|"git rm: unable to remove %s"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+name|cache_tree_invalidate_path
+argument_list|(
+name|active_cache_tree
 argument_list|,
 name|path
 argument_list|)
