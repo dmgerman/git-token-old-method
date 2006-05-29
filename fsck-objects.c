@@ -2426,6 +2426,10 @@ name|i
 decl_stmt|,
 name|heads
 decl_stmt|;
+name|track_object_refs
+operator|=
+literal|1
+expr_stmt|;
 name|setup_git_directory
 argument_list|()
 expr_stmt|;
