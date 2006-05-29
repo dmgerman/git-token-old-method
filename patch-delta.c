@@ -23,6 +23,7 @@ name|void
 modifier|*
 name|patch_delta
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|src_buf
@@ -31,6 +32,7 @@ name|unsigned
 name|long
 name|src_size
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|delta_buf
