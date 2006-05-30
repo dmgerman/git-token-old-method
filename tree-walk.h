@@ -16,6 +16,7 @@ struct|struct
 name|tree_desc
 block|{
 DECL|member|buf
+specifier|const
 name|void
 modifier|*
 name|buf
@@ -86,6 +87,23 @@ modifier|*
 parameter_list|,
 name|unsigned
 name|int
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/* Helper function that does both of the above and returns true for success */
+end_comment
+begin_function_decl
+name|int
+name|tree_entry
+parameter_list|(
+name|struct
+name|tree_desc
+modifier|*
+parameter_list|,
+name|struct
+name|name_entry
 modifier|*
 parameter_list|)
 function_decl|;
