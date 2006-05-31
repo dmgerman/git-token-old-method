@@ -98,6 +98,9 @@ expr_stmt|;
 if|if
 condition|(
 name|env
+operator|&&
+operator|*
+name|env
 condition|)
 block|{
 return|return
@@ -130,8 +133,6 @@ literal|1
 index|]
 decl_stmt|;
 name|int
-name|len
-decl_stmt|,
 name|i
 decl_stmt|;
 specifier|const
@@ -168,6 +169,12 @@ operator|++
 name|i
 control|)
 block|{
+name|size_t
+name|len
+decl_stmt|;
+name|int
+name|rc
+decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -186,6 +193,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|exec_dir
+operator|||
+operator|!
+operator|*
 name|exec_dir
 condition|)
 continue|continue;
@@ -216,14 +227,15 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"git: cannot determine "
-literal|"current directory\n"
-argument_list|)
-expr_stmt|;
-name|exit
+literal|"current directory: %s\n"
+argument_list|,
+name|strerror
 argument_list|(
-literal|1
+name|errno
+argument_list|)
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 name|len
 operator|=
@@ -261,6 +273,8 @@ name|exec_dir
 operator|++
 expr_stmt|;
 block|}
+name|rc
+operator|=
 name|snprintf
 argument_list|(
 name|git_command
@@ -279,9 +293,60 @@ argument_list|,
 name|exec_dir
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|<
+literal|0
+operator|||
+name|rc
+operator|>=
+sizeof|sizeof
+argument_list|(
+name|git_command
+argument_list|)
+operator|-
+name|len
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"git: command name given "
+literal|"is too long.\n"
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|strlen
+argument_list|(
+name|exec_dir
+argument_list|)
+operator|+
+literal|1
+operator|>
+sizeof|sizeof
+argument_list|(
+name|git_command
+argument_list|)
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"git: command name given "
+literal|"is too long.\n"
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 name|strcpy
 argument_list|(
 name|git_command
@@ -297,8 +362,8 @@ argument_list|(
 name|git_command
 argument_list|)
 expr_stmt|;
-name|len
-operator|+=
+name|rc
+operator|=
 name|snprintf
 argument_list|(
 name|git_command
@@ -322,11 +387,17 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|rc
+operator|<
+literal|0
+operator|||
+name|rc
+operator|>=
 sizeof|sizeof
 argument_list|(
 name|git_command
 argument_list|)
-operator|<=
+operator|-
 name|len
 condition|)
 block|{
