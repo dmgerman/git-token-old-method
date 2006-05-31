@@ -1080,6 +1080,8 @@ name|struct
 name|ref_lock
 modifier|*
 name|lock
+init|=
+name|NULL
 decl_stmt|;
 name|unsigned
 name|char
@@ -1165,6 +1167,10 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lock
+condition|)
 name|unlock_ref
 argument_list|(
 name|lock
@@ -1186,6 +1192,10 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|lock
+condition|)
 name|unlock_ref
 argument_list|(
 name|lock
@@ -1202,6 +1212,10 @@ name|loop
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|lock
+condition|)
 name|unlock_ref
 argument_list|(
 name|lock
