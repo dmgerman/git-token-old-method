@@ -3796,12 +3796,6 @@ condition|(
 operator|!
 name|a
 condition|)
-block|{
-name|invalidate_ce_path
-argument_list|(
-name|old
-argument_list|)
-expr_stmt|;
 return|return
 name|deleted_entry
 argument_list|(
@@ -3810,7 +3804,6 @@ argument_list|,
 name|old
 argument_list|)
 return|;
-block|}
 if|if
 condition|(
 name|old
@@ -4860,6 +4853,9 @@ operator|&&
 name|trees
 operator|->
 name|item
+operator|&&
+operator|!
+name|prefix
 operator|&&
 operator|(
 operator|!
