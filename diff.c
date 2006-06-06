@@ -670,6 +670,8 @@ name|isatty
 argument_list|(
 literal|1
 argument_list|)
+operator|||
+name|pager_in_use
 condition|)
 block|{
 name|char

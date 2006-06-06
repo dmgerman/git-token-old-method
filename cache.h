@@ -2972,6 +2972,12 @@ name|void
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_decl_stmt
+specifier|extern
+name|int
+name|pager_in_use
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* base85 */
 end_comment
