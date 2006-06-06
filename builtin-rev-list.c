@@ -695,7 +695,9 @@ argument_list|,
 operator|&
 name|me
 argument_list|,
-name|name
+name|entry
+operator|.
+name|path
 argument_list|)
 expr_stmt|;
 else|else
@@ -715,7 +717,9 @@ argument_list|,
 operator|&
 name|me
 argument_list|,
-name|name
+name|entry
+operator|.
+name|path
 argument_list|)
 expr_stmt|;
 block|}
