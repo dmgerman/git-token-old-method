@@ -1452,6 +1452,11 @@ directive|endif
 name|curl_global_cleanup
 argument_list|()
 expr_stmt|;
+name|curl_slist_free_all
+argument_list|(
+name|pragma_header
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2130,6 +2135,9 @@ operator|->
 name|curl
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|USE_CURL_MULTI
 name|curl_multi_remove_handle
 argument_list|(
 name|curlm
@@ -2139,6 +2147,8 @@ operator|->
 name|curl
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|curl_easy_cleanup
 argument_list|(
 name|slot
@@ -2153,9 +2163,14 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|USE_CURL_MULTI
 name|fill_active_slots
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
