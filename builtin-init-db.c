@@ -1393,7 +1393,7 @@ name|shared_repository
 condition|)
 name|git_config_set
 argument_list|(
-literal|"core.sharedRepository"
+literal|"core.sharedrepository"
 argument_list|,
 literal|"true"
 argument_list|)
