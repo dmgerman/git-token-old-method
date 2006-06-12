@@ -1195,6 +1195,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|*
+name|seen
+operator|&
+name|SEEN_PREFIX
+condition|)
+return|return;
+if|if
+condition|(
 operator|!
 name|memcmp
 argument_list|(
