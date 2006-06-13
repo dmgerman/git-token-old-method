@@ -1029,6 +1029,12 @@ literal|"update-index"
 block|,
 name|cmd_update_index
 block|}
+block|,
+block|{
+literal|"update-ref"
+block|,
+name|cmd_update_ref
+block|}
 block|}
 struct|;
 name|int
