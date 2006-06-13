@@ -1017,6 +1017,12 @@ literal|"mailinfo"
 block|,
 name|cmd_mailinfo
 block|}
+block|,
+block|{
+literal|"stripspace"
+block|,
+name|cmd_stripspace
+block|}
 block|}
 struct|;
 name|int
