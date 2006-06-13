@@ -178,6 +178,11 @@ DECL|member|summary
 name|summary
 range|:
 literal|1
+decl_stmt|,
+DECL|member|color_diff
+name|color_diff
+range|:
+literal|1
 decl_stmt|;
 DECL|member|context
 name|int
