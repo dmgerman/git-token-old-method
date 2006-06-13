@@ -999,6 +999,12 @@ literal|"rev-parse"
 block|,
 name|cmd_rev_parse
 block|}
+block|,
+block|{
+literal|"write-tree"
+block|,
+name|cmd_write_tree
+block|}
 block|}
 struct|;
 name|int
