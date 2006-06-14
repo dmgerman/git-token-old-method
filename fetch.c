@@ -645,7 +645,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 block|{
 if|if
@@ -674,7 +674,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tree_type
+name|TYPE_TREE
 condition|)
 block|{
 if|if
@@ -703,7 +703,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|blob_type
+name|TYPE_BLOB
 condition|)
 block|{
 return|return
@@ -716,7 +716,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tag_type
+name|TYPE_TAG
 condition|)
 block|{
 if|if
@@ -745,9 +745,12 @@ argument_list|(
 literal|"Unable to determine requirements "
 literal|"of type %s for %s"
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -927,15 +930,12 @@ condition|)
 block|{
 name|report_missing
 argument_list|(
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
-condition|?
-name|obj
-operator|->
-name|type
-else|:
-literal|"object"
+argument_list|)
 argument_list|,
 name|obj
 operator|->

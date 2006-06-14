@@ -213,9 +213,12 @@ literal|"%s in %s %s: "
 argument_list|,
 name|severity
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -412,9 +415,12 @@ name|printf
 argument_list|(
 literal|"missing %s %s\n"
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -494,9 +500,12 @@ name|printf
 argument_list|(
 literal|"broken link from %7s %s\n"
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -510,9 +519,12 @@ name|printf
 argument_list|(
 literal|"              to %7s %s\n"
 argument_list|,
+name|typename
+argument_list|(
 name|ref
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -542,9 +554,12 @@ name|printf
 argument_list|(
 literal|"unreachable %s %s\n"
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -568,9 +583,12 @@ name|printf
 argument_list|(
 literal|"dangling %s %s\n"
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1396,9 +1414,12 @@ name|printf
 argument_list|(
 literal|"tagged %s %s"
 argument_list|,
+name|typename
+argument_list|(
 name|tagged
 operator|->
 name|type
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1492,7 +1513,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|blob_type
+name|TYPE_BLOB
 condition|)
 return|return
 literal|0
@@ -1503,7 +1524,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tree_type
+name|TYPE_TREE
 condition|)
 return|return
 name|fsck_tree
@@ -1522,7 +1543,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 return|return
 name|fsck_commit
@@ -1541,7 +1562,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tag_type
+name|TYPE_TAG
 condition|)
 return|return
 name|fsck_tag
@@ -1560,7 +1581,7 @@ name|objerror
 argument_list|(
 name|obj
 argument_list|,
-literal|"unknown type '%s' (internal fsck error)"
+literal|"unknown type '%d' (internal fsck error)"
 argument_list|,
 name|obj
 operator|->
@@ -2439,7 +2460,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|tree_type
+name|TYPE_TREE
 condition|)
 name|err
 operator||=

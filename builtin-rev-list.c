@@ -864,7 +864,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tag_type
+name|TYPE_TAG
 condition|)
 block|{
 name|obj
@@ -894,7 +894,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tree_type
+name|TYPE_TREE
 condition|)
 block|{
 name|p
@@ -923,7 +923,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|blob_type
+name|TYPE_BLOB
 condition|)
 block|{
 name|p

@@ -663,7 +663,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 block|{
 name|struct
@@ -1312,7 +1312,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|tag_type
+name|TYPE_TAG
 condition|)
 block|{
 name|o
