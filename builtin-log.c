@@ -264,6 +264,12 @@ name|recursive
 operator|=
 literal|1
 expr_stmt|;
+name|rev
+operator|.
+name|simplify_history
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|cmd_log_wc
 argument_list|(
@@ -639,7 +645,7 @@ condition|(
 name|output_directory
 condition|)
 block|{
-name|strncpy
+name|safe_strncpy
 argument_list|(
 name|filename
 argument_list|,
