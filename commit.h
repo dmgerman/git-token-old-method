@@ -50,6 +50,11 @@ name|struct
 name|object
 name|object
 decl_stmt|;
+DECL|member|util
+name|void
+modifier|*
+name|util
+decl_stmt|;
 DECL|member|date
 name|unsigned
 name|long

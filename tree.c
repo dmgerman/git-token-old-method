@@ -721,7 +721,7 @@ name|object
 operator|.
 name|type
 operator|=
-name|tree_type
+name|TYPE_TREE
 expr_stmt|;
 return|return
 name|ret
@@ -738,7 +738,7 @@ name|obj
 operator|->
 name|type
 operator|=
-name|tree_type
+name|TYPE_TREE
 expr_stmt|;
 if|if
 condition|(
@@ -746,7 +746,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|tree_type
+name|TYPE_TREE
 condition|)
 block|{
 name|error
@@ -758,9 +758,12 @@ argument_list|(
 name|sha1
 argument_list|)
 argument_list|,
+name|typename
+argument_list|(
 name|obj
 operator|->
 name|type
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1167,7 +1170,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tree_type
+name|TYPE_TREE
 condition|)
 return|return
 operator|(
@@ -1184,7 +1187,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 name|obj
 operator|=
@@ -1211,7 +1214,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|tag_type
+name|TYPE_TAG
 condition|)
 name|obj
 operator|=

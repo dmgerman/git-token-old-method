@@ -798,7 +798,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 return|return
 literal|0
@@ -835,7 +835,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|commit_type
+name|TYPE_COMMIT
 condition|)
 return|return
 literal|0
