@@ -1679,6 +1679,11 @@ index|[
 name|i1
 index|]
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
+operator|(
 name|i1
 operator|!=
 operator|-
@@ -1693,6 +1698,7 @@ index|]
 index|]
 else|:
 name|NULL
+operator|)
 argument_list|,
 name|i2
 argument_list|,
@@ -1701,6 +1707,11 @@ index|[
 name|i2
 index|]
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
+operator|(
 name|i2
 operator|!=
 operator|-
@@ -1715,6 +1726,7 @@ index|]
 index|]
 else|:
 name|NULL
+operator|)
 argument_list|)
 expr_stmt|;
 if|if
