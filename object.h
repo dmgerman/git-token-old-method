@@ -157,11 +157,6 @@ name|object_refs
 modifier|*
 name|refs
 decl_stmt|;
-DECL|member|util
-name|void
-modifier|*
-name|util
-decl_stmt|;
 block|}
 struct|;
 end_struct

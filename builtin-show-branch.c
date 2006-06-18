@@ -255,14 +255,10 @@ condition|(
 operator|!
 name|commit
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 name|commit
 operator|->
-name|object
-operator|.
 name|util
 operator|=
 name|xmalloc
@@ -278,8 +274,6 @@ name|name
 operator|=
 name|commit
 operator|->
-name|object
-operator|.
 name|util
 expr_stmt|;
 name|name
@@ -323,8 +317,6 @@ name|commit_name
 init|=
 name|commit
 operator|->
-name|object
-operator|.
 name|util
 decl_stmt|;
 name|struct
@@ -334,8 +326,6 @@ name|parent_name
 init|=
 name|parent
 operator|->
-name|object
-operator|.
 name|util
 decl_stmt|;
 if|if
@@ -408,8 +398,6 @@ condition|(
 operator|!
 name|c
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 break|break;
@@ -434,8 +422,6 @@ condition|(
 operator|!
 name|p
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 block|{
@@ -525,8 +511,6 @@ if|if
 condition|(
 name|c
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 continue|continue;
@@ -654,8 +638,6 @@ condition|(
 operator|!
 name|c
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 continue|continue;
@@ -663,8 +645,6 @@ name|n
 operator|=
 name|c
 operator|->
-name|object
-operator|.
 name|util
 expr_stmt|;
 name|parents
@@ -713,8 +693,6 @@ if|if
 condition|(
 name|p
 operator|->
-name|object
-operator|.
 name|util
 condition|)
 continue|continue;
@@ -1279,8 +1257,6 @@ name|name
 init|=
 name|commit
 operator|->
-name|object
-operator|.
 name|util
 decl_stmt|;
 if|if
