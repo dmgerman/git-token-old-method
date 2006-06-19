@@ -45,6 +45,12 @@ DECL|member|count
 name|unsigned
 name|count
 decl_stmt|;
+DECL|member|base
+name|struct
+name|object
+modifier|*
+name|base
+decl_stmt|;
 DECL|member|ref
 name|struct
 name|object
@@ -151,12 +157,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-DECL|member|refs
-name|struct
-name|object_refs
-modifier|*
-name|refs
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -218,6 +218,19 @@ index|]
 return|;
 block|}
 end_function
+begin_function_decl
+specifier|extern
+name|struct
+name|object_refs
+modifier|*
+name|lookup_object_refs
+parameter_list|(
+name|struct
+name|object
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/** Internal only **/
 end_comment
