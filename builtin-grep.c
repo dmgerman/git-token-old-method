@@ -140,6 +140,10 @@ name|meta
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|matchlen
+operator|||
+operator|(
 operator|(
 name|matchlen
 operator|<=
@@ -179,6 +183,7 @@ name|matchlen
 index|]
 operator|==
 literal|'/'
+operator|)
 operator|)
 condition|)
 return|return
