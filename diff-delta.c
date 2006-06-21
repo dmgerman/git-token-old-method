@@ -1877,6 +1877,12 @@ name|trg_buf
 expr_stmt|;
 name|top
 operator|=
+operator|(
+specifier|const
+name|unsigned
+name|char
+operator|*
+operator|)
 name|trg_buf
 operator|+
 name|trg_size

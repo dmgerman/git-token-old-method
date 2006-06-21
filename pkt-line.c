@@ -59,7 +59,13 @@ literal|0
 condition|)
 block|{
 name|buf
-operator|+=
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|buf
+operator|+
 name|ret
 expr_stmt|;
 name|n
@@ -308,6 +314,10 @@ name|xread
 argument_list|(
 name|fd
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|buffer
 operator|+
 name|n

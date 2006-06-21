@@ -225,6 +225,10 @@ name|memcpy
 argument_list|(
 name|ptr
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|buffer
 operator|->
 name|buffer
@@ -341,6 +345,10 @@ expr_stmt|;
 block|}
 name|memcpy
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buffer
 operator|->
 name|buffer

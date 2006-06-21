@@ -756,6 +756,10 @@ name|int
 operator|*
 operator|)
 operator|(
+operator|(
+name|char
+operator|*
+operator|)
 name|index
 operator|+
 literal|24
@@ -1505,6 +1509,10 @@ argument_list|)
 expr_stmt|;
 name|buf
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|p
 operator|->
 name|pack_base
