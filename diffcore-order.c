@@ -146,6 +146,10 @@ condition|)
 return|return;
 name|endp
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|map
 operator|+
 name|st

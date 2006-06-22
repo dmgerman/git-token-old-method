@@ -1284,7 +1284,8 @@ name|p1_off
 decl_stmt|,
 name|p2_off
 decl_stmt|;
-name|void
+name|unsigned
+name|char
 modifier|*
 name|p1_base
 decl_stmt|,
@@ -1316,7 +1317,8 @@ expr_stmt|;
 name|p1_base
 operator|=
 operator|(
-name|void
+name|unsigned
+name|char
 operator|*
 operator|)
 name|p1
@@ -1328,7 +1330,8 @@ expr_stmt|;
 name|p2_base
 operator|=
 operator|(
-name|void
+name|unsigned
+name|char
 operator|*
 operator|)
 name|p2
@@ -1829,7 +1832,7 @@ name|p1_off
 decl_stmt|,
 name|p2_off
 decl_stmt|;
-name|void
+name|char
 modifier|*
 name|p1_base
 decl_stmt|,
@@ -1849,7 +1852,7 @@ expr_stmt|;
 name|p1_base
 operator|=
 operator|(
-name|void
+name|char
 operator|*
 operator|)
 name|p1
@@ -1859,7 +1862,7 @@ expr_stmt|;
 name|p2_base
 operator|=
 operator|(
-name|void
+name|char
 operator|*
 operator|)
 name|p2
@@ -2689,7 +2692,8 @@ decl_stmt|;
 name|size_t
 name|off
 decl_stmt|;
-name|void
+name|unsigned
+name|char
 modifier|*
 name|base
 decl_stmt|;
@@ -2735,7 +2739,8 @@ expr_stmt|;
 name|base
 operator|=
 operator|(
-name|void
+name|unsigned
+name|char
 operator|*
 operator|)
 name|p

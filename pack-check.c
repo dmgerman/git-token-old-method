@@ -192,6 +192,10 @@ name|memcmp
 argument_list|(
 name|sha1
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|pack_base
 operator|+
 name|pack_size
@@ -217,6 +221,10 @@ name|memcmp
 argument_list|(
 name|sha1
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|index_base
 operator|+
 name|index_size
@@ -771,6 +779,10 @@ name|memcmp
 argument_list|(
 name|sha1
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|index_base
 operator|+
 name|index_size
