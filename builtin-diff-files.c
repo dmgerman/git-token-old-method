@@ -211,7 +211,9 @@ if|if
 condition|(
 name|rev
 operator|.
-name|pending_objects
+name|pending
+operator|.
+name|nr
 operator|||
 name|rev
 operator|.
