@@ -54,6 +54,8 @@ block|}
 end_function
 begin_function
 DECL|function|usage_builtin
+specifier|static
+name|NORETURN
 name|void
 name|usage_builtin
 parameter_list|(
@@ -81,6 +83,8 @@ block|}
 end_function
 begin_function
 DECL|function|die_builtin
+specifier|static
+name|NORETURN
 name|void
 name|die_builtin
 parameter_list|(
@@ -111,6 +115,7 @@ block|}
 end_function
 begin_function
 DECL|function|error_builtin
+specifier|static
 name|void
 name|error_builtin
 parameter_list|(
