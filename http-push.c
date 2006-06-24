@@ -7076,7 +7076,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|ctx
 operator|->
@@ -8289,7 +8289,7 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|obj_hex
 argument_list|,
@@ -12449,7 +12449,7 @@ operator|-
 literal|5
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 operator|*
 name|symref

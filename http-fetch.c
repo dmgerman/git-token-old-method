@@ -3164,7 +3164,7 @@ operator|-
 literal|6
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|target
 argument_list|,
@@ -3173,7 +3173,7 @@ argument_list|,
 name|serverlen
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|target
 operator|+
@@ -3859,7 +3859,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|ctx
 operator|->

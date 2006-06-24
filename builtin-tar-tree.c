@@ -1322,7 +1322,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|header
 operator|.
@@ -1338,7 +1338,7 @@ name|uname
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|safe_strncpy
+name|strlcpy
 argument_list|(
 name|header
 operator|.
