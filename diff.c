@@ -7992,6 +7992,12 @@ literal|3
 expr_stmt|;
 name|options
 operator|->
+name|msg_sep
+operator|=
+literal|"\n"
+expr_stmt|;
+name|options
+operator|->
 name|change
 operator|=
 name|diff_change
