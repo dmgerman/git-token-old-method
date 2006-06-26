@@ -49,6 +49,11 @@ include|#
 directive|include
 file|<netdb.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<signal.h>
+end_include
 begin_decl_stmt
 DECL|variable|server_capabilities
 specifier|static
