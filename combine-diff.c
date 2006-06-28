@@ -1306,6 +1306,7 @@ name|sline
 modifier|*
 name|sline
 parameter_list|,
+name|unsigned
 name|int
 name|cnt
 parameter_list|,
@@ -1727,7 +1728,7 @@ name|long
 name|cnt
 parameter_list|,
 name|int
-name|uninteresting
+name|look_for_uninteresting
 parameter_list|)
 block|{
 comment|/* We have examined up to i-1 and are about to look at i. 	 * Find next interesting or uninteresting line.  Here, 	 * "interesting" does not mean interesting(), but marked by 	 * the give_context() function below (i.e. it includes context 	 * lines that are not interesting to interesting() function 	 * that are surrounded by interesting() ones. 	 */
@@ -1739,7 +1740,7 @@ name|cnt
 condition|)
 if|if
 condition|(
-name|uninteresting
+name|look_for_uninteresting
 condition|?
 operator|!
 operator|(
@@ -2522,10 +2523,6 @@ name|unsigned
 name|long
 name|l1
 parameter_list|,
-name|unsigned
-name|long
-name|cnt
-parameter_list|,
 name|int
 name|n
 parameter_list|)
@@ -2751,8 +2748,6 @@ argument_list|,
 name|lno
 argument_list|,
 name|hunk_end
-argument_list|,
-name|cnt
 argument_list|,
 name|i
 argument_list|)
@@ -3322,7 +3317,7 @@ operator|.
 name|st_size
 decl_stmt|;
 name|int
-name|cnt
+name|sz
 init|=
 literal|0
 decl_stmt|;
@@ -3352,7 +3347,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-name|cnt
+name|sz
 operator|<
 name|len
 condition|)
@@ -3366,11 +3361,11 @@ name|fd
 argument_list|,
 name|result
 operator|+
-name|cnt
+name|sz
 argument_list|,
 name|len
 operator|-
-name|cnt
+name|sz
 argument_list|)
 decl_stmt|;
 if|if
@@ -3395,7 +3390,7 @@ operator|->
 name|path
 argument_list|)
 expr_stmt|;
-name|cnt
+name|sz
 operator|+=
 name|done
 expr_stmt|;
@@ -3459,9 +3454,9 @@ operator|=
 name|result
 init|;
 name|cp
-operator|-
-name|result
 operator|<
+name|result
+operator|+
 name|result_size
 condition|;
 name|cp
@@ -3572,9 +3567,9 @@ operator|=
 name|result
 init|;
 name|cp
-operator|-
-name|result
 operator|<
+name|result
+operator|+
 name|result_size
 condition|;
 name|cp
@@ -4147,15 +4142,15 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|i
+name|lno
 operator|=
 literal|0
 init|;
-name|i
+name|lno
 operator|<
 name|cnt
 condition|;
-name|i
+name|lno
 operator|++
 control|)
 block|{
@@ -4163,7 +4158,7 @@ if|if
 condition|(
 name|sline
 index|[
-name|i
+name|lno
 index|]
 operator|.
 name|lost_head
@@ -4176,7 +4171,7 @@ name|ll
 init|=
 name|sline
 index|[
-name|i
+name|lno
 index|]
 operator|.
 name|lost_head
