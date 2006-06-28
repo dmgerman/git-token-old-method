@@ -438,13 +438,6 @@ literal|"GIT_TRACE"
 argument_list|)
 condition|)
 block|{
-name|fputs
-argument_list|(
-literal|"trace: exec:"
-argument_list|,
-name|stderr
-argument_list|)
-expr_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -453,6 +446,13 @@ name|p
 init|=
 name|argv
 decl_stmt|;
+name|fputs
+argument_list|(
+literal|"trace: exec:"
+argument_list|,
+name|stderr
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|*
