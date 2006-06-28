@@ -1731,6 +1731,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|alt

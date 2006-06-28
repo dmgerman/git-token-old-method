@@ -789,6 +789,7 @@ modifier|*
 name|attr
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|ends

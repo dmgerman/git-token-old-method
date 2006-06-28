@@ -148,6 +148,7 @@ end_comment
 begin_decl_stmt
 DECL|variable|user_path
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|user_path
@@ -1964,6 +1965,7 @@ condition|(
 name|verbose
 condition|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|dead

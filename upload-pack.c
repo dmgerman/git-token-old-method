@@ -517,14 +517,15 @@ modifier|*
 modifier|*
 name|argv
 decl_stmt|;
-name|char
-modifier|*
-name|buf
-decl_stmt|;
+specifier|const
 name|char
 modifier|*
 modifier|*
 name|p
+decl_stmt|;
+name|char
+modifier|*
+name|buf
 decl_stmt|;
 if|if
 condition|(
@@ -2270,6 +2271,7 @@ name|sha1
 parameter_list|)
 block|{
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|capabilities

@@ -7099,6 +7099,7 @@ name|remote_lock
 modifier|*
 name|lock_remote
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|path
@@ -12191,6 +12192,7 @@ specifier|static
 name|void
 name|fetch_symref
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|path

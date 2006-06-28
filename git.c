@@ -84,10 +84,8 @@ name|int
 name|len
 parameter_list|)
 block|{
+specifier|const
 name|char
-modifier|*
-name|path
-decl_stmt|,
 modifier|*
 name|old_path
 init|=
@@ -95,6 +93,10 @@ name|getenv
 argument_list|(
 literal|"PATH"
 argument_list|)
+decl_stmt|;
+name|char
+modifier|*
+name|path
 decl_stmt|;
 name|int
 name|path_len
