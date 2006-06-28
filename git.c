@@ -1175,14 +1175,6 @@ argument_list|,
 literal|'/'
 argument_list|)
 decl_stmt|;
-name|char
-name|git_command
-index|[
-name|PATH_MAX
-operator|+
-literal|1
-index|]
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -1485,7 +1477,7 @@ name|stderr
 argument_list|,
 literal|"Failed to run command '%s': %s\n"
 argument_list|,
-name|git_command
+name|cmd
 argument_list|,
 name|strerror
 argument_list|(
