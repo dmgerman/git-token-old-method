@@ -5062,10 +5062,11 @@ continue|continue;
 comment|/* non-merge - always ignore it */
 if|if
 condition|(
+operator|!
 name|commit
 operator|->
 name|parents
-operator|&&
+operator|||
 operator|!
 name|commit
 operator|->
