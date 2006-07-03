@@ -2682,7 +2682,7 @@ argument_list|(
 operator|&
 name|stream
 argument_list|,
-name|Z_BEST_COMPRESSION
+name|zlib_compression_level
 argument_list|)
 expr_stmt|;
 name|size
