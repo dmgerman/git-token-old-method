@@ -1340,6 +1340,10 @@ name|int
 name|tree_changed
 init|=
 literal|0
+decl_stmt|,
+name|tree_same
+init|=
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -1431,6 +1435,10 @@ block|{
 case|case
 name|REV_TREE_SAME
 case|:
+name|tree_same
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1539,6 +1547,9 @@ block|}
 if|if
 condition|(
 name|tree_changed
+operator|&&
+operator|!
+name|tree_same
 condition|)
 name|commit
 operator|->
@@ -4735,6 +4746,21 @@ if|if
 condition|(
 name|p
 operator|->
+name|parents
+operator|&&
+name|p
+operator|->
+name|parents
+operator|->
+name|next
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
+name|p
+operator|->
 name|object
 operator|.
 name|flags
@@ -5148,6 +5174,7 @@ operator|->
 name|dense
 condition|)
 block|{
+comment|/* Commit without changes? */
 if|if
 condition|(
 operator|!
@@ -5161,7 +5188,33 @@ operator|&
 name|TREECHANGE
 operator|)
 condition|)
+block|{
+comment|/* drop merges unless we want parenthood */
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|parents
+condition|)
 continue|continue;
+comment|/* non-merge - always ignore it */
+if|if
+condition|(
+operator|!
+name|commit
+operator|->
+name|parents
+operator|||
+operator|!
+name|commit
+operator|->
+name|parents
+operator|->
+name|next
+condition|)
+continue|continue;
+block|}
 if|if
 condition|(
 name|revs
