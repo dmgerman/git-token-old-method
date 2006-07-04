@@ -3440,6 +3440,39 @@ init|=
 literal|"git-grep<option>*<rev>* [-e]<pattern> [<path>...]"
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|emsg_invalid_context_len
+specifier|static
+specifier|const
+name|char
+name|emsg_invalid_context_len
+index|[]
+init|=
+literal|"%s: invalid context length argument"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|emsg_missing_context_len
+specifier|static
+specifier|const
+name|char
+name|emsg_missing_context_len
+index|[]
+init|=
+literal|"missing context length argument"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|emsg_missing_argument
+specifier|static
+specifier|const
+name|char
+name|emsg_missing_argument
+index|[]
+init|=
+literal|"option requires an argument -%s"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|cmd_grep
 name|int
@@ -3998,9 +4031,9 @@ name|argc
 operator|<=
 literal|1
 condition|)
-name|usage
+name|die
 argument_list|(
-name|builtin_grep_usage
+name|emsg_missing_context_len
 argument_list|)
 expr_stmt|;
 name|scan
@@ -4044,9 +4077,11 @@ argument_list|)
 operator|!=
 literal|1
 condition|)
-name|usage
+name|die
 argument_list|(
-name|builtin_grep_usage
+name|emsg_invalid_context_len
+argument_list|,
+name|scan
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -4122,9 +4157,11 @@ name|argc
 operator|<=
 literal|1
 condition|)
-name|usage
+name|die
 argument_list|(
-name|builtin_grep_usage
+name|emsg_missing_argument
+argument_list|,
+name|arg
 argument_list|)
 expr_stmt|;
 name|patterns
@@ -4286,9 +4323,11 @@ operator|--
 expr_stmt|;
 continue|continue;
 block|}
-name|usage
+name|die
 argument_list|(
-name|builtin_grep_usage
+name|emsg_missing_argument
+argument_list|,
+name|arg
 argument_list|)
 expr_stmt|;
 block|}
