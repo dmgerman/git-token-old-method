@@ -2326,6 +2326,27 @@ comment|/* more */
 block|}
 struct|;
 end_struct
+begin_define
+DECL|macro|REF_NORMAL
+define|#
+directive|define
+name|REF_NORMAL
+value|(1u<< 0)
+end_define
+begin_define
+DECL|macro|REF_HEADS
+define|#
+directive|define
+name|REF_HEADS
+value|(1u<< 1)
+end_define
+begin_define
+DECL|macro|REF_TAGS
+define|#
+directive|define
+name|REF_TAGS
+value|(1u<< 2)
+end_define
 begin_function_decl
 specifier|extern
 name|int
@@ -2453,8 +2474,9 @@ modifier|*
 modifier|*
 name|match
 parameter_list|,
+name|unsigned
 name|int
-name|ignore_funny
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
