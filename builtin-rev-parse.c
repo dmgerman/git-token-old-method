@@ -738,6 +738,7 @@ specifier|static
 name|int
 name|try_difference
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|arg
