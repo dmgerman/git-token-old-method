@@ -4190,6 +4190,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|o
+operator|->
+name|text
+operator|&&
+operator|(
 name|mmfile_is_binary
 argument_list|(
 operator|&
@@ -4201,6 +4207,7 @@ argument_list|(
 operator|&
 name|mf2
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|/* Quite common confusing case */
@@ -8717,6 +8724,25 @@ operator|=
 name|options
 operator|->
 name|binary
+operator|=
+literal|1
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--text"
+argument_list|)
+condition|)
+block|{
+name|options
+operator|->
+name|text
 operator|=
 literal|1
 expr_stmt|;
