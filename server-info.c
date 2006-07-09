@@ -482,7 +482,7 @@ condition|)
 return|return
 literal|1
 return|;
-comment|/* nonexisting is not an error. */
+comment|/* nonexistent is not an error. */
 while|while
 condition|(
 name|fgets
