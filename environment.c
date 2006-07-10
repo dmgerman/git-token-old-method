@@ -111,6 +111,12 @@ name|Z_DEFAULT_COMPRESSION
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|pager_in_use
+name|int
+name|pager_in_use
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|git_dir
 DECL|variable|git_object_dir
 DECL|variable|git_index_file
