@@ -317,7 +317,7 @@ name|got_snake
 init|=
 literal|0
 decl_stmt|;
-comment|/* 		 * We need to extent the diagonal "domain" by one. If the next 		 * values exits the box boundaries we need to change it in the 		 * opposite direction because (max - min) must be a power of two. 		 * Also we initialize the extenal K value to -1 so that we can 		 * avoid extra conditions check inside the core loop. 		 */
+comment|/* 		 * We need to extent the diagonal "domain" by one. If the next 		 * values exits the box boundaries we need to change it in the 		 * opposite direction because (max - min) must be a power of two. 		 * Also we initialize the external K value to -1 so that we can 		 * avoid extra conditions check inside the core loop. 		 */
 if|if
 condition|(
 name|fmin
@@ -518,7 +518,7 @@ name|ec
 return|;
 block|}
 block|}
-comment|/* 		 * We need to extent the diagonal "domain" by one. If the next 		 * values exits the box boundaries we need to change it in the 		 * opposite direction because (max - min) must be a power of two. 		 * Also we initialize the extenal K value to -1 so that we can 		 * avoid extra conditions check inside the core loop. 		 */
+comment|/* 		 * We need to extent the diagonal "domain" by one. If the next 		 * values exits the box boundaries we need to change it in the 		 * opposite direction because (max - min) must be a power of two. 		 * Also we initialize the external K value to -1 so that we can 		 * avoid extra conditions check inside the core loop. 		 */
 if|if
 condition|(
 name|bmin
@@ -2173,7 +2173,7 @@ name|xdf
 operator|->
 name|recs
 decl_stmt|;
-comment|/* 	 * This is the same of what GNU diff does. Move back and forward 	 * change groups for a consistent and pretty diff output. This also 	 * helps in finding joineable change groups and reduce the diff size. 	 */
+comment|/* 	 * This is the same of what GNU diff does. Move back and forward 	 * change groups for a consistent and pretty diff output. This also 	 * helps in finding joinable change groups and reduce the diff size. 	 */
 for|for
 control|(
 name|ix

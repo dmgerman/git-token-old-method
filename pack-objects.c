@@ -155,7 +155,7 @@ name|object_entry
 modifier|*
 name|delta_child
 decl_stmt|;
-comment|/* delitified objects who bases me */
+comment|/* deltified objects who bases me */
 DECL|member|delta_sibling
 name|struct
 name|object_entry
@@ -172,7 +172,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*  * Objects we are going to pack are colected in objects array (dynamically  * expanded).  nr_objects& nr_alloc controls this array.  They are stored  * in the order we see -- typically rev-list --objects order that gives us  * nice "minimum seek" order.  *  * sorted-by-sha ans sorted-by-type are arrays of pointers that point at  * elements in the objects array.  The former is used to build the pack  * index (lists object names in the ascending order to help offset lookup),  * and the latter is used to group similar things together by try_delta()  * heuristics.  */
+comment|/*  * Objects we are going to pack are collected in objects array (dynamically  * expanded).  nr_objects& nr_alloc controls this array.  They are stored  * in the order we see -- typically rev-list --objects order that gives us  * nice "minimum seek" order.  *  * sorted-by-sha ans sorted-by-type are arrays of pointers that point at  * elements in the objects array.  The former is used to build the pack  * index (lists object names in the ascending order to help offset lookup),  * and the latter is used to group similar things together by try_delta()  * heuristics.  */
 end_comment
 begin_decl_stmt
 DECL|variable|object_list_sha1

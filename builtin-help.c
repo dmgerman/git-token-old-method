@@ -39,7 +39,7 @@ literal|"Usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--help] COMMAND [
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/* most gui terms set COLUMNS (although some don't export it) */
+comment|/* most GUI terminals set COLUMNS (although some don't export it) */
 end_comment
 begin_function
 DECL|function|term_columns

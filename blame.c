@@ -88,11 +88,11 @@ name|blame_usage
 index|[]
 init|=
 literal|"[-c] [-l] [-t] [-S<revs-file>] [--] file [commit]\n"
-literal|"  -c, --compability Use the same output mode as git-annotate (Default: off)\n"
-literal|"  -l, --long        Show long commit SHA1 (Default: off)\n"
-literal|"  -t, --time        Show raw timestamp (Default: off)\n"
-literal|"  -S, --revs-file   Use revisions from revs-file instead of calling git-rev-list\n"
-literal|"  -h, --help        This message"
+literal|"  -c, --compatibility Use the same output mode as git-annotate (Default: off)\n"
+literal|"  -l, --long          Show long commit SHA1 (Default: off)\n"
+literal|"  -t, --time          Show raw timestamp (Default: off)\n"
+literal|"  -S, --revs-file     Use revisions from revs-file instead of calling git-rev-list\n"
+literal|"  -h, --help          This message"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -4118,7 +4118,7 @@ init|=
 literal|8
 decl_stmt|;
 name|int
-name|compability
+name|compatibility
 init|=
 literal|0
 decl_stmt|;
@@ -4284,11 +4284,11 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|"--compability"
+literal|"--compatibility"
 argument_list|)
 condition|)
 block|{
-name|compability
+name|compatibility
 operator|=
 literal|1
 expr_stmt|;
@@ -4364,7 +4364,7 @@ name|sha1_p
 argument_list|)
 condition|)
 block|{
-name|compability
+name|compatibility
 operator|=
 literal|1
 expr_stmt|;
@@ -4906,7 +4906,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|compability
+name|compatibility
 condition|)
 block|{
 name|printf
