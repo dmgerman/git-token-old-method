@@ -186,7 +186,7 @@ name|off1
 decl_stmt|,
 name|len1
 decl_stmt|;
-comment|// ---
+comment|/* --- */
 DECL|member|off2
 DECL|member|len2
 name|int
@@ -194,7 +194,7 @@ name|off2
 decl_stmt|,
 name|len2
 decl_stmt|;
-comment|// +++
+comment|/* +++ */
 block|}
 struct|;
 end_struct
@@ -1407,7 +1407,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// p is a patch from commit to other.
+comment|/* p is a patch from commit to other. */
 end_comment
 begin_function
 DECL|function|fill_line_map

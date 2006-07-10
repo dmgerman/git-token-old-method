@@ -1442,7 +1442,7 @@ name|repo
 init|=
 literal|"origin"
 decl_stmt|;
-comment|// default repository
+comment|/* default repository */
 for|for
 control|(
 name|i

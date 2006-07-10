@@ -13,7 +13,7 @@ begin_comment
 comment|/*  * A signature file has a very simple fixed format: three lines  * of "object<sha1>" + "type<typename>" + "tag<tagname>",  * followed by some free-form signature that git itself doesn't  * care about, but that can be verified with gpg or similar.  *  * The first three lines are guaranteed to be at least 63 bytes:  * "object<sha1>\n" is 48 bytes, "type tag\n" at 9 bytes is the  * shortest possible type-line, and "tag .\n" at 6 bytes is the  * shortest single-character-tag line.   *  * We also artificially limit the size of the full object to 8kB.  * Just because I'm a lazy bastard, and if you can't fit a signature  * in that size, you're doing something wrong.  */
 end_comment
 begin_comment
-comment|// Some random size
+comment|/* Some random size */
 end_comment
 begin_define
 DECL|macro|MAXSIZE
@@ -552,7 +552,7 @@ literal|"could not read from stdin"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Verify it for some basic sanity: it needs to start with "object<sha1>\ntype\ntagger "
+comment|/* Verify it for some basic sanity: it needs to start with 	   "object<sha1>\ntype\ntagger " */
 if|if
 condition|(
 name|verify_tag

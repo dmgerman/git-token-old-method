@@ -3341,7 +3341,7 @@ name|size
 operator|=
 literal|0
 expr_stmt|;
-comment|// avoid gcc warning
+comment|/* avoid gcc warning */
 name|map
 operator|=
 name|MAP_FAILED

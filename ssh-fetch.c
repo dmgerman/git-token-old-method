@@ -378,7 +378,7 @@ literal|20
 argument_list|)
 condition|)
 block|{
-comment|// we must have already fetched it to clean the queue
+comment|/* we must have already fetched it to clean the queue */
 return|return
 name|has_sha1_file
 argument_list|(
@@ -465,7 +465,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|//fprintf(stderr, "Got %d\n", remote);
+comment|/* fprintf(stderr, "Got %d\n", remote); */
 if|if
 condition|(
 name|remote
