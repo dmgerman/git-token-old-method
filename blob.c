@@ -78,7 +78,7 @@ name|object
 operator|.
 name|type
 operator|=
-name|TYPE_BLOB
+name|OBJ_BLOB
 expr_stmt|;
 return|return
 name|ret
@@ -95,7 +95,7 @@ name|obj
 operator|->
 name|type
 operator|=
-name|TYPE_BLOB
+name|OBJ_BLOB
 expr_stmt|;
 if|if
 condition|(
@@ -103,7 +103,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|TYPE_BLOB
+name|OBJ_BLOB
 condition|)
 block|{
 name|error

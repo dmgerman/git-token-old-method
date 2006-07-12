@@ -4712,7 +4712,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_BLOB
+name|OBJ_BLOB
 condition|)
 return|return
 name|grep_sha1
@@ -4732,13 +4732,13 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 operator|||
 name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TREE
+name|OBJ_TREE
 condition|)
 block|{
 name|struct
