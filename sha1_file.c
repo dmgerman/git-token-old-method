@@ -6878,6 +6878,10 @@ block|{
 name|int
 name|ret
 decl_stmt|;
+name|char
+modifier|*
+name|dir
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -6891,29 +6895,20 @@ condition|)
 return|return
 literal|0
 return|;
-comment|/* 	 * Try to mkdir the last path component if that failed 	 * with an ENOENT. 	 * 	 * Re-try the "link()" regardless of whether the mkdir 	 * succeeds, since a race might mean that somebody 	 * else succeeded. 	 */
+comment|/* 	 * Try to mkdir the last path component if that failed. 	 * 	 * Re-try the "link()" regardless of whether the mkdir 	 * succeeds, since a race might mean that somebody 	 * else succeeded. 	 */
 name|ret
 operator|=
 name|errno
 expr_stmt|;
-if|if
-condition|(
-name|ret
-operator|==
-name|ENOENT
-condition|)
-block|{
-name|char
-modifier|*
 name|dir
-init|=
+operator|=
 name|strrchr
 argument_list|(
 name|filename
 argument_list|,
 literal|'/'
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|dir
@@ -6964,7 +6959,6 @@ name|ret
 operator|=
 name|errno
 expr_stmt|;
-block|}
 block|}
 return|return
 name|ret
