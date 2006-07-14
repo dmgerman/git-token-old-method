@@ -444,7 +444,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 block|{
 name|struct
@@ -492,7 +492,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 block|{
 name|struct
@@ -606,7 +606,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 return|return
 literal|"undefined"
@@ -937,7 +937,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 block|{
 name|fprintf

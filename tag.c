@@ -48,7 +48,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 name|o
 operator|=
@@ -157,7 +157,7 @@ name|object
 operator|.
 name|type
 operator|=
-name|TYPE_TAG
+name|OBJ_TAG
 expr_stmt|;
 return|return
 name|ret
@@ -174,7 +174,7 @@ name|obj
 operator|->
 name|type
 operator|=
-name|TYPE_TAG
+name|OBJ_TAG
 expr_stmt|;
 if|if
 condition|(
@@ -182,7 +182,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 block|{
 name|error
