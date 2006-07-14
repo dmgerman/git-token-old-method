@@ -1482,7 +1482,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 name|obj
 operator|=
@@ -1506,7 +1506,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TREE
+name|OBJ_TREE
 condition|)
 block|{
 if|if
@@ -1568,7 +1568,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_BLOB
+name|OBJ_BLOB
 condition|)
 block|{
 if|if

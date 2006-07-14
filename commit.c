@@ -260,7 +260,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 block|{
 if|if
@@ -431,7 +431,7 @@ name|object
 operator|.
 name|type
 operator|=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 expr_stmt|;
 return|return
 name|ret
@@ -448,7 +448,7 @@ name|obj
 operator|->
 name|type
 operator|=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 expr_stmt|;
 return|return
 name|check_commit

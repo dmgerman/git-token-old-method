@@ -1220,7 +1220,7 @@ name|branch
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 return|return;
 name|setup_revisions
