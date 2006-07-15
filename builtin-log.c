@@ -1516,6 +1516,11 @@ name|ignore_if_in_upstream
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|thread
+init|=
+literal|0
+decl_stmt|;
 name|struct
 name|diff_options
 name|patch_id_opts
@@ -2005,6 +2010,24 @@ name|ignore_if_in_upstream
 operator|=
 literal|1
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
+literal|"--thread"
+argument_list|)
+condition|)
+name|thread
+operator|=
+literal|1
+expr_stmt|;
 else|else
 name|argv
 index|[
@@ -2344,6 +2367,11 @@ expr_stmt|;
 comment|/* Make the second and subsequent mails replies to the first */
 if|if
 condition|(
+name|thread
+condition|)
+block|{
+if|if
+condition|(
 name|nr
 operator|==
 operator|(
@@ -2409,6 +2437,7 @@ name|message_id
 operator|=
 name|message_id
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
