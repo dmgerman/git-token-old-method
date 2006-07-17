@@ -2547,6 +2547,8 @@ argument_list|(
 name|merge
 argument_list|,
 name|ADD_CACHE_OK_TO_ADD
+operator||
+name|ADD_CACHE_OK_TO_REPLACE
 argument_list|)
 expr_stmt|;
 return|return
@@ -2601,6 +2603,8 @@ argument_list|(
 name|ce
 argument_list|,
 name|ADD_CACHE_OK_TO_ADD
+operator||
+name|ADD_CACHE_OK_TO_REPLACE
 argument_list|)
 expr_stmt|;
 name|invalidate_ce_path
