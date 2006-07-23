@@ -82,43 +82,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_enum
-DECL|enum|color_diff
-enum|enum
-name|color_diff
-block|{
-DECL|enumerator|DIFF_RESET
-name|DIFF_RESET
-init|=
-literal|0
-block|,
-DECL|enumerator|DIFF_PLAIN
-name|DIFF_PLAIN
-init|=
-literal|1
-block|,
-DECL|enumerator|DIFF_METAINFO
-name|DIFF_METAINFO
-init|=
-literal|2
-block|,
-DECL|enumerator|DIFF_FRAGINFO
-name|DIFF_FRAGINFO
-init|=
-literal|3
-block|,
-DECL|enumerator|DIFF_FILE_OLD
-name|DIFF_FILE_OLD
-init|=
-literal|4
-block|,
-DECL|enumerator|DIFF_FILE_NEW
-name|DIFF_FILE_NEW
-init|=
-literal|5
-block|, }
-enum|;
-end_enum
 begin_comment
 comment|/* "\033[1;38;5;2xx;48;5;2xxm\0" is 23 bytes */
 end_comment
@@ -149,7 +112,10 @@ literal|"\033[31m"
 block|,
 comment|/* red */
 literal|"\033[32m"
+block|,
 comment|/* green */
+literal|"\033[33m"
+comment|/* yellow */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -242,6 +208,21 @@ argument_list|)
 condition|)
 return|return
 name|DIFF_FILE_NEW
+return|;
+if|if
+condition|(
+operator|!
+name|strcasecmp
+argument_list|(
+name|var
+operator|+
+name|ofs
+argument_list|,
+literal|"commit"
+argument_list|)
+condition|)
+return|return
+name|DIFF_COMMIT
 return|;
 name|die
 argument_list|(
@@ -2000,13 +1981,11 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|get_color
-specifier|static
-specifier|inline
+DECL|function|diff_get_color
 specifier|const
 name|char
 modifier|*
-name|get_color
+name|diff_get_color
 parameter_list|(
 name|int
 name|diff_use_color
@@ -2065,7 +2044,7 @@ name|char
 modifier|*
 name|set
 init|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|ecbdata
 operator|->
@@ -2079,7 +2058,7 @@ name|char
 modifier|*
 name|reset
 init|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|ecbdata
 operator|->
@@ -2197,7 +2176,7 @@ literal|1
 expr_stmt|;
 name|set
 operator|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|ecbdata
 operator|->
@@ -2280,7 +2259,7 @@ expr_stmt|;
 block|}
 name|set
 operator|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|ecbdata
 operator|->
@@ -4291,7 +4270,7 @@ name|char
 modifier|*
 name|set
 init|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|o
 operator|->
@@ -4305,7 +4284,7 @@ name|char
 modifier|*
 name|reset
 init|=
-name|get_color
+name|diff_get_color
 argument_list|(
 name|o
 operator|->
