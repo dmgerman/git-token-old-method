@@ -1130,6 +1130,12 @@ literal|"prune"
 block|,
 name|cmd_prune
 block|}
+block|,
+block|{
+literal|"mv"
+block|,
+name|cmd_mv
+block|}
 block|, 	}
 struct|;
 name|int
