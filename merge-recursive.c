@@ -995,12 +995,6 @@ modifier|*
 name|tree
 parameter_list|)
 block|{
-if|#
-directive|if
-literal|0
-block|fprintf(stderr, "GIT_INDEX_FILE='%s' git-read-tree %s\n", 		getenv("GIT_INDEX_FILE"), 		sha1_to_hex(tree->object.sha1));
-endif|#
-directive|endif
 name|int
 name|rc
 decl_stmt|;
@@ -1092,12 +1086,6 @@ modifier|*
 name|merge
 parameter_list|)
 block|{
-if|#
-directive|if
-literal|0
-block|fprintf(stderr, "GIT_INDEX_FILE='%s' git-read-tree %s -m %s %s %s\n", 		getenv("GIT_INDEX_FILE"), 		update_arg, 		sha1_to_hex(common->object.sha1), 		sha1_to_hex(head->object.sha1), 		sha1_to_hex(merge->object.sha1));
-endif|#
-directive|endif
 name|int
 name|rc
 decl_stmt|;
@@ -1214,12 +1202,6 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-if|#
-directive|if
-literal|0
-block|fprintf(stderr, "GIT_INDEX_FILE='%s' git-write-tree\n", 		getenv("GIT_INDEX_FILE"));
-endif|#
-directive|endif
 name|FILE
 modifier|*
 name|fp
@@ -3808,12 +3790,6 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|printf("%s %s %s %s %s %s %s %s %s %s\n", 			       argv[0], argv[1], argv[2], argv[3], argv[4], 			       argv[5], argv[6], argv[7], argv[8], argv[9]);
-endif|#
-directive|endif
 name|code
 operator|=
 name|run_command_v
