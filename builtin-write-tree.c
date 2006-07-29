@@ -245,10 +245,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|unused_prefix
 parameter_list|)
 block|{
 name|int
@@ -272,9 +272,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|setup_git_directory
-argument_list|()
-expr_stmt|;
 while|while
 condition|(
 literal|1
