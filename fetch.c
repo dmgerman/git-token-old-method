@@ -1316,6 +1316,8 @@ expr_stmt|;
 if|if
 condition|(
 name|write_ref
+operator|&&
+name|write_ref
 index|[
 name|targets
 index|]
@@ -1424,6 +1426,9 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+name|write_ref
+operator|||
 operator|!
 name|write_ref
 index|[
@@ -1607,6 +1612,9 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+name|write_ref
+operator|||
 operator|!
 name|write_ref
 index|[
