@@ -437,6 +437,11 @@ name|struct
 name|rev_info
 modifier|*
 name|revs
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 function_decl|;
 end_function_decl

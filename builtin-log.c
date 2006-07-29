@@ -71,10 +71,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|,
 name|struct
 name|rev_info
@@ -243,10 +243,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -262,6 +262,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|rev
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|rev
@@ -290,7 +292,7 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
-name|envp
+name|prefix
 argument_list|,
 operator|&
 name|rev
@@ -336,10 +338,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -355,6 +357,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|rev
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|rev
@@ -407,7 +411,7 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
-name|envp
+name|prefix
 argument_list|,
 operator|&
 name|rev
@@ -436,10 +440,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -455,6 +459,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|rev
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|rev
@@ -469,7 +475,7 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
-name|envp
+name|prefix
 argument_list|,
 operator|&
 name|rev
@@ -1070,6 +1076,11 @@ name|struct
 name|diff_options
 modifier|*
 name|options
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -1203,6 +1214,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|check_rev
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|o1
@@ -1475,10 +1488,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -1578,6 +1591,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|rev
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|rev
@@ -2284,6 +2299,8 @@ name|rev
 argument_list|,
 operator|&
 name|patch_id_opts
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 if|if
