@@ -39,10 +39,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 specifier|const
@@ -88,9 +88,6 @@ name|int
 name|i
 decl_stmt|;
 name|setup_ident
-argument_list|()
-expr_stmt|;
-name|setup_git_directory
 argument_list|()
 expr_stmt|;
 name|git_config
