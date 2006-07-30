@@ -111,6 +111,33 @@ name|ret
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|NO_C99_FORMAT
+end_ifdef
+begin_define
+DECL|macro|PD_FMT
+define|#
+directive|define
+name|PD_FMT
+value|"%d"
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|PD_FMT
+define|#
+directive|define
+name|PD_FMT
+value|"%td"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|verify_tag
 specifier|static
@@ -264,7 +291,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char%td: could not find next \"\\n\""
+literal|"char"
+name|PD_FMT
+literal|": could not find next \"\\n\""
 argument_list|,
 name|type_line
 operator|-
@@ -295,7 +324,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char%td: no \"tag \" found"
+literal|"char"
+name|PD_FMT
+literal|": no \"tag \" found"
 argument_list|,
 name|tag_line
 operator|-
@@ -326,7 +357,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char%td: type too long"
+literal|"char"
+name|PD_FMT
+literal|": type too long"
 argument_list|,
 name|type_line
 operator|+
@@ -412,7 +445,9 @@ continue|continue;
 return|return
 name|error
 argument_list|(
-literal|"char%td: could not verify tag name"
+literal|"char"
+name|PD_FMT
+literal|": could not verify tag name"
 argument_list|,
 name|tag_line
 operator|-
@@ -448,7 +483,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char%td: could not find \"tagger\""
+literal|"char"
+name|PD_FMT
+literal|": could not find \"tagger\""
 argument_list|,
 name|tagger_line
 operator|-
@@ -463,6 +500,12 @@ literal|0
 return|;
 block|}
 end_function
+begin_undef
+DECL|macro|PD_FMT
+undef|#
+directive|undef
+name|PD_FMT
+end_undef
 begin_function
 DECL|function|main
 name|int
