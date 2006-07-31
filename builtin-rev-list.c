@@ -1611,10 +1611,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -1629,6 +1629,8 @@ name|init_revisions
 argument_list|(
 operator|&
 name|revs
+argument_list|,
+name|prefix
 argument_list|)
 expr_stmt|;
 name|revs

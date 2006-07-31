@@ -14242,6 +14242,9 @@ name|init_revisions
 argument_list|(
 operator|&
 name|revs
+argument_list|,
+name|setup_git_directory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setup_revisions
