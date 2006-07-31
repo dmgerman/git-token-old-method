@@ -203,6 +203,15 @@ operator|=
 name|virtual_id
 operator|++
 expr_stmt|;
+comment|/* avoid warnings */
+name|commit
+operator|->
+name|object
+operator|.
+name|parsed
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|commit
 return|;
