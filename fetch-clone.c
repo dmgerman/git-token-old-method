@@ -719,6 +719,16 @@ expr_stmt|;
 case|case
 literal|2
 case|:
+comment|/* color sideband */
+name|safe_write
+argument_list|(
+literal|2
+argument_list|,
+literal|"\033[44;37;1m"
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
 name|safe_write
 argument_list|(
 literal|2
@@ -728,6 +738,15 @@ operator|+
 literal|1
 argument_list|,
 name|len
+argument_list|)
+expr_stmt|;
+name|safe_write
+argument_list|(
+literal|2
+argument_list|,
+literal|"\033[m"
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 continue|continue;
