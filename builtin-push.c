@@ -37,7 +37,7 @@ name|char
 name|push_usage
 index|[]
 init|=
-literal|"git push [--all] [--tags] [-f | --force]<repository> [<refspec>...]"
+literal|"git-push [--all] [--tags] [-f | --force]<repository> [<refspec>...]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

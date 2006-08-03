@@ -80,7 +80,7 @@ name|char
 name|builtin_diff_usage
 index|[]
 init|=
-literal|"diff<options><rev>{0,2} --<path>*"
+literal|"git-diff<options><rev>{0,2} --<path>*"
 decl_stmt|;
 end_decl_stmt
 begin_function
