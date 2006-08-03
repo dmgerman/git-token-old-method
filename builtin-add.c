@@ -586,7 +586,7 @@ literal|1
 expr_stmt|;
 continue|continue;
 block|}
-name|die
+name|usage
 argument_list|(
 name|builtin_add_usage
 argument_list|)
