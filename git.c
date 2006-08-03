@@ -1582,6 +1582,14 @@ name|cmd_unpack_objects
 block|,
 name|NEEDS_PREFIX
 block|}
+block|,
+block|{
+literal|"symbolic-ref"
+block|,
+name|cmd_symbolic_ref
+block|,
+name|NEEDS_PREFIX
+block|}
 block|, 	}
 struct|;
 name|int
