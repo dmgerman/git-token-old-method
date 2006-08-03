@@ -697,6 +697,15 @@ name|safe_write
 argument_list|(
 literal|2
 argument_list|,
+literal|"remote: "
+argument_list|,
+literal|8
+argument_list|)
+expr_stmt|;
+name|safe_write
+argument_list|(
+literal|2
+argument_list|,
 name|buf
 operator|+
 literal|1
@@ -704,11 +713,13 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|fprintf
+name|safe_write
 argument_list|(
-name|stderr
+literal|2
 argument_list|,
 literal|"\n"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|exit
@@ -719,14 +730,13 @@ expr_stmt|;
 case|case
 literal|2
 case|:
-comment|/* color sideband */
 name|safe_write
 argument_list|(
 literal|2
 argument_list|,
-literal|"\033[44;37;1m"
+literal|"remote: "
 argument_list|,
-literal|10
+literal|8
 argument_list|)
 expr_stmt|;
 name|safe_write
@@ -738,15 +748,6 @@ operator|+
 literal|1
 argument_list|,
 name|len
-argument_list|)
-expr_stmt|;
-name|safe_write
-argument_list|(
-literal|2
-argument_list|,
-literal|"\033[m"
-argument_list|,
-literal|3
 argument_list|)
 expr_stmt|;
 continue|continue;
