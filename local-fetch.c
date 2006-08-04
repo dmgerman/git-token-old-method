@@ -1162,6 +1162,9 @@ name|arg
 init|=
 literal|1
 decl_stmt|;
+name|setup_ident
+argument_list|()
+expr_stmt|;
 name|setup_git_directory
 argument_list|()
 expr_stmt|;
