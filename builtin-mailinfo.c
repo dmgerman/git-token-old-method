@@ -1734,7 +1734,7 @@ end_function
 begin_function_decl
 specifier|static
 name|void
-name|decode_header_bq
+name|decode_header
 parameter_list|(
 name|char
 modifier|*
@@ -1906,7 +1906,7 @@ argument_list|)
 condition|)
 block|{
 comment|/* Unwrap inline B and Q encoding, and optionally 			 * normalize the meta information to utf8. 			 */
-name|decode_header_bq
+name|decode_header
 argument_list|(
 name|line
 operator|+
@@ -2250,6 +2250,7 @@ condition|(
 operator|!
 name|ofs
 operator|&&
+operator|(
 operator|!
 name|memcmp
 argument_list|(
@@ -2259,6 +2260,17 @@ literal|"From "
 argument_list|,
 literal|5
 argument_list|)
+operator|||
+operator|!
+name|memcmp
+argument_list|(
+name|line
+argument_list|,
+literal|">From "
+argument_list|,
+literal|6
+argument_list|)
+operator|)
 condition|)
 name|ofs
 operator|=
@@ -2910,7 +2922,7 @@ end_function
 begin_function
 DECL|function|decode_header_bq
 specifier|static
-name|void
+name|int
 name|decode_header_bq
 parameter_list|(
 name|char
@@ -2939,6 +2951,11 @@ name|outbuf
 index|[
 literal|1000
 index|]
+decl_stmt|;
+name|int
+name|rfc2047
+init|=
+literal|0
 decl_stmt|;
 name|in
 operator|=
@@ -2980,6 +2997,10 @@ index|[
 literal|256
 index|]
 decl_stmt|;
+name|rfc2047
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|in
@@ -3030,7 +3051,9 @@ condition|(
 operator|!
 name|cp
 condition|)
-return|return;
+return|return
+name|rfc2047
+return|;
 comment|/* no munging */
 for|for
 control|(
@@ -3086,7 +3109,9 @@ index|]
 operator|!=
 literal|'?'
 condition|)
-return|return;
+return|return
+name|rfc2047
+return|;
 comment|/* no munging */
 name|ep
 operator|=
@@ -3104,7 +3129,9 @@ condition|(
 operator|!
 name|ep
 condition|)
-return|return;
+return|return
+name|rfc2047
+return|;
 comment|/* no munging */
 switch|switch
 condition|(
@@ -3115,7 +3142,9 @@ argument_list|)
 condition|)
 block|{
 default|default:
-return|return;
+return|return
+name|rfc2047
+return|;
 comment|/* no munging */
 case|case
 literal|'b'
@@ -3160,7 +3189,9 @@ name|sz
 operator|<
 literal|0
 condition|)
-return|return;
+return|return
+name|rfc2047
+return|;
 if|if
 condition|(
 name|metainfo_charset
@@ -3205,6 +3236,42 @@ argument_list|(
 name|it
 argument_list|,
 name|outbuf
+argument_list|)
+expr_stmt|;
+return|return
+name|rfc2047
+return|;
+block|}
+end_function
+begin_function
+DECL|function|decode_header
+specifier|static
+name|void
+name|decode_header
+parameter_list|(
+name|char
+modifier|*
+name|it
+parameter_list|)
+block|{
+if|if
+condition|(
+name|decode_header_bq
+argument_list|(
+name|it
+argument_list|)
+condition|)
+return|return;
+comment|/* otherwise "it" is a straight copy of the input. 	 * This can be binary guck but there is no charset specified. 	 */
+if|if
+condition|(
+name|metainfo_charset
+condition|)
+name|convert_to_utf8
+argument_list|(
+name|it
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -4008,10 +4075,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 comment|/* NEEDSWORK: might want to do the optional .git/ directory 	 * discovery 	 */

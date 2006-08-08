@@ -697,6 +697,15 @@ name|safe_write
 argument_list|(
 literal|2
 argument_list|,
+literal|"remote: "
+argument_list|,
+literal|8
+argument_list|)
+expr_stmt|;
+name|safe_write
+argument_list|(
+literal|2
+argument_list|,
 name|buf
 operator|+
 literal|1
@@ -704,11 +713,13 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|fprintf
+name|safe_write
 argument_list|(
-name|stderr
+literal|2
 argument_list|,
 literal|"\n"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|exit
@@ -719,6 +730,15 @@ expr_stmt|;
 case|case
 literal|2
 case|:
+name|safe_write
+argument_list|(
+literal|2
+argument_list|,
+literal|"remote: "
+argument_list|,
+literal|8
+argument_list|)
+expr_stmt|;
 name|safe_write
 argument_list|(
 literal|2
@@ -1047,7 +1067,7 @@ name|NR_AVERAGE
 value|(4)
 end_define
 begin_comment
-comment|/*  * A "binary msec" is a power-of-two-msec, aka 1/1024th of a second.  * Keeing the time in that format means that "bytes / msecs" means  * is the same as kB/s (modulo rounding).  *  * 1000512 is a magic number (usecs in a second, rounded up by half  * of 1024, to make "rounding" come out right ;)  */
+comment|/*  * A "binary msec" is a power-of-two-msec, aka 1/1024th of a second.  * Keeping the time in that format means that "bytes / msecs" means  * the same as kB/s (modulo rounding).  *  * 1000512 is a magic number (usecs in a second, rounded up by half  * of 1024, to make "rounding" come out right ;)  */
 end_comment
 begin_define
 DECL|macro|usec_to_binarymsec

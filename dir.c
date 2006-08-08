@@ -1760,7 +1760,7 @@ name|len
 argument_list|)
 condition|)
 block|{
-comment|// Rewind the read subdirectory
+comment|/* Rewind the read subdirectory */
 while|while
 condition|(
 name|dir

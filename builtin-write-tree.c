@@ -165,6 +165,12 @@ name|active_cache
 argument_list|,
 name|active_nr
 argument_list|)
+operator|&&
+operator|!
+name|close
+argument_list|(
+name|newfd
+argument_list|)
 condition|)
 name|commit_lock_file
 argument_list|(
@@ -239,10 +245,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|unused_prefix
 parameter_list|)
 block|{
 name|int
@@ -266,9 +272,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|setup_git_directory
-argument_list|()
-expr_stmt|;
 while|while
 condition|(
 literal|1
@@ -320,7 +323,7 @@ operator|+
 literal|9
 expr_stmt|;
 else|else
-name|die
+name|usage
 argument_list|(
 name|write_tree_usage
 argument_list|)

@@ -31,10 +31,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 if|if
@@ -45,7 +45,7 @@ literal|2
 condition|)
 name|usage
 argument_list|(
-literal|"git check-ref-format refname"
+literal|"git-check-ref-format refname"
 argument_list|)
 expr_stmt|;
 return|return

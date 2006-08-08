@@ -559,6 +559,9 @@ name|struct
 name|diff_filespec
 modifier|*
 name|dst
+parameter_list|,
+name|int
+name|contents_too
 parameter_list|)
 block|{
 if|if
@@ -587,6 +590,14 @@ argument_list|)
 condition|)
 return|return
 literal|1
+return|;
+if|if
+condition|(
+operator|!
+name|contents_too
+condition|)
+return|return
+literal|0
 return|;
 if|if
 condition|(
@@ -1048,6 +1059,12 @@ argument_list|,
 name|two
 argument_list|)
 expr_stmt|;
+name|dp
+operator|->
+name|renamed_pair
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1284,6 +1301,8 @@ decl_stmt|,
 name|j
 decl_stmt|,
 name|rename_count
+decl_stmt|,
+name|contents_too
 decl_stmt|;
 name|int
 name|num_create
@@ -1451,7 +1470,21 @@ goto|goto
 name|cleanup
 goto|;
 comment|/* nothing to do */
-comment|/* We really want to cull the candidates list early 	 * with cheap tests in order to avoid doing deltas. 	 */
+comment|/* We really want to cull the candidates list early 	 * with cheap tests in order to avoid doing deltas. 	 * The first round matches up the up-to-date entries, 	 * and then during the second round we try to match 	 * cache-dirty entries as well. 	 */
+for|for
+control|(
+name|contents_too
+operator|=
+literal|0
+init|;
+name|contents_too
+operator|<
+literal|2
+condition|;
+name|contents_too
+operator|++
+control|)
+block|{
 for|for
 control|(
 name|i
@@ -1478,6 +1511,17 @@ index|]
 operator|.
 name|two
 decl_stmt|;
+if|if
+condition|(
+name|rename_dst
+index|[
+name|i
+index|]
+operator|.
+name|pair
+condition|)
+continue|continue;
+comment|/* dealt with an earlier round */
 for|for
 control|(
 name|j
@@ -1512,6 +1556,8 @@ argument_list|(
 name|one
 argument_list|,
 name|two
+argument_list|,
+name|contents_too
 argument_list|)
 condition|)
 continue|continue;
@@ -1529,6 +1575,7 @@ operator|++
 expr_stmt|;
 break|break;
 comment|/* we are done with this entry */
+block|}
 block|}
 block|}
 comment|/* Have we run out the created file pool?  If so we can avoid 	 * doing the delta matrix altogether. 	 */

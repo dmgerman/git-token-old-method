@@ -1521,7 +1521,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_BLOB
+name|OBJ_BLOB
 condition|)
 return|return
 literal|0
@@ -1532,7 +1532,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TREE
+name|OBJ_TREE
 condition|)
 return|return
 name|fsck_tree
@@ -1551,7 +1551,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 return|return
 name|fsck_commit
@@ -1570,7 +1570,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 return|return
 name|fsck_tag
@@ -2468,7 +2468,7 @@ name|obj
 operator|->
 name|type
 operator|!=
-name|TYPE_TREE
+name|OBJ_TREE
 condition|)
 name|err
 operator||=

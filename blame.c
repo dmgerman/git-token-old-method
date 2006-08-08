@@ -87,12 +87,12 @@ name|char
 name|blame_usage
 index|[]
 init|=
-literal|"[-c] [-l] [-t] [-S<revs-file>] [--] file [commit]\n"
-literal|"  -c, --compability Use the same output mode as git-annotate (Default: off)\n"
-literal|"  -l, --long        Show long commit SHA1 (Default: off)\n"
-literal|"  -t, --time        Show raw timestamp (Default: off)\n"
-literal|"  -S, --revs-file   Use revisions from revs-file instead of calling git-rev-list\n"
-literal|"  -h, --help        This message"
+literal|"git-blame [-c] [-l] [-t] [-S<revs-file>] [--] file [commit]\n"
+literal|"  -c, --compatibility Use the same output mode as git-annotate (Default: off)\n"
+literal|"  -l, --long          Show long commit SHA1 (Default: off)\n"
+literal|"  -t, --time          Show raw timestamp (Default: off)\n"
+literal|"  -S, --revs-file     Use revisions from revs-file instead of calling git-rev-list\n"
+literal|"  -h, --help          This message"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -186,7 +186,7 @@ name|off1
 decl_stmt|,
 name|len1
 decl_stmt|;
-comment|// ---
+comment|/* --- */
 DECL|member|off2
 DECL|member|len2
 name|int
@@ -194,7 +194,7 @@ name|off2
 decl_stmt|,
 name|len2
 decl_stmt|;
-comment|// +++
+comment|/* +++ */
 block|}
 struct|;
 end_struct
@@ -1407,7 +1407,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// p is a patch from commit to other.
+comment|/* p is a patch from commit to other. */
 end_comment
 begin_function
 DECL|function|fill_line_map
@@ -4118,7 +4118,7 @@ init|=
 literal|8
 decl_stmt|;
 name|int
-name|compability
+name|compatibility
 init|=
 literal|0
 decl_stmt|;
@@ -4284,11 +4284,11 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|"--compability"
+literal|"--compatibility"
 argument_list|)
 condition|)
 block|{
-name|compability
+name|compatibility
 operator|=
 literal|1
 expr_stmt|;
@@ -4364,7 +4364,7 @@ name|sha1_p
 argument_list|)
 condition|)
 block|{
-name|compability
+name|compatibility
 operator|=
 literal|1
 expr_stmt|;
@@ -4589,6 +4589,9 @@ name|init_revisions
 argument_list|(
 operator|&
 name|rev
+argument_list|,
+name|setup_git_directory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|rev
@@ -4906,7 +4909,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|compability
+name|compatibility
 condition|)
 block|{
 name|printf

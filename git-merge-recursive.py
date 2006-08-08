@@ -243,7 +243,7 @@ op|')'
 op|':'
 newline|'\n'
 indent|'    '
-string|"'''Merge the commits h1 and h2, return the resulting virtual\n    commit object and a flag indicating the cleaness of the merge.'''"
+string|"'''Merge the commits h1 and h2, return the resulting virtual\n    commit object and a flag indicating the cleanness of the merge.'''"
 newline|'\n'
 name|'assert'
 op|'('

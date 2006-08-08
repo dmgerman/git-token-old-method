@@ -1235,10 +1235,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 specifier|const
@@ -1352,7 +1352,7 @@ literal|9
 argument_list|)
 expr_stmt|;
 else|else
-name|die
+name|usage
 argument_list|(
 name|init_db_usage
 argument_list|)

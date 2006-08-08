@@ -37,7 +37,7 @@ name|char
 name|push_usage
 index|[]
 init|=
-literal|"git push [--all] [--tags] [--force]<repository> [<refspec>...]"
+literal|"git-push [--all] [--tags] [-f | --force]<repository> [<refspec>...]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -515,7 +515,7 @@ expr_stmt|;
 else|else
 name|error
 argument_list|(
-literal|"more than %d URL's specified, ignoreing the rest"
+literal|"more than %d URL's specified, ignoring the rest"
 argument_list|,
 name|MAX_URI
 argument_list|)
@@ -1426,10 +1426,10 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|envp
+name|prefix
 parameter_list|)
 block|{
 name|int
@@ -1442,7 +1442,7 @@ name|repo
 init|=
 literal|"origin"
 decl_stmt|;
-comment|// default repository
+comment|/* default repository */
 for|for
 control|(
 name|i
@@ -1528,6 +1528,14 @@ argument_list|(
 name|arg
 argument_list|,
 literal|"--force"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-f"
 argument_list|)
 condition|)
 block|{

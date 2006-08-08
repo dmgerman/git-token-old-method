@@ -2682,7 +2682,7 @@ argument_list|(
 operator|&
 name|stream
 argument_list|,
-name|Z_BEST_COMPRESSION
+name|zlib_compression_level
 argument_list|)
 expr_stmt|;
 name|size
@@ -10243,7 +10243,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 block|{
 name|obj
@@ -10269,7 +10269,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_TREE
+name|OBJ_TREE
 condition|)
 block|{
 name|p
@@ -10298,7 +10298,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|TYPE_BLOB
+name|OBJ_BLOB
 condition|)
 block|{
 name|p
@@ -11224,7 +11224,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 return|return
 literal|0
@@ -11261,7 +11261,7 @@ name|o
 operator|->
 name|type
 operator|!=
-name|TYPE_COMMIT
+name|OBJ_COMMIT
 condition|)
 return|return
 literal|0
@@ -11660,7 +11660,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 block|{
 name|o
@@ -14242,6 +14242,9 @@ name|init_revisions
 argument_list|(
 operator|&
 name|revs
+argument_list|,
+name|setup_git_directory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setup_revisions

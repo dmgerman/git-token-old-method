@@ -83,7 +83,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|TYPE_TAG
+name|OBJ_TAG
 condition|)
 block|{
 name|o
@@ -482,7 +482,7 @@ condition|)
 return|return
 literal|1
 return|;
-comment|/* nonexisting is not an error. */
+comment|/* nonexistent is not an error. */
 while|while
 condition|(
 name|fgets

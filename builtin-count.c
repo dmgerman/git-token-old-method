@@ -412,10 +412,10 @@ modifier|*
 modifier|*
 name|av
 parameter_list|,
+specifier|const
 name|char
 modifier|*
-modifier|*
-name|ep
+name|prefix
 parameter_list|)
 block|{
 name|int
