@@ -8252,7 +8252,6 @@ name|desc
 operator|.
 name|size
 condition|)
-block|{
 name|desc
 operator|.
 name|buffer
@@ -8270,12 +8269,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|desc
-operator|.
-name|alloc
-operator|++
-expr_stmt|;
-block|}
 name|desc
 operator|.
 name|buffer
