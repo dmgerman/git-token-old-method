@@ -96,24 +96,36 @@ name|len
 operator|--
 expr_stmt|;
 block|}
-comment|/* Should name foo.idx now */
+elseif|else
 if|if
 condition|(
-operator|(
-name|g
-operator|=
-name|add_packed_git
+operator|!
+name|has_extension
 argument_list|(
 name|arg
 argument_list|,
 name|len
 argument_list|,
-literal|1
+literal|".idx"
 argument_list|)
-operator|)
 condition|)
-break|break;
-comment|/* No?  did you name just foo? */
+block|{
+if|if
+condition|(
+name|len
+operator|+
+literal|4
+operator|>=
+name|PATH_MAX
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"name too long: %s.idx"
+argument_list|,
+name|arg
+argument_list|)
+return|;
 name|strcpy
 argument_list|(
 name|arg
@@ -127,6 +139,7 @@ name|len
 operator|+=
 literal|4
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
