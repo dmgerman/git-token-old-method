@@ -2941,7 +2941,7 @@ name|posn
 operator|++
 operator|)
 operator|=
-literal|'.'
+literal|'_'
 expr_stmt|;
 name|strcpy
 argument_list|(
