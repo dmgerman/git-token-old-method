@@ -73,8 +73,6 @@ name|has_extension
 argument_list|(
 name|arg
 argument_list|,
-name|len
-argument_list|,
 literal|".pack"
 argument_list|)
 condition|)
@@ -101,8 +99,6 @@ operator|!
 name|has_extension
 argument_list|(
 name|arg
-argument_list|,
-name|len
 argument_list|,
 literal|".idx"
 argument_list|)
