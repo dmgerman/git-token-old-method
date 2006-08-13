@@ -269,7 +269,7 @@ operator|<=
 operator|++
 name|i
 condition|)
-name|die
+name|usage
 argument_list|(
 name|hash_object_usage
 argument_list|)
@@ -389,7 +389,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|die
+name|usage
 argument_list|(
 name|hash_object_usage
 argument_list|)

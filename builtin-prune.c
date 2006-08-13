@@ -62,7 +62,7 @@ name|char
 name|prune_usage
 index|[]
 init|=
-literal|"git prune [-n]"
+literal|"git-prune [-n]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

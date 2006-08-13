@@ -2,6 +2,11 @@ begin_unit
 begin_include
 include|#
 directive|include
+file|"builtin.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -1551,6 +1556,7 @@ parameter_list|(
 name|int
 name|argc
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
