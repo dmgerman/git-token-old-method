@@ -99,7 +99,7 @@ block|}
 end_function
 begin_function_decl
 specifier|static
-name|int
+name|void
 name|show_entry
 parameter_list|(
 name|struct
@@ -734,7 +734,7 @@ end_comment
 begin_function
 DECL|function|show_entry
 specifier|static
-name|int
+name|void
 name|show_entry
 parameter_list|(
 name|struct
@@ -889,10 +889,9 @@ argument_list|(
 name|newbase
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
 block|}
+else|else
+block|{
 name|opt
 operator|->
 name|add_remove
@@ -913,9 +912,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
+block|}
 block|}
 end_function
 begin_function
