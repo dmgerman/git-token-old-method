@@ -3283,7 +3283,7 @@ end_function
 begin_function
 DECL|function|show_patch_diff
 specifier|static
-name|int
+name|void
 name|show_patch_diff
 parameter_list|(
 name|struct
@@ -3343,10 +3343,6 @@ name|int
 name|i
 decl_stmt|,
 name|show_hunks
-decl_stmt|,
-name|shown_header
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|working_tree_file
@@ -4396,9 +4392,6 @@ argument_list|(
 name|sline
 argument_list|)
 expr_stmt|;
-return|return
-name|shown_header
-return|;
 block|}
 end_function
 begin_define
@@ -4783,7 +4776,6 @@ operator||
 name|DIFF_FORMAT_NAME_STATUS
 operator|)
 condition|)
-block|{
 name|show_raw_diff
 argument_list|(
 name|p
@@ -4793,7 +4785,6 @@ argument_list|,
 name|rev
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4803,7 +4794,6 @@ name|output_format
 operator|&
 name|DIFF_FORMAT_PATCH
 condition|)
-block|{
 name|show_patch_diff
 argument_list|(
 name|p
@@ -4815,7 +4805,6 @@ argument_list|,
 name|rev
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
