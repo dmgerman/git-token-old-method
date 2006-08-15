@@ -150,8 +150,8 @@ name|status
 decl_stmt|,
 name|code
 decl_stmt|;
-name|int
-name|retval
+name|pid_t
+name|waiting
 init|=
 name|waitpid
 argument_list|(
@@ -165,7 +165,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|retval
+name|waiting
 operator|<
 literal|0
 condition|)
@@ -183,7 +183,7 @@ literal|"waitpid failed (%s)"
 argument_list|,
 name|strerror
 argument_list|(
-name|retval
+name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -194,7 +194,7 @@ return|;
 block|}
 if|if
 condition|(
-name|retval
+name|waiting
 operator|!=
 name|pid
 condition|)
