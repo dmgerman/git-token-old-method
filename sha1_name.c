@@ -1128,14 +1128,9 @@ index|]
 decl_stmt|;
 name|is_null
 operator|=
-operator|!
-name|memcmp
+name|is_null_sha1
 argument_list|(
 name|sha1
-argument_list|,
-name|null_sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|memcpy
