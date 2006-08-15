@@ -60,8 +60,6 @@ specifier|static
 name|char
 modifier|*
 name|server_capabilities
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2666,8 +2664,6 @@ specifier|static
 name|char
 modifier|*
 name|git_proxy_command
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2677,8 +2673,6 @@ specifier|const
 name|char
 modifier|*
 name|rhost_name
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

@@ -236,8 +236,6 @@ DECL|variable|num_get_patch
 specifier|static
 name|int
 name|num_get_patch
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -245,8 +243,6 @@ DECL|variable|num_commits
 specifier|static
 name|int
 name|num_commits
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -254,8 +250,6 @@ DECL|variable|patch_time
 specifier|static
 name|int
 name|patch_time
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_struct

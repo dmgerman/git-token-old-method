@@ -59,8 +59,6 @@ DECL|variable|diff_detect_rename_default
 specifier|static
 name|int
 name|diff_detect_rename_default
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -78,8 +76,6 @@ DECL|variable|diff_use_color_default
 specifier|static
 name|int
 name|diff_use_color_default
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment

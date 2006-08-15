@@ -45,8 +45,6 @@ DECL|variable|default_num
 specifier|static
 name|int
 name|default_num
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -54,8 +52,6 @@ DECL|variable|default_alloc
 specifier|static
 name|int
 name|default_alloc
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -66,8 +62,6 @@ name|char
 modifier|*
 modifier|*
 name|default_arg
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_define

@@ -56,8 +56,6 @@ DECL|variable|report_status
 specifier|static
 name|int
 name|report_status
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -75,8 +73,6 @@ DECL|variable|capabilities_sent
 specifier|static
 name|int
 name|capabilities_sent
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -222,8 +218,6 @@ name|struct
 name|command
 modifier|*
 name|commands
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function

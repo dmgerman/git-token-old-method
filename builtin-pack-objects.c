@@ -195,8 +195,6 @@ DECL|variable|non_empty
 specifier|static
 name|int
 name|non_empty
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -204,8 +202,6 @@ DECL|variable|no_reuse_delta
 specifier|static
 name|int
 name|no_reuse_delta
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -213,8 +209,6 @@ DECL|variable|local
 specifier|static
 name|int
 name|local
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -222,8 +216,6 @@ DECL|variable|incremental
 specifier|static
 name|int
 name|incremental
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -248,8 +240,6 @@ name|struct
 name|object_entry
 modifier|*
 name|objects
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -259,16 +249,10 @@ DECL|variable|nr_result
 specifier|static
 name|int
 name|nr_objects
-init|=
-literal|0
 decl_stmt|,
 name|nr_alloc
-init|=
-literal|0
 decl_stmt|,
 name|nr_result
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -306,8 +290,6 @@ specifier|static
 specifier|volatile
 name|sig_atomic_t
 name|progress_update
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -328,8 +310,6 @@ specifier|static
 name|int
 modifier|*
 name|object_ix
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -337,8 +317,6 @@ DECL|variable|object_ix_hashsz
 specifier|static
 name|int
 name|object_ix_hashsz
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -374,8 +352,6 @@ DECL|variable|pack_revindex_hashsz
 specifier|static
 name|int
 name|pack_revindex_hashsz
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -386,8 +362,6 @@ DECL|variable|written
 specifier|static
 name|int
 name|written
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -395,8 +369,6 @@ DECL|variable|written_delta
 specifier|static
 name|int
 name|written_delta
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -404,8 +376,6 @@ DECL|variable|reused
 specifier|static
 name|int
 name|reused
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -413,8 +383,6 @@ DECL|variable|reused_delta
 specifier|static
 name|int
 name|reused_delta
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function

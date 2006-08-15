@@ -87,12 +87,8 @@ DECL|variable|nr_our_refs
 specifier|static
 name|int
 name|multi_ack
-init|=
-literal|0
 decl_stmt|,
 name|nr_our_refs
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -100,8 +96,6 @@ DECL|variable|use_thin_pack
 specifier|static
 name|int
 name|use_thin_pack
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -126,8 +120,6 @@ specifier|static
 name|unsigned
 name|int
 name|timeout
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -135,8 +127,6 @@ DECL|variable|use_sideband
 specifier|static
 name|int
 name|use_sideband
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function

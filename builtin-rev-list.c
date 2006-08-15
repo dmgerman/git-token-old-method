@@ -103,8 +103,6 @@ DECL|variable|bisect_list
 specifier|static
 name|int
 name|bisect_list
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -112,8 +110,6 @@ DECL|variable|show_timestamp
 specifier|static
 name|int
 name|show_timestamp
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -121,8 +117,6 @@ DECL|variable|hdr_termination
 specifier|static
 name|int
 name|hdr_termination
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

@@ -83,8 +83,6 @@ specifier|static
 name|unsigned
 name|char
 name|remote_version
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -92,8 +90,6 @@ DECL|variable|verbose
 specifier|static
 name|int
 name|verbose
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function

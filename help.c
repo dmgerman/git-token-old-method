@@ -50,8 +50,6 @@ argument_list|)
 decl_stmt|;
 name|int
 name|n_cols
-init|=
-literal|0
 decl_stmt|;
 if|if
 condition|(

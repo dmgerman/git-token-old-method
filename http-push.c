@@ -350,8 +350,6 @@ DECL|variable|pushing
 specifier|static
 name|int
 name|pushing
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -359,8 +357,6 @@ DECL|variable|aborted
 specifier|static
 name|int
 name|aborted
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -397,8 +393,6 @@ DECL|variable|push_verbosely
 specifier|static
 name|int
 name|push_verbosely
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -406,8 +400,6 @@ DECL|variable|push_all
 specifier|static
 name|int
 name|push_all
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -415,8 +407,6 @@ DECL|variable|force_all
 specifier|static
 name|int
 name|force_all
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -426,8 +416,6 @@ name|struct
 name|object_list
 modifier|*
 name|objects
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -478,8 +466,6 @@ name|struct
 name|repo
 modifier|*
 name|remote
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -648,8 +634,6 @@ name|struct
 name|transfer_request
 modifier|*
 name|request_queue_head
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_struct

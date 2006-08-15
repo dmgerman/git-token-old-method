@@ -388,8 +388,6 @@ DECL|variable|tags_only
 specifier|static
 name|int
 name|tags_only
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function

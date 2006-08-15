@@ -126,8 +126,6 @@ name|struct
 name|commit_list
 modifier|*
 name|rev_list
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -138,16 +136,10 @@ DECL|variable|use_sideband
 specifier|static
 name|int
 name|non_common_revs
-init|=
-literal|0
 decl_stmt|,
 name|multi_ack
-init|=
-literal|0
 decl_stmt|,
 name|use_thin_pack
-init|=
-literal|0
 decl_stmt|,
 name|use_sideband
 decl_stmt|;
@@ -1187,8 +1179,6 @@ name|struct
 name|commit_list
 modifier|*
 name|complete
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function

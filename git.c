@@ -498,8 +498,6 @@ specifier|static
 name|char
 modifier|*
 name|alias_string
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function

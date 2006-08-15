@@ -73,8 +73,6 @@ DECL|variable|show_root
 specifier|static
 name|int
 name|show_root
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -82,8 +80,6 @@ DECL|variable|show_tags
 specifier|static
 name|int
 name|show_tags
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -91,8 +87,6 @@ DECL|variable|show_unreachable
 specifier|static
 name|int
 name|show_unreachable
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -100,8 +94,6 @@ DECL|variable|check_full
 specifier|static
 name|int
 name|check_full
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -109,8 +101,6 @@ DECL|variable|check_strict
 specifier|static
 name|int
 name|check_strict
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -118,8 +108,6 @@ DECL|variable|keep_cache_objects
 specifier|static
 name|int
 name|keep_cache_objects
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2090,8 +2078,6 @@ DECL|variable|default_refs
 specifier|static
 name|int
 name|default_refs
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
