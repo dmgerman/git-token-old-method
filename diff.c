@@ -4832,10 +4832,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|emit_binary_diff
+DECL|function|emit_binary_diff_body
 specifier|static
 name|void
-name|emit_binary_diff
+name|emit_binary_diff_body
 parameter_list|(
 name|mmfile_t
 modifier|*
@@ -4878,11 +4878,6 @@ name|unsigned
 name|long
 name|data_size
 decl_stmt|;
-name|printf
-argument_list|(
-literal|"GIT binary patch\n"
-argument_list|)
-expr_stmt|;
 comment|/* We could do deflated delta, or we could do just deflated two, 	 * whichever is smaller. 	 */
 name|delta
 operator|=
@@ -5129,6 +5124,42 @@ expr_stmt|;
 name|free
 argument_list|(
 name|data
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|emit_binary_diff
+specifier|static
+name|void
+name|emit_binary_diff
+parameter_list|(
+name|mmfile_t
+modifier|*
+name|one
+parameter_list|,
+name|mmfile_t
+modifier|*
+name|two
+parameter_list|)
+block|{
+name|printf
+argument_list|(
+literal|"GIT binary patch\n"
+argument_list|)
+expr_stmt|;
+name|emit_binary_diff_body
+argument_list|(
+name|one
+argument_list|,
+name|two
+argument_list|)
+expr_stmt|;
+name|emit_binary_diff_body
+argument_list|(
+name|two
+argument_list|,
+name|one
 argument_list|)
 expr_stmt|;
 block|}
