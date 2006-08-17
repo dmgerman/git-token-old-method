@@ -575,7 +575,7 @@ operator|->
 name|sha1_valid
 operator|&&
 operator|!
-name|memcmp
+name|hashcmp
 argument_list|(
 name|src
 operator|->
@@ -584,8 +584,6 @@ argument_list|,
 name|dst
 operator|->
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 return|return

@@ -718,15 +718,13 @@ block|{
 name|int
 name|cmp
 init|=
-name|memcmp
+name|hashcmp
 argument_list|(
 name|l
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 decl_stmt|;
 if|if
@@ -846,15 +844,13 @@ block|{
 name|int
 name|cmp
 init|=
-name|memcmp
+name|hashcmp
 argument_list|(
 name|l
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 decl_stmt|;
 if|if
@@ -1362,7 +1358,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|memcmp
+name|hashcmp
 argument_list|(
 name|p1_base
 operator|+
@@ -1371,8 +1367,6 @@ argument_list|,
 name|p2_base
 operator|+
 name|p2_off
-argument_list|,
-literal|20
 argument_list|)
 decl_stmt|;
 comment|/* cmp ~ p1 - p2 */
@@ -1824,6 +1818,7 @@ name|p1_off
 decl_stmt|,
 name|p2_off
 decl_stmt|;
+name|unsigned
 name|char
 modifier|*
 name|p1_base
@@ -1844,6 +1839,7 @@ expr_stmt|;
 name|p1_base
 operator|=
 operator|(
+name|unsigned
 name|char
 operator|*
 operator|)
@@ -1854,6 +1850,7 @@ expr_stmt|;
 name|p2_base
 operator|=
 operator|(
+name|unsigned
 name|char
 operator|*
 operator|)
@@ -1887,7 +1884,7 @@ block|{
 name|int
 name|cmp
 init|=
-name|memcmp
+name|hashcmp
 argument_list|(
 name|p1_base
 operator|+
@@ -1896,8 +1893,6 @@ argument_list|,
 name|p2_base
 operator|+
 name|p2_off
-argument_list|,
-literal|20
 argument_list|)
 decl_stmt|;
 comment|/* cmp ~ p1 - p2 */

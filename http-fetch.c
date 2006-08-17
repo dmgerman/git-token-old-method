@@ -1617,7 +1617,7 @@ return|return;
 block|}
 if|if
 condition|(
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
@@ -1626,8 +1626,6 @@ argument_list|,
 name|obj_req
 operator|->
 name|real_sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
@@ -5859,15 +5857,13 @@ name|obj_req
 operator|!=
 name|NULL
 operator|&&
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 name|obj_req
@@ -6084,7 +6080,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
@@ -6093,8 +6089,6 @@ argument_list|,
 name|obj_req
 operator|->
 name|real_sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
