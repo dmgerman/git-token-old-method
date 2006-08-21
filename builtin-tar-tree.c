@@ -64,7 +64,7 @@ name|char
 name|tar_tree_usage
 index|[]
 init|=
-literal|"git-tar-tree [--remote=<repo>]<ent> [basedir]"
+literal|"git-tar-tree [--remote=<repo>]<tree-ish> [basedir]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
