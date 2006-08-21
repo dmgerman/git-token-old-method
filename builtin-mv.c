@@ -188,6 +188,8 @@ expr_stmt|;
 name|without_slash
 index|[
 name|length
+operator|-
+literal|1
 index|]
 operator|=
 literal|'\0'
