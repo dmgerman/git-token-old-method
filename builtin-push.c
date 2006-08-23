@@ -1208,7 +1208,7 @@ operator|++
 control|)
 block|{
 name|int
-name|error
+name|err
 decl_stmt|;
 name|int
 name|dest_argc
@@ -1321,7 +1321,7 @@ index|]
 operator|=
 name|NULL
 expr_stmt|;
-name|error
+name|err
 operator|=
 name|run_command_v
 argument_list|(
@@ -1333,12 +1333,12 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|error
+name|err
 condition|)
 continue|continue;
 switch|switch
 condition|(
-name|error
+name|err
 condition|)
 block|{
 case|case
@@ -1389,7 +1389,7 @@ expr_stmt|;
 default|default:
 return|return
 operator|-
-name|error
+name|err
 return|;
 block|}
 block|}
