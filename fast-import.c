@@ -410,6 +410,14 @@ name|branch_count
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|branch_load_count
+specifier|static
+name|unsigned
+name|long
+name|branch_load_count
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|object_count
 specifier|static
 name|unsigned
@@ -5784,6 +5792,9 @@ expr_stmt|;
 name|cur_active_branches
 operator|++
 expr_stmt|;
+name|branch_load_count
+operator|++
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -7757,18 +7768,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Total branches:  %10lu\n"
+literal|"Total branches:  %10lu (%10lu loads     )\n"
 argument_list|,
 name|branch_count
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|stderr
 argument_list|,
-literal|"      atoms:     %10u\n"
-argument_list|,
-name|atom_cnt
+name|branch_load_count
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -7788,6 +7792,15 @@ operator|*
 literal|1024
 argument_list|,
 name|marks_set_count
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"      atoms:     %10u\n"
+argument_list|,
+name|atom_cnt
 argument_list|)
 expr_stmt|;
 name|fprintf
