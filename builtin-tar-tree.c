@@ -1664,6 +1664,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_tar_config
+specifier|static
 name|int
 name|git_tar_config
 parameter_list|(
