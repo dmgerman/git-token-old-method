@@ -12379,13 +12379,9 @@ name|symref
 operator|=
 name|NULL
 expr_stmt|;
-name|memset
+name|hashclr
 argument_list|(
 name|sha1
-argument_list|,
-literal|0
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 if|if
