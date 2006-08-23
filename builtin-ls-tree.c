@@ -69,8 +69,6 @@ DECL|variable|abbrev
 specifier|static
 name|int
 name|abbrev
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -78,8 +76,6 @@ DECL|variable|ls_options
 specifier|static
 name|int
 name|ls_options
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -97,8 +93,6 @@ DECL|variable|chomp_prefix
 specifier|static
 name|int
 name|chomp_prefix
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

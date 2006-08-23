@@ -73,8 +73,6 @@ DECL|variable|show_root
 specifier|static
 name|int
 name|show_root
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -82,8 +80,6 @@ DECL|variable|show_tags
 specifier|static
 name|int
 name|show_tags
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -91,8 +87,6 @@ DECL|variable|show_unreachable
 specifier|static
 name|int
 name|show_unreachable
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -100,8 +94,6 @@ DECL|variable|check_full
 specifier|static
 name|int
 name|check_full
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -109,8 +101,6 @@ DECL|variable|check_strict
 specifier|static
 name|int
 name|check_strict
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -118,8 +108,6 @@ DECL|variable|keep_cache_objects
 specifier|static
 name|int
 name|keep_cache_objects
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1856,15 +1844,13 @@ name|ino
 operator|=
 name|ino
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|entry
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|nr
@@ -1909,7 +1895,7 @@ end_function
 begin_function
 DECL|function|fsck_dir
 specifier|static
-name|int
+name|void
 name|fsck_dir
 parameter_list|(
 name|int
@@ -1939,9 +1925,7 @@ condition|(
 operator|!
 name|dir
 condition|)
-return|return
-literal|0
-return|;
+return|return;
 while|while
 condition|(
 operator|(
@@ -2085,9 +2069,6 @@ argument_list|(
 name|dir
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
 block|}
 end_function
 begin_decl_stmt
@@ -2095,8 +2076,6 @@ DECL|variable|default_refs
 specifier|static
 name|int
 name|default_refs
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2365,14 +2344,9 @@ argument_list|)
 return|;
 if|if
 condition|(
-operator|!
-name|memcmp
+name|is_null_sha1
 argument_list|(
-name|null_sha1
-argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 return|return

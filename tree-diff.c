@@ -99,7 +99,7 @@ block|}
 end_function
 begin_function_decl
 specifier|static
-name|int
+name|void
 name|show_entry
 parameter_list|(
 name|struct
@@ -290,13 +290,11 @@ operator|->
 name|find_copies_harder
 operator|&&
 operator|!
-name|memcmp
+name|hashcmp
 argument_list|(
 name|sha1
 argument_list|,
 name|sha2
-argument_list|,
-literal|20
 argument_list|)
 operator|&&
 name|mode1
@@ -734,7 +732,7 @@ end_comment
 begin_function
 DECL|function|show_entry
 specifier|static
-name|int
+name|void
 name|show_entry
 parameter_list|(
 name|struct
@@ -889,10 +887,9 @@ argument_list|(
 name|newbase
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
 block|}
+else|else
+block|{
 name|opt
 operator|->
 name|add_remove
@@ -913,9 +910,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-return|return
-literal|0
-return|;
+block|}
 block|}
 end_function
 begin_function

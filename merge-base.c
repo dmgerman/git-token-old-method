@@ -19,8 +19,6 @@ DECL|variable|show_all
 specifier|static
 name|int
 name|show_all
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function

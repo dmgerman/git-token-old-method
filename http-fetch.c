@@ -172,8 +172,6 @@ DECL|variable|commits_on_stdin
 specifier|static
 name|int
 name|commits_on_stdin
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -191,8 +189,6 @@ DECL|variable|corrupt_object_found
 specifier|static
 name|int
 name|corrupt_object_found
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -245,8 +241,6 @@ name|struct
 name|alt_base
 modifier|*
 name|alt
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_enum
@@ -523,8 +517,6 @@ name|struct
 name|object_request
 modifier|*
 name|object_queue_head
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -1625,7 +1617,7 @@ return|return;
 block|}
 if|if
 condition|(
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
@@ -1634,8 +1626,6 @@ argument_list|,
 name|obj_req
 operator|->
 name|real_sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
@@ -2095,15 +2085,13 @@ name|newreq
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|newreq
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|newreq
@@ -5867,15 +5855,13 @@ name|obj_req
 operator|!=
 name|NULL
 operator|&&
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
 name|sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 name|obj_req
@@ -6092,7 +6078,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|memcmp
+name|hashcmp
 argument_list|(
 name|obj_req
 operator|->
@@ -6101,8 +6087,6 @@ argument_list|,
 name|obj_req
 operator|->
 name|real_sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{

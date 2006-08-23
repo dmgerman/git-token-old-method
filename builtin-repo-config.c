@@ -31,8 +31,6 @@ specifier|static
 name|char
 modifier|*
 name|key
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -41,8 +39,6 @@ specifier|static
 name|regex_t
 modifier|*
 name|key_regexp
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -51,8 +47,6 @@ specifier|static
 name|regex_t
 modifier|*
 name|regexp
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -60,8 +54,6 @@ DECL|variable|show_keys
 specifier|static
 name|int
 name|show_keys
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -69,8 +61,6 @@ DECL|variable|use_key_regexp
 specifier|static
 name|int
 name|use_key_regexp
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -78,8 +68,6 @@ DECL|variable|do_all
 specifier|static
 name|int
 name|do_all
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -87,8 +75,6 @@ DECL|variable|do_not_match
 specifier|static
 name|int
 name|do_not_match
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -96,8 +82,6 @@ DECL|variable|seen
 specifier|static
 name|int
 name|seen
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_enum

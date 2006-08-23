@@ -104,8 +104,6 @@ name|char
 modifier|*
 modifier|*
 name|ok_paths
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -113,8 +111,6 @@ DECL|variable|strict_paths
 specifier|static
 name|int
 name|strict_paths
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -125,8 +121,6 @@ DECL|variable|export_all_trees
 specifier|static
 name|int
 name|export_all_trees
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -138,8 +132,6 @@ specifier|static
 name|char
 modifier|*
 name|base_path
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -152,8 +144,6 @@ specifier|const
 name|char
 modifier|*
 name|user_path
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -165,8 +155,6 @@ specifier|static
 name|unsigned
 name|int
 name|timeout
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -175,8 +163,6 @@ specifier|static
 name|unsigned
 name|int
 name|init_timeout
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -1399,8 +1385,6 @@ specifier|volatile
 name|unsigned
 name|int
 name|children_reaped
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1422,8 +1406,6 @@ specifier|static
 name|unsigned
 name|int
 name|children_spawned
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1432,8 +1414,6 @@ specifier|static
 name|unsigned
 name|int
 name|children_deleted
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_struct

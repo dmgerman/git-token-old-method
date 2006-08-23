@@ -57,8 +57,6 @@ DECL|variable|verbose
 specifier|static
 name|int
 name|verbose
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -66,8 +64,6 @@ DECL|variable|send_all
 specifier|static
 name|int
 name|send_all
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -75,8 +71,6 @@ DECL|variable|force_update
 specifier|static
 name|int
 name|force_update
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -84,8 +78,6 @@ DECL|variable|use_thin_pack
 specifier|static
 name|int
 name|use_thin_pack
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -620,7 +612,7 @@ end_function
 begin_function
 DECL|function|pack_objects
 specifier|static
-name|int
+name|void
 name|pack_objects
 parameter_list|(
 name|int
@@ -671,9 +663,6 @@ literal|"rev-list fork failed"
 argument_list|)
 expr_stmt|;
 comment|/* 	 * We don't wait for the rev-list pipeline in the parent: 	 * we end up waiting for the other end instead 	 */
-return|return
-literal|0
-return|;
 block|}
 end_function
 begin_function
@@ -1007,15 +996,13 @@ operator|+
 name|len
 argument_list|)
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|ref
 operator|->
 name|new_sha1
 argument_list|,
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|memcpy
@@ -1421,7 +1408,7 @@ continue|continue;
 if|if
 condition|(
 operator|!
-name|memcmp
+name|hashcmp
 argument_list|(
 name|ref
 operator|->
@@ -1432,8 +1419,6 @@ operator|->
 name|peer_ref
 operator|->
 name|new_sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
@@ -1526,7 +1511,7 @@ expr_stmt|;
 continue|continue;
 block|}
 block|}
-name|memcpy
+name|hashcpy
 argument_list|(
 name|ref
 operator|->
@@ -1537,8 +1522,6 @@ operator|->
 name|peer_ref
 operator|->
 name|new_sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 if|if
