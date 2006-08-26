@@ -3180,10 +3180,6 @@ init|=
 name|date
 decl_stmt|;
 name|int
-name|n
-init|=
-literal|1
-decl_stmt|,
 name|i
 decl_stmt|;
 while|while
@@ -3195,9 +3191,8 @@ operator|++
 name|end
 argument_list|)
 condition|)
-name|n
-operator|++
-expr_stmt|;
+empty_stmt|;
+empty_stmt|;
 for|for
 control|(
 name|i

@@ -235,7 +235,7 @@ operator|*
 name|num_parent
 argument_list|)
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|p
 operator|->
@@ -251,8 +251,6 @@ operator|->
 name|two
 operator|->
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|p
@@ -270,7 +268,7 @@ name|two
 operator|->
 name|mode
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|p
 operator|->
@@ -291,8 +289,6 @@ operator|->
 name|one
 operator|->
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|p
@@ -460,7 +456,7 @@ name|found
 operator|=
 literal|1
 expr_stmt|;
-name|memcpy
+name|hashcpy
 argument_list|(
 name|p
 operator|->
@@ -481,8 +477,6 @@ operator|->
 name|one
 operator|->
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|p
@@ -3844,7 +3838,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|memcmp
+name|hashcmp
 argument_list|(
 name|elem
 operator|->
@@ -3863,8 +3857,6 @@ name|j
 index|]
 operator|.
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
@@ -5270,11 +5262,18 @@ operator|,
 name|num_parent
 operator|++
 control|)
-name|memcpy
+name|hashcpy
 argument_list|(
+operator|(
+name|unsigned
+name|char
+operator|*
+operator|)
+operator|(
 name|parent
 operator|+
 name|num_parent
+operator|)
 argument_list|,
 name|parents
 operator|->
@@ -5283,8 +5282,6 @@ operator|->
 name|object
 operator|.
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 expr_stmt|;
 name|diff_tree_combined

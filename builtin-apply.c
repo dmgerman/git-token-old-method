@@ -2868,17 +2868,12 @@ name|len
 operator|++
 control|)
 block|{
-name|char
-name|c
-init|=
+switch|switch
+condition|(
 name|name
 index|[
 name|len
 index|]
-decl_stmt|;
-switch|switch
-condition|(
-name|c
 condition|)
 block|{
 default|default:
@@ -9193,7 +9188,7 @@ init|=
 name|NULL
 decl_stmt|;
 name|int
-name|error
+name|err
 init|=
 literal|0
 decl_stmt|;
@@ -9212,7 +9207,7 @@ operator|->
 name|next
 control|)
 block|{
-name|error
+name|err
 operator||=
 name|check_patch
 argument_list|(
@@ -9227,7 +9222,7 @@ name|patch
 expr_stmt|;
 block|}
 return|return
-name|error
+name|err
 return|;
 block|}
 end_function

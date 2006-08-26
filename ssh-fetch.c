@@ -356,7 +356,7 @@ name|temp
 decl_stmt|;
 if|if
 condition|(
-name|memcmp
+name|hashcmp
 argument_list|(
 name|sha1
 argument_list|,
@@ -365,8 +365,6 @@ operator|->
 name|item
 operator|->
 name|sha1
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{

@@ -885,7 +885,7 @@ operator|<
 name|MINIMUM_ABBREV
 operator|||
 literal|40
-operator|<=
+operator|<
 name|abbrev
 condition|)
 name|abbrev
