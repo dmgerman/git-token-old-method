@@ -2821,6 +2821,8 @@ argument_list|(
 name|time
 argument_list|,
 name|tz
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2867,6 +2869,8 @@ argument_list|(
 name|time
 argument_list|,
 name|tz
+argument_list|,
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

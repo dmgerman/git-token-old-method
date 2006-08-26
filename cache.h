@@ -2144,6 +2144,9 @@ name|time
 parameter_list|,
 name|int
 name|timezone
+parameter_list|,
+name|int
+name|relative
 parameter_list|)
 function_decl|;
 end_function_decl
