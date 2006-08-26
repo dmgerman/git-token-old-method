@@ -2602,7 +2602,7 @@ condition|)
 break|break;
 name|out
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|out
 argument_list|,

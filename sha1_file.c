@@ -8820,7 +8820,7 @@ literal|2
 expr_stmt|;
 name|buf
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|buf
 argument_list|,

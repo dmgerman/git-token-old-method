@@ -689,7 +689,7 @@ expr_stmt|;
 operator|*
 name|argv
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 operator|*
 name|argv
@@ -1072,7 +1072,7 @@ expr_stmt|;
 block|}
 name|new_argv
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|new_argv
 argument_list|,

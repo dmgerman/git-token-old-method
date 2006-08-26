@@ -2228,10 +2228,6 @@ block|{
 name|int
 name|sockfd
 decl_stmt|;
-name|int
-modifier|*
-name|newlist
-decl_stmt|;
 name|sockfd
 operator|=
 name|socket
@@ -2374,9 +2370,9 @@ expr_stmt|;
 continue|continue;
 comment|/* not fatal */
 block|}
-name|newlist
+name|socklist
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|socklist
 argument_list|,
@@ -2391,25 +2387,6 @@ operator|+
 literal|1
 operator|)
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|newlist
-condition|)
-name|die
-argument_list|(
-literal|"memory allocation failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|socklist
-operator|=
-name|newlist
 expr_stmt|;
 name|socklist
 index|[

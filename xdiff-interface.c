@@ -421,7 +421,7 @@ name|priv
 operator|->
 name|remainder
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|priv
 operator|->
@@ -511,7 +511,7 @@ name|priv
 operator|->
 name|remainder
 operator|=
-name|realloc
+name|xrealloc
 argument_list|(
 name|priv
 operator|->
