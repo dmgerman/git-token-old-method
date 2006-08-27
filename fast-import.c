@@ -2573,6 +2573,7 @@ operator|(
 operator|(
 name|void
 operator|*
+operator|*
 operator|)
 name|e
 operator|)
