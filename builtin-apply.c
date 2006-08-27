@@ -12600,6 +12600,8 @@ name|apply
 operator|=
 name|apply_with_reject
 operator|=
+name|apply_verbosely
+operator|=
 literal|1
 expr_stmt|;
 continue|continue;
