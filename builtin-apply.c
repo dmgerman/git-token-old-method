@@ -5396,10 +5396,6 @@ name|frag
 return|;
 name|corrupt
 label|:
-if|if
-condition|(
-name|data
-condition|)
 name|free
 argument_list|(
 name|data
@@ -6371,10 +6367,6 @@ argument_list|,
 name|minuses
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|qname
-condition|)
 name|free
 argument_list|(
 name|qname

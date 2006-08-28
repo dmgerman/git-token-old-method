@@ -1647,10 +1647,6 @@ argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|repo_config
-condition|)
 name|free
 argument_list|(
 name|repo_config
@@ -3516,10 +3512,6 @@ argument_list|(
 name|fd
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|config_filename
-condition|)
 name|free
 argument_list|(
 name|config_filename
