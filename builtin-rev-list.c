@@ -378,6 +378,10 @@ argument_list|,
 name|NULL
 argument_list|,
 name|NULL
+argument_list|,
+name|revs
+operator|.
+name|relative_date
 argument_list|)
 expr_stmt|;
 name|printf
