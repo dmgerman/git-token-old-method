@@ -2666,11 +2666,7 @@ name|store
 operator|.
 name|key
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
-name|malloc
+name|xmalloc
 argument_list|(
 name|strlen
 argument_list|(
@@ -3023,7 +3019,7 @@ operator|(
 name|regex_t
 operator|*
 operator|)
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

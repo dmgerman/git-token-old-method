@@ -1395,7 +1395,7 @@ name|char
 modifier|*
 name|newpath
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|baselen
 operator|+
@@ -2451,7 +2451,7 @@ argument_list|)
 expr_stmt|;
 name|dirs
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|len
 operator|+
@@ -3117,7 +3117,7 @@ name|char
 modifier|*
 name|lnk
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 operator|+

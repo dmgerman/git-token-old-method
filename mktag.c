@@ -530,7 +530,7 @@ name|char
 modifier|*
 name|buffer
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 argument_list|)

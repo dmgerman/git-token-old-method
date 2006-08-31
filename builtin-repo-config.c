@@ -539,7 +539,7 @@ operator|(
 name|regex_t
 operator|*
 operator|)
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -602,7 +602,7 @@ operator|(
 name|regex_t
 operator|*
 operator|)
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
