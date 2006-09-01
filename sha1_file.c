@@ -6967,6 +6967,7 @@ name|char
 modifier|*
 name|tmpfile
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|filename
@@ -7075,6 +7076,7 @@ name|char
 modifier|*
 name|tmpfile
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|filename
