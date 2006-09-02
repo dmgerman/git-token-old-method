@@ -137,7 +137,7 @@ name|char
 modifier|*
 name|path0
 init|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(

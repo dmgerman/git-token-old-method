@@ -44,7 +44,7 @@ name|char
 modifier|*
 name|git_HEAD
 init|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(
@@ -152,7 +152,7 @@ literal|3
 case|:
 name|create_symref
 argument_list|(
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(

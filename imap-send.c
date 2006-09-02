@@ -5866,7 +5866,7 @@ name|srvc
 operator|->
 name|pass
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|arg
 argument_list|)
@@ -7322,7 +7322,7 @@ condition|)
 block|{
 name|imap_folder
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|val
 argument_list|)
@@ -7391,7 +7391,7 @@ name|server
 operator|.
 name|host
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|val
 argument_list|)
@@ -7412,7 +7412,7 @@ name|server
 operator|.
 name|user
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|val
 argument_list|)
@@ -7432,7 +7432,7 @@ name|server
 operator|.
 name|pass
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|val
 argument_list|)
@@ -7474,7 +7474,7 @@ name|server
 operator|.
 name|tunnel
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|val
 argument_list|)

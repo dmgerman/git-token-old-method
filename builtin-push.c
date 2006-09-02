@@ -187,7 +187,7 @@ argument_list|)
 condition|)
 name|add_refspec
 argument_list|(
-name|strdup
+name|xstrdup
 argument_list|(
 name|ref
 argument_list|)
@@ -493,7 +493,7 @@ name|n
 operator|++
 index|]
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|s
 argument_list|)
@@ -517,7 +517,7 @@ name|has_explicit_refspec
 condition|)
 name|add_refspec
 argument_list|(
-name|strdup
+name|xstrdup
 argument_list|(
 name|s
 argument_list|)
@@ -655,7 +655,7 @@ name|config_current_uri
 operator|++
 index|]
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|value
 argument_list|)
@@ -688,7 +688,7 @@ argument_list|)
 condition|)
 name|add_refspec
 argument_list|(
-name|strdup
+name|xstrdup
 argument_list|(
 name|value
 argument_list|)

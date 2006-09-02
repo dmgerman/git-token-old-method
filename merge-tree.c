@@ -999,7 +999,7 @@ condition|)
 return|return;
 name|path
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|mkpath
 argument_list|(
@@ -1354,7 +1354,7 @@ expr_stmt|;
 else|else
 name|path
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|mkpath
 argument_list|(

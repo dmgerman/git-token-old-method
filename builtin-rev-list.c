@@ -501,7 +501,7 @@ name|SEEN
 expr_stmt|;
 name|name
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|name
 argument_list|)
@@ -618,7 +618,7 @@ name|SEEN
 expr_stmt|;
 name|name
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|name
 argument_list|)

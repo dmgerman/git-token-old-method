@@ -1194,7 +1194,7 @@ operator|!
 name|needlen
 condition|)
 return|return
-name|strdup
+name|xstrdup
 argument_list|(
 name|str
 argument_list|)
@@ -3763,7 +3763,7 @@ name|x
 operator|->
 name|name
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|name_a
 argument_list|)
