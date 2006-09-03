@@ -4284,7 +4284,7 @@ name|ls
 operator|.
 name|path
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|path
 argument_list|)

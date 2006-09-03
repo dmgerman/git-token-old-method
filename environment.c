@@ -281,7 +281,7 @@ name|git_graft_file
 condition|)
 name|git_graft_file
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(

@@ -1567,7 +1567,7 @@ operator|++
 condition|)
 name|real_path
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|pathname
 argument_list|)

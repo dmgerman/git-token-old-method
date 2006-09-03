@@ -1395,7 +1395,7 @@ name|char
 modifier|*
 name|newpath
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|baselen
 operator|+
@@ -2451,7 +2451,7 @@ argument_list|)
 expr_stmt|;
 name|dirs
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|len
 operator|+
@@ -2783,12 +2783,12 @@ name|long
 name|mode
 parameter_list|)
 block|{
-comment|/* path points to cache entries, so strdup before messing with it */
+comment|/* path points to cache entries, so xstrdup before messing with it */
 name|char
 modifier|*
 name|buf
 init|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|path
 argument_list|)
@@ -3117,7 +3117,7 @@ name|char
 modifier|*
 name|lnk
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 operator|+
@@ -3729,7 +3729,7 @@ index|]
 operator|=
 name|la
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|mkpath
 argument_list|(
@@ -3750,7 +3750,7 @@ index|]
 operator|=
 name|lb
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|mkpath
 argument_list|(
@@ -3771,7 +3771,7 @@ index|]
 operator|=
 name|lo
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|mkpath
 argument_list|(
@@ -7597,7 +7597,7 @@ name|original_index_file
 condition|)
 name|original_index_file
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(
@@ -7607,7 +7607,7 @@ argument_list|)
 expr_stmt|;
 name|temporary_index_file
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(

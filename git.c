@@ -140,7 +140,7 @@ literal|1
 expr_stmt|;
 name|path
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|path_len
 operator|+
@@ -542,7 +542,7 @@ condition|)
 block|{
 name|alias_string
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|value
 argument_list|)

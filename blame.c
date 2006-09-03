@@ -3439,7 +3439,7 @@ name|putil
 operator|->
 name|pathname
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|new_name
 argument_list|)
