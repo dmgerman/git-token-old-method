@@ -3640,7 +3640,6 @@ block|}
 end_function
 begin_function
 DECL|function|unpack_object_header_gently
-specifier|static
 name|unsigned
 name|long
 name|unpack_object_header_gently
