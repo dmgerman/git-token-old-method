@@ -92,8 +92,8 @@ return|;
 if|if
 condition|(
 name|len
-operator|>
-literal|45
+operator|<
+literal|5
 operator|||
 name|memcmp
 argument_list|(
