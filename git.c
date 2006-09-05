@@ -187,6 +187,11 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
