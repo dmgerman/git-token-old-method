@@ -1855,6 +1855,12 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|ignore
 parameter_list|)
 function_decl|;
 end_function_decl
