@@ -72,6 +72,18 @@ name|write_archive
 operator|=
 name|write_tar_archive
 block|}
+block|,
+block|{
+operator|.
+name|name
+operator|=
+literal|"zip"
+block|,
+operator|.
+name|write_archive
+operator|=
+name|write_zip_archive
+block|}
 block|, }
 decl_stmt|;
 end_decl_stmt
