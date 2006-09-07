@@ -102,6 +102,7 @@ literal|"git-daemon [--verbose] [--syslog] [--inetd | --port=n] [--export-all]\n
 literal|"           [--timeout=n] [--init-timeout=n] [--strict-paths]\n"
 literal|"           [--base-path=path] [--user-path | --user-path=path]\n"
 literal|"           [--reuseaddr] [--detach] [--pid-file=file]\n"
+literal|"           [--[enable|disable|allow-override|forbid-override]=service]\n"
 literal|"           [--user=user [[--group=group]] [directory...]"
 decl_stmt|;
 end_decl_stmt
@@ -4138,9 +4139,9 @@ name|strncmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--enable-override="
+literal|"--allow-override="
 argument_list|,
-literal|18
+literal|17
 argument_list|)
 condition|)
 block|{
@@ -4148,7 +4149,7 @@ name|make_service_overridable
 argument_list|(
 name|arg
 operator|+
-literal|18
+literal|17
 argument_list|,
 literal|1
 argument_list|)
@@ -4162,9 +4163,9 @@ name|strncmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--disable-override="
+literal|"--forbid-override="
 argument_list|,
-literal|19
+literal|18
 argument_list|)
 condition|)
 block|{
@@ -4172,7 +4173,7 @@ name|make_service_overridable
 argument_list|(
 name|arg
 operator|+
-literal|19
+literal|18
 argument_list|,
 literal|0
 argument_list|)
