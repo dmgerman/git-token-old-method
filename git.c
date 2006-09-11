@@ -1585,6 +1585,14 @@ literal|"verify-pack"
 block|,
 name|cmd_verify_pack
 block|}
+block|,
+block|{
+literal|"pack-refs"
+block|,
+name|cmd_pack_refs
+block|,
+name|RUN_SETUP
+block|}
 block|, 	}
 struct|;
 name|int
