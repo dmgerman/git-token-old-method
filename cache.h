@@ -2557,7 +2557,7 @@ value|(1u<< 2)
 end_define
 begin_function_decl
 specifier|extern
-name|int
+name|pid_t
 name|git_connect
 parameter_list|(
 name|int
