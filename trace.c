@@ -214,7 +214,7 @@ name|strcasecmp
 argument_list|(
 name|trace
 argument_list|,
-literal|" false"
+literal|"false"
 argument_list|)
 condition|)
 return|return
