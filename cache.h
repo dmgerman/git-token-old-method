@@ -2087,7 +2087,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|git_HEAD
+name|ref
 parameter_list|,
 specifier|const
 name|char
@@ -2104,7 +2104,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|git_HEAD
+name|ref
 parameter_list|)
 function_decl|;
 end_function_decl
