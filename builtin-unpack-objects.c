@@ -52,7 +52,7 @@ end_include
 begin_decl_stmt
 DECL|variable|dry_run
 DECL|variable|quiet
-DECL|variable|desperate
+DECL|variable|recover
 DECL|variable|has_errors
 specifier|static
 name|int
@@ -60,7 +60,7 @@ name|dry_run
 decl_stmt|,
 name|quiet
 decl_stmt|,
-name|desperate
+name|recover
 decl_stmt|,
 name|has_errors
 decl_stmt|;
@@ -73,7 +73,7 @@ name|char
 name|unpack_usage
 index|[]
 init|=
-literal|"git-unpack-objects [-n] [-q]< pack-file"
+literal|"git-unpack-objects [-n] [-q] [-r]< pack-file"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -412,7 +412,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|desperate
+name|recover
 condition|)
 name|exit
 argument_list|(
@@ -1059,7 +1059,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|desperate
+name|recover
 condition|)
 name|exit
 argument_list|(
@@ -1326,7 +1326,7 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|desperate
+name|recover
 condition|)
 return|return;
 name|exit
@@ -1582,7 +1582,7 @@ literal|"-r"
 argument_list|)
 condition|)
 block|{
-name|desperate
+name|recover
 operator|=
 literal|1
 expr_stmt|;
