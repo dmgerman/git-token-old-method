@@ -1248,6 +1248,8 @@ block|{
 literal|"count-objects"
 block|,
 name|cmd_count_objects
+block|,
+name|RUN_SETUP
 block|}
 block|,
 block|{
