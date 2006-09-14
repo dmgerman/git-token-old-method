@@ -1735,6 +1735,13 @@ name|argv
 index|[
 literal|0
 index|]
+condition|?
+name|argv
+index|[
+literal|0
+index|]
+else|:
+literal|"git-help"
 decl_stmt|;
 name|char
 modifier|*

@@ -1797,7 +1797,7 @@ decl_stmt|;
 if|if
 condition|(
 name|argc
-operator|<
+operator|!=
 literal|4
 condition|)
 name|usage
