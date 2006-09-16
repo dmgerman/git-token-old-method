@@ -13,12 +13,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<stdio.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<limits.h>
+file|"git-compat-util.h"
 end_include
 begin_decl_stmt
 specifier|extern
