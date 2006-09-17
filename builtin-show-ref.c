@@ -27,7 +27,7 @@ name|char
 name|show_ref_usage
 index|[]
 init|=
-literal|"git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--deref] [--tags] [--heads] [--] [pattern*]"
+literal|"git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--deref] [-s|--hash] [--tags] [--heads] [--] [pattern*]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -35,9 +35,6 @@ DECL|variable|deref_tags
 DECL|variable|show_head
 DECL|variable|tags_only
 DECL|variable|heads_only
-DECL|variable|found_match
-DECL|variable|verify
-DECL|variable|quiet
 specifier|static
 name|int
 name|deref_tags
@@ -56,6 +53,10 @@ name|heads_only
 init|=
 literal|0
 decl_stmt|,
+DECL|variable|found_match
+DECL|variable|verify
+DECL|variable|quiet
+DECL|variable|hash_only
 name|found_match
 init|=
 literal|0
@@ -65,6 +66,10 @@ init|=
 literal|0
 decl_stmt|,
 name|quiet
+init|=
+literal|0
+decl_stmt|,
+name|hash_only
 init|=
 literal|0
 decl_stmt|;
@@ -298,6 +303,21 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|hash_only
+condition|)
+name|printf
+argument_list|(
+literal|"%s\n"
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|sha1
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|else
 name|printf
 argument_list|(
 literal|"%s %s\n"
@@ -516,6 +536,31 @@ argument_list|)
 condition|)
 block|{
 name|deref_tags
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-s"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--hash"
+argument_list|)
+condition|)
+block|{
+name|hash_only
 operator|=
 literal|1
 expr_stmt|;
