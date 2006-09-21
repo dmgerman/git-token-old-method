@@ -1741,6 +1741,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|int
+name|flag
+parameter_list|,
 name|void
 modifier|*
 name|cb_data
@@ -1862,6 +1865,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|int
+name|flag
+parameter_list|,
 name|void
 modifier|*
 name|cb_data
@@ -1925,6 +1931,8 @@ name|ofs
 argument_list|,
 name|sha1
 argument_list|,
+name|flag
+argument_list|,
 name|cb_data
 argument_list|)
 return|;
@@ -1946,6 +1954,9 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
 parameter_list|,
 name|void
 modifier|*
@@ -1974,6 +1985,8 @@ operator|+
 literal|5
 argument_list|,
 name|sha1
+argument_list|,
+name|flag
 argument_list|,
 name|cb_data
 argument_list|)
@@ -2054,6 +2067,9 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
 parameter_list|,
 name|void
 modifier|*
@@ -2141,6 +2157,8 @@ name|refname
 argument_list|,
 name|sha1
 argument_list|,
+name|flag
+argument_list|,
 name|cb_data
 argument_list|)
 return|;
@@ -2163,6 +2181,8 @@ name|refname
 argument_list|,
 name|sha1
 argument_list|,
+name|flag
+argument_list|,
 name|cb_data
 argument_list|)
 return|;
@@ -2172,6 +2192,8 @@ argument_list|(
 name|refname
 argument_list|,
 name|sha1
+argument_list|,
+name|flag
 argument_list|,
 name|cb_data
 argument_list|)
@@ -2572,6 +2594,8 @@ argument_list|(
 name|av
 argument_list|,
 name|revkey
+argument_list|,
+literal|0
 argument_list|,
 name|NULL
 argument_list|)
@@ -3423,6 +3447,8 @@ argument_list|,
 name|head_sha1
 argument_list|,
 literal|1
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

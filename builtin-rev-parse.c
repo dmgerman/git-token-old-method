@@ -589,6 +589,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|int
+name|flag
+parameter_list|,
 name|void
 modifier|*
 name|cb_data
