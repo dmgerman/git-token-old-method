@@ -870,7 +870,7 @@ name|type
 condition|)
 block|{
 case|case
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 case|:
 if|if
 condition|(
@@ -1659,7 +1659,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 condition|)
 block|{
 name|struct
@@ -1782,7 +1782,7 @@ name|obj
 operator|->
 name|type
 operator|==
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 condition|)
 continue|continue;
 if|if
@@ -1885,7 +1885,7 @@ name|obj
 operator|->
 name|real_type
 operator|==
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 condition|)
 name|die
 argument_list|(
