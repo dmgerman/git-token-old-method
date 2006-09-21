@@ -1215,6 +1215,12 @@ name|cmd_apply
 block|}
 block|,
 block|{
+literal|"archive"
+block|,
+name|cmd_archive
+block|}
+block|,
+block|{
 literal|"cat-file"
 block|,
 name|cmd_cat_file
@@ -1467,6 +1473,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"runstatus"
+block|,
+name|cmd_runstatus
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"show-branch"
 block|,
 name|cmd_show_branch
@@ -1539,6 +1553,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"upload-archive"
+block|,
+name|cmd_upload_archive
+block|}
+block|,
+block|{
 literal|"upload-tar"
 block|,
 name|cmd_upload_tar
@@ -1572,6 +1592,14 @@ block|{
 literal|"verify-pack"
 block|,
 name|cmd_verify_pack
+block|}
+block|,
+block|{
+literal|"pack-refs"
+block|,
+name|cmd_pack_refs
+block|,
+name|RUN_SETUP
 block|}
 block|, 	}
 struct|;
