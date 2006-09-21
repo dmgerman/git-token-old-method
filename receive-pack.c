@@ -86,6 +86,13 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 if|if
@@ -146,6 +153,8 @@ block|{
 name|for_each_ref
 argument_list|(
 name|show_ref
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -158,6 +167,10 @@ argument_list|(
 literal|"capabilities^{}"
 argument_list|,
 name|null_sha1
+argument_list|,
+literal|0
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 block|}

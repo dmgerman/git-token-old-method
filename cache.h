@@ -1855,6 +1855,12 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|ignore
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2070,6 +2076,9 @@ modifier|*
 name|sha1
 parameter_list|,
 name|int
+parameter_list|,
+name|int
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2081,7 +2090,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|git_HEAD
+name|ref
 parameter_list|,
 specifier|const
 name|char
@@ -2098,7 +2107,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|git_HEAD
+name|ref
 parameter_list|)
 function_decl|;
 end_function_decl
