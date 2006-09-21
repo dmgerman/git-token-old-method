@@ -34,7 +34,7 @@ DECL|macro|PACK_VERSION
 define|#
 directive|define
 name|PACK_VERSION
-value|2
+value|3
 end_define
 begin_define
 DECL|macro|pack_version_ok
