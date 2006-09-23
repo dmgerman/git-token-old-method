@@ -310,6 +310,8 @@ name|unlink
 argument_list|(
 name|git_path
 argument_list|(
+literal|"%s"
+argument_list|,
 name|r
 operator|->
 name|name
