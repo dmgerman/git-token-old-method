@@ -2254,9 +2254,6 @@ name|char
 modifier|*
 name|ref
 parameter_list|,
-name|int
-name|plen
-parameter_list|,
 specifier|const
 name|unsigned
 name|char
@@ -2521,11 +2518,6 @@ name|lock_ref_sha1_basic
 argument_list|(
 name|refpath
 argument_list|,
-name|strlen
-argument_list|(
-name|refpath
-argument_list|)
-argument_list|,
 name|old_sha1
 argument_list|,
 name|mustexist
@@ -2559,11 +2551,6 @@ return|return
 name|lock_ref_sha1_basic
 argument_list|(
 name|ref
-argument_list|,
-name|strlen
-argument_list|(
-name|ref
-argument_list|)
 argument_list|,
 name|old_sha1
 argument_list|,
