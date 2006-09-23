@@ -1513,14 +1513,6 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
-literal|"zip-tree"
-block|,
-name|cmd_zip_tree
-block|,
-name|RUN_SETUP
-block|}
-block|,
-block|{
 literal|"unpack-objects"
 block|,
 name|cmd_unpack_objects
