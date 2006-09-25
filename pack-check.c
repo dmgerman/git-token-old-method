@@ -266,10 +266,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|struct
-name|pack_entry
-name|e
-decl_stmt|;
 name|void
 modifier|*
 name|data
@@ -283,6 +279,8 @@ decl_stmt|;
 name|unsigned
 name|long
 name|size
+decl_stmt|,
+name|offset
 decl_stmt|;
 if|if
 condition|(
@@ -300,18 +298,19 @@ argument_list|(
 literal|"internal error pack-check nth-packed-object"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
+name|offset
+operator|=
 name|find_pack_entry_one
 argument_list|(
 name|sha1
 argument_list|,
-operator|&
-name|e
-argument_list|,
 name|p
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|offset
 condition|)
 name|die
 argument_list|(
@@ -322,8 +321,9 @@ name|data
 operator|=
 name|unpack_entry_gently
 argument_list|(
-operator|&
-name|e
+name|p
+argument_list|,
+name|offset
 argument_list|,
 name|type
 argument_list|,
@@ -492,10 +492,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|struct
-name|pack_entry
-name|e
-decl_stmt|;
 name|char
 name|type
 index|[
@@ -509,6 +505,10 @@ decl_stmt|;
 name|unsigned
 name|long
 name|store_size
+decl_stmt|;
+name|unsigned
+name|long
+name|offset
 decl_stmt|;
 name|unsigned
 name|int
@@ -530,18 +530,19 @@ argument_list|(
 literal|"internal error pack-check nth-packed-object"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
+name|offset
+operator|=
 name|find_pack_entry_one
 argument_list|(
 name|sha1
 argument_list|,
-operator|&
-name|e
-argument_list|,
 name|p
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|offset
 condition|)
 name|die
 argument_list|(
@@ -550,8 +551,9 @@ argument_list|)
 expr_stmt|;
 name|packed_object_info_detail
 argument_list|(
-operator|&
-name|e
+name|p
+argument_list|,
+name|offset
 argument_list|,
 name|type
 argument_list|,
@@ -584,14 +586,12 @@ name|delta_chain_length
 condition|)
 name|printf
 argument_list|(
-literal|"%-6s %lu %u\n"
+literal|"%-6s %lu %lu\n"
 argument_list|,
 name|type
 argument_list|,
 name|size
 argument_list|,
-name|e
-operator|.
 name|offset
 argument_list|)
 expr_stmt|;
@@ -599,14 +599,12 @@ else|else
 block|{
 name|printf
 argument_list|(
-literal|"%-6s %lu %u %u %s\n"
+literal|"%-6s %lu %lu %u %s\n"
 argument_list|,
 name|type
 argument_list|,
 name|size
 argument_list|,
-name|e
-operator|.
 name|offset
 argument_list|,
 name|delta_chain_length
