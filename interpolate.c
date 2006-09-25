@@ -27,10 +27,12 @@ parameter_list|,
 name|int
 name|reslen
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|orig
 parameter_list|,
+specifier|const
 name|struct
 name|interp
 modifier|*
@@ -40,6 +42,7 @@ name|int
 name|ninterps
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|src
