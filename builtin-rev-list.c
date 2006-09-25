@@ -1279,6 +1279,10 @@ operator|=
 name|revs
 operator|.
 name|verbose_header
+operator|||
+name|revs
+operator|.
+name|grep_filter
 expr_stmt|;
 name|track_object_refs
 operator|=
