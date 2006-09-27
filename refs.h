@@ -193,9 +193,6 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
-parameter_list|,
-name|int
-name|mustexist
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -219,9 +216,6 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
-parameter_list|,
-name|int
-name|mustexist
 parameter_list|)
 function_decl|;
 end_function_decl

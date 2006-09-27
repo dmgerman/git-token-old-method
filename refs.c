@@ -2259,9 +2259,6 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
-parameter_list|,
-name|int
-name|mustexist
 parameter_list|)
 block|{
 name|char
@@ -2283,6 +2280,19 @@ decl_stmt|;
 name|struct
 name|stat
 name|st
+decl_stmt|;
+name|int
+name|mustexist
+init|=
+operator|(
+name|old_sha1
+operator|&&
+operator|!
+name|is_null_sha1
+argument_list|(
+name|old_sha1
+argument_list|)
+operator|)
 decl_stmt|;
 name|lock
 operator|=
@@ -2480,9 +2490,6 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
-parameter_list|,
-name|int
-name|mustexist
 parameter_list|)
 block|{
 name|char
@@ -2519,8 +2526,6 @@ argument_list|(
 name|refpath
 argument_list|,
 name|old_sha1
-argument_list|,
-name|mustexist
 argument_list|)
 return|;
 block|}
@@ -2542,9 +2547,6 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
-parameter_list|,
-name|int
-name|mustexist
 parameter_list|)
 block|{
 return|return
@@ -2553,8 +2555,6 @@ argument_list|(
 name|ref
 argument_list|,
 name|old_sha1
-argument_list|,
-name|mustexist
 argument_list|)
 return|;
 block|}
