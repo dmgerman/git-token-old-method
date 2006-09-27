@@ -1693,6 +1693,11 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+name|free_grep_patterns
+argument_list|(
+name|opt
+argument_list|)
+expr_stmt|;
 return|return
 name|hit
 return|;
@@ -3673,6 +3678,12 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|free_grep_patterns
+argument_list|(
+operator|&
+name|opt
+argument_list|)
+expr_stmt|;
 return|return
 operator|!
 name|hit
