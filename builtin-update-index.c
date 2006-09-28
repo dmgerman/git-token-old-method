@@ -464,7 +464,7 @@ operator|!
 name|trust_executable_bit
 condition|)
 block|{
-comment|/* If there is an existing entry, pick the mode bits 		 * from it. 		 */
+comment|/* If there is an existing entry, pick the mode bits 		 * from it, otherwise force to 644. 		 */
 name|int
 name|pos
 init|=
@@ -491,6 +491,18 @@ name|pos
 index|]
 operator|->
 name|ce_mode
+expr_stmt|;
+else|else
+name|ce
+operator|->
+name|ce_mode
+operator|=
+name|create_ce_mode
+argument_list|(
+name|S_IFREG
+operator||
+literal|0644
+argument_list|)
 expr_stmt|;
 block|}
 if|if
