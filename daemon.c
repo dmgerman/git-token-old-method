@@ -3719,7 +3719,7 @@ name|socksetup
 parameter_list|(
 name|char
 modifier|*
-name|lisen_addr
+name|listen_addr
 parameter_list|,
 name|int
 name|listen_port
