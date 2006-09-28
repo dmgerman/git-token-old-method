@@ -47,6 +47,7 @@ parameter_list|,
 name|int
 name|slot
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|value
