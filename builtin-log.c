@@ -2217,6 +2217,15 @@ name|DIFF_FORMAT_PATCH
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|output_directory
+condition|)
+name|output_directory
+operator|=
+name|prefix
+expr_stmt|;
+if|if
+condition|(
 name|output_directory
 condition|)
 block|{
