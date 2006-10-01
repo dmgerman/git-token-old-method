@@ -2565,6 +2565,7 @@ operator|.
 name|st_mode
 argument_list|)
 operator|&&
+operator|!
 name|remove_empty_dir_recursive
 argument_list|(
 name|path
