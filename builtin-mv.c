@@ -1810,6 +1810,13 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|cache_tree_invalidate_path
+argument_list|(
+name|active_cache_tree
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
