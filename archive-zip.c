@@ -1206,7 +1206,7 @@ name|dirent
 operator|.
 name|version
 argument_list|,
-literal|20
+literal|10
 argument_list|)
 expr_stmt|;
 name|copy_le16
@@ -1392,7 +1392,7 @@ name|header
 operator|.
 name|version
 argument_list|,
-literal|20
+literal|10
 argument_list|)
 expr_stmt|;
 name|copy_le16
