@@ -1209,6 +1209,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"annotate"
+block|,
+name|cmd_annotate
+block|, }
+block|,
+block|{
 literal|"apply"
 block|,
 name|cmd_apply
