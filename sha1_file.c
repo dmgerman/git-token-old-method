@@ -7590,8 +7590,7 @@ end_function
 begin_function
 DECL|function|write_sha1_file_prepare
 specifier|static
-name|char
-modifier|*
+name|void
 name|write_sha1_file_prepare
 parameter_list|(
 name|void
@@ -7682,12 +7681,6 @@ operator|&
 name|c
 argument_list|)
 expr_stmt|;
-return|return
-name|sha1_file_name
-argument_list|(
-name|sha1
-argument_list|)
-return|;
 block|}
 end_function
 begin_comment
@@ -8352,8 +8345,6 @@ decl_stmt|,
 name|hdrlen
 decl_stmt|;
 comment|/* Normally if we have it in the pack then we do not bother writing 	 * it out into .git/objects/??/?{38} file. 	 */
-name|filename
-operator|=
 name|write_sha1_file_prepare
 argument_list|(
 name|buf
@@ -8368,6 +8359,13 @@ name|hdr
 argument_list|,
 operator|&
 name|hdrlen
+argument_list|)
+expr_stmt|;
+name|filename
+operator|=
+name|sha1_file_name
+argument_list|(
+name|sha1
 argument_list|)
 expr_stmt|;
 if|if
