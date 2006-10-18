@@ -5195,7 +5195,7 @@ name|unsigned
 name|char
 name|delta_head
 index|[
-literal|64
+literal|20
 index|]
 decl_stmt|;
 name|unsigned
