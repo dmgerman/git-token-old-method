@@ -1405,6 +1405,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"pickaxe"
+block|,
+name|cmd_pickaxe
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"prune"
 block|,
 name|cmd_prune
