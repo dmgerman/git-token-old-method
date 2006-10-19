@@ -897,6 +897,10 @@ condition|(
 name|len
 operator|<
 name|MINIMUM_ABBREV
+operator|||
+name|len
+operator|>
+literal|40
 condition|)
 return|return
 operator|-
