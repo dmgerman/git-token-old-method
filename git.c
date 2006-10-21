@@ -1410,6 +1410,8 @@ block|,
 name|cmd_pickaxe
 block|,
 name|RUN_SETUP
+operator||
+name|USE_PAGER
 block|}
 block|,
 block|{
