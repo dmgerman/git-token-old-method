@@ -600,12 +600,6 @@ name|side_pid
 condition|)
 block|{
 comment|/* subprocess */
-name|char
-name|buf
-index|[
-name|LARGE_PACKET_MAX
-index|]
-decl_stmt|;
 name|close
 argument_list|(
 name|fd
@@ -651,13 +645,6 @@ literal|1
 index|]
 argument_list|,
 literal|2
-argument_list|,
-name|buf
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|buf
-argument_list|)
 argument_list|)
 condition|)
 name|exit

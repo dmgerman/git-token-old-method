@@ -20,13 +20,6 @@ init|=
 literal|"git-prune-packed [-n]"
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|dryrun
-specifier|static
-name|int
-name|dryrun
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|prune_dir
 specifier|static
@@ -46,6 +39,9 @@ name|pathname
 parameter_list|,
 name|int
 name|len
+parameter_list|,
+name|int
+name|dryrun
 parameter_list|)
 block|{
 name|struct
@@ -193,11 +189,11 @@ block|}
 end_function
 begin_function
 DECL|function|prune_packed_objects
-specifier|static
 name|void
 name|prune_packed_objects
 parameter_list|(
-name|void
+name|int
+name|dryrun
 parameter_list|)
 block|{
 name|int
@@ -322,6 +318,8 @@ argument_list|,
 name|len
 operator|+
 literal|3
+argument_list|,
+name|dryrun
 argument_list|)
 expr_stmt|;
 name|closedir
@@ -354,6 +352,11 @@ parameter_list|)
 block|{
 name|int
 name|i
+decl_stmt|;
+name|int
+name|dryrun
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -420,7 +423,9 @@ name|sync
 argument_list|()
 expr_stmt|;
 name|prune_packed_objects
-argument_list|()
+argument_list|(
+name|dryrun
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

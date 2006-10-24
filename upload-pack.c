@@ -98,9 +98,12 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|use_thin_pack
+DECL|variable|use_ofs_delta
 specifier|static
 name|int
 name|use_thin_pack
+decl_stmt|,
+name|use_ofs_delta
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -804,6 +807,12 @@ argument_list|,
 literal|"--stdout"
 argument_list|,
 literal|"--progress"
+argument_list|,
+name|use_ofs_delta
+condition|?
+literal|"--delta-base-offset"
+else|:
+name|NULL
 argument_list|,
 name|NULL
 argument_list|)
@@ -2059,6 +2068,21 @@ name|line
 operator|+
 literal|45
 argument_list|,
+literal|"ofs-delta"
+argument_list|)
+condition|)
+name|use_ofs_delta
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|strstr
+argument_list|(
+name|line
+operator|+
+literal|45
+argument_list|,
 literal|"side-band-64k"
 argument_list|)
 condition|)
@@ -2169,7 +2193,7 @@ name|char
 modifier|*
 name|capabilities
 init|=
-literal|"multi_ack thin-pack side-band side-band-64k"
+literal|"multi_ack thin-pack side-band side-band-64k ofs-delta"
 decl_stmt|;
 name|struct
 name|object
