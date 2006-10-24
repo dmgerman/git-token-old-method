@@ -355,6 +355,8 @@ name|i
 decl_stmt|;
 name|int
 name|dryrun
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
