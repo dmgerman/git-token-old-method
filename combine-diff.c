@@ -4162,6 +4162,11 @@ condition|(
 name|rev
 operator|->
 name|loginfo
+operator|&&
+operator|!
+name|rev
+operator|->
+name|no_commit_id
 condition|)
 name|show_log
 argument_list|(
@@ -4634,6 +4639,11 @@ condition|(
 name|rev
 operator|->
 name|loginfo
+operator|&&
+operator|!
+name|rev
+operator|->
+name|no_commit_id
 condition|)
 name|show_log
 argument_list|(
@@ -5060,6 +5070,11 @@ operator|!
 name|rev
 operator|->
 name|loginfo
+operator|&&
+operator|!
+name|rev
+operator|->
+name|no_commit_id
 expr_stmt|;
 name|needsep
 operator|=
