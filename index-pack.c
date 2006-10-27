@@ -1780,10 +1780,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|find_delta_childs
+DECL|function|find_delta_children
 specifier|static
 name|int
-name|find_delta_childs
+name|find_delta_children
 parameter_list|(
 specifier|const
 name|union
@@ -2173,7 +2173,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|find_delta_childs
+name|find_delta_children
 argument_list|(
 operator|&
 name|delta_base
@@ -2259,7 +2259,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|find_delta_childs
+name|find_delta_children
 argument_list|(
 operator|&
 name|delta_base
@@ -2417,7 +2417,7 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
-comment|/* 	 * First pass: 	 * - find locations of all objects; 	 * - calculate SHA1 of all non-delta objects; 	 * - remember base SHA1 for all deltas. 	 */
+comment|/* 	 * First pass: 	 * - find locations of all objects; 	 * - calculate SHA1 of all non-delta objects; 	 * - remember base (SHA1 or offset) for all deltas. 	 */
 if|if
 condition|(
 name|verbose
@@ -2749,7 +2749,7 @@ expr_stmt|;
 name|ref
 operator|=
 operator|!
-name|find_delta_childs
+name|find_delta_children
 argument_list|(
 operator|&
 name|base
@@ -2785,7 +2785,7 @@ expr_stmt|;
 name|ofs
 operator|=
 operator|!
-name|find_delta_childs
+name|find_delta_children
 argument_list|(
 operator|&
 name|base
@@ -3576,7 +3576,7 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-name|find_delta_childs
+name|find_delta_children
 argument_list|(
 operator|&
 name|d
