@@ -2536,6 +2536,9 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+name|int
+name|no_wd
 parameter_list|)
 block|{
 name|int
@@ -2550,6 +2553,9 @@ name|update_working_directory
 init|=
 operator|!
 name|index_only
+operator|&&
+operator|!
+name|no_wd
 decl_stmt|;
 if|if
 condition|(
@@ -4111,6 +4117,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|ren1_dst
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4156,6 +4164,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|ren2_dst
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4268,6 +4278,8 @@ operator|->
 name|two
 operator|->
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -4397,6 +4409,8 @@ operator|->
 name|two
 operator|->
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -5055,6 +5069,8 @@ argument_list|(
 literal|1
 argument_list|,
 name|ren1_src
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|mfi
@@ -5220,6 +5236,8 @@ argument_list|(
 literal|1
 argument_list|,
 name|ren1_src
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -5964,11 +5982,15 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+comment|/* do not touch working file if it did not exist */
 name|remove_file
 argument_list|(
 literal|1
 argument_list|,
 name|path
+argument_list|,
+operator|!
+name|a_sha
 argument_list|)
 expr_stmt|;
 block|}
@@ -6191,6 +6213,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -6352,6 +6376,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -7023,8 +7049,8 @@ begin_comment
 comment|/*  * Merge the commits h1 and h2, return the resulting virtual  * commit object and a flag indicating the cleaness of the merge.  */
 end_comment
 begin_function
-specifier|static
 DECL|function|merge
+specifier|static
 name|int
 name|merge
 parameter_list|(
