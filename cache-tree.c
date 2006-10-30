@@ -14,6 +14,11 @@ include|#
 directive|include
 file|"cache-tree.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|DEBUG
+end_ifndef
 begin_define
 DECL|macro|DEBUG
 define|#
@@ -21,6 +26,10 @@ directive|define
 name|DEBUG
 value|0
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|cache_tree
 name|struct
