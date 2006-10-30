@@ -4694,6 +4694,11 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|decref_split
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 name|free
 argument_list|(
