@@ -5235,10 +5235,6 @@ condition|(
 name|revs
 operator|->
 name|topo_order
-operator|||
-name|revs
-operator|->
-name|unpacked
 condition|)
 name|revs
 operator|->
