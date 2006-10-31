@@ -144,6 +144,8 @@ init|=
 block|{
 literal|"pack-objects"
 block|,
+literal|"--all-progress"
+block|,
 literal|"--stdout"
 block|,
 name|NULL
