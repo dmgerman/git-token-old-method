@@ -1230,7 +1230,7 @@ if|if
 condition|(
 name|n
 condition|)
-name|memcpy
+name|memmove
 argument_list|(
 name|b
 operator|->
