@@ -1084,7 +1084,7 @@ if|if
 condition|(
 name|read_ref
 argument_list|(
-name|path
+literal|"HEAD"
 argument_list|,
 name|sha1
 argument_list|)
@@ -1096,7 +1096,7 @@ if|if
 condition|(
 name|create_symref
 argument_list|(
-name|path
+literal|"HEAD"
 argument_list|,
 literal|"refs/heads/master"
 argument_list|)
