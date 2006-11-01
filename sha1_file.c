@@ -4039,7 +4039,6 @@ block|}
 end_function
 begin_function
 DECL|function|reprepare_packed_git
-specifier|static
 name|void
 name|reprepare_packed_git
 parameter_list|(
