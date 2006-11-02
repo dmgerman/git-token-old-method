@@ -509,6 +509,9 @@ block|{
 name|int
 name|i
 decl_stmt|;
+name|char
+name|c
+decl_stmt|;
 if|if
 condition|(
 name|remote_only
@@ -557,6 +560,10 @@ name|i
 operator|++
 control|)
 block|{
+name|c
+operator|=
+literal|' '
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -570,20 +577,15 @@ argument_list|,
 name|head
 argument_list|)
 condition|)
-name|printf
-argument_list|(
-literal|"* %s\n"
-argument_list|,
-name|ref_list
-index|[
-name|i
-index|]
-argument_list|)
+name|c
+operator|=
+literal|'*'
 expr_stmt|;
-else|else
 name|printf
 argument_list|(
-literal|"  %s\n"
+literal|"%c %s\n"
+argument_list|,
+name|c
 argument_list|,
 name|ref_list
 index|[
