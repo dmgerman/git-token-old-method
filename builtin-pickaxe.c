@@ -1278,6 +1278,14 @@ name|output_format
 operator|=
 name|DIFF_FORMAT_NO_OUTPUT
 expr_stmt|;
+name|diff_opts
+operator|.
+name|single_follow
+operator|=
+name|origin
+operator|->
+name|path
+expr_stmt|;
 name|paths
 index|[
 literal|0
