@@ -1534,9 +1534,7 @@ name|char
 modifier|*
 name|unpack
 parameter_list|(
-name|int
-modifier|*
-name|error_code
+name|void
 parameter_list|)
 block|{
 name|int
@@ -1551,11 +1549,6 @@ argument_list|,
 name|RUN_GIT_CMD
 argument_list|)
 decl_stmt|;
-operator|*
-name|error_code
-operator|=
-literal|0
-expr_stmt|;
 switch|switch
 condition|(
 name|code
@@ -1610,12 +1603,6 @@ return|return
 literal|"unpacker died strangely"
 return|;
 default|default:
-operator|*
-name|error_code
-operator|=
-operator|-
-name|code
-expr_stmt|;
 return|return
 literal|"unpacker exited with error code"
 return|;
@@ -1830,19 +1817,13 @@ condition|(
 name|commands
 condition|)
 block|{
-name|int
-name|code
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
 name|unpack_status
 init|=
 name|unpack
-argument_list|(
-operator|&
-name|code
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
