@@ -240,6 +240,13 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 name|struct
@@ -711,6 +718,8 @@ decl_stmt|;
 name|for_each_ref
 argument_list|(
 name|rev_list_insert_ref
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|fetching
@@ -1211,6 +1220,13 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 name|struct
@@ -1802,6 +1818,8 @@ block|}
 name|for_each_ref
 argument_list|(
 name|mark_complete
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

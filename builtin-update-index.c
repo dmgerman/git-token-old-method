@@ -1905,10 +1905,7 @@ if|if
 condition|(
 name|read_ref
 argument_list|(
-name|git_path
-argument_list|(
 literal|"HEAD"
-argument_list|)
 argument_list|,
 name|head_sha1
 argument_list|)
@@ -1922,10 +1919,7 @@ if|if
 condition|(
 name|read_ref
 argument_list|(
-name|git_path
-argument_list|(
 literal|"MERGE_HEAD"
-argument_list|)
 argument_list|,
 name|merge_head_sha1
 argument_list|)
@@ -2109,10 +2103,7 @@ if|if
 condition|(
 name|read_ref
 argument_list|(
-name|git_path
-argument_list|(
 literal|"HEAD"
-argument_list|)
 argument_list|,
 name|head_sha1
 argument_list|)

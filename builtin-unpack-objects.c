@@ -167,7 +167,7 @@ argument_list|,
 name|offset
 argument_list|)
 expr_stmt|;
-name|memcpy
+name|memmove
 argument_list|(
 name|buffer
 argument_list|,
