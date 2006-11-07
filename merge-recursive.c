@@ -473,13 +473,15 @@ name|printf
 argument_list|(
 literal|"%s "
 argument_list|,
-name|sha1_to_hex
+name|find_unique_abbrev
 argument_list|(
 name|commit
 operator|->
 name|object
 operator|.
 name|sha1
+argument_list|,
+name|DEFAULT_ABBREV
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2263,6 +2265,7 @@ block|}
 end_function
 begin_function
 DECL|function|update_stages
+specifier|static
 name|int
 name|update_stages
 parameter_list|(
@@ -2522,6 +2525,7 @@ block|}
 end_function
 begin_function
 DECL|function|remove_file
+specifier|static
 name|int
 name|remove_file
 parameter_list|(
@@ -2532,6 +2536,9 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+name|int
+name|no_wd
 parameter_list|)
 block|{
 name|int
@@ -2546,6 +2553,9 @@ name|update_working_directory
 init|=
 operator|!
 name|index_only
+operator|&&
+operator|!
+name|no_wd
 decl_stmt|;
 if|if
 condition|(
@@ -2901,6 +2911,7 @@ block|}
 end_function
 begin_function
 DECL|function|update_file_flags
+specifier|static
 name|void
 name|update_file_flags
 parameter_list|(
@@ -3199,6 +3210,7 @@ block|}
 end_function
 begin_function
 DECL|function|update_file
+specifier|static
 name|void
 name|update_file
 parameter_list|(
@@ -4105,6 +4117,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|ren1_dst
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4150,6 +4164,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|ren2_dst
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4262,6 +4278,8 @@ operator|->
 name|two
 operator|->
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -4391,6 +4409,8 @@ operator|->
 name|two
 operator|->
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -5049,6 +5069,8 @@ argument_list|(
 literal|1
 argument_list|,
 name|ren1_src
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|mfi
@@ -5214,6 +5236,8 @@ argument_list|(
 literal|1
 argument_list|,
 name|ren1_src
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -5958,11 +5982,15 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+comment|/* do not touch working file if it did not exist */
 name|remove_file
 argument_list|(
 literal|1
 argument_list|,
 name|path
+argument_list|,
+operator|!
+name|a_sha
 argument_list|)
 expr_stmt|;
 block|}
@@ -6185,6 +6213,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -6346,6 +6376,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|path
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -7017,8 +7049,8 @@ begin_comment
 comment|/*  * Merge the commits h1 and h2, return the resulting virtual  * commit object and a flag indicating the cleaness of the merge.  */
 end_comment
 begin_function
-specifier|static
 DECL|function|merge
+specifier|static
 name|int
 name|merge
 parameter_list|(
