@@ -275,6 +275,13 @@ name|int
 name|patch_time
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|num_read_blob
+specifier|static
+name|int
+name|num_read_blob
+decl_stmt|;
+end_decl_stmt
 begin_struct
 DECL|struct|blame_diff_state
 struct|struct
@@ -1097,6 +1104,9 @@ name|info
 operator|->
 name|size
 argument_list|)
+expr_stmt|;
+name|num_read_blob
+operator|++
 expr_stmt|;
 name|assert
 argument_list|(
@@ -5952,6 +5962,13 @@ condition|(
 name|DEBUG
 condition|)
 block|{
+name|printf
+argument_list|(
+literal|"num read blob: %d\n"
+argument_list|,
+name|num_read_blob
+argument_list|)
+expr_stmt|;
 name|printf
 argument_list|(
 literal|"num get patch: %d\n"
