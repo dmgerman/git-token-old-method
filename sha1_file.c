@@ -7832,10 +7832,9 @@ operator|!=
 name|EEXIST
 condition|)
 block|{
-name|fprintf
+return|return
+name|error
 argument_list|(
-name|stderr
-argument_list|,
 literal|"unable to write sha1 filename %s: %s\n"
 argument_list|,
 name|filename
@@ -7845,10 +7844,6 @@ argument_list|(
 name|ret
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 comment|/* FIXME!!! Collision check here ? */
@@ -8387,10 +8382,9 @@ operator|!=
 name|ENOENT
 condition|)
 block|{
-name|fprintf
+return|return
+name|error
 argument_list|(
-name|stderr
-argument_list|,
 literal|"sha1 file %s: %s\n"
 argument_list|,
 name|filename
@@ -8400,10 +8394,6 @@ argument_list|(
 name|errno
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 name|snprintf
@@ -8435,10 +8425,25 @@ operator|<
 literal|0
 condition|)
 block|{
-name|fprintf
+if|if
+condition|(
+name|errno
+operator|==
+name|EPERM
+condition|)
+return|return
+name|error
 argument_list|(
-name|stderr
+literal|"insufficient permission for adding an object to repository database %s\n"
 argument_list|,
+name|get_object_directory
+argument_list|()
+argument_list|)
+return|;
+else|else
+return|return
+name|error
+argument_list|(
 literal|"unable to create temporary sha1 filename %s: %s\n"
 argument_list|,
 name|tmpfile
@@ -8448,10 +8453,6 @@ argument_list|(
 name|errno
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 comment|/* Set it up */
@@ -9014,19 +9015,37 @@ name|local
 operator|<
 literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|errno
+operator|==
+name|EPERM
+condition|)
 return|return
 name|error
 argument_list|(
-literal|"Couldn't open %s for %s"
+literal|"insufficient permission for adding an object to repository database %s\n"
+argument_list|,
+name|get_object_directory
+argument_list|()
+argument_list|)
+return|;
+else|else
+return|return
+name|error
+argument_list|(
+literal|"unable to create temporary sha1 filename %s: %s\n"
 argument_list|,
 name|tmpfile
 argument_list|,
-name|sha1_to_hex
+name|strerror
 argument_list|(
-name|sha1
+name|errno
 argument_list|)
 argument_list|)
 return|;
+block|}
 name|memset
 argument_list|(
 operator|&
