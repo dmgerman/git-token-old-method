@@ -68,13 +68,13 @@ directive|include
 file|<regex.h>
 end_include
 begin_decl_stmt
-DECL|variable|pickaxe_usage
+DECL|variable|blame_usage
 specifier|static
 name|char
-name|pickaxe_usage
+name|blame_usage
 index|[]
 init|=
-literal|"git-pickaxe [-c] [-l] [-t] [-f] [-n] [-p] [-L n,m] [-S<revs-file>] [-M] [-C] [-C] [commit] [--] file\n"
+literal|"git-blame [-c] [-l] [-t] [-f] [-n] [-p] [-L n,m] [-S<revs-file>] [-M] [-C] [-C] [commit] [--] file\n"
 literal|"  -c, --compatibility Use the same output mode as git-annotate (Default: off)\n"
 literal|"  -l, --long          Show long commit SHA1 (Default: off)\n"
 literal|"  -t, --time          Show raw timestamp (Default: off)\n"
@@ -1304,7 +1304,7 @@ literal|1
 condition|)
 name|die
 argument_list|(
-literal|"internal error in pickaxe::find_origin"
+literal|"internal error in blame::find_origin"
 argument_list|)
 expr_stmt|;
 else|else
@@ -1331,7 +1331,7 @@ block|{
 default|default:
 name|die
 argument_list|(
-literal|"internal error in pickaxe::find_origin (%c)"
+literal|"internal error in blame::find_origin (%c)"
 argument_list|,
 name|p
 operator|->
@@ -9011,7 +9011,7 @@ name|term
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 block|}
@@ -9022,15 +9022,15 @@ name|term
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|cmd_pickaxe
+DECL|function|cmd_blame
 name|int
-name|cmd_pickaxe
+name|cmd_blame
 parameter_list|(
 name|int
 name|argc
@@ -9332,7 +9332,7 @@ name|argc
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 name|arg
@@ -9510,7 +9510,7 @@ name|i
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 name|path
@@ -9544,7 +9544,7 @@ literal|1
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 name|argv
@@ -9573,7 +9573,7 @@ condition|)
 comment|/* garbage at end */
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 block|}
@@ -9632,7 +9632,7 @@ literal|1
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 name|path
@@ -9757,7 +9757,7 @@ literal|1
 condition|)
 name|usage
 argument_list|(
-name|pickaxe_usage
+name|blame_usage
 argument_list|)
 expr_stmt|;
 comment|/* garbage at end */
