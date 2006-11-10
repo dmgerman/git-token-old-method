@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"exec_cmd.h"
+file|"builtin.h"
 end_include
 begin_function
 DECL|function|cmd_annotate
@@ -109,9 +109,15 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-name|execv_git_cmd
+name|cmd_blame
 argument_list|(
+name|argc
+operator|+
+literal|1
+argument_list|,
 name|nargv
+argument_list|,
+name|prefix
 argument_list|)
 return|;
 block|}
