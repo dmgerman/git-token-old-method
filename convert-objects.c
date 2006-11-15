@@ -4,11 +4,11 @@ DECL|macro|_XOPEN_SOURCE
 define|#
 directive|define
 name|_XOPEN_SOURCE
-value|500
+value|600
 end_define
 begin_comment
 DECL|macro|_XOPEN_SOURCE
-comment|/* glibc2 and AIX 5.3L need this */
+comment|/* glibc2 and AIX 5.3L need 500, OpenBSD needs 600 for S_ISLNK() */
 end_comment
 begin_define
 DECL|macro|_XOPEN_SOURCE_EXTENDED
