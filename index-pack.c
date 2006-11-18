@@ -435,7 +435,9 @@ DECL|function|flush
 specifier|static
 name|void
 name|flush
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 if|if
 condition|(
