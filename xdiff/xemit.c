@@ -546,7 +546,7 @@ decl_stmt|;
 name|char
 name|funcbuf
 index|[
-literal|40
+literal|80
 index|]
 decl_stmt|;
 name|long
