@@ -3705,9 +3705,7 @@ condition|)
 block|{
 name|unlink
 argument_list|(
-name|lock
-operator|.
-name|filename
+name|shallow
 argument_list|)
 expr_stmt|;
 name|rollback_lock_file
