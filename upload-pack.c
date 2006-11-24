@@ -3021,7 +3021,11 @@ name|object
 operator|->
 name|flags
 operator|&
+operator|(
 name|CLIENT_SHALLOW
+operator||
+name|NOT_SHALLOW
+operator|)
 operator|)
 condition|)
 block|{
