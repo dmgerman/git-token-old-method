@@ -2011,9 +2011,9 @@ name|chg2
 operator|=
 literal|0
 expr_stmt|;
-name|xscr1
+name|xscr2
 operator|=
-name|xscr1
+name|xscr2
 operator|->
 name|next
 expr_stmt|;
@@ -2054,9 +2054,9 @@ name|chg2
 operator|=
 literal|0
 expr_stmt|;
-name|xscr2
+name|xscr1
 operator|=
-name|xscr2
+name|xscr1
 operator|->
 name|next
 expr_stmt|;
