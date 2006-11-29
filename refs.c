@@ -4157,7 +4157,7 @@ name|int
 name|log
 init|=
 operator|!
-name|stat
+name|lstat
 argument_list|(
 name|git_path
 argument_list|(
