@@ -769,7 +769,6 @@ block|}
 end_function
 begin_function
 DECL|function|push_exclude_per_directory
-specifier|static
 name|int
 name|push_exclude_per_directory
 parameter_list|(
@@ -859,7 +858,6 @@ block|}
 end_function
 begin_function
 DECL|function|pop_exclude_per_directory
-specifier|static
 name|void
 name|pop_exclude_per_directory
 parameter_list|(
