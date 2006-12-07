@@ -70,7 +70,7 @@ specifier|static
 name|int
 name|unpack_limit
 init|=
-literal|5000
+literal|100
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
