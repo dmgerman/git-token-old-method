@@ -1188,7 +1188,7 @@ name|offset
 operator|=
 literal|8
 expr_stmt|;
-while|while
+if|if
 condition|(
 name|isspace
 argument_list|(
@@ -1464,7 +1464,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-while|while
+if|if
 condition|(
 name|bracket
 index|[
