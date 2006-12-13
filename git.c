@@ -1421,6 +1421,12 @@ name|cmd_mailsplit
 block|}
 block|,
 block|{
+literal|"merge-file"
+block|,
+name|cmd_merge_file
+block|}
+block|,
+block|{
 literal|"mv"
 block|,
 name|cmd_mv
