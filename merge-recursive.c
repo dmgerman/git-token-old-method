@@ -7125,7 +7125,7 @@ name|type
 operator|=
 name|OBJ_TREE
 expr_stmt|;
-name|hash_sha1_file
+name|write_sha1_file
 argument_list|(
 name|NULL
 argument_list|,
