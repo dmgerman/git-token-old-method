@@ -22,7 +22,7 @@ name|char
 name|git_config_set_usage
 index|[]
 init|=
-literal|"git-repo-config [ --global ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --unset | --unset-all] name [value [value_regex]] | --list"
+literal|"git-repo-config [ --global ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --add | --unset | --unset-all] name [value [value_regex]] | --list"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1274,6 +1274,38 @@ index|]
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+literal|1
+index|]
+argument_list|,
+literal|"--add"
+argument_list|)
+condition|)
+return|return
+name|git_config_set_multivar
+argument_list|(
+name|argv
+index|[
+literal|2
+index|]
+argument_list|,
+name|argv
+index|[
+literal|3
+index|]
+argument_list|,
+literal|"^$"
+argument_list|,
+literal|0
+argument_list|)
+return|;
 elseif|else
 if|if
 condition|(
