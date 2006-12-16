@@ -78,6 +78,17 @@ comment|/* WT_STATUS_UNTRACKED: red */
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|use_add_msg
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|use_add_msg
+init|=
+literal|"use \"git add file1 file2\" to include for commit"
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|parse_status_slot
 specifier|static
@@ -846,7 +857,7 @@ name|wt_status_print_header
 argument_list|(
 literal|"Changed but not updated"
 argument_list|,
-literal|"use git-add on files to include for commit"
+name|use_add_msg
 argument_list|)
 expr_stmt|;
 for|for
@@ -1363,7 +1374,7 @@ name|wt_status_print_header
 argument_list|(
 literal|"Untracked files"
 argument_list|,
-literal|"use \"git add\" to add to commit"
+name|use_add_msg
 argument_list|)
 expr_stmt|;
 name|shown_header
@@ -1595,7 +1606,7 @@ name|commitable
 condition|)
 name|printf
 argument_list|(
-literal|"%s\n"
+literal|"%s (%s)\n"
 argument_list|,
 name|s
 operator|->
@@ -1604,6 +1615,8 @@ condition|?
 literal|"# No changes"
 else|:
 literal|"nothing to commit"
+argument_list|,
+name|use_add_msg
 argument_list|)
 expr_stmt|;
 block|}
