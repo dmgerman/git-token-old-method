@@ -32,7 +32,7 @@ name|char
 name|show_ref_usage
 index|[]
 init|=
-literal|"git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=<length>]] [--abbrev[=<length>]] [--tags] [--heads] [--] [pattern*] | --filter-invalid< ref-list"
+literal|"git show-ref [-q|--quiet] [--verify] [-h|--head] [-d|--dereference] [-s|--hash[=<length>]] [--abbrev[=<length>]] [--tags] [--heads] [--] [pattern*]< ref-list"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -627,6 +627,10 @@ name|stdin
 argument_list|)
 condition|)
 block|{
+name|char
+modifier|*
+name|ref
+decl_stmt|;
 name|int
 name|len
 init|=
@@ -634,10 +638,6 @@ name|strlen
 argument_list|(
 name|buf
 argument_list|)
-decl_stmt|;
-name|char
-modifier|*
-name|ref
 decl_stmt|;
 if|if
 condition|(
@@ -664,6 +664,10 @@ literal|'\0'
 expr_stmt|;
 if|if
 condition|(
+literal|3
+operator|<=
+name|len
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
