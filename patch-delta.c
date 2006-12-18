@@ -5,12 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<stdlib.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<string.h>
+file|"git-compat-util.h"
 end_include
 begin_include
 include|#
@@ -128,21 +123,13 @@ argument_list|)
 expr_stmt|;
 name|dst_buf
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dst_buf
-condition|)
-return|return
-name|NULL
-return|;
 name|dst_buf
 index|[
 name|size
@@ -316,9 +303,7 @@ name|cp_size
 operator|>
 name|size
 condition|)
-goto|goto
-name|bad
-goto|;
+break|break;
 name|memcpy
 argument_list|(
 name|out
@@ -355,9 +340,7 @@ name|cmd
 operator|>
 name|size
 condition|)
-goto|goto
-name|bad
-goto|;
+break|break;
 name|memcpy
 argument_list|(
 name|out
@@ -383,6 +366,11 @@ block|}
 else|else
 block|{
 comment|/* 			 * cmd == 0 is reserved for future encoding 			 * extensions. In the mean time we must fail when 			 * encountering them (might be data corruption). 			 */
+name|error
+argument_list|(
+literal|"unexpected delta opcode 0"
+argument_list|)
+expr_stmt|;
 goto|goto
 name|bad
 goto|;
@@ -400,6 +388,11 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|error
+argument_list|(
+literal|"delta replay has gone wild"
+argument_list|)
+expr_stmt|;
 name|bad
 label|:
 name|free
