@@ -69,16 +69,6 @@ include|#
 directive|include
 file|"list-objects.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<sys/time.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<signal.h>
-end_include
 begin_decl_stmt
 DECL|variable|pack_usage
 specifier|static

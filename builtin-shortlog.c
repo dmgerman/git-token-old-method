@@ -29,11 +29,6 @@ include|#
 directive|include
 file|"revision.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<string.h>
-end_include
 begin_decl_stmt
 DECL|variable|shortlog_usage
 specifier|static

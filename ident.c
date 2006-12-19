@@ -7,16 +7,6 @@ include|#
 directive|include
 file|"cache.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<pwd.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<netdb.h>
-end_include
 begin_decl_stmt
 DECL|variable|git_default_date
 specifier|static

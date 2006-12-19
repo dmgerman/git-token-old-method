@@ -2,12 +2,12 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|"refs.h"
+file|"cache.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"refs.h"
 end_include
 begin_include
 include|#
@@ -18,11 +18,6 @@ begin_include
 include|#
 directive|include
 file|"tag.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<errno.h>
 end_include
 begin_comment
 comment|/* ISSYMREF=01 and ISPACKED=02 are public interfaces */

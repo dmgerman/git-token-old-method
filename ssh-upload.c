@@ -62,11 +62,6 @@ include|#
 directive|include
 file|"refs.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<string.h>
-end_include
 begin_decl_stmt
 DECL|variable|local_version
 specifier|static

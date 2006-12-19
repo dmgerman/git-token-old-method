@@ -29,11 +29,6 @@ include|#
 directive|include
 file|"tree-walk.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
-end_include
 begin_decl_stmt
 DECL|variable|tree_type
 specifier|const
