@@ -1438,6 +1438,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"reflog"
+block|,
+name|cmd_reflog
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"repo-config"
 block|,
 name|cmd_repo_config
