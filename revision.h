@@ -219,11 +219,6 @@ name|boundary
 range|:
 literal|1
 decl_stmt|,
-DECL|member|no_left_right
-name|no_left_right
-range|:
-literal|1
-decl_stmt|,
 DECL|member|left_right
 name|left_right
 range|:
