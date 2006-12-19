@@ -95,7 +95,7 @@ name|env
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_EXEC_PATH"
+name|EXEC_PATH_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -149,7 +149,7 @@ name|current_exec_path
 block|,
 name|getenv
 argument_list|(
-literal|"GIT_EXEC_PATH"
+name|EXEC_PATH_ENVIRONMENT
 argument_list|)
 block|,
 name|builtin_exec_path
