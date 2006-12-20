@@ -1579,7 +1579,7 @@ name|filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG"
+name|CONFIG_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -1599,7 +1599,7 @@ name|filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG_LOCAL"
+name|CONFIG_LOCAL_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -2600,7 +2600,7 @@ name|config_filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG"
+name|CONFIG_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -2613,7 +2613,7 @@ name|config_filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG_LOCAL"
+name|CONFIG_LOCAL_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -3614,7 +3614,7 @@ name|config_filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG"
+name|CONFIG_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
@@ -3627,7 +3627,7 @@ name|config_filename
 operator|=
 name|getenv
 argument_list|(
-literal|"GIT_CONFIG_LOCAL"
+name|CONFIG_LOCAL_ENVIRONMENT
 argument_list|)
 expr_stmt|;
 if|if
