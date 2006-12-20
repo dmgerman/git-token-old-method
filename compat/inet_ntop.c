@@ -277,7 +277,8 @@ name|best
 struct|,
 name|cur
 struct|;
-name|u_int
+name|unsigned
+name|int
 name|words
 index|[
 name|NS_IN6ADDRSZ
