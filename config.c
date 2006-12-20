@@ -3586,7 +3586,6 @@ name|ret
 init|=
 literal|0
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|config_filename
@@ -3673,12 +3672,18 @@ name|out_fd
 operator|<
 literal|0
 condition|)
-return|return
+block|{
+name|ret
+operator|=
 name|error
 argument_list|(
 literal|"Could not lock config file!"
 argument_list|)
-return|;
+expr_stmt|;
+goto|goto
+name|out
+goto|;
+block|}
 if|if
 condition|(
 operator|!
@@ -3693,12 +3698,18 @@ literal|"rb"
 argument_list|)
 operator|)
 condition|)
-return|return
+block|{
+name|ret
+operator|=
 name|error
 argument_list|(
 literal|"Could not open config file!"
 argument_list|)
-return|;
+expr_stmt|;
+goto|goto
+name|out
+goto|;
+block|}
 while|while
 condition|(
 name|fgets
@@ -3949,6 +3960,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|fclose
+argument_list|(
+name|config_file
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|close
@@ -3963,12 +3979,20 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-return|return
+name|ret
+operator|=
 name|error
 argument_list|(
 literal|"Cannot commit config file!"
 argument_list|)
-return|;
+expr_stmt|;
+name|out
+label|:
+name|free
+argument_list|(
+name|config_filename
+argument_list|)
+expr_stmt|;
 return|return
 name|ret
 return|;
