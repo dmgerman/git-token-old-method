@@ -369,7 +369,7 @@ end_decl_stmt
 begin_function_decl
 specifier|static
 name|void
-name|info
+name|imap_info
 parameter_list|(
 specifier|const
 name|char
@@ -382,7 +382,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|warn
+name|imap_warn
 parameter_list|(
 specifier|const
 name|char
@@ -1367,8 +1367,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|info
-name|info
+DECL|function|imap_info
+name|imap_info
 parameter_list|(
 specifier|const
 name|char
@@ -1417,8 +1417,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|warn
-name|warn
+DECL|function|imap_warn
+name|imap_warn
 parameter_list|(
 specifier|const
 name|char
@@ -5078,7 +5078,7 @@ operator|->
 name|tunnel
 condition|)
 block|{
-name|info
+name|imap_info
 argument_list|(
 literal|"Starting tunnel '%s'... "
 argument_list|,
@@ -5225,7 +5225,7 @@ index|[
 literal|1
 index|]
 expr_stmt|;
-name|info
+name|imap_info
 argument_list|(
 literal|"ok\n"
 argument_list|)
@@ -5263,7 +5263,7 @@ name|sin_family
 operator|=
 name|AF_INET
 expr_stmt|;
-name|info
+name|imap_info
 argument_list|(
 literal|"Resolving %s... "
 argument_list|,
@@ -5296,7 +5296,7 @@ goto|goto
 name|bail
 goto|;
 block|}
-name|info
+name|imap_info
 argument_list|(
 literal|"ok\n"
 argument_list|)
@@ -5332,7 +5332,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|info
+name|imap_info
 argument_list|(
 literal|"Connecting to %s:%hu... "
 argument_list|,
@@ -5386,7 +5386,7 @@ goto|goto
 name|bail
 goto|;
 block|}
-name|info
+name|imap_info
 argument_list|(
 literal|"ok\n"
 argument_list|)
@@ -5548,7 +5548,7 @@ operator|!
 name|preauth
 condition|)
 block|{
-name|info
+name|imap_info
 argument_list|(
 literal|"Logging in...\n"
 argument_list|)
@@ -5693,7 +5693,7 @@ goto|goto
 name|bail
 goto|;
 block|}
-name|warn
+name|imap_warn
 argument_list|(
 literal|"*** IMAP Warning *** Password is being sent in the clear\n"
 argument_list|)
