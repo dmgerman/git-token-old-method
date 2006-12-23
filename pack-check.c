@@ -319,7 +319,7 @@ argument_list|)
 expr_stmt|;
 name|data
 operator|=
-name|unpack_entry_gently
+name|unpack_entry
 argument_list|(
 name|p
 argument_list|,
