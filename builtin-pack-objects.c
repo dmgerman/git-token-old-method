@@ -2279,13 +2279,11 @@ argument_list|)
 expr_stmt|;
 name|buf
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|p
 operator|->
-name|pack_base
+name|windows
+operator|->
+name|base
 operator|+
 name|entry
 operator|->
@@ -4893,7 +4891,9 @@ name|buf
 operator|=
 name|p
 operator|->
-name|pack_base
+name|windows
+operator|->
+name|base
 expr_stmt|;
 name|buf
 operator|+=
