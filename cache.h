@@ -2562,6 +2562,10 @@ DECL|member|pack_size
 name|off_t
 name|pack_size
 decl_stmt|;
+DECL|member|pack_fd
+name|int
+name|pack_fd
+decl_stmt|;
 DECL|member|pack_local
 name|int
 name|pack_local
