@@ -5567,7 +5567,7 @@ argument_list|)
 expr_stmt|;
 name|logdata
 operator|=
-name|mmap
+name|xmmap
 argument_list|(
 name|NULL
 argument_list|,
