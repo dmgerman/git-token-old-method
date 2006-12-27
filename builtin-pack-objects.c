@@ -77,7 +77,7 @@ name|char
 name|pack_usage
 index|[]
 init|=
-literal|"\ git-pack-objects [{ -q | --progress | --all-progress }] \n\ 	[--local] [--incremental] [--window=N] [--depth=N] \n\ 	[--no-reuse-delta] [--delta-base-offset] [--non-empty] \n\ 	[--revs [--unpacked | --all]*] [--stdout | base-name] \n\ 	[<ref-list |<object-list]"
+literal|"\ git-pack-objects [{ -q | --progress | --all-progress }] \n\ 	[--local] [--incremental] [--window=N] [--depth=N] \n\ 	[--no-reuse-delta] [--delta-base-offset] [--non-empty] \n\ 	[--revs [--unpacked | --all]*] [--reflog] [--stdout | base-name] \n\ 	[<ref-list |<object-list]"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -8176,6 +8176,14 @@ argument_list|,
 name|arg
 argument_list|,
 literal|11
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+literal|"--reflog"
+argument_list|,
+name|arg
 argument_list|)
 operator|||
 operator|!
