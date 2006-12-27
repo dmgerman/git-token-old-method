@@ -39,11 +39,6 @@ include|#
 directive|include
 file|"quote.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<fnmatch.h>
-end_include
 begin_comment
 comment|/* Quoting styles */
 end_comment

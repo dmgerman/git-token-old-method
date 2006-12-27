@@ -69,16 +69,6 @@ include|#
 directive|include
 file|"list-objects.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<sys/time.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<signal.h>
-end_include
 begin_decl_stmt
 DECL|variable|pack_usage
 specifier|static
@@ -87,7 +77,7 @@ name|char
 name|pack_usage
 index|[]
 init|=
-literal|"\ git-pack-objects [{ -q | --progress | --all-progress }] \n\ 	[--local] [--incremental] [--window=N] [--depth=N] \n\ 	[--no-reuse-delta] [--delta-base-offset] [--non-empty] \n\ 	[--revs [--unpacked | --all]*] [--stdout | base-name] \n\ 	[<ref-list |<object-list]"
+literal|"\ git-pack-objects [{ -q | --progress | --all-progress }] \n\ 	[--local] [--incremental] [--window=N] [--depth=N] \n\ 	[--no-reuse-delta] [--delta-base-offset] [--non-empty] \n\ 	[--revs [--unpacked | --all]*] [--reflog] [--stdout | base-name] \n\ 	[<ref-list |<object-list]"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -2686,6 +2676,21 @@ argument_list|)
 expr_stmt|;
 name|done
 label|:
+if|if
+condition|(
+name|written
+operator|!=
+name|nr_result
+condition|)
+name|die
+argument_list|(
+literal|"wrote %d objects while expecting %d"
+argument_list|,
+name|written
+argument_list|,
+name|nr_result
+argument_list|)
+expr_stmt|;
 name|sha1close
 argument_list|(
 name|f
@@ -8176,6 +8181,14 @@ operator|||
 operator|!
 name|strcmp
 argument_list|(
+literal|"--reflog"
+argument_list|,
+name|arg
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
 literal|"--all"
 argument_list|,
 name|arg
@@ -8522,9 +8535,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Total %d, written %d (delta %d), reused %d (delta %d)\n"
-argument_list|,
-name|nr_result
+literal|"Total %d (delta %d), reused %d (delta %d)\n"
 argument_list|,
 name|written
 argument_list|,
