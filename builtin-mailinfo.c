@@ -3903,7 +3903,13 @@ argument_list|)
 condition|)
 name|metainfo_charset
 operator|=
+operator|(
 name|git_commit_encoding
+condition|?
+name|git_commit_encoding
+else|:
+literal|"utf-8"
+operator|)
 expr_stmt|;
 elseif|else
 if|if
