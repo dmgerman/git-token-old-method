@@ -5207,6 +5207,10 @@ name|unsigned
 name|long
 name|ofs
 decl_stmt|;
+name|unsigned
+name|long
+name|used_0
+decl_stmt|;
 comment|/* there is at least 20 bytes left in the pack */
 switch|switch
 condition|(
@@ -5262,11 +5266,15 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|used_0
+operator|=
+literal|0
+expr_stmt|;
 name|c
 operator|=
 name|buf
 index|[
-name|used
+name|used_0
 operator|++
 index|]
 expr_stmt|;
@@ -5318,7 +5326,7 @@ name|c
 operator|=
 name|buf
 index|[
-name|used
+name|used_0
 operator|++
 index|]
 expr_stmt|;
@@ -5373,6 +5381,10 @@ name|p
 argument_list|,
 name|ofs
 argument_list|)
+expr_stmt|;
+name|used
+operator|+=
+name|used_0
 expr_stmt|;
 break|break;
 default|default:
