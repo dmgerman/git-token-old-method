@@ -4913,6 +4913,7 @@ if|if
 condition|(
 name|log_all_ref_updates
 operator|&&
+operator|(
 operator|!
 name|strncmp
 argument_list|(
@@ -4924,6 +4925,19 @@ literal|"refs/heads/"
 argument_list|,
 literal|11
 argument_list|)
+operator|||
+operator|!
+name|strncmp
+argument_list|(
+name|lock
+operator|->
+name|ref_name
+argument_list|,
+literal|"refs/remotes/"
+argument_list|,
+literal|13
+argument_list|)
+operator|)
 condition|)
 block|{
 if|if
