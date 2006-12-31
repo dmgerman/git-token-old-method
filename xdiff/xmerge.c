@@ -1014,6 +1014,8 @@ else|:
 name|NULL
 argument_list|)
 expr_stmt|;
+else|else
+continue|continue;
 name|i1
 operator|=
 name|m
@@ -1374,17 +1376,20 @@ operator|!
 name|xscr
 condition|)
 block|{
-comment|/* If this happens, it's a bug. */
+comment|/* If this happens, the changes are identical. */
 name|xdl_free_env
 argument_list|(
 operator|&
 name|xe
 argument_list|)
 expr_stmt|;
-return|return
-operator|-
-literal|2
-return|;
+name|m
+operator|->
+name|mode
+operator|=
+literal|4
+expr_stmt|;
+continue|continue;
 block|}
 name|x
 operator|=
