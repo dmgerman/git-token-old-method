@@ -319,7 +319,7 @@ expr_stmt|;
 block|}
 name|setenv
 argument_list|(
-literal|"GIT_DIR"
+name|GIT_DIR_ENVIRONMENT
 argument_list|,
 operator|(
 operator|*
@@ -361,7 +361,7 @@ condition|)
 block|{
 name|setenv
 argument_list|(
-literal|"GIT_DIR"
+name|GIT_DIR_ENVIRONMENT
 argument_list|,
 name|cmd
 operator|+
@@ -394,7 +394,7 @@ index|]
 decl_stmt|;
 name|setenv
 argument_list|(
-literal|"GIT_DIR"
+name|GIT_DIR_ENVIRONMENT
 argument_list|,
 name|getcwd
 argument_list|(
