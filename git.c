@@ -387,7 +387,9 @@ specifier|static
 name|char
 name|git_dir
 index|[
-literal|1024
+name|PATH_MAX
+operator|+
+literal|1
 index|]
 decl_stmt|;
 name|setenv
@@ -398,7 +400,10 @@ name|getcwd
 argument_list|(
 name|git_dir
 argument_list|,
-literal|1024
+sizeof|sizeof
+argument_list|(
+name|git_dir
+argument_list|)
 argument_list|)
 argument_list|,
 literal|1
