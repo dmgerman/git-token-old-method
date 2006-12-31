@@ -19,9 +19,6 @@ DECL|function|run_command_v_opt
 name|int
 name|run_command_v_opt
 parameter_list|(
-name|int
-name|argc
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -246,9 +243,6 @@ DECL|function|run_command_v
 name|int
 name|run_command_v
 parameter_list|(
-name|int
-name|argc
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -259,8 +253,6 @@ block|{
 return|return
 name|run_command_v_opt
 argument_list|(
-name|argc
-argument_list|,
 name|argv
 argument_list|,
 literal|0
@@ -374,8 +366,6 @@ return|;
 return|return
 name|run_command_v_opt
 argument_list|(
-name|argc
-argument_list|,
 name|argv
 argument_list|,
 literal|0

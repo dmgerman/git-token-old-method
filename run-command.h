@@ -64,9 +64,6 @@ begin_function_decl
 name|int
 name|run_command_v_opt
 parameter_list|(
-name|int
-name|argc
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -82,9 +79,6 @@ begin_function_decl
 name|int
 name|run_command_v
 parameter_list|(
-name|int
-name|argc
-parameter_list|,
 specifier|const
 name|char
 modifier|*
