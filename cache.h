@@ -2200,7 +2200,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|validate_symref
+name|validate_headref
 parameter_list|(
 specifier|const
 name|char
