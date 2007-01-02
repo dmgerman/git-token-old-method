@@ -301,6 +301,12 @@ name|untracked
 operator|=
 literal|0
 expr_stmt|;
+name|s
+operator|->
+name|workdir_clean
+operator|=
+literal|1
+expr_stmt|;
 block|}
 end_function
 begin_decl_stmt
@@ -854,6 +860,13 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+name|struct
+name|wt_status
+modifier|*
+name|s
+init|=
+name|data
+decl_stmt|;
 name|int
 name|i
 decl_stmt|;
@@ -863,6 +876,13 @@ name|q
 operator|->
 name|nr
 condition|)
+block|{
+name|s
+operator|->
+name|workdir_clean
+operator|=
+literal|0
+expr_stmt|;
 name|wt_status_print_header
 argument_list|(
 literal|"Changed but not added"
@@ -870,6 +890,7 @@ argument_list|,
 name|use_add_msg
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|i
@@ -1167,7 +1188,6 @@ specifier|static
 name|void
 name|wt_status_print_untracked
 parameter_list|(
-specifier|const
 name|struct
 name|wt_status
 modifier|*
@@ -1380,6 +1400,12 @@ operator|!
 name|shown_header
 condition|)
 block|{
+name|s
+operator|->
+name|workdir_clean
+operator|=
+literal|0
+expr_stmt|;
 name|wt_status_print_header
 argument_list|(
 literal|"Untracked files"
@@ -1605,21 +1631,43 @@ name|s
 operator|->
 name|commitable
 condition|)
-name|printf
-argument_list|(
-literal|"%s (%s)\n"
-argument_list|,
+block|{
+if|if
+condition|(
 name|s
 operator|->
 name|amend
-condition|?
-literal|"# No changes"
-else|:
-literal|"nothing to commit"
-argument_list|,
-name|use_add_msg
+condition|)
+name|printf
+argument_list|(
+literal|"# No changes\n"
 argument_list|)
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|s
+operator|->
+name|workdir_clean
+condition|)
+name|printf
+argument_list|(
+name|s
+operator|->
+name|is_initial
+condition|?
+literal|"nothing to commit\n"
+else|:
+literal|"nothing to commit (working directory matches HEAD)\n"
+argument_list|)
+expr_stmt|;
+else|else
+name|printf
+argument_list|(
+literal|"no changes added to commit (use \"git add\" and/or \"git commit [-a|-i|-o]\")\n"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
