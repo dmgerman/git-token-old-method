@@ -3295,6 +3295,14 @@ name|dst
 return|;
 block|}
 end_function
+begin_decl_stmt
+DECL|variable|lock
+specifier|static
+name|struct
+name|lock_file
+name|lock
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|main
 name|int
@@ -3338,10 +3346,6 @@ decl_stmt|;
 name|struct
 name|stat
 name|st
-decl_stmt|;
-name|struct
-name|lock_file
-name|lock
 decl_stmt|;
 name|setup_git_directory
 argument_list|()
