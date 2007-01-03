@@ -3887,6 +3887,10 @@ decl_stmt|,
 name|body
 init|=
 literal|0
+decl_stmt|,
+name|seen_title
+init|=
+literal|0
 decl_stmt|;
 name|unsigned
 name|long
@@ -4319,6 +4323,12 @@ block|{
 if|if
 condition|(
 operator|!
+name|seen_title
+condition|)
+continue|continue;
+if|if
+condition|(
+operator|!
 name|body
 condition|)
 continue|continue;
@@ -4335,6 +4345,10 @@ name|CMIT_FMT_SHORT
 condition|)
 break|break;
 block|}
+name|seen_title
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|subject
