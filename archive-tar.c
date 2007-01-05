@@ -76,6 +76,8 @@ DECL|variable|tar_umask
 specifier|static
 name|int
 name|tar_umask
+init|=
+literal|002
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1237,7 +1239,6 @@ argument_list|,
 name|archive_time
 argument_list|)
 expr_stmt|;
-comment|/* XXX: should we provide more meaningful info here? */
 name|sprintf
 argument_list|(
 name|header
@@ -1266,7 +1267,7 @@ name|header
 operator|.
 name|uname
 argument_list|,
-literal|"git"
+literal|"root"
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -1282,7 +1283,7 @@ name|header
 operator|.
 name|gname
 argument_list|,
-literal|"git"
+literal|"root"
 argument_list|,
 sizeof|sizeof
 argument_list|(
