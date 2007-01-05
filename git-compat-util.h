@@ -640,7 +640,8 @@ DECL|macro|DEFAULT_PACKED_GIT_WINDOW_SIZE
 define|#
 directive|define
 name|DEFAULT_PACKED_GIT_WINDOW_SIZE
-value|(32 * 1024 * 1024)
+define|\
+value|(sizeof(void*)>= 8 \ 		?  1 * 1024 * 1024 * 1024 \ 		: 32 * 1024 * 1024)
 end_define
 begin_endif
 endif|#
@@ -654,7 +655,8 @@ DECL|macro|DEFAULT_PACKED_GIT_LIMIT
 define|#
 directive|define
 name|DEFAULT_PACKED_GIT_LIMIT
-value|(256 * 1024 * 1024)
+define|\
+value|(sizeof(void*)>= 8 \ 		?   8 * 1024 * 1024 * 1024 \ 		: 256 * 1024 * 1024)
 end_define
 begin_ifdef
 ifdef|#
