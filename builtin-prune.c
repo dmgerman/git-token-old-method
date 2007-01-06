@@ -72,14 +72,6 @@ name|int
 name|show_only
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|revs
-specifier|static
-name|struct
-name|rev_info
-name|revs
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|prune_object
 specifier|static
@@ -1042,6 +1034,18 @@ name|object
 modifier|*
 name|object
 decl_stmt|;
+name|struct
+name|rev_info
+modifier|*
+name|revs
+init|=
+operator|(
+expr|struct
+name|rev_info
+operator|*
+operator|)
+name|cb_data
+decl_stmt|;
 name|object
 operator|=
 name|parse_object
@@ -1055,7 +1059,6 @@ name|object
 condition|)
 name|add_pending_object
 argument_list|(
-operator|&
 name|revs
 argument_list|,
 name|object
@@ -1076,7 +1079,6 @@ name|object
 condition|)
 name|add_pending_object
 argument_list|(
-operator|&
 name|revs
 argument_list|,
 name|object
@@ -1124,6 +1126,18 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+name|struct
+name|rev_info
+modifier|*
+name|revs
+init|=
+operator|(
+expr|struct
+name|rev_info
+operator|*
+operator|)
+name|cb_data
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1143,7 +1157,6 @@ argument_list|)
 expr_stmt|;
 name|add_pending_object
 argument_list|(
-operator|&
 name|revs
 argument_list|,
 name|object
@@ -1157,7 +1170,7 @@ name|path
 argument_list|,
 name|add_one_reflog_ent
 argument_list|,
-name|NULL
+name|cb_data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1176,6 +1189,11 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|struct
+name|rev_info
+modifier|*
+name|revs
 parameter_list|)
 block|{
 name|struct
@@ -1190,7 +1208,6 @@ argument_list|)
 decl_stmt|;
 name|add_pending_object
 argument_list|(
-operator|&
 name|revs
 argument_list|,
 operator|&
@@ -1213,6 +1230,11 @@ name|struct
 name|cache_tree
 modifier|*
 name|it
+parameter_list|,
+name|struct
+name|rev_info
+modifier|*
+name|revs
 parameter_list|)
 block|{
 name|int
@@ -1231,6 +1253,8 @@ argument_list|(
 name|it
 operator|->
 name|sha1
+argument_list|,
+name|revs
 argument_list|)
 expr_stmt|;
 for|for
@@ -1258,6 +1282,8 @@ name|i
 index|]
 operator|->
 name|cache_tree
+argument_list|,
+name|revs
 argument_list|)
 expr_stmt|;
 block|}
@@ -1268,7 +1294,10 @@ specifier|static
 name|void
 name|add_cache_refs
 parameter_list|(
-name|void
+name|struct
+name|rev_info
+modifier|*
+name|revs
 parameter_list|)
 block|{
 name|int
@@ -1310,6 +1339,8 @@ condition|)
 name|add_cache_tree
 argument_list|(
 name|active_cache_tree
+argument_list|,
+name|revs
 argument_list|)
 expr_stmt|;
 block|}
@@ -1336,6 +1367,10 @@ parameter_list|)
 block|{
 name|int
 name|i
+decl_stmt|;
+name|struct
+name|rev_info
+name|revs
 decl_stmt|;
 for|for
 control|(
@@ -1415,17 +1450,21 @@ name|tree_objects
 operator|=
 literal|1
 expr_stmt|;
-comment|/* Add all external refs */
+comment|/* Add all external refs, along with its reflog info */
 name|for_each_ref
 argument_list|(
 name|add_one_ref
 argument_list|,
-name|NULL
+operator|&
+name|revs
 argument_list|)
 expr_stmt|;
 comment|/* Add all refs from the index file */
 name|add_cache_refs
-argument_list|()
+argument_list|(
+operator|&
+name|revs
+argument_list|)
 expr_stmt|;
 comment|/* 	 * Set up the revision walk - this will move all commits 	 * from the pending list to the commit walking list. 	 */
 name|prepare_revision_walk
