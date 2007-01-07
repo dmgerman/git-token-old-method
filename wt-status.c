@@ -320,7 +320,7 @@ name|color_printf_ln
 argument_list|(
 name|c
 argument_list|,
-literal|"# Cached changes to be committed:"
+literal|"# Changes to be committed:"
 argument_list|)
 expr_stmt|;
 if|if
@@ -332,7 +332,7 @@ name|color_printf_ln
 argument_list|(
 name|c
 argument_list|,
-literal|"#   (use \"git reset %s<file>...\" and \"git rm --cached<file>...\" to unstage)"
+literal|"#   (use \"git reset %s<file>...\" to unstage)"
 argument_list|,
 name|reference
 argument_list|)
