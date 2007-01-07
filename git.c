@@ -1337,6 +1337,12 @@ name|cmd_help
 block|}
 block|,
 block|{
+literal|"init"
+block|,
+name|cmd_init_db
+block|}
+block|,
+block|{
 literal|"init-db"
 block|,
 name|cmd_init_db
