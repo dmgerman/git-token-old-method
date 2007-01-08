@@ -337,6 +337,10 @@ do|do
 block|{
 if|if
 condition|(
+name|posn
+operator|>=
+name|PATH_MAX
+operator|||
 name|read
 argument_list|(
 name|fd_in
