@@ -1298,7 +1298,7 @@ expr_stmt|;
 block|}
 name|sz
 operator|=
-name|read
+name|xread
 argument_list|(
 name|pu_pipe
 index|[
@@ -1429,7 +1429,7 @@ block|{
 comment|/* Status ready; we ship that in the side-band 				 * or dump to the standard error. 				 */
 name|sz
 operator|=
-name|read
+name|xread
 argument_list|(
 name|pe_pipe
 index|[

@@ -3707,7 +3707,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|xread
+name|read_in_full
 argument_list|(
 name|output_fd
 argument_list|,

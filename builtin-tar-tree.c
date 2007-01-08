@@ -347,7 +347,7 @@ name|n
 decl_stmt|;
 name|n
 operator|=
-name|xread
+name|read_in_full
 argument_list|(
 literal|0
 argument_list|,

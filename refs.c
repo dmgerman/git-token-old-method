@@ -1420,7 +1420,7 @@ name|NULL
 return|;
 name|len
 operator|=
-name|read
+name|read_in_full
 argument_list|(
 name|fd
 argument_list|,

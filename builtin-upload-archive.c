@@ -500,6 +500,10 @@ if|if
 condition|(
 name|errno
 operator|!=
+name|EAGAIN
+operator|&&
+name|errno
+operator|!=
 name|EINTR
 condition|)
 name|error_clnt
