@@ -3982,7 +3982,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,
@@ -4255,7 +4255,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,
@@ -4291,7 +4291,7 @@ literal|20
 expr_stmt|;
 return|return
 operator|(
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,

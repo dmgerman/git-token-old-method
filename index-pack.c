@@ -4755,7 +4755,7 @@ name|sha1
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|xwrite
+name|write_in_full
 argument_list|(
 literal|1
 argument_list|,

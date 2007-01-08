@@ -1698,7 +1698,7 @@ argument_list|)
 expr_stmt|;
 name|written
 operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,
@@ -5178,7 +5178,7 @@ name|len
 operator|<=
 name|maxlen
 condition|?
-name|write
+name|write_in_full
 argument_list|(
 name|logfd
 argument_list|,
@@ -5287,7 +5287,7 @@ return|;
 block|}
 if|if
 condition|(
-name|write
+name|write_in_full
 argument_list|(
 name|lock
 operator|->
@@ -5303,7 +5303,7 @@ argument_list|)
 operator|!=
 literal|40
 operator|||
-name|write
+name|write_in_full
 argument_list|(
 name|lock
 operator|->

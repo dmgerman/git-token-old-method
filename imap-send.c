@@ -1061,7 +1061,7 @@ block|{
 name|int
 name|n
 init|=
-name|write
+name|write_in_full
 argument_list|(
 name|sock
 operator|->
