@@ -3971,7 +3971,7 @@ operator|<
 literal|0
 condition|)
 continue|continue;
-name|error
+name|die
 argument_list|(
 literal|"patch fragment without header at line %d: %.*s"
 argument_list|,
