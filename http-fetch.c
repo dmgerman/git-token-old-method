@@ -4185,6 +4185,15 @@ literal|"Unable to start request"
 argument_list|)
 return|;
 block|}
+name|target
+operator|->
+name|pack_size
+operator|=
+name|ftell
+argument_list|(
+name|packfile
+argument_list|)
+expr_stmt|;
 name|fclose
 argument_list|(
 name|packfile
