@@ -276,21 +276,27 @@ literal|0
 expr_stmt|;
 name|s
 operator|->
-name|commitable
-operator|=
-literal|0
-expr_stmt|;
-name|s
-operator|->
 name|untracked
 operator|=
 literal|0
 expr_stmt|;
 name|s
 operator|->
-name|workdir_clean
+name|commitable
 operator|=
-literal|1
+literal|0
+expr_stmt|;
+name|s
+operator|->
+name|workdir_dirty
+operator|=
+literal|0
+expr_stmt|;
+name|s
+operator|->
+name|workdir_untracked
+operator|=
+literal|0
 expr_stmt|;
 block|}
 end_function
@@ -927,9 +933,9 @@ condition|)
 block|{
 name|s
 operator|->
-name|workdir_clean
+name|workdir_dirty
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 name|wt_status_print_header
 argument_list|(
@@ -1448,9 +1454,9 @@ condition|)
 block|{
 name|s
 operator|->
-name|workdir_clean
+name|workdir_untracked
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 name|wt_status_print_header
 argument_list|(
@@ -1718,23 +1724,41 @@ if|if
 condition|(
 name|s
 operator|->
-name|workdir_clean
+name|workdir_dirty
 condition|)
 name|printf
 argument_list|(
+literal|"no changes added to commit (use \"git add\" and/or \"git commit [-a|-i|-o]\")\n"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|s
+operator|->
+name|workdir_untracked
+condition|)
+name|printf
+argument_list|(
+literal|"nothing added to commit but untracked files present (use \"git add\" to track)\n"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
 name|s
 operator|->
 name|is_initial
-condition|?
-literal|"nothing to commit\n"
-else|:
-literal|"nothing to commit (working directory matches HEAD)\n"
+condition|)
+name|printf
+argument_list|(
+literal|"nothing to commit (create/copy files and use \"git add\" to track)\n"
 argument_list|)
 expr_stmt|;
 else|else
 name|printf
 argument_list|(
-literal|"no changes added to commit (use \"git add\" and/or \"git commit [-a|-i|-o]\")\n"
+literal|"nothing to commit (working directory clean)\n"
 argument_list|)
 expr_stmt|;
 block|}

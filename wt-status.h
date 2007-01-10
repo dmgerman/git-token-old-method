@@ -49,10 +49,6 @@ name|char
 modifier|*
 name|reference
 decl_stmt|;
-DECL|member|commitable
-name|int
-name|commitable
-decl_stmt|;
 DECL|member|verbose
 name|int
 name|verbose
@@ -65,9 +61,18 @@ DECL|member|untracked
 name|int
 name|untracked
 decl_stmt|;
-DECL|member|workdir_clean
+comment|/* These are computed during processing of the individual sections */
+DECL|member|commitable
 name|int
-name|workdir_clean
+name|commitable
+decl_stmt|;
+DECL|member|workdir_dirty
+name|int
+name|workdir_dirty
+decl_stmt|;
+DECL|member|workdir_untracked
+name|int
+name|workdir_untracked
 decl_stmt|;
 block|}
 struct|;
