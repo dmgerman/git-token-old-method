@@ -19,6 +19,11 @@ include|#
 directive|include
 file|"log-tree.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"reflog-walk.h"
+end_include
 begin_function
 DECL|function|show_parents
 specifier|static
@@ -1095,6 +1100,19 @@ condition|?
 literal|' '
 else|:
 literal|'\n'
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|opt
+operator|->
+name|reflog_info
+condition|)
+name|show_reflog_message
+argument_list|(
+name|opt
+operator|->
+name|reflog_info
 argument_list|)
 expr_stmt|;
 block|}
