@@ -319,12 +319,50 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|verbosity
+specifier|static
+name|int
+name|verbosity
+init|=
+literal|2
+decl_stmt|;
+end_decl_stmt
+begin_function
+DECL|function|show
+specifier|static
+name|int
+name|show
+parameter_list|(
+name|int
+name|v
+parameter_list|)
+block|{
+return|return
+operator|(
+operator|!
+name|call_depth
+operator|&&
+name|verbosity
+operator|>=
+name|v
+operator|)
+operator|||
+name|verbosity
+operator|>=
+literal|5
+return|;
+block|}
+end_function
 begin_function
 DECL|function|output
 specifier|static
 name|void
 name|output
 parameter_list|(
+name|int
+name|v
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -336,6 +374,21 @@ block|{
 name|va_list
 name|args
 decl_stmt|;
+name|va_start
+argument_list|(
+name|args
+argument_list|,
+name|fmt
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|show
+argument_list|(
+name|v
+argument_list|)
+condition|)
+block|{
 name|int
 name|i
 decl_stmt|;
@@ -356,13 +409,6 @@ argument_list|,
 name|stdout
 argument_list|)
 expr_stmt|;
-name|va_start
-argument_list|(
-name|args
-argument_list|,
-name|fmt
-argument_list|)
-expr_stmt|;
 name|vfprintf
 argument_list|(
 name|stdout
@@ -372,16 +418,17 @@ argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
-name|va_end
-argument_list|(
-name|args
-argument_list|)
-expr_stmt|;
 name|fputc
 argument_list|(
 literal|'\n'
 argument_list|,
 name|stdout
+argument_list|)
+expr_stmt|;
+block|}
+name|va_end
+argument_list|(
+name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -3681,6 +3728,8 @@ argument_list|)
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"%s is a directory in %s adding as %s instead"
 argument_list|,
 name|ren1_dst
@@ -3728,6 +3777,8 @@ argument_list|)
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"%s is a directory in %s adding as %s instead"
 argument_list|,
 name|ren2_dst
@@ -3832,6 +3883,8 @@ argument_list|)
 decl_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"Renaming %s to %s instead"
 argument_list|,
 name|ren1
@@ -3953,6 +4006,8 @@ argument_list|)
 decl_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"Renaming %s to %s and %s to %s instead"
 argument_list|,
 name|ren1
@@ -4607,6 +4662,8 @@ literal|0
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/rename): "
 literal|"Rename %s->%s in branch %s "
 literal|"rename %s->%s in %s"
@@ -4691,6 +4748,8 @@ name|clean
 condition|)
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"Renaming %s->%s"
 argument_list|,
 name|src
@@ -4706,6 +4765,8 @@ name|merge
 condition|)
 name|output
 argument_list|(
+literal|2
+argument_list|,
 literal|"Auto-merging %s"
 argument_list|,
 name|ren1_dst
@@ -4721,6 +4782,8 @@ condition|)
 block|{
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (content): merge conflict in %s"
 argument_list|,
 name|ren1_dst
@@ -4905,6 +4968,8 @@ literal|0
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/directory): Rename %s->%s in %s "
 literal|" directory %s added in %s"
 argument_list|,
@@ -4946,6 +5011,8 @@ literal|0
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/delete): Rename %s->%s in %s "
 literal|"and deleted in %s"
 argument_list|,
@@ -5011,6 +5078,8 @@ literal|1
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/add): Rename %s->%s in %s. "
 literal|"%s added in %s"
 argument_list|,
@@ -5036,6 +5105,8 @@ argument_list|)
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"Adding as %s instead"
 argument_list|,
 name|new_path
@@ -5090,6 +5161,8 @@ literal|1
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/rename): Rename %s->%s in %s. "
 literal|"Rename %s->%s in %s"
 argument_list|,
@@ -5238,6 +5311,8 @@ name|clean
 condition|)
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"Renaming %s => %s"
 argument_list|,
 name|ren1_src
@@ -5253,6 +5328,8 @@ name|merge
 condition|)
 name|output
 argument_list|(
+literal|2
+argument_list|,
 literal|"Auto-merging %s"
 argument_list|,
 name|ren1_dst
@@ -5268,6 +5345,8 @@ condition|)
 block|{
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (rename/modify): Merge conflict in %s"
 argument_list|,
 name|ren1_dst
@@ -5548,6 +5627,8 @@ name|a_sha
 condition|)
 name|output
 argument_list|(
+literal|2
+argument_list|,
 literal|"Removing %s"
 argument_list|,
 name|path
@@ -5580,6 +5661,8 @@ condition|)
 block|{
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (delete/modify): %s deleted in %s "
 literal|"and modified in %s. Version %s of %s left in tree."
 argument_list|,
@@ -5610,6 +5693,8 @@ else|else
 block|{
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (delete/modify): %s deleted in %s "
 literal|"and modified in %s. Version %s of %s left in tree."
 argument_list|,
@@ -5765,6 +5850,8 @@ literal|0
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (%s): There is a directory with name %s in %s. "
 literal|"Adding %s as %s"
 argument_list|,
@@ -5804,6 +5891,8 @@ else|else
 block|{
 name|output
 argument_list|(
+literal|2
+argument_list|,
 literal|"Adding %s"
 argument_list|,
 name|path
@@ -5873,6 +5962,8 @@ expr_stmt|;
 block|}
 name|output
 argument_list|(
+literal|2
+argument_list|,
 literal|"Auto-merging %s"
 argument_list|,
 name|path
@@ -5988,6 +6079,8 @@ literal|0
 expr_stmt|;
 name|output
 argument_list|(
+literal|1
+argument_list|,
 literal|"CONFLICT (%s): Merge conflict in %s"
 argument_list|,
 name|reason
@@ -6110,6 +6203,8 @@ condition|)
 block|{
 name|output
 argument_list|(
+literal|0
+argument_list|,
 literal|"Already uptodate!"
 argument_list|)
 expr_stmt|;
@@ -6491,8 +6586,18 @@ decl_stmt|;
 name|int
 name|clean
 decl_stmt|;
+if|if
+condition|(
+name|show
+argument_list|(
+literal|4
+argument_list|)
+condition|)
+block|{
 name|output
 argument_list|(
+literal|4
+argument_list|,
 literal|"Merging:"
 argument_list|)
 expr_stmt|;
@@ -6506,6 +6611,7 @@ argument_list|(
 name|h2
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -6531,8 +6637,18 @@ name|ca
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|show
+argument_list|(
+literal|5
+argument_list|)
+condition|)
+block|{
 name|output
 argument_list|(
+literal|5
+argument_list|,
 literal|"found %u common ancestor(s):"
 argument_list|,
 name|commit_list_count
@@ -6562,6 +6678,7 @@ operator|->
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 name|merged_common_ancestors
 operator|=
 name|pop_commit
@@ -6979,6 +7096,57 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|merge_config
+specifier|static
+name|int
+name|merge_config
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|var
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|strcasecmp
+argument_list|(
+name|var
+argument_list|,
+literal|"merge.verbosity"
+argument_list|)
+condition|)
+block|{
+name|verbosity
+operator|=
+name|git_config_int
+argument_list|(
+name|var
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+return|return
+name|git_default_config
+argument_list|(
+name|var
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|main
 name|int
 name|main
@@ -7059,10 +7227,30 @@ name|index_fd
 decl_stmt|;
 name|git_config
 argument_list|(
-name|git_default_config
+name|merge_config
 argument_list|)
 expr_stmt|;
-comment|/* core.filemode */
+if|if
+condition|(
+name|getenv
+argument_list|(
+literal|"GIT_MERGE_VERBOSITY"
+argument_list|)
+condition|)
+name|verbosity
+operator|=
+name|strtol
+argument_list|(
+name|getenv
+argument_list|(
+literal|"GIT_MERGE_VERBOSITY"
+argument_list|)
+argument_list|,
+name|NULL
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|argc
@@ -7192,6 +7380,13 @@ argument_list|(
 name|branch2
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|show
+argument_list|(
+literal|3
+argument_list|)
+condition|)
 name|printf
 argument_list|(
 literal|"Merging %s with %s\n"
