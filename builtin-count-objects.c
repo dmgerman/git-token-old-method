@@ -387,6 +387,8 @@ condition|(
 name|has_sha1_pack
 argument_list|(
 name|sha1
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 operator|(
@@ -654,6 +656,12 @@ name|packed_git
 modifier|*
 name|p
 decl_stmt|;
+name|unsigned
+name|long
+name|num_pack
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -692,6 +700,9 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+name|num_pack
+operator|++
+expr_stmt|;
 block|}
 name|printf
 argument_list|(
@@ -714,6 +725,13 @@ argument_list|(
 literal|"in-pack: %lu\n"
 argument_list|,
 name|packed
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"packs: %lu\n"
+argument_list|,
+name|num_pack
 argument_list|)
 expr_stmt|;
 name|printf

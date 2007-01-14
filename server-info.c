@@ -51,6 +51,13 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 name|struct
@@ -137,7 +144,7 @@ name|char
 modifier|*
 name|path0
 init|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|git_path
 argument_list|(
@@ -210,6 +217,8 @@ return|;
 name|for_each_ref
 argument_list|(
 name|add_info_ref
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|fclose

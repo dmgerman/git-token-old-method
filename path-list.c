@@ -2,11 +2,6 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|<stdio.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -270,7 +265,7 @@ name|list
 operator|->
 name|strdup_paths
 condition|?
-name|strdup
+name|xstrdup
 argument_list|(
 name|path
 argument_list|)
@@ -338,6 +333,7 @@ literal|0
 condition|)
 name|index
 operator|=
+operator|-
 literal|1
 operator|-
 name|index
@@ -498,17 +494,6 @@ operator|.
 name|path
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|list
-operator|->
-name|items
-index|[
-name|i
-index|]
-operator|.
-name|util
-condition|)
 name|free
 argument_list|(
 name|list

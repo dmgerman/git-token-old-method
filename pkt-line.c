@@ -350,7 +350,7 @@ name|ret
 condition|)
 name|die
 argument_list|(
-literal|"unexpected EOF"
+literal|"The remote end hung up unexpectedly"
 argument_list|)
 expr_stmt|;
 name|n

@@ -9,11 +9,6 @@ include|#
 directive|include
 file|"blob.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
-end_include
 begin_decl_stmt
 DECL|variable|blob_type
 specifier|const

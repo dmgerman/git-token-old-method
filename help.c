@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<sys/ioctl.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -26,6 +21,11 @@ begin_include
 include|#
 directive|include
 file|"common-cmds.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<sys/ioctl.h>
 end_include
 begin_comment
 comment|/* most GUI terminals set COLUMNS (although some don't export it) */
@@ -1018,7 +1018,7 @@ name|char
 modifier|*
 name|p
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|page_len
 operator|+

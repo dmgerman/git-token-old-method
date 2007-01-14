@@ -2972,7 +2972,7 @@ name|OBJ_COMMIT
 operator|||
 name|type
 operator|>
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 condition|)
 name|die
 argument_list|(
@@ -3326,7 +3326,7 @@ name|hdrlen
 operator|=
 name|encode_header
 argument_list|(
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 argument_list|,
 name|deltalen
 argument_list|,
@@ -3964,7 +3964,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|unpack_entry
+name|gfi_unpack_entry
 parameter_list|(
 name|unsigned
 name|long
@@ -4062,7 +4062,7 @@ argument_list|)
 expr_stmt|;
 name|base
 operator|=
-name|unpack_entry
+name|gfi_unpack_entry
 argument_list|(
 name|base_oe
 operator|->
@@ -4138,11 +4138,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|unpack_entry
+DECL|function|gfi_unpack_entry
 specifier|static
 name|void
 modifier|*
-name|unpack_entry
+name|gfi_unpack_entry
 parameter_list|(
 name|unsigned
 name|long
@@ -4186,7 +4186,7 @@ name|kind
 condition|)
 block|{
 case|case
-name|OBJ_DELTA
+name|OBJ_REF_DELTA
 case|:
 return|return
 name|unpack_delta_entry
@@ -4419,7 +4419,7 @@ argument_list|)
 expr_stmt|;
 name|buf
 operator|=
-name|unpack_entry
+name|gfi_unpack_entry
 argument_list|(
 name|myoe
 operator|->
@@ -6951,8 +6951,6 @@ operator|->
 name|name
 argument_list|,
 name|NULL
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -7050,8 +7048,6 @@ argument_list|(
 name|path
 argument_list|,
 name|NULL
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -8406,7 +8402,7 @@ argument_list|)
 expr_stmt|;
 name|buf
 operator|=
-name|unpack_entry
+name|gfi_unpack_entry
 argument_list|(
 name|oe
 operator|->

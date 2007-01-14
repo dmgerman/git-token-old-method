@@ -65,7 +65,7 @@ index|[
 literal|4
 index|]
 index|[
-name|MAXPATHLEN
+name|PATH_MAX
 operator|+
 literal|1
 index|]
