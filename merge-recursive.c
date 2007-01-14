@@ -311,10 +311,10 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|output_indent
+DECL|variable|call_depth
 specifier|static
 name|int
-name|output_indent
+name|call_depth
 init|=
 literal|0
 decl_stmt|;
@@ -343,7 +343,7 @@ for|for
 control|(
 name|i
 operator|=
-name|output_indent
+name|call_depth
 init|;
 name|i
 operator|--
@@ -405,7 +405,7 @@ for|for
 control|(
 name|i
 operator|=
-name|output_indent
+name|call_depth
 init|;
 name|i
 operator|--
@@ -6461,10 +6461,6 @@ name|char
 modifier|*
 name|branch2
 parameter_list|,
-name|int
-name|call_depth
-comment|/* =0 */
-parameter_list|,
 name|struct
 name|commit_list
 modifier|*
@@ -6654,11 +6650,8 @@ operator|->
 name|next
 control|)
 block|{
-name|output_indent
-operator|=
 name|call_depth
-operator|+
-literal|1
+operator|++
 expr_stmt|;
 comment|/* 		 * When the merge fails, the result contains files 		 * with conflict markers. The cleanness flag is 		 * ignored, it was never acutally used, as result of 		 * merge_trees has always overwritten it: the commited 		 * "conflicts" were already resolved. 		 */
 name|discard_cache
@@ -6676,19 +6669,14 @@ literal|"Temporary merge branch 1"
 argument_list|,
 literal|"Temporary merge branch 2"
 argument_list|,
-name|call_depth
-operator|+
-literal|1
-argument_list|,
 name|NULL
 argument_list|,
 operator|&
 name|merged_common_ancestors
 argument_list|)
 expr_stmt|;
-name|output_indent
-operator|=
 name|call_depth
+operator|--
 expr_stmt|;
 if|if
 condition|(
@@ -6706,9 +6694,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|call_depth
-operator|==
-literal|0
 condition|)
 block|{
 name|read_cache
@@ -7275,8 +7262,6 @@ argument_list|,
 name|branch1
 argument_list|,
 name|branch2
-argument_list|,
-literal|0
 argument_list|,
 name|ca
 argument_list|,
