@@ -27,7 +27,7 @@ name|char
 name|builtin_pack_refs_usage
 index|[]
 init|=
-literal|"git-pack-refs [--all] [--prune]"
+literal|"git-pack-refs [--all] [--prune | --no-prune]"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -473,6 +473,12 @@ name|cbdata
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|cbdata
+operator|.
+name|prune
+operator|=
+literal|1
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -513,6 +519,26 @@ operator|.
 name|prune
 operator|=
 literal|1
+expr_stmt|;
+comment|/* now the default */
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--no-prune"
+argument_list|)
+condition|)
+block|{
+name|cbdata
+operator|.
+name|prune
+operator|=
+literal|0
 expr_stmt|;
 continue|continue;
 block|}

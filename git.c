@@ -1094,6 +1094,16 @@ directive|define
 name|USE_PAGER
 value|(1<<1)
 end_define
+begin_comment
+comment|/*  * require working tree to be present -- anything uses this needs  * RUN_SETUP for reading from the configuration file.  */
+end_comment
+begin_define
+DECL|macro|NOT_BARE
+define|#
+directive|define
+name|NOT_BARE
+value|(1<<2)
+end_define
 begin_function
 DECL|function|handle_internal_command
 specifier|static
@@ -1166,6 +1176,8 @@ block|,
 name|cmd_add
 block|,
 name|RUN_SETUP
+operator||
+name|NOT_BARE
 block|}
 block|,
 block|{
@@ -1246,6 +1258,14 @@ block|{
 literal|"count-objects"
 block|,
 name|cmd_count_objects
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
+literal|"describe"
+block|,
+name|cmd_describe
 block|,
 name|RUN_SETUP
 block|}
@@ -1337,6 +1357,12 @@ name|cmd_help
 block|}
 block|,
 block|{
+literal|"init"
+block|,
+name|cmd_init_db
+block|}
+block|,
+block|{
 literal|"init-db"
 block|,
 name|cmd_init_db
@@ -1392,6 +1418,8 @@ block|,
 name|cmd_mv
 block|,
 name|RUN_SETUP
+operator||
+name|NOT_BARE
 block|}
 block|,
 block|{
@@ -1496,6 +1524,8 @@ block|,
 name|cmd_rm
 block|,
 name|RUN_SETUP
+operator||
+name|NOT_BARE
 block|}
 block|,
 block|{
@@ -1504,6 +1534,8 @@ block|,
 name|cmd_runstatus
 block|,
 name|RUN_SETUP
+operator||
+name|NOT_BARE
 block|}
 block|,
 block|{
@@ -1743,6 +1775,26 @@ name|USE_PAGER
 condition|)
 name|setup_pager
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|p
+operator|->
+name|option
+operator|&
+name|NOT_BARE
+operator|)
+operator|&&
+name|is_bare_repository
+argument_list|()
+condition|)
+name|die
+argument_list|(
+literal|"%s cannot be used in a bare git directory"
+argument_list|,
+name|cmd
+argument_list|)
 expr_stmt|;
 name|trace_argv_printf
 argument_list|(

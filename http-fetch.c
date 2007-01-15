@@ -335,7 +335,7 @@ block|{
 name|ssize_t
 name|retval
 init|=
-name|write
+name|xwrite
 argument_list|(
 name|obj_req
 operator|->
@@ -968,7 +968,7 @@ do|do
 block|{
 name|prev_read
 operator|=
-name|read
+name|xread
 argument_list|(
 name|prevlocal
 argument_list|,
@@ -4185,6 +4185,15 @@ literal|"Unable to start request"
 argument_list|)
 return|;
 block|}
+name|target
+operator|->
+name|pack_size
+operator|=
+name|ftell
+argument_list|(
+name|packfile
+argument_list|)
+expr_stmt|;
 name|fclose
 argument_list|(
 name|packfile

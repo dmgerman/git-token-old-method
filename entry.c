@@ -609,7 +609,7 @@ return|;
 block|}
 name|wrote
 operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,
@@ -694,7 +694,7 @@ return|;
 block|}
 name|wrote
 operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|fd
 argument_list|,

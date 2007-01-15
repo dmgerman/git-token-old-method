@@ -296,6 +296,7 @@ operator|==
 literal|2
 condition|)
 block|{
+comment|/* XXX: are we happy to lose stuff here? */
 name|xwrite
 argument_list|(
 name|fd
@@ -1298,7 +1299,7 @@ expr_stmt|;
 block|}
 name|sz
 operator|=
-name|read
+name|xread
 argument_list|(
 name|pu_pipe
 index|[
@@ -1429,7 +1430,7 @@ block|{
 comment|/* Status ready; we ship that in the side-band 				 * or dump to the standard error. 				 */
 name|sz
 operator|=
-name|read
+name|xread
 argument_list|(
 name|pe_pipe
 index|[

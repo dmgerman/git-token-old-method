@@ -664,7 +664,7 @@ name|st
 operator|.
 name|st_size
 operator|!=
-name|xread
+name|read_in_full
 argument_list|(
 name|i
 argument_list|,

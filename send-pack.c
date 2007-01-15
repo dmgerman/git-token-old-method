@@ -296,7 +296,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|write_in_full
+name|write_or_whine
 argument_list|(
 name|pipe_fd
 index|[
@@ -347,7 +347,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|write_in_full
+name|write_or_whine
 argument_list|(
 name|pipe_fd
 index|[

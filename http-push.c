@@ -920,7 +920,7 @@ block|{
 name|ssize_t
 name|retval
 init|=
-name|write
+name|xwrite
 argument_list|(
 name|request
 operator|->
@@ -1520,7 +1520,7 @@ do|do
 block|{
 name|prev_read
 operator|=
-name|read
+name|xread
 argument_list|(
 name|prevlocal
 argument_list|,
@@ -4331,6 +4331,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|off_t
+name|pack_size
+init|=
+name|ftell
+argument_list|(
+name|request
+operator|->
+name|local_stream
+argument_list|)
+decl_stmt|;
 name|fclose
 argument_list|(
 name|request
@@ -4369,6 +4379,12 @@ operator|)
 name|request
 operator|->
 name|userData
+expr_stmt|;
+name|target
+operator|->
+name|pack_size
+operator|=
+name|pack_size
 expr_stmt|;
 name|lst
 operator|=

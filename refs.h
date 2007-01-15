@@ -321,6 +321,16 @@ name|char
 modifier|*
 name|nsha1
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+parameter_list|,
+name|unsigned
+name|long
+parameter_list|,
+name|int
+parameter_list|,
+specifier|const
 name|char
 modifier|*
 parameter_list|,
@@ -330,7 +340,7 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_function_decl
-name|void
+name|int
 name|for_each_reflog_ent
 parameter_list|(
 specifier|const
