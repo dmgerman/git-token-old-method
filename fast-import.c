@@ -474,7 +474,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/* Stats and misc. counters */
+comment|/* Configured limits on output */
 end_comment
 begin_decl_stmt
 DECL|variable|max_depth
@@ -484,17 +484,6 @@ name|long
 name|max_depth
 init|=
 literal|10
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|max_objects
-specifier|static
-name|unsigned
-name|long
-name|max_objects
-init|=
-operator|-
-literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -509,11 +498,73 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|max_objects
+specifier|static
+name|uintmax_t
+name|max_objects
+init|=
+operator|-
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|/* Stats and misc. counters */
+end_comment
+begin_decl_stmt
 DECL|variable|alloc_count
 specifier|static
-name|unsigned
-name|long
+name|uintmax_t
 name|alloc_count
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|object_count
+specifier|static
+name|uintmax_t
+name|object_count
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|marks_set_count
+specifier|static
+name|uintmax_t
+name|marks_set_count
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|object_count_by_type
+specifier|static
+name|uintmax_t
+name|object_count_by_type
+index|[
+literal|1
+operator|<<
+name|TYPE_BITS
+index|]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|duplicate_count_by_type
+specifier|static
+name|uintmax_t
+name|duplicate_count_by_type
+index|[
+literal|1
+operator|<<
+name|TYPE_BITS
+index|]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|delta_count_by_type
+specifier|static
+name|uintmax_t
+name|delta_count_by_type
+index|[
+literal|1
+operator|<<
+name|TYPE_BITS
+index|]
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -530,61 +581,6 @@ specifier|static
 name|unsigned
 name|long
 name|branch_load_count
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|object_count
-specifier|static
-name|unsigned
-name|long
-name|object_count
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|marks_set_count
-specifier|static
-name|unsigned
-name|long
-name|marks_set_count
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|object_count_by_type
-specifier|static
-name|unsigned
-name|long
-name|object_count_by_type
-index|[
-literal|1
-operator|<<
-name|TYPE_BITS
-index|]
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|duplicate_count_by_type
-specifier|static
-name|unsigned
-name|long
-name|duplicate_count_by_type
-index|[
-literal|1
-operator|<<
-name|TYPE_BITS
-index|]
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|delta_count_by_type
-specifier|static
-name|unsigned
-name|long
-name|delta_count_by_type
-index|[
-literal|1
-operator|<<
-name|TYPE_BITS
-index|]
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -936,8 +932,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|next_mark
 specifier|static
-name|unsigned
-name|long
+name|uintmax_t
 name|next_mark
 decl_stmt|;
 end_decl_stmt
@@ -1657,8 +1652,7 @@ specifier|static
 name|void
 name|insert_mark
 parameter_list|(
-name|unsigned
-name|long
+name|uintmax_t
 name|idnum
 parameter_list|,
 name|struct
@@ -1733,8 +1727,7 @@ operator|->
 name|shift
 condition|)
 block|{
-name|unsigned
-name|long
+name|uintmax_t
 name|i
 init|=
 name|idnum
@@ -1850,13 +1843,11 @@ name|object_entry
 modifier|*
 name|find_mark
 parameter_list|(
-name|unsigned
-name|long
+name|uintmax_t
 name|idnum
 parameter_list|)
 block|{
-name|unsigned
-name|long
+name|uintmax_t
 name|orig_idnum
 init|=
 name|idnum
@@ -1897,8 +1888,7 @@ operator|->
 name|shift
 condition|)
 block|{
-name|unsigned
-name|long
+name|uintmax_t
 name|i
 init|=
 name|idnum
@@ -1950,7 +1940,7 @@ name|oe
 condition|)
 name|die
 argument_list|(
-literal|"mark :%lu not declared"
+literal|"mark :%ju not declared"
 argument_list|,
 name|orig_idnum
 argument_list|)
@@ -4028,8 +4018,7 @@ name|char
 modifier|*
 name|sha1out
 parameter_list|,
-name|unsigned
-name|long
+name|uintmax_t
 name|mark
 parameter_list|)
 block|{
@@ -7055,8 +7044,7 @@ name|FILE
 modifier|*
 name|f
 parameter_list|,
-name|unsigned
-name|long
+name|uintmax_t
 name|base
 parameter_list|,
 name|struct
@@ -7065,7 +7053,7 @@ modifier|*
 name|m
 parameter_list|)
 block|{
-name|int
+name|uintmax_t
 name|k
 decl_stmt|;
 if|if
@@ -7157,7 +7145,7 @@ name|fprintf
 argument_list|(
 name|f
 argument_list|,
-literal|":%lu %s\n"
+literal|":%ju %s\n"
 argument_list|,
 name|base
 operator|+
@@ -7265,7 +7253,7 @@ condition|)
 block|{
 name|next_mark
 operator|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|command_buf
 operator|.
@@ -7805,7 +7793,7 @@ name|oe
 operator|=
 name|find_mark
 argument_list|(
-name|strtoul
+name|strtoumax
 argument_list|(
 name|p
 operator|+
@@ -8304,11 +8292,10 @@ operator|==
 literal|':'
 condition|)
 block|{
-name|unsigned
-name|long
+name|uintmax_t
 name|idnum
 init|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|from
 operator|+
@@ -8347,7 +8334,7 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%lu not a commit"
+literal|"Mark :%ju not a commit"
 argument_list|,
 name|idnum
 argument_list|)
@@ -8800,11 +8787,10 @@ operator|==
 literal|':'
 condition|)
 block|{
-name|unsigned
-name|long
+name|uintmax_t
 name|idnum
 init|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|from
 operator|+
@@ -8835,7 +8821,7 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%lu not a commit"
+literal|"Mark :%ju not a commit"
 argument_list|,
 name|idnum
 argument_list|)
@@ -9578,7 +9564,7 @@ name|fprintf
 argument_list|(
 name|branch_log
 argument_list|,
-literal|" :%lu %s\n"
+literal|" :%ju %s\n"
 argument_list|,
 name|next_mark
 argument_list|,
@@ -9639,8 +9625,7 @@ name|tag
 modifier|*
 name|t
 decl_stmt|;
-name|unsigned
-name|long
+name|uintmax_t
 name|from_mark
 init|=
 literal|0
@@ -9860,7 +9845,7 @@ condition|)
 block|{
 name|from_mark
 operator|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|from
 operator|+
@@ -9891,7 +9876,7 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%lu not a commit"
+literal|"Mark :%ju not a commit"
 argument_list|,
 name|from_mark
 argument_list|)
@@ -10237,7 +10222,7 @@ name|fprintf
 argument_list|(
 name|branch_log
 argument_list|,
-literal|" :%lu %s\n"
+literal|" :%ju %s\n"
 argument_list|,
 name|from_mark
 argument_list|,
@@ -10446,14 +10431,12 @@ block|{
 name|int
 name|i
 decl_stmt|;
-name|unsigned
-name|long
+name|uintmax_t
 name|est_obj_cnt
 init|=
 name|object_entry_alloc
 decl_stmt|;
-name|unsigned
-name|long
+name|uintmax_t
 name|duplicate_count
 decl_stmt|;
 name|setup_ident
@@ -10519,7 +10502,7 @@ argument_list|)
 condition|)
 name|est_obj_cnt
 operator|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|a
 operator|+
@@ -10545,7 +10528,7 @@ argument_list|)
 condition|)
 name|max_objects
 operator|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|a
 operator|+
@@ -10571,7 +10554,7 @@ argument_list|)
 condition|)
 name|max_packsize
 operator|=
-name|strtoul
+name|strtoumax
 argument_list|(
 name|a
 operator|+
@@ -10936,6 +10919,10 @@ argument_list|(
 name|branch_log
 argument_list|)
 expr_stmt|;
+name|duplicate_count
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -10982,7 +10969,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Alloc'd objects: %10lu (%10lu overflow  )\n"
+literal|"Alloc'd objects: %10ju (%10ju overflow  )\n"
 argument_list|,
 name|alloc_count
 argument_list|,
@@ -10995,7 +10982,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Total objects:   %10lu (%10lu duplicates                  )\n"
+literal|"Total objects:   %10ju (%10ju duplicates                  )\n"
 argument_list|,
 name|object_count
 argument_list|,
@@ -11006,7 +10993,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      blobs  :   %10lu (%10lu duplicates %10lu deltas)\n"
+literal|"      blobs  :   %10ju (%10ju duplicates %10ju deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -11028,7 +11015,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      trees  :   %10lu (%10lu duplicates %10lu deltas)\n"
+literal|"      trees  :   %10ju (%10ju duplicates %10ju deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -11050,7 +11037,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      commits:   %10lu (%10lu duplicates %10lu deltas)\n"
+literal|"      commits:   %10ju (%10ju duplicates %10ju deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -11072,7 +11059,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      tags   :   %10lu (%10lu duplicates %10lu deltas)\n"
+literal|"      tags   :   %10ju (%10ju duplicates %10ju deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -11105,10 +11092,15 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      marks:     %10u (%10lu unique    )\n"
+literal|"      marks:     %10ju (%10ju unique    )\n"
 argument_list|,
 operator|(
+operator|(
+operator|(
+name|uintmax_t
+operator|)
 literal|1
+operator|)
 operator|<<
 name|marks
 operator|->
@@ -11133,7 +11125,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Memory total:    %10lu KiB\n"
+literal|"Memory total:    %10ju KiB\n"
 argument_list|,
 operator|(
 name|total_allocd
@@ -11165,7 +11157,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"     objects:    %10lu KiB\n"
+literal|"     objects:    %10ju KiB\n"
 argument_list|,
 operator|(
 name|alloc_count
