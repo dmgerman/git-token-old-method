@@ -683,13 +683,6 @@ name|all_packs
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|pack_fd
-specifier|static
-name|int
-name|pack_fd
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|pack_size
 specifier|static
 name|unsigned
@@ -2859,6 +2852,9 @@ name|struct
 name|pack_header
 name|hdr
 decl_stmt|;
+name|int
+name|pack_fd
+decl_stmt|;
 name|snprintf
 argument_list|(
 name|tmpfile
@@ -2960,6 +2956,8 @@ literal|0
 expr_stmt|;
 name|write_or_die
 argument_list|(
+name|p
+operator|->
 name|pack_fd
 argument_list|,
 operator|&
@@ -3021,6 +3019,13 @@ name|void
 name|fixup_header_footer
 parameter_list|()
 block|{
+name|int
+name|pack_fd
+init|=
+name|pack_data
+operator|->
+name|pack_fd
+decl_stmt|;
 name|SHA_CTX
 name|c
 decl_stmt|;
@@ -4771,6 +4776,8 @@ argument_list|)
 expr_stmt|;
 name|write_or_die
 argument_list|(
+name|pack_data
+operator|->
 name|pack_fd
 argument_list|,
 name|hdr
@@ -4814,6 +4821,8 @@ operator|)
 expr_stmt|;
 name|write_or_die
 argument_list|(
+name|pack_data
+operator|->
 name|pack_fd
 argument_list|,
 name|hdr
@@ -4863,6 +4872,8 @@ argument_list|)
 expr_stmt|;
 name|write_or_die
 argument_list|(
+name|pack_data
+operator|->
 name|pack_fd
 argument_list|,
 name|hdr
@@ -4877,6 +4888,8 @@ expr_stmt|;
 block|}
 name|write_or_die
 argument_list|(
+name|pack_data
+operator|->
 name|pack_fd
 argument_list|,
 name|out
