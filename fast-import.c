@@ -3205,6 +3205,11 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|close
+argument_list|(
+name|pack_fd
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -4023,14 +4028,6 @@ name|old_p
 operator|->
 name|windows
 expr_stmt|;
-name|new_p
-operator|->
-name|pack_fd
-operator|=
-name|old_p
-operator|->
-name|pack_fd
-expr_stmt|;
 name|all_packs
 index|[
 name|pack_id
@@ -4046,12 +4043,6 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
-name|close
-argument_list|(
-name|pack_fd
-argument_list|)
-expr_stmt|;
 name|unlink
 argument_list|(
 name|old_p
@@ -4059,7 +4050,6 @@ operator|->
 name|pack_name
 argument_list|)
 expr_stmt|;
-block|}
 name|free
 argument_list|(
 name|old_p
