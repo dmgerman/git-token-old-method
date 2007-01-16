@@ -4407,7 +4407,6 @@ name|delta
 operator|=
 name|NULL
 expr_stmt|;
-block|}
 name|memset
 argument_list|(
 operator|&
@@ -4460,6 +4459,15 @@ operator|.
 name|next_out
 operator|=
 name|out
+operator|=
+name|xrealloc
+argument_list|(
+name|out
+argument_list|,
+name|s
+operator|.
+name|avail_out
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -4481,6 +4489,7 @@ operator|&
 name|s
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|e
 operator|->
