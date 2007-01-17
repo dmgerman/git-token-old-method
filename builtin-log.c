@@ -2990,6 +2990,15 @@ operator|==
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|rev
+operator|.
+name|max_count
+operator|<
+literal|0
+condition|)
+block|{
 name|rev
 operator|.
 name|pending
@@ -3011,6 +3020,8 @@ operator|&
 name|rev
 argument_list|)
 expr_stmt|;
+block|}
+comment|/* Otherwise, it is "format-patch -22 HEAD", and 		 * get_revision() would return only the specified count. 		 */
 block|}
 if|if
 condition|(
