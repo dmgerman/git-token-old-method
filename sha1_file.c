@@ -2775,8 +2775,7 @@ name|void
 modifier|*
 name|idx_map
 decl_stmt|;
-name|unsigned
-name|int
+name|uint32_t
 modifier|*
 name|index
 decl_stmt|;
@@ -7503,8 +7502,7 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|unsigned
-name|int
+name|uint32_t
 modifier|*
 name|level1_ofs
 init|=
@@ -7606,8 +7604,7 @@ argument_list|(
 operator|*
 operator|(
 operator|(
-name|unsigned
-name|int
+name|uint32_t
 operator|*
 operator|)
 operator|(
