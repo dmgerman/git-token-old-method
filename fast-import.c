@@ -3411,8 +3411,7 @@ name|object_entry_pool
 modifier|*
 name|o
 decl_stmt|;
-name|unsigned
-name|int
+name|uint32_t
 name|array
 index|[
 literal|256
@@ -3673,8 +3672,7 @@ name|c
 operator|++
 control|)
 block|{
-name|unsigned
-name|int
+name|uint32_t
 name|offset
 init|=
 name|htonl
