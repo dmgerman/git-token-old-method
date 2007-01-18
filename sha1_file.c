@@ -2892,7 +2892,32 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"index file too small"
+literal|"index file %s is too small"
+argument_list|,
+name|path
+argument_list|)
+return|;
+comment|/* a future index format would start with this, as older git 	 * binaries would fail the non-monotonic index check below. 	 * give a nicer warning to the user if we can. 	 */
+if|if
+condition|(
+name|index
+index|[
+literal|0
+index|]
+operator|==
+name|htonl
+argument_list|(
+name|PACK_IDX_SIGNATURE
+argument_list|)
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"index file %s is a newer version"
+literal|" and is not supported by this binary"
+literal|" (try upgrading GIT to a newer version)"
+argument_list|,
+name|path
 argument_list|)
 return|;
 name|nr
@@ -2934,7 +2959,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"non-monotonic index"
+literal|"non-monotonic index %s"
+argument_list|,
+name|path
 argument_list|)
 return|;
 name|nr
@@ -2962,7 +2989,9 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"wrong index file size"
+literal|"wrong index file size in %s"
+argument_list|,
+name|path
 argument_list|)
 return|;
 return|return
