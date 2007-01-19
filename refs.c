@@ -5509,6 +5509,10 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+name|void
+modifier|*
+name|log_mapped
+decl_stmt|;
 name|logfile
 operator|=
 name|git_path
@@ -5569,7 +5573,7 @@ argument_list|,
 name|logfile
 argument_list|)
 expr_stmt|;
-name|logdata
+name|log_mapped
 operator|=
 name|xmmap
 argument_list|(
@@ -5587,6 +5591,10 @@ name|logfd
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|logdata
+operator|=
+name|log_mapped
 expr_stmt|;
 name|close
 argument_list|(
@@ -5873,11 +5881,7 @@ block|}
 block|}
 name|munmap
 argument_list|(
-operator|(
-name|void
-operator|*
-operator|)
-name|logdata
+name|log_mapped
 argument_list|,
 name|st
 operator|.
@@ -5986,11 +5990,7 @@ argument_list|)
 expr_stmt|;
 name|munmap
 argument_list|(
-operator|(
-name|void
-operator|*
-operator|)
-name|logdata
+name|log_mapped
 argument_list|,
 name|st
 operator|.
