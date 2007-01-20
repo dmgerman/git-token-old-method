@@ -477,7 +477,7 @@ operator|>=
 literal|0
 condition|;
 name|i
-operator|++
+operator|--
 control|)
 if|if
 condition|(
