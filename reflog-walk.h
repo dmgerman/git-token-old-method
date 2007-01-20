@@ -71,6 +71,8 @@ name|struct
 name|reflog_walk_info
 modifier|*
 name|info
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
