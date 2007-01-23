@@ -2966,6 +2966,9 @@ if|if
 condition|(
 operator|!
 name|output_directory
+operator|&&
+operator|!
+name|use_stdout
 condition|)
 name|output_directory
 operator|=
