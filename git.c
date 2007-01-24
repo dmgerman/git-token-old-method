@@ -1184,7 +1184,9 @@ block|{
 literal|"annotate"
 block|,
 name|cmd_annotate
-block|, }
+block|,
+name|USE_PAGER
+block|}
 block|,
 block|{
 literal|"apply"
