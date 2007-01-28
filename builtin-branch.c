@@ -2145,9 +2145,6 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
-name|setup_ident
-argument_list|()
-expr_stmt|;
 name|git_config
 argument_list|(
 name|git_branch_config
