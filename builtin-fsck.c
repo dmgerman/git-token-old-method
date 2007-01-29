@@ -2674,9 +2674,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|main
+DECL|function|cmd_fsck
 name|int
-name|main
+name|cmd_fsck
 parameter_list|(
 name|int
 name|argc
@@ -2685,6 +2685,11 @@ name|char
 modifier|*
 modifier|*
 name|argv
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 block|{
 name|int
@@ -2695,9 +2700,6 @@ decl_stmt|;
 name|track_object_refs
 operator|=
 literal|1
-expr_stmt|;
-name|setup_git_directory
-argument_list|()
 expr_stmt|;
 for|for
 control|(
