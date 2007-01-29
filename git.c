@@ -1255,6 +1255,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"config"
+block|,
+name|cmd_config
+block|}
+block|,
+block|{
 literal|"count-objects"
 block|,
 name|cmd_count_objects
@@ -1491,7 +1497,7 @@ block|,
 block|{
 literal|"repo-config"
 block|,
-name|cmd_repo_config
+name|cmd_config
 block|}
 block|,
 block|{
