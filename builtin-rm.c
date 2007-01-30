@@ -35,7 +35,7 @@ name|char
 name|builtin_rm_usage
 index|[]
 init|=
-literal|"git-rm [-n] [-f] [--cached]<filepattern>..."
+literal|"git-rm [-f] [-n] [-r] [--cached] [--]<file>..."
 decl_stmt|;
 end_decl_stmt
 begin_struct

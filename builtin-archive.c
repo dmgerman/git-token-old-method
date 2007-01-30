@@ -423,6 +423,14 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+name|close
+argument_list|(
+name|fd
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 name|rv
 operator||=
 name|finish_connect

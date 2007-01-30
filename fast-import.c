@@ -11173,9 +11173,6 @@ name|total_count
 decl_stmt|,
 name|duplicate_count
 decl_stmt|;
-name|setup_ident
-argument_list|()
-expr_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config

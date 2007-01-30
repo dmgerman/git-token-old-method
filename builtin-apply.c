@@ -12662,7 +12662,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|prefix
+name|unused_prefix
 parameter_list|)
 block|{
 name|int
