@@ -4665,7 +4665,7 @@ literal|".idx"
 argument_list|)
 condition|)
 continue|continue;
-comment|/* we have .idx.  Is it a file we can map? */
+comment|/* Don't reopen a pack we already have. */
 name|strcpy
 argument_list|(
 name|path
@@ -4717,6 +4717,7 @@ condition|(
 name|p
 condition|)
 continue|continue;
+comment|/* See if it really is a valid .idx file with corresponding 		 * .pack file that we can map. 		 */
 name|p
 operator|=
 name|add_packed_git
