@@ -1317,25 +1317,6 @@ name|status
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|strncmp
-argument_list|(
-name|ref
-argument_list|,
-literal|"refs/"
-argument_list|,
-literal|5
-argument_list|)
-condition|)
-return|return
-name|error
-argument_list|(
-literal|"not a ref '%s'"
-argument_list|,
-name|ref
-argument_list|)
-return|;
 name|memset
 argument_list|(
 operator|&
@@ -1352,11 +1333,9 @@ expr_stmt|;
 comment|/* we take the lock for the ref itself to prevent it from 	 * getting updated. 	 */
 name|lock
 operator|=
-name|lock_ref_sha1
+name|lock_any_ref_for_update
 argument_list|(
 name|ref
-operator|+
-literal|5
 argument_list|,
 name|sha1
 argument_list|)
@@ -1956,7 +1935,7 @@ name|do_all
 condition|)
 name|status
 operator||=
-name|for_each_ref
+name|for_each_reflog
 argument_list|(
 name|expire_reflog
 argument_list|,
