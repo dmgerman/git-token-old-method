@@ -4398,6 +4398,13 @@ name|i
 index|]
 operator|==
 literal|']'
+operator|&&
+name|old_name
+index|[
+name|j
+index|]
+operator|==
+literal|0
 condition|)
 block|{
 comment|/* old_name matches */
