@@ -3347,11 +3347,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*  * Do not call this directly as this leaks p->pack_fd on error return;  * call open_packed_git() instead.  */
+end_comment
 begin_function
-DECL|function|open_packed_git
+DECL|function|open_packed_git_1
 specifier|static
-name|void
-name|open_packed_git
+name|int
+name|open_packed_git_1
 parameter_list|(
 name|struct
 name|packed_git
@@ -3413,15 +3416,10 @@ operator|&
 name|st
 argument_list|)
 condition|)
-name|die
-argument_list|(
-literal|"packfile %s cannot be opened"
-argument_list|,
-name|p
-operator|->
-name|pack_name
-argument_list|)
-expr_stmt|;
+return|return
+operator|-
+literal|1
+return|;
 comment|/* If we created the struct before we had the pack we lack size. */
 if|if
 condition|(
@@ -3441,7 +3439,8 @@ operator|.
 name|st_mode
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s not a regular file"
 argument_list|,
@@ -3449,7 +3448,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 name|p
 operator|->
 name|pack_size
@@ -3470,7 +3469,8 @@ name|st
 operator|.
 name|st_size
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s size changed"
 argument_list|,
@@ -3478,7 +3478,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 comment|/* We leave these file descriptors open with sliding mmap; 	 * there is no point keeping them open across exec(), though. 	 */
 name|fd_flag
 operator|=
@@ -3499,11 +3499,12 @@ name|fd_flag
 operator|<
 literal|0
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"cannot determine file descriptor flags"
 argument_list|)
-expr_stmt|;
+return|;
 name|fd_flag
 operator||=
 name|FD_CLOEXEC
@@ -3524,11 +3525,12 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"cannot set FD_CLOEXEC"
 argument_list|)
-expr_stmt|;
+return|;
 comment|/* Verify we recognize this pack file format. */
 if|if
 condition|(
@@ -3552,7 +3554,8 @@ argument_list|(
 name|hdr
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"file %s is far too short to be a packfile"
 argument_list|,
@@ -3560,7 +3563,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 if|if
 condition|(
 name|hdr
@@ -3572,7 +3575,8 @@ argument_list|(
 name|PACK_SIGNATURE
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"file %s is not a GIT packfile"
 argument_list|,
@@ -3580,7 +3584,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 if|if
 condition|(
 operator|!
@@ -3591,7 +3595,8 @@ operator|.
 name|hdr_version
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s is version %u and not supported"
 literal|" (try upgrading GIT to a newer version)"
@@ -3607,7 +3612,7 @@ operator|.
 name|hdr_version
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 comment|/* Verify the pack matches its index. */
 if|if
 condition|(
@@ -3623,7 +3628,8 @@ operator|.
 name|hdr_entries
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s claims to have %u objects"
 literal|" while index size indicates %u objects"
@@ -3644,7 +3650,7 @@ argument_list|(
 name|p
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 if|if
 condition|(
 name|lseek
@@ -3668,7 +3674,8 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"end of packfile %s is unavailable"
 argument_list|,
@@ -3676,7 +3683,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 if|if
 condition|(
 name|read_in_full
@@ -3698,7 +3705,8 @@ argument_list|(
 name|sha1
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s signature is unavailable"
 argument_list|,
@@ -3706,7 +3714,7 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
-expr_stmt|;
+return|;
 name|idx_sha1
 operator|=
 operator|(
@@ -3735,7 +3743,8 @@ argument_list|,
 name|idx_sha1
 argument_list|)
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"packfile %s does not match index"
 argument_list|,
@@ -3743,7 +3752,64 @@ name|p
 operator|->
 name|pack_name
 argument_list|)
+return|;
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_function
+DECL|function|open_packed_git
+specifier|static
+name|int
+name|open_packed_git
+parameter_list|(
+name|struct
+name|packed_git
+modifier|*
+name|p
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|open_packed_git_1
+argument_list|(
+name|p
+argument_list|)
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
+name|p
+operator|->
+name|pack_fd
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|close
+argument_list|(
+name|p
+operator|->
+name|pack_fd
+argument_list|)
 expr_stmt|;
+name|p
+operator|->
+name|pack_fd
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
+return|return
+operator|-
+literal|1
+return|;
 block|}
 end_function
 begin_function
@@ -3835,10 +3901,19 @@ name|pack_fd
 operator|==
 operator|-
 literal|1
-condition|)
+operator|&&
 name|open_packed_git
 argument_list|(
 name|p
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"packfile %s cannot be accessed"
+argument_list|,
+name|p
+operator|->
+name|pack_name
 argument_list|)
 expr_stmt|;
 comment|/* Since packfiles end in a hash of their content and its 	 * pointless to ask for an offset into the middle of that 	 * hash, and the in_window function above wouldn't match 	 * don't allow an offset too close to the end of the file. 	 */
@@ -4665,7 +4740,7 @@ literal|".idx"
 argument_list|)
 condition|)
 continue|continue;
-comment|/* we have .idx.  Is it a file we can map? */
+comment|/* Don't reopen a pack we already have. */
 name|strcpy
 argument_list|(
 name|path
@@ -4717,6 +4792,7 @@ condition|(
 name|p
 condition|)
 continue|continue;
+comment|/* See if it really is a valid .idx file with corresponding 		 * .pack file that we can map. 		 */
 name|p
 operator|=
 name|add_packed_git
@@ -4736,15 +4812,10 @@ operator|!
 name|p
 condition|)
 continue|continue;
+name|install_packed_git
+argument_list|(
 name|p
-operator|->
-name|next
-operator|=
-name|packed_git
-expr_stmt|;
-name|packed_git
-operator|=
-name|p
+argument_list|)
 expr_stmt|;
 block|}
 name|closedir
@@ -6413,7 +6484,7 @@ name|unsigned
 name|long
 name|used
 decl_stmt|;
-comment|/* use_pack() assures us we have [base, base + 20) available 	 * as a range that we can look at at.  (Its actually the hash 	 * size that is assurred.)  With our object header encoding 	 * the maximum deflated object size is 2^137, which is just 	 * insane, so we know won't exceed what we have been given. 	 */
+comment|/* use_pack() assures us we have [base, base + 20) available 	 * as a range that we can look at at.  (Its actually the hash 	 * size that is assured.)  With our object header encoding 	 * the maximum deflated object size is 2^137, which is just 	 * insane, so we know won't exceed what we have been given. 	 */
 name|base
 operator|=
 name|use_pack
@@ -7850,6 +7921,33 @@ condition|(
 name|offset
 condition|)
 block|{
+comment|/* 			 * We are about to tell the caller where they can 			 * locate the requested object.  We better make 			 * sure the packfile is still here and can be 			 * accessed before supplying that answer, as 			 * it may have been deleted since the index 			 * was loaded! 			 */
+if|if
+condition|(
+name|p
+operator|->
+name|pack_fd
+operator|==
+operator|-
+literal|1
+operator|&&
+name|open_packed_git
+argument_list|(
+name|p
+argument_list|)
+condition|)
+block|{
+name|error
+argument_list|(
+literal|"packfile %s cannot be accessed"
+argument_list|,
+name|p
+operator|->
+name|pack_name
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|e
 operator|->
 name|offset
