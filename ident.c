@@ -859,12 +859,11 @@ literal|"\n"
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|get_ident
-specifier|static
+DECL|function|fmt_ident
 specifier|const
 name|char
 modifier|*
-name|get_ident
+name|fmt_ident
 parameter_list|(
 specifier|const
 name|char
@@ -1157,7 +1156,7 @@ name|error_on_no_name
 parameter_list|)
 block|{
 return|return
-name|get_ident
+name|fmt_ident
 argument_list|(
 name|getenv
 argument_list|(
@@ -1191,7 +1190,7 @@ name|error_on_no_name
 parameter_list|)
 block|{
 return|return
-name|get_ident
+name|fmt_ident
 argument_list|(
 name|getenv
 argument_list|(
