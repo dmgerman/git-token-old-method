@@ -83,8 +83,7 @@ modifier|*
 name|next
 decl_stmt|;
 DECL|member|offset
-name|unsigned
-name|long
+name|uint32_t
 name|offset
 decl_stmt|;
 DECL|member|type
@@ -198,8 +197,7 @@ name|long
 name|len
 decl_stmt|;
 DECL|member|offset
-name|unsigned
-name|long
+name|uint32_t
 name|offset
 decl_stmt|;
 DECL|member|depth
@@ -261,7 +259,7 @@ name|next_atom
 decl_stmt|;
 DECL|member|str_len
 name|unsigned
-name|int
+name|short
 name|str_len
 decl_stmt|;
 DECL|member|str_dat
@@ -302,8 +300,7 @@ struct|struct
 name|tree_entry_ms
 block|{
 DECL|member|mode
-name|unsigned
-name|int
+name|uint16_t
 name|mode
 decl_stmt|;
 DECL|member|sha1
@@ -1949,7 +1946,8 @@ name|char
 modifier|*
 name|s
 parameter_list|,
-name|size_t
+name|unsigned
+name|short
 name|len
 parameter_list|)
 block|{
@@ -5233,8 +5231,7 @@ name|char
 modifier|*
 name|str
 parameter_list|,
-name|unsigned
-name|int
+name|uint16_t
 modifier|*
 name|modep
 parameter_list|)
@@ -5243,8 +5240,7 @@ name|unsigned
 name|char
 name|c
 decl_stmt|;
-name|unsigned
-name|int
+name|uint16_t
 name|mode
 init|=
 literal|0
@@ -5580,6 +5576,10 @@ name|to_atom
 argument_list|(
 name|c
 argument_list|,
+operator|(
+name|unsigned
+name|short
+operator|)
 name|strlen
 argument_list|(
 name|c
@@ -6040,6 +6040,10 @@ name|c
 argument_list|,
 literal|"%o"
 argument_list|,
+operator|(
+name|unsigned
+name|int
+operator|)
 name|e
 operator|->
 name|versions
@@ -6499,8 +6503,7 @@ modifier|*
 name|sha1
 parameter_list|,
 specifier|const
-name|unsigned
-name|int
+name|uint16_t
 name|mode
 parameter_list|)
 block|{
@@ -6827,6 +6830,10 @@ name|to_atom
 argument_list|(
 name|p
 argument_list|,
+operator|(
+name|unsigned
+name|short
+operator|)
 name|n
 argument_list|)
 expr_stmt|;
@@ -8322,8 +8329,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|unsigned
-name|int
+name|uint16_t
 name|mode
 decl_stmt|,
 name|inline_data
