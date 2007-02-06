@@ -5085,10 +5085,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|delta
-condition|)
 name|free
 argument_list|(
 name|delta
@@ -5101,10 +5097,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|last
-operator|->
-name|data
-operator|&&
 operator|!
 name|last
 operator|->
@@ -8697,10 +8689,6 @@ operator||
 name|mode
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|p_uq
-condition|)
 name|free
 argument_list|(
 name|p_uq
@@ -8784,10 +8772,6 @@ argument_list|,
 name|p
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|p_uq
-condition|)
 name|free
 argument_list|(
 name|p_uq
@@ -10009,10 +9993,6 @@ name|sp
 operator|+=
 name|msglen
 expr_stmt|;
-if|if
-condition|(
-name|author
-condition|)
 name|free
 argument_list|(
 name|author
