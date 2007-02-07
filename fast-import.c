@@ -4533,6 +4533,10 @@ index|[
 name|type
 index|]
 argument_list|,
+operator|(
+name|unsigned
+name|long
+operator|)
 name|datlen
 argument_list|)
 operator|+
@@ -8227,9 +8231,15 @@ name|die
 argument_list|(
 literal|"EOF in data (%lu bytes remaining)"
 argument_list|,
+call|(
+name|unsigned
+name|long
+call|)
+argument_list|(
 name|length
 operator|-
 name|n
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|n
@@ -12083,9 +12093,15 @@ name|stderr
 argument_list|,
 literal|"       pools:    %10lu KiB\n"
 argument_list|,
+call|(
+name|unsigned
+name|long
+call|)
+argument_list|(
 name|total_allocd
 operator|/
 literal|1024
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fprintf
