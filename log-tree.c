@@ -1124,9 +1124,12 @@ operator|->
 name|commit_format
 operator|==
 name|CMIT_FMT_ONELINE
+argument_list|,
+name|opt
+operator|->
+name|relative_date
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 if|if
 condition|(
 name|opt
