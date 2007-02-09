@@ -1449,7 +1449,6 @@ block|}
 end_function
 begin_function
 DECL|function|dwim_log
-specifier|static
 name|int
 name|dwim_log
 parameter_list|(
