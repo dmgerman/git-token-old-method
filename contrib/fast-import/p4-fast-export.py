@@ -41,7 +41,7 @@ nl|'\n'
 DECL|variable|branch
 name|'branch'
 op|'='
-string|'"refs/heads/p4"'
+string|'"refs/heads/master"'
 newline|'\n'
 name|'prefix'
 op|'='
