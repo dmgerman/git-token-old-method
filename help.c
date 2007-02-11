@@ -922,7 +922,7 @@ control|)
 block|{
 name|printf
 argument_list|(
-literal|"    %s"
+literal|"   %s   "
 argument_list|,
 name|common_cmds
 index|[
@@ -947,8 +947,6 @@ index|]
 operator|.
 name|name
 argument_list|)
-operator|+
-literal|4
 argument_list|)
 expr_stmt|;
 name|puts
