@@ -1077,6 +1077,40 @@ name|lc_a
 decl_stmt|,
 name|lc_b
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|name_a_tab
+decl_stmt|,
+modifier|*
+name|name_b_tab
+decl_stmt|;
+name|name_a_tab
+operator|=
+name|strchr
+argument_list|(
+name|name_a
+argument_list|,
+literal|' '
+argument_list|)
+condition|?
+literal|"\t"
+else|:
+literal|""
+expr_stmt|;
+name|name_b_tab
+operator|=
+name|strchr
+argument_list|(
+name|name_b
+argument_list|,
+literal|' '
+argument_list|)
+condition|?
+literal|"\t"
+else|:
+literal|""
+expr_stmt|;
 name|diff_populate_filespec
 argument_list|(
 name|one
@@ -1119,11 +1153,15 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"--- a/%s\n+++ b/%s\n@@ -"
+literal|"--- a/%s%s\n+++ b/%s%s\n@@ -"
 argument_list|,
 name|name_a
 argument_list|,
+name|name_a_tab
+argument_list|,
 name|name_b
+argument_list|,
+name|name_b_tab
 argument_list|)
 expr_stmt|;
 name|print_line_count
@@ -2749,9 +2787,53 @@ literal|0
 index|]
 condition|)
 block|{
+specifier|const
+name|char
+modifier|*
+name|name_a_tab
+decl_stmt|,
+modifier|*
+name|name_b_tab
+decl_stmt|;
+name|name_a_tab
+operator|=
+name|strchr
+argument_list|(
+name|ecbdata
+operator|->
+name|label_path
+index|[
+literal|0
+index|]
+argument_list|,
+literal|' '
+argument_list|)
+condition|?
+literal|"\t"
+else|:
+literal|""
+expr_stmt|;
+name|name_b_tab
+operator|=
+name|strchr
+argument_list|(
+name|ecbdata
+operator|->
+name|label_path
+index|[
+literal|1
+index|]
+argument_list|,
+literal|' '
+argument_list|)
+condition|?
+literal|"\t"
+else|:
+literal|""
+expr_stmt|;
 name|printf
 argument_list|(
-literal|"%s--- %s%s\n"
+literal|"%s--- %s%s%s\n"
 argument_list|,
 name|set
 argument_list|,
@@ -2763,11 +2845,13 @@ literal|0
 index|]
 argument_list|,
 name|reset
+argument_list|,
+name|name_a_tab
 argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"%s+++ %s%s\n"
+literal|"%s+++ %s%s%s\n"
 argument_list|,
 name|set
 argument_list|,
@@ -2779,6 +2863,8 @@ literal|1
 index|]
 argument_list|,
 name|reset
+argument_list|,
+name|name_b_tab
 argument_list|)
 expr_stmt|;
 name|ecbdata
