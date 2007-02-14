@@ -1119,9 +1119,12 @@ name|in_merge_bases
 argument_list|(
 name|old
 argument_list|,
+operator|&
 name|cb
 operator|->
 name|ref_commit
+argument_list|,
+literal|1
 argument_list|)
 operator|)
 operator|||
@@ -1133,9 +1136,12 @@ name|in_merge_bases
 argument_list|(
 name|new
 argument_list|,
+operator|&
 name|cb
 operator|->
 name|ref_commit
+argument_list|,
+literal|1
 argument_list|)
 operator|)
 condition|)
