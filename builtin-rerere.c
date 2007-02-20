@@ -678,15 +678,12 @@ block|{
 if|if
 condition|(
 operator|!
-operator|(
-operator|-
 name|prefixcmp
 argument_list|(
 name|buf
 argument_list|,
 literal|"<<<<<<< "
 argument_list|)
-operator|)
 condition|)
 name|hunk
 operator|=
@@ -696,15 +693,12 @@ elseif|else
 if|if
 condition|(
 operator|!
-operator|(
-operator|-
 name|prefixcmp
 argument_list|(
 name|buf
 argument_list|,
 literal|"======="
 argument_list|)
-operator|)
 condition|)
 name|hunk
 operator|=
@@ -714,15 +708,12 @@ elseif|else
 if|if
 condition|(
 operator|!
-operator|(
-operator|-
 name|prefixcmp
 argument_list|(
 name|buf
 argument_list|,
 literal|">>>>>>> "
 argument_list|)
-operator|)
 condition|)
 block|{
 name|hunk_no

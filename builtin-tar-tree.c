@@ -114,8 +114,6 @@ operator|<=
 name|argc
 operator|&&
 operator|!
-operator|(
-operator|-
 name|prefixcmp
 argument_list|(
 name|argv
@@ -125,7 +123,6 @@ index|]
 argument_list|,
 literal|"--remote="
 argument_list|)
-operator|)
 condition|)
 block|{
 name|nargv

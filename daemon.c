@@ -2554,15 +2554,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-operator|(
-operator|-
 name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"git-"
 argument_list|)
-operator|)
 operator|&&
 operator|!
 name|strncmp
