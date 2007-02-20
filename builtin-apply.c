@@ -10848,6 +10848,9 @@ name|struct
 name|patch
 modifier|*
 name|patch
+parameter_list|,
+name|int
+name|rmdir_empty
 parameter_list|)
 block|{
 if|if
@@ -10900,6 +10903,8 @@ name|patch
 operator|->
 name|old_name
 argument_list|)
+operator|&&
+name|rmdir_empty
 condition|)
 block|{
 name|char
@@ -11629,6 +11634,8 @@ condition|)
 name|remove_file
 argument_list|(
 name|patch
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11669,6 +11676,8 @@ condition|)
 name|remove_file
 argument_list|(
 name|patch
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
