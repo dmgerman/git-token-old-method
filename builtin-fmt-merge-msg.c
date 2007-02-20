@@ -489,15 +489,13 @@ return|;
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|line
 operator|+
 literal|41
 argument_list|,
 literal|"not-for-merge"
-argument_list|,
-literal|13
 argument_list|)
 condition|)
 return|return
@@ -693,13 +691,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"branch "
-argument_list|,
-literal|7
 argument_list|)
 condition|)
 block|{
@@ -735,13 +731,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"tag "
-argument_list|,
-literal|4
 argument_list|)
 condition|)
 block|{
@@ -777,13 +771,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"remote branch "
-argument_list|,
-literal|14
 argument_list|)
 condition|)
 block|{
@@ -1772,13 +1764,11 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|current_branch
 argument_list|,
 literal|"refs/heads/"
-argument_list|,
-literal|11
 argument_list|)
 condition|)
 name|current_branch

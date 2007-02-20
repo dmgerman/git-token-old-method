@@ -60,13 +60,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|me
 argument_list|,
 literal|"git-"
-argument_list|,
-literal|4
 argument_list|)
 condition|)
 name|die
