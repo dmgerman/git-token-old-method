@@ -1917,13 +1917,11 @@ literal|"status.color."
 argument_list|)
 operator|||
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|k
 argument_list|,
 literal|"color.status."
-argument_list|,
-literal|13
 argument_list|)
 condition|)
 block|{
