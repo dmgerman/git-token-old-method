@@ -1065,9 +1065,11 @@ name|unsigned
 name|char
 operator|*
 operator|)
+operator|(
 name|parent
 operator|+
 name|i
+operator|)
 argument_list|,
 name|ent
 index|[
