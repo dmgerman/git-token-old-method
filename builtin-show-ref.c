@@ -1222,6 +1222,22 @@ condition|(
 name|verify
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|pattern
+condition|)
+name|die
+argument_list|(
+literal|"--verify requires a reference"
+argument_list|)
+expr_stmt|;
+while|while
+condition|(
+operator|*
+name|pattern
+condition|)
+block|{
 name|unsigned
 name|char
 name|sha1
@@ -1229,12 +1245,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-while|while
-condition|(
-operator|*
-name|pattern
-condition|)
-block|{
 if|if
 condition|(
 operator|!
