@@ -62,7 +62,7 @@ name|char
 name|upload_pack_usage
 index|[]
 init|=
-literal|"git-upload-pack [--strict] [--timeout=nn] [--no-progress]<dir>"
+literal|"git-upload-pack [--strict] [--timeout=nn]<dir>"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -2927,6 +2927,21 @@ name|use_sideband
 operator|=
 name|DEFAULT_PACKET_MAX
 expr_stmt|;
+if|if
+condition|(
+name|strstr
+argument_list|(
+name|line
+operator|+
+literal|45
+argument_list|,
+literal|"no-progress"
+argument_list|)
+condition|)
+name|no_progress
+operator|=
+literal|1
+expr_stmt|;
 comment|/* We have sent all our refs already, and the other end 		 * should have chosen out of them; otherwise they are 		 * asking for nonsense. 		 * 		 * Hmph.  We may later want to allow "want" line that 		 * asks for something like "master~10" (symbolic)... 		 * would it make sense?  I don't know. 		 */
 name|o
 operator|=
@@ -3331,7 +3346,7 @@ modifier|*
 name|capabilities
 init|=
 literal|"multi_ack thin-pack side-band"
-literal|" side-band-64k ofs-delta shallow"
+literal|" side-band-64k ofs-delta shallow no-progress"
 decl_stmt|;
 name|struct
 name|object
@@ -3610,23 +3625,6 @@ name|arg
 operator|+
 literal|10
 argument_list|)
-expr_stmt|;
-continue|continue;
-block|}
-if|if
-condition|(
-operator|!
-name|strcmp
-argument_list|(
-name|arg
-argument_list|,
-literal|"--no-progress"
-argument_list|)
-condition|)
-block|{
-name|no_progress
-operator|=
-literal|1
 expr_stmt|;
 continue|continue;
 block|}
