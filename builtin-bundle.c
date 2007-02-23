@@ -1700,7 +1700,7 @@ argument_list|(
 operator|(
 name|argc
 operator|+
-literal|3
+literal|4
 operator|)
 operator|*
 sizeof|sizeof
@@ -1807,7 +1807,7 @@ name|memcpy
 argument_list|(
 name|argv_boundary
 operator|+
-literal|2
+literal|3
 argument_list|,
 name|argv
 operator|+
@@ -1839,9 +1839,16 @@ literal|"--boundary"
 expr_stmt|;
 name|argv_boundary
 index|[
+literal|2
+index|]
+operator|=
+literal|"--pretty=oneline"
+expr_stmt|;
+name|argv_boundary
+index|[
 name|argc
 operator|+
-literal|1
+literal|2
 index|]
 operator|=
 name|NULL
