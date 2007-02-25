@@ -229,7 +229,7 @@ name|error
 argument_list|(
 literal|"Could not access '%s'"
 argument_list|,
-name|name1
+name|name2
 argument_list|)
 return|;
 name|mode2
