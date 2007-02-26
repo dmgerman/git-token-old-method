@@ -3633,7 +3633,7 @@ name|st_mode
 argument_list|)
 condition|)
 block|{
-name|int
+name|size_t
 name|len
 init|=
 name|st
@@ -3732,14 +3732,14 @@ name|st
 argument_list|)
 condition|)
 block|{
-name|int
+name|size_t
 name|len
 init|=
 name|st
 operator|.
 name|st_size
 decl_stmt|;
-name|int
+name|size_t
 name|sz
 init|=
 literal|0
