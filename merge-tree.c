@@ -282,11 +282,9 @@ modifier|*
 name|size
 parameter_list|)
 block|{
-name|char
+name|enum
+name|object_type
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 name|struct
 name|blob
@@ -317,6 +315,7 @@ name|object
 operator|.
 name|sha1
 argument_list|,
+operator|&
 name|type
 argument_list|,
 name|size
@@ -422,11 +421,9 @@ modifier|*
 name|size
 parameter_list|)
 block|{
-name|char
+name|enum
+name|object_type
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 while|while
 condition|(
@@ -452,6 +449,7 @@ name|object
 operator|.
 name|sha1
 argument_list|,
+operator|&
 name|type
 argument_list|,
 name|size

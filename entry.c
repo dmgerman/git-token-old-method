@@ -473,11 +473,9 @@ decl_stmt|;
 name|long
 name|wrote
 decl_stmt|;
-name|char
+name|enum
+name|object_type
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 name|new
 operator|=
@@ -487,6 +485,7 @@ name|ce
 operator|->
 name|sha1
 argument_list|,
+operator|&
 name|type
 argument_list|,
 operator|&
@@ -498,12 +497,9 @@ condition|(
 operator|!
 name|new
 operator|||
-name|strcmp
-argument_list|(
 name|type
-argument_list|,
-name|blob_type
-argument_list|)
+operator|!=
+name|OBJ_BLOB
 condition|)
 block|{
 if|if

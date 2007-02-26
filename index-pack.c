@@ -3420,15 +3420,9 @@ name|unsigned
 name|long
 name|size
 decl_stmt|;
-name|char
-name|type
-index|[
-literal|10
-index|]
-decl_stmt|;
 name|enum
 name|object_type
-name|obj_type
+name|type
 decl_stmt|;
 name|int
 name|j
@@ -3461,6 +3455,7 @@ name|base
 operator|.
 name|sha1
 argument_list|,
+operator|&
 name|type
 argument_list|,
 operator|&
@@ -3473,13 +3468,6 @@ operator|!
 name|data
 condition|)
 continue|continue;
-name|obj_type
-operator|=
-name|type_from_string
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
 name|find_delta_children
 argument_list|(
 operator|&
@@ -3538,7 +3526,7 @@ name|data
 argument_list|,
 name|size
 argument_list|,
-name|obj_type
+name|type
 argument_list|)
 expr_stmt|;
 block|}
@@ -3548,7 +3536,7 @@ name|data
 argument_list|,
 name|size
 argument_list|,
-name|obj_type
+name|type
 argument_list|)
 expr_stmt|;
 name|free
