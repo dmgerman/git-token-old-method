@@ -8071,7 +8071,7 @@ decl_stmt|;
 name|char
 name|hdr
 index|[
-literal|128
+literal|32
 index|]
 decl_stmt|;
 name|map
@@ -9016,7 +9016,6 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
-name|unsigned
 name|char
 modifier|*
 name|hdr
@@ -9035,10 +9034,6 @@ name|hdrlen
 operator|=
 name|sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|hdr
 argument_list|,
 literal|"%s %lu"
@@ -9459,7 +9454,7 @@ block|{
 name|int
 name|obj_type
 decl_stmt|,
-name|hdr
+name|hdrlen
 decl_stmt|;
 if|if
 condition|(
@@ -9548,7 +9543,7 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-name|hdr
+name|hdrlen
 operator|=
 name|write_binary_header
 argument_list|(
@@ -9565,19 +9560,19 @@ name|stream
 operator|->
 name|total_out
 operator|=
-name|hdr
+name|hdrlen
 expr_stmt|;
 name|stream
 operator|->
 name|next_out
 operator|+=
-name|hdr
+name|hdrlen
 expr_stmt|;
 name|stream
 operator|->
 name|avail_out
 operator|-=
-name|hdr
+name|hdrlen
 expr_stmt|;
 block|}
 end_function
@@ -9605,11 +9600,10 @@ modifier|*
 name|sha1
 parameter_list|)
 block|{
-name|unsigned
 name|char
 name|hdr
 index|[
-literal|50
+literal|32
 index|]
 decl_stmt|;
 name|int
@@ -9689,11 +9683,10 @@ index|[
 name|PATH_MAX
 index|]
 decl_stmt|;
-name|unsigned
 name|char
 name|hdr
 index|[
-literal|50
+literal|32
 index|]
 decl_stmt|;
 name|int
@@ -9913,6 +9906,11 @@ name|stream
 operator|.
 name|next_in
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|*
+operator|)
 name|hdr
 expr_stmt|;
 name|stream
@@ -10061,7 +10059,7 @@ decl_stmt|;
 name|char
 name|hdr
 index|[
-literal|50
+literal|32
 index|]
 decl_stmt|;
 name|int
