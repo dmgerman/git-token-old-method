@@ -2014,13 +2014,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|arg
 argument_list|,
 literal|"--pack_header="
-argument_list|,
-literal|14
 argument_list|)
 condition|)
 block|{

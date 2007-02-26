@@ -76,6 +76,22 @@ directive|define
 name|MAX_PACK_ID
 value|((1<<PACK_ID_BITS)-1)
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PRIuMAX
+end_ifndef
+begin_define
+DECL|macro|PRIuMAX
+define|#
+directive|define
+name|PRIuMAX
+value|"llu"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 DECL|struct|object_entry
 struct|struct
@@ -1970,7 +1986,9 @@ name|oe
 condition|)
 name|die
 argument_list|(
-literal|"mark :%ju not declared"
+literal|"mark :%"
+name|PRIuMAX
+literal|" not declared"
 argument_list|,
 name|orig_idnum
 argument_list|)
@@ -7793,7 +7811,9 @@ name|fprintf
 argument_list|(
 name|f
 argument_list|,
-literal|":%ju %s\n"
+literal|":%"
+name|PRIuMAX
+literal|" %s\n"
 argument_list|,
 name|base
 operator|+
@@ -7914,15 +7934,13 @@ block|{
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"mark :"
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|6
+literal|"mark :"
 argument_list|)
 condition|)
 block|{
@@ -7973,15 +7991,13 @@ name|buffer
 decl_stmt|;
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"data "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|5
+literal|"data "
 argument_list|)
 condition|)
 name|die
@@ -7996,17 +8012,15 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"<<"
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 operator|+
 literal|5
 argument_list|,
-literal|2
+literal|"<<"
 argument_list|)
 condition|)
 block|{
@@ -9020,13 +9034,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"inline"
-argument_list|,
 name|p
 argument_list|,
-literal|6
+literal|"inline"
 argument_list|)
 condition|)
 block|{
@@ -9446,15 +9458,13 @@ name|s
 decl_stmt|;
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"from "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|5
+literal|"from "
 argument_list|)
 condition|)
 return|return;
@@ -9637,7 +9647,9 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%ju not a commit"
+literal|"Mark :%"
+name|PRIuMAX
+literal|" not a commit"
 argument_list|,
 name|idnum
 argument_list|)
@@ -9984,15 +9996,13 @@ expr_stmt|;
 while|while
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"merge "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|6
+literal|"merge "
 argument_list|)
 condition|)
 block|{
@@ -10085,7 +10095,9 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%ju not a commit"
+literal|"Mark :%"
+name|PRIuMAX
+literal|" not a commit"
 argument_list|,
 name|idnum
 argument_list|)
@@ -10251,15 +10263,13 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"author "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|7
+literal|"author "
 argument_list|)
 condition|)
 block|{
@@ -10281,15 +10291,13 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"committer "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|10
+literal|"committer "
 argument_list|)
 condition|)
 block|{
@@ -10385,15 +10393,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"M "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|2
+literal|"M "
 argument_list|)
 condition|)
 name|file_change_m
@@ -10405,15 +10411,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"D "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|2
+literal|"D "
 argument_list|)
 condition|)
 name|file_change_d
@@ -10840,15 +10844,13 @@ expr_stmt|;
 comment|/* from ... */
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"from "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|5
+literal|"from "
 argument_list|)
 condition|)
 name|die
@@ -10939,7 +10941,9 @@ name|OBJ_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"Mark :%ju not a commit"
+literal|"Mark :%"
+name|PRIuMAX
+literal|" not a commit"
 argument_list|,
 name|from_mark
 argument_list|)
@@ -11027,15 +11031,13 @@ expr_stmt|;
 comment|/* tagger ... */
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"tagger "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|7
+literal|"tagger "
 argument_list|)
 condition|)
 name|die
@@ -11463,13 +11465,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--date-format="
-argument_list|,
-literal|14
 argument_list|)
 condition|)
 block|{
@@ -11539,13 +11539,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--max-pack-size="
-argument_list|,
-literal|16
 argument_list|)
 condition|)
 name|max_packsize
@@ -11569,13 +11567,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--depth="
-argument_list|,
-literal|8
 argument_list|)
 condition|)
 name|max_depth
@@ -11595,13 +11591,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--active-branches="
-argument_list|,
-literal|18
 argument_list|)
 condition|)
 name|max_active_branches
@@ -11621,13 +11615,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--export-marks="
-argument_list|,
-literal|15
 argument_list|)
 condition|)
 name|mark_file
@@ -11640,13 +11632,11 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|a
 argument_list|,
 literal|"--export-pack-edges="
-argument_list|,
-literal|20
 argument_list|)
 condition|)
 block|{
@@ -11860,15 +11850,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"commit "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|7
+literal|"commit "
 argument_list|)
 condition|)
 name|cmd_new_commit
@@ -11878,15 +11866,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"tag "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|4
+literal|"tag "
 argument_list|)
 condition|)
 name|cmd_new_tag
@@ -11896,15 +11882,13 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"reset "
-argument_list|,
 name|command_buf
 operator|.
 name|buf
 argument_list|,
-literal|6
+literal|"reset "
 argument_list|)
 condition|)
 name|cmd_reset_branch
@@ -12044,7 +12028,9 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Alloc'd objects: %10ju\n"
+literal|"Alloc'd objects: %10"
+name|PRIuMAX
+literal|"\n"
 argument_list|,
 name|alloc_count
 argument_list|)
@@ -12053,7 +12039,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Total objects:   %10ju (%10ju duplicates                  )\n"
+literal|"Total objects:   %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" duplicates                  )\n"
 argument_list|,
 name|total_count
 argument_list|,
@@ -12064,7 +12054,13 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      blobs  :   %10ju (%10ju duplicates %10ju deltas)\n"
+literal|"      blobs  :   %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" duplicates %10"
+name|PRIuMAX
+literal|" deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -12086,7 +12082,13 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      trees  :   %10ju (%10ju duplicates %10ju deltas)\n"
+literal|"      trees  :   %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" duplicates %10"
+name|PRIuMAX
+literal|" deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -12108,7 +12110,13 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      commits:   %10ju (%10ju duplicates %10ju deltas)\n"
+literal|"      commits:   %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" duplicates %10"
+name|PRIuMAX
+literal|" deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -12130,7 +12138,13 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      tags   :   %10ju (%10ju duplicates %10ju deltas)\n"
+literal|"      tags   :   %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" duplicates %10"
+name|PRIuMAX
+literal|" deltas)\n"
 argument_list|,
 name|object_count_by_type
 index|[
@@ -12163,7 +12177,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"      marks:     %10ju (%10ju unique    )\n"
+literal|"      marks:     %10"
+name|PRIuMAX
+literal|" (%10"
+name|PRIuMAX
+literal|" unique    )\n"
 argument_list|,
 operator|(
 operator|(
@@ -12196,7 +12214,9 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Memory total:    %10ju KiB\n"
+literal|"Memory total:    %10"
+name|PRIuMAX
+literal|" KiB\n"
 argument_list|,
 operator|(
 name|total_allocd
@@ -12234,7 +12254,9 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"     objects:    %10ju KiB\n"
+literal|"     objects:    %10"
+name|PRIuMAX
+literal|" KiB\n"
 argument_list|,
 operator|(
 name|alloc_count

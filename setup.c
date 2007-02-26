@@ -1124,15 +1124,13 @@ expr_stmt|;
 name|inside_git_dir
 operator|=
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|cwd
 operator|+
 name|offset
 argument_list|,
 literal|".git/"
-argument_list|,
-literal|5
 argument_list|)
 expr_stmt|;
 return|return
