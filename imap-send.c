@@ -6801,13 +6801,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"From "
-argument_list|,
 name|p
 argument_list|,
-literal|5
+literal|"From "
 argument_list|)
 condition|)
 block|{
@@ -6924,13 +6922,11 @@ name|len
 operator|<
 literal|5
 operator|||
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|data
 argument_list|,
 literal|"From "
-argument_list|,
-literal|5
 argument_list|)
 condition|)
 return|return
@@ -7180,13 +7176,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"imap:"
-argument_list|,
 name|val
 argument_list|,
-literal|5
+literal|"imap:"
 argument_list|)
 condition|)
 name|val
@@ -7210,13 +7204,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"//"
-argument_list|,
 name|val
 argument_list|,
-literal|2
+literal|"//"
 argument_list|)
 condition|)
 name|val

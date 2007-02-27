@@ -1005,13 +1005,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"shallow "
-argument_list|,
 name|line
 argument_list|,
-literal|8
+literal|"shallow "
 argument_list|)
 condition|)
 block|{
@@ -1043,13 +1041,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"unshallow "
-argument_list|,
 name|line
 argument_list|,
-literal|10
+literal|"unshallow "
 argument_list|)
 condition|)
 block|{
@@ -1808,15 +1804,13 @@ operator|(
 operator|!
 name|depth
 operator|||
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|ref
 operator|->
 name|name
 argument_list|,
 literal|"refs/tags/"
-argument_list|,
-literal|10
 argument_list|)
 operator|)
 condition|)
@@ -3563,13 +3557,11 @@ block|{
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"--upload-pack="
-argument_list|,
 name|arg
 argument_list|,
-literal|14
+literal|"--upload-pack="
 argument_list|)
 condition|)
 block|{
@@ -3584,13 +3576,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"--exec="
-argument_list|,
 name|arg
 argument_list|,
-literal|7
+literal|"--exec="
 argument_list|)
 condition|)
 block|{
@@ -3709,13 +3699,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
-literal|"--depth="
-argument_list|,
 name|arg
 argument_list|,
-literal|8
+literal|"--depth="
 argument_list|)
 condition|)
 block|{
