@@ -244,9 +244,8 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
-specifier|const
-name|char
-modifier|*
+name|enum
+name|object_type
 name|expect
 parameter_list|)
 block|{
@@ -279,14 +278,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|expect
-operator|&&
 name|type
 operator|!=
-name|type_from_string
-argument_list|(
 name|expect
-argument_list|)
 condition|)
 name|die
 argument_list|(
@@ -297,7 +291,10 @@ argument_list|(
 name|sha1
 argument_list|)
 argument_list|,
+name|typename
+argument_list|(
 name|expect
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -522,7 +519,7 @@ name|check_valid
 argument_list|(
 name|tree_sha1
 argument_list|,
-name|tree_type
+name|OBJ_TREE
 argument_list|)
 expr_stmt|;
 for|for
@@ -620,7 +617,7 @@ index|[
 name|parents
 index|]
 argument_list|,
-name|commit_type
+name|OBJ_COMMIT
 argument_list|)
 expr_stmt|;
 if|if
