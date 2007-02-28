@@ -240,11 +240,9 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-name|char
+name|enum
+name|object_type
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 name|unsigned
 name|long
@@ -295,6 +293,7 @@ name|p
 argument_list|,
 name|offset
 argument_list|,
+operator|&
 name|type
 argument_list|,
 operator|&
@@ -335,7 +334,10 @@ name|data
 argument_list|,
 name|size
 argument_list|,
+name|typename
+argument_list|(
 name|type
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -449,11 +451,10 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+specifier|const
 name|char
+modifier|*
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 name|unsigned
 name|long
@@ -506,13 +507,13 @@ argument_list|(
 literal|"internal error pack-check find-pack-entry-one"
 argument_list|)
 expr_stmt|;
+name|type
+operator|=
 name|packed_object_info_detail
 argument_list|(
 name|p
 argument_list|,
 name|offset
-argument_list|,
-name|type
 argument_list|,
 operator|&
 name|size

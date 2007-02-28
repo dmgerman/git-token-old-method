@@ -636,11 +636,9 @@ name|char
 modifier|*
 name|blob
 decl_stmt|;
-name|char
+name|enum
+name|object_type
 name|type
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -671,6 +669,7 @@ name|read_sha1_file
 argument_list|(
 name|sha1
 argument_list|,
+operator|&
 name|type
 argument_list|,
 name|size
@@ -678,12 +677,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|strcmp
-argument_list|(
 name|type
-argument_list|,
-name|blob_type
-argument_list|)
+operator|!=
+name|OBJ_BLOB
 condition|)
 name|die
 argument_list|(
