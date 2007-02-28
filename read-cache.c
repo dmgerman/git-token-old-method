@@ -306,7 +306,7 @@ name|st
 argument_list|,
 literal|0
 argument_list|,
-name|NULL
+name|OBJ_BLOB
 argument_list|)
 condition|)
 name|match
