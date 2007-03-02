@@ -999,7 +999,15 @@ name|buffer
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|opt
+operator|->
+name|commit_format
+operator|!=
+name|CMIT_FMT_USERFORMAT
+condition|)
 block|{
 name|fputs
 argument_list|(
