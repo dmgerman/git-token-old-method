@@ -5586,8 +5586,13 @@ operator|-
 literal|1
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|NO_SYMLINK_HEAD
 name|done
 label|:
+endif|#
+directive|endif
 if|if
 condition|(
 name|logmsg
