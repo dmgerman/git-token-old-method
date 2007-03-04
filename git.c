@@ -1260,6 +1260,8 @@ block|{
 literal|"archive"
 block|,
 name|cmd_archive
+block|,
+name|RUN_SETUP
 block|}
 block|,
 block|{
