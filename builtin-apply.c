@@ -11547,6 +11547,8 @@ name|nsize
 decl_stmt|;
 if|if
 condition|(
+name|has_symlinks
+operator|&&
 name|S_ISLNK
 argument_list|(
 name|mode

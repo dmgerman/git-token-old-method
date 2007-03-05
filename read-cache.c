@@ -624,8 +624,8 @@ break|break;
 case|case
 name|S_IFLNK
 case|:
-name|changed
-operator||=
+if|if
+condition|(
 operator|!
 name|S_ISLNK
 argument_list|(
@@ -633,10 +633,22 @@ name|st
 operator|->
 name|st_mode
 argument_list|)
-condition|?
+operator|&&
+operator|(
+name|has_symlinks
+operator|||
+operator|!
+name|S_ISREG
+argument_list|(
+name|st
+operator|->
+name|st_mode
+argument_list|)
+operator|)
+condition|)
+name|changed
+operator||=
 name|TYPE_CHANGED
-else|:
-literal|0
 expr_stmt|;
 break|break;
 default|default:
@@ -1656,6 +1668,8 @@ expr_stmt|;
 if|if
 condition|(
 name|trust_executable_bit
+operator|&&
+name|has_symlinks
 condition|)
 name|ce
 operator|->
@@ -1670,7 +1684,7 @@ argument_list|)
 expr_stmt|;
 else|else
 block|{
-comment|/* If there is an existing entry, pick the mode bits 		 * from it, otherwise assume unexecutable. 		 */
+comment|/* If there is an existing entry, pick the mode bits and type 		 * from it, otherwise assume unexecutable regular file. 		 */
 name|struct
 name|cache_entry
 modifier|*
