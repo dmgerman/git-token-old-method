@@ -57,10 +57,10 @@ name|BOUNDARY
 value|(1u<<5)
 end_define
 begin_define
-DECL|macro|BOUNDARY_SHOW
+DECL|macro|CHILD_SHOWN
 define|#
 directive|define
-name|BOUNDARY_SHOW
+name|CHILD_SHOWN
 value|(1u<<6)
 end_define
 begin_define
@@ -80,13 +80,6 @@ define|#
 directive|define
 name|SYMMETRIC_LEFT
 value|(1u<<8)
-end_define
-begin_define
-DECL|macro|CHILD_SHOWN
-define|#
-directive|define
-name|CHILD_SHOWN
-value|(1u<<9)
 end_define
 begin_struct_decl
 struct_decl|struct

@@ -959,6 +959,13 @@ name|pid
 return|;
 block|}
 end_function
+begin_define
+DECL|macro|PREREQ_MARK
+define|#
+directive|define
+name|PREREQ_MARK
+value|(1u<<16)
+end_define
 begin_function
 DECL|function|verify_bundle
 specifier|static
@@ -1079,7 +1086,7 @@ name|o
 operator|->
 name|flags
 operator||=
-name|BOUNDARY_SHOW
+name|PREREQ_MARK
 expr_stmt|;
 name|add_pending_object
 argument_list|(
@@ -1249,7 +1256,7 @@ name|object
 operator|.
 name|flags
 operator|&
-name|BOUNDARY_SHOW
+name|PREREQ_MARK
 condition|)
 name|i
 operator|--
