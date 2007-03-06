@@ -6537,11 +6537,11 @@ name|i
 operator|=
 name|j
 init|;
-name|j
+name|i
 operator|<
 name|nr
 condition|;
-name|j
+name|i
 operator|++
 control|)
 name|objects
