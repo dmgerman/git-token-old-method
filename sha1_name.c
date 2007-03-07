@@ -476,7 +476,7 @@ operator|->
 name|next
 control|)
 block|{
-name|unsigned
+name|uint32_t
 name|num
 init|=
 name|num_packed_objects
@@ -484,7 +484,7 @@ argument_list|(
 name|p
 argument_list|)
 decl_stmt|;
-name|unsigned
+name|uint32_t
 name|first
 init|=
 literal|0
@@ -500,7 +500,7 @@ operator|<
 name|last
 condition|)
 block|{
-name|unsigned
+name|uint32_t
 name|mid
 init|=
 operator|(

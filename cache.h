@@ -3224,7 +3224,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+name|uint32_t
 name|num_packed_objects
 parameter_list|(
 specifier|const
@@ -3245,7 +3245,7 @@ name|struct
 name|packed_git
 modifier|*
 parameter_list|,
-name|int
+name|uint32_t
 parameter_list|,
 name|unsigned
 name|char
