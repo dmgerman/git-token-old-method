@@ -265,7 +265,7 @@ DECL|variable|nr_objects
 DECL|variable|nr_alloc
 DECL|variable|nr_result
 specifier|static
-name|int
+name|uint32_t
 name|nr_objects
 decl_stmt|,
 name|nr_alloc
@@ -413,29 +413,21 @@ comment|/*  * stats  */
 end_comment
 begin_decl_stmt
 DECL|variable|written
-specifier|static
-name|int
-name|written
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|written_delta
 specifier|static
-name|int
+name|uint32_t
+name|written
+decl_stmt|,
 name|written_delta
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|reused
-specifier|static
-name|int
-name|reused
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|reused_delta
 specifier|static
-name|int
+name|uint32_t
+name|reused
+decl_stmt|,
 name|reused_delta
 decl_stmt|;
 end_decl_stmt
@@ -2720,7 +2712,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 name|struct
@@ -2791,7 +2783,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Writing %d objects.\n"
+literal|"Writing %u objects.\n"
 argument_list|,
 name|nr_result
 argument_list|)
@@ -2946,7 +2938,7 @@ name|nr_result
 condition|)
 name|die
 argument_list|(
-literal|"wrote %d objects while expecting %d"
+literal|"wrote %u objects while expecting %u"
 argument_list|,
 name|written
 argument_list|,
@@ -2973,7 +2965,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 name|struct
@@ -3339,7 +3331,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 name|struct
@@ -3530,8 +3522,7 @@ name|int
 name|exclude
 parameter_list|)
 block|{
-name|unsigned
-name|int
+name|uint32_t
 name|idx
 init|=
 name|nr_objects
@@ -3663,10 +3654,8 @@ operator|>=
 name|nr_alloc
 condition|)
 block|{
-name|unsigned
-name|int
-name|needed
-init|=
+name|nr_alloc
+operator|=
 operator|(
 name|idx
 operator|+
@@ -3676,14 +3665,14 @@ operator|*
 literal|3
 operator|/
 literal|2
-decl_stmt|;
+expr_stmt|;
 name|objects
 operator|=
 name|xrealloc
 argument_list|(
 name|objects
 argument_list|,
-name|needed
+name|nr_alloc
 operator|*
 sizeof|sizeof
 argument_list|(
@@ -3691,10 +3680,6 @@ operator|*
 name|entry
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|nr_alloc
-operator|=
-name|needed
 expr_stmt|;
 block|}
 name|entry
@@ -3800,7 +3785,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Counting objects...%d\r"
+literal|"Counting objects...%u\r"
 argument_list|,
 name|nr_objects
 argument_list|)
@@ -5562,7 +5547,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 name|struct
@@ -5765,7 +5750,7 @@ operator|*
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 for|for
@@ -5866,7 +5851,7 @@ modifier|*
 modifier|*
 name|list
 decl_stmt|;
-name|int
+name|uint32_t
 name|i
 decl_stmt|,
 name|j
@@ -6613,10 +6598,18 @@ name|int
 name|depth
 parameter_list|)
 block|{
-name|int
+name|uint32_t
 name|i
+init|=
+name|nr_objects
 decl_stmt|,
 name|idx
+init|=
+literal|0
+decl_stmt|,
+name|processed
+init|=
+literal|0
 decl_stmt|;
 name|unsigned
 name|int
@@ -6634,22 +6627,25 @@ name|struct
 name|unpacked
 modifier|*
 name|array
-init|=
-name|xmalloc
-argument_list|(
-name|array_size
-argument_list|)
-decl_stmt|;
-name|unsigned
-name|processed
-init|=
-literal|0
 decl_stmt|;
 name|unsigned
 name|last_percent
 init|=
 literal|999
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|nr_objects
+condition|)
+return|return;
+name|array
+operator|=
+name|xmalloc
+argument_list|(
+name|array_size
+argument_list|)
+expr_stmt|;
 name|memset
 argument_list|(
 name|array
@@ -6659,14 +6655,6 @@ argument_list|,
 name|array_size
 argument_list|)
 expr_stmt|;
-name|i
-operator|=
-name|nr_objects
-expr_stmt|;
-name|idx
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|progress
@@ -6675,18 +6663,12 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Deltifying %d objects.\n"
+literal|"Deltifying %u objects.\n"
 argument_list|,
 name|nr_result
 argument_list|)
 expr_stmt|;
-while|while
-condition|(
-operator|--
-name|i
-operator|>=
-literal|0
-condition|)
+do|do
 block|{
 name|struct
 name|object_entry
@@ -6695,6 +6677,7 @@ name|entry
 init|=
 name|list
 index|[
+operator|--
 name|i
 index|]
 decl_stmt|;
@@ -6827,8 +6810,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|unsigned
-name|int
+name|uint32_t
 name|other_idx
 init|=
 name|idx
@@ -6907,6 +6889,13 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+do|while
+condition|(
+name|i
+operator|>
+literal|0
+condition|)
+do|;
 if|if
 condition|(
 name|progress
@@ -7125,7 +7114,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Reusing %d objects pack %s\n"
+literal|"Reusing %u objects pack %s\n"
 argument_list|,
 name|nr_objects
 argument_list|,
@@ -8002,7 +7991,7 @@ name|thin
 init|=
 literal|0
 decl_stmt|;
-name|int
+name|uint32_t
 name|i
 decl_stmt|;
 specifier|const
@@ -8564,7 +8553,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Done counting %d objects.\n"
+literal|"Done counting %u objects.\n"
 argument_list|,
 name|nr_objects
 argument_list|)
@@ -8652,7 +8641,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Result has %d objects.\n"
+literal|"Result has %u objects.\n"
 argument_list|,
 name|nr_result
 argument_list|)
@@ -8750,7 +8739,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Total %d (delta %d), reused %d (delta %d)\n"
+literal|"Total %u (delta %u), reused %u (delta %u)\n"
 argument_list|,
 name|written
 argument_list|,
