@@ -879,6 +879,11 @@ return|;
 comment|/* error but caught downstream */
 name|delta_limit
 operator|=
+call|(
+name|unsigned
+name|long
+call|)
+argument_list|(
 name|base_size
 operator|*
 operator|(
@@ -888,6 +893,7 @@ name|minimum_score
 operator|)
 operator|/
 name|MAX_SCORE
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -947,11 +953,16 @@ comment|/* should not happen */
 else|else
 name|score
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|src_copied
 operator|*
 name|MAX_SCORE
 operator|/
 name|max_size
+argument_list|)
 expr_stmt|;
 return|return
 name|score
@@ -1612,6 +1623,9 @@ name|i
 argument_list|,
 name|j
 argument_list|,
+operator|(
+name|int
+operator|)
 name|MAX_SCORE
 argument_list|)
 expr_stmt|;

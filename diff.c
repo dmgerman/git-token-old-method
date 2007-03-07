@@ -8007,9 +8007,12 @@ name|s
 operator|->
 name|size
 operator|=
+name|xsize_t
+argument_list|(
 name|st
 operator|.
 name|st_size
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8663,6 +8666,16 @@ literal|1
 index|]
 decl_stmt|;
 comment|/* ought to be SYMLINK_MAX */
+name|size_t
+name|sz
+init|=
+name|xsize_t
+argument_list|(
+name|st
+operator|.
+name|st_size
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 sizeof|sizeof
@@ -8689,9 +8702,7 @@ name|name
 argument_list|,
 name|buf
 argument_list|,
-name|st
-operator|.
-name|st_size
+name|sz
 argument_list|)
 expr_stmt|;
 if|if
@@ -8713,9 +8724,7 @@ name|temp
 argument_list|,
 name|buf
 argument_list|,
-name|st
-operator|.
-name|st_size
+name|sz
 argument_list|,
 operator|(
 name|one
@@ -12199,6 +12208,10 @@ name|cp
 expr_stmt|;
 comment|/* user says num divided by scale and we say internally that 	 * is MAX_SCORE * num / scale. 	 */
 return|return
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|num
 operator|>=
@@ -12214,6 +12227,7 @@ name|num
 operator|/
 name|scale
 operator|)
+argument_list|)
 return|;
 block|}
 end_function

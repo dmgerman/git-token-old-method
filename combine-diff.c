@@ -3632,9 +3632,12 @@ block|{
 name|size_t
 name|len
 init|=
+name|xsize_t
+argument_list|(
 name|st
 operator|.
 name|st_size
+argument_list|)
 decl_stmt|;
 name|result_size
 operator|=
@@ -3731,9 +3734,12 @@ block|{
 name|size_t
 name|len
 init|=
+name|xsize_t
+argument_list|(
 name|st
 operator|.
 name|st_size
+argument_list|)
 decl_stmt|;
 name|size_t
 name|sz
