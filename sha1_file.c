@@ -6678,6 +6678,11 @@ literal|0
 condition|)
 block|{
 comment|/* TODO: find base_sha1 as pointed by curpos */
+name|hashclr
+argument_list|(
+name|base_sha1
+argument_list|)
+expr_stmt|;
 block|}
 break|break;
 case|case
