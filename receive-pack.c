@@ -1168,11 +1168,6 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-name|run_update_post_hook
-argument_list|(
-name|commands
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2366,6 +2361,11 @@ condition|)
 name|report
 argument_list|(
 name|unpack_status
+argument_list|)
+expr_stmt|;
+name|run_update_post_hook
+argument_list|(
+name|commands
 argument_list|)
 expr_stmt|;
 block|}
