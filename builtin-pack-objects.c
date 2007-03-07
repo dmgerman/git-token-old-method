@@ -100,8 +100,7 @@ name|size
 decl_stmt|;
 comment|/* uncompressed size */
 DECL|member|offset
-name|unsigned
-name|long
+name|off_t
 name|offset
 decl_stmt|;
 comment|/* offset into the final pack file; 				 * nonzero if already written. 				 */
@@ -161,8 +160,7 @@ name|in_pack
 decl_stmt|;
 comment|/* already in pack */
 DECL|member|in_pack_offset
-name|unsigned
-name|int
+name|off_t
 name|in_pack_offset
 decl_stmt|;
 DECL|member|delta_child
@@ -360,8 +358,7 @@ struct|struct
 name|revindex_entry
 block|{
 DECL|member|offset
-name|unsigned
-name|int
+name|off_t
 name|offset
 decl_stmt|;
 DECL|member|nr
@@ -882,8 +879,7 @@ name|packed_git
 modifier|*
 name|p
 parameter_list|,
-name|unsigned
-name|int
+name|off_t
 name|ofs
 parameter_list|)
 block|{
@@ -1034,8 +1030,7 @@ end_function
 begin_function
 DECL|function|find_packed_object_size
 specifier|static
-name|unsigned
-name|long
+name|off_t
 name|find_packed_object_size
 parameter_list|(
 name|struct
@@ -1043,8 +1038,7 @@ name|packed_git
 modifier|*
 name|p
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|ofs
 parameter_list|)
 block|{
@@ -1085,8 +1079,7 @@ name|packed_git
 modifier|*
 name|p
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|ofs
 parameter_list|)
 block|{
@@ -1372,12 +1365,10 @@ modifier|*
 modifier|*
 name|w_curs
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|offset
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|len
 parameter_list|,
 name|unsigned
@@ -1543,12 +1534,10 @@ modifier|*
 modifier|*
 name|w_curs
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|offset
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|len
 parameter_list|)
 block|{
@@ -1588,6 +1577,10 @@ name|len
 condition|)
 name|avail
 operator|=
+operator|(
+name|unsigned
+name|int
+operator|)
 name|len
 expr_stmt|;
 name|sha1write
@@ -1865,8 +1858,7 @@ end_function
 begin_function
 DECL|function|write_object
 specifier|static
-name|unsigned
-name|long
+name|off_t
 name|write_object
 parameter_list|(
 name|struct
@@ -1901,7 +1893,8 @@ index|]
 decl_stmt|;
 name|unsigned
 name|hdrlen
-decl_stmt|,
+decl_stmt|;
+name|off_t
 name|datalen
 decl_stmt|;
 name|enum
@@ -2220,8 +2213,7 @@ name|OBJ_OFS_DELTA
 condition|)
 block|{
 comment|/* 			 * Deltas with relative base contain an additional 			 * encoding of the relative offset for the delta 			 * base from this object's position in the pack. 			 */
-name|unsigned
-name|long
+name|off_t
 name|ofs
 init|=
 name|entry
@@ -2362,8 +2354,7 @@ name|w_curs
 init|=
 name|NULL
 decl_stmt|;
-name|unsigned
-name|long
+name|off_t
 name|offset
 decl_stmt|;
 if|if
@@ -2422,8 +2413,7 @@ operator|==
 name|OBJ_OFS_DELTA
 condition|)
 block|{
-name|unsigned
-name|long
+name|off_t
 name|ofs
 init|=
 name|entry
@@ -2632,8 +2622,7 @@ end_function
 begin_function
 DECL|function|write_one
 specifier|static
-name|unsigned
-name|long
+name|off_t
 name|write_one
 parameter_list|(
 name|struct
@@ -2646,8 +2635,7 @@ name|object_entry
 modifier|*
 name|e
 parameter_list|,
-name|unsigned
-name|long
+name|off_t
 name|offset
 parameter_list|)
 block|{
@@ -2720,8 +2708,7 @@ name|sha1file
 modifier|*
 name|f
 decl_stmt|;
-name|unsigned
-name|long
+name|off_t
 name|offset
 decl_stmt|;
 name|struct
@@ -3537,8 +3524,7 @@ name|packed_git
 modifier|*
 name|p
 decl_stmt|;
-name|unsigned
-name|int
+name|off_t
 name|found_offset
 init|=
 literal|0
@@ -3578,8 +3564,7 @@ operator|->
 name|next
 control|)
 block|{
-name|unsigned
-name|long
+name|off_t
 name|offset
 init|=
 name|find_pack_entry_one
@@ -5093,21 +5078,13 @@ name|NULL
 decl_stmt|;
 name|unsigned
 name|long
-name|left
-init|=
-name|p
-operator|->
-name|pack_size
-operator|-
-name|entry
-operator|->
-name|in_pack_offset
-decl_stmt|;
-name|unsigned
-name|long
 name|size
 decl_stmt|,
 name|used
+decl_stmt|;
+name|unsigned
+name|int
+name|avail
 decl_stmt|;
 name|unsigned
 name|char
@@ -5134,7 +5111,8 @@ name|entry
 operator|->
 name|in_pack_offset
 argument_list|,
-name|NULL
+operator|&
+name|avail
 argument_list|)
 expr_stmt|;
 comment|/* We want in_pack_type even if we do not reuse delta. 		 * There is no point not reusing non-delta representations. 		 */
@@ -5144,7 +5122,7 @@ name|unpack_object_header_gently
 argument_list|(
 name|buf
 argument_list|,
-name|left
+name|avail
 argument_list|,
 operator|&
 name|entry
@@ -5169,8 +5147,7 @@ decl_stmt|,
 modifier|*
 name|base_name
 decl_stmt|;
-name|unsigned
-name|long
+name|off_t
 name|ofs
 decl_stmt|;
 name|unsigned
