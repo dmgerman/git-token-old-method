@@ -27,8 +27,7 @@ modifier|*
 name|w_curs
 parameter_list|)
 block|{
-name|unsigned
-name|long
+name|off_t
 name|index_size
 init|=
 name|p
@@ -53,8 +52,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|unsigned
-name|long
+name|off_t
 name|offset
 init|=
 literal|0
@@ -122,9 +120,15 @@ name|pack_sig
 condition|)
 name|remaining
 operator|-=
+call|(
+name|unsigned
+name|int
+call|)
+argument_list|(
 name|offset
 operator|-
 name|pack_sig
+argument_list|)
 expr_stmt|;
 name|SHA1_Update
 argument_list|(
@@ -250,7 +254,8 @@ decl_stmt|;
 name|unsigned
 name|long
 name|size
-decl_stmt|,
+decl_stmt|;
+name|off_t
 name|offset
 decl_stmt|;
 if|if
@@ -465,8 +470,7 @@ name|unsigned
 name|long
 name|store_size
 decl_stmt|;
-name|unsigned
-name|long
+name|off_t
 name|offset
 decl_stmt|;
 name|unsigned
@@ -545,12 +549,17 @@ name|delta_chain_length
 condition|)
 name|printf
 argument_list|(
-literal|"%-6s %lu %lu\n"
+literal|"%-6s %lu %"
+name|PRIuMAX
+literal|"\n"
 argument_list|,
 name|type
 argument_list|,
 name|size
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|offset
 argument_list|)
 expr_stmt|;
@@ -558,12 +567,17 @@ else|else
 block|{
 name|printf
 argument_list|(
-literal|"%-6s %lu %lu %u %s\n"
+literal|"%-6s %lu %"
+name|PRIuMAX
+literal|" %u %s\n"
 argument_list|,
 name|type
 argument_list|,
 name|size
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|offset
 argument_list|,
 name|delta_chain_length
@@ -668,8 +682,7 @@ name|int
 name|verbose
 parameter_list|)
 block|{
-name|unsigned
-name|long
+name|off_t
 name|index_size
 init|=
 name|p
@@ -715,9 +728,15 @@ name|ctx
 argument_list|,
 name|index_base
 argument_list|,
+call|(
+name|unsigned
+name|int
+call|)
+argument_list|(
 name|index_size
 operator|-
 literal|20
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SHA1_Final
