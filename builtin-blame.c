@@ -5957,11 +5957,13 @@ struct|struct
 name|commit_info
 block|{
 DECL|member|author
+specifier|const
 name|char
 modifier|*
 name|author
 decl_stmt|;
 DECL|member|author_mail
+specifier|const
 name|char
 modifier|*
 name|author_mail
@@ -5972,17 +5974,20 @@ name|long
 name|author_time
 decl_stmt|;
 DECL|member|author_tz
+specifier|const
 name|char
 modifier|*
 name|author_tz
 decl_stmt|;
 comment|/* filled only when asked for details */
 DECL|member|committer
+specifier|const
 name|char
 modifier|*
 name|committer
 decl_stmt|;
 DECL|member|committer_mail
+specifier|const
 name|char
 modifier|*
 name|committer_mail
@@ -5993,11 +5998,13 @@ name|long
 name|committer_time
 decl_stmt|;
 DECL|member|committer_tz
+specifier|const
 name|char
 modifier|*
 name|committer_tz
 decl_stmt|;
 DECL|member|summary
+specifier|const
 name|char
 modifier|*
 name|summary
@@ -6031,6 +6038,7 @@ name|char
 modifier|*
 name|person
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -6041,6 +6049,7 @@ name|long
 modifier|*
 name|time
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -6119,8 +6128,6 @@ block|{
 name|error_out
 label|:
 comment|/* Ugh */
-name|person
-operator|=
 operator|*
 name|mail
 operator|=
