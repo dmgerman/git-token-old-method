@@ -2460,6 +2460,8 @@ init|=
 block|{
 literal|"index-pack"
 block|,
+literal|"--fix-thin"
+block|,
 literal|"--stdin"
 block|,
 name|NULL
