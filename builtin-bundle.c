@@ -1706,6 +1706,10 @@ decl_stmt|,
 name|i
 decl_stmt|,
 name|status
+decl_stmt|,
+name|ref_count
+init|=
+literal|0
 decl_stmt|;
 name|char
 name|buffer
@@ -2162,7 +2166,8 @@ operator|&
 name|SHOWN
 operator|)
 condition|)
-name|die
+block|{
+name|warn
 argument_list|(
 literal|"ref '%s' is excluded by the rev-list options"
 argument_list|,
@@ -2170,6 +2175,11 @@ name|e
 operator|->
 name|name
 argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+name|ref_count
+operator|++
 expr_stmt|;
 name|write_or_die
 argument_list|(
@@ -2223,6 +2233,16 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|ref_count
+condition|)
+name|die
+argument_list|(
+literal|"Refusing to create empty bundle."
+argument_list|)
+expr_stmt|;
 comment|/* end header */
 name|write_or_die
 argument_list|(
