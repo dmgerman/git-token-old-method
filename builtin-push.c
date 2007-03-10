@@ -1898,9 +1898,11 @@ argument_list|)
 expr_stmt|;
 name|err
 operator|=
-name|run_command_v
+name|run_command_v_opt
 argument_list|(
 name|argv
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
