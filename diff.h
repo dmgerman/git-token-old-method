@@ -971,17 +971,6 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-specifier|extern
-name|void
-name|diffcore_std_no_resolve
-parameter_list|(
-name|struct
-name|diff_options
-modifier|*
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_define
 DECL|macro|COMMON_DIFF_OPTIONS_HELP
 define|#
