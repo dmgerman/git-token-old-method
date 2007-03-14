@@ -298,6 +298,16 @@ name|color_diff_words
 range|:
 literal|1
 decl_stmt|,
+DECL|member|has_changes
+name|has_changes
+range|:
+literal|1
+decl_stmt|,
+DECL|member|quiet
+name|quiet
+range|:
+literal|1
+decl_stmt|,
 DECL|member|exit_with_status
 name|exit_with_status
 range|:
@@ -362,11 +372,6 @@ decl_stmt|;
 DECL|member|xdl_opts
 name|long
 name|xdl_opts
-decl_stmt|;
-comment|/* 0 - no differences; only meaningful if exit_with_status set */
-DECL|member|has_changes
-name|int
-name|has_changes
 decl_stmt|;
 DECL|member|stat_width
 name|int
