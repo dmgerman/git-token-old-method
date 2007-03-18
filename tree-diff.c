@@ -999,6 +999,17 @@ if|if
 condition|(
 name|opt
 operator|->
+name|quiet
+operator|&&
+name|opt
+operator|->
+name|has_changes
+condition|)
+break|break;
+if|if
+condition|(
+name|opt
+operator|->
 name|nr_paths
 operator|&&
 name|t1
