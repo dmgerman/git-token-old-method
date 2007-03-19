@@ -103,6 +103,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|git_commit_encoding
+specifier|const
 name|char
 modifier|*
 name|git_commit_encoding
