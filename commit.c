@@ -3934,7 +3934,7 @@ argument_list|)
 condition|)
 name|out
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|commit
 operator|->
