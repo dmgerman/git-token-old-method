@@ -1931,6 +1931,7 @@ specifier|extern
 name|int
 name|hash_sha1_file
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|buf
