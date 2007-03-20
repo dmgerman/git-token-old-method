@@ -5920,10 +5920,11 @@ expr_stmt|;
 if|if
 condition|(
 name|bytes
-operator|<
+operator|<=
 name|size
 condition|)
 block|{
+comment|/* 		 * The above condition must be (bytes<= size), not 		 * (bytes< size).  In other words, even though we 		 * expect no more output and set avail_out to zer0, 		 * the input zlib stream may have bytes that express 		 * "this concludes the stream", and we *do* want to 		 * eat that input. 		 * 		 * Otherwise we would not be able to test that we 		 * consumed all the input to reach the expected size; 		 * we also want to check that zlib tells us that all 		 * went well with status == Z_STREAM_END at the end. 		 */
 name|stream
 operator|->
 name|next_out
@@ -5965,15 +5966,9 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|status
-operator|==
-name|Z_OK
-operator|||
 name|status
 operator|==
 name|Z_STREAM_END
-operator|)
 operator|&&
 operator|!
 name|stream
