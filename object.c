@@ -1009,7 +1009,8 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|printf
+block|{
+name|error
 argument_list|(
 literal|"sha1 mismatch %s\n"
 argument_list|,
@@ -1019,6 +1020,10 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|NULL
+return|;
+block|}
 name|obj
 operator|=
 name|parse_object_buffer
