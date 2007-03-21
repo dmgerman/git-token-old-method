@@ -517,6 +517,21 @@ name|char
 modifier|*
 name|newbase
 decl_stmt|;
+name|unsigned
+name|int
+name|pathlen
+init|=
+name|tree_entry_len
+argument_list|(
+name|entry
+operator|.
+name|path
+argument_list|,
+name|entry
+operator|.
+name|sha1
+argument_list|)
+decl_stmt|;
 name|newbase
 operator|=
 name|xmalloc
@@ -525,8 +540,6 @@ name|baselen
 operator|+
 literal|1
 operator|+
-name|entry
-operator|.
 name|pathlen
 argument_list|)
 expr_stmt|;
@@ -549,8 +562,6 @@ name|entry
 operator|.
 name|path
 argument_list|,
-name|entry
-operator|.
 name|pathlen
 argument_list|)
 expr_stmt|;
@@ -558,8 +569,6 @@ name|newbase
 index|[
 name|baselen
 operator|+
-name|entry
-operator|.
 name|pathlen
 index|]
 operator|=
@@ -580,8 +589,6 @@ name|newbase
 argument_list|,
 name|baselen
 operator|+
-name|entry
-operator|.
 name|pathlen
 operator|+
 literal|1
