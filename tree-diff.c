@@ -459,7 +459,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Is a tree entry interesting given the pathspec we have?  *  * Return:  *  - positive for yes  *  - zero for no  *  - negative for "no, and no subsequent entries will be either"  */
+comment|/*  * Is a tree entry interesting given the pathspec we have?  *  * Return:  *  - 2 for "yes, and all subsequent entries will be"  *  - 1 for yes  *  - zero for no  *  - negative for "no, and no subsequent entries will be either"  */
 end_comment
 begin_function
 DECL|function|tree_entry_interesting
@@ -609,9 +609,9 @@ name|matchlen
 argument_list|)
 condition|)
 continue|continue;
-comment|/* The base is a subdirectory of a path which was specified. */
+comment|/* 			 * The base is a subdirectory of a path which 			 * was specified, so all of them are interesting. 			 */
 return|return
-literal|1
+literal|2
 return|;
 block|}
 comment|/* Does the base match? */
@@ -776,6 +776,11 @@ name|int
 name|baselen
 parameter_list|)
 block|{
+name|int
+name|all_interesting
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|desc
@@ -785,7 +790,19 @@ condition|)
 block|{
 name|int
 name|show
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|all_interesting
+condition|)
+name|show
+operator|=
+literal|1
+expr_stmt|;
+else|else
+block|{
+name|show
+operator|=
 name|tree_entry_interesting
 argument_list|(
 name|desc
@@ -796,7 +813,18 @@ name|baselen
 argument_list|,
 name|opt
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|show
+operator|==
+literal|2
+condition|)
+name|all_interesting
+operator|=
+literal|1
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|show
@@ -1061,6 +1089,11 @@ modifier|*
 name|opt
 parameter_list|)
 block|{
+name|int
+name|all_interesting
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|t
@@ -1070,7 +1103,19 @@ condition|)
 block|{
 name|int
 name|show
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|all_interesting
+condition|)
+name|show
+operator|=
+literal|1
+expr_stmt|;
+else|else
+block|{
+name|show
+operator|=
 name|tree_entry_interesting
 argument_list|(
 name|t
@@ -1081,7 +1126,18 @@ name|baselen
 argument_list|,
 name|opt
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|show
+operator|==
+literal|2
+condition|)
+name|all_interesting
+operator|=
+literal|1
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
