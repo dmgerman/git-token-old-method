@@ -996,4 +996,11 @@ directive|define
 name|PATH_SEP
 value|';'
 end_define
+begin_define
+DECL|macro|PRIuMAX
+define|#
+directive|define
+name|PRIuMAX
+value|"I64u"
+end_define
 end_unit
