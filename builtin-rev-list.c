@@ -826,7 +826,8 @@ expr_stmt|;
 block|}
 name|closest
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 name|best
 operator|=
