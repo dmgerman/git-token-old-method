@@ -10657,7 +10657,7 @@ argument_list|(
 name|tmpfile
 argument_list|)
 argument_list|,
-literal|"%s/obj_XXXXXX"
+literal|"%s/tmp_obj_XXXXXX"
 argument_list|,
 name|get_object_directory
 argument_list|()
@@ -11304,7 +11304,7 @@ argument_list|(
 name|tmpfile
 argument_list|)
 argument_list|,
-literal|"%s/obj_XXXXXX"
+literal|"%s/tmp_obj_XXXXXX"
 argument_list|,
 name|get_object_directory
 argument_list|()
