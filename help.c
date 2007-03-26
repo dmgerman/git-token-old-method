@@ -254,7 +254,7 @@ expr_stmt|;
 block|}
 name|ent
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
