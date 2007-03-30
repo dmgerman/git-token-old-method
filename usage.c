@@ -449,9 +449,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|warn
+DECL|function|warning
 name|void
-name|warn
+name|warning
 parameter_list|(
 specifier|const
 name|char
