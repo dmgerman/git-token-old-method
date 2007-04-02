@@ -1536,9 +1536,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|add_file_to_index
+DECL|function|add_file_to_cache
 name|int
-name|add_file_to_index
+name|add_file_to_cache
 parameter_list|(
 specifier|const
 name|char
