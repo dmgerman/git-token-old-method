@@ -245,10 +245,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|add_file_to_cache
+DECL|function|process_file
 specifier|static
 name|int
-name|add_file_to_cache
+name|process_file
 parameter_list|(
 specifier|const
 name|char
@@ -1011,7 +1011,7 @@ goto|;
 block|}
 if|if
 condition|(
-name|add_file_to_cache
+name|process_file
 argument_list|(
 name|p
 argument_list|)
