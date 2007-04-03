@@ -2025,6 +2025,11 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|has_data
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
