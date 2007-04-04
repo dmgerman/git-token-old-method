@@ -3227,7 +3227,10 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+specifier|const
+name|unsigned
+name|char
+modifier|*
 name|nth_packed_object_sha1
 parameter_list|(
 specifier|const
@@ -3236,10 +3239,6 @@ name|packed_git
 modifier|*
 parameter_list|,
 name|uint32_t
-parameter_list|,
-name|unsigned
-name|char
-modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
