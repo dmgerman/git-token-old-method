@@ -1903,7 +1903,7 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-literal|1
+name|p_value
 argument_list|,
 name|TERM_TAB
 argument_list|)
@@ -1957,7 +1957,7 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-literal|1
+name|p_value
 argument_list|,
 name|TERM_TAB
 argument_list|)

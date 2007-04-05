@@ -1644,9 +1644,9 @@ name|request
 operator|->
 name|local_fileno
 argument_list|,
-name|SEEK_SET
-argument_list|,
 literal|0
+argument_list|,
+name|SEEK_SET
 argument_list|)
 expr_stmt|;
 name|ftruncate
