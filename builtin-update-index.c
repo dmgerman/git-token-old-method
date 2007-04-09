@@ -1105,6 +1105,10 @@ name|unsigned
 name|int
 name|mode
 decl_stmt|;
+name|unsigned
+name|long
+name|ul
+decl_stmt|;
 name|int
 name|stage
 decl_stmt|;
@@ -1126,7 +1130,11 @@ operator|.
 name|eof
 condition|)
 break|break;
-name|mode
+name|errno
+operator|=
+literal|0
+expr_stmt|;
+name|ul
 operator|=
 name|strtoul
 argument_list|(
@@ -1152,10 +1160,24 @@ operator|*
 name|ptr
 operator|!=
 literal|' '
+operator|||
+name|errno
+operator|||
+operator|(
+name|unsigned
+name|int
+operator|)
+name|ul
+operator|!=
+name|ul
 condition|)
 goto|goto
 name|bad_line
 goto|;
+name|mode
+operator|=
+name|ul
+expr_stmt|;
 name|tab
 operator|=
 name|strchr
@@ -2617,7 +2639,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|sscanf
+name|strtoul_ui
 argument_list|(
 name|argv
 index|[
@@ -2626,7 +2648,7 @@ operator|+
 literal|1
 index|]
 argument_list|,
-literal|"%o"
+literal|8
 argument_list|,
 operator|&
 name|mode
