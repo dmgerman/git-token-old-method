@@ -1656,6 +1656,8 @@ name|int
 name|i
 decl_stmt|,
 name|n
+decl_stmt|,
+name|errs
 decl_stmt|;
 name|int
 name|common_argc
@@ -1758,6 +1760,10 @@ expr_stmt|;
 name|common_argc
 operator|=
 name|argc
+expr_stmt|;
+name|errs
+operator|=
+literal|0
 expr_stmt|;
 for|for
 control|(
@@ -1911,6 +1917,16 @@ operator|!
 name|err
 condition|)
 continue|continue;
+name|error
+argument_list|(
+literal|"failed to push to '%s'"
+argument_list|,
+name|uri
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|err
@@ -1920,7 +1936,7 @@ case|case
 operator|-
 name|ERR_RUN_COMMAND_FORK
 case|:
-name|die
+name|error
 argument_list|(
 literal|"unable to fork for %s"
 argument_list|,
@@ -1931,13 +1947,14 @@ case|case
 operator|-
 name|ERR_RUN_COMMAND_EXEC
 case|:
-name|die
+name|error
 argument_list|(
 literal|"unable to exec %s"
 argument_list|,
 name|sender
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 operator|-
 name|ERR_RUN_COMMAND_WAITPID
@@ -1954,22 +1971,22 @@ case|case
 operator|-
 name|ERR_RUN_COMMAND_WAITPID_NOEXIT
 case|:
-name|die
+name|error
 argument_list|(
 literal|"%s died with strange error"
 argument_list|,
 name|sender
 argument_list|)
 expr_stmt|;
-default|default:
-return|return
-operator|-
-name|err
-return|;
 block|}
+name|errs
+operator|++
+expr_stmt|;
 block|}
 return|return
-literal|0
+operator|!
+operator|!
+name|errs
 return|;
 block|}
 end_function
