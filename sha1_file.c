@@ -3040,6 +3040,12 @@ name|index_size
 operator|=
 name|idx_size
 expr_stmt|;
+name|p
+operator|->
+name|num_objects
+operator|=
+name|nr
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -3663,10 +3669,9 @@ return|;
 comment|/* Verify the pack matches its index. */
 if|if
 condition|(
-name|num_packed_objects
-argument_list|(
 name|p
-argument_list|)
+operator|->
+name|num_objects
 operator|!=
 name|ntohl
 argument_list|(
@@ -3679,7 +3684,7 @@ return|return
 name|error
 argument_list|(
 literal|"packfile %s claims to have %u objects"
-literal|" while index size indicates %u objects"
+literal|" while index indicates %u objects"
 argument_list|,
 name|p
 operator|->
@@ -3692,10 +3697,9 @@ operator|.
 name|hdr_entries
 argument_list|)
 argument_list|,
-name|num_packed_objects
-argument_list|(
 name|p
-argument_list|)
+operator|->
+name|num_objects
 argument_list|)
 return|;
 if|if
@@ -8383,43 +8387,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|num_packed_objects
-name|uint32_t
-name|num_packed_objects
-parameter_list|(
-specifier|const
-name|struct
-name|packed_git
-modifier|*
-name|p
-parameter_list|)
-block|{
-comment|/* See check_packed_git_idx() */
-return|return
-call|(
-name|uint32_t
-call|)
-argument_list|(
-operator|(
-name|p
-operator|->
-name|index_size
-operator|-
-literal|20
-operator|-
-literal|20
-operator|-
-literal|4
-operator|*
-literal|256
-operator|)
-operator|/
-literal|24
-argument_list|)
-return|;
-block|}
-end_function
-begin_function
 DECL|function|nth_packed_object_sha1
 specifier|const
 name|unsigned
@@ -8455,12 +8422,11 @@ literal|256
 expr_stmt|;
 if|if
 condition|(
-name|num_packed_objects
-argument_list|(
-name|p
-argument_list|)
-operator|<=
 name|n
+operator|>=
+name|p
+operator|->
+name|num_objects
 condition|)
 return|return
 name|NULL
