@@ -2803,6 +2803,12 @@ literal|1
 expr_stmt|;
 name|revs
 operator|->
+name|subject_prefix
+operator|=
+literal|"PATCH"
+expr_stmt|;
+name|revs
+operator|->
 name|prune_fn
 operator|=
 name|NULL
