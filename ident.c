@@ -33,7 +33,7 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|int
+name|size_t
 name|sz
 parameter_list|)
 block|{
@@ -44,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|dst
 decl_stmt|;
-name|int
+name|size_t
 name|len
 decl_stmt|,
 name|nlen
@@ -198,7 +198,7 @@ name|pw
 parameter_list|)
 block|{
 comment|/* 	 * Make up a fake email address 	 * (name + '@' + hostname [+ '.' + domainname]) 	 */
-name|int
+name|size_t
 name|len
 init|=
 name|strlen
@@ -482,7 +482,7 @@ name|char
 modifier|*
 name|buf
 parameter_list|,
-name|int
+name|size_t
 name|size
 parameter_list|,
 name|int
@@ -494,7 +494,7 @@ modifier|*
 name|str
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|len
 init|=
 name|strlen
@@ -673,7 +673,7 @@ name|char
 modifier|*
 name|buf
 parameter_list|,
-name|int
+name|size_t
 name|size
 parameter_list|,
 name|int
@@ -685,7 +685,7 @@ modifier|*
 name|src
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|i
 decl_stmt|,
 name|len
