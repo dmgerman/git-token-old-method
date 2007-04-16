@@ -6691,7 +6691,7 @@ literal|1
 return|;
 return|return
 name|a
-operator|<
+operator|>
 name|b
 condition|?
 operator|-
@@ -6699,10 +6699,11 @@ literal|1
 else|:
 operator|(
 name|a
-operator|>
+operator|<
 name|b
 operator|)
 return|;
+comment|/* newest last */
 block|}
 end_function
 begin_struct
