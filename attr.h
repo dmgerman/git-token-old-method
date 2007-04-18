@@ -18,6 +18,9 @@ struct_decl|struct
 name|git_attr
 struct_decl|;
 end_struct_decl
+begin_comment
+comment|/*  * Given a string, return the gitattribute object that  * corresponds to it.  */
+end_comment
 begin_function_decl
 name|struct
 name|git_attr
@@ -35,27 +38,22 @@ end_function_decl
 begin_comment
 comment|/* Internal use */
 end_comment
-begin_define
-DECL|macro|ATTR__TRUE
-define|#
-directive|define
-name|ATTR__TRUE
-value|((void *) 1)
-end_define
-begin_define
-DECL|macro|ATTR__FALSE
-define|#
-directive|define
-name|ATTR__FALSE
-value|((void *) 0)
-end_define
-begin_define
-DECL|macro|ATTR__UNSET
-define|#
-directive|define
-name|ATTR__UNSET
-value|((void *) -1)
-end_define
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|char
+name|git_attr__true
+index|[]
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|char
+name|git_attr__false
+index|[]
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* For public to check git_attr_check results */
 end_comment
@@ -67,7 +65,7 @@ name|ATTR_TRUE
 parameter_list|(
 name|v
 parameter_list|)
-value|((v) == ATTR__TRUE)
+value|((v) == git_attr__true)
 end_define
 begin_define
 DECL|macro|ATTR_FALSE
@@ -77,7 +75,7 @@ name|ATTR_FALSE
 parameter_list|(
 name|v
 parameter_list|)
-value|((v) == ATTR__FALSE)
+value|((v) == git_attr__false)
 end_define
 begin_define
 DECL|macro|ATTR_UNSET
@@ -87,8 +85,11 @@ name|ATTR_UNSET
 parameter_list|(
 name|v
 parameter_list|)
-value|((v) == ATTR__UNSET)
+value|((v) == NULL)
 end_define
+begin_comment
+comment|/*  * Send one or more git_attr_check to git_checkattr(), and  * each 'value' member tells what its value is.  * Unset one is returned as NULL.  */
+end_comment
 begin_struct
 DECL|struct|git_attr_check
 struct|struct
@@ -101,7 +102,8 @@ modifier|*
 name|attr
 decl_stmt|;
 DECL|member|value
-name|void
+specifier|const
+name|char
 modifier|*
 name|value
 decl_stmt|;

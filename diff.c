@@ -6235,7 +6235,8 @@ name|attr_diff_check
 argument_list|)
 condition|)
 block|{
-name|void
+specifier|const
+name|char
 modifier|*
 name|value
 init|=
@@ -6278,10 +6279,6 @@ name|die
 argument_list|(
 literal|"unknown value %s given to 'diff' attribute"
 argument_list|,
-operator|(
-name|char
-operator|*
-operator|)
 name|value
 argument_list|)
 expr_stmt|;

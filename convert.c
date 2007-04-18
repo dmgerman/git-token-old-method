@@ -935,7 +935,8 @@ name|attr_crlf_check
 argument_list|)
 condition|)
 block|{
-name|void
+specifier|const
+name|char
 modifier|*
 name|value
 init|=
