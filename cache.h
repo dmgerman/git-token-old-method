@@ -1418,6 +1418,7 @@ specifier|const
 name|char
 modifier|*
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
