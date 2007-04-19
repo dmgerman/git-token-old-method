@@ -4410,6 +4410,23 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
+if|if
+condition|(
+name|fn
+operator|->
+name|cmdline
+operator|==
+name|NULL
+condition|)
+name|die
+argument_list|(
+literal|"custom merge driver %s lacks command line."
+argument_list|,
+name|fn
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 name|result
 operator|->
 name|ptr
@@ -4835,7 +4852,7 @@ operator|)
 operator|==
 name|var
 operator|+
-literal|6
+literal|5
 condition|)
 return|return
 literal|0
