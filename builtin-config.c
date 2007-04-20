@@ -17,7 +17,7 @@ name|char
 name|git_config_set_usage
 index|[]
 init|=
-literal|"git-config [ --global ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --add | --unset | --unset-all] name [value [value_regex]] | --rename-section old_name new_name | --remove-section name | --list"
+literal|"git-config [ --global | --system ] [ --bool | --int ] [--get | --get-all | --get-regexp | --replace-all | --add | --unset | --unset-all] name [value [value_regex]] | --rename-section old_name new_name | --remove-section name | --list"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
