@@ -149,9 +149,6 @@ return|return
 name|old
 return|;
 block|}
-name|j
-operator|++
-expr_stmt|;
 if|if
 condition|(
 operator|++
