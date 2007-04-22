@@ -1694,6 +1694,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|mode
+operator|!=
+name|S_IFDIRLNK
+operator|&&
 operator|!
 name|missing_ok
 operator|&&
