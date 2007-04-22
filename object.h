@@ -232,8 +232,10 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+specifier|extern
 name|void
-name|created_object
+modifier|*
+name|create_object
 parameter_list|(
 specifier|const
 name|unsigned
@@ -241,8 +243,10 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
-name|struct
-name|object
+name|int
+name|type
+parameter_list|,
+name|void
 modifier|*
 name|obj
 parameter_list|)
