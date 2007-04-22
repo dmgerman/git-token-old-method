@@ -414,7 +414,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/* 	 * Ok, allocate a new buffer, fill it in, and return true 	 * to let the caller know that we switched buffers on it. 	 */
+comment|/* 	 * Ok, allocate a new buffer, fill it in, and return it 	 * to let the caller know that we switched buffers. 	 */
 name|nsize
 operator|=
 name|size
@@ -503,7 +503,7 @@ operator|<
 name|size
 operator|&&
 operator|*
-name|buffer
+name|src
 operator|==
 literal|'\n'
 operator|)
@@ -685,7 +685,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/* 	 * Ok, allocate a new buffer, fill it in, and return true 	 * to let the caller know that we switched buffers on it. 	 */
+comment|/* 	 * Ok, allocate a new buffer, fill it in, and return it 	 * to let the caller know that we switched buffers. 	 */
 name|nsize
 operator|=
 name|size
