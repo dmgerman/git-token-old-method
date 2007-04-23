@@ -9326,7 +9326,7 @@ argument_list|)
 expr_stmt|;
 name|mode
 operator|=
-literal|0666
+literal|0444
 operator|&
 operator|~
 name|mode
