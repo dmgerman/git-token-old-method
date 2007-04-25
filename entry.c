@@ -20,6 +20,7 @@ name|char
 modifier|*
 name|path
 parameter_list|,
+specifier|const
 name|struct
 name|checkout
 modifier|*
@@ -538,6 +539,7 @@ name|char
 modifier|*
 name|path
 parameter_list|,
+specifier|const
 name|struct
 name|checkout
 modifier|*
@@ -1000,6 +1002,7 @@ name|cache_entry
 modifier|*
 name|ce
 parameter_list|,
+specifier|const
 name|struct
 name|checkout
 modifier|*

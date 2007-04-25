@@ -3023,6 +3023,7 @@ name|cache_entry
 modifier|*
 name|ce
 parameter_list|,
+specifier|const
 name|struct
 name|checkout
 modifier|*
