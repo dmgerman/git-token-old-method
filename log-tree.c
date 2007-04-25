@@ -1323,7 +1323,7 @@ name|CMIT_FMT_ONELINE
 argument_list|,
 name|opt
 operator|->
-name|relative_date
+name|date_mode
 argument_list|)
 expr_stmt|;
 if|if
@@ -1375,7 +1375,7 @@ name|extra_headers
 argument_list|,
 name|opt
 operator|->
-name|relative_date
+name|date_mode
 argument_list|)
 expr_stmt|;
 if|if
