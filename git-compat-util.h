@@ -997,6 +997,8 @@ name|void
 name|release_pack_memory
 parameter_list|(
 name|size_t
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1036,6 +1038,9 @@ argument_list|(
 name|str
 argument_list|)
 operator|+
+literal|1
+argument_list|,
+operator|-
 literal|1
 argument_list|)
 expr_stmt|;
@@ -1107,6 +1112,9 @@ block|{
 name|release_pack_memory
 argument_list|(
 name|size
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|ret
@@ -1214,6 +1222,9 @@ block|{
 name|release_pack_memory
 argument_list|(
 name|size
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|ret
@@ -1317,6 +1328,9 @@ argument_list|(
 name|nmemb
 operator|*
 name|size
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|ret
@@ -1431,6 +1445,8 @@ return|;
 name|release_pack_memory
 argument_list|(
 name|length
+argument_list|,
+name|fd
 argument_list|)
 expr_stmt|;
 name|ret
