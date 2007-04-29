@@ -1521,6 +1521,10 @@ argument_list|(
 name|pragma_header
 argument_list|)
 expr_stmt|;
+name|pragma_header
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 end_function
 begin_function
