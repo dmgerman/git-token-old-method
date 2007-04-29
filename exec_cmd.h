@@ -2,13 +2,13 @@ begin_unit
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__GIT_EXEC_CMD_H_
+name|GIT_EXEC_CMD_H
 end_ifndef
 begin_define
-DECL|macro|__GIT_EXEC_CMD_H_
+DECL|macro|GIT_EXEC_CMD_H
 define|#
 directive|define
-name|__GIT_EXEC_CMD_H_
+name|GIT_EXEC_CMD_H
 end_define
 begin_function_decl
 specifier|extern
@@ -68,6 +68,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* __GIT_EXEC_CMD_H_ */
+comment|/* GIT_EXEC_CMD_H */
 end_comment
 end_unit

@@ -2,13 +2,13 @@ begin_unit
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__progress_h__
+name|PROGRESS_H
 end_ifndef
 begin_define
-DECL|macro|__progress_h__
+DECL|macro|PROGRESS_H
 define|#
 directive|define
-name|__progress_h__
+name|PROGRESS_H
 end_define
 begin_struct
 DECL|struct|progress

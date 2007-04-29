@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_DIFFCORE_H_
+name|DIFFCORE_H
 end_ifndef
 begin_define
-DECL|macro|_DIFFCORE_H_
+DECL|macro|DIFFCORE_H
 define|#
 directive|define
-name|_DIFFCORE_H_
+name|DIFFCORE_H
 end_define
 begin_comment
 comment|/* This header file is internal between diff.c and its diff transformers  * (e.g. diffcore-rename, diffcore-pickaxe).  Never include this header  * in anything else.  */
