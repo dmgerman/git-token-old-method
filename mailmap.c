@@ -131,6 +131,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|repo_abbrev
+condition|)
+continue|continue;
+if|if
+condition|(
 name|len
 operator|&&
 name|buffer
