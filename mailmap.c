@@ -554,7 +554,7 @@ name|item
 operator|->
 name|util
 decl_stmt|;
-name|strncpy
+name|strlcpy
 argument_list|(
 name|name
 argument_list|,
