@@ -30,7 +30,7 @@ if|#
 directive|if
 name|LIBCURL_VERSION_NUM
 operator|>=
-literal|0x070908
+literal|0x071000
 end_if
 begin_define
 DECL|macro|USE_CURL_MULTI
