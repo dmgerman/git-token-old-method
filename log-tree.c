@@ -1050,13 +1050,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|opt
-operator|->
-name|left_right
-condition|)
-block|{
-if|if
-condition|(
 name|commit
 operator|->
 name|object
@@ -1071,6 +1064,13 @@ literal|'-'
 argument_list|)
 expr_stmt|;
 elseif|else
+if|if
+condition|(
+name|opt
+operator|->
+name|left_right
+condition|)
+block|{
 if|if
 condition|(
 name|commit
