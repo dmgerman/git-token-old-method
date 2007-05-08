@@ -1395,6 +1395,19 @@ decl_stmt|,
 modifier|*
 name|encoding
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|defmsg
+init|=
+name|xstrdup
+argument_list|(
+name|git_path
+argument_list|(
+literal|"MERGE_MSG"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
@@ -1572,7 +1585,7 @@ argument_list|(
 operator|&
 name|msg_file
 argument_list|,
-literal|".msg"
+name|defmsg
 argument_list|,
 literal|1
 argument_list|)
@@ -1847,16 +1860,6 @@ name|NULL
 argument_list|)
 condition|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|target
-init|=
-name|git_path
-argument_list|(
-literal|"MERGE_MSG"
-argument_list|)
-decl_stmt|;
 name|add_to_msg
 argument_list|(
 literal|"\nConflicts:\n\n"
@@ -1956,28 +1959,9 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"Error wrapping up .msg"
-argument_list|)
-expr_stmt|;
-name|unlink
-argument_list|(
-name|target
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rename
-argument_list|(
-literal|".msg"
+literal|"Error wrapping up %s"
 argument_list|,
-name|target
-argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"Could not move .msg to %s"
-argument_list|,
-name|target
+name|defmsg
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -2042,7 +2026,9 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"Error wrapping up .msg"
+literal|"Error wrapping up %s"
+argument_list|,
+name|defmsg
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -2072,12 +2058,6 @@ literal|"commit"
 argument_list|,
 literal|"-n"
 argument_list|,
-literal|"-F"
-argument_list|,
-literal|".msg"
-argument_list|,
-literal|"-e"
-argument_list|,
 name|NULL
 argument_list|)
 return|;
@@ -2091,7 +2071,7 @@ literal|"-n"
 argument_list|,
 literal|"-F"
 argument_list|,
-literal|".msg"
+name|defmsg
 argument_list|,
 name|NULL
 argument_list|)
