@@ -307,7 +307,7 @@ specifier|static
 name|int
 name|depth
 init|=
-literal|10
+literal|50
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
