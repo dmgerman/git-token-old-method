@@ -680,6 +680,9 @@ parameter_list|,
 name|unsigned
 name|int
 name|size
+parameter_list|,
+name|int
+name|level
 parameter_list|)
 block|{
 name|z_stream
@@ -711,7 +714,7 @@ argument_list|(
 operator|&
 name|stream
 argument_list|,
-name|zlib_compression_level
+name|level
 argument_list|)
 expr_stmt|;
 name|maxsize
