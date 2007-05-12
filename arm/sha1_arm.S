@@ -6,7 +6,7 @@ comment|/*  * void sha_transform(uint32_t *hash, const unsigned char *data, uint
 sha_transform:
 stmfd sp!, {r4 - r8, lr}
 comment|for (i = 0; i < 16; i++)
-comment|W[i] = ntohl(((uint32_t *)data)[i]); */
+comment|W[i] = ntohl(((uint32_t *)data)[i]);
 #ifdef __ARMEB__
 mov r4, r0
 mov r0, r2
