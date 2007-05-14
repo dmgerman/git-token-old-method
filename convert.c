@@ -1831,7 +1831,7 @@ name|long
 name|size
 parameter_list|)
 block|{
-comment|/* 	 * "$ident: 0000000000000000000000000000000000000000 $"<=> "$ident$" 	 */
+comment|/* 	 * "$Id: 0000000000000000000000000000000000000000 $"<=> "$Id$" 	 */
 name|int
 name|cnt
 init|=
@@ -1865,18 +1865,18 @@ if|if
 condition|(
 name|size
 operator|<
-literal|6
+literal|3
 condition|)
 break|break;
 if|if
 condition|(
 name|memcmp
 argument_list|(
-literal|"ident"
+literal|"Id"
 argument_list|,
 name|cp
 argument_list|,
-literal|5
+literal|2
 argument_list|)
 condition|)
 continue|continue;
@@ -1884,16 +1884,16 @@ name|ch
 operator|=
 name|cp
 index|[
-literal|5
+literal|2
 index|]
 expr_stmt|;
 name|cp
 operator|+=
-literal|6
+literal|3
 expr_stmt|;
 name|size
 operator|-=
-literal|6
+literal|3
 expr_stmt|;
 if|if
 condition|(
@@ -1904,7 +1904,7 @@ condition|)
 name|cnt
 operator|++
 expr_stmt|;
-comment|/* $ident$ */
+comment|/* $Id$ */
 if|if
 condition|(
 name|ch
@@ -1912,7 +1912,7 @@ operator|!=
 literal|':'
 condition|)
 continue|continue;
-comment|/* 		 * "$ident: ... "; scan up to the closing dollar sign and discard. 		 */
+comment|/* 		 * "$Id: ... "; scan up to the closing dollar sign and discard. 		 */
 while|while
 condition|(
 name|size
@@ -2057,7 +2057,7 @@ literal|'$'
 operator|)
 operator|&&
 operator|(
-literal|6
+literal|3
 operator|<=
 name|size
 operator|)
@@ -2065,11 +2065,11 @@ operator|&&
 operator|!
 name|memcmp
 argument_list|(
-literal|"ident:"
+literal|"Id:"
 argument_list|,
 name|src
 argument_list|,
-literal|6
+literal|3
 argument_list|)
 condition|)
 block|{
@@ -2079,7 +2079,7 @@ name|rem
 init|=
 name|size
 operator|-
-literal|6
+literal|3
 decl_stmt|;
 specifier|const
 name|char
@@ -2088,7 +2088,7 @@ name|cp
 init|=
 name|src
 operator|+
-literal|6
+literal|3
 decl_stmt|;
 do|do
 block|{
@@ -2124,14 +2124,14 @@ name|memcpy
 argument_list|(
 name|dst
 argument_list|,
-literal|"ident$"
+literal|"Id$"
 argument_list|,
-literal|6
+literal|3
 argument_list|)
 expr_stmt|;
 name|dst
 operator|+=
-literal|6
+literal|3
 expr_stmt|;
 name|size
 operator|-=
@@ -2299,16 +2299,16 @@ operator|||
 operator|(
 name|size
 operator|<
-literal|6
+literal|3
 operator|)
 operator|||
 name|memcmp
 argument_list|(
-literal|"ident"
+literal|"Id"
 argument_list|,
 name|src
 argument_list|,
-literal|5
+literal|2
 argument_list|)
 condition|)
 continue|continue;
@@ -2316,7 +2316,7 @@ if|if
 condition|(
 name|src
 index|[
-literal|5
+literal|2
 index|]
 operator|==
 literal|':'
@@ -2329,13 +2329,13 @@ name|rem
 init|=
 name|size
 operator|-
-literal|6
+literal|3
 decl_stmt|;
 name|cp
 operator|=
 name|src
 operator|+
-literal|6
+literal|3
 expr_stmt|;
 do|do
 block|{
@@ -2381,7 +2381,7 @@ if|if
 condition|(
 name|src
 index|[
-literal|5
+literal|2
 index|]
 operator|==
 literal|'$'
@@ -2390,7 +2390,7 @@ name|cp
 operator|=
 name|src
 operator|+
-literal|5
+literal|2
 expr_stmt|;
 else|else
 continue|continue;
@@ -2398,14 +2398,14 @@ name|memcpy
 argument_list|(
 name|dst
 argument_list|,
-literal|"ident: "
+literal|"Id: "
 argument_list|,
-literal|7
+literal|4
 argument_list|)
 expr_stmt|;
 name|dst
 operator|+=
-literal|7
+literal|4
 expr_stmt|;
 name|memcpy
 argument_list|(
