@@ -184,7 +184,7 @@ init|;
 condition|;
 control|)
 block|{
-name|size_t
+name|ssize_t
 name|n
 init|=
 name|xread
