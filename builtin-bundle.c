@@ -270,7 +270,7 @@ name|i
 operator|++
 control|)
 block|{
-name|int
+name|ssize_t
 name|count
 init|=
 name|xread

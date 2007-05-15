@@ -3832,7 +3832,7 @@ operator|<
 name|len
 condition|)
 block|{
-name|int
+name|ssize_t
 name|done
 init|=
 name|xread

@@ -989,7 +989,7 @@ name|int
 name|len
 parameter_list|)
 block|{
-name|int
+name|ssize_t
 name|n
 init|=
 name|xread
