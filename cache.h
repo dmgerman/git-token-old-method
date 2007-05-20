@@ -3285,6 +3285,13 @@ directive|define
 name|REF_TAGS
 value|(1u<< 2)
 end_define
+begin_define
+DECL|macro|CONNECT_VERBOSE
+define|#
+directive|define
+name|CONNECT_VERBOSE
+value|(1u<< 0)
+end_define
 begin_function_decl
 specifier|extern
 name|pid_t
@@ -3304,6 +3311,9 @@ specifier|const
 name|char
 modifier|*
 name|prog
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
