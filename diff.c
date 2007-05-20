@@ -768,13 +768,6 @@ name|external_diff_cmd
 return|;
 block|}
 end_function
-begin_define
-DECL|macro|TEMPFILE_PATH_LEN
-define|#
-directive|define
-name|TEMPFILE_PATH_LEN
-value|50
-end_define
 begin_struct
 DECL|struct|diff_tempfile
 specifier|static
@@ -806,7 +799,7 @@ DECL|member|tmp_path
 name|char
 name|tmp_path
 index|[
-name|TEMPFILE_PATH_LEN
+name|PATH_MAX
 index|]
 decl_stmt|;
 block|}
@@ -8594,7 +8587,7 @@ name|temp
 operator|->
 name|tmp_path
 argument_list|,
-name|TEMPFILE_PATH_LEN
+name|PATH_MAX
 argument_list|,
 literal|".diff_XXXXXX"
 argument_list|)
