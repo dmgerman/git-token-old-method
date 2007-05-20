@@ -214,6 +214,13 @@ end_function_decl
 begin_comment
 comment|/** Locks any ref (for 'HEAD' type refs). */
 end_comment
+begin_define
+DECL|macro|REF_NODEREF
+define|#
+directive|define
+name|REF_NODEREF
+value|0x01
+end_define
 begin_function_decl
 specifier|extern
 name|struct
@@ -231,6 +238,9 @@ name|unsigned
 name|char
 modifier|*
 name|old_sha1
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
