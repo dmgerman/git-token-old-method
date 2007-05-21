@@ -156,21 +156,21 @@ begin_comment
 comment|/*  * A "directory link" is a link to another git directory.  *  * The value 0160000 is not normally a valid mode, and  * also just happens to be S_IFDIR + S_IFLNK  *  * NOTE! We *really* shouldn't depend on the S_IFxxx macros  * always having the same values everywhere. We should use  * our internal git values for these things, and then we can  * translate that to the OS-specific value. It just so  * happens that everybody shares the same bit representation  * in the UNIX world (and apparently wider too..)  */
 end_comment
 begin_define
-DECL|macro|S_IFDIRLNK
+DECL|macro|S_IFGITLINK
 define|#
 directive|define
-name|S_IFDIRLNK
+name|S_IFGITLINK
 value|0160000
 end_define
 begin_define
-DECL|macro|S_ISDIRLNK
+DECL|macro|S_ISGITLINK
 define|#
 directive|define
-name|S_ISDIRLNK
+name|S_ISGITLINK
 parameter_list|(
 name|m
 parameter_list|)
-value|(((m)& S_IFMT) == S_IFDIRLNK)
+value|(((m)& S_IFMT) == S_IFGITLINK)
 end_define
 begin_comment
 comment|/*  * Intensive research over the course of many years has shown that  * port 9418 is totally unused by anything else. Or  *  *	Your search - "port 9418" - did not match any documents.  *  * as www.google.com puts it.  *  * This port has been properly assigned for git use by IANA:  * git (Assigned-9418) [I06-050728-0001].  *  *	git  9418/tcp   git pack transfer service  *	git  9418/udp   git pack transfer service  *  * with Linus Torvalds<torvalds@osdl.org> as the point of  * contact. September 2005.  *  * See http://www.iana.org/assignments/port-numbers  */
@@ -432,7 +432,7 @@ argument_list|(
 name|mode
 argument_list|)
 operator|||
-name|S_ISDIRLNK
+name|S_ISGITLINK
 argument_list|(
 name|mode
 argument_list|)
@@ -440,7 +440,7 @@ condition|)
 return|return
 name|htonl
 argument_list|(
-name|S_IFDIRLNK
+name|S_IFGITLINK
 argument_list|)
 return|;
 return|return
@@ -561,7 +561,7 @@ parameter_list|(
 name|mode
 parameter_list|)
 define|\
-value|(S_ISREG(mode) ? (S_IFREG | ce_permissions(mode)) : \ 	S_ISLNK(mode) ? S_IFLNK : S_ISDIR(mode) ? S_IFDIR : S_IFDIRLNK)
+value|(S_ISREG(mode) ? (S_IFREG | ce_permissions(mode)) : \ 	S_ISLNK(mode) ? S_IFLNK : S_ISDIR(mode) ? S_IFDIR : S_IFGITLINK)
 end_define
 begin_define
 DECL|macro|cache_entry_size

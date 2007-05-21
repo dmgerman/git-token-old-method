@@ -8365,7 +8365,7 @@ literal|0
 return|;
 if|if
 condition|(
-name|S_ISDIRLNK
+name|S_ISGITLINK
 argument_list|(
 name|s
 operator|->

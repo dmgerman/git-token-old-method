@@ -913,7 +913,7 @@ return|;
 block|}
 break|break;
 case|case
-name|S_IFDIRLNK
+name|S_IFGITLINK
 case|:
 if|if
 condition|(
@@ -1152,7 +1152,7 @@ block|{
 comment|/* If it is a gitlink, leave it alone! */
 if|if
 condition|(
-name|S_ISDIRLNK
+name|S_ISGITLINK
 argument_list|(
 name|ntohl
 argument_list|(

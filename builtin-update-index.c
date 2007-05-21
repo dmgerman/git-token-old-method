@@ -548,7 +548,7 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|S_ISDIRLNK
+name|S_ISGITLINK
 argument_list|(
 name|ntohl
 argument_list|(
@@ -760,7 +760,7 @@ if|if
 condition|(
 name|ce
 operator|&&
-name|S_ISDIRLNK
+name|S_ISGITLINK
 argument_list|(
 name|ntohl
 argument_list|(
