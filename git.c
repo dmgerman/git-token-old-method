@@ -1250,6 +1250,8 @@ literal|"annotate"
 block|,
 name|cmd_annotate
 block|,
+name|RUN_SETUP
+operator||
 name|USE_PAGER
 block|}
 block|,

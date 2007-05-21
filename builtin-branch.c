@@ -3264,8 +3264,6 @@ argument_list|)
 expr_stmt|;
 name|head
 operator|=
-name|xstrdup
-argument_list|(
 name|resolve_ref
 argument_list|(
 literal|"HEAD"
@@ -3276,7 +3274,6 @@ literal|0
 argument_list|,
 name|NULL
 argument_list|)
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3286,6 +3283,13 @@ condition|)
 name|die
 argument_list|(
 literal|"Failed to resolve HEAD as a valid ref."
+argument_list|)
+expr_stmt|;
+name|head
+operator|=
+name|xstrdup
+argument_list|(
+name|head
 argument_list|)
 expr_stmt|;
 if|if
