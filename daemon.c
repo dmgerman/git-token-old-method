@@ -4404,6 +4404,8 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|fprintf
 argument_list|(
 name|f
@@ -4413,10 +4415,26 @@ argument_list|,
 name|getpid
 argument_list|()
 argument_list|)
-expr_stmt|;
+operator|<
+literal|0
+operator|||
 name|fclose
 argument_list|(
 name|f
+argument_list|)
+operator|!=
+literal|0
+condition|)
+name|die
+argument_list|(
+literal|"failed to write pid file %s: %s"
+argument_list|,
+name|path
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
