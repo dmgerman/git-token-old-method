@@ -84,8 +84,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-modifier|*
-name|mbox
+name|file
 parameter_list|,
 specifier|const
 name|char
