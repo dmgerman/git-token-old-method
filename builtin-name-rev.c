@@ -24,6 +24,17 @@ include|#
 directive|include
 file|"refs.h"
 end_include
+begin_define
+DECL|macro|CUTOFF_DATE_SLOP
+define|#
+directive|define
+name|CUTOFF_DATE_SLOP
+value|86400
+end_define
+begin_comment
+DECL|macro|CUTOFF_DATE_SLOP
+comment|/* one day */
+end_comment
 begin_decl_stmt
 DECL|variable|name_rev_usage
 specifier|static
@@ -1205,6 +1216,16 @@ name|revs
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|cutoff
+condition|)
+name|cutoff
+operator|=
+name|cutoff
+operator|-
+name|CUTOFF_DATE_SLOP
+expr_stmt|;
 name|for_each_ref
 argument_list|(
 name|name_ref
