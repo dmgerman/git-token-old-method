@@ -2489,6 +2489,11 @@ name|char
 modifier|*
 name|alt
 decl_stmt|;
+if|if
+condition|(
+name|alt_odb_tail
+condition|)
+return|return;
 name|alt
 operator|=
 name|getenv
@@ -2505,11 +2510,6 @@ name|alt
 operator|=
 literal|""
 expr_stmt|;
-if|if
-condition|(
-name|alt_odb_tail
-condition|)
-return|return;
 name|alt_odb_tail
 operator|=
 operator|&
