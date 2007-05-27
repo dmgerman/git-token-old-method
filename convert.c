@@ -2263,6 +2263,7 @@ name|char
 modifier|*
 name|cp
 decl_stmt|;
+comment|/* Fetch next source character, move the pointer on */
 name|char
 name|ch
 init|=
@@ -2270,12 +2271,14 @@ operator|*
 name|src
 operator|++
 decl_stmt|;
+comment|/* Copy the current character to the destination */
 operator|*
 name|dst
 operator|++
 operator|=
 name|ch
 expr_stmt|;
+comment|/* If the current character is "$" or there are less than three 		 * remaining bytes or the two bytes following this one are not 		 * "Id", then simply read the next character */
 if|if
 condition|(
 operator|(
@@ -2300,6 +2303,8 @@ literal|2
 argument_list|)
 condition|)
 continue|continue;
+comment|/* 		 * Here when 		 *  - There are more than 2 bytes remaining 		 *  - The current three bytes are "$Id" 		 * with 		 *  - ch == "$" 		 *  - src[0] == "I" 		 */
+comment|/* 		 * It's possible that an expanded Id has crept its way into the 		 * repository, we cope with that by stripping the expansion out 		 */
 if|if
 condition|(
 name|src
@@ -2310,6 +2315,7 @@ operator|==
 literal|':'
 condition|)
 block|{
+comment|/* Expanded keywords have "$Id:" at the front */
 comment|/* discard up to but not including the closing $ */
 name|unsigned
 name|long
@@ -2319,19 +2325,20 @@ name|size
 operator|-
 literal|3
 decl_stmt|;
+comment|/* Point at first byte after the ":" */
 name|cp
 operator|=
 name|src
 operator|+
 literal|3
 expr_stmt|;
+comment|/* 			 * Throw away characters until either 			 *  - we reach a "$" 			 *  - we run out of bytes (rem == 0) 			 */
 do|do
 block|{
 name|ch
 operator|=
 operator|*
 name|cp
-operator|++
 expr_stmt|;
 if|if
 condition|(
@@ -2340,6 +2347,9 @@ operator|==
 literal|'$'
 condition|)
 break|break;
+name|cp
+operator|++
+expr_stmt|;
 name|rem
 operator|--
 expr_stmt|;
@@ -2349,20 +2359,13 @@ condition|(
 name|rem
 condition|)
 do|;
+comment|/* If the above finished because it ran out of characters, then 			 * this is an incomplete keyword, so don't run the expansion */
 if|if
 condition|(
 operator|!
 name|rem
 condition|)
 continue|continue;
-name|size
-operator|-=
-operator|(
-name|cp
-operator|-
-name|src
-operator|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -2381,7 +2384,9 @@ operator|+
 literal|2
 expr_stmt|;
 else|else
+comment|/* Anything other than "$Id:XXX$" or $Id$ and we skip the 			 * expansion */
 continue|continue;
+comment|/* cp is now pointing at the last $ of the keyword */
 name|memcpy
 argument_list|(
 name|dst
@@ -2417,6 +2422,7 @@ operator|++
 operator|=
 literal|' '
 expr_stmt|;
+comment|/* Adjust for the characters we've discarded */
 name|size
 operator|-=
 operator|(
@@ -2429,6 +2435,7 @@ name|src
 operator|=
 name|cp
 expr_stmt|;
+comment|/* Copy the final "$" */
 operator|*
 name|dst
 operator|++
