@@ -2173,6 +2173,7 @@ function_decl|;
 end_function_decl
 begin_decl_stmt
 specifier|extern
+specifier|const
 name|signed
 name|char
 name|hexval_table
@@ -2190,7 +2191,7 @@ name|int
 name|hexval
 parameter_list|(
 name|unsigned
-name|int
+name|char
 name|c
 parameter_list|)
 block|{
