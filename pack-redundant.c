@@ -2842,11 +2842,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|p
-operator|->
-name|index_data
-operator|&&
 name|open_pack_index
 argument_list|(
 name|p
