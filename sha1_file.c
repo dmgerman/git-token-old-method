@@ -143,6 +143,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|hexval_table
+specifier|const
 name|signed
 name|char
 name|hexval_table
