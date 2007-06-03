@@ -415,6 +415,10 @@ name|st
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|is_inside_work_tree
+argument_list|()
+operator|||
 name|is_inside_git_dir
 argument_list|()
 condition|)

@@ -1248,10 +1248,10 @@ begin_comment
 comment|/*  * require working tree to be present -- anything uses this needs  * RUN_SETUP for reading from the configuration file.  */
 end_comment
 begin_define
-DECL|macro|NOT_BARE
+DECL|macro|NEED_WORK_TREE
 define|#
 directive|define
-name|NOT_BARE
+name|NEED_WORK_TREE
 value|(1<<2)
 end_define
 begin_function
@@ -1327,7 +1327,7 @@ name|cmd_add
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1403,7 +1403,7 @@ name|cmd_check_attr
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1421,7 +1421,7 @@ name|cmd_cherry_pick
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1633,7 +1633,7 @@ name|cmd_mv
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1739,7 +1739,7 @@ name|cmd_revert
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1749,7 +1749,7 @@ name|cmd_rm
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -1759,7 +1759,7 @@ name|cmd_runstatus
 block|,
 name|RUN_SETUP
 operator||
-name|NOT_BARE
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
@@ -2007,11 +2007,12 @@ name|p
 operator|->
 name|option
 operator|&
-name|NOT_BARE
+name|NEED_WORK_TREE
 operator|)
 operator|&&
 operator|(
-name|is_bare_repository
+operator|!
+name|is_inside_work_tree
 argument_list|()
 operator|||
 name|is_inside_git_dir
