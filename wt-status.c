@@ -1055,6 +1055,7 @@ block|}
 end_function
 begin_function
 DECL|function|wt_status_print_initial
+specifier|static
 name|void
 name|wt_status_print_initial
 parameter_list|(
