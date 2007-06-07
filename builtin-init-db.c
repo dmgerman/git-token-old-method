@@ -1332,7 +1332,7 @@ name|char
 name|init_db_usage
 index|[]
 init|=
-literal|"git-init [--template=<template-directory>] [--shared]"
+literal|"git-init [-q | --quiet] [--template=<template-directory>] [--shared]"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -1385,6 +1385,11 @@ decl_stmt|,
 name|i
 decl_stmt|,
 name|reinit
+decl_stmt|;
+name|int
+name|quiet
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -1465,6 +1470,29 @@ name|arg
 operator|+
 literal|9
 argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-q"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--quiet"
+argument_list|)
+condition|)
+name|quiet
+operator|=
+literal|1
 expr_stmt|;
 else|else
 name|usage
@@ -1616,6 +1644,11 @@ literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|quiet
+condition|)
 name|printf
 argument_list|(
 literal|"%s%s Git repository in %s/\n"
