@@ -213,7 +213,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   * Unlike prefix_path, this should be used if the named file does  * not have to interact with index entry; i.e. name of a random file  * on the filesystem.  */
+comment|/*  * Unlike prefix_path, this should be used if the named file does  * not have to interact with index entry; i.e. name of a random file  * on the filesystem.  */
 end_comment
 begin_function
 DECL|function|prefix_filename
