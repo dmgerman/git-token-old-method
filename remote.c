@@ -2030,9 +2030,6 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|int
-name|weak_match
-decl_stmt|;
 if|if
 condition|(
 name|namelen
