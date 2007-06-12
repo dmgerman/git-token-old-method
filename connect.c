@@ -1270,7 +1270,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s[%d: %s]: net=%s, errno=%s\n"
+literal|"%s[%d: %s]: errno=%s\n"
 argument_list|,
 name|host
 argument_list|,
@@ -1279,11 +1279,6 @@ argument_list|,
 name|ai_name
 argument_list|(
 name|ai
-argument_list|)
-argument_list|,
-name|hstrerror
-argument_list|(
-name|h_errno
 argument_list|)
 argument_list|,
 name|strerror
@@ -1742,7 +1737,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s[%d: %s]: net=%s, errno=%s\n"
+literal|"%s[%d: %s]: errno=%s\n"
 argument_list|,
 name|host
 argument_list|,
@@ -1760,11 +1755,6 @@ operator|&
 name|sa
 operator|.
 name|sin_addr
-argument_list|)
-argument_list|,
-name|hstrerror
-argument_list|(
-name|h_errno
 argument_list|)
 argument_list|,
 name|strerror
