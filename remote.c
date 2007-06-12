@@ -3052,7 +3052,7 @@ block|}
 else|else
 name|dst_name
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|src
 operator|->
