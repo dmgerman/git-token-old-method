@@ -87,6 +87,7 @@ begin_enum
 DECL|enumerator|REVERT
 DECL|enumerator|CHERRY_PICK
 DECL|variable|action
+specifier|static
 enum|enum
 block|{
 name|REVERT
@@ -783,6 +784,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|variable|msg_file
+specifier|static
 name|struct
 name|lock_file
 name|msg_file

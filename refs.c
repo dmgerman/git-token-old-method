@@ -678,6 +678,7 @@ comment|/*  * Future: need to be in "struct repository"  * when doing a full lib
 end_comment
 begin_struct
 DECL|struct|cached_refs
+specifier|static
 struct|struct
 name|cached_refs
 block|{
