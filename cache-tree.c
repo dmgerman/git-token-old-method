@@ -2544,6 +2544,7 @@ operator|->
 name|sha1
 argument_list|,
 operator|(
+specifier|const
 name|unsigned
 name|char
 operator|*
