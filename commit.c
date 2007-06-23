@@ -5649,6 +5649,8 @@ operator|*
 name|ofs_p
 operator|+
 name|len
+operator|+
+literal|80
 argument_list|,
 operator|*
 name|space_p
@@ -5734,6 +5736,8 @@ operator|*
 name|ofs_p
 operator|+
 name|len
+operator|+
+literal|80
 argument_list|,
 operator|*
 name|space_p
