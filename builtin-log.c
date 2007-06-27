@@ -3539,9 +3539,9 @@ name|use_stdout
 condition|)
 name|realstdout
 operator|=
-name|fdopen
+name|xfdopen
 argument_list|(
-name|dup
+name|xdup
 argument_list|(
 literal|1
 argument_list|)
