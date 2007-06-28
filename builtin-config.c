@@ -1086,7 +1086,7 @@ argument_list|)
 decl_stmt|;
 name|setenv
 argument_list|(
-literal|"GIT_CONFIG"
+name|CONFIG_ENVIRONMENT
 argument_list|,
 name|user_config
 argument_list|,
@@ -1124,7 +1124,7 @@ argument_list|)
 condition|)
 name|setenv
 argument_list|(
-literal|"GIT_CONFIG"
+name|CONFIG_ENVIRONMENT
 argument_list|,
 name|ETC_GITCONFIG
 argument_list|,

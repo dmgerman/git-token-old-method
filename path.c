@@ -1178,7 +1178,7 @@ condition|)
 block|{
 name|setenv
 argument_list|(
-literal|"GIT_DIR"
+name|GIT_DIR_ENVIRONMENT
 argument_list|,
 literal|"."
 argument_list|,
