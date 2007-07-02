@@ -143,6 +143,13 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* data should be munmap()'ed */
+DECL|member|is_binary
+name|unsigned
+name|is_binary
+range|:
+literal|1
+decl_stmt|;
+comment|/* data should be considered "binary" */
 block|}
 struct|;
 end_struct
@@ -573,21 +580,15 @@ specifier|extern
 name|int
 name|diffcore_count_changes
 parameter_list|(
-name|void
+name|struct
+name|diff_filespec
 modifier|*
 name|src
 parameter_list|,
-name|unsigned
-name|long
-name|src_size
-parameter_list|,
-name|void
+name|struct
+name|diff_filespec
 modifier|*
 name|dst
-parameter_list|,
-name|unsigned
-name|long
-name|dst_size
 parameter_list|,
 name|void
 modifier|*
