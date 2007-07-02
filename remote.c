@@ -2999,6 +2999,20 @@ name|pat
 condition|)
 continue|continue;
 block|}
+elseif|else
+if|if
+condition|(
+name|prefixcmp
+argument_list|(
+name|src
+operator|->
+name|name
+argument_list|,
+literal|"refs/heads/"
+argument_list|)
+condition|)
+comment|/* 			 * "matching refs"; traditionally we pushed everything 			 * including refs outside refs/heads/ hierarchy, but 			 * that does not make much sense these days. 			 */
+continue|continue;
 if|if
 condition|(
 name|pat
