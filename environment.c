@@ -182,6 +182,13 @@ literal|1024
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|pager_program
+name|char
+modifier|*
+name|pager_program
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|pager_in_use
 name|int
 name|pager_in_use
