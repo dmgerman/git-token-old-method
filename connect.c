@@ -382,16 +382,8 @@ condition|)
 continue|continue;
 name|ref
 operator|=
-name|xcalloc
+name|alloc_ref
 argument_list|(
-literal|1
-argument_list|,
-sizeof|sizeof
-argument_list|(
-operator|*
-name|ref
-argument_list|)
-operator|+
 name|len
 operator|-
 literal|40
