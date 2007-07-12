@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Builtin "git branch"  *  * Copyright (c) 2006 Kristian Høgsberg<krh@redhat.com>  * Based on git-branch.sh by Junio C Hamano.  */
+comment|/*  * Builtin "git branch"  *  * Copyright (c) 2006 Kristian HÃ¸gsberg<krh@redhat.com>  * Based on git-branch.sh by Junio C Hamano.  */
 end_comment
 begin_include
 include|#
