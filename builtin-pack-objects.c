@@ -7130,6 +7130,17 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|trg_size
+operator|<
+name|src_size
+operator|/
+literal|32
+condition|)
+return|return
+literal|0
+return|;
 comment|/* Load data if not already done */
 if|if
 condition|(
