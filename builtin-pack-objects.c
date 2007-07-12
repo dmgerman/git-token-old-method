@@ -106,18 +106,6 @@ name|long
 name|size
 decl_stmt|;
 comment|/* uncompressed size */
-DECL|member|hash
-name|unsigned
-name|int
-name|hash
-decl_stmt|;
-comment|/* name hint hash */
-DECL|member|depth
-name|unsigned
-name|int
-name|depth
-decl_stmt|;
-comment|/* delta depth */
 DECL|member|in_pack
 name|struct
 name|packed_git
@@ -162,6 +150,12 @@ name|long
 name|delta_size
 decl_stmt|;
 comment|/* delta data size (uncompressed) */
+DECL|member|hash
+name|unsigned
+name|int
+name|hash
+decl_stmt|;
+comment|/* name hint hash */
 DECL|member|type
 name|enum
 name|object_type
@@ -6831,6 +6825,10 @@ name|delta_index
 modifier|*
 name|index
 decl_stmt|;
+DECL|member|depth
+name|unsigned
+name|depth
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -7042,7 +7040,7 @@ return|;
 comment|/* Let's not bust the allowed depth. */
 if|if
 condition|(
-name|src_entry
+name|src
 operator|->
 name|depth
 operator|>=
@@ -7089,7 +7087,7 @@ name|delta_size
 expr_stmt|;
 name|ref_depth
 operator|=
-name|trg_entry
+name|trg
 operator|->
 name|depth
 expr_stmt|;
@@ -7101,7 +7099,7 @@ operator|*
 operator|(
 name|max_depth
 operator|-
-name|src_entry
+name|src
 operator|->
 name|depth
 operator|)
@@ -7378,13 +7376,13 @@ name|trg_entry
 operator|->
 name|delta_size
 operator|&&
-name|src_entry
+name|src
 operator|->
 name|depth
 operator|+
 literal|1
 operator|>=
-name|trg_entry
+name|trg
 operator|->
 name|depth
 condition|)
@@ -7411,13 +7409,13 @@ operator|->
 name|delta_data
 argument_list|)
 expr_stmt|;
-block|}
 name|trg_entry
 operator|->
 name|delta_data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
+block|}
 name|trg_entry
 operator|->
 name|delta
@@ -7430,11 +7428,11 @@ name|delta_size
 operator|=
 name|delta_size
 expr_stmt|;
-name|trg_entry
+name|trg
 operator|->
 name|depth
 operator|=
-name|src_entry
+name|src
 operator|->
 name|depth
 operator|+
@@ -7944,7 +7942,7 @@ name|delta
 operator|&&
 name|depth
 operator|<=
-name|entry
+name|n
 operator|->
 name|depth
 condition|)
