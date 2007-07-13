@@ -7624,6 +7624,12 @@ name|entry
 operator|=
 name|NULL
 expr_stmt|;
+name|n
+operator|->
+name|depth
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_function
