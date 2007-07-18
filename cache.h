@@ -1504,7 +1504,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|read_pipe
+name|read_fd
 parameter_list|(
 name|int
 name|fd
