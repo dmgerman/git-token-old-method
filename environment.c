@@ -203,6 +203,13 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|editor_program
+name|char
+modifier|*
+name|editor_program
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|auto_crlf
 name|int
 name|auto_crlf
