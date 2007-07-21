@@ -445,13 +445,25 @@ if|if
 condition|(
 operator|!
 name|buf
-operator|||
-operator|!
-name|size
 condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+operator|!
+name|size
+condition|)
+block|{
+name|free
+argument_list|(
+name|buf
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 comment|/* skip header */
 while|while
 condition|(
@@ -690,12 +702,12 @@ return|;
 block|}
 end_function
 begin_typedef
-DECL|typedef|func_tag
+DECL|typedef|each_tag_name_fn
 typedef|typedef
 name|int
 function_decl|(
 modifier|*
-name|func_tag
+name|each_tag_name_fn
 function_decl|)
 parameter_list|(
 specifier|const
@@ -717,10 +729,10 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_function
-DECL|function|do_tag_names
+DECL|function|for_each_tag_name
 specifier|static
 name|int
-name|do_tag_names
+name|for_each_tag_name
 parameter_list|(
 specifier|const
 name|char
@@ -728,7 +740,7 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
-name|func_tag
+name|each_tag_name_fn
 name|fn
 parameter_list|)
 block|{
@@ -1036,11 +1048,13 @@ argument_list|(
 name|signingkey
 argument_list|)
 argument_list|)
-operator|>=
+operator|>
 sizeof|sizeof
 argument_list|(
 name|signingkey
 argument_list|)
+operator|-
+literal|1
 condition|)
 return|return
 name|error
@@ -1381,7 +1395,7 @@ if|if
 condition|(
 name|type
 operator|<=
-literal|0
+name|OBJ_NONE
 condition|)
 name|die
 argument_list|(
@@ -1425,11 +1439,13 @@ expr_stmt|;
 if|if
 condition|(
 name|header_len
-operator|>=
+operator|>
 sizeof|sizeof
 argument_list|(
 name|header_buf
 argument_list|)
+operator|-
+literal|1
 condition|)
 name|die
 argument_list|(
@@ -1946,6 +1962,15 @@ argument_list|(
 literal|"option -m needs an argument."
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|message
+condition|)
+name|die
+argument_list|(
+literal|"only one -F or -m option is allowed."
+argument_list|)
+expr_stmt|;
 name|message
 operator|=
 name|xstrdup
@@ -1992,6 +2017,15 @@ condition|)
 name|die
 argument_list|(
 literal|"option -F needs an argument."
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|message
+condition|)
+name|die
+argument_list|(
+literal|"only one -F or -m option is allowed."
 argument_list|)
 expr_stmt|;
 if|if
@@ -2162,7 +2196,6 @@ argument_list|,
 literal|"-l"
 argument_list|)
 condition|)
-block|{
 return|return
 name|list_tags
 argument_list|(
@@ -2176,7 +2209,6 @@ argument_list|,
 name|lines
 argument_list|)
 return|;
-block|}
 if|if
 condition|(
 operator|!
@@ -2187,9 +2219,8 @@ argument_list|,
 literal|"-d"
 argument_list|)
 condition|)
-block|{
 return|return
-name|do_tag_names
+name|for_each_tag_name
 argument_list|(
 name|argv
 operator|+
@@ -2200,7 +2231,6 @@ argument_list|,
 name|delete_tag
 argument_list|)
 return|;
-block|}
 if|if
 condition|(
 operator|!
@@ -2211,9 +2241,8 @@ argument_list|,
 literal|"-v"
 argument_list|)
 condition|)
-block|{
 return|return
-name|do_tag_names
+name|for_each_tag_name
 argument_list|(
 name|argv
 operator|+
@@ -2224,7 +2253,6 @@ argument_list|,
 name|verify_tag
 argument_list|)
 return|;
-block|}
 name|usage
 argument_list|(
 name|builtin_tag_usage
@@ -2321,11 +2349,13 @@ literal|"refs/tags/%s"
 argument_list|,
 name|tag
 argument_list|)
-operator|>=
+operator|>
 sizeof|sizeof
 argument_list|(
 name|ref
 argument_list|)
+operator|-
+literal|1
 condition|)
 name|die
 argument_list|(
