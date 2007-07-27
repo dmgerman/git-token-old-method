@@ -2236,6 +2236,14 @@ name|cmd_upload_archive
 block|}
 block|,
 block|{
+literal|"verify-tag"
+block|,
+name|cmd_verify_tag
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"version"
 block|,
 name|cmd_version
