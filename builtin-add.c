@@ -340,6 +340,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|excludes_file
+operator|!=
+name|NULL
+operator|&&
 operator|!
 name|access
 argument_list|(
