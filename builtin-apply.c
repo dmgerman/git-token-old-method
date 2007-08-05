@@ -12154,7 +12154,9 @@ name|remove_file
 argument_list|(
 name|patch
 argument_list|,
-literal|0
+name|patch
+operator|->
+name|is_rename
 argument_list|)
 expr_stmt|;
 if|if
