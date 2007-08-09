@@ -1369,6 +1369,7 @@ name|struct
 name|child_process
 name|rls
 decl_stmt|;
+comment|/* 	 * NEEDSWORK: this should use something like lock-file 	 * to create temporary that is cleaned up upon error. 	 */
 name|bundle_fd
 operator|=
 operator|(
@@ -1779,7 +1780,7 @@ operator|!=
 literal|1
 condition|)
 continue|continue;
-comment|/* 		 * Make sure the refs we wrote out is correct; --max-count and 		 * other limiting options could have prevented all the tips 		 * from getting output. 		 */
+comment|/* 		 * Make sure the refs we wrote out is correct; --max-count and 		 * other limiting options could have prevented all the tips 		 * from getting output. 		 * 		 * Non commit objects such as tags and blobs do not have 		 * this issue as they are not affected by those extra 		 * constraints. 		 */
 if|if
 condition|(
 operator|!
@@ -1792,6 +1793,14 @@ name|flags
 operator|&
 name|SHOWN
 operator|)
+operator|&&
+name|e
+operator|->
+name|item
+operator|->
+name|type
+operator|==
+name|OBJ_COMMIT
 condition|)
 block|{
 name|warning
