@@ -4131,11 +4131,6 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-name|remove_entry
-argument_list|(
-name|remove
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|o
@@ -4238,11 +4233,6 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-name|remove_entry
-argument_list|(
-name|remove
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|o
@@ -4266,6 +4256,12 @@ condition|(
 operator|!
 name|a
 condition|)
+block|{
+name|remove_entry
+argument_list|(
+name|remove
+argument_list|)
+expr_stmt|;
 return|return
 name|deleted_entry
 argument_list|(
@@ -4276,6 +4272,7 @@ argument_list|,
 name|o
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|old
