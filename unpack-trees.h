@@ -34,6 +34,9 @@ name|struct
 name|unpack_trees_options
 modifier|*
 name|options
+parameter_list|,
+name|int
+name|remove
 parameter_list|)
 function_decl|;
 end_typedef
@@ -145,6 +148,8 @@ name|struct
 name|unpack_trees_options
 modifier|*
 name|o
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -162,6 +167,8 @@ name|struct
 name|unpack_trees_options
 modifier|*
 name|o
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -179,6 +186,8 @@ name|struct
 name|unpack_trees_options
 modifier|*
 name|o
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -196,6 +205,8 @@ name|struct
 name|unpack_trees_options
 modifier|*
 name|o
+parameter_list|,
+name|int
 parameter_list|)
 function_decl|;
 end_function_decl
