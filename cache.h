@@ -769,7 +769,7 @@ name|refresh_cache
 parameter_list|(
 name|flags
 parameter_list|)
-value|refresh_index(&the_index, flags)
+value|refresh_index(&the_index, (flags), NULL, NULL)
 end_define
 begin_define
 DECL|macro|ce_match_stat
@@ -1683,6 +1683,16 @@ parameter_list|,
 name|unsigned
 name|int
 name|flags
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|pathspec
+parameter_list|,
+name|char
+modifier|*
+name|seen
 parameter_list|)
 function_decl|;
 end_function_decl
