@@ -3086,7 +3086,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"wrong index file size in %s"
+literal|"wrong index v1 file size in %s"
 argument_list|,
 name|path
 argument_list|)
@@ -3167,7 +3167,7 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
-literal|"wrong index file size in %s"
+literal|"wrong index v2 file size in %s"
 argument_list|,
 name|path
 argument_list|)
