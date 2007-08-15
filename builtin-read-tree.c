@@ -42,6 +42,13 @@ include|#
 directive|include
 file|"builtin.h"
 end_include
+begin_define
+DECL|macro|MAX_TREES
+define|#
+directive|define
+name|MAX_TREES
+value|4
+end_define
 begin_decl_stmt
 DECL|variable|nr_trees
 specifier|static
@@ -57,7 +64,7 @@ name|tree
 modifier|*
 name|trees
 index|[
-literal|4
+name|MAX_TREES
 index|]
 decl_stmt|;
 end_decl_stmt
@@ -501,7 +508,7 @@ name|struct
 name|tree_desc
 name|t
 index|[
-literal|3
+name|MAX_TREES
 index|]
 decl_stmt|;
 name|struct
@@ -1257,6 +1264,19 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|MAX_TREES
+operator|<
+name|nr_trees
+condition|)
+name|die
+argument_list|(
+literal|"I cannot read more than %d trees"
+argument_list|,
+name|MAX_TREES
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|i
