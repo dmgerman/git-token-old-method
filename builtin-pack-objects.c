@@ -6820,16 +6820,6 @@ specifier|static
 name|int
 name|delta_cacheable
 parameter_list|(
-name|struct
-name|unpacked
-modifier|*
-name|trg
-parameter_list|,
-name|struct
-name|unpacked
-modifier|*
-name|src
-parameter_list|,
 name|unsigned
 name|long
 name|src_size
@@ -7424,10 +7414,6 @@ if|if
 condition|(
 name|delta_cacheable
 argument_list|(
-name|src
-argument_list|,
-name|trg
-argument_list|,
 name|src_size
 argument_list|,
 name|trg_size
