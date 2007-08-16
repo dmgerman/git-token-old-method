@@ -560,6 +560,13 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|cache_tree_invalidate_path
+argument_list|(
+name|active_cache_tree
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|verbose
@@ -588,6 +595,11 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
+name|prefix
+parameter_list|,
+specifier|const
+name|char
+modifier|*
 modifier|*
 name|files
 parameter_list|)
@@ -601,7 +613,7 @@ argument_list|(
 operator|&
 name|rev
 argument_list|,
-literal|""
+name|prefix
 argument_list|)
 expr_stmt|;
 name|setup_revisions
@@ -622,8 +634,6 @@ name|prune_data
 operator|=
 name|get_pathspec
 argument_list|(
-name|rev
-operator|.
 name|prefix
 argument_list|,
 name|files
@@ -1173,6 +1183,8 @@ block|{
 name|update
 argument_list|(
 name|verbose
+argument_list|,
+name|prefix
 argument_list|,
 name|argv
 operator|+
