@@ -547,6 +547,10 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
+name|is_bare_repository_cfg
+operator|=
+literal|1
+expr_stmt|;
 name|setenv
 argument_list|(
 name|GIT_DIR_ENVIRONMENT
