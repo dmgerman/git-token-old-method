@@ -9043,11 +9043,11 @@ name|recent_command
 modifier|*
 name|rc
 decl_stmt|;
+name|strbuf_detach
+argument_list|(
+operator|&
 name|command_buf
-operator|.
-name|buf
-operator|=
-name|NULL
+argument_list|)
 expr_stmt|;
 name|read_line
 argument_list|(
@@ -9342,12 +9342,6 @@ argument_list|(
 name|sz
 argument_list|)
 expr_stmt|;
-name|command_buf
-operator|.
-name|buf
-operator|=
-name|NULL
-expr_stmt|;
 for|for
 control|(
 init|;
@@ -9405,6 +9399,8 @@ operator|+
 name|command_buf
 operator|.
 name|len
+operator|+
+literal|1
 argument_list|,
 name|sz
 argument_list|)
@@ -9422,8 +9418,6 @@ argument_list|,
 name|command_buf
 operator|.
 name|len
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 name|length
@@ -9431,8 +9425,6 @@ operator|+=
 name|command_buf
 operator|.
 name|len
-operator|-
-literal|1
 expr_stmt|;
 name|buffer
 index|[
@@ -11996,7 +11988,7 @@ name|command_buf
 operator|.
 name|len
 operator|>
-literal|1
+literal|0
 condition|)
 block|{
 if|if
@@ -12997,7 +12989,7 @@ name|command_buf
 operator|.
 name|len
 operator|>
-literal|1
+literal|0
 condition|)
 name|unread_command_buf
 operator|=
@@ -13057,8 +13049,6 @@ argument_list|,
 name|command_buf
 operator|.
 name|len
-operator|-
-literal|1
 argument_list|,
 name|stdout
 argument_list|)

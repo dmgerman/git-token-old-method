@@ -901,6 +901,9 @@ name|stderr
 argument_list|,
 literal|"%.*s\n"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|path
 operator|->
 name|len

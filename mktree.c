@@ -598,9 +598,6 @@ condition|(
 literal|1
 condition|)
 block|{
-name|int
-name|len
-decl_stmt|;
 name|char
 modifier|*
 name|ptr
@@ -636,12 +633,6 @@ operator|.
 name|eof
 condition|)
 break|break;
-name|len
-operator|=
-name|sb
-operator|.
-name|len
-expr_stmt|;
 name|ptr
 operator|=
 name|sb
@@ -709,11 +700,13 @@ name|sb
 operator|.
 name|buf
 operator|+
+name|sb
+operator|.
 name|len
 operator|<=
 name|ntr
 operator|+
-literal|41
+literal|40
 operator|||
 name|ntr
 index|[
