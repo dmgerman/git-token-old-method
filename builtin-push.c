@@ -50,8 +50,6 @@ decl_stmt|,
 name|force
 decl_stmt|,
 name|thin
-init|=
-literal|1
 decl_stmt|,
 name|verbose
 decl_stmt|;
