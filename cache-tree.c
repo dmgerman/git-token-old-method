@@ -1493,12 +1493,6 @@ name|strbuf_init
 argument_list|(
 operator|&
 name|buffer
-argument_list|)
-expr_stmt|;
-name|strbuf_grow
-argument_list|(
-operator|&
-name|buffer
 argument_list|,
 literal|8192
 argument_list|)
@@ -2218,6 +2212,8 @@ name|strbuf_init
 argument_list|(
 operator|&
 name|buffer
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|write_one

@@ -9269,6 +9269,8 @@ name|strbuf_init
 argument_list|(
 operator|&
 name|buffer
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -13320,6 +13322,8 @@ name|strbuf_init
 argument_list|(
 operator|&
 name|command_buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|atom_table

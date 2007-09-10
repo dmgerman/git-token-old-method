@@ -10185,6 +10185,8 @@ name|strbuf_init
 argument_list|(
 operator|&
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -10328,6 +10330,8 @@ operator|&
 name|buf
 argument_list|,
 name|fd
+argument_list|,
+literal|0
 argument_list|)
 operator|!=
 name|xsize_t
@@ -10406,6 +10410,8 @@ name|strbuf_read
 argument_list|(
 operator|&
 name|buf
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|)

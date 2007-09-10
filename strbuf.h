@@ -61,6 +61,8 @@ parameter_list|(
 name|struct
 name|strbuf
 modifier|*
+parameter_list|,
+name|size_t
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -189,6 +191,20 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
+comment|/*----- content related -----*/
+end_comment
+begin_function_decl
+specifier|extern
+name|void
+name|strbuf_rtrim
+parameter_list|(
+name|struct
+name|strbuf
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
 comment|/*----- add data in your buffer -----*/
 end_comment
 begin_function
@@ -239,6 +255,29 @@ literal|'\0'
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/* inserts after pos, or appends if pos>= sb->len */
+end_comment
+begin_function_decl
+specifier|extern
+name|void
+name|strbuf_insert
+parameter_list|(
+name|struct
+name|strbuf
+modifier|*
+parameter_list|,
+name|size_t
+name|pos
+parameter_list|,
+specifier|const
+name|void
+modifier|*
+parameter_list|,
+name|size_t
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function_decl
 specifier|extern
 name|void
@@ -380,6 +419,9 @@ modifier|*
 parameter_list|,
 name|int
 name|fd
+parameter_list|,
+name|size_t
+name|hint
 parameter_list|)
 function_decl|;
 end_function_decl
