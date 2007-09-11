@@ -2172,6 +2172,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"reset"
+block|,
+name|cmd_reset
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"rev-list"
 block|,
 name|cmd_rev_list
