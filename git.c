@@ -1942,6 +1942,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"fetch-pack"
+block|,
+name|cmd_fetch_pack
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"fetch--tool"
 block|,
 name|cmd_fetch__tool
