@@ -72,6 +72,12 @@ name|char
 modifier|*
 name|receivepack
 decl_stmt|;
+DECL|member|uploadpack
+specifier|const
+name|char
+modifier|*
+name|uploadpack
+decl_stmt|;
 block|}
 struct|;
 end_struct
