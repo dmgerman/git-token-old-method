@@ -633,15 +633,6 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|result
-operator|.
-name|len
-operator|&&
-name|len
-condition|)
-block|{
 name|strbuf_add
 argument_list|(
 operator|&
@@ -652,7 +643,6 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-block|}
 operator|*
 name|sizep
 operator|=
