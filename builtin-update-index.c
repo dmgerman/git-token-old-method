@@ -839,14 +839,6 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
-comment|/* We probably want to do this in remove_file_from_cache() and 	 * add_cache_entry() instead... 	 */
-name|cache_tree_invalidate_path
-argument_list|(
-name|active_cache_tree
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
 comment|/* 	 * First things first: get the stat information, to decide 	 * what to do about the pathname! 	 */
 if|if
 condition|(
@@ -1069,13 +1061,6 @@ return|;
 name|report
 argument_list|(
 literal|"add '%s'"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-name|cache_tree_invalidate_path
-argument_list|(
-name|active_cache_tree
 argument_list|,
 name|path
 argument_list|)
@@ -1310,13 +1295,6 @@ goto|goto
 name|free_return
 goto|;
 block|}
-name|cache_tree_invalidate_path
-argument_list|(
-name|active_cache_tree
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|force_remove
@@ -1683,13 +1661,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|cache_tree_invalidate_path
-argument_list|(
-name|active_cache_tree
-argument_list|,
-name|path_name
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2178,13 +2149,6 @@ goto|goto
 name|free_return
 goto|;
 block|}
-name|cache_tree_invalidate_path
-argument_list|(
-name|active_cache_tree
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
 name|remove_file_from_cache
 argument_list|(
 name|path
