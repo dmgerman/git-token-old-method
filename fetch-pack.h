@@ -85,6 +85,11 @@ name|char
 modifier|*
 modifier|*
 name|heads
+parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|pack_lockfile
 parameter_list|)
 function_decl|;
 end_function_decl

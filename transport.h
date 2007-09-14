@@ -67,6 +67,11 @@ name|transport_ops
 modifier|*
 name|ops
 decl_stmt|;
+DECL|member|pack_lockfile
+name|char
+modifier|*
+name|pack_lockfile
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -136,7 +141,6 @@ modifier|*
 name|fetch
 function_decl|)
 parameter_list|(
-specifier|const
 name|struct
 name|transport
 modifier|*
@@ -353,6 +357,17 @@ name|struct
 name|ref
 modifier|*
 name|refs
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|transport_unlock_pack
+parameter_list|(
+name|struct
+name|transport
+modifier|*
+name|transport
 parameter_list|)
 function_decl|;
 end_function_decl
