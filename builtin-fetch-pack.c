@@ -3986,13 +3986,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|printf
-argument_list|(
-literal|"connect to %s\n"
-argument_list|,
-name|dest
-argument_list|)
-expr_stmt|;
 name|pid
 operator|=
 name|git_connect
