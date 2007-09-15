@@ -356,8 +356,6 @@ name|uri
 index|[
 name|i
 index|]
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|int
