@@ -27,11 +27,6 @@ include|#
 directive|include
 file|"utf8.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"strbuf.h"
-end_include
 begin_define
 DECL|macro|BLOCKING
 define|#
