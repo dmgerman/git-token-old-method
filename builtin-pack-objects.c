@@ -6997,7 +6997,7 @@ define|#
 directive|define
 name|read_lock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_define
 DECL|macro|read_unlock
@@ -7005,7 +7005,7 @@ define|#
 directive|define
 name|read_unlock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_define
 DECL|macro|cache_lock
@@ -7013,7 +7013,7 @@ define|#
 directive|define
 name|cache_lock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_define
 DECL|macro|cache_unlock
@@ -7021,7 +7021,7 @@ define|#
 directive|define
 name|cache_unlock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_define
 DECL|macro|progress_lock
@@ -7029,7 +7029,7 @@ define|#
 directive|define
 name|progress_lock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_define
 DECL|macro|progress_unlock
@@ -7037,7 +7037,7 @@ define|#
 directive|define
 name|progress_unlock
 parameter_list|()
-value|0
+value|(void)0
 end_define
 begin_endif
 endif|#
