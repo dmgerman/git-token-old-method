@@ -878,6 +878,8 @@ return|;
 block|}
 if|if
 condition|(
+name|current_branch
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
