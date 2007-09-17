@@ -5348,6 +5348,12 @@ name|cherry_pick
 operator|=
 literal|1
 expr_stmt|;
+name|revs
+operator|->
+name|limited
+operator|=
+literal|1
+expr_stmt|;
 continue|continue;
 block|}
 if|if
