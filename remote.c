@@ -4980,6 +4980,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|ref_map
+operator|->
+name|peer_ref
+operator|&&
 name|refspec
 operator|->
 name|force
