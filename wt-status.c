@@ -306,6 +306,12 @@ name|reference
 operator|=
 literal|"HEAD"
 expr_stmt|;
+name|s
+operator|->
+name|fp
+operator|=
+name|stdout
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -314,10 +320,10 @@ specifier|static
 name|void
 name|wt_status_print_cached_header
 parameter_list|(
-specifier|const
-name|char
+name|struct
+name|wt_status
 modifier|*
-name|reference
+name|s
 parameter_list|)
 block|{
 specifier|const
@@ -330,8 +336,12 @@ argument_list|(
 name|WT_STATUS_HEADER
 argument_list|)
 decl_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"# Changes to be committed:"
@@ -339,31 +349,47 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|reference
 condition|)
 block|{
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"#   (use \"git reset %s<file>...\" to unstage)"
 argument_list|,
+name|s
+operator|->
 name|reference
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"#   (use \"git rm --cached<file>...\" to unstage)"
 argument_list|)
 expr_stmt|;
 block|}
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"#"
@@ -377,6 +403,11 @@ specifier|static
 name|void
 name|wt_status_print_header
 argument_list|(
+expr|struct
+name|wt_status
+operator|*
+name|s
+argument_list|,
 specifier|const
 name|char
 operator|*
@@ -398,8 +429,12 @@ argument_list|(
 name|WT_STATUS_HEADER
 argument_list|)
 decl_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"# %s:"
@@ -407,8 +442,12 @@ argument_list|,
 expr|main
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"#   (%s)"
@@ -416,8 +455,12 @@ argument_list|,
 name|sub
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"#"
@@ -431,11 +474,18 @@ specifier|static
 name|void
 name|wt_status_print_trailer
 parameter_list|(
-name|void
+name|struct
+name|wt_status
+modifier|*
+name|s
 parameter_list|)
 block|{
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -572,6 +622,11 @@ specifier|static
 name|void
 name|wt_status_print_filepair
 parameter_list|(
+name|struct
+name|wt_status
+modifier|*
+name|s
+parameter_list|,
 name|int
 name|t
 parameter_list|,
@@ -646,8 +701,12 @@ name|twobuf
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -666,8 +725,12 @@ block|{
 case|case
 name|DIFF_STATUS_ADDED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"new file:   %s"
@@ -679,8 +742,12 @@ break|break;
 case|case
 name|DIFF_STATUS_COPIED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"copied:     %s -> %s"
@@ -694,8 +761,12 @@ break|break;
 case|case
 name|DIFF_STATUS_DELETED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"deleted:    %s"
@@ -707,8 +778,12 @@ break|break;
 case|case
 name|DIFF_STATUS_MODIFIED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"modified:   %s"
@@ -720,8 +795,12 @@ break|break;
 case|case
 name|DIFF_STATUS_RENAMED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"renamed:    %s -> %s"
@@ -735,8 +814,12 @@ break|break;
 case|case
 name|DIFF_STATUS_TYPE_CHANGED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"typechange: %s"
@@ -748,8 +831,12 @@ break|break;
 case|case
 name|DIFF_STATUS_UNKNOWN
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"unknown:    %s"
@@ -761,8 +848,12 @@ break|break;
 case|case
 name|DIFF_STATUS_UNMERGED
 case|:
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|c
 argument_list|,
 literal|"unmerged:   %s"
@@ -782,8 +873,12 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
-name|printf
+name|fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 literal|"\n"
 argument_list|)
 expr_stmt|;
@@ -864,8 +959,6 @@ block|{
 name|wt_status_print_cached_header
 argument_list|(
 name|s
-operator|->
-name|reference
 argument_list|)
 expr_stmt|;
 name|s
@@ -881,6 +974,8 @@ expr_stmt|;
 block|}
 name|wt_status_print_filepair
 argument_list|(
+name|s
+argument_list|,
 name|WT_STATUS_UPDATED
 argument_list|,
 name|q
@@ -897,7 +992,9 @@ condition|(
 name|shown_header
 condition|)
 name|wt_status_print_trailer
-argument_list|()
+argument_list|(
+name|s
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -989,6 +1086,8 @@ break|break;
 block|}
 name|wt_status_print_header
 argument_list|(
+name|s
+argument_list|,
 literal|"Changed but not updated"
 argument_list|,
 name|msg
@@ -1012,6 +1111,8 @@ operator|++
 control|)
 name|wt_status_print_filepair
 argument_list|(
+name|s
+argument_list|,
 name|WT_STATUS_CHANGED
 argument_list|,
 name|q
@@ -1029,7 +1130,9 @@ operator|->
 name|nr
 condition|)
 name|wt_status_print_trailer
-argument_list|()
+argument_list|(
+name|s
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -1092,7 +1195,7 @@ literal|1
 expr_stmt|;
 name|wt_status_print_cached_header
 argument_list|(
-name|NULL
+name|s
 argument_list|)
 expr_stmt|;
 block|}
@@ -1110,8 +1213,12 @@ name|i
 operator|++
 control|)
 block|{
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1120,8 +1227,12 @@ argument_list|,
 literal|"#\t"
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_UPDATED
@@ -1153,7 +1264,9 @@ condition|(
 name|active_nr
 condition|)
 name|wt_status_print_trailer
-argument_list|()
+argument_list|(
+name|s
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -1570,6 +1683,8 @@ literal|1
 expr_stmt|;
 name|wt_status_print_header
 argument_list|(
+name|s
+argument_list|,
 literal|"Untracked files"
 argument_list|,
 name|use_add_to_include_msg
@@ -1580,8 +1695,12 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|color_printf
+name|color_fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1590,8 +1709,12 @@ argument_list|,
 literal|"#\t"
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_UNTRACKED
@@ -1773,8 +1896,12 @@ operator|=
 literal|"Not currently on any branch."
 expr_stmt|;
 block|}
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1795,8 +1922,12 @@ operator|->
 name|is_initial
 condition|)
 block|{
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1805,8 +1936,12 @@ argument_list|,
 literal|"#"
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1815,8 +1950,12 @@ argument_list|,
 literal|"# Initial commit"
 argument_list|)
 expr_stmt|;
-name|color_printf_ln
+name|color_fprintf_ln
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
@@ -1879,8 +2018,12 @@ name|s
 operator|->
 name|amend
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|s
+operator|->
+name|fp
+argument_list|,
 literal|"# No changes\n"
 argument_list|)
 expr_stmt|;

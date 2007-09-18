@@ -10,6 +10,11 @@ define|#
 directive|define
 name|STATUS_H
 end_define
+begin_include
+include|#
+directive|include
+file|<stdio.h>
+end_include
 begin_enum
 DECL|enum|color_wt_status
 enum|enum
@@ -73,6 +78,11 @@ decl_stmt|;
 DECL|member|workdir_untracked
 name|int
 name|workdir_untracked
+decl_stmt|;
+DECL|member|fp
+name|FILE
+modifier|*
+name|fp
 decl_stmt|;
 block|}
 struct|;
