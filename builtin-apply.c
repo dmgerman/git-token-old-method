@@ -1303,6 +1303,11 @@ condition|)
 return|return
 name|def
 return|;
+name|free
+argument_list|(
+name|def
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|xmemdupz
