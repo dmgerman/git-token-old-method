@@ -335,7 +335,7 @@ name|i
 operator|<
 name|remote
 operator|->
-name|uri_nr
+name|url_nr
 condition|;
 name|i
 operator|++
@@ -352,7 +352,7 @@ name|remote
 argument_list|,
 name|remote
 operator|->
-name|uri
+name|url
 index|[
 name|i
 index|]
@@ -399,7 +399,7 @@ literal|"Pushing to %s\n"
 argument_list|,
 name|remote
 operator|->
-name|uri
+name|url
 index|[
 name|i
 index|]
@@ -437,7 +437,7 @@ literal|"failed to push to '%s'"
 argument_list|,
 name|remote
 operator|->
-name|uri
+name|url
 index|[
 name|i
 index|]

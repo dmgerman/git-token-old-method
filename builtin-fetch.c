@@ -3121,7 +3121,7 @@ name|remote
 argument_list|,
 name|remote
 operator|->
-name|uri
+name|url
 index|[
 literal|0
 index|]
