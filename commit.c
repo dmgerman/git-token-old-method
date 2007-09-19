@@ -3641,7 +3641,7 @@ argument_list|)
 condition|)
 block|{
 comment|/* we have re-coded to UTF-8; drop the header */
-name|strbuf_splice
+name|strbuf_remove
 argument_list|(
 operator|&
 name|tmp
@@ -3649,10 +3649,6 @@ argument_list|,
 name|start
 argument_list|,
 name|len
-argument_list|,
-name|NULL
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
