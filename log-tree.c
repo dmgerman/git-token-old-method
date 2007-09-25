@@ -1480,6 +1480,11 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|*
+name|msgbuf
+condition|)
 name|printf
 argument_list|(
 literal|"%s%s%s"
