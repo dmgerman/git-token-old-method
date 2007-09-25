@@ -2566,11 +2566,10 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|refspec
 operator|->
 name|dst
-operator|==
-name|NULL
 condition|)
 return|return
 name|error
@@ -3534,9 +3533,8 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|dst_value
-operator|==
-name|NULL
 condition|)
 name|dst_value
 operator|=
@@ -3614,9 +3612,8 @@ if|if
 condition|(
 name|errs
 operator|||
+operator|!
 name|matched_dst
-operator|==
-name|NULL
 condition|)
 return|return
 literal|1
