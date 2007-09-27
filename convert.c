@@ -660,6 +660,8 @@ operator|=
 name|strbuf_detach
 argument_list|(
 name|buf
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|strbuf_grow
@@ -2169,6 +2171,8 @@ operator|=
 name|strbuf_detach
 argument_list|(
 name|buf
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|hash_sha1_file
