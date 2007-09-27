@@ -1168,6 +1168,9 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+name|size_t
+name|hint
 parameter_list|)
 block|{
 name|int
@@ -1202,7 +1205,7 @@ name|sb
 argument_list|,
 name|fd
 argument_list|,
-literal|0
+name|hint
 argument_list|)
 expr_stmt|;
 name|close
