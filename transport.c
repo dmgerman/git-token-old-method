@@ -1224,6 +1224,8 @@ name|e
 operator|->
 name|name
 argument_list|)
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 name|hashcpy

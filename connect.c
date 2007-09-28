@@ -384,9 +384,9 @@ name|ref
 operator|=
 name|alloc_ref
 argument_list|(
-name|len
-operator|-
-literal|40
+name|name_len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -408,9 +408,9 @@ name|buffer
 operator|+
 literal|41
 argument_list|,
-name|len
-operator|-
-literal|40
+name|name_len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 operator|*
