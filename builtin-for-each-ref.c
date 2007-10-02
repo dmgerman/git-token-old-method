@@ -522,6 +522,10 @@ if|if
 condition|(
 operator|!
 name|formatp
+operator|||
+name|ep
+operator|<
+name|formatp
 condition|)
 name|formatp
 operator|=
