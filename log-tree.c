@@ -1375,6 +1375,12 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|msgbuf
+operator|.
+name|len
+condition|)
 name|printf
 argument_list|(
 literal|"%s%s%s"
