@@ -9381,9 +9381,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|diff_free_filespec_data_large
+DECL|function|diff_free_filespec_blob
 name|void
-name|diff_free_filespec_data_large
+name|diff_free_filespec_blob
 parameter_list|(
 name|struct
 name|diff_filespec
@@ -9463,7 +9463,7 @@ modifier|*
 name|s
 parameter_list|)
 block|{
-name|diff_free_filespec_data_large
+name|diff_free_filespec_blob
 argument_list|(
 name|s
 argument_list|)
