@@ -42,7 +42,7 @@ name|char
 name|send_pack_usage
 index|[]
 init|=
-literal|"git-send-pack [--all] [--force] [--receive-pack=<git-receive-pack>] [--verbose] [--thin] [<host>:]<directory> [<ref>...]\n"
+literal|"git-send-pack [--all] [--dry-run] [--force] [--receive-pack=<git-receive-pack>] [--verbose] [--thin] [<host>:]<directory> [<ref>...]\n"
 literal|"  --all and explicit<ref> specification are mutually exclusive."
 decl_stmt|;
 end_decl_stmt
@@ -83,6 +83,13 @@ DECL|variable|use_thin_pack
 specifier|static
 name|int
 name|use_thin_pack
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|dry_run
+specifier|static
+name|int
+name|dry_run
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -1309,6 +1316,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|dry_run
+condition|)
+block|{
+if|if
+condition|(
 name|ask_for_status_report
 condition|)
 block|{
@@ -1356,6 +1369,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|will_delete_ref
@@ -1427,6 +1441,9 @@ block|}
 if|if
 condition|(
 name|remote
+operator|&&
+operator|!
+name|dry_run
 condition|)
 block|{
 name|struct
@@ -1532,6 +1549,9 @@ expr_stmt|;
 if|if
 condition|(
 name|new_refs
+operator|&&
+operator|!
+name|dry_run
 condition|)
 name|ret
 operator|=
@@ -1855,6 +1875,23 @@ argument_list|)
 condition|)
 block|{
 name|send_all
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--dry-run"
+argument_list|)
+condition|)
+block|{
+name|dry_run
 operator|=
 literal|1
 expr_stmt|;
