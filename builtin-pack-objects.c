@@ -3621,10 +3621,6 @@ name|mode
 expr_stmt|;
 name|idx_tmp_name
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|write_idx_file
 argument_list|(
 name|NULL
