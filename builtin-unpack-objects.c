@@ -1718,9 +1718,7 @@ argument_list|(
 operator|&
 name|progress
 argument_list|,
-literal|"Unpacking %u objects..."
-argument_list|,
-literal|""
+literal|"Unpacking objects"
 argument_list|,
 name|nr_objects
 argument_list|)
