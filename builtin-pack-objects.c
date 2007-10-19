@@ -8914,7 +8914,7 @@ argument_list|(
 operator|&
 name|progress_state
 argument_list|,
-literal|"Deltifying objects"
+literal|"Compressing objects"
 argument_list|,
 name|nr_deltas
 argument_list|)
