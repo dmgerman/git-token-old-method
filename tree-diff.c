@@ -1515,6 +1515,14 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+name|diff_opts
+operator|.
+name|break_opt
+operator|=
+name|opt
+operator|->
+name|break_opt
+expr_stmt|;
 name|paths
 index|[
 literal|0
