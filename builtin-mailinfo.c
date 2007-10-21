@@ -1412,6 +1412,7 @@ end_function_decl
 begin_decl_stmt
 DECL|variable|header
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|header

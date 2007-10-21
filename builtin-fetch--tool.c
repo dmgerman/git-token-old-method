@@ -148,6 +148,7 @@ index|[
 literal|1024
 index|]
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|rla
@@ -361,6 +362,7 @@ name|sha1_old
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|msg
