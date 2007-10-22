@@ -102,7 +102,6 @@ block|}
 end_function
 begin_function
 DECL|function|show_decorations
-specifier|static
 name|void
 name|show_decorations
 parameter_list|(
