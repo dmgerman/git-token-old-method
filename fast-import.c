@@ -9206,6 +9206,14 @@ literal|5
 operator|-
 literal|2
 decl_stmt|;
+name|strbuf_detach
+argument_list|(
+operator|&
+name|command_buf
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 init|;
