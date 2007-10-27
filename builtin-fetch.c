@@ -248,7 +248,7 @@ condition|(
 name|rm
 condition|)
 continue|continue;
-comment|/* Not fetched to a tracking branch?  We need to fetch 		 * it anyway to allow this branch's "branch.$name.merge" 		 * to be honored by git-pull. 		 */
+comment|/* 		 * Not fetched to a tracking branch?  We need to fetch 		 * it anyway to allow this branch's "branch.$name.merge" 		 * to be honored by git-pull, but we do not have to 		 * fail if branch.$name.merge is misconfigured to point 		 * at a nonexisting branch.  If we were indeed called by 		 * git-pull, it will notice the misconfiguration because 		 * there is no entry in the resulting FETCH_HEAD marked 		 * for merging. 		 */
 name|refspec
 operator|.
 name|src
@@ -288,6 +288,8 @@ operator|&
 name|refspec
 argument_list|,
 name|tail
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 for|for
@@ -410,6 +412,8 @@ index|]
 argument_list|,
 operator|&
 name|tail
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -500,6 +504,8 @@ name|refspec
 argument_list|,
 operator|&
 name|tail
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -577,6 +583,8 @@ index|]
 argument_list|,
 operator|&
 name|tail
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -674,6 +682,16 @@ argument_list|(
 name|remote_refs
 argument_list|,
 literal|"HEAD"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|ref_map
+condition|)
+name|die
+argument_list|(
+literal|"Couldn't find remote ref HEAD"
 argument_list|)
 expr_stmt|;
 name|ref_map
