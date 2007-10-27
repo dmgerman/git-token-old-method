@@ -799,7 +799,6 @@ block|}
 end_function
 begin_function
 DECL|function|list_common_cmds_help
-specifier|static
 name|void
 name|list_common_cmds_help
 parameter_list|(
@@ -1142,7 +1141,7 @@ argument_list|()
 expr_stmt|;
 name|exit
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1186,7 +1185,7 @@ argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
