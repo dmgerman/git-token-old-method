@@ -79,6 +79,11 @@ specifier|static
 name|struct
 name|fetch_pack_args
 name|args
+init|=
+block|{
+comment|/* .uploadpack = */
+literal|"git-upload-pack"
+block|, }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -90,17 +95,6 @@ name|fetch_pack_usage
 index|[]
 init|=
 literal|"git-fetch-pack [--all] [--quiet|-q] [--keep|-k] [--thin] [--upload-pack=<git-upload-pack>] [--depth=<n>] [--no-progress] [-v] [<host>:]<directory> [<refs>...]"
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|uploadpack
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|uploadpack
-init|=
-literal|"git-upload-pack"
 decl_stmt|;
 end_decl_stmt
 begin_define
@@ -4114,6 +4108,8 @@ operator|*
 operator|)
 name|dest
 argument_list|,
+name|args
+operator|.
 name|uploadpack
 argument_list|,
 name|args
