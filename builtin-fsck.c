@@ -3267,7 +3267,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|0
 argument_list|,
-literal|"struct"
+literal|"strict"
 argument_list|,
 operator|&
 name|check_strict
