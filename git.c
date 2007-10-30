@@ -2099,6 +2099,14 @@ name|NEED_WORK_TREE
 block|}
 block|,
 block|{
+literal|"send-pack"
+block|,
+name|cmd_send_pack
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"shortlog"
 block|,
 name|cmd_shortlog
