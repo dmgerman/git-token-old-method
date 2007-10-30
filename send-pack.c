@@ -1121,6 +1121,7 @@ parameter_list|,
 name|int
 name|nr_refspec
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -1707,6 +1708,7 @@ parameter_list|(
 name|int
 name|nr_heads
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -1824,6 +1826,7 @@ name|dest
 init|=
 name|NULL
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -2062,6 +2065,12 @@ continue|continue;
 block|}
 name|heads
 operator|=
+operator|(
+specifier|const
+name|char
+operator|*
+operator|*
+operator|)
 name|argv
 expr_stmt|;
 name|nr_heads
