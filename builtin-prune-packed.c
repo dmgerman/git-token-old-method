@@ -83,12 +83,6 @@ index|[
 literal|40
 index|]
 decl_stmt|;
-if|if
-condition|(
-name|opts
-operator|==
-name|VERBOSE
-condition|)
 name|display_progress
 argument_list|(
 name|progress
@@ -392,12 +386,6 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|opts
-operator|==
-name|VERBOSE
-condition|)
 name|stop_progress
 argument_list|(
 operator|&
