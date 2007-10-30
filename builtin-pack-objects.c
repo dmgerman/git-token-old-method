@@ -350,6 +350,7 @@ DECL|variable|progress_state
 specifier|static
 name|struct
 name|progress
+modifier|*
 name|progress_state
 decl_stmt|;
 end_decl_stmt
@@ -3327,11 +3328,10 @@ if|if
 condition|(
 name|do_progress
 condition|)
+name|progress_state
+operator|=
 name|start_progress
 argument_list|(
-operator|&
-name|progress_state
-argument_list|,
 literal|"Writing objects"
 argument_list|,
 name|nr_result
@@ -3526,7 +3526,6 @@ name|do_progress
 condition|)
 name|display_progress
 argument_list|(
-operator|&
 name|progress_state
 argument_list|,
 name|written
@@ -4670,7 +4669,6 @@ name|progress
 condition|)
 name|display_progress
 argument_list|(
-operator|&
 name|progress_state
 argument_list|,
 name|nr_objects
@@ -8017,7 +8015,6 @@ name|progress
 condition|)
 name|display_progress
 argument_list|(
-operator|&
 name|progress_state
 argument_list|,
 operator|*
@@ -8909,11 +8906,10 @@ if|if
 condition|(
 name|progress
 condition|)
+name|progress_state
+operator|=
 name|start_progress
 argument_list|(
-operator|&
-name|progress_state
-argument_list|,
 literal|"Compressing objects"
 argument_list|,
 name|nr_deltas
@@ -11162,11 +11158,10 @@ if|if
 condition|(
 name|progress
 condition|)
+name|progress_state
+operator|=
 name|start_progress
 argument_list|(
-operator|&
-name|progress_state
-argument_list|,
 literal|"Counting objects"
 argument_list|,
 literal|0

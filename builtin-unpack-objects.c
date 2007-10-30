@@ -1635,7 +1635,10 @@ name|i
 decl_stmt|;
 name|struct
 name|progress
+modifier|*
 name|progress
+init|=
+name|NULL
 decl_stmt|;
 name|struct
 name|pack_header
@@ -1713,11 +1716,10 @@ condition|(
 operator|!
 name|quiet
 condition|)
+name|progress
+operator|=
 name|start_progress
 argument_list|(
-operator|&
-name|progress
-argument_list|,
 literal|"Unpacking objects"
 argument_list|,
 name|nr_objects
@@ -1762,7 +1764,6 @@ name|quiet
 condition|)
 name|display_progress
 argument_list|(
-operator|&
 name|progress
 argument_list|,
 name|i
