@@ -3462,9 +3462,6 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|pid_t
-name|pid
-decl_stmt|;
 name|char
 modifier|*
 name|dest
@@ -3476,8 +3473,11 @@ operator|->
 name|url
 argument_list|)
 decl_stmt|;
-name|pid
-operator|=
+name|struct
+name|child_process
+modifier|*
+name|conn
+init|=
 name|git_connect
 argument_list|(
 name|fd
@@ -3490,22 +3490,7 @@ name|uploadpack
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|pid
-operator|<
-literal|0
-condition|)
-name|die
-argument_list|(
-literal|"Failed to connect to \"%s\""
-argument_list|,
-name|transport
-operator|->
-name|url
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|get_remote_heads
 argument_list|(
 name|fd
@@ -3533,7 +3518,7 @@ argument_list|)
 expr_stmt|;
 name|finish_connect
 argument_list|(
-name|pid
+name|conn
 argument_list|)
 expr_stmt|;
 name|free

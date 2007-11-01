@@ -146,8 +146,10 @@ index|[
 literal|2
 index|]
 decl_stmt|;
-name|pid_t
-name|pid
+name|struct
+name|child_process
+modifier|*
+name|conn
 decl_stmt|;
 name|int
 name|nongit
@@ -313,7 +315,7 @@ argument_list|(
 name|peek_remote_usage
 argument_list|)
 expr_stmt|;
-name|pid
+name|conn
 operator|=
 name|git_connect
 argument_list|(
@@ -326,15 +328,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|pid
-operator|<
-literal|0
-condition|)
-return|return
-literal|1
-return|;
 name|ret
 operator|=
 name|peek_remote
@@ -364,7 +357,7 @@ name|ret
 operator||=
 name|finish_connect
 argument_list|(
-name|pid
+name|conn
 argument_list|)
 expr_stmt|;
 return|return
