@@ -1557,7 +1557,10 @@ literal|0
 decl_stmt|;
 name|struct
 name|progress
+modifier|*
 name|progress
+init|=
+name|NULL
 decl_stmt|;
 name|char
 name|last_symlink
@@ -1619,14 +1622,11 @@ name|total
 operator|++
 expr_stmt|;
 block|}
+name|progress
+operator|=
 name|start_progress_delay
 argument_list|(
-operator|&
-name|progress
-argument_list|,
-literal|"Checking %u files out..."
-argument_list|,
-literal|""
+literal|"Checking out files"
 argument_list|,
 name|total
 argument_list|,
@@ -1662,10 +1662,6 @@ operator|++
 decl_stmt|;
 if|if
 condition|(
-name|total
-condition|)
-if|if
-condition|(
 operator|!
 name|ce
 operator|->
@@ -1679,7 +1675,6 @@ name|mask
 condition|)
 name|display_progress
 argument_list|(
-operator|&
 name|progress
 argument_list|,
 operator|++
@@ -1752,17 +1747,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|total
-condition|)
 name|stop_progress
 argument_list|(
 operator|&
 name|progress
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 end_function
 begin_function
