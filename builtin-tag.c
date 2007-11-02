@@ -50,7 +50,6 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|launch_editor
-specifier|static
 name|void
 name|launch_editor
 parameter_list|(
@@ -176,6 +175,17 @@ name|editor
 operator|=
 literal|"vi"
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|editor
+argument_list|,
+literal|":"
+argument_list|)
+condition|)
+return|return;
 name|memset
 argument_list|(
 operator|&
