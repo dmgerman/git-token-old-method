@@ -2985,6 +2985,14 @@ name|arg
 argument_list|,
 literal|"--quiet"
 argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"-q"
+argument_list|)
 condition|)
 block|{
 name|quiet
