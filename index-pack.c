@@ -409,6 +409,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|input_len
+operator|+=
+name|ret
+expr_stmt|;
 if|if
 condition|(
 name|from_stdin
@@ -417,12 +421,10 @@ name|display_throughput
 argument_list|(
 name|progress
 argument_list|,
-name|ret
-argument_list|)
-expr_stmt|;
+name|consumed_bytes
+operator|+
 name|input_len
-operator|+=
-name|ret
+argument_list|)
 expr_stmt|;
 block|}
 do|while
