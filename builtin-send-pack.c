@@ -1005,6 +1005,12 @@ name|rs
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|args
+operator|.
+name|verbose
+condition|)
 name|fprintf
 argument_list|(
 name|stderr
