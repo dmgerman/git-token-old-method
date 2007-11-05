@@ -24,7 +24,7 @@ DECL|macro|SUFFIX
 define|#
 directive|define
 name|SUFFIX
-value|"\e[K"
+value|"\033[K"
 end_define
 begin_comment
 DECL|macro|SUFFIX
