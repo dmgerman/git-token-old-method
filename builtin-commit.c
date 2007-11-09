@@ -542,6 +542,11 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
+name|refresh_cache
+argument_list|(
+name|REFRESH_QUIET
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|write_cache
@@ -696,6 +701,11 @@ argument_list|,
 name|prefix
 argument_list|,
 name|files
+argument_list|)
+expr_stmt|;
+name|refresh_cache
+argument_list|(
+name|REFRESH_QUIET
 argument_list|)
 expr_stmt|;
 if|if
