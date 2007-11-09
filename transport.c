@@ -1613,6 +1613,18 @@ index|[
 literal|10
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|TRANSPORT_PUSH_MIRROR
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"rsync transport does not support mirror mode"
+argument_list|)
+return|;
 comment|/* first push the objects */
 name|strbuf_addstr
 argument_list|(
@@ -2228,6 +2240,18 @@ decl_stmt|;
 name|int
 name|err
 decl_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|TRANSPORT_PUSH_MIRROR
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"http transport does not support mirror mode"
+argument_list|)
+return|;
 name|argv
 operator|=
 name|xmalloc
@@ -3833,6 +3857,18 @@ operator|(
 name|flags
 operator|&
 name|TRANSPORT_PUSH_ALL
+operator|)
+expr_stmt|;
+name|args
+operator|.
+name|send_mirror
+operator|=
+operator|!
+operator|!
+operator|(
+name|flags
+operator|&
+name|TRANSPORT_PUSH_MIRROR
 operator|)
 expr_stmt|;
 name|args
