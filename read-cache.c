@@ -939,6 +939,7 @@ name|stat
 modifier|*
 name|st
 parameter_list|,
+name|unsigned
 name|int
 name|options
 parameter_list|)
@@ -952,14 +953,14 @@ name|ignore_valid
 init|=
 name|options
 operator|&
-literal|01
+name|CE_MATCH_IGNORE_VALID
 decl_stmt|;
 name|int
 name|assume_racy_is_modified
 init|=
 name|options
 operator|&
-literal|02
+name|CE_MATCH_RACY_IS_DIRTY
 decl_stmt|;
 comment|/* 	 * If it's marked as always valid in the index, it's 	 * valid whatever the checked-out copy says. 	 */
 if|if
@@ -1058,8 +1059,9 @@ name|stat
 modifier|*
 name|st
 parameter_list|,
+name|unsigned
 name|int
-name|really
+name|options
 parameter_list|)
 block|{
 name|int
@@ -1077,7 +1079,7 @@ name|ce
 argument_list|,
 name|st
 argument_list|,
-name|really
+name|options
 argument_list|)
 expr_stmt|;
 if|if
@@ -2132,7 +2134,7 @@ argument_list|,
 operator|&
 name|st
 argument_list|,
-literal|1
+name|CE_MATCH_IGNORE_VALID
 argument_list|)
 condition|)
 block|{
@@ -3641,8 +3643,9 @@ name|cache_entry
 modifier|*
 name|ce
 parameter_list|,
+name|unsigned
 name|int
-name|really
+name|options
 parameter_list|,
 name|int
 modifier|*
@@ -3662,6 +3665,13 @@ name|int
 name|changed
 decl_stmt|,
 name|size
+decl_stmt|;
+name|int
+name|ignore_valid
+init|=
+name|options
+operator|&
+name|CE_MATCH_IGNORE_VALID
 decl_stmt|;
 if|if
 condition|(
@@ -3702,7 +3712,7 @@ argument_list|,
 operator|&
 name|st
 argument_list|,
-name|really
+name|options
 argument_list|)
 expr_stmt|;
 if|if
@@ -3711,9 +3721,10 @@ operator|!
 name|changed
 condition|)
 block|{
+comment|/* 		 * The path is unchanged.  If we were told to ignore 		 * valid bit, then we did the actual stat check and 		 * found that the entry is unmodified.  If the entry 		 * is not marked VALID, this is the place to mark it 		 * valid again, under "assume unchanged" mode. 		 */
 if|if
 condition|(
-name|really
+name|ignore_valid
 operator|&&
 name|assume_unchanged
 operator|&&
@@ -3747,7 +3758,7 @@ argument_list|,
 operator|&
 name|st
 argument_list|,
-name|really
+name|options
 argument_list|)
 condition|)
 block|{
@@ -3795,11 +3806,11 @@ operator|&
 name|st
 argument_list|)
 expr_stmt|;
-comment|/* In this case, if really is not set, we should leave 	 * CE_VALID bit alone.  Otherwise, paths marked with 	 * --no-assume-unchanged (i.e. things to be edited) will 	 * reacquire CE_VALID bit automatically, which is not 	 * really what we want. 	 */
+comment|/* 	 * If ignore_valid is not set, we should leave CE_VALID bit 	 * alone.  Otherwise, paths marked with --no-assume-unchanged 	 * (i.e. things to be edited) will reacquire CE_VALID bit 	 * automatically, which is not really what we want. 	 */
 if|if
 condition|(
 operator|!
-name|really
+name|ignore_valid
 operator|&&
 name|assume_unchanged
 operator|&&
@@ -3905,6 +3916,16 @@ operator|&
 name|REFRESH_IGNORE_MISSING
 operator|)
 operator|!=
+literal|0
+decl_stmt|;
+name|unsigned
+name|int
+name|options
+init|=
+name|really
+condition|?
+name|CE_MATCH_IGNORE_VALID
+else|:
 literal|0
 decl_stmt|;
 for|for
@@ -4040,7 +4061,7 @@ name|istate
 argument_list|,
 name|ce
 argument_list|,
-name|really
+name|options
 argument_list|,
 operator|&
 name|cache_errno
