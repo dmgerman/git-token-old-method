@@ -33,6 +33,11 @@ end_include
 begin_if
 if|#
 directive|if
+name|defined
+argument_list|(
+name|NO_DEFLATE_BOUND
+argument_list|)
+operator|||
 name|ZLIB_VERNUM
 operator|<
 literal|0x1200
@@ -1090,6 +1095,15 @@ name|char
 modifier|*
 modifier|*
 name|pathspec
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|setup_work_tree
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl

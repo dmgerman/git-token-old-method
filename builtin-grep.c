@@ -1636,12 +1636,6 @@ condition|(
 name|argc
 operator|<
 name|MAXARGS
-operator|&&
-operator|!
-name|ce_stage
-argument_list|(
-name|ce
-argument_list|)
 condition|)
 continue|continue;
 name|status
