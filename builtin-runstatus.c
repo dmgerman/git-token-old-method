@@ -69,6 +69,12 @@ operator|&
 name|s
 argument_list|)
 expr_stmt|;
+name|s
+operator|.
+name|prefix
+operator|=
+name|prefix
+expr_stmt|;
 for|for
 control|(
 name|i
