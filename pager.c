@@ -4,11 +4,6 @@ include|#
 directive|include
 file|"cache.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<sys/select.h>
-end_include
 begin_comment
 comment|/*  * This is split up from the rest of git so that we might do  * something different on Windows, for example.  */
 end_comment
