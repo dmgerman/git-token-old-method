@@ -648,13 +648,16 @@ condition|)
 break|break;
 if|if
 condition|(
+operator|!
+operator|(
 name|commit
 operator|->
 name|object
 operator|.
 name|flags
 operator|&
-name|TREECHANGE
+name|TREESAME
+operator|)
 condition|)
 name|nr
 operator|++
@@ -913,8 +916,6 @@ block|{
 comment|/* 	 * Don't short-cut something we are not going to return! 	 */
 if|if
 condition|(
-operator|!
-operator|(
 name|p
 operator|->
 name|item
@@ -923,8 +924,7 @@ name|object
 operator|.
 name|flags
 operator|&
-name|TREECHANGE
-operator|)
+name|TREESAME
 condition|)
 return|return
 literal|0
@@ -1117,12 +1117,12 @@ argument_list|,
 operator|(
 name|flags
 operator|&
-name|TREECHANGE
+name|TREESAME
 operator|)
 condition|?
-literal|'T'
-else|:
 literal|' '
+else|:
+literal|'T'
 argument_list|,
 operator|(
 name|flags
@@ -1363,12 +1363,9 @@ name|flags
 decl_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
 name|flags
 operator|&
-name|TREECHANGE
-operator|)
+name|TREESAME
 condition|)
 continue|continue;
 name|distance
@@ -1595,12 +1592,9 @@ name|flags
 decl_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
 name|flags
 operator|&
-name|TREECHANGE
-operator|)
+name|TREESAME
 condition|)
 continue|continue;
 name|distance
@@ -1886,9 +1880,12 @@ literal|0
 case|:
 if|if
 condition|(
+operator|!
+operator|(
 name|flags
 operator|&
-name|TREECHANGE
+name|TREESAME
+operator|)
 condition|)
 block|{
 name|weight_set
@@ -2136,9 +2133,12 @@ continue|continue;
 comment|/* 			 * weight for p is unknown but q is known. 			 * add one for p itself if p is to be counted, 			 * otherwise inherit it from q directly. 			 */
 if|if
 condition|(
+operator|!
+operator|(
 name|flags
 operator|&
-name|TREECHANGE
+name|TREESAME
+operator|)
 condition|)
 block|{
 name|weight_set
@@ -2351,9 +2351,12 @@ name|p
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|flags
 operator|&
-name|TREECHANGE
+name|TREESAME
+operator|)
 condition|)
 name|nr
 operator|++
