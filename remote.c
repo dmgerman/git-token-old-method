@@ -4148,7 +4148,7 @@ modifier|*
 name|refspec
 parameter_list|,
 name|int
-name|all
+name|flags
 parameter_list|)
 block|{
 name|struct
@@ -4168,6 +4168,20 @@ operator|*
 operator|)
 name|refspec
 argument_list|)
+decl_stmt|;
+name|int
+name|send_all
+init|=
+name|flags
+operator|&
+name|MATCH_REFS_ALL
+decl_stmt|;
+name|int
+name|send_mirror
+init|=
+name|flags
+operator|&
+name|MATCH_REFS_MIRROR
 decl_stmt|;
 if|if
 condition|(
@@ -4251,6 +4265,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|send_mirror
+operator|&&
 name|prefixcmp
 argument_list|(
 name|src
@@ -4374,9 +4391,13 @@ operator|!
 name|nr_refspec
 operator|&&
 operator|!
-name|all
+operator|(
+name|send_all
+operator|||
+name|send_mirror
+operator|)
 condition|)
-comment|/* Remote doesn't have it, and we have no 			 * explicit pattern, and we don't have 			 * --all. */
+comment|/* 			 * Remote doesn't have it, and we have no 			 * explicit pattern, and we don't have 			 * --all nor --mirror. 			 */
 goto|goto
 name|free_name
 goto|;
