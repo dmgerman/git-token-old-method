@@ -1887,9 +1887,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-return|return
-name|w
-return|;
 block|}
 end_function
 begin_function

@@ -1324,10 +1324,6 @@ name|ec
 return|;
 block|}
 block|}
-return|return
-operator|-
-literal|1
-return|;
 block|}
 end_function
 begin_comment

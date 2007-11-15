@@ -3322,9 +3322,6 @@ return|;
 block|}
 block|}
 block|}
-return|return
-name|NULL
-return|;
 block|}
 end_function
 begin_comment
