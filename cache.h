@@ -4258,6 +4258,13 @@ modifier|*
 name|editor_program
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+name|excludes_file
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* base85 */
 end_comment
