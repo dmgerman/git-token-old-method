@@ -2008,8 +2008,6 @@ block|{
 literal|"rev-parse"
 block|,
 name|cmd_rev_parse
-block|,
-name|RUN_SETUP
 block|}
 block|,
 block|{
