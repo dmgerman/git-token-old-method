@@ -1335,6 +1335,8 @@ name|opt
 operator|->
 name|pre_context
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 if|if
 condition|(
@@ -1391,6 +1393,8 @@ name|opt
 operator|->
 name|post_context
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 if|if
 condition|(
@@ -1443,6 +1447,8 @@ name|opt
 operator|->
 name|post_context
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 if|if
 condition|(
