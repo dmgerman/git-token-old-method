@@ -1970,11 +1970,13 @@ operator|&
 name|opts
 argument_list|)
 expr_stmt|;
+name|DIFF_OPT_SET
+argument_list|(
+operator|&
 name|opts
-operator|.
-name|recursive
-operator|=
-literal|1
+argument_list|,
+name|RECURSIVE
+argument_list|)
 expr_stmt|;
 name|opts
 operator|.
