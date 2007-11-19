@@ -470,6 +470,11 @@ argument_list|,
 name|eol
 argument_list|)
 expr_stmt|;
+name|fflush
+argument_list|(
+name|stderr
+argument_list|)
+expr_stmt|;
 name|progress_update
 operator|=
 literal|0
@@ -500,6 +505,11 @@ argument_list|,
 name|tp
 argument_list|,
 name|eol
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stderr
 argument_list|)
 expr_stmt|;
 name|progress_update
@@ -1123,6 +1133,11 @@ argument_list|,
 literal|"%s...\n"
 argument_list|,
 name|title
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stderr
 argument_list|)
 expr_stmt|;
 return|return
