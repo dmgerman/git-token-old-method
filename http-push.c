@@ -2353,7 +2353,9 @@ name|stderr
 argument_list|,
 literal|"Unable to open local file %s for pack"
 argument_list|,
-name|filename
+name|request
+operator|->
+name|tmpfile
 argument_list|)
 expr_stmt|;
 name|remote
@@ -5176,7 +5178,7 @@ name|error
 argument_list|(
 literal|"Unable to open local file %s for pack index"
 argument_list|,
-name|filename
+name|tmpfile
 argument_list|)
 return|;
 name|slot
