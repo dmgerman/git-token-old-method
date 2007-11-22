@@ -3524,6 +3524,9 @@ decl_stmt|;
 name|char
 modifier|*
 name|nl
+decl_stmt|,
+modifier|*
+name|p
 decl_stmt|;
 name|unsigned
 name|char
@@ -4026,6 +4029,36 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* Truncate the message just before the diff, if any. */
+name|p
+operator|=
+name|strstr
+argument_list|(
+name|sb
+operator|.
+name|buf
+argument_list|,
+literal|"\ndiff --git a/"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|!=
+name|NULL
+condition|)
+name|strbuf_setlen
+argument_list|(
+operator|&
+name|sb
+argument_list|,
+name|p
+operator|-
+name|sb
+operator|.
+name|buf
+argument_list|)
+expr_stmt|;
 name|stripspace
 argument_list|(
 operator|&
