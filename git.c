@@ -1901,6 +1901,14 @@ name|cmd_merge_file
 block|}
 block|,
 block|{
+literal|"merge-ours"
+block|,
+name|cmd_merge_ours
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"mv"
 block|,
 name|cmd_mv
