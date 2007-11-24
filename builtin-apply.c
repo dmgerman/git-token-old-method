@@ -4403,6 +4403,12 @@ decl_stmt|;
 comment|/* 	 * We know len is at least two, since we have a '+' and we 	 * checked that the last character was a '\n' before calling 	 * this function.  That is, an addition of an empty line would 	 * check the '+' here.  Sneaky... 	 */
 if|if
 condition|(
+operator|(
+name|whitespace_rule
+operator|&
+name|WS_TRAILING_SPACE
+operator|)
+operator|&&
 name|isspace
 argument_list|(
 name|line
@@ -4417,6 +4423,13 @@ goto|goto
 name|error
 goto|;
 comment|/* 	 * Make sure that there is no space followed by a tab in 	 * indentation. 	 */
+if|if
+condition|(
+name|whitespace_rule
+operator|&
+name|WS_SPACE_BEFORE_TAB
+condition|)
+block|{
 name|err
 operator|=
 literal|"Space in indent is followed by a tab"
@@ -4469,6 +4482,41 @@ literal|1
 expr_stmt|;
 else|else
 break|break;
+block|}
+block|}
+comment|/* 	 * Make sure that the indentation does not contain more than 	 * 8 spaces. 	 */
+if|if
+condition|(
+operator|(
+name|whitespace_rule
+operator|&
+name|WS_INDENT_WITH_NON_TAB
+operator|)
+operator|&&
+operator|(
+literal|8
+operator|<
+name|len
+operator|)
+operator|&&
+operator|!
+name|strncmp
+argument_list|(
+literal|"+        "
+argument_list|,
+name|line
+argument_list|,
+literal|9
+argument_list|)
+condition|)
+block|{
+name|err
+operator|=
+literal|"Indent more than 8 places with spaces"
+expr_stmt|;
+goto|goto
+name|error
+goto|;
 block|}
 return|return;
 name|error
@@ -7485,6 +7533,13 @@ block|}
 comment|/* 	 * Strip trailing whitespace 	 */
 if|if
 condition|(
+operator|(
+name|whitespace_rule
+operator|&
+name|WS_TRAILING_SPACE
+operator|)
+operator|&&
+operator|(
 literal|1
 operator|<
 name|plen
@@ -7498,6 +7553,7 @@ operator|-
 literal|1
 index|]
 argument_list|)
+operator|)
 condition|)
 block|{
 if|if
@@ -7574,6 +7630,12 @@ name|i
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|whitespace_rule
+operator|&
+name|WS_SPACE_BEFORE_TAB
+operator|)
+operator|&&
 literal|0
 operator|<=
 name|last_space_in_indent
@@ -7590,10 +7652,32 @@ name|ch
 operator|==
 literal|' '
 condition|)
+block|{
 name|last_space_in_indent
 operator|=
 name|i
 expr_stmt|;
+if|if
+condition|(
+operator|(
+name|whitespace_rule
+operator|&
+name|WS_INDENT_WITH_NON_TAB
+operator|)
+operator|&&
+name|last_tab_in_indent
+operator|<
+literal|0
+operator|&&
+literal|8
+operator|<=
+name|i
+condition|)
+name|need_fix_leading_space
+operator|=
+literal|1
+expr_stmt|;
+block|}
 else|else
 break|break;
 block|}
@@ -7611,7 +7695,42 @@ name|consecutive_spaces
 init|=
 literal|0
 decl_stmt|;
-comment|/* 		 * between patch[1..last_tab_in_indent] strip the 		 * funny spaces, updating them to tab as needed. 		 */
+name|int
+name|last
+init|=
+name|last_tab_in_indent
+operator|+
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|whitespace_rule
+operator|&
+name|WS_INDENT_WITH_NON_TAB
+condition|)
+block|{
+comment|/* have "last" point at one past the indent */
+if|if
+condition|(
+name|last_tab_in_indent
+operator|<
+name|last_space_in_indent
+condition|)
+name|last
+operator|=
+name|last_space_in_indent
+operator|+
+literal|1
+expr_stmt|;
+else|else
+name|last
+operator|=
+name|last_tab_in_indent
+operator|+
+literal|1
+expr_stmt|;
+block|}
+comment|/* 		 * between patch[1..last], strip the funny spaces, 		 * updating them to tab as needed. 		 */
 for|for
 control|(
 name|i
@@ -7620,7 +7739,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|last_tab_in_indent
+name|last
 condition|;
 name|i
 operator|++
@@ -7680,13 +7799,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
+while|while
+condition|(
+literal|0
+operator|<
+name|consecutive_spaces
+operator|--
+condition|)
+operator|*
+name|output
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
 name|fixed
 operator|=
 literal|1
 expr_stmt|;
 name|i
 operator|=
-name|last_tab_in_indent
+name|last
 expr_stmt|;
 block|}
 else|else
