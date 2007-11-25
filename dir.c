@@ -3262,8 +3262,8 @@ return|;
 block|}
 end_function
 begin_function
-name|int
 DECL|function|file_exists
+name|int
 name|file_exists
 parameter_list|(
 specifier|const
@@ -3277,7 +3277,7 @@ name|stat
 name|sb
 decl_stmt|;
 return|return
-name|stat
+name|lstat
 argument_list|(
 name|f
 argument_list|,
