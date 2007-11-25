@@ -1354,12 +1354,10 @@ argument_list|,
 literal|"-"
 argument_list|)
 operator|||
+name|is_absolute_path
+argument_list|(
 name|path
-index|[
-literal|0
-index|]
-operator|==
-literal|'/'
+argument_list|)
 condition|)
 return|return
 literal|1

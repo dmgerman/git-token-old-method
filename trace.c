@@ -111,10 +111,10 @@ argument_list|)
 return|;
 if|if
 condition|(
-operator|*
+name|is_absolute_path
+argument_list|(
 name|trace
-operator|==
-literal|'/'
+argument_list|)
 condition|)
 block|{
 name|int
