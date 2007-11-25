@@ -43,6 +43,7 @@ modifier|*
 name|data
 decl_stmt|;
 DECL|member|remote_refs
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -81,7 +82,6 @@ modifier|*
 name|get_refs_list
 function_decl|)
 parameter_list|(
-specifier|const
 name|struct
 name|transport
 modifier|*
@@ -184,11 +184,18 @@ name|TRANSPORT_PUSH_DRY_RUN
 value|4
 end_define
 begin_define
+DECL|macro|TRANSPORT_PUSH_MIRROR
+define|#
+directive|define
+name|TRANSPORT_PUSH_MIRROR
+value|8
+end_define
+begin_define
 DECL|macro|TRANSPORT_PUSH_VERBOSE
 define|#
 directive|define
 name|TRANSPORT_PUSH_VERBOSE
-value|8
+value|16
 end_define
 begin_comment
 comment|/* Returns a transport suitable for the url */
@@ -310,6 +317,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+specifier|const
 name|struct
 name|ref
 modifier|*

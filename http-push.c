@@ -400,6 +400,8 @@ DECL|variable|push_all
 specifier|static
 name|int
 name|push_all
+init|=
+name|MATCH_REFS_NONE
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -13147,7 +13149,7 @@ condition|)
 block|{
 name|push_all
 operator|=
-literal|1
+name|MATCH_REFS_ALL
 expr_stmt|;
 continue|continue;
 block|}
@@ -13556,6 +13558,12 @@ name|remote_tail
 argument_list|,
 name|nr_refspec
 argument_list|,
+operator|(
+specifier|const
+name|char
+operator|*
+operator|*
+operator|)
 name|refspec
 argument_list|,
 name|push_all
