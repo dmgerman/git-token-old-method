@@ -513,7 +513,8 @@ argument_list|)
 expr_stmt|;
 name|system_wide
 operator|=
-name|ETC_GITCONFIG
+name|git_etc_gitconfig
+argument_list|()
 expr_stmt|;
 block|}
 name|key
@@ -1166,7 +1167,8 @@ name|setenv
 argument_list|(
 name|CONFIG_ENVIRONMENT
 argument_list|,
-name|ETC_GITCONFIG
+name|git_etc_gitconfig
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)

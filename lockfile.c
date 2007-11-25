@@ -60,6 +60,14 @@ index|[
 literal|0
 index|]
 condition|)
+block|{
+name|close
+argument_list|(
+name|lock_file_list
+operator|->
+name|fd
+argument_list|)
+expr_stmt|;
 name|unlink
 argument_list|(
 name|lock_file_list
@@ -67,6 +75,7 @@ operator|->
 name|filename
 argument_list|)
 expr_stmt|;
+block|}
 name|lock_file_list
 operator|=
 name|lock_file_list
@@ -394,9 +403,6 @@ modifier|*
 name|path
 parameter_list|)
 block|{
-name|int
-name|fd
-decl_stmt|;
 if|if
 condition|(
 name|strlen
@@ -450,6 +456,8 @@ argument_list|,
 literal|".lock"
 argument_list|)
 expr_stmt|;
+name|lk
+operator|->
 name|fd
 operator|=
 name|open
@@ -471,6 +479,8 @@ if|if
 condition|(
 literal|0
 operator|<=
+name|lk
+operator|->
 name|fd
 condition|)
 block|{
@@ -556,6 +566,8 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
+name|lk
+operator|->
 name|fd
 return|;
 block|}
@@ -634,6 +646,13 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+name|close
+argument_list|(
+name|lk
+operator|->
+name|fd
+argument_list|)
+expr_stmt|;
 name|strcpy
 argument_list|(
 name|result_file
@@ -799,6 +818,14 @@ index|[
 literal|0
 index|]
 condition|)
+block|{
+name|close
+argument_list|(
+name|lk
+operator|->
+name|fd
+argument_list|)
+expr_stmt|;
 name|unlink
 argument_list|(
 name|lk
@@ -806,6 +833,7 @@ operator|->
 name|filename
 argument_list|)
 expr_stmt|;
+block|}
 name|lk
 operator|->
 name|filename
