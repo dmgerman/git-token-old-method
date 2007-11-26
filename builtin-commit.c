@@ -4095,6 +4095,8 @@ operator|-
 name|sb
 operator|.
 name|buf
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|stripspace
