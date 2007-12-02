@@ -1742,6 +1742,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"fast-export"
+block|,
+name|cmd_fast_export
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"fetch"
 block|,
 name|cmd_fetch
