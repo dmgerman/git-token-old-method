@@ -91,7 +91,7 @@ name|progress
 decl_stmt|;
 end_decl_stmt
 begin_enum
-DECL|enumerator|IGNORE
+DECL|enumerator|VERBATIM
 DECL|enumerator|WARN
 DECL|enumerator|STRIP
 DECL|enumerator|ABORT
@@ -99,7 +99,7 @@ DECL|variable|signed_tag_mode
 specifier|static
 enum|enum
 block|{
-name|IGNORE
+name|VERBATIM
 block|,
 name|WARN
 block|,
@@ -157,12 +157,20 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"verbatim"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"ignore"
 argument_list|)
 condition|)
 name|signed_tag_mode
 operator|=
-name|IGNORE
+name|VERBATIM
 expr_stmt|;
 elseif|else
 if|if
@@ -1568,7 +1576,7 @@ argument_list|)
 expr_stmt|;
 comment|/* fallthru */
 case|case
-name|IGNORE
+name|VERBATIM
 case|:
 break|break;
 case|case
