@@ -1697,8 +1697,6 @@ name|parsed
 argument_list|,
 name|argv
 argument_list|,
-name|argc
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

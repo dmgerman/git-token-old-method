@@ -261,9 +261,6 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
-name|int
-name|count
-parameter_list|,
 name|size_t
 name|maxlen
 parameter_list|)
@@ -271,39 +268,12 @@ block|{
 name|int
 name|i
 decl_stmt|;
-comment|/* Count argv if needed. */
-if|if
-condition|(
-name|count
-operator|<
-literal|0
-condition|)
-block|{
-for|for
-control|(
-name|count
-operator|=
-literal|0
-init|;
-name|argv
-index|[
-name|count
-index|]
-condition|;
-name|count
-operator|++
-control|)
-empty_stmt|;
-comment|/* just counting */
-block|}
 comment|/* Copy into destination buffer. */
 name|strbuf_grow
 argument_list|(
 name|dst
 argument_list|,
-literal|32
-operator|*
-name|count
+literal|255
 argument_list|)
 expr_stmt|;
 for|for
@@ -312,9 +282,10 @@ name|i
 operator|=
 literal|0
 init|;
+name|argv
+index|[
 name|i
-operator|<
-name|count
+index|]
 condition|;
 operator|++
 name|i
