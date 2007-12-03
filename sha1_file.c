@@ -2633,7 +2633,7 @@ argument_list|(
 name|alt
 argument_list|)
 argument_list|,
-literal|':'
+name|PATH_SEP
 argument_list|,
 name|NULL
 argument_list|,
