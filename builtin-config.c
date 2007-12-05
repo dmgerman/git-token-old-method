@@ -258,6 +258,8 @@ operator|&&
 operator|(
 name|do_not_match
 operator|^
+operator|!
+operator|!
 name|regexec
 argument_list|(
 name|regexp
