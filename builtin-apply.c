@@ -575,6 +575,10 @@ DECL|member|rejected
 name|int
 name|rejected
 decl_stmt|;
+DECL|member|ws_rule
+name|unsigned
+name|ws_rule
+decl_stmt|;
 DECL|member|deflate_origlen
 name|unsigned
 name|long
@@ -4383,6 +4387,9 @@ name|line
 parameter_list|,
 name|int
 name|len
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
 specifier|const
@@ -4404,7 +4411,7 @@ comment|/* 	 * We know len is at least two, since we have a '+' and we 	 * check
 if|if
 condition|(
 operator|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_TRAILING_SPACE
 operator|)
@@ -4425,7 +4432,7 @@ goto|;
 comment|/* 	 * Make sure that there is no space followed by a tab in 	 * indentation. 	 */
 if|if
 condition|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_SPACE_BEFORE_TAB
 condition|)
@@ -4488,7 +4495,7 @@ comment|/* 	 * Make sure that the indentation does not contain more than 	 * 8 s
 if|if
 condition|(
 operator|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_INDENT_WITH_NON_TAB
 operator|)
@@ -4790,6 +4797,10 @@ argument_list|(
 name|line
 argument_list|,
 name|len
+argument_list|,
+name|patch
+operator|->
+name|ws_rule
 argument_list|)
 expr_stmt|;
 name|deleted
@@ -4820,6 +4831,10 @@ argument_list|(
 name|line
 argument_list|,
 name|len
+argument_list|,
+name|patch
+operator|->
+name|ws_rule
 argument_list|)
 expr_stmt|;
 name|added
@@ -6150,6 +6165,25 @@ condition|)
 return|return
 name|offset
 return|;
+name|patch
+operator|->
+name|ws_rule
+operator|=
+name|whitespace_rule
+argument_list|(
+name|patch
+operator|->
+name|new_name
+condition|?
+name|patch
+operator|->
+name|new_name
+else|:
+name|patch
+operator|->
+name|old_name
+argument_list|)
+expr_stmt|;
 name|patchsize
 operator|=
 name|parse_single_patch
@@ -7461,6 +7495,9 @@ name|patch
 parameter_list|,
 name|int
 name|plen
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
 comment|/* 	 * plen is number of bytes to be copied from patch, 	 * starting at patch+1 (patch[0] is '+').  Typically 	 * patch[plen] is '\n', unless this is the incomplete 	 * last line. 	 */
@@ -7534,7 +7571,7 @@ comment|/* 	 * Strip trailing whitespace 	 */
 if|if
 condition|(
 operator|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_TRAILING_SPACE
 operator|)
@@ -7631,7 +7668,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_SPACE_BEFORE_TAB
 operator|)
@@ -7660,7 +7697,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_INDENT_WITH_NON_TAB
 operator|)
@@ -7704,7 +7741,7 @@ literal|1
 decl_stmt|;
 if|if
 condition|(
-name|whitespace_rule
+name|ws_rule
 operator|&
 name|WS_INDENT_WITH_NON_TAB
 condition|)
@@ -7883,6 +7920,9 @@ name|frag
 parameter_list|,
 name|int
 name|inaccurate_eof
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
 name|int
@@ -8138,6 +8178,8 @@ argument_list|,
 name|patch
 argument_list|,
 name|plen
+argument_list|,
+name|ws_rule
 argument_list|)
 decl_stmt|;
 name|newsize
@@ -9126,6 +9168,20 @@ name|patch
 operator|->
 name|new_name
 decl_stmt|;
+name|unsigned
+name|ws_rule
+init|=
+name|patch
+operator|->
+name|ws_rule
+decl_stmt|;
+name|unsigned
+name|inaccurate_eof
+init|=
+name|patch
+operator|->
+name|inaccurate_eof
+decl_stmt|;
 if|if
 condition|(
 name|patch
@@ -9153,9 +9209,9 @@ name|buf
 argument_list|,
 name|frag
 argument_list|,
-name|patch
-operator|->
 name|inaccurate_eof
+argument_list|,
+name|ws_rule
 argument_list|)
 condition|)
 block|{
