@@ -1639,11 +1639,11 @@ name|name
 expr_stmt|;
 if|if
 condition|(
-name|argc
-operator|<
 name|MAXARGS
+operator|<=
+name|argc
 condition|)
-continue|continue;
+block|{
 name|status
 operator|=
 name|flush_grep
@@ -1676,6 +1676,7 @@ name|nr
 operator|+
 name|kept
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ce_stage
