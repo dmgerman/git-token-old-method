@@ -234,6 +234,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|buffer
+condition|)
+return|return;
+if|if
+condition|(
 name|strbuf_read_file
 argument_list|(
 name|buffer
