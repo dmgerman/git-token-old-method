@@ -78,14 +78,14 @@ DECL|macro|QUOTE_PYTHON
 define|#
 directive|define
 name|QUOTE_PYTHON
-value|3
+value|4
 end_define
 begin_define
 DECL|macro|QUOTE_TCL
 define|#
 directive|define
 name|QUOTE_TCL
-value|4
+value|8
 end_define
 begin_typedef
 DECL|enumerator|FIELD_STR
@@ -4872,7 +4872,7 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"more than one quoting style ?"
+literal|"more than one quoting style?"
 argument_list|)
 expr_stmt|;
 name|usage_with_options
