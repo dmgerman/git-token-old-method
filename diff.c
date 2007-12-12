@@ -5921,7 +5921,7 @@ name|space_before_tab
 operator|=
 literal|1
 expr_stmt|;
-comment|/* check white space at line end */
+comment|/* check whitespace at line end */
 if|if
 condition|(
 name|line
@@ -6000,7 +6000,7 @@ name|white_space_at_end
 condition|)
 name|printf
 argument_list|(
-literal|"white space at end"
+literal|"whitespace at end"
 argument_list|)
 expr_stmt|;
 name|printf
