@@ -189,12 +189,6 @@ name|pager_program
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|pager_in_use
-name|int
-name|pager_in_use
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|pager_use_color
 name|int
 name|pager_use_color

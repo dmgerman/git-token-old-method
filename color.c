@@ -759,6 +759,7 @@ name|stdout_is_tty
 operator|||
 operator|(
 name|pager_in_use
+argument_list|()
 operator|&&
 name|pager_use_color
 operator|)
