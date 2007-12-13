@@ -1399,6 +1399,9 @@ specifier|const
 name|char
 modifier|*
 name|prefix
+parameter_list|,
+name|int
+name|nowarn
 parameter_list|)
 block|{
 name|struct
@@ -1462,6 +1465,12 @@ operator|.
 name|fp
 operator|=
 name|fp
+expr_stmt|;
+name|s
+operator|.
+name|nowarn
+operator|=
+name|nowarn
 expr_stmt|;
 name|wt_status_print
 argument_list|(
@@ -2207,6 +2216,8 @@ argument_list|,
 name|index_file
 argument_list|,
 name|prefix
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|wt_status_use_color
@@ -3267,6 +3278,8 @@ argument_list|,
 name|index_file
 argument_list|,
 name|prefix
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|rollback_index_files
@@ -3882,6 +3895,8 @@ argument_list|,
 name|index_file
 argument_list|,
 name|prefix
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|rollback_index_files

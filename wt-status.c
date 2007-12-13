@@ -2251,6 +2251,15 @@ if|if
 condition|(
 name|s
 operator|->
+name|nowarn
+condition|)
+empty_stmt|;
+comment|/* nothing */
+elseif|else
+if|if
+condition|(
+name|s
+operator|->
 name|workdir_dirty
 condition|)
 name|printf
