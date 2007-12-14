@@ -656,7 +656,7 @@ name|mmfile_t
 modifier|*
 name|b
 parameter_list|,
-name|int
+name|long
 name|ctx
 parameter_list|)
 block|{
@@ -674,8 +674,7 @@ decl_stmt|,
 name|recovered
 init|=
 literal|0
-decl_stmt|;
-name|int
+decl_stmt|,
 name|i
 decl_stmt|;
 name|char
