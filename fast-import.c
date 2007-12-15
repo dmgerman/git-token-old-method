@@ -249,7 +249,7 @@ modifier|*
 name|end
 decl_stmt|;
 DECL|member|space
-name|char
+name|uintmax_t
 name|space
 index|[
 name|FLEX_ARRAY
@@ -2250,6 +2250,10 @@ name|p
 operator|->
 name|next_free
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|p
 operator|->
 name|space
@@ -2275,7 +2279,7 @@ name|p
 operator|->
 name|next_free
 expr_stmt|;
-comment|/* round out to a pointer alignment */
+comment|/* round out to a 'uintmax_t' alignment */
 if|if
 condition|(
 name|len
@@ -2283,8 +2287,7 @@ operator|&
 operator|(
 sizeof|sizeof
 argument_list|(
-name|void
-operator|*
+name|uintmax_t
 argument_list|)
 operator|-
 literal|1
@@ -2294,8 +2297,7 @@ name|len
 operator|+=
 sizeof|sizeof
 argument_list|(
-name|void
-operator|*
+name|uintmax_t
 argument_list|)
 operator|-
 operator|(
@@ -2304,8 +2306,7 @@ operator|&
 operator|(
 sizeof|sizeof
 argument_list|(
-name|void
-operator|*
+name|uintmax_t
 argument_list|)
 operator|-
 literal|1
