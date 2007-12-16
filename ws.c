@@ -562,10 +562,9 @@ init|=
 literal|0
 decl_stmt|;
 name|int
-name|leading_space
+name|written
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|int
 name|trailing_whitespace
@@ -679,9 +678,11 @@ operator|==
 literal|' '
 condition|)
 block|{
-name|leading_space
+name|written
 operator|=
 name|i
+operator|+
+literal|1
 expr_stmt|;
 continue|continue;
 block|}
@@ -704,10 +705,9 @@ name|WS_SPACE_BEFORE_TAB
 operator|)
 operator|&&
 operator|(
-name|leading_space
+name|written
 operator|!=
-operator|-
-literal|1
+literal|0
 operator|)
 condition|)
 name|result
@@ -725,9 +725,9 @@ operator|&
 name|WS_INDENT_WITH_NON_TAB
 operator|)
 operator|&&
-name|leading_space
+name|written
 operator|>=
-literal|7
+literal|8
 condition|)
 name|result
 operator||=
@@ -765,9 +765,7 @@ name|fwrite
 argument_list|(
 name|line
 argument_list|,
-name|leading_space
-operator|+
-literal|1
+name|written
 argument_list|,
 literal|1
 argument_list|,
@@ -781,16 +779,8 @@ argument_list|,
 name|stream
 argument_list|)
 expr_stmt|;
-name|leading_space
-operator|++
-expr_stmt|;
 block|}
-else|else
-name|leading_space
-operator|=
-literal|0
-expr_stmt|;
-comment|/* Now the rest of the line starts at leading_space. 		 * The non-highlighted part ends at trailing_whitespace. */
+comment|/* Now the rest of the line starts at written. 		 * The non-highlighted part ends at trailing_whitespace. */
 if|if
 condition|(
 name|trailing_whitespace
@@ -807,7 +797,7 @@ if|if
 condition|(
 name|trailing_whitespace
 operator|-
-name|leading_space
+name|written
 operator|>
 literal|0
 condition|)
@@ -823,11 +813,11 @@ name|fwrite
 argument_list|(
 name|line
 operator|+
-name|leading_space
+name|written
 argument_list|,
 name|trailing_whitespace
 operator|-
-name|leading_space
+name|written
 argument_list|,
 literal|1
 argument_list|,
