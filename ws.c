@@ -677,15 +677,7 @@ index|]
 operator|==
 literal|' '
 condition|)
-block|{
-name|written
-operator|=
-name|i
-operator|+
-literal|1
-expr_stmt|;
 continue|continue;
-block|}
 if|if
 condition|(
 name|line
@@ -704,17 +696,20 @@ operator|&
 name|WS_SPACE_BEFORE_TAB
 operator|)
 operator|&&
-operator|(
 name|written
-operator|!=
-literal|0
-operator|)
+operator|<
+name|i
 condition|)
 name|result
 operator||=
 name|WS_SPACE_BEFORE_TAB
 expr_stmt|;
-break|break;
+name|written
+operator|=
+name|i
+operator|+
+literal|1
+expr_stmt|;
 block|}
 comment|/* Check for indent using non-tab. */
 if|if
@@ -725,6 +720,8 @@ operator|&
 name|WS_INDENT_WITH_NON_TAB
 operator|)
 operator|&&
+name|i
+operator|-
 name|written
 operator|>=
 literal|8
