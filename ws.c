@@ -676,9 +676,25 @@ index|[
 name|i
 index|]
 operator|==
-literal|'\t'
+literal|' '
 condition|)
 block|{
+name|leading_space
+operator|=
+name|i
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+name|line
+index|[
+name|i
+index|]
+operator|!=
+literal|'\t'
+condition|)
+break|break;
 if|if
 condition|(
 operator|(
@@ -698,23 +714,6 @@ name|result
 operator||=
 name|WS_SPACE_BEFORE_TAB
 expr_stmt|;
-break|break;
-block|}
-elseif|else
-if|if
-condition|(
-name|line
-index|[
-name|i
-index|]
-operator|==
-literal|' '
-condition|)
-name|leading_space
-operator|=
-name|i
-expr_stmt|;
-else|else
 break|break;
 block|}
 comment|/* Check for indent using non-tab. */
