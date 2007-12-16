@@ -7426,14 +7426,12 @@ decl_stmt|;
 name|int
 name|last_tab_in_indent
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|int
 name|last_space_in_indent
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|int
 name|need_fix_leading_space
@@ -7583,7 +7581,7 @@ name|WS_SPACE_BEFORE_TAB
 operator|)
 operator|&&
 literal|0
-operator|<=
+operator|<
 name|last_space_in_indent
 condition|)
 name|need_fix_leading_space
@@ -7612,7 +7610,7 @@ name|WS_INDENT_WITH_NON_TAB
 operator|)
 operator|&&
 name|last_tab_in_indent
-operator|<
+operator|<=
 literal|0
 operator|&&
 literal|8
