@@ -1746,8 +1746,8 @@ expr_stmt|;
 name|mem
 operator|=
 name|index
-operator|+
-literal|1
+operator|->
+name|hash
 expr_stmt|;
 name|packed_hash
 operator|=
