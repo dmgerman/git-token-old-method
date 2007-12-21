@@ -701,6 +701,10 @@ name|eaten
 init|=
 literal|0
 decl_stmt|;
+name|obj
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|type
@@ -718,6 +722,11 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|blob
+condition|)
+block|{
 name|parse_blob_buffer
 argument_list|(
 name|blob
@@ -734,6 +743,7 @@ name|blob
 operator|->
 name|object
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -753,6 +763,11 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|tree
+condition|)
+block|{
 name|obj
 operator|=
 operator|&
@@ -785,6 +800,7 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -803,6 +819,11 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|commit
+condition|)
+block|{
 name|parse_commit_buffer
 argument_list|(
 name|commit
@@ -839,6 +860,7 @@ operator|->
 name|object
 expr_stmt|;
 block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -857,6 +879,11 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|tag
+condition|)
+block|{
 name|parse_tag_buffer
 argument_list|(
 name|tag
@@ -873,6 +900,7 @@ name|tag
 operator|->
 name|object
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
