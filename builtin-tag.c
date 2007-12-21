@@ -47,7 +47,7 @@ literal|"git-tag [-a|-s|-u<key-id>] [-f] [-m<msg>|-F<file>]<tagname> [<head>]"
 block|,
 literal|"git-tag -d<tagname>..."
 block|,
-literal|"git-tag [-n [<num>]] -l [<pattern>]"
+literal|"git-tag -l [-n [<num>]] [<pattern>]"
 block|,
 literal|"git-tag -v<tagname>..."
 block|,
@@ -1903,6 +1903,10 @@ name|lines
 init|=
 literal|0
 decl_stmt|,
+name|list
+init|=
+literal|0
+decl_stmt|,
 name|delete
 init|=
 literal|0
@@ -1913,11 +1917,6 @@ literal|0
 decl_stmt|;
 name|char
 modifier|*
-name|list
-init|=
-name|NULL
-decl_stmt|,
-modifier|*
 name|msgfile
 init|=
 name|NULL
@@ -1926,13 +1925,6 @@ modifier|*
 name|keyid
 init|=
 name|NULL
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|no_pattern
-init|=
-literal|"NO_PATTERN"
 decl_stmt|;
 name|struct
 name|msg_arg
@@ -1950,29 +1942,17 @@ name|options
 index|[]
 init|=
 block|{
-block|{
-name|OPTION_STRING
-block|,
+name|OPT_BOOLEAN
+argument_list|(
 literal|'l'
-block|,
+argument_list|,
 name|NULL
-block|,
+argument_list|,
 operator|&
 name|list
-block|,
-literal|"pattern"
-block|,
+argument_list|,
 literal|"list tag names"
-block|,
-name|PARSE_OPT_OPTARG
-block|,
-name|NULL
-block|,
-operator|(
-name|intptr_t
-operator|)
-name|no_pattern
-block|}
+argument_list|)
 block|,
 block|{
 name|OPTION_INTEGER
@@ -2158,13 +2138,10 @@ condition|)
 return|return
 name|list_tags
 argument_list|(
-name|list
-operator|==
-name|no_pattern
-condition|?
-name|NULL
-else|:
-name|list
+name|argv
+index|[
+literal|0
+index|]
 argument_list|,
 name|lines
 argument_list|)
