@@ -1589,7 +1589,7 @@ init|=
 name|xmalloc
 argument_list|(
 operator|(
-literal|5
+literal|6
 operator|+
 name|argc
 operator|)
@@ -1621,6 +1621,14 @@ operator|++
 index|]
 operator|=
 literal|"--name-only"
+expr_stmt|;
+name|args
+index|[
+name|i
+operator|++
+index|]
+operator|=
+literal|"--no-undefined"
 expr_stmt|;
 if|if
 condition|(
