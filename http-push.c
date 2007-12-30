@@ -11331,11 +11331,6 @@ argument_list|(
 name|slot
 argument_list|)
 expr_stmt|;
-name|free
-argument_list|(
-name|url
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|results
@@ -11376,11 +11371,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|free
-argument_list|(
-name|url
-argument_list|)
-expr_stmt|;
 name|fprintf
 argument_list|(
 name|stderr
