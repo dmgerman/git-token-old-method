@@ -3136,11 +3136,10 @@ condition|(
 operator|!
 name|ch
 condition|)
-return|return
-operator|-
-literal|1
-return|;
 comment|/* should not end with slashes */
+return|return
+name|CHECK_REF_FORMAT_ERROR
+return|;
 comment|/* we are at the beginning of the path component */
 if|if
 condition|(
@@ -3149,8 +3148,7 @@ operator|==
 literal|'.'
 condition|)
 return|return
-operator|-
-literal|1
+name|CHECK_REF_FORMAT_ERROR
 return|;
 name|bad_type
 operator|=
@@ -3175,11 +3173,9 @@ operator|*
 name|cp
 operator|)
 condition|?
-operator|-
-literal|3
+name|CHECK_REF_FORMAT_WILDCARD
 else|:
-operator|-
-literal|1
+name|CHECK_REF_FORMAT_ERROR
 return|;
 block|}
 comment|/* scan the rest of the path component */
@@ -3219,11 +3215,9 @@ operator|*
 name|cp
 operator|)
 condition|?
-operator|-
-literal|3
+name|CHECK_REF_FORMAT_WILDCARD
 else|:
-operator|-
-literal|1
+name|CHECK_REF_FORMAT_ERROR
 return|;
 block|}
 if|if
@@ -3245,8 +3239,7 @@ operator|==
 literal|'.'
 condition|)
 return|return
-operator|-
-literal|1
+name|CHECK_REF_FORMAT_ERROR
 return|;
 block|}
 name|level
@@ -3265,12 +3258,10 @@ operator|<
 literal|2
 condition|)
 return|return
-operator|-
-literal|2
+name|CHECK_REF_FORMAT_ONELEVEL
 return|;
-comment|/* at least of form "heads/blah" */
 return|return
-literal|0
+name|CHECK_REF_FORMAT_OK
 return|;
 block|}
 block|}
@@ -4181,19 +4172,24 @@ name|int
 name|flags
 parameter_list|)
 block|{
-if|if
+switch|switch
 condition|(
 name|check_ref_format
 argument_list|(
 name|ref
 argument_list|)
-operator|==
-operator|-
-literal|1
 condition|)
+block|{
+case|case
+name|CHECK_REF_FORMAT_ERROR
+case|:
+case|case
+name|CHECK_REF_FORMAT_WILDCARD
+case|:
 return|return
 name|NULL
 return|;
+default|default:
 return|return
 name|lock_ref_sha1_basic
 argument_list|(
@@ -4206,6 +4202,7 @@ argument_list|,
 name|NULL
 argument_list|)
 return|;
+block|}
 block|}
 end_function
 begin_decl_stmt
