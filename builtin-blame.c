@@ -2666,7 +2666,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * src typically is on-stack; we want to copy the information in it to  * an malloced blame_entry that is already on the linked list of the  * scoreboard.  The origin of dst loses a refcnt while the origin of src  * gains one.  */
+comment|/*  * src typically is on-stack; we want to copy the information in it to  * a malloced blame_entry that is already on the linked list of the  * scoreboard.  The origin of dst loses a refcnt while the origin of src  * gains one.  */
 end_comment
 begin_function
 DECL|function|dup_entry
