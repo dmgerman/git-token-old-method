@@ -3270,6 +3270,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|len
+operator|&&
 name|buf
 index|[
 name|len
