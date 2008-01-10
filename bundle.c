@@ -2024,7 +2024,7 @@ name|flags
 operator|&
 name|UNINTERESTING
 condition|)
-name|write
+name|write_or_die
 argument_list|(
 name|rls
 operator|.
@@ -2035,7 +2035,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|write
+name|write_or_die
 argument_list|(
 name|rls
 operator|.
@@ -2051,7 +2051,7 @@ argument_list|,
 literal|40
 argument_list|)
 expr_stmt|;
-name|write
+name|write_or_die
 argument_list|(
 name|rls
 operator|.

@@ -4533,7 +4533,7 @@ argument_list|(
 literal|"cannot create keep file"
 argument_list|)
 expr_stmt|;
-name|write
+name|write_or_die
 argument_list|(
 name|keep_fd
 argument_list|,
@@ -4545,9 +4545,16 @@ name|keep_msg
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|close
 argument_list|(
 name|keep_fd
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"failed to write keep file"
 argument_list|)
 expr_stmt|;
 name|snprintf
