@@ -2399,12 +2399,6 @@ name|stream
 operator|.
 name|total_out
 expr_stmt|;
-name|deflateEnd
-argument_list|(
-operator|&
-name|stream
-argument_list|)
-expr_stmt|;
 comment|/* 		 * The object header is a byte of 'type' followed by zero or 		 * more bytes of length. 		 */
 name|hdrlen
 operator|=
