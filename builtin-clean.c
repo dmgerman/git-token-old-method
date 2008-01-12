@@ -449,6 +449,12 @@ operator|=
 name|xmalloc
 argument_list|(
 name|argc
+operator|>
+literal|0
+condition|?
+name|argc
+else|:
+literal|1
 argument_list|)
 expr_stmt|;
 for|for
@@ -612,6 +618,12 @@ argument_list|,
 literal|0
 argument_list|,
 name|argc
+operator|>
+literal|0
+condition|?
+name|argc
+else|:
+literal|1
 argument_list|)
 expr_stmt|;
 name|matches
