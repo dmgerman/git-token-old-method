@@ -2058,12 +2058,9 @@ name|endchar
 operator|&&
 name|S_ISGITLINK
 argument_list|(
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|)
 condition|)
 return|return

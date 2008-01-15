@@ -1549,12 +1549,9 @@ condition|(
 operator|!
 name|S_ISREG
 argument_list|(
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|)
 condition|)
 continue|continue;
@@ -1855,12 +1852,9 @@ condition|(
 operator|!
 name|S_ISREG
 argument_list|(
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|)
 condition|)
 continue|continue;

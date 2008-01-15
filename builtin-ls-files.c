@@ -948,10 +948,7 @@ name|ce
 operator|->
 name|ce_flags
 operator|&
-name|htons
-argument_list|(
 name|CE_VALID
-argument_list|)
 operator|)
 condition|)
 block|{
@@ -1072,12 +1069,9 @@ literal|"%s%06o %s %d\t"
 argument_list|,
 name|tag
 argument_list|,
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|,
 name|abbrev
 condition|?
@@ -1270,10 +1264,7 @@ name|ce
 operator|->
 name|ce_flags
 operator|&
-name|htons
-argument_list|(
 name|CE_UPDATE
-argument_list|)
 condition|)
 continue|continue;
 name|show_ce_entry
@@ -1842,10 +1833,7 @@ name|ce
 operator|->
 name|ce_flags
 operator||=
-name|htons
-argument_list|(
 name|CE_STAGEMASK
-argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -1972,10 +1960,7 @@ name|ce
 operator|->
 name|ce_flags
 operator||=
-name|htons
-argument_list|(
 name|CE_UPDATE
-argument_list|)
 expr_stmt|;
 block|}
 block|}
