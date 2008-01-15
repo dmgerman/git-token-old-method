@@ -51,6 +51,12 @@ literal|"indent-with-non-tab"
 block|,
 name|WS_INDENT_WITH_NON_TAB
 block|}
+block|,
+block|{
+literal|"cr-at-eol"
+block|,
+name|WS_CR_AT_EOL
+block|}
 block|, }
 struct|;
 end_struct
@@ -578,6 +584,11 @@ init|=
 literal|0
 decl_stmt|;
 name|int
+name|trailing_carriage_return
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|i
 decl_stmt|;
 comment|/* Logic is simpler if we temporarily ignore the trailing newline. */
@@ -598,6 +609,36 @@ literal|'\n'
 condition|)
 block|{
 name|trailing_newline
+operator|=
+literal|1
+expr_stmt|;
+name|len
+operator|--
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|(
+name|ws_rule
+operator|&
+name|WS_CR_AT_EOL
+operator|)
+operator|&&
+name|len
+operator|>
+literal|0
+operator|&&
+name|line
+index|[
+name|len
+operator|-
+literal|1
+index|]
+operator|==
+literal|'\r'
+condition|)
+block|{
+name|trailing_carriage_return
 operator|=
 literal|1
 expr_stmt|;
@@ -850,7 +891,7 @@ condition|(
 name|stream
 condition|)
 block|{
-comment|/* Now the rest of the line starts at written. 		 * The non-highlighted part ends at trailing_whitespace. */
+comment|/* 		 * Now the rest of the line starts at "written". 		 * The non-highlighted part ends at "trailing_whitespace". 		 */
 if|if
 condition|(
 name|trailing_whitespace
@@ -940,6 +981,17 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|trailing_carriage_return
+condition|)
+name|fputc
+argument_list|(
+literal|'\r'
+argument_list|,
+name|stream
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|trailing_newline
