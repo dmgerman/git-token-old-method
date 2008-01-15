@@ -1240,11 +1240,6 @@ name|active_cache
 argument_list|,
 name|active_nr
 argument_list|)
-operator|||
-name|close
-argument_list|(
-name|fd
-argument_list|)
 condition|)
 name|die
 argument_list|(
@@ -1296,11 +1291,6 @@ argument_list|,
 name|active_cache
 argument_list|,
 name|active_nr
-argument_list|)
-operator|||
-name|close
-argument_list|(
-name|fd
 argument_list|)
 operator|||
 name|commit_locked_index
@@ -1431,11 +1421,6 @@ name|active_cache
 argument_list|,
 name|active_nr
 argument_list|)
-operator|||
-name|close
-argument_list|(
-name|fd
-argument_list|)
 condition|)
 name|die
 argument_list|(
@@ -1483,11 +1468,6 @@ argument_list|,
 name|active_cache
 argument_list|,
 name|active_nr
-argument_list|)
-operator|||
-name|close
-argument_list|(
-name|fd
 argument_list|)
 condition|)
 name|die
