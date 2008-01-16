@@ -4411,11 +4411,6 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
-name|close
-argument_list|(
-name|fd
-argument_list|)
-expr_stmt|;
 return|return
 name|commit_lock_file
 argument_list|(
@@ -5292,22 +5287,6 @@ modifier|*
 name|lock
 parameter_list|)
 block|{
-if|if
-condition|(
-name|lock
-operator|->
-name|lock_fd
-operator|>=
-literal|0
-condition|)
-block|{
-name|close
-argument_list|(
-name|lock
-operator|->
-name|lock_fd
-argument_list|)
-expr_stmt|;
 comment|/* Do not free lock->lk -- atexit() still looks at them */
 if|if
 condition|(
@@ -5322,7 +5301,6 @@ operator|->
 name|lk
 argument_list|)
 expr_stmt|;
-block|}
 name|free
 argument_list|(
 name|lock
@@ -6026,11 +6004,11 @@ argument_list|)
 operator|!=
 literal|1
 operator|||
-name|close
+name|close_lock_file
 argument_list|(
 name|lock
 operator|->
-name|lock_fd
+name|lk
 argument_list|)
 operator|<
 literal|0

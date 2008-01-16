@@ -4494,11 +4494,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|close
-argument_list|(
-name|fd
-argument_list|)
-operator|||
 name|commit_lock_file
 argument_list|(
 name|lock
@@ -4522,12 +4517,6 @@ goto|goto
 name|out_free
 goto|;
 block|}
-comment|/* fd is closed, so don't try to close it below. */
-name|fd
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 comment|/* 	 * lock is committed, so don't try to roll it back below. 	 * NOTE: Since lockfile.c keeps a linked list of all created 	 * lock_file structures, it isn't safe to free(lock).  It's 	 * better to just leave it hanging around. 	 */
 name|lock
 operator|=
@@ -4539,17 +4528,6 @@ literal|0
 expr_stmt|;
 name|out_free
 label|:
-if|if
-condition|(
-literal|0
-operator|<=
-name|fd
-condition|)
-name|close
-argument_list|(
-name|fd
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|lock
@@ -5083,11 +5061,6 @@ name|unlock_and_out
 label|:
 if|if
 condition|(
-name|close
-argument_list|(
-name|out_fd
-argument_list|)
-operator|||
 name|commit_lock_file
 argument_list|(
 name|lock

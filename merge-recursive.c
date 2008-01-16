@@ -9938,11 +9938,6 @@ argument_list|,
 name|active_nr
 argument_list|)
 operator|||
-name|close
-argument_list|(
-name|index_fd
-argument_list|)
-operator|||
 name|commit_locked_index
 argument_list|(
 name|lock

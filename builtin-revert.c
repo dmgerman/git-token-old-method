@@ -2011,11 +2011,6 @@ block|}
 block|}
 if|if
 condition|(
-name|close
-argument_list|(
-name|msg_fd
-argument_list|)
-operator|||
 name|commit_lock_file
 argument_list|(
 operator|&
@@ -2057,11 +2052,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|close
-argument_list|(
-name|msg_fd
-argument_list|)
-operator|||
 name|commit_lock_file
 argument_list|(
 operator|&
