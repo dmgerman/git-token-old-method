@@ -3227,7 +3227,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|set
+name|meta
 init|=
 name|diff_get_color
 argument_list|(
@@ -3236,6 +3236,20 @@ operator|->
 name|color_diff
 argument_list|,
 name|DIFF_METAINFO
+argument_list|)
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|plain
+init|=
+name|diff_get_color
+argument_list|(
+name|ecbdata
+operator|->
+name|color_diff
+argument_list|,
+name|DIFF_PLAIN
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -3319,7 +3333,7 @@ name|printf
 argument_list|(
 literal|"%s--- %s%s%s\n"
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|ecbdata
 operator|->
@@ -3337,7 +3351,7 @@ name|printf
 argument_list|(
 literal|"%s+++ %s%s%s\n"
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|ecbdata
 operator|->
@@ -3472,10 +3486,6 @@ operator|->
 name|nparents
 condition|)
 block|{
-name|set
-operator|=
-name|reset
-expr_stmt|;
 name|emit_line
 argument_list|(
 name|reset
@@ -3608,7 +3618,7 @@ operator|--
 expr_stmt|;
 name|emit_line
 argument_list|(
-name|set
+name|plain
 argument_list|,
 name|reset
 argument_list|,
