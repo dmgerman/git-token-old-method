@@ -12810,10 +12810,16 @@ argument_list|,
 name|push_all
 argument_list|)
 condition|)
-return|return
+block|{
+name|rc
+operator|=
 operator|-
 literal|1
-return|;
+expr_stmt|;
+goto|goto
+name|cleanup
+goto|;
+block|}
 if|if
 condition|(
 operator|!
@@ -12827,9 +12833,13 @@ argument_list|,
 literal|"No refs in common and none specified; doing nothing.\n"
 argument_list|)
 expr_stmt|;
-return|return
+name|rc
+operator|=
 literal|0
-return|;
+expr_stmt|;
+goto|goto
+name|cleanup
+goto|;
 block|}
 name|new_refs
 operator|=
@@ -13429,6 +13439,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|cleanup
+label|:
 if|if
 condition|(
 name|info_ref_lock
@@ -13438,8 +13450,6 @@ argument_list|(
 name|info_ref_lock
 argument_list|)
 expr_stmt|;
-name|cleanup
-label|:
 name|free
 argument_list|(
 name|remote
