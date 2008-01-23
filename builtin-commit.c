@@ -707,12 +707,17 @@ end_function
 begin_function
 DECL|function|commit_index_files
 specifier|static
-name|void
+name|int
 name|commit_index_files
 parameter_list|(
 name|void
 parameter_list|)
 block|{
+name|int
+name|err
+init|=
+literal|0
+decl_stmt|;
 switch|switch
 condition|(
 name|commit_style
@@ -726,6 +731,8 @@ comment|/* nothing to do */
 case|case
 name|COMMIT_NORMAL
 case|:
+name|err
+operator|=
 name|commit_lock_file
 argument_list|(
 operator|&
@@ -736,6 +743,8 @@ break|break;
 case|case
 name|COMMIT_PARTIAL
 case|:
+name|err
+operator|=
 name|commit_lock_file
 argument_list|(
 operator|&
@@ -750,6 +759,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+return|return
+name|err
+return|;
 block|}
 end_function
 begin_comment
@@ -5019,8 +5031,17 @@ literal|"MERGE_MSG"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|commit_index_files
 argument_list|()
+condition|)
+name|die
+argument_list|(
+literal|"Repository has been updated, but unable to write\n"
+literal|"new_index file. Check that disk is not full or quota is\n"
+literal|"not exceeded, and then \"git reset HEAD\" to recover."
+argument_list|)
 expr_stmt|;
 name|rerere
 argument_list|()
