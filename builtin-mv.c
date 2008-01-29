@@ -1144,8 +1144,6 @@ name|strlen
 argument_list|(
 name|dst
 argument_list|)
-operator|-
-literal|1
 expr_stmt|;
 for|for
 control|(
@@ -1202,6 +1200,8 @@ argument_list|,
 name|path
 operator|+
 name|length
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|modes
