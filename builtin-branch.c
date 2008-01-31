@@ -623,10 +623,6 @@ literal|1
 expr_stmt|;
 continue|continue;
 block|}
-if|if
-condition|(
-name|name
-condition|)
 name|free
 argument_list|(
 name|name
@@ -824,10 +820,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|name
-condition|)
 name|free
 argument_list|(
 name|name
@@ -2524,10 +2516,6 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|real_ref
-condition|)
 name|free
 argument_list|(
 name|real_ref

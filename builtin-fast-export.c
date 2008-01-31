@@ -1159,10 +1159,6 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|reencoded
-condition|)
 name|free
 argument_list|(
 name|reencoded

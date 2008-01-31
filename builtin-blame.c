@@ -500,14 +500,6 @@ operator|<=
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|o
-operator|->
-name|file
-operator|.
-name|ptr
-condition|)
 name|free
 argument_list|(
 name|o
