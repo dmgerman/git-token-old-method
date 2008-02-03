@@ -3157,7 +3157,7 @@ argument_list|)
 expr_stmt|;
 name|commit
 operator|=
-name|lookup_commit
+name|lookup_commit_reference
 argument_list|(
 name|sha1
 argument_list|)
