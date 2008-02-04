@@ -2264,7 +2264,9 @@ argument_list|()
 decl_stmt|;
 name|system_wide
 operator|=
-name|prefix_path
+name|strdup
+argument_list|(
+name|prefix_filename
 argument_list|(
 name|exec_path
 argument_list|,
@@ -2274,6 +2276,7 @@ name|exec_path
 argument_list|)
 argument_list|,
 name|system_wide
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
