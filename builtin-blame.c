@@ -10485,6 +10485,8 @@ name|len
 argument_list|,
 operator|&
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|origin
