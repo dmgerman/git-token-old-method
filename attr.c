@@ -2098,6 +2098,7 @@ name|git_attr
 modifier|*
 name|attr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|v
@@ -2689,8 +2690,6 @@ operator|&&
 name|pathname
 index|[
 name|baselen
-operator|-
-literal|1
 index|]
 operator|!=
 literal|'/'
@@ -2716,6 +2715,8 @@ argument_list|,
 name|pathname
 operator|+
 name|baselen
+operator|+
+literal|1
 argument_list|,
 name|FNM_PATHNAME
 argument_list|)
