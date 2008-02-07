@@ -1936,6 +1936,16 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"merge-recursive"
+block|,
+name|cmd_merge_recursive
+block|,
+name|RUN_SETUP
+operator||
+name|NEED_WORK_TREE
+block|}
+block|,
+block|{
 literal|"mv"
 block|,
 name|cmd_mv
