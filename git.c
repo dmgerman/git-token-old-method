@@ -1621,6 +1621,16 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"checkout"
+block|,
+name|cmd_checkout
+block|,
+name|RUN_SETUP
+operator||
+name|NEED_WORK_TREE
+block|}
+block|,
+block|{
 literal|"checkout-index"
 block|,
 name|cmd_checkout_index
