@@ -1084,6 +1084,8 @@ operator|->
 name|size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|unpack_trees
 argument_list|(
 literal|1
@@ -1094,7 +1096,13 @@ argument_list|,
 operator|&
 name|opts
 argument_list|)
+condition|)
+name|exit
+argument_list|(
+literal|128
+argument_list|)
 expr_stmt|;
+comment|/* We've already reported the error, finish dying */
 block|}
 end_function
 begin_function
