@@ -1380,6 +1380,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|value
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
