@@ -4645,8 +4645,15 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|value
 condition|)
+return|return
+name|config_error_nonbool
+argument_list|(
+name|var
+argument_list|)
+return|;
 name|default_ll_merge
 operator|=
 name|strdup
@@ -4807,10 +4814,8 @@ operator|!
 name|value
 condition|)
 return|return
-name|error
+name|config_error_nonbool
 argument_list|(
-literal|"%s: lacks value"
-argument_list|,
 name|var
 argument_list|)
 return|;
@@ -4844,10 +4849,8 @@ operator|!
 name|value
 condition|)
 return|return
-name|error
+name|config_error_nonbool
 argument_list|(
-literal|"%s: lacks value"
-argument_list|,
 name|var
 argument_list|)
 return|;
@@ -4882,10 +4885,8 @@ operator|!
 name|value
 condition|)
 return|return
-name|error
+name|config_error_nonbool
 argument_list|(
-literal|"%s: lacks value"
-argument_list|,
 name|var
 argument_list|)
 return|;
