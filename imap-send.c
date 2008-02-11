@@ -7069,6 +7069,17 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+operator|!
+name|val
+condition|)
+return|return
+name|config_error_nonbool
+argument_list|(
+name|key
+argument_list|)
+return|;
 name|key
 operator|+=
 sizeof|sizeof
