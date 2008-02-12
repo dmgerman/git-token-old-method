@@ -867,10 +867,7 @@ name|ce
 operator|->
 name|ce_flags
 operator|&
-name|htons
-argument_list|(
 name|CE_UPDATE
-argument_list|)
 condition|)
 continue|continue;
 if|if

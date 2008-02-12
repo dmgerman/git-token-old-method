@@ -1665,12 +1665,9 @@ name|sha1
 expr_stmt|;
 name|mode
 operator|=
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 expr_stmt|;
 name|entlen
 operator|=
@@ -1707,10 +1704,11 @@ argument_list|)
 return|;
 if|if
 condition|(
-operator|!
 name|ce
 operator|->
-name|ce_mode
+name|ce_flags
+operator|&
+name|CE_REMOVE
 condition|)
 continue|continue;
 comment|/* entry being removed */
