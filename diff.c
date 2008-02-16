@@ -5911,6 +5911,11 @@ condition|)
 block|{
 name|data
 operator|->
+name|lineno
+operator|++
+expr_stmt|;
+name|data
+operator|->
 name|status
 operator|=
 name|check_and_emit_line
@@ -6010,11 +6015,6 @@ argument_list|,
 name|ws
 argument_list|)
 expr_stmt|;
-name|data
-operator|->
-name|lineno
-operator|++
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -6069,6 +6069,8 @@ name|NULL
 argument_list|,
 literal|10
 argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 else|else
 name|die
