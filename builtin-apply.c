@@ -6930,6 +6930,8 @@ operator|->
 name|len
 argument_list|,
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
