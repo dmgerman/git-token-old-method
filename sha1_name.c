@@ -3399,6 +3399,9 @@ argument_list|,
 name|ONELINE_SEEN
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|parse_object
 argument_list|(
 name|commit
@@ -3407,7 +3410,8 @@ name|object
 operator|.
 name|sha1
 argument_list|)
-expr_stmt|;
+condition|)
+continue|continue;
 if|if
 condition|(
 name|temp_commit_buffer
