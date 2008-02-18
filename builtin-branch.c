@@ -122,6 +122,9 @@ DECL|variable|branch_use_color
 specifier|static
 name|int
 name|branch_use_color
+init|=
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -401,7 +404,7 @@ literal|0
 return|;
 block|}
 return|return
-name|git_default_config
+name|git_color_default_config
 argument_list|(
 name|var
 argument_list|,
@@ -426,6 +429,8 @@ block|{
 if|if
 condition|(
 name|branch_use_color
+operator|>
+literal|0
 condition|)
 return|return
 name|branch_colors
@@ -3171,6 +3176,17 @@ name|git_config
 argument_list|(
 name|git_branch_config
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|branch_use_color
+operator|==
+operator|-
+literal|1
+condition|)
+name|branch_use_color
+operator|=
+name|git_use_color_default
 expr_stmt|;
 name|track
 operator|=
