@@ -3081,6 +3081,9 @@ name|merge
 argument_list|,
 literal|"merge"
 argument_list|)
+block|,
+name|OPT_END
+argument_list|()
 block|, 	}
 decl_stmt|;
 name|memset
