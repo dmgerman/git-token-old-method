@@ -2200,10 +2200,17 @@ operator|&
 name|extra_refs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|prepare_revision_walk
 argument_list|(
 operator|&
 name|revs
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"revision walk setup failed"
 argument_list|)
 expr_stmt|;
 name|revs

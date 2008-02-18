@@ -951,9 +951,16 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|prepare_revision_walk
 argument_list|(
 name|rev
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"revision walk setup failed"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3024,10 +3031,17 @@ argument_list|,
 literal|"o2"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|prepare_revision_walk
 argument_list|(
 operator|&
 name|check_rev
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"revision walk setup failed"
 argument_list|)
 expr_stmt|;
 while|while
@@ -4447,10 +4461,17 @@ argument_list|,
 literal|"w"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|prepare_revision_walk
 argument_list|(
 operator|&
 name|rev
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"revision walk setup failed"
 argument_list|)
 expr_stmt|;
 while|while
@@ -5198,10 +5219,17 @@ name|limit
 argument_list|)
 expr_stmt|;
 comment|/* reverse the list of commits */
+if|if
+condition|(
 name|prepare_revision_walk
 argument_list|(
 operator|&
 name|revs
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"revision walk setup failed"
 argument_list|)
 expr_stmt|;
 while|while
