@@ -9410,6 +9410,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|object
+condition|)
+return|return
+name|NULL
+return|;
+if|if
+condition|(
 name|object
 operator|->
 name|type
