@@ -344,10 +344,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|*
+name|is_absolute_path
+argument_list|(
 name|orig
-operator|==
-literal|'/'
+argument_list|)
 condition|)
 name|strcpy
 argument_list|(
@@ -395,10 +395,10 @@ name|error_out
 goto|;
 if|if
 condition|(
-operator|*
+name|is_absolute_path
+argument_list|(
 name|orig
-operator|==
-literal|'/'
+argument_list|)
 condition|)
 block|{
 specifier|const
