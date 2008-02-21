@@ -1224,11 +1224,6 @@ name|struct
 name|branch_info
 modifier|*
 name|new
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|prefix
 parameter_list|)
 block|{
 name|int
@@ -2384,11 +2379,6 @@ name|struct
 name|branch_info
 modifier|*
 name|new
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|prefix
 parameter_list|)
 block|{
 name|int
@@ -2637,8 +2627,6 @@ operator|&
 name|old
 argument_list|,
 name|new
-argument_list|,
-name|prefix
 argument_list|)
 expr_stmt|;
 if|if
@@ -3210,8 +3198,6 @@ name|opts
 argument_list|,
 operator|&
 name|new
-argument_list|,
-name|prefix
 argument_list|)
 return|;
 block|}
