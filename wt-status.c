@@ -57,7 +57,8 @@ DECL|variable|wt_status_use_color
 name|int
 name|wt_status_use_color
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -227,6 +228,8 @@ parameter_list|)
 block|{
 return|return
 name|wt_status_use_color
+operator|>
+literal|0
 condition|?
 name|wt_status_colors
 index|[
@@ -2389,7 +2392,7 @@ literal|0
 return|;
 block|}
 return|return
-name|git_default_config
+name|git_color_default_config
 argument_list|(
 name|k
 argument_list|,

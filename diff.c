@@ -97,9 +97,11 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|diff_use_color_default
-specifier|static
 name|int
 name|diff_use_color_default
+init|=
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1060,7 +1062,7 @@ block|}
 block|}
 block|}
 return|return
-name|git_default_config
+name|git_color_default_config
 argument_list|(
 name|var
 argument_list|,
@@ -11625,6 +11627,8 @@ expr_stmt|;
 if|if
 condition|(
 name|diff_use_color_default
+operator|>
+literal|0
 condition|)
 name|DIFF_OPT_SET
 argument_list|(
