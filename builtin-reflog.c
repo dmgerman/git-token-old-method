@@ -1512,6 +1512,7 @@ operator|.
 name|newlog
 argument_list|)
 condition|)
+block|{
 name|status
 operator||=
 name|error
@@ -1526,6 +1527,13 @@ argument_list|,
 name|newlog_path
 argument_list|)
 expr_stmt|;
+name|unlink
+argument_list|(
+name|newlog_path
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|rename
