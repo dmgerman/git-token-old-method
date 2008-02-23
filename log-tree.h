@@ -100,6 +100,17 @@ name|sep
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|show_decorations
+parameter_list|(
+name|struct
+name|commit
+modifier|*
+name|commit
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

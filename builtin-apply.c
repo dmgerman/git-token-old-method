@@ -209,31 +209,31 @@ name|char
 name|apply_usage
 index|[]
 init|=
-literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=<nowarn|warn|error|error-all|strip>]<patch>..."
+literal|"git-apply [--stat] [--numstat] [--summary] [--check] [--index] [--cached] [--apply] [--no-add] [--index-info] [--allow-binary-replacement] [--reverse] [--reject] [--verbose] [-z] [-pNUM] [-CNUM] [--whitespace=<nowarn|warn|fix|error|error-all>]<patch>..."
 decl_stmt|;
 end_decl_stmt
 begin_enum
-DECL|enum|whitespace_eol
+DECL|enum|ws_error_action
 specifier|static
 enum|enum
-name|whitespace_eol
+name|ws_error_action
 block|{
-DECL|enumerator|nowarn_whitespace
-name|nowarn_whitespace
+DECL|enumerator|nowarn_ws_error
+name|nowarn_ws_error
 block|,
-DECL|enumerator|warn_on_whitespace
-name|warn_on_whitespace
+DECL|enumerator|warn_on_ws_error
+name|warn_on_ws_error
 block|,
-DECL|enumerator|error_on_whitespace
-name|error_on_whitespace
+DECL|enumerator|die_on_ws_error
+name|die_on_ws_error
 block|,
-DECL|enumerator|strip_whitespace
-name|strip_whitespace
+DECL|enumerator|correct_ws_error
+name|correct_ws_error
 block|, }
-DECL|variable|new_whitespace
-name|new_whitespace
+DECL|variable|ws_error_action
+name|ws_error_action
 init|=
-name|warn_on_whitespace
+name|warn_on_ws_error
 enum|;
 end_enum
 begin_decl_stmt
@@ -286,9 +286,9 @@ operator|!
 name|option
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|warn_on_whitespace
+name|warn_on_ws_error
 expr_stmt|;
 return|return;
 block|}
@@ -303,9 +303,9 @@ literal|"warn"
 argument_list|)
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|warn_on_whitespace
+name|warn_on_ws_error
 expr_stmt|;
 return|return;
 block|}
@@ -320,9 +320,9 @@ literal|"nowarn"
 argument_list|)
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|nowarn_whitespace
+name|nowarn_ws_error
 expr_stmt|;
 return|return;
 block|}
@@ -337,9 +337,9 @@ literal|"error"
 argument_list|)
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|error_on_whitespace
+name|die_on_ws_error
 expr_stmt|;
 return|return;
 block|}
@@ -354,9 +354,9 @@ literal|"error-all"
 argument_list|)
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|error_on_whitespace
+name|die_on_ws_error
 expr_stmt|;
 name|squelch_whitespace_errors
 operator|=
@@ -373,11 +373,19 @@ name|option
 argument_list|,
 literal|"strip"
 argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|option
+argument_list|,
+literal|"fix"
+argument_list|)
 condition|)
 block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
-name|strip_whitespace
+name|correct_ws_error
 expr_stmt|;
 return|return;
 block|}
@@ -410,18 +418,16 @@ operator|&&
 operator|!
 name|apply_default_whitespace
 condition|)
-block|{
-name|new_whitespace
+name|ws_error_action
 operator|=
 operator|(
 name|apply
 condition|?
-name|warn_on_whitespace
+name|warn_on_ws_error
 else|:
-name|nowarn_whitespace
+name|nowarn_ws_error
 operator|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
@@ -528,6 +534,9 @@ directive|define
 name|BINARY_LITERAL_DEFLATED
 value|2
 end_define
+begin_comment
+comment|/*  * This represents a "patch" to a file, both metainfo changes  * such as creation/deletion, filemode and content changes represented  * as a series of fragments.  */
+end_comment
 begin_struct
 DECL|struct|patch
 struct|struct
@@ -565,6 +574,10 @@ comment|/* -1 = unknown, 0 = false, 1 = true */
 DECL|member|rejected
 name|int
 name|rejected
+decl_stmt|;
+DECL|member|ws_rule
+name|unsigned
+name|ws_rule
 decl_stmt|;
 DECL|member|deflate_origlen
 name|unsigned
@@ -629,8 +642,7 @@ modifier|*
 name|result
 decl_stmt|;
 DECL|member|resultsize
-name|unsigned
-name|long
+name|size_t
 name|resultsize
 decl_stmt|;
 DECL|member|old_sha1_prefix
@@ -1062,7 +1074,7 @@ name|struct
 name|strbuf
 name|name
 decl_stmt|;
-comment|/* Proposed "new-style" GNU patch/diff format; see 		 * http://marc.theaimsgroup.com/?l=git&m=112927316408690&w=2 		 */
+comment|/* 		 * Proposed "new-style" GNU patch/diff format; see 		 * http://marc.theaimsgroup.com/?l=git&m=112927316408690&w=2 		 */
 name|strbuf_init
 argument_list|(
 operator|&
@@ -2432,7 +2444,7 @@ modifier|*
 name|patch
 parameter_list|)
 block|{
-comment|/* index line is N hexadecimal, "..", N hexadecimal, 	 * and optional space with octal mode. 	 */
+comment|/* 	 * index line is N hexadecimal, "..", N hexadecimal, 	 * and optional space with octal mode. 	 */
 specifier|const
 name|char
 modifier|*
@@ -2689,7 +2701,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* This is to extract the same name that appears on "diff --git"  * line.  We do not find and return anything if it is a rename  * patch, and it is OK because we will find the name elsewhere.  * We need to reliably find name only when it is mode-change only,  * creation or deletion of an empty file.  In any of these cases,  * both sides are the same name under a/ and b/ respectively.  */
+comment|/*  * This is to extract the same name that appears on "diff --git"  * line.  We do not find and return anything if it is a rename  * patch, and it is OK because we will find the name elsewhere.  * We need to reliably find name only when it is mode-change only,  * creation or deletion of an empty file.  In any of these cases,  * both sides are the same name under a/ and b/ respectively.  */
 end_comment
 begin_function
 DECL|function|git_header_name
@@ -2833,7 +2845,7 @@ operator|.
 name|buf
 argument_list|)
 expr_stmt|;
-comment|/* second points at one past closing dq of name. 		 * find the second name. 		 */
+comment|/* 		 * second points at one past closing dq of name. 		 * find the second name. 		 */
 while|while
 condition|(
 operator|(
@@ -3058,7 +3070,7 @@ return|;
 name|name
 operator|++
 expr_stmt|;
-comment|/* since the first name is unquoted, a dq if exists must be 	 * the beginning of the second name. 	 */
+comment|/* 	 * since the first name is unquoted, a dq if exists must be 	 * the beginning of the second name. 	 */
 for|for
 control|(
 name|second
@@ -3323,9 +3335,6 @@ return|;
 block|}
 block|}
 block|}
-return|return
-name|NULL
-return|;
 block|}
 end_function
 begin_comment
@@ -4269,7 +4278,7 @@ return|return
 name|offset
 return|;
 block|}
-comment|/** --- followed by +++ ? */
+comment|/* --- followed by +++ ? */
 if|if
 condition|(
 name|memcmp
@@ -4293,7 +4302,7 @@ literal|4
 argument_list|)
 condition|)
 continue|continue;
-comment|/* 		 * We only accept unified patches, so we want it to 		 * at least have "@@ -a,b +c,d @@\n", which is 14 chars 		 * minimum 		 */
+comment|/* 		 * We only accept unified patches, so we want it to 		 * at least have "@@ -a,b +c,d @@\n", which is 14 chars 		 * minimum ("@@ -0,0 +1 @@\n" is the shortest). 		 */
 name|nextlen
 operator|=
 name|linelen
@@ -4375,96 +4384,45 @@ name|line
 parameter_list|,
 name|int
 name|len
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|err
+decl_stmt|;
+name|unsigned
+name|result
 init|=
-literal|"Adds trailing whitespace"
-decl_stmt|;
-name|int
-name|seen_space
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|i
-decl_stmt|;
-comment|/* 	 * We know len is at least two, since we have a '+' and we 	 * checked that the last character was a '\n' before calling 	 * this function.  That is, an addition of an empty line would 	 * check the '+' here.  Sneaky... 	 */
-if|if
-condition|(
-name|isspace
+name|check_and_emit_line
 argument_list|(
 name|line
-index|[
+operator|+
+literal|1
+argument_list|,
 name|len
 operator|-
-literal|2
-index|]
+literal|1
+argument_list|,
+name|ws_rule
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
 argument_list|)
-condition|)
-goto|goto
-name|error
-goto|;
-comment|/* 	 * Make sure that there is no space followed by a tab in 	 * indentation. 	 */
-name|err
-operator|=
-literal|"Space in indent is followed by a tab"
-expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|1
-init|;
-name|i
-operator|<
-name|len
-condition|;
-name|i
-operator|++
-control|)
-block|{
+decl_stmt|;
 if|if
 condition|(
-name|line
-index|[
-name|i
-index|]
-operator|==
-literal|'\t'
+operator|!
+name|result
 condition|)
-block|{
-if|if
-condition|(
-name|seen_space
-condition|)
-goto|goto
-name|error
-goto|;
-block|}
-elseif|else
-if|if
-condition|(
-name|line
-index|[
-name|i
-index|]
-operator|==
-literal|' '
-condition|)
-name|seen_space
-operator|=
-literal|1
-expr_stmt|;
-else|else
-break|break;
-block|}
 return|return;
-name|error
-label|:
 name|whitespace_error
 operator|++
 expr_stmt|;
@@ -4478,17 +4436,25 @@ name|whitespace_error
 condition|)
 empty_stmt|;
 else|else
+block|{
+name|err
+operator|=
+name|whitespace_error_string
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"%s.\n%s:%d:%.*s\n"
-argument_list|,
-name|err
+literal|"%s:%d: %s.\n%.*s\n"
 argument_list|,
 name|patch_input_file
 argument_list|,
 name|linenr
+argument_list|,
+name|err
 argument_list|,
 name|len
 operator|-
@@ -4499,6 +4465,12 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|err
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -4725,15 +4697,19 @@ if|if
 condition|(
 name|apply_in_reverse
 operator|&&
-name|new_whitespace
+name|ws_error_action
 operator|!=
-name|nowarn_whitespace
+name|nowarn_ws_error
 condition|)
 name|check_whitespace
 argument_list|(
 name|line
 argument_list|,
 name|len
+argument_list|,
+name|patch
+operator|->
+name|ws_rule
 argument_list|)
 expr_stmt|;
 name|deleted
@@ -4755,15 +4731,19 @@ condition|(
 operator|!
 name|apply_in_reverse
 operator|&&
-name|new_whitespace
+name|ws_error_action
 operator|!=
-name|nowarn_whitespace
+name|nowarn_ws_error
 condition|)
 name|check_whitespace
 argument_list|(
 name|line
 argument_list|,
 name|len
+argument_list|,
+name|patch
+operator|->
+name|ws_rule
 argument_list|)
 expr_stmt|;
 name|added
@@ -4777,7 +4757,7 @@ operator|=
 literal|0
 expr_stmt|;
 break|break;
-comment|/* We allow "\ No newline at end of file". Depending                  * on locale settings when the patch was produced we                  * don't know what this line looks like. The only                  * thing we do know is that it begins with "\ ". 		 * Checking for 12 is just for sanity check -- any 		 * l10n of "\ No newline..." is at least that long. 		 */
+comment|/* 		 * We allow "\ No newline at end of file". Depending                  * on locale settings when the patch was produced we                  * don't know what this line looks like. The only                  * thing we do know is that it begins with "\ ". 		 * Checking for 12 is just for sanity check -- any 		 * l10n of "\ No newline..." is at least that long. 		 */
 case|case
 literal|'\\'
 case|:
@@ -4825,7 +4805,7 @@ name|trailing
 operator|=
 name|trailing
 expr_stmt|;
-comment|/* If a fragment ends with an incomplete line, we failed to include 	 * it in the above loop because we hit oldlines == newlines == 0 	 * before seeing it. 	 */
+comment|/* 	 * If a fragment ends with an incomplete line, we failed to include 	 * it in the above loop because we hit oldlines == newlines == 0 	 * before seeing it. 	 */
 if|if
 condition|(
 literal|12
@@ -5468,7 +5448,7 @@ modifier|*
 name|used_p
 parameter_list|)
 block|{
-comment|/* Expect a line that begins with binary patch method ("literal" 	 * or "delta"), followed by the length of data before deflating. 	 * a sequence of 'length-byte' followed by base-85 encoded data 	 * should follow, terminated by a newline. 	 * 	 * Each 5-byte sequence of base-85 encodes up to 4 bytes, 	 * and we would limit the patch line to 66 characters, 	 * so one line can fit up to 13 groups that would decode 	 * to 52 bytes max.  The length byte 'A'-'Z' corresponds 	 * to 1-26 bytes, and 'a'-'z' corresponds to 27-52 bytes. 	 */
+comment|/* 	 * Expect a line that begins with binary patch method ("literal" 	 * or "delta"), followed by the length of data before deflating. 	 * a sequence of 'length-byte' followed by base-85 encoded data 	 * should follow, terminated by a newline. 	 * 	 * Each 5-byte sequence of base-85 encodes up to 4 bytes, 	 * and we would limit the patch line to 66 characters, 	 * so one line can fit up to 13 groups that would decode 	 * to 52 bytes max.  The length byte 'A'-'Z' corresponds 	 * to 1-26 bytes, and 'a'-'z' corresponds to 27-52 bytes. 	 */
 name|int
 name|llen
 decl_stmt|,
@@ -5643,7 +5623,7 @@ operator|--
 expr_stmt|;
 break|break;
 block|}
-comment|/* Minimum line is "A00000\n" which is 7-byte long, 		 * and the line length must be multiple of 5 plus 2. 		 */
+comment|/* 		 * Minimum line is "A00000\n" which is 7-byte long, 		 * and the line length must be multiple of 5 plus 2. 		 */
 if|if
 condition|(
 operator|(
@@ -5907,7 +5887,7 @@ modifier|*
 name|patch
 parameter_list|)
 block|{
-comment|/* We have read "GIT binary patch\n"; what follows is a line 	 * that says the patch method (currently, either "literal" or 	 * "delta") and the length of data before deflating; a 	 * sequence of 'length-byte' followed by base-85 encoded data 	 * follows. 	 * 	 * When a binary patch is reversible, there is another binary 	 * hunk in the same format, starting with patch method (either 	 * "literal" or "delta") with the length of data, and a sequence 	 * of length-byte + base-85 encoded data, terminated with another 	 * empty line.  This data, when applied to the postimage, produces 	 * the preimage. 	 */
+comment|/* 	 * We have read "GIT binary patch\n"; what follows is a line 	 * that says the patch method (currently, either "literal" or 	 * "delta") and the length of data before deflating; a 	 * sequence of 'length-byte' followed by base-85 encoded data 	 * follows. 	 * 	 * When a binary patch is reversible, there is another binary 	 * hunk in the same format, starting with patch method (either 	 * "literal" or "delta") with the length of data, and a sequence 	 * of length-byte + base-85 encoded data, terminated with another 	 * empty line.  This data, when applied to the postimage, produces 	 * the preimage. 	 */
 name|struct
 name|fragment
 modifier|*
@@ -6001,7 +5981,7 @@ condition|(
 name|status
 condition|)
 block|{
-comment|/* not having reverse hunk is not an error, but having 		 * a corrupt reverse hunk is. 		 */
+comment|/* 		 * Not having reverse hunk is not an error, but having 		 * a corrupt reverse hunk is. 		 */
 name|free
 argument_list|(
 operator|(
@@ -6094,6 +6074,25 @@ condition|)
 return|return
 name|offset
 return|;
+name|patch
+operator|->
+name|ws_rule
+operator|=
+name|whitespace_rule
+argument_list|(
+name|patch
+operator|->
+name|new_name
+condition|?
+name|patch
+operator|->
+name|new_name
+else|:
+name|patch
+operator|->
+name|old_name
+argument_list|)
+expr_stmt|;
 name|patchsize
 operator|=
 name|parse_single_patch
@@ -6931,6 +6930,8 @@ operator|->
 name|len
 argument_list|,
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -7405,9 +7406,12 @@ name|patch
 parameter_list|,
 name|int
 name|plen
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
-comment|/* plen is number of bytes to be copied from patch, 	 * starting at patch+1 (patch[0] is '+').  Typically 	 * patch[plen] is '\n', unless this is the incomplete 	 * last line. 	 */
+comment|/* 	 * plen is number of bytes to be copied from patch, 	 * starting at patch+1 (patch[0] is '+').  Typically 	 * patch[plen] is '\n', unless this is the incomplete 	 * last line. 	 */
 name|int
 name|i
 decl_stmt|;
@@ -7424,14 +7428,12 @@ decl_stmt|;
 name|int
 name|last_tab_in_indent
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|int
 name|last_space_in_indent
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|int
 name|need_fix_leading_space
@@ -7445,9 +7447,9 @@ decl_stmt|;
 if|if
 condition|(
 operator|(
-name|new_whitespace
+name|ws_error_action
 operator|!=
-name|strip_whitespace
+name|correct_ws_error
 operator|)
 operator|||
 operator|!
@@ -7474,8 +7476,16 @@ return|return
 name|plen
 return|;
 block|}
+comment|/* 	 * Strip trailing whitespace 	 */
 if|if
 condition|(
+operator|(
+name|ws_rule
+operator|&
+name|WS_TRAILING_SPACE
+operator|)
+operator|&&
+operator|(
 literal|1
 operator|<
 name|plen
@@ -7489,6 +7499,7 @@ operator|-
 literal|1
 index|]
 argument_list|)
+operator|)
 condition|)
 block|{
 if|if
@@ -7529,6 +7540,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+comment|/* 	 * Check leading whitespaces (indent) 	 */
 for|for
 control|(
 name|i
@@ -7564,8 +7576,14 @@ name|i
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|ws_rule
+operator|&
+name|WS_SPACE_BEFORE_TAB
+operator|)
+operator|&&
 literal|0
-operator|<=
+operator|<
 name|last_space_in_indent
 condition|)
 name|need_fix_leading_space
@@ -7580,10 +7598,30 @@ name|ch
 operator|==
 literal|' '
 condition|)
+block|{
 name|last_space_in_indent
 operator|=
 name|i
 expr_stmt|;
+if|if
+condition|(
+operator|(
+name|ws_rule
+operator|&
+name|WS_INDENT_WITH_NON_TAB
+operator|)
+operator|&&
+literal|8
+operator|<=
+name|i
+operator|-
+name|last_tab_in_indent
+condition|)
+name|need_fix_leading_space
+operator|=
+literal|1
+expr_stmt|;
+block|}
 else|else
 break|break;
 block|}
@@ -7601,7 +7639,42 @@ name|consecutive_spaces
 init|=
 literal|0
 decl_stmt|;
-comment|/* between patch[1..last_tab_in_indent] strip the 		 * funny spaces, updating them to tab as needed. 		 */
+name|int
+name|last
+init|=
+name|last_tab_in_indent
+operator|+
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|ws_rule
+operator|&
+name|WS_INDENT_WITH_NON_TAB
+condition|)
+block|{
+comment|/* have "last" point at one past the indent */
+if|if
+condition|(
+name|last_tab_in_indent
+operator|<
+name|last_space_in_indent
+condition|)
+name|last
+operator|=
+name|last_space_in_indent
+operator|+
+literal|1
+expr_stmt|;
+else|else
+name|last
+operator|=
+name|last_tab_in_indent
+operator|+
+literal|1
+expr_stmt|;
+block|}
+comment|/* 		 * between patch[1..last], strip the funny spaces, 		 * updating them to tab as needed. 		 */
 for|for
 control|(
 name|i
@@ -7610,7 +7683,7 @@ literal|1
 init|;
 name|i
 operator|<
-name|last_tab_in_indent
+name|last
 condition|;
 name|i
 operator|++
@@ -7670,13 +7743,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
+while|while
+condition|(
+literal|0
+operator|<
+name|consecutive_spaces
+operator|--
+condition|)
+operator|*
+name|output
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
 name|fixed
 operator|=
 literal|1
 expr_stmt|;
 name|i
 operator|=
-name|last_tab_in_indent
+name|last
 expr_stmt|;
 block|}
 else|else
@@ -7741,6 +7827,9 @@ name|frag
 parameter_list|,
 name|int
 name|inaccurate_eof
+parameter_list|,
+name|unsigned
+name|ws_rule
 parameter_list|)
 block|{
 name|int
@@ -7996,6 +8085,8 @@ argument_list|,
 name|patch
 argument_list|,
 name|plen
+argument_list|,
+name|ws_rule
 argument_list|)
 decl_stmt|;
 name|newsize
@@ -8250,9 +8341,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|new_whitespace
+name|ws_error_action
 operator|==
-name|strip_whitespace
+name|correct_ws_error
 operator|&&
 operator|(
 name|buf
@@ -8356,7 +8447,7 @@ literal|0
 expr_stmt|;
 continue|continue;
 block|}
-comment|/* Reduce the number of context lines 		 * Reduce both leading and trailing if they are equal 		 * otherwise just reduce the larger context. 		 */
+comment|/* 		 * Reduce the number of context lines; reduce both 		 * leading and trailing if they are equal otherwise 		 * just reduce the larger context. 		 */
 if|if
 condition|(
 name|leading
@@ -8654,7 +8745,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-comment|/* For safety, we require patch index line to contain 	 * full 40-byte textual SHA1 for old and new, at least for now. 	 */
+comment|/* 	 * For safety, we require patch index line to contain 	 * full 40-byte textual SHA1 for old and new, at least for now. 	 */
 if|if
 condition|(
 name|strlen
@@ -8709,7 +8800,7 @@ operator|->
 name|old_name
 condition|)
 block|{
-comment|/* See if the old one matches what the patch 		 * applies to. 		 */
+comment|/* 		 * See if the old one matches what the patch 		 * applies to. 		 */
 name|hash_sha1_file
 argument_list|(
 name|buf
@@ -8870,7 +8961,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* We have verified buf matches the preimage; 		 * apply the patch data to it, which is stored 		 * in the patch->fragments->{patch,size}. 		 */
+comment|/* 		 * We have verified buf matches the preimage; 		 * apply the patch data to it, which is stored 		 * in the patch->fragments->{patch,size}. 		 */
 if|if
 condition|(
 name|apply_binary_fragment
@@ -8984,6 +9075,20 @@ name|patch
 operator|->
 name|new_name
 decl_stmt|;
+name|unsigned
+name|ws_rule
+init|=
+name|patch
+operator|->
+name|ws_rule
+decl_stmt|;
+name|unsigned
+name|inaccurate_eof
+init|=
+name|patch
+operator|->
+name|inaccurate_eof
+decl_stmt|;
 if|if
 condition|(
 name|patch
@@ -9011,9 +9116,9 @@ name|buf
 argument_list|,
 name|frag
 argument_list|,
-name|patch
-operator|->
 name|inaccurate_eof
+argument_list|,
+name|ws_rule
 argument_list|)
 condition|)
 block|{
@@ -9085,12 +9190,9 @@ if|if
 condition|(
 name|S_ISGITLINK
 argument_list|(
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -9481,12 +9583,9 @@ if|if
 condition|(
 name|S_ISGITLINK
 argument_list|(
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -9515,7 +9614,7 @@ name|ce
 argument_list|,
 name|st
 argument_list|,
-literal|1
+name|CE_MATCH_IGNORE_VALID
 argument_list|)
 return|;
 block|}
@@ -9776,12 +9875,9 @@ name|cached
 condition|)
 name|st_mode
 operator|=
-name|ntohl
-argument_list|(
 name|ce
 operator|->
 name|ce_mode
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -9811,8 +9907,6 @@ name|cached
 condition|)
 name|st_mode
 operator|=
-name|ntohl
-argument_list|(
 name|ce_mode_from_stat
 argument_list|(
 name|ce
@@ -9820,7 +9914,6 @@ argument_list|,
 name|st
 operator|.
 name|st_mode
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -9916,7 +10009,7 @@ argument_list|,
 name|new_name
 argument_list|)
 condition|)
-comment|/* A type-change diff is always split into a patch to 		 * delete old, immediately followed by a patch to 		 * create new (see diff.c::run_diff()); in such a case 		 * it is Ok that the entry to be deleted by the 		 * previous patch is still in the working tree and in 		 * the index. 		 */
+comment|/* 		 * A type-change diff is always split into a patch to 		 * delete old, immediately followed by a patch to 		 * create new (see diff.c::run_diff()); in such a case 		 * it is Ok that the entry to be deleted by the 		 * previous patch is still in the working tree and in 		 * the index. 		 */
 name|ok_if_exists
 operator|=
 literal|1
@@ -11505,10 +11598,7 @@ name|ce
 operator|->
 name|ce_flags
 operator|=
-name|htons
-argument_list|(
 name|namelen
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -13146,9 +13236,9 @@ condition|(
 name|whitespace_error
 operator|&&
 operator|(
-name|new_whitespace
+name|ws_error_action
 operator|==
-name|error_on_whitespace
+name|die_on_ws_error
 operator|)
 condition|)
 name|apply
@@ -13313,6 +13403,17 @@ literal|"apply.whitespace"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|value
+condition|)
+return|return
+name|config_error_nonbool
+argument_list|(
+name|var
+argument_list|)
+return|;
 name|apply_default_whitespace
 operator|=
 name|xstrdup
@@ -14095,9 +14196,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|new_whitespace
+name|ws_error_action
 operator|==
-name|error_on_whitespace
+name|die_on_ws_error
 condition|)
 name|die
 argument_list|(
@@ -14125,6 +14226,8 @@ expr_stmt|;
 if|if
 condition|(
 name|applied_after_fixing_ws
+operator|&&
+name|apply
 condition|)
 name|fprintf
 argument_list|(
@@ -14189,11 +14292,6 @@ argument_list|,
 name|active_cache
 argument_list|,
 name|active_nr
-argument_list|)
-operator|||
-name|close
-argument_list|(
-name|newfd
 argument_list|)
 operator|||
 name|commit_locked_index

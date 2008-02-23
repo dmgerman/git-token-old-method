@@ -1097,6 +1097,7 @@ condition|(
 operator|*
 name|cp
 condition|)
+block|{
 name|cp
 operator|=
 name|parse_attr
@@ -1113,6 +1114,15 @@ argument_list|,
 name|res
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|cp
+condition|)
+return|return
+name|NULL
+return|;
+block|}
 if|if
 condition|(
 name|pass
@@ -2088,6 +2098,7 @@ name|git_attr
 modifier|*
 name|attr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|v
@@ -2679,8 +2690,6 @@ operator|&&
 name|pathname
 index|[
 name|baselen
-operator|-
-literal|1
 index|]
 operator|!=
 literal|'/'
@@ -2706,6 +2715,8 @@ argument_list|,
 name|pathname
 operator|+
 name|baselen
+operator|+
+literal|1
 argument_list|,
 name|FNM_PATHNAME
 argument_list|)

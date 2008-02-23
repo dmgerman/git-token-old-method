@@ -113,7 +113,7 @@ name|ptr
 operator|->
 name|read
 argument_list|(
-literal|0
+name|IDENT_WARN_ON_NO_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -182,7 +182,7 @@ name|ptr
 operator|->
 name|read
 argument_list|(
-literal|1
+name|IDENT_ERROR_ON_NO_NAME
 argument_list|)
 expr_stmt|;
 break|break;
