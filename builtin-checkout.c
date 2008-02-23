@@ -1337,23 +1337,16 @@ name|unmerged_cache
 argument_list|()
 condition|)
 block|{
-name|ret
-operator|=
-name|opts
-operator|->
-name|merge
-condition|?
-operator|-
-literal|1
-else|:
 name|error
 argument_list|(
 literal|"you need to resolve your current index first"
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
 block|}
-else|else
-block|{
+comment|/* 2-way merge to the new branch */
 name|topts
 operator|.
 name|update
@@ -1482,8 +1475,8 @@ operator|->
 name|size
 argument_list|)
 expr_stmt|;
-name|ret
-operator|=
+if|if
+condition|(
 name|unpack_trees
 argument_list|(
 literal|2
@@ -1493,11 +1486,6 @@ argument_list|,
 operator|&
 name|topts
 argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|ret
 condition|)
 block|{
 comment|/* 			 * Unpack couldn't do a trivial merge; either 			 * give up or do a real merge, depending on 			 * whether the merge flag was used. 			 */
