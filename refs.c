@@ -2627,6 +2627,8 @@ expr_stmt|;
 if|if
 condition|(
 name|o
+operator|&&
+name|o
 operator|->
 name|type
 operator|==
