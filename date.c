@@ -1350,7 +1350,7 @@ block|{
 literal|"NZT"
 block|,
 operator|+
-literal|11
+literal|12
 block|,
 literal|0
 block|, }
@@ -1360,7 +1360,7 @@ block|{
 literal|"NZST"
 block|,
 operator|+
-literal|11
+literal|12
 block|,
 literal|0
 block|, }
@@ -1370,7 +1370,7 @@ block|{
 literal|"NZDT"
 block|,
 operator|+
-literal|11
+literal|12
 block|,
 literal|1
 block|, }
