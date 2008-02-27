@@ -3391,10 +3391,6 @@ modifier|*
 name|simplify
 parameter_list|)
 block|{
-if|if
-condition|(
-name|simplify
-condition|)
 name|free
 argument_list|(
 name|simplify
