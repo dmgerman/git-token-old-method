@@ -357,6 +357,13 @@ name|DIFF_OPT_CHECK_FAILED
 value|(1<< 16)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_RELATIVE_NAME
+define|#
+directive|define
+name|DIFF_OPT_RELATIVE_NAME
+value|(1<< 17)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
@@ -482,6 +489,16 @@ decl_stmt|;
 DECL|member|abbrev
 name|int
 name|abbrev
+decl_stmt|;
+DECL|member|prefix
+specifier|const
+name|char
+modifier|*
+name|prefix
+decl_stmt|;
+DECL|member|prefix_length
+name|int
+name|prefix_length
 decl_stmt|;
 DECL|member|msg_sep
 specifier|const
