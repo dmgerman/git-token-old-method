@@ -1498,6 +1498,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 name|last_elem
 operator|=
 name|xstrdup
@@ -1505,6 +1506,12 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+operator|*
+name|buf
+operator|=
+literal|'\0'
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
