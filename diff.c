@@ -14583,17 +14583,6 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|abbrev
-condition|)
-return|return
-name|sha1_to_hex
-argument_list|(
-name|sha1
-argument_list|)
-return|;
 name|abblen
 operator|=
 name|strlen
