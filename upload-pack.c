@@ -2084,10 +2084,6 @@ decl_stmt|;
 name|int
 name|len
 decl_stmt|;
-name|track_object_refs
-operator|=
-literal|0
-expr_stmt|;
 name|save_commit_buffer
 operator|=
 literal|0
