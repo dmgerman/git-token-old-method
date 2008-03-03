@@ -2570,11 +2570,6 @@ name|struct
 name|transport
 modifier|*
 name|transport
-parameter_list|,
-name|struct
-name|ref
-modifier|*
-name|fetch_map
 parameter_list|)
 block|{
 specifier|static
@@ -3136,8 +3131,6 @@ operator|=
 name|find_non_local_tags
 argument_list|(
 name|transport
-argument_list|,
-name|fetch_map
 argument_list|)
 expr_stmt|;
 if|if
