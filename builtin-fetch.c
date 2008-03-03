@@ -2913,9 +2913,6 @@ name|struct
 name|ref
 modifier|*
 name|ref_map
-decl_stmt|,
-modifier|*
-name|fetch_map
 decl_stmt|;
 name|struct
 name|ref
@@ -3112,9 +3109,10 @@ return|return
 literal|1
 return|;
 block|}
-name|fetch_map
-operator|=
+name|free_refs
+argument_list|(
 name|ref_map
+argument_list|)
 expr_stmt|;
 comment|/* if neither --no-tags nor --tags was specified, do automated tag 	 * following ... */
 if|if
@@ -3161,11 +3159,6 @@ name|ref_map
 argument_list|)
 expr_stmt|;
 block|}
-name|free_refs
-argument_list|(
-name|fetch_map
-argument_list|)
-expr_stmt|;
 name|transport_disconnect
 argument_list|(
 name|transport
