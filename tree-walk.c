@@ -368,7 +368,7 @@ name|b
 parameter_list|)
 block|{
 return|return
-name|base_name_compare
+name|df_name_compare
 argument_list|(
 name|a
 operator|->
@@ -876,6 +876,12 @@ name|mask
 init|=
 literal|0
 decl_stmt|;
+name|unsigned
+name|long
+name|dirmask
+init|=
+literal|0
+decl_stmt|;
 name|int
 name|i
 decl_stmt|,
@@ -969,6 +975,24 @@ literal|1ul
 operator|<<
 name|i
 expr_stmt|;
+if|if
+condition|(
+name|S_ISDIR
+argument_list|(
+name|entry
+index|[
+name|i
+index|]
+operator|.
+name|mode
+argument_list|)
+condition|)
+name|dirmask
+operator||=
+literal|1ul
+operator|<<
+name|i
+expr_stmt|;
 name|last
 operator|=
 name|i
@@ -980,6 +1004,10 @@ operator|!
 name|mask
 condition|)
 break|break;
+name|dirmask
+operator|&=
+name|mask
+expr_stmt|;
 comment|/* 		 * Clear all the unused name-entries. 		 */
 for|for
 control|(
@@ -1023,6 +1051,8 @@ argument_list|(
 name|n
 argument_list|,
 name|mask
+argument_list|,
+name|dirmask
 argument_list|,
 name|entry
 argument_list|,
