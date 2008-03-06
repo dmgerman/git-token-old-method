@@ -1693,6 +1693,7 @@ specifier|extern
 name|int
 name|write_index
 parameter_list|(
+specifier|const
 name|struct
 name|index_state
 modifier|*
@@ -1718,6 +1719,7 @@ specifier|extern
 name|int
 name|unmerged_index
 parameter_list|(
+specifier|const
 name|struct
 name|index_state
 modifier|*
@@ -1761,6 +1763,7 @@ specifier|extern
 name|int
 name|index_name_pos
 parameter_list|(
+specifier|const
 name|struct
 name|index_state
 modifier|*
@@ -1976,6 +1979,7 @@ specifier|extern
 name|int
 name|ie_match_stat
 parameter_list|(
+specifier|const
 name|struct
 name|index_state
 modifier|*
@@ -1998,6 +2002,7 @@ specifier|extern
 name|int
 name|ie_modified
 parameter_list|(
+specifier|const
 name|struct
 name|index_state
 modifier|*

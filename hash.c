@@ -27,6 +27,7 @@ name|unsigned
 name|int
 name|hash
 parameter_list|,
+specifier|const
 name|struct
 name|hash_table
 modifier|*
@@ -316,6 +317,7 @@ name|unsigned
 name|int
 name|hash
 parameter_list|,
+specifier|const
 name|struct
 name|hash_table
 modifier|*
@@ -405,6 +407,7 @@ DECL|function|for_each_hash
 name|int
 name|for_each_hash
 parameter_list|(
+specifier|const
 name|struct
 name|hash_table
 modifier|*
