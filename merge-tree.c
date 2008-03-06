@@ -1481,7 +1481,7 @@ end_comment
 begin_function
 DECL|function|threeway_callback
 specifier|static
-name|void
+name|int
 name|threeway_callback
 parameter_list|(
 name|int
@@ -1538,7 +1538,9 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|mask
+return|;
 block|}
 block|}
 if|if
@@ -1589,7 +1591,9 @@ operator|+
 literal|2
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|mask
+return|;
 block|}
 block|}
 if|if
@@ -1638,7 +1642,9 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+name|mask
+return|;
 block|}
 block|}
 name|unresolved
@@ -1648,6 +1654,9 @@ argument_list|,
 name|entry
 argument_list|)
 expr_stmt|;
+return|return
+name|mask
+return|;
 block|}
 end_function
 begin_function
