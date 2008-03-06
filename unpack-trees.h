@@ -124,6 +124,12 @@ name|void
 modifier|*
 name|unpack_data
 decl_stmt|;
+DECL|member|index
+name|struct
+name|index_state
+modifier|*
+name|index
+decl_stmt|;
 block|}
 struct|;
 end_struct

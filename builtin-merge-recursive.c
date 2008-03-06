@@ -1122,6 +1122,13 @@ name|fn
 operator|=
 name|threeway_merge
 expr_stmt|;
+name|opts
+operator|.
+name|index
+operator|=
+operator|&
+name|the_index
+expr_stmt|;
 name|init_tree_desc_from_tree
 argument_list|(
 name|t
