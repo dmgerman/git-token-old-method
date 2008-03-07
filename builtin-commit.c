@@ -1061,7 +1061,14 @@ literal|1
 expr_stmt|;
 name|opts
 operator|.
-name|index
+name|src_index
+operator|=
+operator|&
+name|the_index
+expr_stmt|;
+name|opts
+operator|.
+name|dst_index
 operator|=
 operator|&
 name|the_index
