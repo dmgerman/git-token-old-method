@@ -1426,8 +1426,6 @@ operator|*
 name|endp
 operator|=
 name|quoted
-operator|+
-literal|1
 expr_stmt|;
 return|return
 literal|0
