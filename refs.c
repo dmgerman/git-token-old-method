@@ -5360,7 +5360,6 @@ block|}
 end_function
 begin_function
 DECL|function|close_ref
-specifier|static
 name|int
 name|close_ref
 parameter_list|(
@@ -5397,7 +5396,6 @@ block|}
 end_function
 begin_function
 DECL|function|commit_ref
-specifier|static
 name|int
 name|commit_ref
 parameter_list|(
