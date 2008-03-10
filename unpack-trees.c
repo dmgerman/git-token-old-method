@@ -800,6 +800,7 @@ name|sha1
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|traverse_trees
 argument_list|(
 name|n
@@ -809,9 +810,6 @@ argument_list|,
 operator|&
 name|newinfo
 argument_list|)
-expr_stmt|;
-return|return
-literal|0
 return|;
 block|}
 end_function
@@ -1640,6 +1638,8 @@ operator||=
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|traverse_trees_recursive
 argument_list|(
 name|n
@@ -1652,7 +1652,13 @@ name|names
 argument_list|,
 name|info
 argument_list|)
-expr_stmt|;
+operator|<
+literal|0
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 name|mask
 return|;
