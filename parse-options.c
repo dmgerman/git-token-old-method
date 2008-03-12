@@ -1570,6 +1570,13 @@ literal|1
 index|]
 condition|)
 block|{
+if|if
+condition|(
+name|flags
+operator|&
+name|PARSE_OPT_STOP_AT_NON_OPTION
+condition|)
+break|break;
 name|args
 operator|.
 name|out

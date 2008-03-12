@@ -1989,6 +1989,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"remote"
+block|,
+name|cmd_remote
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"repo-config"
 block|,
 name|cmd_config
