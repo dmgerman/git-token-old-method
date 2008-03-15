@@ -3540,7 +3540,7 @@ modifier|*
 name|encoding
 parameter_list|,
 name|int
-name|plain_non_ascii
+name|need_8bit_cte
 parameter_list|)
 block|{
 name|struct
@@ -3708,7 +3708,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|plain_non_ascii
+name|need_8bit_cte
+operator|>
+literal|0
 condition|)
 block|{
 specifier|const
@@ -3957,7 +3959,7 @@ name|date_mode
 name|dmode
 parameter_list|,
 name|int
-name|plain_non_ascii
+name|need_8bit_cte
 parameter_list|)
 block|{
 name|unsigned
@@ -4057,15 +4059,16 @@ name|indent
 operator|=
 literal|0
 expr_stmt|;
-comment|/* After-subject is used to pass in Content-Type: multipart 	 * MIME header; in that case we do not have to do the 	 * plaintext content type even if the commit message has 	 * non 7-bit ASCII character.  Otherwise, check if we need 	 * to say this is not a 7-bit ASCII. 	 */
+comment|/* 	 * We need to check and emit Content-type: to mark it 	 * as 8-bit if we haven't done so. 	 */
 if|if
 condition|(
 name|fmt
 operator|==
 name|CMIT_FMT_EMAIL
 operator|&&
-operator|!
-name|after_subject
+name|need_8bit_cte
+operator|==
+literal|0
 condition|)
 block|{
 name|int
@@ -4132,7 +4135,7 @@ name|ch
 argument_list|)
 condition|)
 block|{
-name|plain_non_ascii
+name|need_8bit_cte
 operator|=
 literal|1
 expr_stmt|;
@@ -4245,7 +4248,7 @@ name|after_subject
 argument_list|,
 name|encoding
 argument_list|,
-name|plain_non_ascii
+name|need_8bit_cte
 argument_list|)
 expr_stmt|;
 name|beginning_of_body
