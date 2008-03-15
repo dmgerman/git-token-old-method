@@ -651,6 +651,10 @@ name|char
 modifier|*
 modifier|*
 name|extra_headers_p
+parameter_list|,
+name|int
+modifier|*
+name|need_8bit_cte_p
 parameter_list|)
 block|{
 specifier|const
@@ -669,6 +673,12 @@ name|opt
 operator|->
 name|extra_headers
 decl_stmt|;
+operator|*
+name|need_8bit_cte_p
+operator|=
+literal|0
+expr_stmt|;
+comment|/* unknown */
 if|if
 condition|(
 name|opt
@@ -837,6 +847,13 @@ index|[
 literal|1024
 index|]
 decl_stmt|;
+operator|*
+name|need_8bit_cte_p
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|/* NEVER */
 name|snprintf
 argument_list|(
 name|subject_buffer
@@ -1026,6 +1043,11 @@ init|=
 name|opt
 operator|->
 name|extra_headers
+decl_stmt|;
+name|int
+name|need_8bit_cte
+init|=
+literal|0
 decl_stmt|;
 name|opt
 operator|->
@@ -1224,6 +1246,9 @@ name|subject
 argument_list|,
 operator|&
 name|extra_headers
+argument_list|,
+operator|&
+name|need_8bit_cte
 argument_list|)
 expr_stmt|;
 block|}
@@ -1471,6 +1496,21 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|need_8bit_cte
+operator|>=
+literal|0
+condition|)
+name|need_8bit_cte
+operator|=
+name|has_non_ascii
+argument_list|(
+name|opt
+operator|->
+name|add_signoff
+argument_list|)
+expr_stmt|;
 name|pretty_print_commit
 argument_list|(
 name|opt
@@ -1492,12 +1532,7 @@ name|opt
 operator|->
 name|date_mode
 argument_list|,
-name|has_non_ascii
-argument_list|(
-name|opt
-operator|->
-name|add_signoff
-argument_list|)
+name|need_8bit_cte
 argument_list|)
 expr_stmt|;
 if|if
