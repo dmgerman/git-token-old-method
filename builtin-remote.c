@@ -1223,8 +1223,15 @@ argument_list|,
 literal|"refs/heads/"
 argument_list|)
 decl_stmt|;
+comment|/* symbolic refs pointing nowhere were handled already */
 if|if
 condition|(
+operator|(
+name|flags
+operator|&
+name|REF_ISSYMREF
+operator|)
+operator|||
 name|unsorted_path_list_has_path
 argument_list|(
 operator|&
