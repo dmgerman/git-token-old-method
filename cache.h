@@ -1213,8 +1213,10 @@ parameter_list|(
 name|name
 parameter_list|,
 name|namelen
+parameter_list|,
+name|igncase
 parameter_list|)
-value|index_name_exists(&the_index, (name), (namelen))
+value|index_name_exists(&the_index, (name), (namelen), (igncase))
 end_define
 begin_endif
 endif|#
@@ -1777,6 +1779,9 @@ name|name
 parameter_list|,
 name|int
 name|namelen
+parameter_list|,
+name|int
+name|igncase
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -1977,6 +1977,8 @@ argument_list|(
 name|pathname
 argument_list|,
 name|len
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 return|return
