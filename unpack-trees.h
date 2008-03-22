@@ -147,7 +147,6 @@ modifier|*
 name|dst_index
 decl_stmt|;
 DECL|member|src_index
-specifier|const
 name|struct
 name|index_state
 modifier|*
