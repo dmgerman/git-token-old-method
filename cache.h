@@ -455,6 +455,13 @@ name|CE_UPTODATE
 value|(0x40000)
 end_define
 begin_define
+DECL|macro|CE_ADDED
+define|#
+directive|define
+name|CE_ADDED
+value|(0x80000)
+end_define
+begin_define
 DECL|macro|CE_HASHED
 define|#
 directive|define
