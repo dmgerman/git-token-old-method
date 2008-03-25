@@ -827,10 +827,6 @@ name|argv
 parameter_list|)
 block|{
 name|int
-name|nongit
-init|=
-literal|0
-decl_stmt|,
 name|envchanged
 init|=
 literal|0
@@ -872,8 +868,7 @@ name|subdir
 operator|=
 name|setup_git_directory_gently
 argument_list|(
-operator|&
-name|nongit
+name|NULL
 argument_list|)
 expr_stmt|;
 name|alias_command
