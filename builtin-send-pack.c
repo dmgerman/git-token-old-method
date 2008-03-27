@@ -2650,7 +2650,7 @@ name|char
 modifier|*
 name|remote
 init|=
-name|strchr
+name|strrchr
 argument_list|(
 name|heads
 index|[
