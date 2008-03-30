@@ -6578,6 +6578,12 @@ condition|)
 continue|continue;
 if|if
 condition|(
+operator|!
+name|ce_uptodate
+argument_list|(
+name|ce
+argument_list|)
+operator|&&
 name|is_racy_timestamp
 argument_list|(
 name|istate
