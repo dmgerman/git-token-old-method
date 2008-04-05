@@ -3685,6 +3685,17 @@ decl_stmt|;
 name|i
 operator|++
 expr_stmt|;
+if|if
+condition|(
+name|i
+operator|>=
+name|argc
+condition|)
+name|die
+argument_list|(
+literal|"You need to specify a tag name."
+argument_list|)
+expr_stmt|;
 name|ref
 operator|=
 name|xmalloc
