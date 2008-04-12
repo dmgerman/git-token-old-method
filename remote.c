@@ -1921,7 +1921,7 @@ name|name
 operator|=
 name|key
 operator|+
-literal|5
+literal|4
 expr_stmt|;
 name|subkey
 operator|=
