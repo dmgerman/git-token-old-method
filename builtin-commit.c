@@ -591,7 +591,7 @@ argument_list|,
 operator|&
 name|only
 argument_list|,
-literal|""
+literal|"commit only specified files"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
