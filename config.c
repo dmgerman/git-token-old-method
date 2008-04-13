@@ -1456,8 +1456,6 @@ name|name
 argument_list|,
 name|value
 argument_list|)
-operator|!=
-literal|0
 return|;
 block|}
 end_function
@@ -1481,6 +1479,8 @@ name|int
 name|discard
 decl_stmt|;
 return|return
+operator|!
+operator|!
 name|git_config_bool_or_int
 argument_list|(
 name|name
