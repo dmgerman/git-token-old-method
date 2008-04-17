@@ -1146,6 +1146,7 @@ parameter_list|,
 name|int
 name|nr_objs
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -2007,6 +2008,7 @@ parameter_list|,
 name|int
 name|nr_objs
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -2894,6 +2896,7 @@ parameter_list|,
 name|int
 name|nr_objs
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -3141,6 +3144,7 @@ parameter_list|,
 name|int
 name|nr_heads
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -3579,6 +3583,7 @@ parameter_list|,
 name|int
 name|nr_heads
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -4673,6 +4678,7 @@ name|transport
 modifier|*
 name|transport
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -4691,6 +4697,7 @@ name|nr_alloc
 init|=
 literal|0
 decl_stmt|;
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -4699,6 +4706,7 @@ name|heads
 init|=
 name|NULL
 decl_stmt|;
+specifier|const
 name|struct
 name|ref
 modifier|*
