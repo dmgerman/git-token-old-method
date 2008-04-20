@@ -311,6 +311,11 @@ DECL|member|abbrev_commit
 name|abbrev_commit
 range|:
 literal|1
+decl_stmt|,
+DECL|member|use_terminator
+name|use_terminator
+range|:
+literal|1
 decl_stmt|;
 DECL|member|date_mode
 name|enum
