@@ -7325,6 +7325,14 @@ operator|.
 name|host
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|server
+operator|.
+name|tunnel
+condition|)
+block|{
 name|fprintf
 argument_list|(
 name|stderr
@@ -7335,6 +7343,13 @@ expr_stmt|;
 return|return
 literal|1
 return|;
+block|}
+name|server
+operator|.
+name|host
+operator|=
+literal|"tunnel"
+expr_stmt|;
 block|}
 comment|/* read the messages */
 if|if
