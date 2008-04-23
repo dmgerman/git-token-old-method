@@ -2707,6 +2707,15 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|baselen
+operator|!=
+literal|0
+condition|)
+name|baselen
+operator|++
+expr_stmt|;
 return|return
 name|fnmatch
 argument_list|(
@@ -2715,8 +2724,6 @@ argument_list|,
 name|pathname
 operator|+
 name|baselen
-operator|+
-literal|1
 argument_list|,
 name|FNM_PATHNAME
 argument_list|)
