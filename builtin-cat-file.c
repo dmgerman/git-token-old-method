@@ -633,6 +633,9 @@ specifier|const
 name|char
 modifier|*
 name|obj_name
+parameter_list|,
+name|int
+name|print_contents
 parameter_list|)
 block|{
 name|unsigned
@@ -649,6 +652,12 @@ decl_stmt|;
 name|unsigned
 name|long
 name|size
+decl_stmt|;
+name|void
+modifier|*
+name|contents
+init|=
+name|contents
 decl_stmt|;
 if|if
 condition|(
@@ -679,6 +688,24 @@ return|return
 literal|0
 return|;
 block|}
+if|if
+condition|(
+name|print_contents
+condition|)
+name|contents
+operator|=
+name|read_sha1_file
+argument_list|(
+name|sha1
+argument_list|,
+operator|&
+name|type
+argument_list|,
+operator|&
+name|size
+argument_list|)
+expr_stmt|;
+else|else
 name|type
 operator|=
 name|sha1_object_info
@@ -715,6 +742,36 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|print_contents
+condition|)
+block|{
+name|write_or_die
+argument_list|(
+literal|1
+argument_list|,
+name|contents
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
@@ -726,7 +783,8 @@ specifier|static
 name|int
 name|batch_objects
 parameter_list|(
-name|void
+name|int
+name|print_contents
 parameter_list|)
 block|{
 name|struct
@@ -764,6 +822,8 @@ argument_list|(
 name|buf
 operator|.
 name|buf
+argument_list|,
+name|print_contents
 argument_list|)
 decl_stmt|;
 if|if
@@ -787,7 +847,7 @@ name|char
 name|cat_file_usage
 index|[]
 init|=
-literal|"git-cat-file [ [-t|-s|-e|-p|<type>]<sha1> | --batch-check<<list_of_sha1s> ]"
+literal|"git-cat-file [ [-t|-s|-e|-p|<type>]<sha1> | [--batch|--batch-check]<<list_of_sha1s> ]"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -814,6 +874,10 @@ name|int
 name|i
 decl_stmt|,
 name|opt
+init|=
+literal|0
+decl_stmt|,
+name|batch
 init|=
 literal|0
 decl_stmt|,
@@ -862,8 +926,32 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|int
+name|is_batch
+init|=
+literal|0
+decl_stmt|,
+name|is_batch_check
+init|=
+literal|0
+decl_stmt|;
+name|is_batch
+operator|=
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--batch"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
+operator|!
+name|is_batch
+condition|)
+name|is_batch_check
+operator|=
 operator|!
 name|strcmp
 argument_list|(
@@ -871,6 +959,12 @@ name|arg
 argument_list|,
 literal|"--batch-check"
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|is_batch
+operator|||
+name|is_batch_check
 condition|)
 block|{
 if|if
@@ -880,7 +974,9 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"git-cat-file: Can't use --batch-check with -%c"
+literal|"git-cat-file: Can't use %s with -%c"
+argument_list|,
+name|arg
 argument_list|,
 name|opt
 argument_list|)
@@ -899,7 +995,9 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"git-cat-file: Can't use --batch-check when a type (\"%s\") is specified"
+literal|"git-cat-file: Can't use %s when a type (\"%s\") is specified"
+argument_list|,
+name|arg
 argument_list|,
 name|exp_type
 argument_list|)
@@ -918,7 +1016,9 @@ condition|)
 block|{
 name|error
 argument_list|(
-literal|"git-cat-file: Can't use --batch-check when an object (\"%s\") is specified"
+literal|"git-cat-file: Can't use %s when an object (\"%s\") is specified"
+argument_list|,
+name|arg
 argument_list|,
 name|obj_name
 argument_list|)
@@ -929,6 +1029,49 @@ name|cat_file_usage
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|(
+name|is_batch
+operator|&&
+name|batch_check
+operator|)
+operator|||
+operator|(
+name|is_batch_check
+operator|&&
+name|batch
+operator|)
+condition|)
+block|{
+name|error
+argument_list|(
+literal|"git-cat-file: Can't use %s with %s"
+argument_list|,
+name|arg
+argument_list|,
+name|is_batch
+condition|?
+literal|"--batch-check"
+else|:
+literal|"--batch"
+argument_list|)
+expr_stmt|;
+name|usage
+argument_list|(
+name|cat_file_usage
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|is_batch
+condition|)
+name|batch
+operator|=
+literal|1
+expr_stmt|;
+else|else
 name|batch_check
 operator|=
 literal|1
@@ -972,14 +1115,22 @@ condition|)
 block|{
 if|if
 condition|(
+name|batch
+operator|||
 name|batch_check
 condition|)
 block|{
 name|error
 argument_list|(
-literal|"git-cat-file: Can't use %s with --batch-check"
+literal|"git-cat-file: Can't use %s with %s"
 argument_list|,
 name|arg
+argument_list|,
+name|batch
+condition|?
+literal|"--batch"
+else|:
+literal|"--batch-check"
 argument_list|)
 expr_stmt|;
 name|usage
@@ -1023,14 +1174,22 @@ condition|)
 block|{
 if|if
 condition|(
+name|batch
+operator|||
 name|batch_check
 condition|)
 block|{
 name|error
 argument_list|(
-literal|"git-cat-file: Can't specify a type (\"%s\") with --batch-check"
+literal|"git-cat-file: Can't specify a type (\"%s\") with %s"
 argument_list|,
 name|arg
+argument_list|,
+name|batch
+condition|?
+literal|"--batch"
+else|:
+literal|"--batch-check"
 argument_list|)
 expr_stmt|;
 name|usage
@@ -1054,8 +1213,14 @@ argument_list|(
 name|cat_file_usage
 argument_list|)
 expr_stmt|;
-comment|// We should have hit one of the earlier if (batch_check) cases before
+comment|// We should have hit one of the earlier if (batch || batch_check) cases before
 comment|// getting here.
+name|assert
+argument_list|(
+operator|!
+name|batch
+argument_list|)
+expr_stmt|;
 name|assert
 argument_list|(
 operator|!
@@ -1070,11 +1235,15 @@ break|break;
 block|}
 if|if
 condition|(
+name|batch
+operator|||
 name|batch_check
 condition|)
 return|return
 name|batch_objects
-argument_list|()
+argument_list|(
+name|batch
+argument_list|)
 return|;
 if|if
 condition|(
