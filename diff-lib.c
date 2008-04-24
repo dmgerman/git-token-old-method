@@ -1574,6 +1574,21 @@ break|break;
 block|}
 if|if
 condition|(
+name|nongit
+operator|&&
+name|argc
+operator|!=
+name|i
+operator|+
+literal|2
+condition|)
+name|die
+argument_list|(
+literal|"git diff [--no-index] takes two paths"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|argc
 operator|!=
 name|i
