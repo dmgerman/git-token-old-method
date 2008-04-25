@@ -642,6 +642,14 @@ operator|&
 name|buf2
 argument_list|)
 expr_stmt|;
+name|strbuf_addch
+argument_list|(
+operator|&
+name|buf2
+argument_list|,
+literal|'+'
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|mirror
