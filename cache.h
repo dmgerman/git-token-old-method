@@ -5051,7 +5051,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+name|ssize_t
 name|read_in_full
 parameter_list|(
 name|int
@@ -5068,7 +5068,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+name|ssize_t
 name|write_in_full
 parameter_list|(
 name|int
