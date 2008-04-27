@@ -1617,6 +1617,12 @@ name|NEED_WORK_TREE
 block|}
 block|,
 block|{
+literal|"clone"
+block|,
+name|cmd_clone
+block|}
+block|,
+block|{
 literal|"clean"
 block|,
 name|cmd_clean
