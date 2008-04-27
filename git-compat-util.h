@@ -1575,6 +1575,9 @@ name|ret
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * xmemdupz() allocates (len + 1) bytes of memory, duplicates "len" bytes of  * "data" to the allocated memory, zero terminates the allocated memory,  * and returns a pointer to the allocated memory. If the allocation fails,  * the program dies.  */
+end_comment
 begin_function
 DECL|function|xmemdupz
 specifier|static
@@ -1989,6 +1992,9 @@ name|ret
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * xread() is the same a read(), but it automatically restarts read()  * operations with a recoverable error (EAGAIN and EINTR). xread()  * DOES NOT GUARANTEE that "len" bytes is read even if the data is available.  */
+end_comment
 begin_function
 DECL|function|xread
 specifier|static
@@ -2051,6 +2057,9 @@ return|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*  * xwrite() is the same a write(), but it automatically restarts write()  * operations with a recoverable error (EAGAIN and EINTR). xwrite() DOES NOT  * GUARANTEE that "len" bytes is written even if the operation is successful.  */
+end_comment
 begin_function
 DECL|function|xwrite
 specifier|static
