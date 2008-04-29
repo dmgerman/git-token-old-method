@@ -1534,7 +1534,6 @@ name|msgbuf
 operator|.
 name|len
 condition|)
-block|{
 name|fwrite
 argument_list|(
 name|msgbuf
@@ -1564,7 +1563,6 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-block|}
 name|strbuf_release
 argument_list|(
 operator|&
