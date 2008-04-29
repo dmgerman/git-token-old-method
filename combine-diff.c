@@ -4437,10 +4437,6 @@ condition|)
 name|show_log
 argument_list|(
 name|rev
-argument_list|,
-name|opt
-operator|->
-name|msg_sep
 argument_list|)
 expr_stmt|;
 name|dump_quoted_path
@@ -4931,10 +4927,6 @@ condition|)
 name|show_log
 argument_list|(
 name|rev
-argument_list|,
-name|opt
-operator|->
-name|msg_sep
 argument_list|)
 expr_stmt|;
 if|if
@@ -5417,10 +5409,6 @@ block|{
 name|show_log
 argument_list|(
 name|rev
-argument_list|,
-name|opt
-operator|->
-name|msg_sep
 argument_list|)
 expr_stmt|;
 if|if
