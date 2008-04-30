@@ -620,6 +620,7 @@ name|item
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|commit
 operator|->
 name|object
