@@ -261,16 +261,24 @@ name|non_empty
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|no_reuse_delta
-DECL|variable|no_reuse_object
+DECL|variable|reuse_delta
+DECL|variable|reuse_object
+specifier|static
+name|int
+name|reuse_delta
+init|=
+literal|1
+decl_stmt|,
+name|reuse_object
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|keep_unreachable
 DECL|variable|include_tag
 specifier|static
 name|int
-name|no_reuse_delta
-decl_stmt|,
-name|no_reuse_object
-decl_stmt|,
 name|keep_unreachable
 decl_stmt|,
 name|include_tag
@@ -1269,7 +1277,8 @@ name|type
 expr_stmt|;
 if|if
 condition|(
-name|no_reuse_object
+operator|!
+name|reuse_object
 condition|)
 name|to_reuse
 operator|=
@@ -5303,8 +5312,7 @@ name|OBJ_REF_DELTA
 case|:
 if|if
 condition|(
-operator|!
-name|no_reuse_delta
+name|reuse_delta
 operator|&&
 operator|!
 name|entry
@@ -5469,8 +5477,7 @@ name|ofs
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|no_reuse_delta
+name|reuse_delta
 operator|&&
 operator|!
 name|entry
@@ -6374,8 +6381,7 @@ return|;
 comment|/* 	 * We do not bother to try a delta that we discarded 	 * on an earlier try, but only when reusing delta data. 	 */
 if|if
 condition|(
-operator|!
-name|no_reuse_delta
+name|reuse_delta
 operator|&&
 name|trg_entry
 operator|->
@@ -8576,7 +8582,7 @@ name|entry
 operator|->
 name|delta
 condition|)
-comment|/* This happens if we decided to reuse existing 			 * delta from a pack.  "!no_reuse_delta&&" is implied. 			 */
+comment|/* This happens if we decided to reuse existing 			 * delta from a pack.  "reuse_delta&&" is implied. 			 */
 continue|continue;
 if|if
 condition|(
@@ -10604,9 +10610,9 @@ name|arg
 argument_list|)
 condition|)
 block|{
-name|no_reuse_delta
+name|reuse_delta
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 continue|continue;
 block|}
@@ -10621,11 +10627,11 @@ name|arg
 argument_list|)
 condition|)
 block|{
-name|no_reuse_object
+name|reuse_object
 operator|=
-name|no_reuse_delta
+name|reuse_delta
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 continue|continue;
 block|}
