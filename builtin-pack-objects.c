@@ -1163,6 +1163,8 @@ block|{
 name|unsigned
 name|long
 name|size
+decl_stmt|,
+name|limit
 decl_stmt|;
 name|void
 modifier|*
@@ -1174,9 +1176,7 @@ name|header
 index|[
 literal|10
 index|]
-decl_stmt|;
-name|unsigned
-name|char
+decl_stmt|,
 name|dheader
 index|[
 literal|10
@@ -1190,18 +1190,32 @@ name|datalen
 decl_stmt|;
 name|enum
 name|object_type
-name|obj_type
+name|type
 decl_stmt|;
 name|int
+name|usable_delta
+decl_stmt|,
 name|to_reuse
-init|=
-literal|0
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|pack_to_stdout
+condition|)
+name|crc32_begin
+argument_list|(
+name|f
+argument_list|)
+expr_stmt|;
+name|type
+operator|=
+name|entry
+operator|->
+name|type
+expr_stmt|;
 comment|/* write limit if limited packsize and not first object */
-name|unsigned
-name|long
 name|limit
-init|=
+operator|=
 name|pack_size_limit
 operator|&&
 name|nr_written
@@ -1211,25 +1225,33 @@ operator|-
 name|write_offset
 else|:
 literal|0
-decl_stmt|;
-comment|/* no if no delta */
-name|int
-name|usable_delta
-init|=
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|entry
 operator|->
 name|delta
-condition|?
+condition|)
+name|usable_delta
+operator|=
 literal|0
-else|:
-comment|/* yes if unlimited packfile */
+expr_stmt|;
+comment|/* no delta */
+elseif|else
+if|if
+condition|(
 operator|!
 name|pack_size_limit
-condition|?
+condition|)
+name|usable_delta
+operator|=
 literal|1
-else|:
-comment|/* no if base written to previous pack */
+expr_stmt|;
+comment|/* unlimited packfile */
+elseif|else
+if|if
+condition|(
 name|entry
 operator|->
 name|delta
@@ -1243,10 +1265,15 @@ name|off_t
 operator|)
 operator|-
 literal|1
-condition|?
+condition|)
+name|usable_delta
+operator|=
 literal|0
-else|:
-comment|/* otherwise double-check written to this 				 * pack,  like we do below 				 */
+expr_stmt|;
+comment|/* base was written to another pack */
+elseif|else
+if|if
+condition|(
 name|entry
 operator|->
 name|delta
@@ -1254,27 +1281,18 @@ operator|->
 name|idx
 operator|.
 name|offset
-condition|?
-literal|1
-else|:
-literal|0
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|pack_to_stdout
 condition|)
-name|crc32_begin
-argument_list|(
-name|f
-argument_list|)
-expr_stmt|;
-name|obj_type
+name|usable_delta
 operator|=
-name|entry
-operator|->
-name|type
+literal|1
 expr_stmt|;
+comment|/* base already exists in this pack */
+else|else
+name|usable_delta
+operator|=
+literal|0
+expr_stmt|;
+comment|/* base could end up in another pack */
 if|if
 condition|(
 operator|!
@@ -1301,11 +1319,11 @@ comment|/* can't reuse what we don't have */
 elseif|else
 if|if
 condition|(
-name|obj_type
+name|type
 operator|==
 name|OBJ_REF_DELTA
 operator|||
-name|obj_type
+name|type
 operator|==
 name|OBJ_OFS_DELTA
 condition|)
@@ -1318,7 +1336,7 @@ comment|/* ... but pack split may override that */
 elseif|else
 if|if
 condition|(
-name|obj_type
+name|type
 operator|!=
 name|entry
 operator|->
@@ -1381,7 +1399,7 @@ operator|.
 name|sha1
 argument_list|,
 operator|&
-name|obj_type
+name|type
 argument_list|,
 operator|&
 name|size
@@ -1433,7 +1451,7 @@ name|delta_data
 operator|=
 name|NULL
 expr_stmt|;
-name|obj_type
+name|type
 operator|=
 operator|(
 name|allow_ofs_delta
@@ -1467,7 +1485,7 @@ name|entry
 operator|->
 name|delta_size
 expr_stmt|;
-name|obj_type
+name|type
 operator|=
 operator|(
 name|allow_ofs_delta
@@ -1581,7 +1599,7 @@ name|hdrlen
 operator|=
 name|encode_header
 argument_list|(
-name|obj_type
+name|type
 argument_list|,
 name|size
 argument_list|,
@@ -1590,7 +1608,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|obj_type
+name|type
 operator|==
 name|OBJ_OFS_DELTA
 condition|)
@@ -1725,7 +1743,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|obj_type
+name|type
 operator|==
 name|OBJ_REF_DELTA
 condition|)
@@ -1881,7 +1899,7 @@ operator|->
 name|delta
 condition|)
 block|{
-name|obj_type
+name|type
 operator|=
 operator|(
 name|allow_ofs_delta
@@ -1907,7 +1925,7 @@ name|hdrlen
 operator|=
 name|encode_header
 argument_list|(
-name|obj_type
+name|type
 argument_list|,
 name|entry
 operator|->
@@ -1997,7 +2015,7 @@ name|in_pack_header_size
 expr_stmt|;
 if|if
 condition|(
-name|obj_type
+name|type
 operator|==
 name|OBJ_OFS_DELTA
 condition|)
@@ -2119,7 +2137,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|obj_type
+name|type
 operator|==
 name|OBJ_REF_DELTA
 condition|)
