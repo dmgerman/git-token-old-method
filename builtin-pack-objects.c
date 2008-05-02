@@ -7545,7 +7545,7 @@ name|entry
 operator|->
 name|delta
 operator|&&
-name|depth
+name|max_depth
 operator|<=
 name|n
 operator|->
