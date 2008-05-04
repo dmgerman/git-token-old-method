@@ -5644,7 +5644,13 @@ condition|)
 block|{
 name|revs
 operator|->
-name|parents
+name|rewrite_parents
+operator|=
+literal|1
+expr_stmt|;
+name|revs
+operator|->
+name|print_parents
 operator|=
 literal|1
 expr_stmt|;
@@ -7873,7 +7879,7 @@ condition|(
 operator|!
 name|revs
 operator|->
-name|parents
+name|rewrite_parents
 condition|)
 return|return
 name|commit_ignore
@@ -7901,7 +7907,7 @@ if|if
 condition|(
 name|revs
 operator|->
-name|parents
+name|rewrite_parents
 operator|&&
 name|rewrite_parents
 argument_list|(
