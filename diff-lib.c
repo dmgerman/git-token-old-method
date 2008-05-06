@@ -2739,7 +2739,15 @@ if|if
 condition|(
 operator|!
 name|changed
-operator|&&
+condition|)
+block|{
+name|ce_mark_uptodate
+argument_list|(
+name|ce
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|DIFF_OPT_TST
 argument_list|(
@@ -2752,6 +2760,7 @@ name|FIND_COPIES_HARDER
 argument_list|)
 condition|)
 continue|continue;
+block|}
 name|oldmode
 operator|=
 name|ce
