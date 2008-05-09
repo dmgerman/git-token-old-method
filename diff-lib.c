@@ -2039,10 +2039,6 @@ name|struct
 name|stat
 modifier|*
 name|st
-parameter_list|,
-name|char
-modifier|*
-name|symcache
 parameter_list|)
 block|{
 if|if
@@ -2081,11 +2077,14 @@ if|if
 condition|(
 name|has_symlink_leading_path
 argument_list|(
+name|ce_namelen
+argument_list|(
+name|ce
+argument_list|)
+argument_list|,
 name|ce
 operator|->
 name|name
-argument_list|,
-name|symcache
 argument_list|)
 condition|)
 return|return
@@ -2418,8 +2417,6 @@ name|ce
 argument_list|,
 operator|&
 name|st
-argument_list|,
-name|symcache
 argument_list|)
 expr_stmt|;
 if|if
@@ -2676,8 +2673,6 @@ name|ce
 argument_list|,
 operator|&
 name|st
-argument_list|,
-name|symcache
 argument_list|)
 expr_stmt|;
 if|if
@@ -2999,10 +2994,6 @@ name|ce
 argument_list|,
 operator|&
 name|st
-argument_list|,
-name|cbdata
-operator|->
-name|symcache
 argument_list|)
 expr_stmt|;
 if|if
