@@ -2053,6 +2053,8 @@ argument_list|(
 name|pathname
 argument_list|,
 name|len
+argument_list|,
+name|ignore_case
 argument_list|)
 condition|)
 return|return
