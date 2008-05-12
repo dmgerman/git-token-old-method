@@ -3066,11 +3066,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Warning: %s has multiple values\n"
+literal|"%s has multiple values"
 argument_list|,
 name|key
 argument_list|)
@@ -3086,11 +3084,11 @@ operator|>=
 name|MAX_MATCHES
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
+literal|"too many matches for %s"
 argument_list|,
-literal|"Too many matches\n"
+name|key
 argument_list|)
 expr_stmt|;
 return|return
@@ -3293,14 +3291,17 @@ specifier|static
 name|int
 name|write_error
 parameter_list|(
-name|void
+specifier|const
+name|char
+modifier|*
+name|filename
 parameter_list|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
+literal|"failed to write new configuration file %s"
 argument_list|,
-literal|"Failed to write new configuration file\n"
+name|filename
 argument_list|)
 expr_stmt|;
 comment|/* Same error code as "failed to rename". */
@@ -4024,11 +4025,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"key does not contain a section: %s\n"
+literal|"key does not contain a section: %s"
 argument_list|,
 name|key
 argument_list|)
@@ -4146,11 +4145,9 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"invalid key: %s\n"
+literal|"invalid key: %s"
 argument_list|,
 name|key
 argument_list|)
@@ -4186,11 +4183,9 @@ operator|==
 literal|'\n'
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"invalid key (newline): %s\n"
+literal|"invalid key (newline): %s"
 argument_list|,
 name|key
 argument_list|)
@@ -4261,11 +4256,11 @@ operator|<
 literal|0
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
+literal|"could not lock config file %s"
 argument_list|,
-literal|"could not lock config file\n"
+name|config_filename
 argument_list|)
 expr_stmt|;
 name|free
@@ -4481,11 +4476,9 @@ name|REG_EXTENDED
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Invalid pattern: %s\n"
+literal|"invalid pattern: %s"
 argument_list|,
 name|value_regex
 argument_list|)
@@ -4538,11 +4531,11 @@ name|config_filename
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
+literal|"invalid config file %s"
 argument_list|,
-literal|"invalid config file\n"
+name|config_filename
 argument_list|)
 expr_stmt|;
 name|free
@@ -4962,11 +4955,11 @@ operator|<
 literal|0
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
+literal|"could not commit config file %s"
 argument_list|,
-literal|"Cannot commit config file!\n"
+name|config_filename
 argument_list|)
 expr_stmt|;
 name|ret
@@ -5010,7 +5003,11 @@ label|:
 name|ret
 operator|=
 name|write_error
-argument_list|()
+argument_list|(
+name|lock
+operator|->
+name|filename
+argument_list|)
 expr_stmt|;
 goto|goto
 name|out_free
@@ -5325,7 +5322,9 @@ name|ret
 operator|=
 name|error
 argument_list|(
-literal|"Could not lock config file!"
+literal|"could not lock config file %s"
+argument_list|,
+name|config_filename
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -5463,7 +5462,11 @@ block|{
 name|ret
 operator|=
 name|write_error
-argument_list|()
+argument_list|(
+name|lock
+operator|->
+name|filename
+argument_list|)
 expr_stmt|;
 goto|goto
 name|out
@@ -5505,7 +5508,11 @@ block|{
 name|ret
 operator|=
 name|write_error
-argument_list|()
+argument_list|(
+name|lock
+operator|->
+name|filename
+argument_list|)
 expr_stmt|;
 goto|goto
 name|out
@@ -5532,7 +5539,9 @@ name|ret
 operator|=
 name|error
 argument_list|(
-literal|"Cannot commit config file!"
+literal|"could not commit config file %s"
+argument_list|,
+name|config_filename
 argument_list|)
 expr_stmt|;
 name|out
