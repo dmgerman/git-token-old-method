@@ -2906,6 +2906,8 @@ expr_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|opts

@@ -3312,6 +3312,10 @@ specifier|const
 name|char
 modifier|*
 name|value
+parameter_list|,
+name|void
+modifier|*
+name|cb
 parameter_list|)
 block|{
 if|if
@@ -3370,6 +3374,8 @@ argument_list|(
 name|var
 argument_list|,
 name|value
+argument_list|,
+name|cb
 argument_list|)
 return|;
 block|}
@@ -3403,6 +3409,8 @@ return|return;
 name|git_config
 argument_list|(
 name|fetch_pack_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

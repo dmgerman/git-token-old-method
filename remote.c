@@ -1752,6 +1752,10 @@ specifier|const
 name|char
 modifier|*
 name|value
+parameter_list|,
+name|void
+modifier|*
+name|cb
 parameter_list|)
 block|{
 specifier|const
@@ -2569,6 +2573,8 @@ block|}
 name|git_config
 argument_list|(
 name|handle_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|alias_all_urls
