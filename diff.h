@@ -364,6 +364,13 @@ name|DIFF_OPT_RELATIVE_NAME
 value|(1<< 17)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_IGNORE_SUBMODULES
+define|#
+directive|define
+name|DIFF_OPT_IGNORE_SUBMODULES
+value|(1<< 18)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
