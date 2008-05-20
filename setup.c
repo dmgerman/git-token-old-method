@@ -1931,11 +1931,6 @@ return|return
 name|NULL
 return|;
 block|}
-name|chdir
-argument_list|(
-literal|".."
-argument_list|)
-expr_stmt|;
 while|while
 condition|(
 operator|--
@@ -1990,6 +1985,11 @@ literal|"Not a git repository"
 argument_list|)
 expr_stmt|;
 block|}
+name|chdir
+argument_list|(
+literal|".."
+argument_list|)
+expr_stmt|;
 block|}
 name|inside_git_dir
 operator|=
