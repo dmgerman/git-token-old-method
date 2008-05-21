@@ -1000,6 +1000,9 @@ operator|&
 name|st
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
 name|add_to_cache
 argument_list|(
 name|p
@@ -1011,7 +1014,13 @@ name|st
 argument_list|,
 literal|0
 argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"updating files failed"
+argument_list|)
 expr_stmt|;
+block|}
 else|else
 name|remove_file_from_cache
 argument_list|(
@@ -1277,8 +1286,6 @@ argument_list|)
 decl_stmt|;
 name|add_files_to_cache
 argument_list|(
-literal|0
-argument_list|,
 name|also
 condition|?
 name|prefix
@@ -1286,6 +1293,8 @@ else|:
 name|NULL
 argument_list|,
 name|pathspec
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|refresh_cache
