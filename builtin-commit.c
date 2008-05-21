@@ -1277,8 +1277,6 @@ argument_list|)
 decl_stmt|;
 name|add_files_to_cache
 argument_list|(
-literal|0
-argument_list|,
 name|also
 condition|?
 name|prefix
@@ -1286,6 +1284,8 @@ else|:
 name|NULL
 argument_list|,
 name|pathspec
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|refresh_cache
