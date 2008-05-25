@@ -103,6 +103,7 @@ parameter_list|,
 name|int
 name|refs_nr
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -349,6 +350,7 @@ name|transport
 modifier|*
 name|transport
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
