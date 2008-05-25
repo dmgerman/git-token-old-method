@@ -2654,6 +2654,8 @@ decl_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 comment|/* We can't free this memory, it becomes part of a linked list parsed atexit() */

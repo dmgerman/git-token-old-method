@@ -36,6 +36,10 @@ specifier|const
 name|char
 modifier|*
 name|v
+parameter_list|,
+name|void
+modifier|*
+name|cb
 parameter_list|)
 block|{
 if|if
@@ -109,6 +113,8 @@ expr_stmt|;
 name|git_config
 argument_list|(
 name|alias_lookup_cb
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 return|return
