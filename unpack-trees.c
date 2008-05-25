@@ -45,6 +45,47 @@ include|#
 directive|include
 file|"refs.h"
 end_include
+begin_comment
+comment|/*  * Error messages expected by scripts out of plumbing commands such as  * read-tree.  Non-scripted Porcelain is not required to use these messages  * and in fact are encouraged to reword them to better suit their particular  * situation better.  See how "git checkout" replaces not_uptodate_file to  * explain why it does not allow switching between branches when you have  * local changes, for example.  */
+end_comment
+begin_decl_stmt
+DECL|variable|unpack_plumbing_errors
+specifier|static
+name|struct
+name|unpack_trees_error_msgs
+name|unpack_plumbing_errors
+init|=
+block|{
+comment|/* would_overwrite */
+literal|"Entry '%s' would be overwritten by merge. Cannot merge."
+block|,
+comment|/* not_uptodate_file */
+literal|"Entry '%s' not uptodate. Cannot merge."
+block|,
+comment|/* not_uptodate_dir */
+literal|"Updating '%s' would lose untracked files in it"
+block|,
+comment|/* would_lose_untracked */
+literal|"Untracked working tree file '%s' would be %s by merge."
+block|,
+comment|/* bind_overlap */
+literal|"Entry '%s' overlaps with '%s'.  Cannot bind."
+block|, }
+decl_stmt|;
+end_decl_stmt
+begin_define
+DECL|macro|ERRORMSG
+define|#
+directive|define
+name|ERRORMSG
+parameter_list|(
+name|o
+parameter_list|,
+name|fld
+parameter_list|)
+define|\
+value|( ((o)&& (o)->msgs.fld) \ 	? ((o)->msgs.fld) \ 	: (unpack_plumbing_errors.fld) )
+end_define
 begin_function
 DECL|function|add_entry
 specifier|static
@@ -2080,12 +2121,22 @@ name|struct
 name|cache_entry
 modifier|*
 name|ce
+parameter_list|,
+name|struct
+name|unpack_trees_options
+modifier|*
+name|o
 parameter_list|)
 block|{
 return|return
 name|error
 argument_list|(
-literal|"Entry '%s' would be overwritten by merge. Cannot merge."
+name|ERRORMSG
+argument_list|(
+name|o
+argument_list|,
+name|would_overwrite
+argument_list|)
 argument_list|,
 name|ce
 operator|->
@@ -2271,7 +2322,12 @@ literal|1
 else|:
 name|error
 argument_list|(
-literal|"Entry '%s' not uptodate. Cannot merge."
+name|ERRORMSG
+argument_list|(
+name|o
+argument_list|,
+name|not_uptodate_file
+argument_list|)
 argument_list|,
 name|ce
 operator|->
@@ -2690,7 +2746,12 @@ literal|1
 else|:
 name|error
 argument_list|(
-literal|"Updating '%s' would lose untracked files in it"
+name|ERRORMSG
+argument_list|(
+name|o
+argument_list|,
+name|not_uptodate_dir
+argument_list|)
 argument_list|,
 name|ce
 operator|->
@@ -2994,8 +3055,12 @@ literal|1
 else|:
 name|error
 argument_list|(
-literal|"Untracked working tree file '%s' "
-literal|"would be %s by merge."
+name|ERRORMSG
+argument_list|(
+name|o
+argument_list|,
+name|would_lose_untracked
+argument_list|)
 argument_list|,
 name|ce
 operator|->
@@ -3608,6 +3673,8 @@ else|:
 name|reject_merge
 argument_list|(
 name|index
+argument_list|,
+name|o
 argument_list|)
 return|;
 return|return
@@ -3645,6 +3712,8 @@ else|:
 name|reject_merge
 argument_list|(
 name|index
+argument_list|,
+name|o
 argument_list|)
 return|;
 if|if
@@ -4322,6 +4391,8 @@ else|:
 name|reject_merge
 argument_list|(
 name|oldtree
+argument_list|,
+name|o
 argument_list|)
 return|;
 if|if
@@ -4339,6 +4410,8 @@ else|:
 name|reject_merge
 argument_list|(
 name|current
+argument_list|,
+name|o
 argument_list|)
 return|;
 if|if
@@ -4356,6 +4429,8 @@ else|:
 name|reject_merge
 argument_list|(
 name|newtree
+argument_list|,
+name|o
 argument_list|)
 return|;
 return|return
@@ -4465,7 +4540,12 @@ literal|1
 else|:
 name|error
 argument_list|(
-literal|"Entry '%s' overlaps with '%s'.  Cannot bind."
+name|ERRORMSG
+argument_list|(
+name|o
+argument_list|,
+name|bind_overlap
+argument_list|)
 argument_list|,
 name|a
 operator|->
