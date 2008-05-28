@@ -483,6 +483,11 @@ modifier|*
 name|head
 decl_stmt|;
 name|int
+name|errs
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|newfd
 decl_stmt|;
 name|struct
@@ -600,6 +605,7 @@ condition|)
 return|return
 literal|1
 return|;
+comment|/* Now we are committed to check them out */
 name|memset
 argument_list|(
 operator|&
@@ -665,6 +671,8 @@ literal|0
 argument_list|)
 condition|)
 block|{
+name|errs
+operator||=
 name|checkout_entry
 argument_list|(
 name|ce
@@ -719,7 +727,8 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-return|return
+name|errs
+operator||=
 name|post_checkout_hook
 argument_list|(
 name|head
@@ -728,6 +737,9 @@ name|head
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+return|return
+name|errs
 return|;
 block|}
 end_function
