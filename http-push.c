@@ -12813,6 +12813,13 @@ argument_list|,
 name|remove_locks_on_signal
 argument_list|)
 expr_stmt|;
+name|signal
+argument_list|(
+name|SIGTERM
+argument_list|,
+name|remove_locks_on_signal
+argument_list|)
+expr_stmt|;
 comment|/* Check whether the remote has server info files */
 name|remote
 operator|->
