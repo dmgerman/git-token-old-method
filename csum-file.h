@@ -71,6 +71,23 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|/* sha1close flags */
+end_comment
+begin_define
+DECL|macro|CSUM_CLOSE
+define|#
+directive|define
+name|CSUM_CLOSE
+value|1
+end_define
+begin_define
+DECL|macro|CSUM_FSYNC
+define|#
+directive|define
+name|CSUM_FSYNC
+value|2
+end_define
 begin_function_decl
 specifier|extern
 name|struct
@@ -123,6 +140,7 @@ name|unsigned
 name|char
 modifier|*
 parameter_list|,
+name|unsigned
 name|int
 parameter_list|)
 function_decl|;
