@@ -229,6 +229,9 @@ name|sha1
 parameter_list|,
 name|int
 name|is_hard_reset
+parameter_list|,
+name|int
+name|quiet
 parameter_list|)
 block|{
 name|int
@@ -252,6 +255,11 @@ index|]
 operator|=
 literal|"read-tree"
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|quiet
+condition|)
 name|args
 index|[
 name|i
@@ -1069,7 +1077,7 @@ argument_list|,
 operator|&
 name|quiet
 argument_list|,
-literal|"disable showing new HEAD in hard reset"
+literal|"disable showing new HEAD in hard reset and progress message"
 argument_list|)
 block|,
 name|OPT_END
@@ -1317,6 +1325,8 @@ name|reset_type
 operator|==
 name|HARD
 operator|)
+argument_list|,
+name|quiet
 argument_list|)
 condition|)
 name|die
