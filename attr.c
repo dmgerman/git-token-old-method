@@ -2276,6 +2276,13 @@ name|attr_stack
 operator|=
 name|elem
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|is_bare_repository
+argument_list|()
+condition|)
+block|{
 name|elem
 operator|=
 name|read_attr
@@ -2309,6 +2316,7 @@ argument_list|(
 name|elem
 argument_list|)
 expr_stmt|;
+block|}
 name|elem
 operator|=
 name|read_attr_from_file
@@ -2471,6 +2479,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* 	 * Read from parent directories and push them down 	 */
+if|if
+condition|(
+operator|!
+name|is_bare_repository
+argument_list|()
+condition|)
+block|{
 while|while
 condition|(
 literal|1
@@ -2576,6 +2591,7 @@ argument_list|(
 name|elem
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/* 	 * Finally push the "info" one at the top of the stack. 	 */
 name|info
