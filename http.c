@@ -2804,9 +2804,9 @@ name|len
 operator|=
 name|baselen
 operator|+
-literal|7
+literal|2
 expr_stmt|;
-comment|/* "/refs/" + NUL */
+comment|/* '/' after base and terminating NUL */
 for|for
 control|(
 name|cp
