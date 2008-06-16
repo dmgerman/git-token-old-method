@@ -4946,9 +4946,6 @@ name|struct
 name|refspec
 modifier|*
 name|rs
-parameter_list|,
-name|int
-name|errs
 parameter_list|)
 block|{
 name|struct
@@ -4983,7 +4980,7 @@ operator|->
 name|matching
 condition|)
 return|return
-name|errs
+literal|0
 return|;
 name|matched_src
 operator|=
@@ -5028,6 +5025,7 @@ condition|(
 operator|!
 name|matched_src
 condition|)
+return|return
 name|error
 argument_list|(
 literal|"src refspec %s does not match any."
@@ -5036,13 +5034,10 @@ name|rs
 operator|->
 name|src
 argument_list|)
-expr_stmt|;
+return|;
 break|break;
 default|default:
-name|matched_src
-operator|=
-name|NULL
-expr_stmt|;
+return|return
 name|error
 argument_list|(
 literal|"src refspec %s matches more than one."
@@ -5051,18 +5046,8 @@ name|rs
 operator|->
 name|src
 argument_list|)
-expr_stmt|;
-break|break;
+return|;
 block|}
-if|if
-condition|(
-operator|!
-name|matched_src
-condition|)
-name|errs
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5079,14 +5064,6 @@ decl_stmt|;
 name|int
 name|flag
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|matched_src
-condition|)
-return|return
-name|errs
-return|;
 name|dst_value
 operator|=
 name|resolve_ref
@@ -5226,12 +5203,11 @@ break|break;
 block|}
 if|if
 condition|(
-name|errs
-operator|||
 operator|!
 name|matched_dst
 condition|)
 return|return
+operator|-
 literal|1
 return|;
 if|if
@@ -5240,11 +5216,7 @@ name|matched_dst
 operator|->
 name|peer_ref
 condition|)
-block|{
-name|errs
-operator|=
-literal|1
-expr_stmt|;
+return|return
 name|error
 argument_list|(
 literal|"dst ref %s receives from more than one src."
@@ -5253,8 +5225,7 @@ name|matched_dst
 operator|->
 name|name
 argument_list|)
-expr_stmt|;
-block|}
+return|;
 else|else
 block|{
 name|matched_dst
@@ -5273,7 +5244,7 @@ name|force
 expr_stmt|;
 block|}
 return|return
-name|errs
+literal|0
 return|;
 block|}
 end_function
@@ -5330,7 +5301,7 @@ name|i
 operator|++
 control|)
 name|errs
-operator||=
+operator|+=
 name|match_explicit
 argument_list|(
 name|src
@@ -5344,12 +5315,9 @@ name|rs
 index|[
 name|i
 index|]
-argument_list|,
-name|errs
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
 name|errs
 return|;
 block|}
