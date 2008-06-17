@@ -11533,7 +11533,7 @@ name|buffer
 argument_list|,
 literal|0777
 argument_list|)
-operator|&&
+operator|||
 name|adjust_shared_perm
 argument_list|(
 name|buffer
