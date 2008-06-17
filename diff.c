@@ -3047,8 +3047,10 @@ name|int
 name|len
 parameter_list|)
 block|{
-if|if
-condition|(
+name|int
+name|has_trailing_newline
+init|=
+operator|(
 name|len
 operator|>
 literal|0
@@ -3061,6 +3063,11 @@ literal|1
 index|]
 operator|==
 literal|'\n'
+operator|)
+decl_stmt|;
+if|if
+condition|(
+name|has_trailing_newline
 condition|)
 name|len
 operator|--
@@ -3090,6 +3097,10 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|has_trailing_newline
+condition|)
 name|fputc
 argument_list|(
 literal|'\n'
