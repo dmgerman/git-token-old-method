@@ -2681,6 +2681,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_env_bool
+specifier|static
 name|int
 name|git_env_bool
 parameter_list|(
