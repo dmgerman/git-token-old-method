@@ -141,6 +141,7 @@ block|}
 end_function
 begin_function
 DECL|function|init_pack_revindex
+specifier|static
 name|void
 name|init_pack_revindex
 parameter_list|(
@@ -666,6 +667,14 @@ name|revindex_entry
 modifier|*
 name|revindex
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|pack_revindex_hashsz
+condition|)
+name|init_pack_revindex
+argument_list|()
+expr_stmt|;
 name|num
 operator|=
 name|pack_revindex_ix
@@ -681,7 +690,7 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"internal error: pack revindex uninitialized"
+literal|"internal error: pack revindex fubar"
 argument_list|)
 expr_stmt|;
 name|rix
