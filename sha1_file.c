@@ -9389,7 +9389,6 @@ block|}
 end_function
 begin_function
 DECL|function|nth_packed_object_offset
-specifier|static
 name|off_t
 name|nth_packed_object_offset
 parameter_list|(
