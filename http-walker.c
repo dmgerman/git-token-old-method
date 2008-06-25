@@ -4245,8 +4245,6 @@ condition|(
 name|verify_pack
 argument_list|(
 name|target
-argument_list|,
-literal|0
 argument_list|)
 condition|)
 return|return
