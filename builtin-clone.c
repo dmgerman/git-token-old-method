@@ -2407,7 +2407,9 @@ name|transport_get
 argument_list|(
 name|remote
 argument_list|,
-name|argv
+name|remote
+operator|->
+name|url
 index|[
 literal|0
 index|]
