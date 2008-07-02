@@ -15455,16 +15455,11 @@ block|}
 if|if
 condition|(
 operator|!
-name|strncmp
+name|prefixcmp
 argument_list|(
 name|arg
 argument_list|,
 literal|"--root="
-argument_list|,
-name|strlen
-argument_list|(
-literal|"--root="
-argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -15489,7 +15484,7 @@ operator|&&
 name|arg
 index|[
 name|root_len
-operator|+
+operator|-
 literal|1
 index|]
 operator|!=
