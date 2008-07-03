@@ -4224,6 +4224,11 @@ name|slash
 operator|<
 name|colon
 operator|)
+operator|||
+name|has_dos_drive_prefix
+argument_list|(
+name|url
+argument_list|)
 return|;
 block|}
 end_function

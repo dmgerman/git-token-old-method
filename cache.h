@@ -3145,6 +3145,11 @@ literal|0
 index|]
 operator|==
 literal|'/'
+operator|||
+name|has_dos_drive_prefix
+argument_list|(
+name|path
+argument_list|)
 return|;
 block|}
 end_function
