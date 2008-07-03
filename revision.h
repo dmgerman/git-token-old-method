@@ -92,6 +92,13 @@ begin_comment
 DECL|macro|TOPOSORT
 comment|/* In the active toposort list.. */
 end_comment
+begin_define
+DECL|macro|ALL_REV_FLAGS
+define|#
+directive|define
+name|ALL_REV_FLAGS
+value|((1u<<10)-1)
+end_define
 begin_struct_decl
 struct_decl|struct
 name|rev_info
