@@ -1201,9 +1201,15 @@ argument_list|,
 name|n
 operator|->
 name|tag
+condition|?
+name|n
+operator|->
+name|tag
 operator|->
 name|tagged
 operator|->
+name|sha1
+else|:
 name|sha1
 argument_list|)
 expr_stmt|;
