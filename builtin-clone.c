@@ -2229,6 +2229,12 @@ else|:
 literal|0
 argument_list|)
 expr_stmt|;
+comment|/* 	 * At this point, the config exists, so we do not need the 	 * environment variable.  We actually need to unset it, too, to 	 * re-enable parsing of the global configs. 	 */
+name|unsetenv
+argument_list|(
+name|CONFIG_ENVIRONMENT
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|option_reference
@@ -2407,7 +2413,9 @@ name|transport_get
 argument_list|(
 name|remote
 argument_list|,
-name|argv
+name|remote
+operator|->
+name|url
 index|[
 literal|0
 index|]
