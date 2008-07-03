@@ -2490,7 +2490,8 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"unknown pack file version %d"
+literal|"unknown pack file version %"
+name|PRIu32
 argument_list|,
 name|ntohl
 argument_list|(
