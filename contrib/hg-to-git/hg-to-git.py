@@ -851,7 +851,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-init-db'"
+string|"'git init-db'"
 op|')'
 newline|'\n'
 nl|'\n'
@@ -1144,7 +1144,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-checkout -b %s %s'"
+string|"'git checkout -b %s %s'"
 op|'%'
 op|'('
 name|'hgbranch'
@@ -1182,7 +1182,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-checkout %s'"
+string|"'git checkout %s'"
 op|'%'
 name|'hgbranch'
 op|'['
@@ -1267,7 +1267,7 @@ op|','
 name|'date'
 op|')'
 op|'+'
-string|'\'git-merge --no-commit -s ours "" %s %s\''
+string|'\'git merge --no-commit -s ours "" %s %s\''
 op|'%'
 op|'('
 name|'hgbranch'
@@ -1312,7 +1312,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-ls-files -x .hg --others | git-update-index --add --stdin'"
+string|"'git ls-files -x .hg --others | git update-index --add --stdin'"
 op|')'
 newline|'\n'
 comment|'# delete removed files'
@@ -1321,7 +1321,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-ls-files -x .hg --deleted | git-update-index --remove --stdin'"
+string|"'git ls-files -x .hg --deleted | git update-index --remove --stdin'"
 op|')'
 newline|'\n'
 nl|'\n'
@@ -1373,7 +1373,7 @@ op|','
 name|'date'
 op|')'
 op|'+'
-string|"'git-tag %s'"
+string|"'git tag %s'"
 op|'%'
 name|'tag'
 op|')'
@@ -1407,7 +1407,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-branch -d %s'"
+string|"'git branch -d %s'"
 op|'%'
 name|'otherbranch'
 op|')'
@@ -1423,7 +1423,7 @@ name|'os'
 op|'.'
 name|'popen'
 op|'('
-string|"'git-show --quiet --pretty=format:%H'"
+string|"'git show --quiet --pretty=format:%H'"
 op|')'
 op|'.'
 name|'read'
@@ -1467,7 +1467,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git-repack -a -d'"
+string|"'git repack -a -d'"
 op|')'
 newline|'\n'
 nl|'\n'
