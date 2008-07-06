@@ -2460,7 +2460,7 @@ condition|)
 return|return
 name|config_error_nonbool
 argument_list|(
-name|v
+name|k
 argument_list|)
 return|;
 elseif|else
