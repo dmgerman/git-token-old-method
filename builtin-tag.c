@@ -1365,7 +1365,7 @@ condition|)
 return|return
 name|config_error_nonbool
 argument_list|(
-name|value
+name|var
 argument_list|)
 return|;
 name|set_signingkey
