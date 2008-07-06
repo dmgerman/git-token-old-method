@@ -851,7 +851,7 @@ name|'os'
 op|'.'
 name|'system'
 op|'('
-string|"'git init-db'"
+string|"'git init'"
 op|')'
 newline|'\n'
 nl|'\n'
