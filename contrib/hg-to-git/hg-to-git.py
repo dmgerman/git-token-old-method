@@ -355,6 +355,7 @@ op|':'
 newline|'\n'
 indent|'        '
 name|'raise'
+name|'Exception'
 op|'('
 string|"'params'"
 op|')'
