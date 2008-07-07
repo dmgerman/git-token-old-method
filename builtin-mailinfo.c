@@ -3905,6 +3905,13 @@ name|handle_boundary
 argument_list|()
 condition|)
 return|return;
+name|len
+operator|=
+name|strlen
+argument_list|(
+name|line
+argument_list|)
+expr_stmt|;
 block|}
 comment|/* Unwrap transfer encoding */
 name|len
