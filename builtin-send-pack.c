@@ -1174,8 +1174,6 @@ operator|->
 name|deletion
 condition|)
 block|{
-if|if
-condition|(
 name|delete_ref
 argument_list|(
 name|rs
@@ -1183,11 +1181,6 @@ operator|.
 name|dst
 argument_list|,
 name|NULL
-argument_list|)
-condition|)
-name|error
-argument_list|(
-literal|"Failed to delete"
 argument_list|)
 expr_stmt|;
 block|}
