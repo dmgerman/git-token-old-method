@@ -71,7 +71,7 @@ name|builtin_clone_usage
 index|[]
 init|=
 block|{
-literal|"git-clone [options] [--]<repo> [<dir>]"
+literal|"git clone [options] [--]<repo> [<dir>]"
 block|,
 name|NULL
 block|}
