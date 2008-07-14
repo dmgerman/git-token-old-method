@@ -142,6 +142,9 @@ name|unsigned
 name|int
 parameter_list|,
 name|int
+parameter_list|,
+name|void
+modifier|*
 parameter_list|)
 function_decl|;
 end_typedef
@@ -174,6 +177,10 @@ name|match
 parameter_list|,
 name|read_tree_fn_t
 name|fn
+parameter_list|,
+name|void
+modifier|*
+name|context
 parameter_list|)
 function_decl|;
 end_function_decl

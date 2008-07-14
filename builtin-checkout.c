@@ -278,6 +278,10 @@ name|mode
 parameter_list|,
 name|int
 name|stage
+parameter_list|,
+name|void
+modifier|*
+name|context
 parameter_list|)
 block|{
 name|int
@@ -429,6 +433,8 @@ argument_list|,
 name|pathspec
 argument_list|,
 name|update_some
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 comment|/* update the index with the given tree's info 	 * for all args, expanding wildcards, and exit 	 * with any non-zero return code. 	 */
