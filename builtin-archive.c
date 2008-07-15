@@ -1088,6 +1088,15 @@ name|base
 operator|=
 name|base
 expr_stmt|;
+name|args
+operator|->
+name|baselen
+operator|=
+name|strlen
+argument_list|(
+name|base
+argument_list|)
+expr_stmt|;
 return|return
 name|i
 return|;
