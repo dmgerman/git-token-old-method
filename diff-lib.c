@@ -751,8 +751,6 @@ argument_list|,
 name|ce
 operator|->
 name|name
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -840,8 +838,6 @@ argument_list|,
 name|ce
 operator|->
 name|name
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 block|}
@@ -944,8 +940,6 @@ argument_list|,
 name|ce
 operator|->
 name|name
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 block|}
@@ -1590,8 +1584,6 @@ argument_list|,
 name|old
 operator|->
 name|name
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 return|return
