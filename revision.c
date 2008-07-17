@@ -1240,12 +1240,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|base
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|path
+name|fullpath
 parameter_list|)
 block|{
 name|int
@@ -1328,12 +1323,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|base
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|path
+name|fullpath
 parameter_list|)
 block|{
 name|tree_difference
