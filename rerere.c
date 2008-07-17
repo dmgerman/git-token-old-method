@@ -1688,16 +1688,6 @@ name|path
 argument_list|)
 condition|)
 block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"Resolved '%s' using "
-literal|"previous resolution.\n"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|rerere_autoupdate
@@ -1708,6 +1698,21 @@ name|path
 argument_list|,
 operator|&
 name|update
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"%s '%s' using previous resolution.\n"
+argument_list|,
+name|rerere_autoupdate
+condition|?
+literal|"Staged"
+else|:
+literal|"Resolved"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 goto|goto
