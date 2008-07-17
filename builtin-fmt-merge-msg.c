@@ -37,7 +37,7 @@ name|char
 modifier|*
 name|fmt_merge_msg_usage
 init|=
-literal|"git-fmt-merge-msg [--log] [--no-log] [--file<file>]"
+literal|"git fmt-merge-msg [--log] [--no-log] [--file<file>]"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

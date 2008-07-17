@@ -1681,7 +1681,7 @@ name|char
 name|init_db_usage
 index|[]
 init|=
-literal|"git-init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]]"
+literal|"git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]]"
 decl_stmt|;
 end_decl_stmt
 begin_comment

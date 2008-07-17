@@ -105,7 +105,7 @@ name|char
 name|merge_base_usage
 index|[]
 init|=
-literal|"git-merge-base [--all]<commit-id><commit-id>"
+literal|"git merge-base [--all]<commit-id><commit-id>"
 decl_stmt|;
 end_decl_stmt
 begin_function

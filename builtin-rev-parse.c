@@ -1256,7 +1256,7 @@ name|parseopt_usage
 index|[]
 init|=
 block|{
-literal|"git-rev-parse --parseopt [options] -- [<args>...]"
+literal|"git rev-parse --parseopt [options] -- [<args>...]"
 block|,
 name|NULL
 block|}

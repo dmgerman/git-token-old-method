@@ -60,7 +60,7 @@ name|shortlog_usage
 index|[]
 init|=
 block|{
-literal|"git-shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [<commit-id>... ]"
+literal|"git shortlog [-n] [-s] [-e] [-w] [rev-opts] [--] [<commit-id>... ]"
 block|,
 literal|""
 block|,

@@ -84,7 +84,7 @@ name|char
 name|blame_usage
 index|[]
 init|=
-literal|"git-blame [options] [rev-opts] [rev] [--] file"
+literal|"git blame [options] [rev-opts] [rev] [--] file"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

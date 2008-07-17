@@ -85,7 +85,7 @@ name|char
 name|daemon_usage
 index|[]
 init|=
-literal|"git-daemon [--verbose] [--syslog] [--export-all]\n"
+literal|"git daemon [--verbose] [--syslog] [--export-all]\n"
 literal|"           [--timeout=n] [--init-timeout=n] [--strict-paths]\n"
 literal|"           [--base-path=path] [--base-path-relaxed]\n"
 literal|"           [--user-path | --user-path=path]\n"

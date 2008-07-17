@@ -35,7 +35,7 @@ name|char
 name|upload_archive_usage
 index|[]
 init|=
-literal|"git-upload-archive<repo>"
+literal|"git upload-archive<repo>"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -46,7 +46,7 @@ name|char
 name|deadchild
 index|[]
 init|=
-literal|"git-upload-archive: archiver died with error"
+literal|"git upload-archive: archiver died with error"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -57,7 +57,7 @@ name|char
 name|lostchild
 index|[]
 init|=
-literal|"git-upload-archive: archiver process was lost"
+literal|"git upload-archive: archiver process was lost"
 decl_stmt|;
 end_decl_stmt
 begin_function
