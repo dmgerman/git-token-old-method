@@ -580,6 +580,9 @@ name|unsigned
 name|long
 name|size
 parameter_list|,
+name|int
+name|compression_level
+parameter_list|,
 name|unsigned
 name|long
 modifier|*
@@ -618,7 +621,7 @@ argument_list|(
 operator|&
 name|stream
 argument_list|,
-name|zlib_compression_level
+name|compression_level
 argument_list|)
 expr_stmt|;
 name|maxsize
@@ -925,7 +928,9 @@ argument_list|(
 name|mode
 argument_list|)
 operator|&&
-name|zlib_compression_level
+name|args
+operator|->
+name|compression_level
 operator|!=
 literal|0
 condition|)
@@ -987,6 +992,10 @@ argument_list|(
 name|buffer
 argument_list|,
 name|size
+argument_list|,
+name|args
+operator|->
+name|compression_level
 argument_list|,
 operator|&
 name|compressed_size

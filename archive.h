@@ -77,6 +77,10 @@ name|verbose
 range|:
 literal|1
 decl_stmt|;
+DECL|member|compression_level
+name|int
+name|compression_level
+decl_stmt|;
 block|}
 struct|;
 end_struct
