@@ -352,7 +352,11 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-else|else
+elseif|else
+if|if
+condition|(
+name|arg
+condition|)
 block|{
 name|strbuf_addf
 argument_list|(
@@ -368,6 +372,13 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+else|else
+return|return
+name|error
+argument_list|(
+literal|"switch `m' requires a value"
+argument_list|)
+return|;
 return|return
 literal|0
 return|;
