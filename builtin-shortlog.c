@@ -22,7 +22,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"path-list.h"
+file|"string-list.h"
 end_include
 begin_include
 include|#
@@ -89,7 +89,7 @@ parameter_list|)
 block|{
 specifier|const
 name|struct
-name|path_list_item
+name|string_list_item
 modifier|*
 name|i1
 init|=
@@ -102,7 +102,7 @@ name|a2
 decl_stmt|;
 specifier|const
 name|struct
-name|path_list
+name|string_list
 modifier|*
 name|l1
 init|=
@@ -190,12 +190,12 @@ modifier|*
 name|p
 decl_stmt|;
 name|struct
-name|path_list_item
+name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 modifier|*
 name|onelines
 decl_stmt|;
@@ -411,7 +411,7 @@ argument_list|)
 expr_stmt|;
 name|item
 operator|=
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|buffer
 argument_list|,
@@ -440,7 +440,7 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|path_list
+name|string_list
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -699,7 +699,7 @@ operator|*
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|path_list_item
+name|string_list_item
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -727,7 +727,7 @@ name|nr
 operator|++
 index|]
 operator|.
-name|path
+name|string
 operator|=
 name|buffer
 expr_stmt|;
@@ -1469,7 +1469,7 @@ name|log
 operator|->
 name|list
 operator|.
-name|strdup_paths
+name|strdup_strings
 operator|=
 literal|1
 expr_stmt|;
@@ -1845,7 +1845,7 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|path_list_item
+name|string_list_item
 argument_list|)
 argument_list|,
 name|compare_by_number
@@ -1870,7 +1870,7 @@ operator|++
 control|)
 block|{
 name|struct
-name|path_list
+name|string_list
 modifier|*
 name|onelines
 init|=
@@ -1909,7 +1909,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 argument_list|)
 expr_stmt|;
 block|}
@@ -1928,7 +1928,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 argument_list|,
 name|onelines
 operator|->
@@ -1965,7 +1965,7 @@ index|[
 name|j
 index|]
 operator|.
-name|path
+name|string
 decl_stmt|;
 if|if
 condition|(
@@ -2025,11 +2025,11 @@ expr_stmt|;
 block|}
 name|onelines
 operator|->
-name|strdup_paths
+name|strdup_strings
 operator|=
 literal|1
 expr_stmt|;
-name|path_list_clear
+name|string_list_clear
 argument_list|(
 name|onelines
 argument_list|,
@@ -2059,11 +2059,11 @@ name|log
 operator|->
 name|list
 operator|.
-name|strdup_paths
+name|strdup_strings
 operator|=
 literal|1
 expr_stmt|;
-name|path_list_clear
+name|string_list_clear
 argument_list|(
 operator|&
 name|log
@@ -2077,11 +2077,11 @@ name|log
 operator|->
 name|mailmap
 operator|.
-name|strdup_paths
+name|strdup_strings
 operator|=
 literal|1
 expr_stmt|;
-name|path_list_clear
+name|string_list_clear
 argument_list|(
 operator|&
 name|log

@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"path-list.h"
+file|"string-list.h"
 end_include
 begin_include
 include|#
@@ -243,7 +243,7 @@ modifier|*
 name|label
 parameter_list|,
 name|struct
-name|path_list
+name|string_list
 modifier|*
 name|list
 parameter_list|)
@@ -301,7 +301,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 argument_list|)
 expr_stmt|;
 name|putchar
@@ -513,7 +513,7 @@ name|stat
 name|st
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|overwritten
 init|=
 block|{
@@ -527,7 +527,7 @@ literal|0
 block|}
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|src_for_dst
 init|=
 block|{
@@ -541,7 +541,7 @@ literal|0
 block|}
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|added
 init|=
 block|{
@@ -555,7 +555,7 @@ literal|0
 block|}
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|deleted
 init|=
 block|{
@@ -569,7 +569,7 @@ literal|0
 block|}
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|changed
 init|=
 block|{
@@ -1272,7 +1272,7 @@ name|bad
 operator|=
 name|NULL
 expr_stmt|;
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|dst
 argument_list|,
@@ -1307,7 +1307,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|path_list_has_path
+name|string_list_has_string
 argument_list|(
 operator|&
 name|src_for_dst
@@ -1320,7 +1320,7 @@ operator|=
 literal|"multiple sources for the same target"
 expr_stmt|;
 else|else
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|dst
 argument_list|,
@@ -1523,7 +1523,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|src
 argument_list|,
@@ -1534,7 +1534,7 @@ expr_stmt|;
 comment|/* destination can be a directory with 1 file inside */
 if|if
 condition|(
-name|path_list_has_path
+name|string_list_has_string
 argument_list|(
 operator|&
 name|overwritten
@@ -1542,7 +1542,7 @@ argument_list|,
 name|dst
 argument_list|)
 condition|)
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|dst
 argument_list|,
@@ -1551,7 +1551,7 @@ name|changed
 argument_list|)
 expr_stmt|;
 else|else
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|dst
 argument_list|,
@@ -1561,7 +1561,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|dst
 argument_list|,
@@ -1630,7 +1630,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 decl_stmt|;
 name|int
 name|j
@@ -1704,7 +1704,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 decl_stmt|;
 if|if
 condition|(
@@ -1749,7 +1749,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 argument_list|)
 expr_stmt|;
 if|if

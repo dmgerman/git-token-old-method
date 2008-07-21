@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"path-list.h"
+file|"string-list.h"
 end_include
 begin_comment
 comment|/*  *  --check turns on checking that the working tree matches the  *    files that are being modified, but doesn't apply the patch  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --index updates the cache as well.  *  --cached updates only the cache without ever touching the working tree.  */
@@ -775,7 +775,7 @@ begin_decl_stmt
 DECL|variable|fn_table
 specifier|static
 name|struct
-name|path_list
+name|string_list
 name|fn_table
 decl_stmt|;
 end_decl_stmt
@@ -10727,7 +10727,7 @@ name|name
 parameter_list|)
 block|{
 name|struct
-name|path_list_item
+name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
@@ -10742,7 +10742,7 @@ name|NULL
 return|;
 name|item
 operator|=
-name|path_list_lookup
+name|string_list_lookup
 argument_list|(
 name|name
 argument_list|,
@@ -10784,7 +10784,7 @@ name|patch
 parameter_list|)
 block|{
 name|struct
-name|path_list_item
+name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
@@ -10800,7 +10800,7 @@ condition|)
 block|{
 name|item
 operator|=
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|patch
 operator|->
@@ -10837,7 +10837,7 @@ condition|)
 block|{
 name|item
 operator|=
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|patch
 operator|->
@@ -14993,7 +14993,7 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|path_list
+name|string_list
 argument_list|)
 argument_list|)
 expr_stmt|;

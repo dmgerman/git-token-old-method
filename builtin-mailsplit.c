@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"path-list.h"
+file|"string-list.h"
 end_include
 begin_decl_stmt
 DECL|variable|git_mailsplit_usage
@@ -522,7 +522,7 @@ name|int
 name|populate_maildir_list
 parameter_list|(
 name|struct
-name|path_list
+name|string_list
 modifier|*
 name|list
 parameter_list|,
@@ -678,7 +678,7 @@ operator|->
 name|d_name
 argument_list|)
 expr_stmt|;
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|name
 argument_list|,
@@ -742,7 +742,7 @@ name|int
 name|i
 decl_stmt|;
 name|struct
-name|path_list
+name|string_list
 name|list
 init|=
 block|{
@@ -810,7 +810,7 @@ index|[
 name|i
 index|]
 operator|.
-name|path
+name|string
 argument_list|)
 expr_stmt|;
 name|f
@@ -912,7 +912,7 @@ name|skip
 expr_stmt|;
 name|out
 label|:
-name|path_list_clear
+name|string_list_clear
 argument_list|(
 operator|&
 name|list
