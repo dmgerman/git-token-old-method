@@ -1150,6 +1150,18 @@ parameter_list|)
 value|add_index_entry(&the_index, (ce), (option))
 end_define
 begin_define
+DECL|macro|rename_cache_entry_at
+define|#
+directive|define
+name|rename_cache_entry_at
+parameter_list|(
+name|pos
+parameter_list|,
+name|new_name
+parameter_list|)
+value|rename_index_entry_at(&the_index, (pos), (new_name))
+end_define
+begin_define
 DECL|macro|remove_cache_entry_at
 define|#
 directive|define
@@ -1961,6 +1973,25 @@ name|ce
 parameter_list|,
 name|int
 name|really
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|rename_index_entry_at
+parameter_list|(
+name|struct
+name|index_state
+modifier|*
+parameter_list|,
+name|int
+name|pos
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|new_name
 parameter_list|)
 function_decl|;
 end_function_decl
