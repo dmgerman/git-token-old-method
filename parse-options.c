@@ -184,6 +184,8 @@ condition|(
 name|p
 operator|->
 name|argc
+operator|>
+literal|1
 condition|)
 block|{
 name|p
