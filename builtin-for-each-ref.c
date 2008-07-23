@@ -4594,6 +4594,7 @@ block|}
 end_function
 begin_function
 DECL|function|opt_parse_sort
+specifier|static
 name|int
 name|opt_parse_sort
 parameter_list|(
