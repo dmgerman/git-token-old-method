@@ -440,6 +440,9 @@ name|struct
 name|lock_file
 modifier|*
 name|index_lock
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -491,7 +494,7 @@ name|result
 operator|=
 name|refresh_cache
 argument_list|(
-name|REFRESH_SAY_CHANGED
+name|flags
 argument_list|)
 condition|?
 literal|1
@@ -672,6 +675,9 @@ name|unsigned
 name|char
 modifier|*
 name|tree_sha1
+parameter_list|,
+name|int
+name|refresh_flags
 parameter_list|)
 block|{
 name|struct
@@ -814,6 +820,8 @@ argument_list|(
 name|index_fd
 argument_list|,
 name|lock
+argument_list|,
+name|refresh_flags
 argument_list|)
 return|;
 block|}
@@ -1327,6 +1335,12 @@ operator|+
 name|i
 argument_list|,
 name|sha1
+argument_list|,
+name|quiet
+condition|?
+name|REFRESH_QUIET
+else|:
+name|REFRESH_SAY_CHANGED
 argument_list|)
 return|;
 block|}
@@ -1540,6 +1554,12 @@ argument_list|(
 literal|0
 argument_list|,
 name|NULL
+argument_list|,
+name|quiet
+condition|?
+name|REFRESH_QUIET
+else|:
+name|REFRESH_SAY_CHANGED
 argument_list|)
 expr_stmt|;
 break|break;
