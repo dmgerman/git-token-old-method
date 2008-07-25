@@ -16,7 +16,7 @@ file|"run-command.h"
 end_include
 begin_function
 DECL|function|launch_editor
-name|void
+name|int
 name|launch_editor
 parameter_list|(
 specifier|const
@@ -112,21 +112,12 @@ literal|"dumb"
 argument_list|)
 operator|)
 condition|)
-block|{
-name|fprintf
+return|return
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Terminal is dumb but no VISUAL nor EDITOR defined.\n"
-literal|"Please supply the message using either -m or -F option.\n"
+literal|"Terminal is dumb but no VISUAL nor EDITOR defined."
 argument_list|)
-expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
+return|;
 if|if
 condition|(
 operator|!
@@ -158,6 +149,9 @@ name|int
 name|i
 init|=
 literal|0
+decl_stmt|;
+name|int
+name|failed
 decl_stmt|;
 specifier|const
 name|char
@@ -252,8 +246,8 @@ index|]
 operator|=
 name|NULL
 expr_stmt|;
-if|if
-condition|(
+name|failed
+operator|=
 name|run_command_v_opt_cd_env
 argument_list|(
 name|args
@@ -264,13 +258,6 @@ name|NULL
 argument_list|,
 name|env
 argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"There was a problem with the editor %s."
-argument_list|,
-name|editor
-argument_list|)
 expr_stmt|;
 name|strbuf_release
 argument_list|(
@@ -278,13 +265,27 @@ operator|&
 name|arg0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|failed
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"There was a problem with the editor '%s'."
+argument_list|,
+name|editor
+argument_list|)
+return|;
 block|}
 if|if
 condition|(
 operator|!
 name|buffer
 condition|)
-return|return;
+return|return
+literal|0
+return|;
 if|if
 condition|(
 name|strbuf_read_file
@@ -298,9 +299,10 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
-literal|"could not read message file '%s': %s"
+literal|"could not read file '%s': %s"
 argument_list|,
 name|path
 argument_list|,
@@ -309,7 +311,10 @@ argument_list|(
 name|errno
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 end_unit
