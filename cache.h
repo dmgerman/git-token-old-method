@@ -2574,6 +2574,12 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
+name|trust_ctime
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
 name|quote_path_fully
 decl_stmt|;
 end_decl_stmt

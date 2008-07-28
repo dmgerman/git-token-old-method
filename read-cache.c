@@ -1001,6 +1001,8 @@ name|MTIME_CHANGED
 expr_stmt|;
 if|if
 condition|(
+name|trust_ctime
+operator|&&
 name|ce
 operator|->
 name|ce_ctime
