@@ -2158,9 +2158,11 @@ argument_list|(
 operator|&
 name|truname
 argument_list|,
+name|truname
+operator|.
 name|len
-operator|+
-literal|11
+operator|-
+name|len
 argument_list|)
 expr_stmt|;
 if|if
@@ -2195,6 +2197,8 @@ argument_list|,
 name|truname
 operator|.
 name|buf
+operator|+
+literal|11
 argument_list|,
 operator|(
 name|early
