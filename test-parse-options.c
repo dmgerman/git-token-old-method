@@ -21,11 +21,18 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|integer
 specifier|static
-name|unsigned
-name|long
+name|int
 name|integer
 init|=
 literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|timestamp
+specifier|static
+name|unsigned
+name|long
+name|timestamp
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -238,7 +245,7 @@ argument_list|,
 name|NULL
 argument_list|,
 operator|&
-name|integer
+name|timestamp
 argument_list|,
 literal|"get timestamp of<time>"
 argument_list|)
@@ -410,9 +417,16 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"integer: %lu\n"
+literal|"integer: %u\n"
 argument_list|,
 name|integer
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"timestamp: %lu\n"
+argument_list|,
+name|timestamp
 argument_list|)
 expr_stmt|;
 name|printf
