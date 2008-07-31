@@ -5169,7 +5169,7 @@ operator|=
 name|arg
 expr_stmt|;
 return|return
-literal|0
+literal|1
 return|;
 block|}
 if|if
