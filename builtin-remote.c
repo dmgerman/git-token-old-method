@@ -695,7 +695,7 @@ name|buf
 operator|.
 name|buf
 argument_list|,
-literal|"yes"
+literal|"true"
 argument_list|)
 condition|)
 return|return
