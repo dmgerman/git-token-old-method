@@ -135,6 +135,11 @@ name|type
 parameter_list|,
 name|int
 name|write_object
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|vpath
 parameter_list|)
 block|{
 name|int
@@ -170,7 +175,7 @@ name|type
 argument_list|,
 name|write_object
 argument_list|,
-name|path
+name|vpath
 argument_list|)
 expr_stmt|;
 block|}
@@ -283,6 +288,10 @@ argument_list|,
 name|type
 argument_list|,
 name|write_objects
+argument_list|,
+name|buf
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 block|}
@@ -311,7 +320,7 @@ name|hash_object_usage
 index|[]
 init|=
 block|{
-literal|"git hash-object [-t<type>] [-w] [--stdin] [--]<file>..."
+literal|"git hash-object [-t<type>] [-w] [--path=<file>] [--stdin] [--]<file>..."
 block|,
 literal|"git hash-object  --stdin-paths<<list-of-paths>"
 block|,
@@ -347,6 +356,15 @@ DECL|variable|stdin_paths
 specifier|static
 name|int
 name|stdin_paths
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|vpath
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|vpath
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -407,6 +425,20 @@ operator|&
 name|stdin_paths
 argument_list|,
 literal|"read file names from stdin"
+argument_list|)
+block|,
+name|OPT_STRING
+argument_list|(
+literal|0
+argument_list|,
+literal|"path"
+argument_list|,
+operator|&
+name|vpath
+argument_list|,
+literal|"file"
+argument_list|,
+literal|"process file as it were from this path"
 argument_list|)
 block|,
 name|OPT_END
@@ -499,6 +531,23 @@ argument_list|)
 else|:
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|vpath
+operator|&&
+name|prefix
+condition|)
+name|vpath
+operator|=
+name|prefix_filename
+argument_list|(
+name|prefix
+argument_list|,
+name|prefix_length
+argument_list|,
+name|vpath
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -521,6 +570,15 @@ condition|)
 name|errstr
 operator|=
 literal|"Can't specify files with --stdin-paths"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|vpath
+condition|)
+name|errstr
+operator|=
+literal|"Can't use --stdin-paths with --path"
 expr_stmt|;
 block|}
 elseif|else
@@ -564,7 +622,7 @@ name|type
 argument_list|,
 name|write_object
 argument_list|,
-name|NULL
+name|vpath
 argument_list|)
 expr_stmt|;
 for|for
@@ -615,6 +673,12 @@ argument_list|,
 name|type
 argument_list|,
 name|write_object
+argument_list|,
+name|vpath
+condition|?
+name|vpath
+else|:
+name|arg
 argument_list|)
 expr_stmt|;
 block|}
