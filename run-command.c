@@ -1714,6 +1714,12 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|__MINGW32__
+comment|/* Flush stdio before fork() to avoid cloning buffers */
+name|fflush
+argument_list|(
+name|NULL
+argument_list|)
+expr_stmt|;
 name|async
 operator|->
 name|pid
