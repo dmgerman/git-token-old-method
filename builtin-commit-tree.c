@@ -242,6 +242,9 @@ name|ret
 parameter_list|)
 block|{
 name|int
+name|result
+decl_stmt|;
+name|int
 name|encoding_is_utf8
 decl_stmt|;
 name|struct
@@ -408,7 +411,8 @@ argument_list|,
 name|commit_utf8_warn
 argument_list|)
 expr_stmt|;
-return|return
+name|result
+operator|=
 name|write_sha1_file
 argument_list|(
 name|buffer
@@ -423,6 +427,15 @@ name|commit_type
 argument_list|,
 name|ret
 argument_list|)
+expr_stmt|;
+name|strbuf_release
+argument_list|(
+operator|&
+name|buffer
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 end_function
