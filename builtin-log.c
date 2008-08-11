@@ -1036,7 +1036,7 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
-comment|/* 	 * For --check, the exit code is based on CHECK_FAILED being 	 * accumulated in rev->diffopt, so be careful to retain that state 	 * information if replacing rev->diffopt in this loop 	 */
+comment|/* 	 * For --check and --exit-code, the exit code is based on CHECK_FAILED 	 * and HAS_CHANGES being accumulated in rev->diffopt, so be careful to 	 * retain that state information if replacing rev->diffopt in this loop 	 */
 while|while
 condition|(
 operator|(
@@ -1121,7 +1121,15 @@ literal|02
 return|;
 block|}
 return|return
+name|diff_result_code
+argument_list|(
+operator|&
+name|rev
+operator|->
+name|diffopt
+argument_list|,
 literal|0
+argument_list|)
 return|;
 block|}
 end_function
