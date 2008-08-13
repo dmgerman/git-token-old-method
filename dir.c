@@ -274,6 +274,10 @@ operator|||
 name|c1
 operator|==
 literal|'?'
+operator|||
+name|c1
+operator|==
+literal|'\\'
 return|;
 block|}
 end_function
