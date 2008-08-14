@@ -8443,6 +8443,13 @@ modifier|*
 modifier|*
 name|tail
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|topo_order
+condition|)
 name|sort_in_topological_order
 argument_list|(
 operator|&
@@ -8455,6 +8462,14 @@ operator|->
 name|lifo
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|prune
+condition|)
+return|return;
 comment|/* feed the list reversed */
 name|yet_to_do
 operator|=
