@@ -3611,6 +3611,14 @@ literal|40
 else|:
 name|DEFAULT_ABBREV
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|a_prefix
+decl_stmt|,
+modifier|*
+name|b_prefix
+decl_stmt|;
 name|mmfile_t
 name|result_file
 decl_stmt|;
@@ -3619,6 +3627,30 @@ operator|=
 name|opt
 operator|->
 name|context
+expr_stmt|;
+name|a_prefix
+operator|=
+name|opt
+operator|->
+name|a_prefix
+condition|?
+name|opt
+operator|->
+name|a_prefix
+else|:
+literal|"a/"
+expr_stmt|;
+name|b_prefix
+operator|=
+name|opt
+operator|->
+name|b_prefix
+condition|?
+name|opt
+operator|->
+name|b_prefix
+else|:
+literal|"b/"
 expr_stmt|;
 comment|/* Read the result of merge first */
 if|if
@@ -4761,8 +4793,6 @@ name|dump_quoted_path
 argument_list|(
 literal|"--- "
 argument_list|,
-name|opt
-operator|->
 name|a_prefix
 argument_list|,
 name|elem
@@ -4796,8 +4826,6 @@ name|dump_quoted_path
 argument_list|(
 literal|"+++ "
 argument_list|,
-name|opt
-operator|->
 name|b_prefix
 argument_list|,
 name|elem
