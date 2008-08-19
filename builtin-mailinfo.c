@@ -924,9 +924,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|content_top
 operator|++
-operator|>=
+name|content_top
+operator|>
 operator|&
 name|content
 index|[
@@ -3163,6 +3163,9 @@ condition|)
 block|{
 if|if
 condition|(
+operator|*
+name|content_top
+operator|&&
 name|is_multipart_boundary
 argument_list|(
 operator|&
@@ -3260,8 +3263,8 @@ expr_stmt|;
 comment|/* technically won't happen as is_multipart_boundary() 		   will fail first.  But just in case.. 		 */
 if|if
 condition|(
-name|content_top
 operator|--
+name|content_top
 operator|<
 name|content
 condition|)
