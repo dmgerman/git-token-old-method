@@ -2450,6 +2450,8 @@ argument_list|)
 decl_stmt|;
 while|while
 condition|(
+name|len
+operator|&&
 name|value
 index|[
 name|len
