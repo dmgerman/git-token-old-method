@@ -3358,6 +3358,11 @@ argument_list|(
 literal|"you need to resolve your current index first"
 argument_list|)
 expr_stmt|;
+name|refresh_cache
+argument_list|(
+name|REFRESH_QUIET
+argument_list|)
+expr_stmt|;
 name|fd
 operator|=
 name|hold_locked_index
@@ -5359,11 +5364,6 @@ name|sha1
 argument_list|,
 name|DEFAULT_ABBREV
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|refresh_cache
-argument_list|(
-name|REFRESH_QUIET
 argument_list|)
 expr_stmt|;
 name|strbuf_init
