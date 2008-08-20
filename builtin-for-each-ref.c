@@ -2643,8 +2643,15 @@ condition|(
 operator|!
 name|buf
 condition|)
+block|{
+operator|*
+name|body
+operator|=
+literal|""
+expr_stmt|;
 return|return;
 comment|/* no body */
+block|}
 while|while
 condition|(
 operator|*
