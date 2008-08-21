@@ -3066,6 +3066,14 @@ name|other_cmds
 argument_list|,
 name|s
 argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|s
+argument_list|,
+literal|"help"
+argument_list|)
 return|;
 block|}
 end_function
