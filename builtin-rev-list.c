@@ -3069,6 +3069,8 @@ operator|||
 name|revs
 operator|.
 name|grep_filter
+operator|.
+name|pattern_list
 expr_stmt|;
 if|if
 condition|(
