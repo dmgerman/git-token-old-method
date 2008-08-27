@@ -7,6 +7,27 @@ include|#
 directive|include
 file|"cache.h"
 end_include
+begin_comment
+comment|/* Just so that no insane platform contaminate namespace with these symbols */
+end_comment
+begin_undef
+DECL|macro|SS
+undef|#
+directive|undef
+name|SS
+end_undef
+begin_undef
+DECL|macro|AA
+undef|#
+directive|undef
+name|AA
+end_undef
+begin_undef
+DECL|macro|DD
+undef|#
+directive|undef
+name|DD
+end_undef
 begin_define
 DECL|macro|SS
 define|#
