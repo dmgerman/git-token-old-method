@@ -14,6 +14,11 @@ include|#
 directive|include
 file|"pack.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pack-revindex.h"
+end_include
 begin_define
 DECL|macro|MAX_CHAIN
 define|#
@@ -694,6 +699,9 @@ condition|)
 name|err
 operator|=
 literal|1
+expr_stmt|;
+name|discard_revindex
+argument_list|()
 expr_stmt|;
 name|nothing_done
 operator|=
