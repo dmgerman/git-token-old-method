@@ -2363,7 +2363,9 @@ name|fprintf
 argument_list|(
 name|f
 argument_list|,
-literal|":%u %s\n"
+literal|":%"
+name|PRIu32
+literal|" %s\n"
 argument_list|,
 name|mark
 argument_list|,
