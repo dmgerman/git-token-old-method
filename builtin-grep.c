@@ -3951,6 +3951,15 @@ name|list
 operator|.
 name|nr
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|cached
+condition|)
+name|setup_work_tree
+argument_list|()
+expr_stmt|;
 return|return
 operator|!
 name|grep_cache
@@ -3963,6 +3972,7 @@ argument_list|,
 name|cached
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|cached
