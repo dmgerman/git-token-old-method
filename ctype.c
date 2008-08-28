@@ -28,6 +28,12 @@ undef|#
 directive|undef
 name|DD
 end_undef
+begin_undef
+DECL|macro|GS
+undef|#
+directive|undef
+name|GS
+end_undef
 begin_define
 DECL|macro|SS
 define|#
@@ -49,6 +55,17 @@ directive|define
 name|DD
 value|GIT_DIGIT
 end_define
+begin_define
+DECL|macro|GS
+define|#
+directive|define
+name|GS
+value|GIT_SPECIAL
+end_define
+begin_comment
+DECL|macro|GS
+comment|/* \0, *, ?, [, \\ */
+end_comment
 begin_decl_stmt
 DECL|variable|sane_ctype
 name|unsigned
@@ -59,7 +76,7 @@ literal|256
 index|]
 init|=
 block|{
-literal|0
+name|GS
 block|,
 literal|0
 block|,
@@ -145,7 +162,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|GS
 block|,
 literal|0
 block|,
@@ -188,7 +205,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|GS
 block|,
 comment|/* 48-15 */
 literal|0
@@ -246,9 +263,9 @@ name|AA
 block|,
 name|AA
 block|,
-literal|0
+name|GS
 block|,
-literal|0
+name|GS
 block|,
 literal|0
 block|,
