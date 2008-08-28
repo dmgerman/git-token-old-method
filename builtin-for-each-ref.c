@@ -3693,6 +3693,15 @@ name|plen
 index|]
 operator|==
 literal|'/'
+operator|||
+name|p
+index|[
+name|plen
+operator|-
+literal|1
+index|]
+operator|==
+literal|'/'
 operator|)
 condition|)
 break|break;
