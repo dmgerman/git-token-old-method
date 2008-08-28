@@ -75,8 +75,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function_decl
-name|unsigned
-name|int
+name|void
 name|load_command_list
 parameter_list|(
 specifier|const
@@ -158,10 +157,6 @@ specifier|const
 name|char
 modifier|*
 name|title
-parameter_list|,
-name|unsigned
-name|int
-name|longest
 parameter_list|,
 name|struct
 name|cmdnames

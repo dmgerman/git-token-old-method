@@ -2254,10 +2254,6 @@ name|char
 modifier|*
 name|alias
 decl_stmt|;
-name|unsigned
-name|int
-name|longest
-init|=
 name|load_command_list
 argument_list|(
 literal|"git-"
@@ -2268,7 +2264,7 @@ argument_list|,
 operator|&
 name|other_cmds
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|setup_git_directory_gently
 argument_list|(
 operator|&
@@ -2312,8 +2308,6 @@ expr_stmt|;
 name|list_commands
 argument_list|(
 literal|"git commands"
-argument_list|,
-name|longest
 argument_list|,
 operator|&
 name|main_cmds
