@@ -1470,6 +1470,7 @@ end_function
 begin_decl_stmt
 DECL|variable|main_cmds
 DECL|variable|other_cmds
+specifier|static
 name|struct
 name|cmdnames
 name|main_cmds
