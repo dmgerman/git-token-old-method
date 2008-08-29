@@ -5825,6 +5825,10 @@ argument_list|,
 name|curr_pack
 argument_list|,
 name|nr_objects
+argument_list|,
+name|NULL
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
