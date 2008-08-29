@@ -2476,8 +2476,8 @@ block|}
 if|if
 condition|(
 name|level
-operator|<
-literal|1
+operator|==
+name|XDL_MERGE_MINIMAL
 operator|||
 name|xscr1
 operator|->
@@ -2630,14 +2630,9 @@ expr_stmt|;
 if|if
 condition|(
 name|ffo
-operator|>
+operator|<
 literal|0
 condition|)
-name|chg2
-operator|+=
-name|ffo
-expr_stmt|;
-else|else
 block|{
 name|chg0
 operator|-=
@@ -2648,6 +2643,11 @@ operator|-=
 name|ffo
 expr_stmt|;
 block|}
+else|else
+name|chg2
+operator|+=
+name|ffo
+expr_stmt|;
 if|if
 condition|(
 name|xdl_append_merge
@@ -2943,9 +2943,9 @@ expr_stmt|;
 comment|/* refine conflicts */
 if|if
 condition|(
+name|XDL_MERGE_ZEALOUS
+operator|<=
 name|level
-operator|>
-literal|1
 operator|&&
 operator|(
 name|xdl_refine_conflicts
@@ -2967,9 +2967,9 @@ name|xe1
 argument_list|,
 name|changes
 argument_list|,
+name|XDL_MERGE_ZEALOUS
+operator|<
 name|level
-operator|>
-literal|2
 argument_list|)
 operator|<
 literal|0
