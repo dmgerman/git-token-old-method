@@ -265,6 +265,8 @@ operator|.
 name|buf
 argument_list|,
 name|buf
+argument_list|,
+name|DATE_NORMAL
 argument_list|)
 expr_stmt|;
 name|len
