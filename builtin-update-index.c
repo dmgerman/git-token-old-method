@@ -1175,7 +1175,7 @@ name|fail
 label|:
 name|die
 argument_list|(
-literal|"git-update-index: cannot chmod %cx '%s'"
+literal|"git update-index: cannot chmod %cx '%s'"
 argument_list|,
 name|flip
 argument_list|,
@@ -1277,7 +1277,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: unable to remove %s"
+literal|"git update-index: unable to remove %s"
 argument_list|,
 name|path
 argument_list|)
@@ -1617,7 +1617,7 @@ condition|)
 block|{
 name|die
 argument_list|(
-literal|"git-update-index: bad quoting of path name"
+literal|"git update-index: bad quoting of path name"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1664,7 +1664,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: unable to remove %s"
+literal|"git update-index: unable to remove %s"
 argument_list|,
 name|ptr
 argument_list|)
@@ -1702,7 +1702,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: unable to update %s"
+literal|"git update-index: unable to update %s"
 argument_list|,
 name|path_name
 argument_list|)
@@ -2939,7 +2939,7 @@ name|argc
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: --cacheinfo<mode><sha1><path>"
+literal|"git update-index: --cacheinfo<mode><sha1><path>"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2989,7 +2989,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: --cacheinfo"
+literal|"git update-index: --cacheinfo"
 literal|" cannot add %s"
 argument_list|,
 name|argv
@@ -3035,7 +3035,7 @@ literal|1
 condition|)
 name|die
 argument_list|(
-literal|"git-update-index: %s<path>"
+literal|"git update-index: %s<path>"
 argument_list|,
 name|path
 argument_list|)
