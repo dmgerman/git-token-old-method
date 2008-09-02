@@ -937,18 +937,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*  * This is a global variable which is used in a number of places but  * only written to in the 'merge' function.  *  * index_only == 1    => Don't leave any non-stage 0 entries in the cache and  *                       don't update the working directory.  *               0    => Leave unmerged entries in the cache and update  *                       the working directory.  */
-end_comment
-begin_decl_stmt
-DECL|variable|index_only
-specifier|static
-name|int
-name|index_only
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|init_tree_desc_from_tree
 specifier|static
@@ -2455,6 +2443,11 @@ specifier|static
 name|int
 name|remove_file
 parameter_list|(
+name|struct
+name|merge_options
+modifier|*
+name|o
+parameter_list|,
 name|int
 name|clean
 parameter_list|,
@@ -2470,7 +2463,9 @@ block|{
 name|int
 name|update_cache
 init|=
-name|index_only
+name|o
+operator|->
+name|call_depth
 operator|||
 name|clean
 decl_stmt|;
@@ -2478,7 +2473,9 @@ name|int
 name|update_working_directory
 init|=
 operator|!
-name|index_only
+name|o
+operator|->
+name|call_depth
 operator|&&
 operator|!
 name|no_wd
@@ -2886,6 +2883,11 @@ specifier|static
 name|void
 name|update_file_flags
 parameter_list|(
+name|struct
+name|merge_options
+modifier|*
+name|o
+parameter_list|,
 specifier|const
 name|unsigned
 name|char
@@ -2909,7 +2911,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 name|update_wd
 operator|=
@@ -3257,6 +3261,11 @@ specifier|static
 name|void
 name|update_file
 parameter_list|(
+name|struct
+name|merge_options
+modifier|*
+name|o
+parameter_list|,
 name|int
 name|clean
 parameter_list|,
@@ -3277,18 +3286,24 @@ parameter_list|)
 block|{
 name|update_file_flags
 argument_list|(
+name|o
+argument_list|,
 name|sha
 argument_list|,
 name|mode
 argument_list|,
 name|path
 argument_list|,
-name|index_only
+name|o
+operator|->
+name|call_depth
 operator|||
 name|clean
 argument_list|,
 operator|!
-name|index_only
+name|o
+operator|->
+name|call_depth
 argument_list|)
 expr_stmt|;
 block|}
@@ -3430,6 +3445,11 @@ specifier|static
 name|int
 name|merge_3way
 parameter_list|(
+name|struct
+name|merge_options
+modifier|*
+name|o
+parameter_list|,
 name|mmbuffer_t
 modifier|*
 name|result_buf
@@ -3437,7 +3457,7 @@ parameter_list|,
 name|struct
 name|diff_filespec
 modifier|*
-name|o
+name|one
 parameter_list|,
 name|struct
 name|diff_filespec
@@ -3511,7 +3531,7 @@ argument_list|)
 expr_stmt|;
 name|fill_mm
 argument_list|(
-name|o
+name|one
 operator|->
 name|sha1
 argument_list|,
@@ -3562,7 +3582,9 @@ name|src2
 argument_list|,
 name|name2
 argument_list|,
-name|index_only
+name|o
+operator|->
+name|call_depth
 argument_list|)
 expr_stmt|;
 name|free
@@ -3609,9 +3631,14 @@ name|merge_file_info
 name|merge_file
 parameter_list|(
 name|struct
-name|diff_filespec
+name|merge_options
 modifier|*
 name|o
+parameter_list|,
+name|struct
+name|diff_filespec
+modifier|*
+name|one
 parameter_list|,
 name|struct
 name|diff_filespec
@@ -3739,7 +3766,7 @@ name|a
 operator|->
 name|sha1
 argument_list|,
-name|o
+name|one
 operator|->
 name|sha1
 argument_list|)
@@ -3751,7 +3778,7 @@ name|b
 operator|->
 name|sha1
 argument_list|,
-name|o
+name|one
 operator|->
 name|sha1
 argument_list|)
@@ -3777,7 +3804,7 @@ name|a
 operator|->
 name|mode
 operator|==
-name|o
+name|one
 operator|->
 name|mode
 condition|)
@@ -3805,7 +3832,7 @@ name|b
 operator|->
 name|mode
 operator|!=
-name|o
+name|one
 operator|->
 name|mode
 condition|)
@@ -3843,7 +3870,7 @@ name|a
 operator|->
 name|sha1
 argument_list|,
-name|o
+name|one
 operator|->
 name|sha1
 argument_list|)
@@ -3868,7 +3895,7 @@ name|b
 operator|->
 name|sha1
 argument_list|,
-name|o
+name|one
 operator|->
 name|sha1
 argument_list|)
@@ -3905,10 +3932,12 @@ name|merge_status
 operator|=
 name|merge_3way
 argument_list|(
+name|o
+argument_list|,
 operator|&
 name|result_buf
 argument_list|,
-name|o
+name|one
 argument_list|,
 name|a
 argument_list|,
@@ -4196,6 +4225,8 @@ argument_list|)
 expr_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1_dst
@@ -4247,6 +4278,8 @@ argument_list|)
 expr_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren2_dst
@@ -4257,7 +4290,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 block|{
 name|remove_file_from_cache
@@ -4270,7 +4305,7 @@ argument_list|(
 name|dst_name2
 argument_list|)
 expr_stmt|;
-comment|/* 		 * Uncomment to leave the conflicting names in the resulting tree 		 * 		 * update_file(0, ren1->pair->two->sha1, ren1->pair->two->mode, dst_name1); 		 * update_file(0, ren2->pair->two->sha1, ren2->pair->two->mode, dst_name2); 		 */
+comment|/* 		 * Uncomment to leave the conflicting names in the resulting tree 		 * 		 * update_file(o, 0, ren1->pair->two->sha1, ren1->pair->two->mode, dst_name1); 		 * update_file(o, 0, ren2->pair->two->sha1, ren2->pair->two->mode, dst_name2); 		 */
 block|}
 else|else
 block|{
@@ -4384,6 +4419,8 @@ argument_list|)
 expr_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -4399,6 +4436,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -4524,6 +4563,8 @@ argument_list|)
 expr_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -4539,6 +4580,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -4562,6 +4605,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren2
@@ -5176,7 +5221,9 @@ name|ren2_dst
 argument_list|,
 name|branch2
 argument_list|,
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|?
 literal|" (left unresolved)"
 else|:
@@ -5185,7 +5232,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 block|{
 name|remove_file_from_cache
@@ -5195,6 +5244,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -5239,6 +5290,8 @@ name|mfi
 decl_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|ren1_src
@@ -5250,6 +5303,8 @@ name|mfi
 operator|=
 name|merge_file
 argument_list|(
+name|o
+argument_list|,
 name|ren1
 operator|->
 name|pair
@@ -5340,7 +5395,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 name|update_stages
 argument_list|(
@@ -5371,6 +5428,8 @@ expr_stmt|;
 block|}
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 name|mfi
 operator|.
 name|clean
@@ -5418,11 +5477,15 @@ literal|2
 decl_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|ren1_src
 argument_list|,
-name|index_only
+name|o
+operator|->
+name|call_depth
 operator|||
 name|stage
 operator|==
@@ -5581,6 +5644,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|ren1
@@ -5672,6 +5737,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|dst_other
@@ -5850,6 +5917,8 @@ name|mfi
 operator|=
 name|merge_file
 argument_list|(
+name|o
+argument_list|,
 name|one
 argument_list|,
 name|a
@@ -5979,7 +6048,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 name|update_stages
 argument_list|(
@@ -5997,6 +6068,8 @@ expr_stmt|;
 block|}
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 name|mfi
 operator|.
 name|clean
@@ -6270,6 +6343,8 @@ expr_stmt|;
 comment|/* do not touch working file if it did not exist */
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|path
@@ -6320,6 +6395,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|b_sha
@@ -6360,6 +6437,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|a_sha
@@ -6527,6 +6606,8 @@ argument_list|)
 expr_stmt|;
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|path
@@ -6536,6 +6617,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|sha
@@ -6561,6 +6644,8 @@ argument_list|)
 expr_stmt|;
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|sha
@@ -6699,6 +6784,8 @@ name|mfi
 operator|=
 name|merge_file
 argument_list|(
+name|o
+argument_list|,
 operator|&
 name|one
 argument_list|,
@@ -6731,6 +6818,8 @@ name|clean
 condition|)
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|mfi
@@ -6790,10 +6879,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 name|update_file
 argument_list|(
+name|o
+argument_list|,
 literal|0
 argument_list|,
 name|mfi
@@ -6810,6 +6903,8 @@ expr_stmt|;
 else|else
 name|update_file_flags
 argument_list|(
+name|o
+argument_list|,
 name|mfi
 operator|.
 name|sha
@@ -6845,6 +6940,8 @@ block|{
 comment|/* 		 * this entry was deleted altogether. a_mode == 0 means 		 * we had that path and want to actively remove it. 		 */
 name|remove_file
 argument_list|(
+name|o
+argument_list|,
 literal|1
 argument_list|,
 name|path
@@ -6968,7 +7065,9 @@ name|code
 operator|=
 name|git_merge_trees
 argument_list|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 argument_list|,
 name|common
 argument_list|,
@@ -7197,7 +7296,9 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 operator|*
 name|result
@@ -7619,19 +7720,8 @@ name|o
 operator|->
 name|call_depth
 condition|)
-block|{
 name|read_cache
 argument_list|()
-expr_stmt|;
-name|index_only
-operator|=
-literal|0
-expr_stmt|;
-block|}
-else|else
-name|index_only
-operator|=
-literal|1
 expr_stmt|;
 name|clean
 operator|=
@@ -7657,7 +7747,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|index_only
+name|o
+operator|->
+name|call_depth
 condition|)
 block|{
 operator|*
