@@ -200,18 +200,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|flags
-operator|&
-operator|(
-name|CSUM_CLOSE
-operator||
-name|CSUM_FSYNC
-operator|)
-condition|)
-block|{
-comment|/* write checksum and close fd */
 name|SHA1_Final
 argument_list|(
 name|f
@@ -237,6 +225,18 @@ operator|->
 name|buffer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+operator|(
+name|CSUM_CLOSE
+operator||
+name|CSUM_FSYNC
+operator|)
+condition|)
+block|{
+comment|/* write checksum and close fd */
 name|sha1flush
 argument_list|(
 name|f
