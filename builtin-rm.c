@@ -1049,7 +1049,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-rm: unable to remove %s"
+literal|"git rm: unable to remove %s"
 argument_list|,
 name|path
 argument_list|)
@@ -1124,7 +1124,7 @@ name|removed
 condition|)
 name|die
 argument_list|(
-literal|"git-rm: %s: %s"
+literal|"git rm: %s: %s"
 argument_list|,
 name|path
 argument_list|,

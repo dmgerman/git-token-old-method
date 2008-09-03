@@ -8973,7 +8973,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Add phony grafts for use with -S; this is primarily to  * support git-cvsserver that wants to give a linear history  * to its clients.  */
+comment|/*  * Add phony grafts for use with -S; this is primarily to  * support git's cvsserver that wants to give a linear history  * to its clients.  */
 end_comment
 begin_function
 DECL|function|read_ancestry
