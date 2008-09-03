@@ -1331,8 +1331,12 @@ name|loc
 init|=
 name|git_path
 argument_list|(
-literal|"fast_import_crash_%d"
+literal|"fast_import_crash_%"
+name|PRIuMAX
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|getpid
 argument_list|()
 argument_list|)
@@ -1402,8 +1406,13 @@ name|fprintf
 argument_list|(
 name|rpt
 argument_list|,
-literal|"    fast-import process: %d\n"
+literal|"    fast-import process: %"
+name|PRIuMAX
+literal|"\n"
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|getpid
 argument_list|()
 argument_list|)
@@ -1412,8 +1421,13 @@ name|fprintf
 argument_list|(
 name|rpt
 argument_list|,
-literal|"    parent process     : %d\n"
+literal|"    parent process     : %"
+name|PRIuMAX
+literal|"\n"
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|getppid
 argument_list|()
 argument_list|)

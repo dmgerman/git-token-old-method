@@ -1555,8 +1555,12 @@ name|false_lock
 argument_list|,
 name|git_path
 argument_list|(
-literal|"next-index-%d"
+literal|"next-index-%"
+name|PRIuMAX
 argument_list|,
+operator|(
+name|uintmax_t
+operator|)
 name|getpid
 argument_list|()
 argument_list|)
