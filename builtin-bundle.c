@@ -15,7 +15,7 @@ directive|include
 file|"bundle.h"
 end_include
 begin_comment
-comment|/*  * Basic handler for bundle files to connect repositories via sneakernet.  * Invocation must include action.  * This function can create a bundle or provide information on an existing  * bundle supporting git-fetch, git-pull, and git-ls-remote  */
+comment|/*  * Basic handler for bundle files to connect repositories via sneakernet.  * Invocation must include action.  * This function can create a bundle or provide information on an existing  * bundle supporting "fetch", "pull", and "ls-remote".  */
 end_comment
 begin_decl_stmt
 DECL|variable|bundle_usage
@@ -25,7 +25,7 @@ name|char
 modifier|*
 name|bundle_usage
 init|=
-literal|"git-bundle (create<bundle><git-rev-list args> | verify<bundle> | list-heads<bundle> [refname]... | unbundle<bundle> [refname]... )"
+literal|"git bundle (create<bundle><git rev-list args> | verify<bundle> | list-heads<bundle> [refname]... | unbundle<bundle> [refname]... )"
 decl_stmt|;
 end_decl_stmt
 begin_function

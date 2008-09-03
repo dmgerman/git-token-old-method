@@ -1297,7 +1297,7 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"git-apply: read returned %s"
+literal|"git apply: read returned %s"
 argument_list|,
 name|strerror
 argument_list|(
@@ -2359,7 +2359,7 @@ name|isnull
 condition|)
 name|die
 argument_list|(
-literal|"git-apply: bad git-diff - expected /dev/null, got %s on line %d"
+literal|"git apply: bad git-diff - expected /dev/null, got %s on line %d"
 argument_list|,
 name|name
 argument_list|,
@@ -2395,7 +2395,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-apply: bad git-diff - inconsistent %s filename on line %d"
+literal|"git apply: bad git-diff - inconsistent %s filename on line %d"
 argument_list|,
 name|oldnew
 argument_list|,
@@ -2434,7 +2434,7 @@ literal|'\n'
 condition|)
 name|die
 argument_list|(
-literal|"git-apply: bad git-diff - expected /dev/null on line %d"
+literal|"git apply: bad git-diff - expected /dev/null on line %d"
 argument_list|,
 name|linenr
 argument_list|)

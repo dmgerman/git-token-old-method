@@ -3904,7 +3904,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git-grep: cannot generate relative filenames containing '..'"
+literal|"git grep: cannot generate relative filenames containing '..'"
 argument_list|)
 expr_stmt|;
 block|}

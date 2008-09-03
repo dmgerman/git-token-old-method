@@ -1214,7 +1214,7 @@ name|all
 condition|)
 name|die
 argument_list|(
-literal|"git-checkout-index: don't mix '--all' and explicit filenames"
+literal|"git checkout-index: don't mix '--all' and explicit filenames"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1223,7 +1223,7 @@ name|read_from_stdin
 condition|)
 name|die
 argument_list|(
-literal|"git-checkout-index: don't mix '--stdin' and explicit filenames"
+literal|"git checkout-index: don't mix '--stdin' and explicit filenames"
 argument_list|)
 expr_stmt|;
 name|p
@@ -1286,7 +1286,7 @@ name|all
 condition|)
 name|die
 argument_list|(
-literal|"git-checkout-index: don't mix '--all' and '--stdin'"
+literal|"git checkout-index: don't mix '--all' and '--stdin'"
 argument_list|)
 expr_stmt|;
 name|strbuf_init
