@@ -8207,6 +8207,12 @@ literal|"^\\(.*=[ \t]*\\(class\\|record\\).*\\)$"
 block|}
 block|,
 block|{
+literal|"php"
+block|,
+literal|"^[\t ]*\\(\\(function\\|class\\).*\\)"
+block|}
+block|,
+block|{
 literal|"python"
 block|,
 literal|"^\\s*\\(\\(class\\|def\\)\\s.*\\)$"
