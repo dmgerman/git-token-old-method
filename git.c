@@ -1912,6 +1912,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"receive-pack"
+block|,
+name|cmd_receive_pack
+block|}
+block|,
+block|{
 literal|"reflog"
 block|,
 name|cmd_reflog
