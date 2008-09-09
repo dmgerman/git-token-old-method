@@ -1869,10 +1869,6 @@ name|int
 name|depth
 parameter_list|)
 block|{
-name|struct
-name|stat
-name|st
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -2064,22 +2060,12 @@ expr_stmt|;
 comment|/* Detect cases where alternate disappeared */
 if|if
 condition|(
-name|stat
+operator|!
+name|is_directory
 argument_list|(
 name|ent
 operator|->
 name|base
-argument_list|,
-operator|&
-name|st
-argument_list|)
-operator|||
-operator|!
-name|S_ISDIR
-argument_list|(
-name|st
-operator|.
-name|st_mode
 argument_list|)
 condition|)
 block|{
