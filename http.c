@@ -1981,7 +1981,7 @@ name|fill_chain
 modifier|*
 name|new
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

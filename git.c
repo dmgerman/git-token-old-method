@@ -2198,7 +2198,7 @@ name|char
 modifier|*
 name|argv0
 init|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|argv
 index|[

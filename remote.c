@@ -374,7 +374,7 @@ name|url
 return|;
 name|ret
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|rewrite
 index|[
@@ -960,7 +960,7 @@ argument_list|)
 expr_stmt|;
 name|refname
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|strlen
 argument_list|(
