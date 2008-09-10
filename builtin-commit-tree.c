@@ -239,6 +239,11 @@ name|unsigned
 name|char
 modifier|*
 name|ret
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|author
 parameter_list|)
 block|{
 name|int
@@ -333,6 +338,18 @@ name|next
 expr_stmt|;
 block|}
 comment|/* Person/date information */
+if|if
+condition|(
+operator|!
+name|author
+condition|)
+name|author
+operator|=
+name|git_author_info
+argument_list|(
+name|IDENT_ERROR_ON_NO_NAME
+argument_list|)
+expr_stmt|;
 name|strbuf_addf
 argument_list|(
 operator|&
@@ -340,10 +357,7 @@ name|buffer
 argument_list|,
 literal|"author %s\n"
 argument_list|,
-name|git_author_info
-argument_list|(
-name|IDENT_ERROR_ON_NO_NAME
-argument_list|)
+name|author
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -665,6 +679,8 @@ argument_list|,
 name|parents
 argument_list|,
 name|commit_sha1
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 block|{
