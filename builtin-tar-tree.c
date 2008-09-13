@@ -97,7 +97,7 @@ name|nargc
 operator|++
 index|]
 operator|=
-literal|"git-archive"
+literal|"archive"
 expr_stmt|;
 name|nargv
 index|[
