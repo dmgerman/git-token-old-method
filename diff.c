@@ -8271,7 +8271,7 @@ block|,
 block|{
 literal|"bibtex"
 block|,
-literal|"(@[a-zA-Z]{1,}[ \t]*\{{0,1}[ \t]*[^ \t\"@',\\#}{~%]*).*$"
+literal|"(@[a-zA-Z]{1,}[ \t]*\\{{0,1}[ \t]*[^ \t\"@',\\#}{~%]*).*$"
 block|,
 name|REG_EXTENDED
 block|}
@@ -8279,7 +8279,7 @@ block|,
 block|{
 literal|"tex"
 block|,
-literal|"^(\\\\((sub)*section|chapter|part)\\*{0,1}\{.*)$"
+literal|"^(\\\\((sub)*section|chapter|part)\\*{0,1}\\{.*)$"
 block|,
 name|REG_EXTENDED
 block|}
