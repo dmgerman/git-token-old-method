@@ -72,6 +72,7 @@ specifier|static
 name|int
 name|prune_tmp_object
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|path
@@ -569,7 +570,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*  * Write errors (particularly out of space) can result in  * failed temporary packs (and more rarely indexes and other  * files begining with "tmp_") accumulating in the  * object directory.  */
+comment|/*  * Write errors (particularly out of space) can result in  * failed temporary packs (and more rarely indexes and other  * files begining with "tmp_") accumulating in the object  * and the pack directories.  */
 end_comment
 begin_function
 DECL|function|remove_temporary_files
@@ -577,7 +578,10 @@ specifier|static
 name|void
 name|remove_temporary_files
 parameter_list|(
-name|void
+specifier|const
+name|char
+modifier|*
+name|path
 parameter_list|)
 block|{
 name|DIR
@@ -589,18 +593,11 @@ name|dirent
 modifier|*
 name|de
 decl_stmt|;
-name|char
-modifier|*
-name|dirname
-init|=
-name|get_object_directory
-argument_list|()
-decl_stmt|;
 name|dir
 operator|=
 name|opendir
 argument_list|(
-name|dirname
+name|path
 argument_list|)
 expr_stmt|;
 if|if
@@ -613,9 +610,9 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Unable to open object directory %s\n"
+literal|"Unable to open directory %s\n"
 argument_list|,
-name|dirname
+name|path
 argument_list|)
 expr_stmt|;
 return|return;
@@ -647,7 +644,7 @@ argument_list|)
 condition|)
 name|prune_tmp_object
 argument_list|(
-name|dirname
+name|path
 argument_list|,
 name|de
 operator|->
@@ -719,6 +716,10 @@ block|,
 name|OPT_END
 argument_list|()
 block|}
+decl_stmt|;
+name|char
+modifier|*
+name|s
 decl_stmt|;
 name|save_commit_buffer
 operator|=
@@ -842,7 +843,33 @@ name|show_only
 argument_list|)
 expr_stmt|;
 name|remove_temporary_files
+argument_list|(
+name|get_object_directory
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|s
+operator|=
+name|xstrdup
+argument_list|(
+name|mkpath
+argument_list|(
+literal|"%s/pack"
+argument_list|,
+name|get_object_directory
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|remove_temporary_files
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|s
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
