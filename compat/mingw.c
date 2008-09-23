@@ -1462,10 +1462,26 @@ decl_stmt|;
 if|if
 condition|(
 name|timeout
-operator|!=
-operator|-
-literal|1
+operator|>=
+literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|nfds
+operator|==
+literal|0
+condition|)
+block|{
+name|Sleep
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 return|return
 name|errno
 operator|=
@@ -1476,6 +1492,7 @@ argument_list|(
 literal|"poll timeout not supported"
 argument_list|)
 return|;
+block|}
 comment|/* When there is only one fd to wait for, then we pretend that 	 * input is available and let the actual wait happen when the 	 * caller invokes read(). 	 */
 if|if
 condition|(
