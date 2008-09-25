@@ -1800,6 +1800,11 @@ operator|!
 name|opts
 operator|->
 name|force
+operator|&&
+operator|!
+name|opts
+operator|->
+name|quiet
 condition|)
 name|show_local_changes
 argument_list|(
