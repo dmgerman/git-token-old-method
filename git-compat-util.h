@@ -472,6 +472,11 @@ directive|define
 name|_XOPEN_SOURCE
 value|600
 end_define
+begin_include
+include|#
+directive|include
+file|"compat/cygwin.h"
+end_include
 begin_else
 else|#
 directive|else
