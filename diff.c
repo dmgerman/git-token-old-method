@@ -17790,7 +17790,7 @@ struct|struct
 name|patch_id_t
 block|{
 DECL|member|ctx
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|ctx
 decl_stmt|;
@@ -17919,7 +17919,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 name|data
 operator|->
@@ -17969,7 +17969,7 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
-name|SHA_CTX
+name|git_SHA_CTX
 name|ctx
 decl_stmt|;
 name|struct
@@ -17986,7 +17986,7 @@ operator|+
 literal|20
 index|]
 decl_stmt|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|ctx
@@ -18401,7 +18401,7 @@ operator|->
 name|path
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|ctx
@@ -18453,7 +18453,7 @@ name|ecb
 argument_list|)
 expr_stmt|;
 block|}
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|sha1
 argument_list|,

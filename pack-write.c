@@ -152,7 +152,7 @@ name|i
 decl_stmt|,
 name|fd
 decl_stmt|;
-name|SHA_CTX
+name|git_SHA_CTX
 name|ctx
 decl_stmt|;
 name|uint32_t
@@ -472,7 +472,7 @@ literal|4
 argument_list|)
 expr_stmt|;
 comment|/* compute the SHA1 hash of sorted object names. */
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|ctx
@@ -545,7 +545,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|ctx
@@ -784,7 +784,7 @@ argument_list|,
 name|CSUM_FSYNC
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|sha1
 argument_list|,
@@ -839,7 +839,7 @@ literal|8
 operator|*
 literal|1024
 decl_stmt|;
-name|SHA_CTX
+name|git_SHA_CTX
 name|old_sha1_ctx
 decl_stmt|,
 name|new_sha1_ctx
@@ -852,13 +852,13 @@ name|char
 modifier|*
 name|buf
 decl_stmt|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|old_sha1_ctx
 argument_list|)
 expr_stmt|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|new_sha1_ctx
@@ -946,7 +946,7 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|old_sha1_ctx
@@ -969,7 +969,7 @@ argument_list|(
 name|object_count
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|new_sha1_ctx
@@ -1079,7 +1079,7 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|new_sha1_ctx
@@ -1108,7 +1108,7 @@ operator|!
 name|partial_pack_sha1
 condition|)
 continue|continue;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|old_sha1_ctx
@@ -1136,7 +1136,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|sha1
 argument_list|,
@@ -1164,7 +1164,7 @@ name|pack_name
 argument_list|)
 expr_stmt|;
 comment|/* 			 * Now let's compute the SHA1 of the remainder of the 			 * pack, which also means making partial_pack_offset 			 * big enough not to matter anymore. 			 */
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|old_sha1_ctx
@@ -1195,7 +1195,7 @@ if|if
 condition|(
 name|partial_pack_sha1
 condition|)
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|partial_pack_sha1
 argument_list|,
@@ -1203,7 +1203,7 @@ operator|&
 name|old_sha1_ctx
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|new_pack_sha1
 argument_list|,
