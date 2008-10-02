@@ -894,6 +894,7 @@ block|}
 end_function
 begin_function
 DECL|function|read_graft_file
+specifier|static
 name|int
 name|read_graft_file
 parameter_list|(
