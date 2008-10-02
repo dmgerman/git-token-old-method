@@ -1188,6 +1188,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_parse_long
+specifier|static
 name|int
 name|git_parse_long
 parameter_list|(
@@ -1384,6 +1385,8 @@ parameter_list|)
 block|{
 name|long
 name|ret
+init|=
+literal|0
 decl_stmt|;
 if|if
 condition|(
