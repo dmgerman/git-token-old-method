@@ -1997,6 +1997,7 @@ block|}
 end_function
 begin_function
 DECL|function|dir_add_name
+specifier|static
 name|struct
 name|dir_entry
 modifier|*
@@ -2069,6 +2070,7 @@ block|}
 end_function
 begin_function
 DECL|function|dir_add_ignored
+specifier|static
 name|struct
 name|dir_entry
 modifier|*
