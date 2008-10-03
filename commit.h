@@ -655,17 +655,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
-name|read_graft_file
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|graft_file
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|struct
 name|commit_graft
 modifier|*

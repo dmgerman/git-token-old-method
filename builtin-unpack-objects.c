@@ -129,7 +129,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ctx
 specifier|static
-name|SHA_CTX
+name|git_SHA_CTX
 name|ctx
 decl_stmt|;
 end_decl_stmt
@@ -309,7 +309,7 @@ condition|(
 name|offset
 condition|)
 block|{
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|ctx
@@ -2868,7 +2868,7 @@ name|unpack_usage
 argument_list|)
 expr_stmt|;
 block|}
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|ctx
@@ -2877,7 +2877,7 @@ expr_stmt|;
 name|unpack_all
 argument_list|()
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|ctx
@@ -2887,7 +2887,7 @@ argument_list|,
 name|offset
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|sha1
 argument_list|,

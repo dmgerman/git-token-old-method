@@ -5006,7 +5006,7 @@ name|long
 name|size
 parameter_list|)
 block|{
-name|SHA_CTX
+name|git_SHA_CTX
 name|c
 decl_stmt|;
 name|unsigned
@@ -5050,13 +5050,13 @@ argument_list|(
 literal|"bad index version"
 argument_list|)
 return|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|c
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|c
@@ -5068,7 +5068,7 @@ operator|-
 literal|20
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|sha1
 argument_list|,
@@ -6115,7 +6115,7 @@ specifier|static
 name|int
 name|ce_write_flush
 parameter_list|(
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|context
 parameter_list|,
@@ -6134,7 +6134,7 @@ condition|(
 name|buffered
 condition|)
 block|{
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 name|context
 argument_list|,
@@ -6176,7 +6176,7 @@ specifier|static
 name|int
 name|ce_write
 parameter_list|(
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|context
 parameter_list|,
@@ -6295,7 +6295,7 @@ specifier|static
 name|int
 name|write_index_ext_header
 parameter_list|(
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|context
 parameter_list|,
@@ -6373,7 +6373,7 @@ specifier|static
 name|int
 name|ce_flush
 parameter_list|(
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|context
 parameter_list|,
@@ -6396,7 +6396,7 @@ name|write_buffer_len
 operator|=
 literal|0
 expr_stmt|;
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 name|context
 argument_list|,
@@ -6439,7 +6439,7 @@ literal|0
 expr_stmt|;
 block|}
 comment|/* Append the SHA1 signature at the end */
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|write_buffer
 operator|+
@@ -6543,7 +6543,7 @@ specifier|static
 name|int
 name|ce_write_entry
 parameter_list|(
-name|SHA_CTX
+name|git_SHA_CTX
 modifier|*
 name|c
 parameter_list|,
@@ -6751,7 +6751,7 @@ name|int
 name|newfd
 parameter_list|)
 block|{
-name|SHA_CTX
+name|git_SHA_CTX
 name|c
 decl_stmt|;
 name|struct
@@ -6840,7 +6840,7 @@ operator|-
 name|removed
 argument_list|)
 expr_stmt|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|c

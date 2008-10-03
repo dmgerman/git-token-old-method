@@ -168,7 +168,7 @@ condition|(
 name|offset
 condition|)
 block|{
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|f
@@ -200,7 +200,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|SHA1_Final
+name|git_SHA1_Final
 argument_list|(
 name|f
 operator|->
@@ -457,7 +457,7 @@ operator|!
 name|left
 condition|)
 block|{
-name|SHA1_Update
+name|git_SHA1_Update
 argument_list|(
 operator|&
 name|f
@@ -594,7 +594,7 @@ name|do_crc
 operator|=
 literal|0
 expr_stmt|;
-name|SHA1_Init
+name|git_SHA1_Init
 argument_list|(
 operator|&
 name|f

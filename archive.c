@@ -61,6 +61,7 @@ value|1
 end_define
 begin_struct
 DECL|struct|archiver
+specifier|static
 specifier|const
 struct|struct
 name|archiver
