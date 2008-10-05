@@ -3768,10 +3768,6 @@ name|args
 operator|.
 name|quiet
 operator|=
-name|args
-operator|.
-name|no_progress
-operator|=
 operator|(
 name|transport
 operator|->
@@ -3784,6 +3780,10 @@ name|args
 operator|.
 name|no_progress
 operator|=
+name|args
+operator|.
+name|quiet
+operator|||
 operator|!
 name|isatty
 argument_list|(
