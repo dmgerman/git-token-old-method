@@ -1277,8 +1277,12 @@ block|{
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|,
 name|nbuf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 if|if
 condition|(
@@ -1287,22 +1291,6 @@ condition|)
 name|die
 argument_list|(
 literal|"git checkout-index: don't mix '--all' and '--stdin'"
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|nbuf
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 while|while

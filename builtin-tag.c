@@ -1739,6 +1739,8 @@ block|{
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|unsigned
 name|char
@@ -2067,14 +2069,6 @@ argument_list|,
 name|verify_tag
 argument_list|)
 return|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|msg

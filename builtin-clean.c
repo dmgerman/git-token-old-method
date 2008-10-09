@@ -171,6 +171,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|directory
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|struct
 name|dir_struct
@@ -194,6 +196,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -309,14 +313,6 @@ argument_list|,
 name|options
 argument_list|,
 name|builtin_clean_usage
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
 argument_list|,
 literal|0
 argument_list|)
@@ -448,14 +444,6 @@ argument_list|,
 name|baselen
 argument_list|,
 name|pathspec
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|directory
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if

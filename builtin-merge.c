@@ -1333,6 +1333,8 @@ block|{
 name|struct
 name|strbuf
 name|sb
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -1363,14 +1365,6 @@ argument_list|(
 name|head
 argument_list|,
 literal|1
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|sb
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|args
@@ -1458,6 +1452,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|out
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|struct
 name|commit_list
@@ -1604,14 +1600,6 @@ condition|)
 name|die
 argument_list|(
 literal|"revision walk setup failed"
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|out
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
@@ -1902,15 +1890,9 @@ block|{
 name|struct
 name|strbuf
 name|reflog_message
+init|=
+name|STRBUF_INIT
 decl_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|reflog_message
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2157,6 +2139,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -2203,14 +2187,6 @@ argument_list|(
 literal|"'%s' does not point to a commit"
 argument_list|,
 name|remote
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
@@ -2516,19 +2492,13 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|line
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|char
 modifier|*
 name|ptr
 decl_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|line
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 name|fp
 operator|=
 name|fopen
@@ -3240,6 +3210,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|int
 name|index_fd
@@ -3537,14 +3509,6 @@ argument_list|(
 name|char
 operator|*
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -5146,6 +5110,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -5325,14 +5291,6 @@ name|builtin_merge_options
 argument_list|)
 expr_stmt|;
 comment|/* 	 * This could be traditional "merge<msg> HEAD<commit>..."  and 	 * the way we can tell it is to see if the second token is HEAD, 	 * but some people might have misused the interface and used a 	 * committish that is the same as HEAD there instead. 	 * Traditional format never would have "-m" so it is an 	 * additional safety measure to check for it. 	 */
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5483,6 +5441,8 @@ block|{
 name|struct
 name|strbuf
 name|msg
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 comment|/* We are invoked directly as the first-class UI. */
 name|head_arg
@@ -5490,14 +5450,6 @@ operator|=
 literal|"HEAD"
 expr_stmt|;
 comment|/* 		 * All the rest are the commits being merged; 		 * prepare the standard merge summary message to 		 * be appended to the given message.  If remote 		 * is invalid we will die later in the common 		 * codepath so we discard the error in this 		 * loop. 		 */
-name|strbuf_init
-argument_list|(
-operator|&
-name|msg
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -5960,6 +5912,8 @@ comment|/* Again the most common case of merging one remote. */
 name|struct
 name|strbuf
 name|msg
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|struct
 name|object
@@ -6002,14 +5956,6 @@ name|sha1
 argument_list|,
 name|DEFAULT_ABBREV
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|msg
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
