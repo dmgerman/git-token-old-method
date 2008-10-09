@@ -3946,9 +3946,8 @@ name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
-expr|struct
-name|commit_list
 operator|*
+name|parent
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3979,9 +3978,10 @@ name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
-expr|struct
-name|commit_list
 operator|*
+name|parent
+operator|->
+name|next
 argument_list|)
 argument_list|)
 expr_stmt|;
