@@ -4086,6 +4086,11 @@ argument_list|(
 name|f
 argument_list|)
 expr_stmt|;
+name|sha1flush
+argument_list|(
+name|f
+argument_list|)
+expr_stmt|;
 name|hashcpy
 argument_list|(
 name|obj
