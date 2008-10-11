@@ -1001,7 +1001,6 @@ name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* Again, the revs are all reverse */
 for|for
 control|(
 name|i
@@ -1030,10 +1029,6 @@ operator|)
 argument_list|,
 name|ent
 index|[
-name|ents
-operator|-
-literal|1
-operator|-
 name|i
 index|]
 operator|.
