@@ -12603,6 +12603,9 @@ decl_stmt|;
 name|int
 name|hdrlen
 decl_stmt|;
+name|int
+name|ret
+decl_stmt|;
 if|if
 condition|(
 name|has_loose_object
@@ -12660,7 +12663,8 @@ argument_list|)
 operator|+
 literal|1
 expr_stmt|;
-return|return
+name|ret
+operator|=
 name|write_loose_object
 argument_list|(
 name|sha1
@@ -12675,6 +12679,14 @@ name|len
 argument_list|,
 name|mtime
 argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|buf
+argument_list|)
+expr_stmt|;
+return|return
+name|ret
 return|;
 block|}
 end_function
