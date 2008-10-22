@@ -2418,7 +2418,7 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"\n    "
+literal|"\n"
 argument_list|)
 expr_stmt|;
 for|for
@@ -2438,13 +2438,7 @@ operator|++
 control|)
 name|printf
 argument_list|(
-literal|"%s%s"
-argument_list|,
-name|i
-condition|?
-literal|" "
-else|:
-literal|""
+literal|"    %s\n"
 argument_list|,
 name|list
 operator|->
@@ -2454,11 +2448,6 @@ name|i
 index|]
 operator|.
 name|string
-argument_list|)
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3009,7 +2998,7 @@ condition|)
 block|{
 name|printf
 argument_list|(
-literal|"  Local branch%s pushed with 'git push'\n   "
+literal|"  Local branch%s pushed with 'git push'\n"
 argument_list|,
 name|states
 operator|.
@@ -3057,7 +3046,7 @@ name|i
 decl_stmt|;
 name|printf
 argument_list|(
-literal|" %s%s%s%s"
+literal|"    %s%s%s%s\n"
 argument_list|,
 name|spec
 operator|->
@@ -3097,11 +3086,6 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-name|printf
-argument_list|(
-literal|"\n"
-argument_list|)
-expr_stmt|;
 block|}
 comment|/* NEEDSWORK: free remote */
 name|string_list_clear
