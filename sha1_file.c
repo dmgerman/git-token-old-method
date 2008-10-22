@@ -2598,7 +2598,7 @@ argument_list|(
 literal|"objects/info/alternates"
 argument_list|)
 argument_list|,
-literal|1
+name|LOCK_DIE_ON_ERROR
 argument_list|)
 decl_stmt|;
 name|char

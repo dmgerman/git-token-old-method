@@ -407,6 +407,9 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 if|if
@@ -437,6 +440,15 @@ name|path
 argument_list|)
 expr_stmt|;
 comment|/* 	 * subtract 5 from size to make sure there's room for adding 	 * ".lock" for the lock file name 	 */
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|LOCK_NODEREF
+operator|)
+condition|)
 name|resolve_symlink
 argument_list|(
 name|lk
@@ -615,7 +627,7 @@ modifier|*
 name|path
 parameter_list|,
 name|int
-name|die_on_error
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -626,6 +638,8 @@ argument_list|(
 name|lk
 argument_list|,
 name|path
+argument_list|,
+name|flags
 argument_list|)
 decl_stmt|;
 if|if
@@ -634,7 +648,11 @@ name|fd
 operator|<
 literal|0
 operator|&&
-name|die_on_error
+operator|(
+name|flags
+operator|&
+name|LOCK_DIE_ON_ERROR
+operator|)
 condition|)
 name|die
 argument_list|(
@@ -669,7 +687,7 @@ modifier|*
 name|path
 parameter_list|,
 name|int
-name|die_on_error
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -684,6 +702,8 @@ argument_list|(
 name|lk
 argument_list|,
 name|path
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -695,7 +715,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|die_on_error
+name|flags
+operator|&
+name|LOCK_DIE_ON_ERROR
 condition|)
 name|die
 argument_list|(
@@ -738,7 +760,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|die_on_error
+name|flags
+operator|&
+name|LOCK_DIE_ON_ERROR
 condition|)
 name|die
 argument_list|(
@@ -775,7 +799,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|die_on_error
+name|flags
+operator|&
+name|LOCK_DIE_ON_ERROR
 condition|)
 name|exit
 argument_list|(
@@ -945,6 +971,10 @@ name|get_index_file
 argument_list|()
 argument_list|,
 name|die_on_error
+condition|?
+name|LOCK_DIE_ON_ERROR
+else|:
+literal|0
 argument_list|)
 return|;
 block|}
