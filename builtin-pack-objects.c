@@ -5225,6 +5225,15 @@ operator|->
 name|size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|used
+operator|==
+literal|0
+condition|)
+goto|goto
+name|give_up
+goto|;
 comment|/* 		 * Determine if this is a delta and if so whether we can 		 * reuse it or not.  Otherwise let's find out as cheaply as 		 * possible what the actual type and size for this object is. 		 */
 switch|switch
 condition|(
@@ -5249,6 +5258,23 @@ name|in_pack_header_size
 operator|=
 name|used
 expr_stmt|;
+if|if
+condition|(
+name|entry
+operator|->
+name|type
+operator|<
+name|OBJ_COMMIT
+operator|||
+name|entry
+operator|->
+name|type
+operator|>
+name|OBJ_BLOB
+condition|)
+goto|goto
+name|give_up
+goto|;
 name|unuse_pack
 argument_list|(
 operator|&
@@ -5357,7 +5383,8 @@ argument_list|,
 literal|7
 argument_list|)
 condition|)
-name|die
+block|{
+name|error
 argument_list|(
 literal|"delta base offset overflow in pack for %s"
 argument_list|,
@@ -5371,6 +5398,10 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+goto|goto
+name|give_up
+goto|;
+block|}
 name|c
 operator|=
 name|buf
@@ -5414,7 +5445,8 @@ name|entry
 operator|->
 name|in_pack_offset
 condition|)
-name|die
+block|{
+name|error
 argument_list|(
 literal|"delta base offset out of bound for %s"
 argument_list|,
@@ -5428,6 +5460,10 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+goto|goto
+name|give_up
+goto|;
+block|}
 if|if
 condition|(
 name|reuse_delta
@@ -5553,6 +5589,17 @@ operator|->
 name|in_pack_header_size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|entry
+operator|->
+name|size
+operator|==
+literal|0
+condition|)
+goto|goto
+name|give_up
+goto|;
 name|unuse_pack
 argument_list|(
 operator|&
@@ -5562,6 +5609,8 @@ expr_stmt|;
 return|return;
 block|}
 comment|/* 		 * No choice but to fall back to the recursive delta walk 		 * with sha1_object_info() to find about the object type 		 * at this point... 		 */
+name|give_up
+label|:
 name|unuse_pack
 argument_list|(
 operator|&
