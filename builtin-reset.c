@@ -1501,6 +1501,8 @@ argument_list|(
 literal|"ORIG_HEAD"
 argument_list|,
 name|old_orig
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|prepend_reflog_action
