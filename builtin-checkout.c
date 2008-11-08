@@ -179,10 +179,14 @@ argument_list|(
 name|sha1_to_hex
 argument_list|(
 name|old
+condition|?
+name|old
 operator|->
 name|object
 operator|.
 name|sha1
+else|:
+name|null_sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1974,6 +1978,10 @@ if|if
 condition|(
 operator|!
 name|old_desc
+operator|&&
+name|old
+operator|->
+name|commit
 condition|)
 name|old_desc
 operator|=
@@ -1996,6 +2004,10 @@ argument_list|,
 literal|"checkout: moving from %s to %s"
 argument_list|,
 name|old_desc
+condition|?
+name|old_desc
+else|:
+literal|"(invalid)"
 argument_list|,
 name|new
 operator|->
@@ -2366,6 +2378,10 @@ operator|!
 name|old
 operator|.
 name|path
+operator|&&
+name|old
+operator|.
+name|commit
 operator|&&
 name|new
 operator|->
