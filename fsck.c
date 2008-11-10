@@ -1790,6 +1790,8 @@ expr_stmt|;
 block|}
 name|error
 argument_list|(
+literal|"%s"
+argument_list|,
 name|sb
 operator|.
 name|buf

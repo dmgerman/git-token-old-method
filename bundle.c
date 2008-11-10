@@ -763,6 +763,8 @@ literal|1
 condition|)
 name|error
 argument_list|(
+literal|"%s"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -963,6 +965,8 @@ literal|1
 condition|)
 name|error
 argument_list|(
+literal|"%s"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
