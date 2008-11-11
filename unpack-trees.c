@@ -1772,6 +1772,8 @@ condition|)
 return|return
 name|error
 argument_list|(
+literal|"%s"
+argument_list|,
 name|message
 argument_list|)
 return|;
