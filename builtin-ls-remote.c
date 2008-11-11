@@ -27,7 +27,7 @@ name|char
 name|ls_remote_usage
 index|[]
 init|=
-literal|"git ls-remote [--upload-pack=<git-upload-pack>] [<host>:]<directory>"
+literal|"git ls-remote [--heads] [--tags]  [-u<exec> | --upload-pack<exec>]<repository><refs>..."
 decl_stmt|;
 end_decl_stmt
 begin_comment
