@@ -5414,6 +5414,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* Truncate the message just before the diff, if any. */
+if|if
+condition|(
+name|verbose
+condition|)
+block|{
 name|p
 operator|=
 name|strstr
@@ -5422,7 +5427,7 @@ name|sb
 operator|.
 name|buf
 argument_list|,
-literal|"\ndiff --git a/"
+literal|"\ndiff --git "
 argument_list|)
 expr_stmt|;
 if|if
@@ -5445,6 +5450,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|cleanup_mode
