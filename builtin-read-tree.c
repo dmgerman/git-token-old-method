@@ -963,8 +963,8 @@ name|opts
 operator|.
 name|initial_checkout
 operator|=
-operator|!
-name|active_nr
+name|is_cache_unborn
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
