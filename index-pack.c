@@ -1758,6 +1758,12 @@ condition|(
 name|delta_base
 operator|->
 name|offset
+operator|<=
+literal|0
+operator|||
+name|delta_base
+operator|->
+name|offset
 operator|>=
 name|obj
 operator|->
