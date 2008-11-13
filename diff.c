@@ -7636,6 +7636,7 @@ block|}
 end_function
 begin_function
 DECL|function|diff_filespec_load_driver
+specifier|static
 name|void
 name|diff_filespec_load_driver
 parameter_list|(
