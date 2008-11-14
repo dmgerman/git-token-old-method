@@ -12204,7 +12204,7 @@ if|if
 condition|(
 name|errno
 operator|==
-name|EPERM
+name|EACCES
 condition|)
 return|return
 name|error
