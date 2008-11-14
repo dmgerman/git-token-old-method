@@ -1137,6 +1137,16 @@ parameter_list|)
 value|read_index_from(&the_index, (path))
 end_define
 begin_define
+DECL|macro|read_cache_preload
+define|#
+directive|define
+name|read_cache_preload
+parameter_list|(
+name|pathspec
+parameter_list|)
+value|read_index_preload(&the_index, (pathspec))
+end_define
+begin_define
 DECL|macro|is_cache_unborn
 define|#
 directive|define
@@ -1849,6 +1859,23 @@ parameter_list|(
 name|struct
 name|index_state
 modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|read_index_preload
+parameter_list|(
+name|struct
+name|index_state
+modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|pathspec
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2805,6 +2832,12 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|fsync_object_files
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|core_preload_index
 decl_stmt|;
 end_decl_stmt
 begin_enum
