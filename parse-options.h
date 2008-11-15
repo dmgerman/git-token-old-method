@@ -597,6 +597,24 @@ name|int
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|parse_opt_verbosity_cb
+parameter_list|(
+specifier|const
+name|struct
+name|option
+modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+parameter_list|,
+name|int
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_define
 DECL|macro|OPT__VERBOSE
 define|#
@@ -616,6 +634,17 @@ parameter_list|(
 name|var
 parameter_list|)
 value|OPT_BOOLEAN('q', "quiet",   (var), "be quiet")
+end_define
+begin_define
+DECL|macro|OPT__VERBOSITY
+define|#
+directive|define
+name|OPT__VERBOSITY
+parameter_list|(
+name|var
+parameter_list|)
+define|\
+value|{ OPTION_CALLBACK, 'v', "verbose", (var), NULL, "be more verbose", \ 	  PARSE_OPT_NOARG,&parse_opt_verbosity_cb, 0 }, \ 	{ OPTION_CALLBACK, 'q', "quiet", (var), NULL, "be more quiet", \ 	  PARSE_OPT_NOARG,&parse_opt_verbosity_cb, 0 }
 end_define
 begin_define
 DECL|macro|OPT__DRY_RUN
