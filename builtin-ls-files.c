@@ -1272,6 +1272,15 @@ operator|->
 name|show_ignored
 condition|)
 continue|continue;
+if|if
+condition|(
+name|ce
+operator|->
+name|ce_flags
+operator|&
+name|CE_UPDATE
+condition|)
+continue|continue;
 name|err
 operator|=
 name|lstat
