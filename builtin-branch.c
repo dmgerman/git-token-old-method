@@ -1398,7 +1398,8 @@ specifier|static
 name|void
 name|fill_tracking_info
 parameter_list|(
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|stat
 parameter_list|,
@@ -1451,7 +1452,7 @@ condition|(
 operator|!
 name|ours
 condition|)
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
@@ -1466,7 +1467,7 @@ condition|(
 operator|!
 name|theirs
 condition|)
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
@@ -1476,7 +1477,7 @@ name|ours
 argument_list|)
 expr_stmt|;
 else|else
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
@@ -1646,6 +1647,10 @@ name|strbuf
 name|subject
 init|=
 name|STRBUF_INIT
+decl_stmt|,
+name|stat
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -1654,19 +1659,6 @@ name|sub
 init|=
 literal|" **** invalid ref ****"
 decl_stmt|;
-name|char
-name|stat
-index|[
-literal|128
-index|]
-decl_stmt|;
-name|stat
-index|[
-literal|0
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
 name|commit
 operator|=
 name|item
@@ -1721,6 +1713,7 @@ name|REF_LOCAL_BRANCH
 condition|)
 name|fill_tracking_info
 argument_list|(
+operator|&
 name|stat
 argument_list|,
 name|item
@@ -1764,8 +1757,16 @@ name|abbrev
 argument_list|)
 argument_list|,
 name|stat
+operator|.
+name|buf
 argument_list|,
 name|sub
+argument_list|)
+expr_stmt|;
+name|strbuf_release
+argument_list|(
+operator|&
+name|stat
 argument_list|)
 expr_stmt|;
 name|strbuf_release
