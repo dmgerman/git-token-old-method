@@ -4830,12 +4830,9 @@ name|skip_default_update
 condition|)
 name|string_list_append
 argument_list|(
-name|xstrdup
-argument_list|(
 name|remote
 operator|->
 name|name
-argument_list|)
 argument_list|,
 name|list
 argument_list|)
