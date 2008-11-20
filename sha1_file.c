@@ -12047,6 +12047,10 @@ operator|<
 literal|0
 operator|&&
 name|dirlen
+operator|&&
+name|errno
+operator|==
+name|ENOENT
 condition|)
 block|{
 comment|/* Make sure the directory exists */
