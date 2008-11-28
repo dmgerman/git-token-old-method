@@ -62,7 +62,7 @@ literal|"git remote show [-n]<name>"
 block|,
 literal|"git remote prune [-n | --dry-run]<name>"
 block|,
-literal|"git remote update [group]"
+literal|"git remote [-v | --verbose] update [group]"
 block|,
 name|NULL
 block|}
@@ -218,8 +218,30 @@ block|,
 name|name
 block|,
 name|NULL
+block|,
+name|NULL
 block|}
 decl_stmt|;
+if|if
+condition|(
+name|verbose
+condition|)
+block|{
+name|argv
+index|[
+literal|1
+index|]
+operator|=
+literal|"-v"
+expr_stmt|;
+name|argv
+index|[
+literal|2
+index|]
+operator|=
+name|name
+expr_stmt|;
+block|}
 name|printf
 argument_list|(
 literal|"Updating %s\n"
