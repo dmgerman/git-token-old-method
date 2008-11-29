@@ -599,6 +599,13 @@ end_define
 begin_comment
 comment|/*  * Extended on-disk flags  */
 end_comment
+begin_define
+DECL|macro|CE_INTENT_TO_ADD
+define|#
+directive|define
+name|CE_INTENT_TO_ADD
+value|0x20000000
+end_define
 begin_comment
 comment|/* CE_EXTENDED2 is for future extension */
 end_comment
@@ -614,7 +621,7 @@ DECL|macro|CE_EXTENDED_FLAGS
 define|#
 directive|define
 name|CE_EXTENDED_FLAGS
-value|(0)
+value|(CE_INTENT_TO_ADD)
 end_define
 begin_comment
 comment|/*  * Safeguard to avoid saving wrong flags:  *  - CE_EXTENDED2 won't get saved until its semantic is known  *  - Bits in 0x0000FFFF have been saved in ce_flags already  *  - Bits in 0x003F0000 are currently in-memory flags  */

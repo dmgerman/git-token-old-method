@@ -2725,6 +2725,13 @@ argument_list|,
 name|st
 argument_list|)
 expr_stmt|;
+else|else
+name|ce
+operator|->
+name|ce_flags
+operator||=
+name|CE_INTENT_TO_ADD
+expr_stmt|;
 if|if
 condition|(
 name|trust_executable_bit
