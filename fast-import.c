@@ -5154,6 +5154,14 @@ operator|++
 expr_stmt|;
 block|}
 else|else
+block|{
+name|close
+argument_list|(
+name|old_p
+operator|->
+name|pack_fd
+argument_list|)
+expr_stmt|;
 name|unlink
 argument_list|(
 name|old_p
@@ -5161,6 +5169,7 @@ operator|->
 name|pack_name
 argument_list|)
 expr_stmt|;
+block|}
 name|free
 argument_list|(
 name|old_p
