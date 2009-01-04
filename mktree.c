@@ -430,7 +430,7 @@ name|char
 name|mktree_usage
 index|[]
 init|=
-literal|"git-mktree [-z]"
+literal|"git mktree [-z]"
 decl_stmt|;
 end_decl_stmt
 begin_function

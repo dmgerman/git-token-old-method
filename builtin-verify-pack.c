@@ -567,7 +567,7 @@ name|char
 name|verify_pack_usage
 index|[]
 init|=
-literal|"git-verify-pack [-v]<pack>..."
+literal|"git verify-pack [-v]<pack>..."
 decl_stmt|;
 end_decl_stmt
 begin_function

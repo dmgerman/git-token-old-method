@@ -372,7 +372,7 @@ name|char
 name|patch_id_usage
 index|[]
 init|=
-literal|"git-patch-id< patch"
+literal|"git patch-id< patch"
 decl_stmt|;
 end_decl_stmt
 begin_function
