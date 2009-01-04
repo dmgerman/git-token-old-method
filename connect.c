@@ -1725,7 +1725,7 @@ name|se
 condition|)
 name|die
 argument_list|(
-literal|"Unknown port %s\n"
+literal|"Unknown port %s"
 argument_list|,
 name|port
 argument_list|)

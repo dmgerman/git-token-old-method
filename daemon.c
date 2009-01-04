@@ -3354,7 +3354,7 @@ name|gai
 condition|)
 name|die
 argument_list|(
-literal|"getaddrinfo() failed: %s\n"
+literal|"getaddrinfo() failed: %s"
 argument_list|,
 name|gai_strerror
 argument_list|(

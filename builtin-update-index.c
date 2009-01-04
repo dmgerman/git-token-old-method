@@ -2239,7 +2239,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"No HEAD -- no initial commit yet?\n"
+literal|"No HEAD -- no initial commit yet?"
 argument_list|)
 expr_stmt|;
 if|if
