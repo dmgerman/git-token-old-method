@@ -955,7 +955,7 @@ name|stream
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 operator|&
 name|stream
@@ -1002,7 +1002,7 @@ argument_list|)
 expr_stmt|;
 name|st
 operator|=
-name|inflate
+name|git_inflate
 argument_list|(
 operator|&
 name|stream
@@ -1030,7 +1030,7 @@ operator|==
 name|Z_BUF_ERROR
 condition|)
 do|;
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream

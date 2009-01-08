@@ -6758,13 +6758,13 @@ name|map
 argument_list|)
 condition|)
 block|{
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
 return|return
-name|inflate
+name|git_inflate
 argument_list|(
 name|stream
 argument_list|,
@@ -6824,7 +6824,7 @@ name|avail_in
 operator|=
 name|mapsize
 expr_stmt|;
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 name|stream
 argument_list|)
@@ -6983,7 +6983,7 @@ name|Z_OK
 condition|)
 name|status
 operator|=
-name|inflate
+name|git_inflate
 argument_list|(
 name|stream
 argument_list|,
@@ -7010,7 +7010,7 @@ operator|->
 name|avail_in
 condition|)
 block|{
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 name|stream
 argument_list|)
@@ -7401,7 +7401,7 @@ argument_list|(
 name|delta_head
 argument_list|)
 expr_stmt|;
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 operator|&
 name|stream
@@ -7433,7 +7433,7 @@ name|in
 expr_stmt|;
 name|st
 operator|=
-name|inflate
+name|git_inflate
 argument_list|(
 operator|&
 name|stream
@@ -7472,7 +7472,7 @@ name|delta_head
 argument_list|)
 condition|)
 do|;
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream
@@ -8435,7 +8435,7 @@ name|avail_out
 operator|=
 name|size
 expr_stmt|;
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 operator|&
 name|stream
@@ -8467,7 +8467,7 @@ name|in
 expr_stmt|;
 name|st
 operator|=
-name|inflate
+name|git_inflate
 argument_list|(
 operator|&
 name|stream
@@ -8495,7 +8495,7 @@ operator|==
 name|Z_BUF_ERROR
 condition|)
 do|;
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream
@@ -10795,7 +10795,7 @@ name|sizep
 operator|=
 name|size
 expr_stmt|;
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream
