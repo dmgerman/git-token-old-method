@@ -29,6 +29,11 @@ include|#
 directive|include
 file|"revision.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"dir.h"
+end_include
 begin_decl_stmt
 DECL|variable|s_tag_refspec
 specifier|static
@@ -3561,40 +3566,10 @@ index|[
 literal|0
 index|]
 operator|||
-comment|/* not empty */
-operator|(
+name|is_dot_or_dotdot
+argument_list|(
 name|name
-index|[
-literal|0
-index|]
-operator|==
-literal|'.'
-operator|&&
-comment|/* not "." */
-operator|(
-operator|!
-name|name
-index|[
-literal|1
-index|]
-operator|||
-comment|/* not ".." */
-operator|(
-name|name
-index|[
-literal|1
-index|]
-operator|==
-literal|'.'
-operator|&&
-operator|!
-name|name
-index|[
-literal|2
-index|]
-operator|)
-operator|)
-operator|)
+argument_list|)
 condition|)
 return|return
 literal|0
