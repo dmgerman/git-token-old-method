@@ -4309,6 +4309,11 @@ literal|4
 argument_list|)
 condition|)
 block|{
+name|cleanup_space
+argument_list|(
+name|hdr
+argument_list|)
+expr_stmt|;
 name|handle_from
 argument_list|(
 name|hdr
