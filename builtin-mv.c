@@ -1258,6 +1258,9 @@ operator|*
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|i
+operator|--
+expr_stmt|;
 block|}
 block|}
 else|else
