@@ -1966,10 +1966,10 @@ name|GIT_ALPHA
 value|0x04
 end_define
 begin_define
-DECL|macro|GIT_SPECIAL
+DECL|macro|GIT_GLOB_SPECIAL
 define|#
 directive|define
-name|GIT_SPECIAL
+name|GIT_GLOB_SPECIAL
 value|0x08
 end_define
 begin_define
@@ -2025,14 +2025,14 @@ parameter_list|)
 value|sane_istest(x,GIT_ALPHA | GIT_DIGIT)
 end_define
 begin_define
-DECL|macro|isspecial
+DECL|macro|is_glob_special
 define|#
 directive|define
-name|isspecial
+name|is_glob_special
 parameter_list|(
 name|x
 parameter_list|)
-value|sane_istest(x,GIT_SPECIAL)
+value|sane_istest(x,GIT_GLOB_SPECIAL)
 end_define
 begin_define
 DECL|macro|tolower
