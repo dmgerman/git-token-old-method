@@ -9472,6 +9472,8 @@ operator|->
 name|word_regex
 argument_list|,
 name|REG_EXTENDED
+operator||
+name|REG_NEWLINE
 argument_list|)
 condition|)
 name|die
