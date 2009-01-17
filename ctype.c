@@ -31,6 +31,12 @@ init|=
 name|GIT_GLOB_SPECIAL
 block|,
 comment|/* *, ?, [, \\ */
+DECL|enumerator|R
+name|R
+init|=
+name|GIT_REGEX_SPECIAL
+block|,
+comment|/* $, (, ), +, ., ^, {, | * */
 block|}
 enum|;
 end_enum
@@ -118,7 +124,7 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|R
 block|,
 literal|0
 block|,
@@ -126,19 +132,19 @@ literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|R
 block|,
-literal|0
+name|R
 block|,
 name|G
 block|,
-literal|0
+name|R
 block|,
 literal|0
 block|,
 literal|0
 block|,
-literal|0
+name|R
 block|,
 literal|0
 block|,
@@ -237,7 +243,7 @@ name|G
 block|,
 literal|0
 block|,
-literal|0
+name|R
 block|,
 literal|0
 block|,
@@ -297,9 +303,9 @@ name|A
 block|,
 name|A
 block|,
-literal|0
+name|R
 block|,
-literal|0
+name|R
 block|,
 literal|0
 block|,
