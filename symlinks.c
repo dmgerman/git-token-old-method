@@ -15,6 +15,8 @@ name|char
 name|path
 index|[
 name|PATH_MAX
+operator|+
+literal|1
 index|]
 decl_stmt|;
 DECL|member|len
@@ -28,6 +30,10 @@ decl_stmt|;
 DECL|member|track_flags
 name|int
 name|track_flags
+decl_stmt|;
+DECL|member|prefix_len_stat_func
+name|int
+name|prefix_len_stat_func
 decl_stmt|;
 block|}
 DECL|variable|cache
@@ -199,6 +205,9 @@ name|reset_lstat_cache
 parameter_list|(
 name|int
 name|track_flags
+parameter_list|,
+name|int
+name|prefix_len_stat_func
 parameter_list|)
 block|{
 name|cache
@@ -227,6 +236,12 @@ operator|.
 name|track_flags
 operator|=
 name|track_flags
+expr_stmt|;
+name|cache
+operator|.
+name|prefix_len_stat_func
+operator|=
+name|prefix_len_stat_func
 expr_stmt|;
 block|}
 end_function
@@ -265,8 +280,15 @@ directive|define
 name|FL_ERR
 value|(1<< 4)
 end_define
+begin_define
+DECL|macro|FL_FULLPATH
+define|#
+directive|define
+name|FL_FULLPATH
+value|(1<< 5)
+end_define
 begin_comment
-comment|/*  * Check if name 'name' of length 'len' has a symlink leading  * component, or if the directory exists and is real, or not.  *  * To speed up the check, some information is allowed to be cached.  * This can be indicated by the 'track_flags' argument.  */
+comment|/*  * Check if name 'name' of length 'len' has a symlink leading  * component, or if the directory exists and is real, or not.  *  * To speed up the check, some information is allowed to be cached.  * This can be indicated by the 'track_flags' argument, which also can  * be used to indicate that we should check the full path.  *  * The 'prefix_len_stat_func' parameter can be used to set the length  * of the prefix, where the cache should use the stat() function  * instead of the lstat() function to test each path component.  */
 end_comment
 begin_function
 DECL|function|lstat_cache
@@ -284,6 +306,9 @@ name|name
 parameter_list|,
 name|int
 name|track_flags
+parameter_list|,
+name|int
+name|prefix_len_stat_func
 parameter_list|)
 block|{
 name|int
@@ -301,6 +326,8 @@ decl_stmt|,
 name|save_flags
 decl_stmt|,
 name|max_len
+decl_stmt|,
+name|ret
 decl_stmt|;
 name|struct
 name|stat
@@ -313,12 +340,20 @@ operator|.
 name|track_flags
 operator|!=
 name|track_flags
+operator|||
+name|cache
+operator|.
+name|prefix_len_stat_func
+operator|!=
+name|prefix_len_stat_func
 condition|)
 block|{
-comment|/* 		 * As a safeguard we clear the cache if the value of 		 * track_flags does not match with the last supplied 		 * value. 		 */
+comment|/* 		 * As a safeguard we clear the cache if the values of 		 * track_flags and/or prefix_len_stat_func does not 		 * match with the last supplied values. 		 */
 name|reset_lstat_cache
 argument_list|(
 name|track_flags
+argument_list|,
+name|prefix_len_stat_func
 argument_list|)
 expr_stmt|;
 name|match_len
@@ -451,6 +486,13 @@ condition|(
 name|match_len
 operator|>=
 name|max_len
+operator|&&
+operator|!
+operator|(
+name|track_flags
+operator|&
+name|FL_FULLPATH
+operator|)
 condition|)
 break|break;
 name|last_slash
@@ -468,6 +510,25 @@ literal|'\0'
 expr_stmt|;
 if|if
 condition|(
+name|last_slash
+operator|<=
+name|prefix_len_stat_func
+condition|)
+name|ret
+operator|=
+name|stat
+argument_list|(
+name|cache
+operator|.
+name|path
+argument_list|,
+operator|&
+name|st
+argument_list|)
+expr_stmt|;
+else|else
+name|ret
+operator|=
 name|lstat
 argument_list|(
 name|cache
@@ -477,6 +538,10 @@ argument_list|,
 operator|&
 name|st
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ret
 condition|)
 block|{
 name|ret_flags
@@ -558,7 +623,7 @@ operator|>
 literal|0
 operator|&&
 name|last_slash
-operator|<
+operator|<=
 name|PATH_MAX
 condition|)
 block|{
@@ -596,7 +661,7 @@ operator|>
 literal|0
 operator|&&
 name|last_slash_dir
-operator|<
+operator|<=
 name|PATH_MAX
 condition|)
 block|{
@@ -628,6 +693,8 @@ block|{
 name|reset_lstat_cache
 argument_list|(
 name|track_flags
+argument_list|,
+name|prefix_len_stat_func
 argument_list|)
 expr_stmt|;
 block|}
@@ -636,6 +703,13 @@ name|ret_flags
 return|;
 block|}
 end_function
+begin_define
+DECL|macro|USE_ONLY_LSTAT
+define|#
+directive|define
+name|USE_ONLY_LSTAT
+value|0
+end_define
 begin_comment
 comment|/*  * Return non-zero if path 'name' has a leading symlink component  */
 end_comment
@@ -663,6 +737,8 @@ argument_list|,
 name|FL_SYMLINK
 operator||
 name|FL_DIR
+argument_list|,
+name|USE_ONLY_LSTAT
 argument_list|)
 operator|&
 name|FL_SYMLINK
@@ -698,6 +774,8 @@ operator||
 name|FL_NOENT
 operator||
 name|FL_DIR
+argument_list|,
+name|USE_ONLY_LSTAT
 argument_list|)
 operator|&
 operator|(
@@ -705,6 +783,44 @@ name|FL_SYMLINK
 operator||
 name|FL_NOENT
 operator|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*  * Return non-zero if all path components of 'name' exists as a  * directory.  If prefix_len> 0, we will test with the stat()  * function instead of the lstat() function for a prefix length of  * 'prefix_len', thus we then allow for symlinks in the prefix part as  * long as those points to real existing directories.  */
+end_comment
+begin_function
+DECL|function|has_dirs_only_path
+name|int
+name|has_dirs_only_path
+parameter_list|(
+name|int
+name|len
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|,
+name|int
+name|prefix_len
+parameter_list|)
+block|{
+return|return
+name|lstat_cache
+argument_list|(
+name|len
+argument_list|,
+name|name
+argument_list|,
+name|FL_DIR
+operator||
+name|FL_FULLPATH
+argument_list|,
+name|prefix_len
+argument_list|)
+operator|&
+name|FL_DIR
 return|;
 block|}
 end_function
