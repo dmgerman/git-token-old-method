@@ -3136,7 +3136,7 @@ for|for
 control|(
 name|i
 operator|=
-literal|1
+literal|0
 init|;
 name|i
 operator|<
