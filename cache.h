@@ -4753,6 +4753,15 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|clear_lstat_cache
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_struct
 DECL|struct|alternate_object_database
 specifier|extern
