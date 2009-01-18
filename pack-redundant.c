@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"cache.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"exec_cmd.h"
+end_include
 begin_define
 DECL|macro|BLKSIZE
 define|#
@@ -3112,6 +3117,14 @@ literal|42
 index|]
 decl_stmt|;
 comment|/* 40 byte sha1 + \n + \0 */
+name|git_extract_argv0_path
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 name|setup_git_directory
 argument_list|()
 expr_stmt|;
