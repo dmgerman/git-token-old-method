@@ -415,6 +415,16 @@ name|mode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|object_array_remove_duplicates
+parameter_list|(
+name|struct
+name|object_array
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
