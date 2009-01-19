@@ -4638,7 +4638,7 @@ name|char
 modifier|*
 name|format
 init|=
-literal|"format:%h: \"%s\""
+literal|"format:%h] %s"
 decl_stmt|;
 name|unsigned
 name|char
@@ -4797,7 +4797,7 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"[%s%s]: created "
+literal|"[%s%s "
 argument_list|,
 operator|!
 name|prefixcmp
