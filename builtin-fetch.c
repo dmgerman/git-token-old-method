@@ -3905,10 +3905,8 @@ operator|=
 name|j
 expr_stmt|;
 block|}
-name|sigchain_push
+name|sigchain_push_common
 argument_list|(
-name|SIGINT
-argument_list|,
 name|unlock_pack_on_signal
 argument_list|)
 expr_stmt|;
