@@ -57,6 +57,11 @@ include|#
 directive|include
 file|"userdiff.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sigchain.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -1070,11 +1075,9 @@ block|{
 name|remove_tempfile
 argument_list|()
 expr_stmt|;
-name|signal
+name|sigchain_pop
 argument_list|(
-name|SIGINT
-argument_list|,
-name|SIG_DFL
+name|signo
 argument_list|)
 expr_stmt|;
 name|raise
@@ -11062,7 +11065,7 @@ argument_list|(
 name|remove_tempfile
 argument_list|)
 expr_stmt|;
-name|signal
+name|sigchain_push
 argument_list|(
 name|SIGINT
 argument_list|,
