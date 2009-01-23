@@ -26,6 +26,7 @@ specifier|static
 name|int
 name|verify_object
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -51,11 +52,17 @@ name|unsigned
 name|long
 name|size
 decl_stmt|;
+specifier|const
+name|unsigned
+name|char
+modifier|*
+name|repl
+decl_stmt|;
 name|void
 modifier|*
 name|buffer
 init|=
-name|read_sha1_file
+name|read_sha1_file_repl
 argument_list|(
 name|sha1
 argument_list|,
@@ -64,6 +71,9 @@ name|type
 argument_list|,
 operator|&
 name|size
+argument_list|,
+operator|&
+name|repl
 argument_list|)
 decl_stmt|;
 if|if
@@ -84,7 +94,7 @@ name|ret
 operator|=
 name|check_sha1_signature
 argument_list|(
-name|sha1
+name|repl
 argument_list|,
 name|buffer
 argument_list|,
