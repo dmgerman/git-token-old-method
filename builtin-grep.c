@@ -78,6 +78,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+DECL|variable|builtin_grep
+specifier|static
+name|int
+name|builtin_grep
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * git grep pathspecs are somewhat different from diff-tree pathspecs;  * pathname wildcards are allowed.  */
 end_comment
@@ -1848,6 +1855,9 @@ if|if
 condition|(
 operator|!
 name|cached
+operator|&&
+operator|!
+name|builtin_grep
 condition|)
 block|{
 name|hit
@@ -1921,9 +1931,18 @@ name|name
 argument_list|)
 condition|)
 continue|continue;
+comment|/* 		 * If CE_VALID is on, we assume worktree file and its cache entry 		 * are identical, even if worktree file has been modified, so use 		 * cache version instead 		 */
 if|if
 condition|(
 name|cached
+operator|||
+operator|(
+name|ce
+operator|->
+name|ce_flags
+operator|&
+name|CE_VALID
+operator|)
 condition|)
 block|{
 if|if
@@ -2703,6 +2722,23 @@ argument_list|)
 condition|)
 block|{
 name|cached
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+literal|"--no-ext-grep"
+argument_list|,
+name|arg
+argument_list|)
+condition|)
+block|{
+name|builtin_grep
 operator|=
 literal|1
 expr_stmt|;
