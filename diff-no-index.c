@@ -213,7 +213,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|stat
+name|lstat
 argument_list|(
 name|path
 argument_list|,
