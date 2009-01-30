@@ -77,6 +77,11 @@ include|#
 directive|include
 file|"parse-options.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"utf8.h"
+end_include
 begin_decl_stmt
 DECL|variable|blame_usage
 specifier|static
@@ -8132,17 +8137,30 @@ operator|&
 name|OUTPUT_NO_AUTHOR
 operator|)
 condition|)
+block|{
+name|int
+name|pad
+init|=
+name|longest_author
+operator|-
+name|utf8_strwidth
+argument_list|(
+name|ci
+operator|.
+name|author
+argument_list|)
+decl_stmt|;
 name|printf
 argument_list|(
-literal|" (%-*.*s %10s"
-argument_list|,
-name|longest_author
-argument_list|,
-name|longest_author
+literal|" (%s%*s %10s"
 argument_list|,
 name|ci
 operator|.
 name|author
+argument_list|,
+name|pad
+argument_list|,
+literal|""
 argument_list|,
 name|format_time
 argument_list|(
@@ -8158,6 +8176,7 @@ name|show_raw_time
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|printf
 argument_list|(
 literal|" %*d) "
@@ -8868,7 +8887,7 @@ argument_list|)
 expr_stmt|;
 name|num
 operator|=
-name|strlen
+name|utf8_strwidth
 argument_list|(
 name|ci
 operator|.
