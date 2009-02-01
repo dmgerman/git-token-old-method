@@ -1199,10 +1199,8 @@ parameter_list|,
 name|struct
 name|cache_entry
 modifier|*
+modifier|*
 name|src
-index|[
-literal|5
-index|]
 parameter_list|,
 specifier|const
 name|struct
@@ -1479,7 +1477,9 @@ name|cache_entry
 modifier|*
 name|src
 index|[
-literal|5
+name|MAX_UNPACK_TREES
+operator|+
+literal|1
 index|]
 init|=
 block|{
