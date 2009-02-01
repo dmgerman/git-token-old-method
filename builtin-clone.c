@@ -57,6 +57,11 @@ include|#
 directive|include
 file|"pack-refs.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sigchain.h"
+end_include
 begin_comment
 comment|/*  * Overall FIXMEs:  *  - respect DB_ENVIRONMENT for .git/objects.  *  * Implementation notes:  *  - dropping use-separate-remote and no-separate-remote compatibility  *  */
 end_comment
@@ -1567,11 +1572,9 @@ block|{
 name|remove_junk
 argument_list|()
 expr_stmt|;
-name|signal
+name|sigchain_pop
 argument_list|(
-name|SIGINT
-argument_list|,
-name|SIG_DFL
+name|signo
 argument_list|)
 expr_stmt|;
 name|raise
@@ -2354,10 +2357,8 @@ argument_list|(
 name|remove_junk
 argument_list|)
 expr_stmt|;
-name|signal
+name|sigchain_push_common
 argument_list|(
-name|SIGINT
-argument_list|,
 name|remove_junk_on_signal
 argument_list|)
 expr_stmt|;
