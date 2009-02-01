@@ -4497,6 +4497,14 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+name|git_extract_argv0_path
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|i

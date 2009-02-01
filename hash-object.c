@@ -22,6 +22,11 @@ include|#
 directive|include
 file|"parse-options.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"exec_cmd.h"
+end_include
 begin_function
 DECL|function|hash_fd
 specifier|static
@@ -494,6 +499,14 @@ decl_stmt|;
 name|type
 operator|=
 name|blob_type
+expr_stmt|;
+name|git_extract_argv0_path
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
 expr_stmt|;
 name|git_config
 argument_list|(

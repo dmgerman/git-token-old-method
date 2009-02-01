@@ -57,6 +57,11 @@ include|#
 directive|include
 file|"quote.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"exec_cmd.h"
+end_include
 begin_define
 DECL|macro|PACK_ID_BITS
 define|#
@@ -13604,6 +13609,14 @@ name|show_stats
 init|=
 literal|1
 decl_stmt|;
+name|git_extract_argv0_path
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 name|setup_git_directory
 argument_list|()
 expr_stmt|;
