@@ -11833,6 +11833,11 @@ operator|!
 name|patch
 operator|->
 name|new_mode
+operator|&&
+operator|!
+name|patch
+operator|->
+name|is_delete
 condition|)
 name|patch
 operator|->
