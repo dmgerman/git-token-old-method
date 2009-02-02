@@ -667,8 +667,10 @@ name|list
 operator|&&
 name|delete
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"-l and -d cannot be used together"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
@@ -684,8 +686,10 @@ operator|||
 name|delete
 operator|)
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"-f cannot be used with -d or -l"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
@@ -703,8 +707,10 @@ name|argc
 operator|<
 literal|1
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"-d needs at least one argument"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
@@ -734,8 +740,10 @@ name|argc
 operator|!=
 literal|2
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"bad number of arguments"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
@@ -765,8 +773,10 @@ name|argc
 operator|>
 literal|1
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"only one pattern can be given with -l"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
@@ -776,8 +786,10 @@ if|if
 condition|(
 name|force
 condition|)
-name|usage_with_options
+name|usage_msg_opt
 argument_list|(
+literal|"-f needs some arguments"
+argument_list|,
 name|git_replace_usage
 argument_list|,
 name|options
