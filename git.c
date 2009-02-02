@@ -2018,6 +2018,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"replace"
+block|,
+name|cmd_replace
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"repo-config"
 block|,
 name|cmd_config
