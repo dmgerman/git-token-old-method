@@ -2107,6 +2107,8 @@ block|}
 decl_stmt|;
 name|int
 name|i
+decl_stmt|,
+name|result
 decl_stmt|;
 if|if
 condition|(
@@ -2346,7 +2348,7 @@ name|remote
 operator|=
 name|remote
 expr_stmt|;
-name|i
+name|result
 operator|=
 name|for_each_ref
 argument_list|(
@@ -2365,9 +2367,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|i
+name|result
 condition|)
-name|i
+name|result
 operator|=
 name|remove_branches
 argument_list|(
@@ -2384,7 +2386,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 return|return
-name|i
+name|result
 return|;
 block|}
 end_function
