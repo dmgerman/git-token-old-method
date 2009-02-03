@@ -19,6 +19,11 @@ include|#
 directive|include
 file|"quote.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"run-command.h"
+end_include
 begin_decl_stmt
 DECL|variable|git_usage_string
 specifier|const
@@ -1188,10 +1193,10 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|run_command
+DECL|function|run_builtin
 specifier|static
 name|int
-name|run_command
+name|run_builtin
 parameter_list|(
 name|struct
 name|cmd_struct
@@ -2344,7 +2349,7 @@ condition|)
 continue|continue;
 name|exit
 argument_list|(
-name|run_command
+name|run_builtin
 argument_list|(
 name|p
 argument_list|,
@@ -2380,6 +2385,9 @@ specifier|const
 name|char
 modifier|*
 name|tmp
+decl_stmt|;
+name|int
+name|status
 decl_stmt|;
 name|strbuf_addf
 argument_list|(
@@ -2418,31 +2426,53 @@ argument_list|,
 literal|"trace: exec:"
 argument_list|)
 expr_stmt|;
-comment|/* execvp() can only ever return if it fails */
-name|execvp
+comment|/* 	 * if we fail because the command is not found, it is 	 * OK to return. Otherwise, we just pass along the status code. 	 */
+name|status
+operator|=
+name|run_command_v_opt
 argument_list|(
-name|cmd
-operator|.
-name|buf
-argument_list|,
-operator|(
-name|char
-operator|*
-operator|*
-operator|)
 name|argv
-argument_list|)
-expr_stmt|;
-name|trace_printf
-argument_list|(
-literal|"trace: exec failed: %s\n"
 argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+operator|-
+name|ERR_RUN_COMMAND_EXEC
+condition|)
+block|{
+if|if
+condition|(
+name|IS_RUN_COMMAND_ERR
+argument_list|(
+name|status
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to run '%s'"
+argument_list|,
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+operator|-
+name|status
+argument_list|)
+expr_stmt|;
+block|}
+name|errno
+operator|=
+name|ENOENT
+expr_stmt|;
+comment|/* as if we called execvp */
 name|argv
 index|[
 literal|0
