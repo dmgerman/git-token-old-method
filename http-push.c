@@ -3029,6 +3029,14 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
+literal|"_"
+argument_list|)
+expr_stmt|;
+name|strbuf_addstr
+argument_list|(
+operator|&
+name|buf
+argument_list|,
 name|request
 operator|->
 name|lock
