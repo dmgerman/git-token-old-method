@@ -514,7 +514,7 @@ name|avail_in
 operator|=
 name|len
 expr_stmt|;
-name|inflateInit
+name|git_inflate_init
 argument_list|(
 operator|&
 name|stream
@@ -529,7 +529,7 @@ block|{
 name|int
 name|ret
 init|=
-name|inflate
+name|git_inflate
 argument_list|(
 operator|&
 name|stream
@@ -614,7 +614,7 @@ operator|=
 name|len
 expr_stmt|;
 block|}
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream
