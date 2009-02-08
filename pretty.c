@@ -1787,8 +1787,6 @@ name|read_mailmap
 argument_list|(
 name|mail_map
 argument_list|,
-literal|".mailmap"
-argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
