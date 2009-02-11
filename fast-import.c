@@ -4942,6 +4942,9 @@ decl_stmt|,
 modifier|*
 name|new_p
 decl_stmt|;
+name|clear_delta_base_cache
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|object_count
