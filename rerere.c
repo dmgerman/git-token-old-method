@@ -1825,7 +1825,6 @@ literal|0755
 argument_list|)
 condition|)
 continue|continue;
-empty_stmt|;
 name|handle_file
 argument_list|(
 name|path

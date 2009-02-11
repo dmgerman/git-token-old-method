@@ -4438,7 +4438,6 @@ name|next
 init|=
 name|c
 decl_stmt|;
-empty_stmt|;
 while|while
 condition|(
 name|next
