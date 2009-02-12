@@ -1062,6 +1062,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 if|if
 condition|(
 name|diff_temp
@@ -1078,7 +1079,6 @@ index|]
 operator|.
 name|tmp_path
 condition|)
-block|{
 name|unlink
 argument_list|(
 name|diff_temp
