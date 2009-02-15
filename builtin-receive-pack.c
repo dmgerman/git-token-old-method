@@ -1284,6 +1284,8 @@ operator|++
 control|)
 name|warning
 argument_list|(
+literal|"%s"
+argument_list|,
 name|warn_unconfigured_deny_msg
 index|[
 name|i
@@ -1361,6 +1363,8 @@ operator|++
 control|)
 name|warning
 argument_list|(
+literal|"%s"
+argument_list|,
 name|warn_unconfigured_deny_delete_current_msg
 index|[
 name|i
