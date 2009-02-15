@@ -762,6 +762,8 @@ name|append_option
 argument_list|(
 name|argv_repack
 argument_list|,
+name|prune_expire
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
@@ -827,11 +829,6 @@ name|prefix
 parameter_list|)
 block|{
 name|int
-name|prune
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|aggressive
 init|=
 literal|0
@@ -858,17 +855,29 @@ name|builtin_gc_options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
-argument_list|(
+block|{
+name|OPTION_STRING
+block|,
 literal|0
-argument_list|,
+block|,
 literal|"prune"
-argument_list|,
+block|,
 operator|&
-name|prune
-argument_list|,
-literal|"prune unreferenced objects (deprecated)"
-argument_list|)
+name|prune_expire
+block|,
+literal|"date"
+block|,
+literal|"prune unreferenced objects"
+block|,
+name|PARSE_OPT_OPTARG
+block|,
+name|NULL
+block|,
+operator|(
+name|intptr_t
+operator|)
+name|prune_expire
+block|}
 block|,
 name|OPT_BOOLEAN
 argument_list|(
@@ -1042,6 +1051,8 @@ name|append_option
 argument_list|(
 name|argv_repack
 argument_list|,
+name|prune_expire
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
@@ -1119,6 +1130,11 @@ literal|0
 index|]
 argument_list|)
 return|;
+if|if
+condition|(
+name|prune_expire
+condition|)
+block|{
 name|argv_prune
 index|[
 literal|2
@@ -1146,6 +1162,7 @@ literal|0
 index|]
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|run_command_v_opt
