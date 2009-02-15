@@ -325,7 +325,7 @@ name|printf
 argument_list|(
 literal|" %s"
 argument_list|,
-name|diff_unique_abbrev
+name|find_unique_abbrev
 argument_list|(
 name|parent
 operator|->
@@ -1435,7 +1435,7 @@ block|}
 block|}
 name|fputs
 argument_list|(
-name|diff_unique_abbrev
+name|find_unique_abbrev
 argument_list|(
 name|commit
 operator|->
@@ -1714,7 +1714,7 @@ block|}
 block|}
 name|fputs
 argument_list|(
-name|diff_unique_abbrev
+name|find_unique_abbrev
 argument_list|(
 name|commit
 operator|->
@@ -1749,7 +1749,7 @@ name|printf
 argument_list|(
 literal|" (from %s)"
 argument_list|,
-name|diff_unique_abbrev
+name|find_unique_abbrev
 argument_list|(
 name|parent
 operator|->
