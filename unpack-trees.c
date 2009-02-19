@@ -2216,6 +2216,11 @@ operator|||
 name|o
 operator|->
 name|reset
+operator|||
+name|ce_uptodate
+argument_list|(
+name|ce
+argument_list|)
 condition|)
 return|return
 literal|0
