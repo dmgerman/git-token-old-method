@@ -4517,6 +4517,9 @@ name|DATE_ISO8601
 block|,
 DECL|enumerator|DATE_RFC2822
 name|DATE_RFC2822
+block|,
+DECL|enumerator|DATE_RAW
+name|DATE_RAW
 block|}
 enum|;
 end_enum
