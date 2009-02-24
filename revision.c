@@ -6299,6 +6299,14 @@ name|arg
 argument_list|,
 literal|"--pretty="
 argument_list|)
+operator|||
+operator|!
+name|prefixcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--format="
+argument_list|)
 condition|)
 block|{
 name|revs
