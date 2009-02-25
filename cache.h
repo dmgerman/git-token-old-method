@@ -5183,6 +5183,7 @@ name|ref
 modifier|*
 name|find_ref_by_name
 parameter_list|(
+specifier|const
 name|struct
 name|ref
 modifier|*
