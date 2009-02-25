@@ -5794,6 +5794,9 @@ name|flags
 operator|&
 name|MATCH_REFS_MIRROR
 decl_stmt|;
+name|int
+name|errs
+decl_stmt|;
 specifier|static
 specifier|const
 name|char
@@ -5837,8 +5840,8 @@ operator|)
 name|refspec
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|errs
+operator|=
 name|match_explicit_refs
 argument_list|(
 name|src
@@ -5851,11 +5854,7 @@ name|rs
 argument_list|,
 name|nr_refspec
 argument_list|)
-condition|)
-return|return
-operator|-
-literal|1
-return|;
+expr_stmt|;
 comment|/* pick the remainder */
 for|for
 control|(
@@ -6103,6 +6102,14 @@ name|dst_name
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|errs
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 literal|0
 return|;
