@@ -618,6 +618,16 @@ name|sb
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|struct
+name|ref
+modifier|*
+name|get_local_heads
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
