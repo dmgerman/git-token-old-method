@@ -3208,7 +3208,7 @@ name|strbuf_addstr
 argument_list|(
 name|sb
 argument_list|,
-literal|"\033[31m"
+name|GIT_COLOR_RED
 argument_list|)
 expr_stmt|;
 return|return
@@ -3233,7 +3233,7 @@ name|strbuf_addstr
 argument_list|(
 name|sb
 argument_list|,
-literal|"\033[32m"
+name|GIT_COLOR_GREEN
 argument_list|)
 expr_stmt|;
 return|return
@@ -3258,7 +3258,7 @@ name|strbuf_addstr
 argument_list|(
 name|sb
 argument_list|,
-literal|"\033[34m"
+name|GIT_COLOR_BLUE
 argument_list|)
 expr_stmt|;
 return|return
@@ -3283,7 +3283,7 @@ name|strbuf_addstr
 argument_list|(
 name|sb
 argument_list|,
-literal|"\033[m"
+name|GIT_COLOR_RESET
 argument_list|)
 expr_stmt|;
 return|return
