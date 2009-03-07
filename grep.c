@@ -250,6 +250,14 @@ block|{
 name|int
 name|err
 decl_stmt|;
+name|p
+operator|->
+name|word_regexp
+operator|=
+name|opt
+operator|->
+name|word_regexp
+expr_stmt|;
 if|if
 condition|(
 name|opt
@@ -1647,11 +1655,6 @@ name|int
 name|match_one_pattern
 parameter_list|(
 name|struct
-name|grep_opt
-modifier|*
-name|opt
-parameter_list|,
-name|struct
 name|grep_pat
 modifier|*
 name|p
@@ -1854,7 +1857,7 @@ if|if
 condition|(
 name|hit
 operator|&&
-name|opt
+name|p
 operator|->
 name|word_regexp
 condition|)
@@ -2072,11 +2075,6 @@ name|int
 name|match_expr_eval
 parameter_list|(
 name|struct
-name|grep_opt
-modifier|*
-name|o
-parameter_list|,
-name|struct
 name|grep_expr
 modifier|*
 name|x
@@ -2116,8 +2114,6 @@ name|h
 operator|=
 name|match_one_pattern
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2140,8 +2136,6 @@ operator|=
 operator|!
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2166,8 +2160,6 @@ condition|(
 operator|!
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2192,8 +2184,6 @@ name|h
 operator|=
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2224,8 +2214,6 @@ return|return
 operator|(
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2245,8 +2233,6 @@ argument_list|)
 operator|||
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2269,8 +2255,6 @@ name|h
 operator|=
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2304,8 +2288,6 @@ name|h
 operator||=
 name|match_expr_eval
 argument_list|(
-name|o
-argument_list|,
 name|x
 operator|->
 name|u
@@ -2389,8 +2371,6 @@ decl_stmt|;
 return|return
 name|match_expr_eval
 argument_list|(
-name|opt
-argument_list|,
 name|x
 argument_list|,
 name|bol
@@ -2478,8 +2458,6 @@ if|if
 condition|(
 name|match_one_pattern
 argument_list|(
-name|opt
-argument_list|,
 name|p
 argument_list|,
 name|bol
