@@ -1937,6 +1937,12 @@ begin_comment
 comment|/* Sane ctype - no locale, and works with signed chars */
 end_comment
 begin_undef
+DECL|macro|isascii
+undef|#
+directive|undef
+name|isascii
+end_undef
+begin_undef
 DECL|macro|isspace
 undef|#
 directive|undef
@@ -2028,6 +2034,16 @@ parameter_list|,
 name|mask
 parameter_list|)
 value|((sane_ctype[(unsigned char)(x)]& (mask)) != 0)
+end_define
+begin_define
+DECL|macro|isascii
+define|#
+directive|define
+name|isascii
+parameter_list|(
+name|x
+parameter_list|)
+value|(((x)& ~0x7f) == 0)
 end_define
 begin_define
 DECL|macro|isspace
