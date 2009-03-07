@@ -5341,8 +5341,6 @@ name|add
 decl_stmt|,
 name|del
 decl_stmt|,
-name|total
-decl_stmt|,
 name|adds
 init|=
 literal|0
@@ -5909,12 +5907,6 @@ name|del
 operator|=
 name|deleted
 expr_stmt|;
-name|total
-operator|=
-name|add
-operator|+
-name|del
-expr_stmt|;
 name|adds
 operator|+=
 name|add
@@ -5951,12 +5943,6 @@ name|width
 argument_list|,
 name|max_change
 argument_list|)
-expr_stmt|;
-name|total
-operator|=
-name|add
-operator|+
-name|del
 expr_stmt|;
 block|}
 name|show_name

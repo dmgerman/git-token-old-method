@@ -79,9 +79,6 @@ name|num
 init|=
 literal|0
 decl_stmt|;
-name|int
-name|read_some
-decl_stmt|;
 while|while
 condition|(
 literal|'0'
@@ -110,8 +107,6 @@ if|if
 condition|(
 operator|!
 operator|(
-name|read_some
-operator|=
 name|cp
 operator|-
 operator|*
