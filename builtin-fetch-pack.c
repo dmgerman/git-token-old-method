@@ -4258,11 +4258,10 @@ ifdef|#
 directive|ifdef
 name|USE_NSEC
 operator|||
+name|ST_CTIME_NSEC
+argument_list|(
 name|st
-operator|.
-name|st_mtim
-operator|.
-name|tv_nsec
+argument_list|)
 operator|!=
 name|mtime
 operator|.
