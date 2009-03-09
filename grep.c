@@ -2786,6 +2786,9 @@ name|printf
 argument_list|(
 literal|"%.*s%s%.*s%s"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|match
 operator|.
 name|rm_so
@@ -2796,6 +2799,10 @@ name|opt
 operator|->
 name|color_match
 argument_list|,
+call|(
+name|int
+call|)
+argument_list|(
 name|match
 operator|.
 name|rm_eo
@@ -2803,6 +2810,7 @@ operator|-
 name|match
 operator|.
 name|rm_so
+argument_list|)
 argument_list|,
 name|bol
 operator|+
