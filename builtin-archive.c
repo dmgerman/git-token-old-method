@@ -337,8 +337,6 @@ literal|0
 index|]
 argument_list|,
 literal|1
-argument_list|,
-literal|2
 argument_list|)
 expr_stmt|;
 name|close
