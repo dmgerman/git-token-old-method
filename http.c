@@ -14,8 +14,6 @@ begin_decl_stmt
 DECL|variable|active_requests
 name|int
 name|active_requests
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_ifdef
@@ -88,8 +86,6 @@ specifier|const
 name|char
 modifier|*
 name|ssl_cert
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_if
@@ -106,8 +102,6 @@ specifier|const
 name|char
 modifier|*
 name|ssl_key
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -128,8 +122,6 @@ specifier|const
 name|char
 modifier|*
 name|ssl_capath
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -143,8 +135,6 @@ specifier|const
 name|char
 modifier|*
 name|ssl_cainfo
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -172,8 +162,6 @@ DECL|variable|curl_ftp_no_epsv
 specifier|static
 name|int
 name|curl_ftp_no_epsv
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -183,8 +171,6 @@ specifier|const
 name|char
 modifier|*
 name|curl_http_proxy
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -203,8 +189,6 @@ name|struct
 name|active_request_slot
 modifier|*
 name|active_queue_head
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -585,7 +569,6 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|curl_ssl_verify
 operator|=
 name|git_config_bool
@@ -595,7 +578,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|0
 return|;
@@ -1614,11 +1596,9 @@ name|num_transfers
 operator|<
 name|active_requests
 condition|)
-block|{
 name|process_curl_messages
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 endif|#
 directive|endif
@@ -1632,14 +1612,12 @@ name|slot
 operator|->
 name|in_use
 condition|)
-block|{
 name|slot
 operator|=
 name|slot
 operator|->
 name|next
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|slot
@@ -1702,14 +1680,12 @@ name|next
 operator|!=
 name|NULL
 condition|)
-block|{
 name|slot
 operator|=
 name|slot
 operator|->
 name|next
 expr_stmt|;
-block|}
 name|slot
 operator|->
 name|next
@@ -1987,8 +1963,6 @@ name|struct
 name|fill_chain
 modifier|*
 name|fill_cfg
-init|=
-name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -2595,7 +2569,6 @@ name|callback_func
 operator|!=
 name|NULL
 condition|)
-block|{
 name|slot
 operator|->
 name|callback_func
@@ -2605,7 +2578,6 @@ operator|->
 name|callback_data
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
