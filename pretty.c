@@ -769,13 +769,6 @@ decl_stmt|;
 name|int
 name|tz
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|filler
-init|=
-literal|"    "
-decl_stmt|;
 if|if
 condition|(
 name|fmt
@@ -879,10 +872,6 @@ name|name_tail
 operator|-
 name|line
 expr_stmt|;
-name|filler
-operator|=
-literal|""
-expr_stmt|;
 name|strbuf_addstr
 argument_list|(
 name|sb
@@ -940,7 +929,7 @@ literal|4
 else|:
 literal|0
 argument_list|,
-name|filler
+literal|"    "
 argument_list|,
 name|namelen
 argument_list|,

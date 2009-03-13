@@ -2926,8 +2926,6 @@ decl_stmt|,
 modifier|*
 name|rhs
 decl_stmt|;
-name|llen
-operator|=
 name|is_glob
 operator|=
 literal|0

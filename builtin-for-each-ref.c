@@ -5131,13 +5131,6 @@ name|s
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|sort_tail
-operator|=
-operator|&
-name|s
-operator|->
-name|next
-expr_stmt|;
 if|if
 condition|(
 operator|*
