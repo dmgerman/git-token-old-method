@@ -1540,9 +1540,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|long
-name|ec
-decl_stmt|;
 name|xdpsplit_t
 name|spl
 decl_stmt|;
@@ -1559,9 +1556,6 @@ expr_stmt|;
 comment|/* 		 * Divide ... 		 */
 if|if
 condition|(
-operator|(
-name|ec
-operator|=
 name|xdl_split
 argument_list|(
 name|ha1
@@ -1587,7 +1581,6 @@ name|spl
 argument_list|,
 name|xenv
 argument_list|)
-operator|)
 operator|<
 literal|0
 condition|)
