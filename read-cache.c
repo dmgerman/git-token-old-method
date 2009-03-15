@@ -7684,7 +7684,7 @@ name|int
 operator|)
 name|st
 operator|.
-name|st_ctime
+name|st_mtime
 expr_stmt|;
 name|istate
 operator|->
@@ -7692,7 +7692,7 @@ name|timestamp
 operator|.
 name|nsec
 operator|=
-name|ST_CTIME_NSEC
+name|ST_MTIME_NSEC
 argument_list|(
 name|st
 argument_list|)
