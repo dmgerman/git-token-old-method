@@ -2237,6 +2237,10 @@ name|show_deleted
 operator|=
 literal|1
 expr_stmt|;
+name|require_work_tree
+operator|=
+literal|1
+expr_stmt|;
 continue|continue;
 block|}
 if|if
