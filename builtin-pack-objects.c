@@ -10934,14 +10934,6 @@ operator|||
 operator|!
 name|strcmp
 argument_list|(
-literal|"--kept-pack-only"
-argument_list|,
-name|arg
-argument_list|)
-operator|||
-operator|!
-name|strcmp
-argument_list|(
 literal|"--reflog"
 argument_list|,
 name|arg
