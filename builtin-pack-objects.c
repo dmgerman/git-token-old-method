@@ -9636,6 +9636,11 @@ name|o
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|p
+operator|->
+name|pack_local
+operator|||
 name|p
 operator|->
 name|pack_keep
@@ -9862,6 +9867,11 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
+name|p
+operator|->
+name|pack_local
+operator|||
 name|p
 operator|->
 name|pack_keep
