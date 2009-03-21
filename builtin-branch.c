@@ -2613,16 +2613,28 @@ argument_list|(
 literal|"cannot rename the current branch while not on any."
 argument_list|)
 expr_stmt|;
-name|strbuf_addf
+name|strbuf_branchname
 argument_list|(
 operator|&
 name|oldref
-argument_list|,
-literal|"refs/heads/%s"
 argument_list|,
 name|oldname
 argument_list|)
 expr_stmt|;
+name|strbuf_splice
+argument_list|(
+operator|&
+name|oldref
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|"refs/heads/"
+argument_list|,
+literal|11
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|check_ref_format
@@ -2634,21 +2646,31 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"Invalid branch name: %s"
+literal|"Invalid branch name: '%s'"
 argument_list|,
-name|oldref
-operator|.
-name|buf
+name|oldname
 argument_list|)
 expr_stmt|;
-name|strbuf_addf
+name|strbuf_branchname
 argument_list|(
 operator|&
 name|newref
 argument_list|,
-literal|"refs/heads/%s"
-argument_list|,
 name|newname
+argument_list|)
+expr_stmt|;
+name|strbuf_splice
+argument_list|(
+operator|&
+name|newref
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|"refs/heads/"
+argument_list|,
+literal|11
 argument_list|)
 expr_stmt|;
 if|if
@@ -2662,11 +2684,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"Invalid branch name: %s"
+literal|"Invalid branch name: '%s'"
 argument_list|,
-name|newref
-operator|.
-name|buf
+name|newname
 argument_list|)
 expr_stmt|;
 if|if
@@ -2691,7 +2711,11 @@ name|die
 argument_list|(
 literal|"A branch named '%s' already exists."
 argument_list|,
-name|newname
+name|newref
+operator|.
+name|buf
+operator|+
+literal|11
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
