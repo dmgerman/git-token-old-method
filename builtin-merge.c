@@ -2074,7 +2074,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|interpret_nth_last_branch
+name|interpret_branch_name
 argument_list|(
 name|remote
 argument_list|,
