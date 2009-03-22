@@ -293,6 +293,11 @@ condition|(
 operator|!
 name|remote
 condition|)
+block|{
+if|if
+condition|(
+name|repo
+condition|)
 name|die
 argument_list|(
 literal|"bad repository '%s'"
@@ -300,6 +305,12 @@ argument_list|,
 name|repo
 argument_list|)
 expr_stmt|;
+name|die
+argument_list|(
+literal|"No destination configured to push to."
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|remote
