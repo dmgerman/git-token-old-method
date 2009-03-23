@@ -1022,10 +1022,10 @@ name|rev_info
 modifier|*
 name|opt
 parameter_list|,
-specifier|const
-name|char
+name|struct
+name|commit
 modifier|*
-name|name
+name|commit
 parameter_list|,
 specifier|const
 name|char
@@ -1059,6 +1059,20 @@ init|=
 name|opt
 operator|->
 name|extra_headers
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|name
+init|=
+name|sha1_to_hex
+argument_list|(
+name|commit
+operator|->
+name|object
+operator|.
+name|sha1
+argument_list|)
 decl_stmt|;
 operator|*
 name|need_8bit_cte_p
@@ -1324,6 +1338,12 @@ index|[
 literal|1024
 index|]
 decl_stmt|;
+name|struct
+name|strbuf
+name|filename
+init|=
+name|STRBUF_INIT
+decl_stmt|;
 operator|*
 name|need_8bit_cte_p
 operator|=
@@ -1377,6 +1397,28 @@ name|extra_headers
 operator|=
 name|subject_buffer
 expr_stmt|;
+name|get_patch_filename
+argument_list|(
+name|opt
+operator|->
+name|numbered_files
+condition|?
+name|NULL
+else|:
+name|commit
+argument_list|,
+name|opt
+operator|->
+name|nr
+argument_list|,
+name|opt
+operator|->
+name|patch_suffix
+argument_list|,
+operator|&
+name|filename
+argument_list|)
+expr_stmt|;
 name|snprintf
 argument_list|(
 name|buffer
@@ -1390,10 +1432,10 @@ literal|1
 argument_list|,
 literal|"\n--%s%s\n"
 literal|"Content-Type: text/x-patch;"
-literal|" name=\"%s.diff\"\n"
+literal|" name=\"%s\"\n"
 literal|"Content-Transfer-Encoding: 8bit\n"
 literal|"Content-Disposition: %s;"
-literal|" filename=\"%s.diff\"\n\n"
+literal|" filename=\"%s\"\n\n"
 argument_list|,
 name|mime_boundary_leader
 argument_list|,
@@ -1401,7 +1443,9 @@ name|opt
 operator|->
 name|mime_boundary
 argument_list|,
-name|name
+name|filename
+operator|.
+name|buf
 argument_list|,
 name|opt
 operator|->
@@ -1411,7 +1455,9 @@ literal|"attachment"
 else|:
 literal|"inline"
 argument_list|,
-name|name
+name|filename
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 name|opt
@@ -1421,6 +1467,12 @@ operator|.
 name|stat_sep
 operator|=
 name|buffer
+expr_stmt|;
+name|strbuf_release
+argument_list|(
+operator|&
+name|filename
+argument_list|)
 expr_stmt|;
 block|}
 operator|*
@@ -1758,14 +1810,7 @@ name|log_write_email_headers
 argument_list|(
 name|opt
 argument_list|,
-name|sha1_to_hex
-argument_list|(
 name|commit
-operator|->
-name|object
-operator|.
-name|sha1
-argument_list|)
 argument_list|,
 operator|&
 name|subject
