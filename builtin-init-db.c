@@ -700,11 +700,9 @@ operator|!
 name|dir
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: templates not found %s\n"
+literal|"templates not found %s"
 argument_list|,
 name|template_dir
 argument_list|)
@@ -750,12 +748,10 @@ operator|!=
 name|GIT_REPO_VERSION
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: not copying templates of "
-literal|"a wrong format version %d from '%s'\n"
+literal|"not copying templates of "
+literal|"a wrong format version %d from '%s'"
 argument_list|,
 name|repository_format_version
 argument_list|,
