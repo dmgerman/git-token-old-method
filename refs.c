@@ -5134,11 +5134,9 @@ name|errno
 operator|!=
 name|ENOENT
 condition|)
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: unlink(%s) failed: %s"
+literal|"unlink(%s) failed: %s"
 argument_list|,
 name|git_path
 argument_list|(
@@ -7676,11 +7674,9 @@ name|sha1
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: Log %s has gap after %s.\n"
+literal|"Log %s has gap after %s."
 argument_list|,
 name|logfile
 argument_list|,
@@ -7753,11 +7749,9 @@ name|sha1
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: Log %s unexpectedly ended on %s.\n"
+literal|"Log %s unexpectedly ended on %s."
 argument_list|,
 name|logfile
 argument_list|,
