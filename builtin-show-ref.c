@@ -780,11 +780,9 @@ name|ref
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: ref '%s' ignored\n"
+literal|"ref '%s' ignored"
 argument_list|,
 name|ref
 argument_list|)
