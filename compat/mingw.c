@@ -2804,6 +2804,11 @@ operator|*
 name|p
 operator|==
 literal|'{'
+operator|||
+operator|*
+name|p
+operator|==
+literal|'\''
 condition|)
 name|force_quotes
 operator|=
