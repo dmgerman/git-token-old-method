@@ -11815,11 +11815,9 @@ name|patch
 operator|->
 name|old_mode
 condition|)
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: %s has type %o, expected %o\n"
+literal|"%s has type %o, expected %o"
 argument_list|,
 name|old_name
 argument_list|,
@@ -14388,11 +14386,9 @@ argument_list|)
 operator|-
 literal|5
 expr_stmt|;
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: truncating .rej filename to %.*s.rej"
+literal|"truncating .rej filename to %.*s.rej"
 argument_list|,
 name|cnt
 operator|-
@@ -16396,12 +16392,10 @@ name|whitespace_error
 operator|-
 name|squelch_whitespace_errors
 decl_stmt|;
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: squelched %d "
-literal|"whitespace error%s\n"
+literal|"squelched %d "
+literal|"whitespace error%s"
 argument_list|,
 name|squelched
 argument_list|,
@@ -16450,12 +16444,10 @@ name|applied_after_fixing_ws
 operator|&&
 name|apply
 condition|)
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: %d line%s applied after"
-literal|" fixing whitespace errors.\n"
+literal|"%d line%s applied after"
+literal|" fixing whitespace errors."
 argument_list|,
 name|applied_after_fixing_ws
 argument_list|,
@@ -16473,11 +16465,9 @@ if|if
 condition|(
 name|whitespace_error
 condition|)
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: %d line%s add%s whitespace errors.\n"
+literal|"%d line%s add%s whitespace errors."
 argument_list|,
 name|whitespace_error
 argument_list|,
