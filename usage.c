@@ -30,7 +30,7 @@ block|{
 name|char
 name|msg
 index|[
-literal|256
+literal|1024
 index|]
 decl_stmt|;
 name|vsnprintf
