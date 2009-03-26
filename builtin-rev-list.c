@@ -942,6 +942,11 @@ DECL|function|show_bisect_vars
 name|int
 name|show_bisect_vars
 parameter_list|(
+name|struct
+name|rev_info
+modifier|*
+name|revs
+parameter_list|,
 name|int
 name|reaches
 parameter_list|,
@@ -965,13 +970,13 @@ if|if
 condition|(
 operator|!
 name|revs
-operator|.
+operator|->
 name|commits
 condition|)
 return|return
 literal|1
 return|;
-comment|/* 	 * revs.commits can reach "reaches" commits among 	 * "all" commits.  If it is good, then there are 	 * (all-reaches) commits left to be bisected. 	 * On the other hand, if it is bad, then the set 	 * to bisect is "reaches". 	 * A bisect set of size N has (N-1) commits further 	 * to test, as we already know one bad one. 	 */
+comment|/* 	 * revs->commits can reach "reaches" commits among 	 * "all" commits.  If it is good, then there are 	 * (all-reaches) commits left to be bisected. 	 * On the other hand, if it is bad, then the set 	 * to bisect is "reaches". 	 * A bisect set of size N has (N-1) commits further 	 * to test, as we already know one bad one. 	 */
 name|cnt
 operator|=
 name|all
@@ -995,7 +1000,7 @@ argument_list|,
 name|sha1_to_hex
 argument_list|(
 name|revs
-operator|.
+operator|->
 name|commits
 operator|->
 name|item
@@ -1013,7 +1018,6 @@ condition|)
 block|{
 name|traverse_commit_list
 argument_list|(
-operator|&
 name|revs
 argument_list|,
 name|show_commit
@@ -1516,6 +1520,9 @@ condition|)
 return|return
 name|show_bisect_vars
 argument_list|(
+operator|&
+name|revs
+argument_list|,
 name|reaches
 argument_list|,
 name|all
