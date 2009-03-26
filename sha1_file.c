@@ -12324,6 +12324,13 @@ comment|/* FIXME!!! Collision check here ? */
 block|}
 if|if
 condition|(
+name|chmod
+argument_list|(
+name|filename
+argument_list|,
+literal|0444
+argument_list|)
+operator|||
 name|adjust_shared_perm
 argument_list|(
 name|filename
@@ -12466,13 +12473,6 @@ argument_list|(
 name|fd
 argument_list|,
 literal|"sha1 file"
-argument_list|)
-expr_stmt|;
-name|fchmod
-argument_list|(
-name|fd
-argument_list|,
-literal|0444
 argument_list|)
 expr_stmt|;
 if|if
