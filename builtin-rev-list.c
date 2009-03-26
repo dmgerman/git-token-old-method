@@ -124,13 +124,6 @@ name|revs
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|bisect_list
-specifier|static
-name|int
-name|bisect_list
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|show_timestamp
 specifier|static
 name|int
@@ -2859,6 +2852,11 @@ name|i
 decl_stmt|;
 name|int
 name|read_from_stdin
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|bisect_list
 init|=
 literal|0
 decl_stmt|;
