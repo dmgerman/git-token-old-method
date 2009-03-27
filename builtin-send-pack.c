@@ -52,8 +52,6 @@ specifier|static
 name|struct
 name|send_pack_args
 name|args
-init|=
-block|{ }
 decl_stmt|;
 end_decl_stmt
 begin_function
