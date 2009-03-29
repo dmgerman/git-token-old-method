@@ -1019,10 +1019,7 @@ name|int
 name|all
 parameter_list|,
 name|int
-name|show_all
-parameter_list|,
-name|int
-name|show_tried
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -1049,7 +1046,11 @@ operator|->
 name|commits
 operator|&&
 operator|!
-name|show_tried
+operator|(
+name|flags
+operator|&
+name|BISECT_SHOW_TRIED
+operator|)
 condition|)
 return|return
 literal|1
@@ -1067,7 +1068,9 @@ argument_list|,
 operator|&
 name|tried
 argument_list|,
-name|show_all
+name|flags
+operator|&
+name|BISECT_SHOW_ALL
 argument_list|)
 expr_stmt|;
 comment|/* 	 * revs->commits can reach "reaches" commits among 	 * "all" commits.  If it is good, then there are 	 * (all-reaches) commits left to be bisected. 	 * On the other hand, if it is bad, then the set 	 * to bisect is "reaches". 	 * A bisect set of size N has (N-1) commits further 	 * to test, as we already know one bad one. 	 */
@@ -1113,7 +1116,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|show_all
+name|flags
+operator|&
+name|BISECT_SHOW_ALL
 condition|)
 block|{
 name|traverse_commit_list
@@ -1133,7 +1138,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|show_tried
+name|flags
+operator|&
+name|BISECT_SHOW_TRIED
 condition|)
 name|show_tried_revs
 argument_list|(
@@ -1646,7 +1653,9 @@ argument_list|,
 name|all
 argument_list|,
 name|bisect_show_all
-argument_list|,
+condition|?
+name|BISECT_SHOW_ALL
+else|:
 literal|0
 argument_list|)
 return|;
