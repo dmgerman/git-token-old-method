@@ -2847,6 +2847,13 @@ block|{
 name|size_t
 name|trimlen
 decl_stmt|;
+name|size_t
+name|start_len
+init|=
+name|sb
+operator|->
+name|len
+decl_stmt|;
 name|int
 name|space
 init|=
@@ -2938,6 +2945,15 @@ while|while
 condition|(
 name|sb
 operator|->
+name|len
+operator|-
+name|trimlen
+operator|>
+name|start_len
+operator|&&
+operator|(
+name|sb
+operator|->
 name|buf
 index|[
 name|sb
@@ -2965,6 +2981,7 @@ name|trimlen
 index|]
 operator|==
 literal|'-'
+operator|)
 condition|)
 name|trimlen
 operator|++
