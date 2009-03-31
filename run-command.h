@@ -46,7 +46,7 @@ name|IS_RUN_COMMAND_ERR
 parameter_list|(
 name|x
 parameter_list|)
-value|((x)<= -ERR_RUN_COMMAND_FORK)
+value|(-(x)>= ERR_RUN_COMMAND_FORK)
 end_define
 begin_struct
 DECL|struct|child_process
