@@ -1489,6 +1489,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|junk_pid
+specifier|static
 name|pid_t
 name|junk_pid
 decl_stmt|;
