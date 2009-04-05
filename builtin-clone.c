@@ -1489,6 +1489,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|junk_pid
+specifier|static
 name|pid_t
 name|junk_pid
 decl_stmt|;
@@ -2179,14 +2180,11 @@ name|setenv
 argument_list|(
 name|CONFIG_ENVIRONMENT
 argument_list|,
-name|xstrdup
-argument_list|(
 name|mkpath
 argument_list|(
 literal|"%s/config"
 argument_list|,
 name|git_dir
-argument_list|)
 argument_list|)
 argument_list|,
 literal|1
