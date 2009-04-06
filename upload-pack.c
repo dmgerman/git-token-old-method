@@ -364,6 +364,10 @@ name|struct
 name|commit
 modifier|*
 name|commit
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 if|if
@@ -443,6 +447,10 @@ name|struct
 name|object_array_entry
 modifier|*
 name|p
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 comment|/* An object with name "foo\n0000000..." can be used to 	 * confuse downstream git-pack-objects very badly. 	 */
@@ -801,6 +809,8 @@ argument_list|,
 name|show_commit
 argument_list|,
 name|show_object
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|fflush
