@@ -3218,8 +3218,8 @@ name|char
 modifier|*
 name|get_short_ref
 parameter_list|(
-name|struct
-name|refinfo
+specifier|const
+name|char
 modifier|*
 name|ref
 parameter_list|)
@@ -3358,18 +3358,17 @@ operator|!
 name|nr_rules
 condition|)
 return|return
+name|xstrdup
+argument_list|(
 name|ref
-operator|->
-name|refname
+argument_list|)
 return|;
-comment|/* buffer for scanf result, at most ref->refname must fit */
+comment|/* buffer for scanf result, at most ref must fit */
 name|short_name
 operator|=
 name|xstrdup
 argument_list|(
 name|ref
-operator|->
-name|refname
 argument_list|)
 expr_stmt|;
 comment|/* skip first rule, it will always match */
@@ -3402,8 +3401,6 @@ operator|!=
 name|sscanf
 argument_list|(
 name|ref
-operator|->
-name|refname
 argument_list|,
 name|scanf_fmts
 index|[
@@ -3505,9 +3502,10 @@ name|short_name
 argument_list|)
 expr_stmt|;
 return|return
+name|xstrdup
+argument_list|(
 name|ref
-operator|->
-name|refname
+argument_list|)
 return|;
 block|}
 end_function
@@ -3740,6 +3738,8 @@ operator|=
 name|get_short_ref
 argument_list|(
 name|ref
+operator|->
+name|refname
 argument_list|)
 expr_stmt|;
 else|else
