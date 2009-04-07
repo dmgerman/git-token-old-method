@@ -59,7 +59,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* show_bisect_vars flags */
+comment|/* bisect_show_flags flags in struct rev_list_info */
 end_comment
 begin_define
 DECL|macro|BISECT_SHOW_ALL
@@ -93,6 +93,10 @@ name|rev_info
 modifier|*
 name|revs
 decl_stmt|;
+DECL|member|bisect_show_flags
+name|int
+name|bisect_show_flags
+decl_stmt|;
 DECL|member|show_timestamp
 name|int
 name|show_timestamp
@@ -125,9 +129,6 @@ name|reaches
 parameter_list|,
 name|int
 name|all
-parameter_list|,
-name|int
-name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
