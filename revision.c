@@ -73,7 +73,6 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|path_name
-specifier|static
 name|char
 modifier|*
 name|path_name
