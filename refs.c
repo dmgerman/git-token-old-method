@@ -9159,6 +9159,9 @@ specifier|const
 name|char
 modifier|*
 name|ref
+parameter_list|,
+name|int
+name|strict
 parameter_list|)
 block|{
 name|int
@@ -9329,6 +9332,11 @@ name|int
 name|j
 decl_stmt|;
 name|int
+name|rules_to_fail
+init|=
+name|i
+decl_stmt|;
+name|int
 name|short_name_len
 decl_stmt|;
 if|if
@@ -9355,6 +9363,15 @@ argument_list|(
 name|short_name
 argument_list|)
 expr_stmt|;
+comment|/* 		 * in strict mode, all (except the matched one) rules 		 * must fail to resolve to a valid non-ambiguous ref 		 */
+if|if
+condition|(
+name|strict
+condition|)
+name|rules_to_fail
+operator|=
+name|nr_rules
+expr_stmt|;
 comment|/* 		 * check if the short name resolves to a valid ref, 		 * but use only rules prior to the matched one 		 */
 for|for
 control|(
@@ -9364,7 +9381,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|i
+name|rules_to_fail
 condition|;
 name|j
 operator|++
@@ -9393,6 +9410,14 @@ index|[
 name|PATH_MAX
 index|]
 decl_stmt|;
+comment|/* skip matched rule */
+if|if
+condition|(
+name|i
+operator|==
+name|j
+condition|)
+continue|continue;
 comment|/* 			 * the short name is ambiguous, if it resolves 			 * (with this previous rule) to a valid ref 			 * read_ref() returns 0 on success 			 */
 name|mksnpath
 argument_list|(
@@ -9427,7 +9452,7 @@ if|if
 condition|(
 name|j
 operator|==
-name|i
+name|rules_to_fail
 condition|)
 return|return
 name|short_name
