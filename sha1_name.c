@@ -1293,11 +1293,11 @@ begin_comment
 comment|/*  * *string and *len will only be substituted, and *string returned (for  * later free()ing) if the string passed in is of the form @{-<n>}.  */
 end_comment
 begin_function
-DECL|function|substitute_nth_last_branch
+DECL|function|substitute_branch_name
 specifier|static
 name|char
 modifier|*
-name|substitute_nth_last_branch
+name|substitute_branch_name
 parameter_list|(
 specifier|const
 name|char
@@ -1319,7 +1319,7 @@ decl_stmt|;
 name|int
 name|ret
 init|=
-name|interpret_nth_last_branch
+name|interpret_branch_name
 argument_list|(
 operator|*
 name|string
@@ -1398,7 +1398,7 @@ name|char
 modifier|*
 name|last_branch
 init|=
-name|substitute_nth_last_branch
+name|substitute_branch_name
 argument_list|(
 operator|&
 name|str
@@ -1593,7 +1593,7 @@ name|char
 modifier|*
 name|last_branch
 init|=
-name|substitute_nth_last_branch
+name|substitute_branch_name
 argument_list|(
 operator|&
 name|str
@@ -1991,7 +1991,7 @@ decl_stmt|;
 comment|/* try the @{-N} syntax for n-th checkout */
 name|ret
 operator|=
-name|interpret_nth_last_branch
+name|interpret_branch_name
 argument_list|(
 name|str
 operator|+
@@ -4081,9 +4081,9 @@ begin_comment
 comment|/*  * This reads "@{-N}" syntax, finds the name of the Nth previous  * branch we were on, and places the name of the branch in the given  * buf and returns the number of characters parsed if successful.  *  * If the input is not of the accepted format, it returns a negative  * number to signal an error.  *  * If the input was ok but there are not N branch switches in the  * reflog, it returns 0.  */
 end_comment
 begin_function
-DECL|function|interpret_nth_last_branch
+DECL|function|interpret_branch_name
 name|int
-name|interpret_nth_last_branch
+name|interpret_branch_name
 parameter_list|(
 specifier|const
 name|char
