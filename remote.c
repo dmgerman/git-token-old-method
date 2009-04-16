@@ -8220,6 +8220,8 @@ name|struct
 name|ref
 modifier|*
 name|local_refs
+init|=
+name|NULL
 decl_stmt|,
 modifier|*
 modifier|*
