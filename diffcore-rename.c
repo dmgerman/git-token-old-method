@@ -1297,7 +1297,7 @@ name|p
 operator|->
 name|filespec
 decl_stmt|;
-comment|/* False hash collission? */
+comment|/* False hash collision? */
 if|if
 condition|(
 name|hashcmp
