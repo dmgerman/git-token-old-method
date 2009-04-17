@@ -7704,7 +7704,7 @@ argument_list|,
 operator|&
 name|prune
 argument_list|,
-literal|"prune remotes after fecthing"
+literal|"prune remotes after fetching"
 argument_list|)
 block|,
 name|OPT_END
