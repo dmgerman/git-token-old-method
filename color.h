@@ -70,6 +70,13 @@ name|GIT_COLOR_BLUE
 value|"\033[34m"
 end_define
 begin_define
+DECL|macro|GIT_COLOR_MAGENTA
+define|#
+directive|define
+name|GIT_COLOR_MAGENTA
+value|"\033[35m"
+end_define
+begin_define
 DECL|macro|GIT_COLOR_CYAN
 define|#
 directive|define
