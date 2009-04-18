@@ -225,6 +225,8 @@ sizeof|sizeof
 argument_list|(
 name|value
 argument_list|)
+operator|-
+literal|1
 condition|)
 return|return
 name|NULL
