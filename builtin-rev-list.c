@@ -906,7 +906,6 @@ comment|/*  * Estimate the number of bisect steps left (after the current step) 
 end_comment
 begin_function
 DECL|function|estimate_bisect_steps
-specifier|static
 name|int
 name|estimate_bisect_steps
 parameter_list|(
