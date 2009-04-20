@@ -37,6 +37,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"cache-tree.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"unpack-trees.h"
 end_include
 begin_include
