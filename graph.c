@@ -2658,7 +2658,7 @@ name|graph
 operator|->
 name|num_parents
 operator|>
-literal|3
+literal|2
 condition|)
 name|chars_written
 operator|+=
