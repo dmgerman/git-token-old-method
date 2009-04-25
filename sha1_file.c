@@ -12106,6 +12106,14 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|unreliable_hardlinks
+condition|)
+goto|goto
+name|try_rename
+goto|;
+elseif|else
+if|if
+condition|(
 name|link
 argument_list|(
 name|tmpfile
@@ -12127,6 +12135,8 @@ operator|!=
 name|EEXIST
 condition|)
 block|{
+name|try_rename
+label|:
 if|if
 condition|(
 operator|!

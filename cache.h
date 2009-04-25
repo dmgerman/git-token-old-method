@@ -3168,6 +3168,12 @@ name|push_default_type
 name|push_default
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|unreliable_hardlinks
+decl_stmt|;
+end_decl_stmt
 begin_define
 DECL|macro|GIT_REPO_VERSION
 define|#
