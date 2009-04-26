@@ -277,6 +277,13 @@ directive|define
 name|_BSD_SOURCE
 value|1
 end_define
+begin_define
+DECL|macro|_NETBSD_SOURCE
+define|#
+directive|define
+name|_NETBSD_SOURCE
+value|1
+end_define
 begin_include
 include|#
 directive|include
