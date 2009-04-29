@@ -337,6 +337,14 @@ index|[
 name|i
 index|]
 operator|&&
+name|pathspec
+index|[
+name|i
+index|]
+index|[
+literal|0
+index|]
+operator|&&
 operator|!
 name|file_exists
 argument_list|(
