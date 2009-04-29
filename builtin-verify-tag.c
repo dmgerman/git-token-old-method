@@ -312,7 +312,7 @@ operator|&
 name|gpg
 argument_list|)
 expr_stmt|;
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|path
 argument_list|)

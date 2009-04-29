@@ -13552,7 +13552,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|patch
 operator|->
@@ -14171,7 +14171,7 @@ name|path
 argument_list|)
 condition|)
 return|return;
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|newpath
 argument_list|)

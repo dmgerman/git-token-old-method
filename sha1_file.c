@@ -12157,7 +12157,7 @@ operator|=
 name|errno
 expr_stmt|;
 block|}
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|tmpfile
 argument_list|)
