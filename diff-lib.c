@@ -1013,6 +1013,12 @@ if|if
 condition|(
 operator|!
 name|cached
+operator|&&
+operator|!
+name|ce_uptodate
+argument_list|(
+name|ce
+argument_list|)
 condition|)
 block|{
 name|int
