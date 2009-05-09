@@ -4208,9 +4208,9 @@ begin_comment
 comment|/*  * We use the convention that exiting with an exit code 10 means that  * the bisection process finished successfully.  * In this case the calling shell script should exit 0.  */
 end_comment
 begin_function
-DECL|function|bisect_next_exit
+DECL|function|bisect_next_all
 name|int
-name|bisect_next_exit
+name|bisect_next_all
 parameter_list|(
 specifier|const
 name|char
@@ -4258,6 +4258,11 @@ condition|)
 name|die
 argument_list|(
 literal|"reading bisect refs failed"
+argument_list|)
+expr_stmt|;
+name|check_good_are_ancestors_of_bad
+argument_list|(
+name|prefix
 argument_list|)
 expr_stmt|;
 name|bisect_rev_setup
