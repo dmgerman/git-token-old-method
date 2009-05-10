@@ -1916,6 +1916,14 @@ name|NEED_WORK_TREE
 block|}
 block|,
 block|{
+literal|"mktree"
+block|,
+name|cmd_mktree
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"mv"
 block|,
 name|cmd_mv

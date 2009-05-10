@@ -1,11 +1,11 @@
 begin_unit
 begin_comment
-comment|/*  * GIT - the stupid content tracker  *  * Copyright (c) Junio C Hamano, 2006  */
+comment|/*  * GIT - the stupid content tracker  *  * Copyright (c) Junio C Hamano, 2006, 2009  */
 end_comment
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"builtin.h"
 end_include
 begin_include
 include|#
@@ -16,11 +16,6 @@ begin_include
 include|#
 directive|include
 file|"tree.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"exec_cmd.h"
 end_include
 begin_struct
 DECL|struct|treeent
@@ -434,17 +429,23 @@ literal|"git mktree [-z]"
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|main
+DECL|function|cmd_mktree
 name|int
-name|main
+name|cmd_mktree
 parameter_list|(
 name|int
 name|ac
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
 name|av
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 block|{
 name|struct
@@ -471,17 +472,6 @@ name|line_termination
 init|=
 literal|'\n'
 decl_stmt|;
-name|git_extract_argv0_path
-argument_list|(
-name|av
-index|[
-literal|0
-index|]
-argument_list|)
-expr_stmt|;
-name|setup_git_directory
-argument_list|()
-expr_stmt|;
 while|while
 condition|(
 operator|(
@@ -501,6 +491,7 @@ operator|==
 literal|'-'
 condition|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|arg
@@ -576,7 +567,7 @@ name|sb
 operator|.
 name|buf
 expr_stmt|;
-comment|/* Input is non-recursive ls-tree output format 		 * mode SP type SP sha1 TAB name 		 */
+comment|/* 		 * Read non-recursive ls-tree output format: 		 *     mode SP type SP sha1 TAB name 		 */
 name|mode
 operator|=
 name|strtoul
