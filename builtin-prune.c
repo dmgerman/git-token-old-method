@@ -160,7 +160,7 @@ condition|(
 operator|!
 name|show_only
 condition|)
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|fullpath
 argument_list|)
@@ -292,7 +292,7 @@ condition|(
 operator|!
 name|show_only
 condition|)
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|fullpath
 argument_list|)

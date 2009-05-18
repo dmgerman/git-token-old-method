@@ -1155,7 +1155,7 @@ condition|;
 name|i
 operator|++
 control|)
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|temp
 index|[

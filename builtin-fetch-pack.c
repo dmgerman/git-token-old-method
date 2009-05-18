@@ -4353,7 +4353,7 @@ literal|0
 argument_list|)
 condition|)
 block|{
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|shallow
 argument_list|)
