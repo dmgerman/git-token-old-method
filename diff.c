@@ -5136,33 +5136,19 @@ name|name
 parameter_list|,
 name|int
 name|len
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|reset
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|set
 parameter_list|)
 block|{
 name|fprintf
 argument_list|(
 name|file
 argument_list|,
-literal|" %s%s%-*s%s |"
-argument_list|,
-name|set
+literal|" %s%-*s |"
 argument_list|,
 name|prefix
 argument_list|,
 name|len
 argument_list|,
 name|name
-argument_list|,
-name|reset
 argument_list|)
 expr_stmt|;
 block|}
@@ -5779,10 +5765,6 @@ argument_list|,
 name|name
 argument_list|,
 name|len
-argument_list|,
-name|reset
-argument_list|,
-name|set
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -5877,10 +5859,6 @@ argument_list|,
 name|name
 argument_list|,
 name|len
-argument_list|,
-name|reset
-argument_list|,
-name|set
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -5979,10 +5957,6 @@ argument_list|,
 name|name
 argument_list|,
 name|len
-argument_list|,
-name|reset
-argument_list|,
-name|set
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -6052,17 +6026,13 @@ name|options
 operator|->
 name|file
 argument_list|,
-literal|"%s %d files changed, %d insertions(+), %d deletions(-)%s\n"
-argument_list|,
-name|set
+literal|" %d files changed, %d insertions(+), %d deletions(-)\n"
 argument_list|,
 name|total_files
 argument_list|,
 name|adds
 argument_list|,
 name|dels
-argument_list|,
-name|reset
 argument_list|)
 expr_stmt|;
 block|}
