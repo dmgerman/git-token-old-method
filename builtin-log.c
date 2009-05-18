@@ -3391,7 +3391,7 @@ name|char
 modifier|*
 name|encoding
 init|=
-literal|"utf-8"
+literal|"UTF-8"
 decl_stmt|;
 name|struct
 name|diff_options
