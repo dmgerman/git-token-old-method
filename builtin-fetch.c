@@ -1669,7 +1669,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|url
+name|raw_url
 parameter_list|,
 specifier|const
 name|char
@@ -1727,6 +1727,9 @@ name|rm
 decl_stmt|;
 name|char
 modifier|*
+name|url
+decl_stmt|,
+modifier|*
 name|filename
 init|=
 name|git_path
@@ -1761,6 +1764,13 @@ name|errno
 argument_list|)
 argument_list|)
 return|;
+name|url
+operator|=
+name|transport_anonymize_url
+argument_list|(
+name|raw_url
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|rm
@@ -2280,6 +2290,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|free
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
 name|fclose
 argument_list|(
 name|fp
