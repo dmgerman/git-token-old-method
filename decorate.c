@@ -101,6 +101,7 @@ name|n
 operator|->
 name|hash
 decl_stmt|;
+name|unsigned
 name|int
 name|j
 init|=
@@ -410,6 +411,7 @@ modifier|*
 name|obj
 parameter_list|)
 block|{
+name|unsigned
 name|int
 name|j
 decl_stmt|;
