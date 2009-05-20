@@ -2894,6 +2894,7 @@ block|}
 end_function
 begin_function
 DECL|function|context_callback
+specifier|static
 name|int
 name|context_callback
 parameter_list|(
@@ -2999,6 +3000,7 @@ block|}
 end_function
 begin_function
 DECL|function|file_callback
+specifier|static
 name|int
 name|file_callback
 parameter_list|(
@@ -3129,6 +3131,7 @@ block|}
 end_function
 begin_function
 DECL|function|not_callback
+specifier|static
 name|int
 name|not_callback
 parameter_list|(
@@ -3176,6 +3179,7 @@ block|}
 end_function
 begin_function
 DECL|function|and_callback
+specifier|static
 name|int
 name|and_callback
 parameter_list|(
@@ -3223,6 +3227,7 @@ block|}
 end_function
 begin_function
 DECL|function|open_callback
+specifier|static
 name|int
 name|open_callback
 parameter_list|(
@@ -3270,6 +3275,7 @@ block|}
 end_function
 begin_function
 DECL|function|close_callback
+specifier|static
 name|int
 name|close_callback
 parameter_list|(
@@ -3317,6 +3323,7 @@ block|}
 end_function
 begin_function
 DECL|function|pattern_callback
+specifier|static
 name|int
 name|pattern_callback
 parameter_list|(
@@ -3364,6 +3371,7 @@ block|}
 end_function
 begin_function
 DECL|function|help_callback
+specifier|static
 name|int
 name|help_callback
 parameter_list|(
