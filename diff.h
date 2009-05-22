@@ -375,6 +375,13 @@ name|DIFF_OPT_ALLOW_TEXTCONV
 value|(1<< 21)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_DIFF_FROM_CONTENTS
+define|#
+directive|define
+name|DIFF_OPT_DIFF_FROM_CONTENTS
+value|(1<< 22)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
