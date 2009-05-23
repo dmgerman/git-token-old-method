@@ -2208,7 +2208,7 @@ argument_list|,
 literal|"alias for --log"
 argument_list|)
 block|,
-name|OPT_STRING
+name|OPT_FILENAME
 argument_list|(
 literal|'F'
 argument_list|,
@@ -2216,8 +2216,6 @@ literal|"file"
 argument_list|,
 operator|&
 name|inpath
-argument_list|,
-literal|"file"
 argument_list|,
 literal|"file to read from"
 argument_list|)
@@ -2280,15 +2278,6 @@ argument_list|(
 name|fmt_merge_msg_usage
 argument_list|,
 name|options
-argument_list|)
-expr_stmt|;
-name|inpath
-operator|=
-name|parse_options_fix_filename
-argument_list|(
-name|prefix
-argument_list|,
-name|inpath
 argument_list|)
 expr_stmt|;
 if|if

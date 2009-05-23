@@ -2057,7 +2057,7 @@ argument_list|,
 name|parse_msg_arg
 argument_list|)
 block|,
-name|OPT_STRING
+name|OPT_FILENAME
 argument_list|(
 literal|'F'
 argument_list|,
@@ -2065,8 +2065,6 @@ name|NULL
 argument_list|,
 operator|&
 name|msgfile
-argument_list|,
-literal|"file"
 argument_list|,
 literal|"message in a file"
 argument_list|)
@@ -2164,15 +2162,6 @@ argument_list|,
 name|git_tag_usage
 argument_list|,
 literal|0
-argument_list|)
-expr_stmt|;
-name|msgfile
-operator|=
-name|parse_options_fix_filename
-argument_list|(
-name|prefix
-argument_list|,
-name|msgfile
 argument_list|)
 expr_stmt|;
 if|if

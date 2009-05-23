@@ -16103,7 +16103,7 @@ argument_list|,
 literal|"also apply the patch (use with --stat/--summary/--check)"
 argument_list|)
 block|,
-name|OPT_STRING
+name|OPT_FILENAME
 argument_list|(
 literal|0
 argument_list|,
@@ -16111,8 +16111,6 @@ literal|"build-fake-ancestor"
 argument_list|,
 operator|&
 name|fake_ancestor
-argument_list|,
-literal|"file"
 argument_list|,
 literal|"build a temporary index based on embedded index information"
 argument_list|)
@@ -16308,26 +16306,6 @@ argument_list|,
 name|apply_usage
 argument_list|,
 literal|0
-argument_list|)
-expr_stmt|;
-name|fake_ancestor
-operator|=
-name|parse_options_fix_filename
-argument_list|(
-name|prefix
-argument_list|,
-name|fake_ancestor
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|fake_ancestor
-condition|)
-name|fake_ancestor
-operator|=
-name|xstrdup
-argument_list|(
-name|fake_ancestor
 argument_list|)
 expr_stmt|;
 if|if

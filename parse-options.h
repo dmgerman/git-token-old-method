@@ -54,7 +54,10 @@ name|OPTION_INTEGER
 block|,
 DECL|enumerator|OPTION_CALLBACK
 name|OPTION_CALLBACK
-block|, }
+block|,
+DECL|enumerator|OPTION_FILENAME
+name|OPTION_FILENAME
+block|}
 enum|;
 end_enum
 begin_enum
@@ -418,6 +421,22 @@ parameter_list|)
 define|\
 value|{ OPTION_NUMBER, 0, NULL, (v), NULL, (h), \ 	  PARSE_OPT_NOARG | PARSE_OPT_NONEG, (f) }
 end_define
+begin_define
+DECL|macro|OPT_FILENAME
+define|#
+directive|define
+name|OPT_FILENAME
+parameter_list|(
+name|s
+parameter_list|,
+name|l
+parameter_list|,
+name|v
+parameter_list|,
+name|h
+parameter_list|)
+value|{ OPTION_FILENAME, (s), (l), (v), \ 				       "FILE", (h) }
+end_define
 begin_comment
 comment|/* parse_options() will filter out the processed options and leave the  * non-option arguments in argv[].  * Returns the number of arguments left in argv[].  */
 end_comment
@@ -760,25 +779,6 @@ parameter_list|)
 define|\
 value|{ OPTION_CALLBACK, 0, "abbrev", (var), "n", \ 	  "use<n> digits to display SHA-1s", \ 	  PARSE_OPT_OPTARG,&parse_opt_abbrev_cb, 0 }
 end_define
-begin_function_decl
-specifier|extern
-specifier|const
-name|char
-modifier|*
-name|parse_options_fix_filename
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|prefix
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|file
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_endif
 endif|#
 directive|endif
