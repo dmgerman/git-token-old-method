@@ -3517,7 +3517,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Make sure "ref" is something reasonable to have under ".git/refs/";  * We do not like it if:  *  * - any path component of it begins with ".", or  * - it has double dots "..", or  * - it has ASCII control character, "~", "^", ":" or SP, anywhere, or  * - it ends with a "/".  * - it ends with ".lock"  */
+comment|/*  * Make sure "ref" is something reasonable to have under ".git/refs/";  * We do not like it if:  *  * - any path component of it begins with ".", or  * - it has double dots "..", or  * - it has ASCII control character, "~", "^", ":" or SP, anywhere, or  * - it ends with a "/".  * - it ends with ".lock"  * - it contains a "\" (backslash)  */
 end_comment
 begin_function
 DECL|function|bad_ref_char
@@ -3552,6 +3552,10 @@ operator|||
 name|ch
 operator|==
 literal|':'
+operator|||
+name|ch
+operator|==
+literal|'\\'
 condition|)
 return|return
 literal|1
