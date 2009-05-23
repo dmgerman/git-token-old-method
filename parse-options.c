@@ -1737,6 +1737,11 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
+parameter_list|,
 name|int
 name|flags
 parameter_list|)
@@ -1775,6 +1780,12 @@ operator|->
 name|out
 operator|=
 name|argv
+expr_stmt|;
+name|ctx
+operator|->
+name|prefix
+operator|=
+name|prefix
 expr_stmt|;
 name|ctx
 operator|->
@@ -2378,6 +2389,11 @@ modifier|*
 name|argv
 parameter_list|,
 specifier|const
+name|char
+modifier|*
+name|prefix
+parameter_list|,
+specifier|const
 name|struct
 name|option
 modifier|*
@@ -2406,6 +2422,8 @@ argument_list|,
 name|argc
 argument_list|,
 name|argv
+argument_list|,
+name|prefix
 argument_list|,
 name|flags
 argument_list|)

@@ -1537,6 +1537,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|prefix
+argument_list|,
 name|parseopt_opts
 argument_list|,
 name|parseopt_usage
@@ -2010,6 +2012,8 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
+argument_list|,
+name|prefix
 argument_list|,
 name|opts
 argument_list|,

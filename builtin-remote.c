@@ -456,6 +456,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|NULL
+argument_list|,
 name|options
 argument_list|,
 name|builtin_remote_usage
@@ -6180,6 +6182,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|NULL
+argument_list|,
 name|options
 argument_list|,
 name|builtin_remote_usage
@@ -6788,6 +6792,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|NULL
+argument_list|,
 name|options
 argument_list|,
 name|builtin_remote_usage
@@ -7200,6 +7206,8 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
+argument_list|,
+name|NULL
 argument_list|,
 name|options
 argument_list|,
@@ -7711,6 +7719,8 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
+argument_list|,
+name|NULL
 argument_list|,
 name|options
 argument_list|,
@@ -8245,6 +8255,8 @@ argument_list|(
 name|argc
 argument_list|,
 name|argv
+argument_list|,
+name|prefix
 argument_list|,
 name|options
 argument_list|,

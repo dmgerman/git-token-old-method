@@ -3653,6 +3653,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|prefix
+argument_list|,
 name|builtin_fetch_options
 argument_list|,
 name|builtin_fetch_usage
