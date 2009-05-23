@@ -1105,9 +1105,11 @@ name|char
 modifier|*
 name|pretty_ref
 init|=
-name|prettify_ref
+name|prettify_refname
 argument_list|(
 name|ref
+operator|->
+name|name
 argument_list|)
 decl_stmt|;
 operator|*
