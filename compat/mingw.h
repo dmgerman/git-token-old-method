@@ -639,7 +639,7 @@ parameter_list|(
 name|pid_t
 name|pid
 parameter_list|,
-name|unsigned
+name|int
 modifier|*
 name|status
 parameter_list|,
