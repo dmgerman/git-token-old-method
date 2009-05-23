@@ -1426,7 +1426,7 @@ name|DIFF_OPT_TST
 argument_list|(
 name|opt
 argument_list|,
-name|QUIET
+name|QUICK
 argument_list|)
 operator|&&
 name|DIFF_OPT_TST
