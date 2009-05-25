@@ -4556,9 +4556,15 @@ argument_list|,
 literal|0
 argument_list|)
 condition|)
+block|{
+name|last_errno
+operator|=
+name|ENOTDIR
+expr_stmt|;
 goto|goto
 name|error_return
 goto|;
+block|}
 name|lock
 operator|->
 name|lk
