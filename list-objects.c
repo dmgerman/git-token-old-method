@@ -656,6 +656,10 @@ name|show_commit
 parameter_list|,
 name|show_object_fn
 name|show_object
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|int
@@ -692,6 +696,8 @@ expr_stmt|;
 name|show_commit
 argument_list|(
 name|commit
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 block|}

@@ -364,6 +364,10 @@ name|struct
 name|commit
 modifier|*
 name|commit
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 if|if
@@ -821,6 +825,8 @@ argument_list|,
 name|show_commit
 argument_list|,
 name|show_object
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|fflush
@@ -2137,9 +2143,6 @@ index|[
 literal|41
 index|]
 decl_stmt|;
-name|int
-name|len
-decl_stmt|;
 name|save_commit_buffer
 operator|=
 literal|0
@@ -2150,8 +2153,9 @@ init|;
 condition|;
 control|)
 block|{
+name|int
 name|len
-operator|=
+init|=
 name|packet_read_line
 argument_list|(
 literal|0
@@ -2163,7 +2167,7 @@ argument_list|(
 name|line
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|reset_timeout
 argument_list|()
 expr_stmt|;
@@ -2192,8 +2196,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|len
-operator|=
 name|strip
 argument_list|(
 name|line
@@ -3513,7 +3515,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"'%s': unable to chdir or not a git archive"
+literal|"'%s' does not appear to be a git repository"
 argument_list|,
 name|dir
 argument_list|)

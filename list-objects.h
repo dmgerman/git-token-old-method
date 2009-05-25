@@ -22,6 +22,9 @@ parameter_list|(
 name|struct
 name|commit
 modifier|*
+parameter_list|,
+name|void
+modifier|*
 parameter_list|)
 function_decl|;
 end_typedef
@@ -71,11 +74,13 @@ parameter_list|(
 name|struct
 name|rev_info
 modifier|*
-name|revs
 parameter_list|,
 name|show_commit_fn
 parameter_list|,
 name|show_object_fn
+parameter_list|,
+name|void
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl

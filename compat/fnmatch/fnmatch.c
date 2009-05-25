@@ -95,7 +95,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* For platform which support the ISO C amendement 1 functionality we    support user defined character classes.  */
+comment|/* For platforms which support the ISO C amendment 1 functionality we    support user defined character classes.  */
 end_comment
 begin_if
 if|#
@@ -372,7 +372,7 @@ name|HAVE_WCHAR_H
 operator|)
 end_if
 begin_comment
-comment|/* The GNU C library provides support for user-defined character classes    and the functions from ISO C amendement 1.  */
+comment|/* The GNU C library provides support for user-defined character classes    and the functions from ISO C amendment 1.  */
 end_comment
 begin_ifdef
 ifdef|#

@@ -36,7 +36,7 @@ name|R
 init|=
 name|GIT_REGEX_SPECIAL
 block|,
-comment|/* $, (, ), +, ., ^, {, | * */
+comment|/* $, (, ), +, ., ^, {, | */
 block|}
 enum|;
 end_enum

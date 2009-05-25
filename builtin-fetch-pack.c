@@ -1100,14 +1100,8 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|int
-name|len
-decl_stmt|;
 while|while
 condition|(
-operator|(
-name|len
-operator|=
 name|packet_read_line
 argument_list|(
 name|fd
@@ -1122,7 +1116,6 @@ argument_list|(
 name|line
 argument_list|)
 argument_list|)
-operator|)
 condition|)
 block|{
 if|if
@@ -2520,8 +2513,6 @@ literal|0
 index|]
 argument_list|,
 name|fd
-argument_list|,
-literal|2
 argument_list|)
 return|;
 block|}
@@ -3220,11 +3211,9 @@ operator|.
 name|keep_pack
 condition|)
 comment|/* When cloning, it is not unusual to have 			 * no common commit. 			 */
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"warning: no common commits\n"
+literal|"no common commits"
 argument_list|)
 expr_stmt|;
 if|if
@@ -4279,21 +4268,15 @@ name|st
 operator|.
 name|st_mtime
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|USE_NSEC
 name|mtime
 operator|.
-name|usec
+name|nsec
 operator|=
+name|ST_MTIME_NSEC
+argument_list|(
 name|st
-operator|.
-name|st_mtim
-operator|.
-name|usec
+argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|stat
@@ -4331,15 +4314,14 @@ ifdef|#
 directive|ifdef
 name|USE_NSEC
 operator|||
+name|ST_MTIME_NSEC
+argument_list|(
 name|st
-operator|.
-name|st_mtim
-operator|.
-name|usec
+argument_list|)
 operator|!=
 name|mtime
 operator|.
-name|usec
+name|nsec
 endif|#
 directive|endif
 condition|)
@@ -4371,7 +4353,7 @@ literal|0
 argument_list|)
 condition|)
 block|{
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|shallow
 argument_list|)

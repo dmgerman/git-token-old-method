@@ -642,8 +642,6 @@ for|for
 control|(
 name|xch
 operator|=
-name|xche
-operator|=
 name|xscr
 init|;
 name|xch

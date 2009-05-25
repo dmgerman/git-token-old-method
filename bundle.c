@@ -655,6 +655,8 @@ block|{
 name|NULL
 block|,
 literal|"--all"
+block|,
+name|NULL
 block|}
 decl_stmt|;
 name|struct

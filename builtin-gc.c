@@ -61,8 +61,7 @@ specifier|static
 name|int
 name|aggressive_window
 init|=
-operator|-
-literal|1
+literal|250
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -976,6 +975,15 @@ argument_list|(
 name|argv_repack
 argument_list|,
 literal|"-f"
+argument_list|,
+name|MAX_ADD
+argument_list|)
+expr_stmt|;
+name|append_option
+argument_list|(
+name|argv_repack
+argument_list|,
+literal|"--depth=250"
 argument_list|,
 name|MAX_ADD
 argument_list|)
