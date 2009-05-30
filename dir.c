@@ -2116,14 +2116,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|cache_name_pos
+operator|!
+name|cache_name_is_other
 argument_list|(
 name|pathname
 argument_list|,
 name|len
 argument_list|)
-operator|>=
-literal|0
 condition|)
 return|return
 name|NULL
