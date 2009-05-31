@@ -2969,6 +2969,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|prefix
+argument_list|,
 name|fsck_opts
 argument_list|,
 name|fsck_usage

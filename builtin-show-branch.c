@@ -3706,6 +3706,8 @@ name|ac
 argument_list|,
 name|av
 argument_list|,
+name|prefix
+argument_list|,
 name|builtin_show_branch_options
 argument_list|,
 name|show_branch_usage

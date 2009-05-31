@@ -73,6 +73,16 @@ init|=
 name|NULL
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|file
+specifier|static
+name|char
+modifier|*
+name|file
+init|=
+name|NULL
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|length_callback
 name|int
@@ -193,6 +203,13 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
+specifier|const
+name|char
+modifier|*
+name|prefix
+init|=
+literal|"prefix/"
+decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -320,6 +337,18 @@ argument_list|,
 literal|"get length of<str>"
 argument_list|,
 name|length_callback
+argument_list|)
+block|,
+name|OPT_FILENAME
+argument_list|(
+literal|'F'
+argument_list|,
+literal|"file"
+argument_list|,
+operator|&
+name|file
+argument_list|,
+literal|"set file to<FILE>"
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -488,6 +517,8 @@ name|argc
 argument_list|,
 name|argv
 argument_list|,
+name|prefix
+argument_list|,
 name|options
 argument_list|,
 name|usage
@@ -561,6 +592,17 @@ condition|?
 literal|"yes"
 else|:
 literal|"no"
+argument_list|)
+expr_stmt|;
+name|printf
+argument_list|(
+literal|"file: %s\n"
+argument_list|,
+name|file
+condition|?
+name|file
+else|:
+literal|"(not set)"
 argument_list|)
 expr_stmt|;
 for|for
