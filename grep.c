@@ -2843,6 +2843,17 @@ name|eflags
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|match
+operator|.
+name|rm_so
+operator|==
+name|match
+operator|.
+name|rm_eo
+condition|)
+break|break;
 name|printf
 argument_list|(
 literal|"%.*s%s%.*s%s"
