@@ -3327,13 +3327,6 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|xscr1
-operator|||
-name|xscr2
-condition|)
-block|{
-if|if
-condition|(
 operator|!
 name|xscr1
 condition|)
@@ -3453,7 +3446,6 @@ argument_list|(
 name|xscr2
 argument_list|)
 expr_stmt|;
-block|}
 name|xdl_free_env
 argument_list|(
 operator|&
