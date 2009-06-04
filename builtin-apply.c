@@ -16105,6 +16105,8 @@ block|,
 literal|"old option, now no-op"
 block|,
 name|PARSE_OPT_HIDDEN
+operator||
+name|PARSE_OPT_NOARG
 block|}
 block|,
 block|{
@@ -16122,6 +16124,8 @@ block|,
 literal|"old option, now no-op"
 block|,
 name|PARSE_OPT_HIDDEN
+operator||
+name|PARSE_OPT_NOARG
 block|}
 block|,
 name|OPT_BOOLEAN
