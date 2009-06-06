@@ -657,7 +657,7 @@ argument_list|,
 literal|0666
 argument_list|)
 expr_stmt|;
-comment|/* This could have failed due to the "lazy directory creation"; 	 * try to mkdir the last path component. 	 */
+comment|/* 	 * This could have failed due to the "lazy directory creation"; 	 * try to mkdir the last path component. 	 */
 if|if
 condition|(
 name|obj_req
@@ -905,7 +905,7 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-comment|/* If a previous temp file is present, process what was already 	   fetched. */
+comment|/* 	 * If a previous temp file is present, process what was already 	 * fetched. 	 */
 name|prevlocal
 operator|=
 name|open
@@ -958,20 +958,16 @@ argument_list|)
 operator|==
 name|prev_read
 condition|)
-block|{
 name|prev_posn
 operator|+=
 name|prev_read
 expr_stmt|;
-block|}
 else|else
-block|{
 name|prev_read
 operator|=
 operator|-
 literal|1
 expr_stmt|;
-block|}
 block|}
 block|}
 do|while
@@ -992,7 +988,7 @@ argument_list|(
 name|prevfile
 argument_list|)
 expr_stmt|;
-comment|/* Reset inflate/SHA1 if there was an error reading the previous temp 	   file; also rewind to the beginning of the local file. */
+comment|/* 	 * Reset inflate/SHA1 if there was an error reading the previous temp 	 * file; also rewind to the beginning of the local file. 	 */
 if|if
 condition|(
 name|prev_read
@@ -1149,7 +1145,7 @@ operator|->
 name|no_pragma_header
 argument_list|)
 expr_stmt|;
-comment|/* If we have successfully processed data from a previous fetch 	   attempt, only fetch the data we don't already have. */
+comment|/* 	 * If we have successfully processed data from a previous fetch 	 * attempt, only fetch the data we don't already have. 	 */
 if|if
 condition|(
 name|prev_posn
@@ -1962,14 +1958,12 @@ name|next
 operator|!=
 name|NULL
 condition|)
-block|{
 name|tail
 operator|=
 name|tail
 operator|->
 name|next
 expr_stmt|;
-block|}
 name|tail
 operator|->
 name|next
@@ -2234,7 +2228,7 @@ name|local
 operator|=
 name|indexfile
 expr_stmt|;
-comment|/* If there is data present from a previous transfer attempt, 	   resume where it left off */
+comment|/* 	 * If there is data present from a previous transfer attempt, 	 * resume where it left off 	 */
 name|prev_posn
 operator|=
 name|ftell
@@ -2813,7 +2807,7 @@ operator|==
 literal|'/'
 condition|)
 block|{
-comment|/* This counts 				 * http://git.host/pub/scm/linux.git/ 				 * -----------here^ 				 * so memcpy(dst, base, serverlen) will 				 * copy up to "...git.host". 				 */
+comment|/* 				 * This counts 				 * http://git.host/pub/scm/linux.git/ 				 * -----------here^ 				 * so memcpy(dst, base, serverlen) will 				 * copy up to "...git.host". 				 */
 specifier|const
 name|char
 modifier|*
@@ -2868,7 +2862,7 @@ literal|3
 argument_list|)
 condition|)
 block|{
-comment|/* Relative URL; chop the corresponding 				 * number of subpath from base (and ../ 				 * from data), and concatenate the result. 				 * 				 * The code first drops ../ from data, and 				 * then drops one ../ from data and one path 				 * from base.  IOW, one extra ../ is dropped 				 * from data than path is dropped from base. 				 * 				 * This is not wrong.  The alternate in 				 *     http://git.host/pub/scm/linux.git/ 				 * to borrow from 				 *     http://git.host/pub/scm/linus.git/ 				 * is ../../linus.git/objects/.  You need 				 * two ../../ to borrow from your direct 				 * neighbour. 				 */
+comment|/* 				 * Relative URL; chop the corresponding 				 * number of subpath from base (and ../ 				 * from data), and concatenate the result. 				 * 				 * The code first drops ../ from data, and 				 * then drops one ../ from data and one path 				 * from base.  IOW, one extra ../ is dropped 				 * from data than path is dropped from base. 				 * 				 * This is not wrong.  The alternate in 				 *     http://git.host/pub/scm/linux.git/ 				 * to borrow from 				 *     http://git.host/pub/scm/linus.git/ 				 * is ../../linus.git/objects/.  You need 				 * two ../../ to borrow from your direct 				 * neighbour. 				 */
 name|i
 operator|+=
 literal|3
@@ -3196,7 +3190,7 @@ name|walker
 operator|->
 name|data
 decl_stmt|;
-comment|/* If another request has already started fetching alternates, 	   wait for them to arrive and return to processing this request's 	   curl message */
+comment|/* 	 * If another request has already started fetching alternates, 	 * wait for them to arrive and return to processing this request's 	 * curl message 	 */
 ifdef|#
 directive|ifdef
 name|USE_CURL_MULTI
@@ -3268,7 +3262,7 @@ argument_list|,
 name|base
 argument_list|)
 expr_stmt|;
-comment|/* Use a callback to process the result, since another request 	   may fail and need to have alternates loaded before continuing */
+comment|/* 	 * Use a callback to process the result, since another request 	 * may fail and need to have alternates loaded before continuing 	 */
 name|slot
 operator|=
 name|get_active_slot
@@ -4073,7 +4067,7 @@ name|local
 operator|=
 name|packfile
 expr_stmt|;
-comment|/* If there is data present from a previous transfer attempt, 	   resume where it left off */
+comment|/* 	 * If there is data present from a previous transfer attempt, 	 * resume where it left off 	 */
 name|prev_posn
 operator|=
 name|ftell
@@ -4477,11 +4471,9 @@ name|state
 operator|==
 name|WAITING
 condition|)
-block|{
 name|step_active_slots
 argument_list|()
 expr_stmt|;
-block|}
 else|#
 directive|else
 name|start_object_request
@@ -4501,7 +4493,6 @@ name|state
 operator|==
 name|ACTIVE
 condition|)
-block|{
 name|run_active_slot
 argument_list|(
 name|obj_req
@@ -4509,7 +4500,6 @@ operator|->
 name|slot
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|obj_req
