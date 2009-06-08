@@ -416,19 +416,12 @@ operator|&
 name|ec_process
 argument_list|)
 condition|)
-block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"Failed to start emacsclient.\n"
-argument_list|)
-expr_stmt|;
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"Failed to start emacsclient."
+argument_list|)
 return|;
-block|}
 name|strbuf_read
 argument_list|(
 operator|&
@@ -467,13 +460,6 @@ literal|"emacsclient"
 argument_list|)
 condition|)
 block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"Failed to parse emacsclient version.\n"
-argument_list|)
-expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
@@ -481,8 +467,10 @@ name|buffer
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"Failed to parse emacsclient version."
+argument_list|)
 return|;
 block|}
 name|strbuf_remove
@@ -514,15 +502,6 @@ operator|<
 literal|22
 condition|)
 block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"emacsclient version '%d' too old (< 22).\n"
-argument_list|,
-name|version
-argument_list|)
-expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
@@ -530,8 +509,12 @@ name|buffer
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"emacsclient version '%d' too old (< 22)."
+argument_list|,
+name|version
+argument_list|)
 return|;
 block|}
 name|strbuf_release
