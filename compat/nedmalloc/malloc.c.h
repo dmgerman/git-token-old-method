@@ -1881,6 +1881,11 @@ ifdef|#
 directive|ifdef
 name|WIN32
 end_ifdef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__GNUC__
+end_ifndef
 begin_pragma
 pragma|#
 directive|pragma
@@ -1894,6 +1899,10 @@ end_pragma
 begin_comment
 comment|/* no "unsigned" warnings */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -6325,7 +6334,7 @@ define|#
 directive|define
 name|ensure_initialization
 parameter_list|()
-value|(mparams.magic != 0 || init_mparams())
+value|((void)(mparams.magic == 0 || init_mparams()))
 end_define
 begin_if
 if|#
