@@ -8137,7 +8137,7 @@ expr_stmt|;
 operator|*
 name|utilp
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|strlen
 argument_list|(
@@ -8269,7 +8269,7 @@ expr_stmt|;
 operator|*
 name|utilp
 operator|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|strlen
 argument_list|(
