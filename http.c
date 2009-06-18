@@ -118,7 +118,7 @@ if|#
 directive|if
 name|LIBCURL_VERSION_NUM
 operator|>=
-literal|0x070902
+literal|0x070903
 end_if
 begin_decl_stmt
 DECL|variable|ssl_key
@@ -709,7 +709,7 @@ if|#
 directive|if
 name|LIBCURL_VERSION_NUM
 operator|>=
-literal|0x070902
+literal|0x070903
 if|if
 condition|(
 operator|!
@@ -1095,7 +1095,7 @@ if|#
 directive|if
 name|LIBCURL_VERSION_NUM
 operator|>=
-literal|0x070902
+literal|0x070903
 if|if
 condition|(
 name|ssl_key
@@ -1646,7 +1646,7 @@ if|#
 directive|if
 name|LIBCURL_VERSION_NUM
 operator|>=
-literal|0x070902
+literal|0x070903
 name|set_from_env
 argument_list|(
 operator|&
