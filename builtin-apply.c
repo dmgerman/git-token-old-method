@@ -12608,7 +12608,7 @@ name|index_state
 name|result
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|;
 name|int

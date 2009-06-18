@@ -85,6 +85,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|length_callback
+specifier|static
 name|int
 name|length_callback
 parameter_list|(
@@ -147,6 +148,7 @@ block|}
 end_function
 begin_function
 DECL|function|number_callback
+specifier|static
 name|int
 name|number_callback
 parameter_list|(

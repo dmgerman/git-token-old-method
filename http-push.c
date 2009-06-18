@@ -9734,6 +9734,7 @@ block|}
 end_function
 begin_function
 DECL|function|run_request_queue
+specifier|static
 name|void
 name|run_request_queue
 parameter_list|(

@@ -2473,6 +2473,7 @@ value|1024
 end_define
 begin_function
 DECL|function|get_port
+specifier|static
 name|char
 modifier|*
 name|get_port

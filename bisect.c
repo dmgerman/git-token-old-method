@@ -2304,6 +2304,7 @@ block|}
 end_function
 begin_function
 DECL|function|read_bisect_paths
+specifier|static
 name|void
 name|read_bisect_paths
 parameter_list|(
@@ -3917,6 +3918,7 @@ block|}
 end_function
 begin_function
 DECL|function|handle_skipped_merge_base
+specifier|static
 name|void
 name|handle_skipped_merge_base
 parameter_list|(

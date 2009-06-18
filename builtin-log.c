@@ -507,6 +507,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|variable|early_output_timer
+specifier|static
 name|struct
 name|itimerval
 name|early_output_timer
@@ -5342,7 +5343,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

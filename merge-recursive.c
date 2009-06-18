@@ -158,6 +158,7 @@ comment|/*  * A virtual commit has (const char *)commit->util set to the name.  
 end_comment
 begin_function
 DECL|function|make_virtual_commit
+specifier|static
 name|struct
 name|commit
 modifier|*

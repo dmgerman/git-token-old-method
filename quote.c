@@ -1384,7 +1384,6 @@ block|}
 end_function
 begin_function
 DECL|function|write_name_quotedpfx
-specifier|extern
 name|void
 name|write_name_quotedpfx
 parameter_list|(

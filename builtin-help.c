@@ -2147,6 +2147,7 @@ name|open_html
 end_ifndef
 begin_function
 DECL|function|open_html
+specifier|static
 name|void
 name|open_html
 parameter_list|(

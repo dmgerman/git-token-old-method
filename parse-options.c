@@ -2903,6 +2903,7 @@ value|2
 end_define
 begin_function
 DECL|function|usage_with_options_internal
+specifier|static
 name|int
 name|usage_with_options_internal
 parameter_list|(
