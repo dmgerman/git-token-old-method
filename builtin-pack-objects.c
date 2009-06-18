@@ -3457,10 +3457,8 @@ name|name
 parameter_list|)
 block|{
 name|unsigned
-name|char
 name|c
-decl_stmt|;
-name|unsigned
+decl_stmt|,
 name|hash
 init|=
 literal|0
