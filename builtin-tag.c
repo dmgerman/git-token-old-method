@@ -1989,9 +1989,9 @@ block|,
 operator|&
 name|lines
 block|,
-name|NULL
+literal|"n"
 block|,
-literal|"print n lines of each tag message"
+literal|"print<n> lines of each tag message"
 block|,
 name|PARSE_OPT_OPTARG
 block|,
