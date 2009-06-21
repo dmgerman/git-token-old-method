@@ -181,9 +181,7 @@ name|unsigned
 name|val
 init|=
 literal|0
-decl_stmt|;
-name|unsigned
-name|char
+decl_stmt|,
 name|c
 decl_stmt|;
 while|while
