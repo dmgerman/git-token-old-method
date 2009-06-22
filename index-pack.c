@@ -1481,12 +1481,12 @@ name|unsigned
 name|char
 modifier|*
 name|p
-decl_stmt|,
-name|c
 decl_stmt|;
 name|unsigned
 name|long
 name|size
+decl_stmt|,
+name|c
 decl_stmt|;
 name|off_t
 name|base_offset
@@ -1587,7 +1587,7 @@ operator|+=
 operator|(
 name|c
 operator|&
-literal|0x7fUL
+literal|0x7f
 operator|)
 operator|<<
 name|shift
