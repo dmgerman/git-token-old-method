@@ -603,7 +603,6 @@ expr_stmt|;
 comment|/* We do not need to nor want to do read-directory 			 * here; we are merely interested in reusing the 			 * per directory ignore stack mechanism. 			 */
 continue|continue;
 block|}
-comment|/* using -u and -i at the same time makes no sense */
 if|if
 condition|(
 literal|1
@@ -616,9 +615,9 @@ name|opts
 operator|.
 name|update
 condition|)
-name|usage
+name|die
 argument_list|(
-name|read_tree_usage
+literal|"-u and -i at the same time makes no sense"
 argument_list|)
 expr_stmt|;
 if|if
@@ -674,9 +673,17 @@ name|opts
 operator|.
 name|merge
 condition|)
-name|usage
+name|die
 argument_list|(
-name|read_tree_usage
+literal|"%s is meaningless without -m, --reset, or --prefix"
+argument_list|,
+name|opts
+operator|.
+name|update
+condition|?
+literal|"-u"
+else|:
+literal|"-i"
 argument_list|)
 expr_stmt|;
 if|if
