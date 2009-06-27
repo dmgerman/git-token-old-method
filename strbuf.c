@@ -1711,10 +1711,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|res
-operator|<
-literal|0
-operator|&&
 name|oldalloc
 operator|==
 literal|0
