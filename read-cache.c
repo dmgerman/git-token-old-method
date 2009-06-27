@@ -3247,16 +3247,11 @@ operator|&
 name|st
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"%s: unable to stat (%s)"
+literal|"unable to stat '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -6001,14 +5996,9 @@ condition|)
 return|return
 literal|0
 return|;
-name|die
+name|die_errno
 argument_list|(
-literal|"index file open failed (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"index file open failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -6022,14 +6012,9 @@ operator|&
 name|st
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot stat the open index (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot stat the open index"
 argument_list|)
 expr_stmt|;
 name|errno

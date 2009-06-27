@@ -500,14 +500,9 @@ name|cbdata
 operator|.
 name|refs_file
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to create ref-pack file structure (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to create ref-pack file structure"
 argument_list|)
 expr_stmt|;
 comment|/* perhaps other traits later as well */
@@ -563,14 +558,9 @@ operator|.
 name|refs_file
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to write ref-pack file (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"failed to write ref-pack file"
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Since the lock file was fdopen()'ed and then fclose()'ed above, 	 * assign -1 to the lock file descriptor so that commit_lock_file() 	 * won't try to close() it. 	 */
@@ -591,14 +581,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to overwrite old ref-pack file (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to overwrite old ref-pack file"
 argument_list|)
 expr_stmt|;
 if|if

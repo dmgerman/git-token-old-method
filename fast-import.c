@@ -13173,16 +13173,11 @@ condition|(
 operator|!
 name|f
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot read %s: %s"
+literal|"cannot read '%s'"
 argument_list|,
 name|input_file
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 while|while
@@ -13917,18 +13912,13 @@ condition|(
 operator|!
 name|pack_edges
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Cannot open %s: %s"
+literal|"Cannot open '%s'"
 argument_list|,
 name|a
 operator|+
 literal|20
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -452,16 +452,11 @@ argument_list|,
 name|arg
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"'%s': %s"
+literal|"failed to stat '%s'"
 argument_list|,
 name|arg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -560,16 +555,11 @@ name|errno
 operator|!=
 name|ENOTDIR
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"'%s': %s"
+literal|"failed to stat '%s'"
 argument_list|,
 name|arg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1196,16 +1186,11 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Error opening %s: %s"
+literal|"Error opening '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|buf
@@ -1825,16 +1810,11 @@ argument_list|(
 literal|".."
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Cannot change to %s/..: %s"
+literal|"Cannot change to '%s/..'"
 argument_list|,
 name|cwd
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

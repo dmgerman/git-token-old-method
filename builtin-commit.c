@@ -2247,16 +2247,11 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not read log file '%s': %s"
+literal|"could not read log file '%s'"
 argument_list|,
 name|logfile
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -2355,14 +2350,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not read MERGE_MSG: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"could not read MERGE_MSG"
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -2403,14 +2393,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not read SQUASH_MSG: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"could not read SQUASH_MSG"
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -2447,16 +2432,11 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not read %s: %s"
+literal|"could not read '%s'"
 argument_list|,
 name|template_file
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -2492,18 +2472,13 @@ name|fp
 operator|==
 name|NULL
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not open %s: %s"
+literal|"could not open '%s'"
 argument_list|,
 name|git_path
 argument_list|(
 name|commit_editmsg
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2675,14 +2650,9 @@ name|sb
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not write commit template: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"could not write commit template"
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -4928,18 +4898,13 @@ name|fp
 operator|==
 name|NULL
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not open %s for reading: %s"
+literal|"could not open '%s' for reading"
 argument_list|,
 name|git_path
 argument_list|(
 literal|"MERGE_HEAD"
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5046,14 +5011,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not read MERGE_MODE: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"could not read MERGE_MODE"
 argument_list|)
 expr_stmt|;
 if|if

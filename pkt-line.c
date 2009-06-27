@@ -84,14 +84,9 @@ argument_list|(
 literal|"write error (disk full?)"
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"write error (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"write error"
 argument_list|)
 expr_stmt|;
 block|}
@@ -313,14 +308,9 @@ name|ret
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"read error (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"read error"
 argument_list|)
 expr_stmt|;
 elseif|else

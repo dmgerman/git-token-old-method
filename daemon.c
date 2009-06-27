@@ -4064,14 +4064,9 @@ name|ECONNABORTED
 case|:
 continue|continue;
 default|default:
-name|die
+name|die_errno
 argument_list|(
-literal|"accept returned %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"accept returned"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4145,14 +4140,9 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"open /dev/null or dup failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"open /dev/null or dup failed"
 argument_list|)
 expr_stmt|;
 if|if
@@ -4191,14 +4181,9 @@ case|case
 operator|-
 literal|1
 case|:
-name|die
+name|die_errno
 argument_list|(
-literal|"fork failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"fork failed"
 argument_list|)
 expr_stmt|;
 default|default:
@@ -4216,14 +4201,9 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"setsid failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"setsid failed"
 argument_list|)
 expr_stmt|;
 name|close
@@ -4274,16 +4254,11 @@ condition|(
 operator|!
 name|f
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot open pid file %s: %s"
+literal|"cannot open pid file '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4312,16 +4287,11 @@ argument_list|)
 operator|!=
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to write pid file %s: %s"
+literal|"failed to write pid file '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5319,14 +5289,9 @@ argument_list|,
 name|stderr
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to redirect stderr to /dev/null: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"failed to redirect stderr to /dev/null"
 argument_list|)
 expr_stmt|;
 if|if

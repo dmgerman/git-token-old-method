@@ -2669,14 +2669,9 @@ operator|==
 name|EPIPE
 condition|)
 break|break;
-name|die
+name|die_errno
 argument_list|(
-literal|"merge-recursive: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"merge-recursive"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3164,16 +3159,11 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to open %s: %s"
+literal|"failed to open '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|flush_buffer
@@ -3230,16 +3220,11 @@ argument_list|,
 name|path
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to symlink %s: %s"
+literal|"failed to symlink '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|free

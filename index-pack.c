@@ -675,14 +675,9 @@ argument_list|(
 literal|"early EOF"
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"read error on input: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"read error on input"
 argument_list|)
 expr_stmt|;
 block|}
@@ -856,16 +851,11 @@ name|output_fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to create %s: %s"
+literal|"unable to create '%s'"
 argument_list|,
 name|pack_name
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|pack_fd
@@ -890,16 +880,11 @@ name|input_fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot open packfile '%s': %s"
+literal|"cannot open packfile '%s'"
 argument_list|,
 name|pack_name
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|output_fd
@@ -1954,14 +1939,9 @@ name|n
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot pread pack file: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot pread pack file"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3494,14 +3474,9 @@ operator|&
 name|st
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot fstat packfile: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot fstat packfile"
 argument_list|)
 expr_stmt|;
 if|if
@@ -4428,14 +4403,9 @@ if|if
 condition|(
 name|err
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"error while closing pack file: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"error while closing pack file"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4502,16 +4472,11 @@ name|errno
 operator|!=
 name|EEXIST
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot write keep file '%s' (%s)"
+literal|"cannot write keep file '%s'"
 argument_list|,
 name|keep_name
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4552,16 +4517,11 @@ argument_list|)
 operator|!=
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot close written keep file '%s' (%s)"
+literal|"cannot close written keep file '%s'"
 argument_list|,
 name|keep_name
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|report
