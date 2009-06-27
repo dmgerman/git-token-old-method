@@ -1517,9 +1517,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -4728,9 +4728,9 @@ condition|(
 operator|!
 name|fp
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6542,9 +6542,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6571,9 +6571,9 @@ name|buf
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6616,9 +6616,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6645,9 +6645,9 @@ name|merge_msg
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6684,9 +6684,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6732,9 +6732,9 @@ name|buf
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(

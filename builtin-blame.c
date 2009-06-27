@@ -10115,9 +10115,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Cannot stat %s"
+literal|"Cannot stat '%s'"
 argument_list|,
 name|contents_from
 argument_list|)
@@ -10141,9 +10141,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Cannot lstat %s"
+literal|"Cannot lstat '%s'"
 argument_list|,
 name|path
 argument_list|)
@@ -10192,9 +10192,9 @@ name|st
 operator|.
 name|st_size
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot open or read %s"
+literal|"cannot open or read '%s'"
 argument_list|,
 name|read_from
 argument_list|)
@@ -10219,9 +10219,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot readlink %s"
+literal|"cannot readlink '%s'"
 argument_list|,
 name|read_from
 argument_list|)

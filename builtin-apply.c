@@ -13809,9 +13809,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to stat newly created file %s"
+literal|"unable to stat newly created file '%s'"
 argument_list|,
 name|path
 argument_list|)
@@ -14273,9 +14273,9 @@ name|nr
 expr_stmt|;
 block|}
 block|}
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to write file %s mode %o"
+literal|"unable to write file '%s' mode %o"
 argument_list|,
 name|path
 argument_list|,

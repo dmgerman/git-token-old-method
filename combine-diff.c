@@ -4085,7 +4085,7 @@ name|done
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"read error '%s'"
 argument_list|,

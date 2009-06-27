@@ -11636,7 +11636,7 @@ argument_list|)
 operator|!=
 name|size
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"unable to write temp-file"
 argument_list|)
@@ -11878,7 +11878,7 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"readlink(%s)"
 argument_list|,
@@ -12964,9 +12964,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"stat %s"
+literal|"stat '%s'"
 argument_list|,
 name|one
 operator|->

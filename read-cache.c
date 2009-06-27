@@ -6077,7 +6077,7 @@ name|mmap
 operator|==
 name|MAP_FAILED
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"unable to map index file"
 argument_list|)

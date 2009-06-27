@@ -2306,9 +2306,9 @@ condition|(
 operator|!
 name|in
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"cannot open %s"
+literal|"cannot open '%s'"
 argument_list|,
 name|inpath
 argument_list|)

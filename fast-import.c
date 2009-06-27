@@ -4688,7 +4688,7 @@ name|keep_fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"cannot create keep file"
 argument_list|)
@@ -4712,7 +4712,7 @@ argument_list|(
 name|keep_fd
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"failed to write keep file"
 argument_list|)

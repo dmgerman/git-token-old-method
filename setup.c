@@ -1549,9 +1549,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not chdir to %s"
+literal|"Could not chdir to '%s'"
 argument_list|,
 name|work_tree_env
 argument_list|)
@@ -1604,7 +1604,7 @@ operator|-
 literal|1
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Unable to read current working directory"
 argument_list|)
@@ -1781,7 +1781,7 @@ argument_list|(
 name|cwd
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Cannot come back to cwd"
 argument_list|)
@@ -2272,7 +2272,7 @@ argument_list|(
 name|retval
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not jump back into original cwd"
 argument_list|)
@@ -2302,7 +2302,7 @@ name|get_git_work_tree
 argument_list|()
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not jump to working directory"
 argument_list|)
