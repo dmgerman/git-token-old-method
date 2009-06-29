@@ -1145,6 +1145,11 @@ decl_stmt|;
 name|size_t
 name|remove
 decl_stmt|;
+name|int
+name|brackets_removed
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|subject
@@ -1226,6 +1231,12 @@ continue|continue;
 case|case
 literal|'['
 case|:
+comment|/* remove only one set of square brackets */
+if|if
+condition|(
+name|brackets_removed
+condition|)
+break|break;
 if|if
 condition|(
 operator|(
@@ -1275,6 +1286,10 @@ name|remove
 operator|+
 literal|1
 argument_list|)
+expr_stmt|;
+name|brackets_removed
+operator|=
+literal|1
 expr_stmt|;
 continue|continue;
 block|}
