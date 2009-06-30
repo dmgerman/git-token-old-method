@@ -1063,8 +1063,6 @@ name|count
 operator|+
 operator|*
 name|argcp
-operator|+
-literal|1
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1089,16 +1087,6 @@ operator|*
 operator|*
 name|argcp
 argument_list|)
-expr_stmt|;
-name|new_argv
-index|[
-name|count
-operator|+
-operator|*
-name|argcp
-index|]
-operator|=
-name|NULL
 expr_stmt|;
 operator|*
 name|argv
