@@ -309,6 +309,10 @@ DECL|member|color
 name|int
 name|color
 decl_stmt|;
+DECL|member|funcname
+name|int
+name|funcname
+decl_stmt|;
 DECL|member|color_match
 name|char
 name|color_match

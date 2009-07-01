@@ -1244,6 +1244,10 @@ operator|||
 name|opt
 operator|->
 name|post_context
+operator|||
+name|opt
+operator|->
+name|funcname
 condition|)
 block|{
 comment|/* 		 * grep handles hunk marks between files, but we need to 		 * do that ourselves between multiple calls. 		 */
@@ -1257,6 +1261,12 @@ name|write_or_die
 argument_list|(
 literal|1
 argument_list|,
+name|opt
+operator|->
+name|funcname
+condition|?
+literal|"==\n"
+else|:
 literal|"--\n"
 argument_list|,
 literal|3
@@ -3863,6 +3873,20 @@ argument_list|,
 name|context_callback
 argument_list|)
 block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|'p'
+argument_list|,
+literal|"show-function"
+argument_list|,
+operator|&
+name|opt
+operator|.
+name|funcname
+argument_list|,
+literal|"show a line with the function name before matches"
+argument_list|)
+block|,
 name|OPT_GROUP
 argument_list|(
 literal|""
@@ -4234,6 +4258,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|opt
 operator|.
 name|color
@@ -4242,6 +4267,11 @@ operator|!
 name|opt
 operator|.
 name|color_external
+operator|)
+operator|||
+name|opt
+operator|.
+name|funcname
 condition|)
 name|external_grep_allowed
 operator|=
