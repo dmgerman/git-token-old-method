@@ -230,7 +230,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|path_unused
+name|path
 parameter_list|,
 name|mmfile_t
 modifier|*
@@ -304,7 +304,9 @@ condition|)
 block|{
 name|warning
 argument_list|(
-literal|"Cannot merge binary files: %s vs. %s\n"
+literal|"Cannot merge binary files: %s (%s vs. %s)\n"
+argument_list|,
+name|path
 argument_list|,
 name|name1
 argument_list|,
@@ -318,7 +320,7 @@ name|drv_unused
 argument_list|,
 name|result
 argument_list|,
-name|path_unused
+name|path
 argument_list|,
 name|orig
 argument_list|,
