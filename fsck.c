@@ -1106,10 +1106,11 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|commit
 operator|->
 name|date
+operator|==
+name|ULONG_MAX
 condition|)
 return|return
 name|error_func
