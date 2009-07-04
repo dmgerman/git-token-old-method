@@ -78,6 +78,12 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* if this is to be git sub-command */
+DECL|member|silent_exec_failure
+name|unsigned
+name|silent_exec_failure
+range|:
+literal|1
+decl_stmt|;
 DECL|member|stdout_to_stderr
 name|unsigned
 name|stdout_to_stderr
@@ -170,6 +176,13 @@ define|#
 directive|define
 name|RUN_COMMAND_STDOUT_TO_STDERR
 value|4
+end_define
+begin_define
+DECL|macro|RUN_SILENT_EXEC_FAILURE
+define|#
+directive|define
+name|RUN_SILENT_EXEC_FAILURE
+value|8
 end_define
 begin_function_decl
 name|int
