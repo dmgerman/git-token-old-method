@@ -38,16 +38,6 @@ name|ERR_RUN_COMMAND_WAITPID_NOEXIT
 block|, }
 enum|;
 end_enum
-begin_define
-DECL|macro|IS_RUN_COMMAND_ERR
-define|#
-directive|define
-name|IS_RUN_COMMAND_ERR
-parameter_list|(
-name|x
-parameter_list|)
-value|(-(x)>= ERR_RUN_COMMAND_FORK)
-end_define
 begin_struct
 DECL|struct|child_process
 struct|struct
