@@ -231,7 +231,7 @@ name|cwd
 argument_list|)
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not get current working directory"
 argument_list|)
@@ -243,7 +243,7 @@ argument_list|(
 name|buf
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not switch to '%s'"
 argument_list|,
@@ -261,7 +261,7 @@ argument_list|,
 name|PATH_MAX
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not get current working directory"
 argument_list|)
@@ -365,9 +365,9 @@ name|len
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Invalid symlink: %s"
+literal|"Invalid symlink '%s'"
 argument_list|,
 name|buf
 argument_list|)
@@ -423,7 +423,7 @@ argument_list|(
 name|cwd
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not change back to '%s'"
 argument_list|,
@@ -618,7 +618,7 @@ condition|(
 operator|!
 name|cwd
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Cannot determine the current working directory"
 argument_list|)

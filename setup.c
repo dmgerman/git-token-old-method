@@ -452,16 +452,11 @@ argument_list|,
 name|arg
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"'%s': %s"
+literal|"failed to stat '%s'"
 argument_list|,
 name|arg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -560,16 +555,11 @@ name|errno
 operator|!=
 name|ENOTDIR
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"'%s': %s"
+literal|"failed to stat '%s'"
 argument_list|,
 name|arg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1196,16 +1186,11 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Error opening %s: %s"
+literal|"Error opening '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|buf
@@ -1564,9 +1549,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not chdir to %s"
+literal|"Could not chdir to '%s'"
 argument_list|,
 name|work_tree_env
 argument_list|)
@@ -1619,7 +1604,7 @@ operator|-
 literal|1
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Unable to read current working directory"
 argument_list|)
@@ -1796,7 +1781,7 @@ argument_list|(
 name|cwd
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Cannot come back to cwd"
 argument_list|)
@@ -1825,16 +1810,11 @@ argument_list|(
 literal|".."
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Cannot change to %s/..: %s"
+literal|"Cannot change to '%s/..'"
 argument_list|,
 name|cwd
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2292,7 +2272,7 @@ argument_list|(
 name|retval
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not jump back into original cwd"
 argument_list|)
@@ -2322,7 +2302,7 @@ name|get_git_work_tree
 argument_list|()
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not jump to working directory"
 argument_list|)

@@ -855,7 +855,7 @@ operator|.
 name|buf
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not make temporary directory"
 argument_list|)
@@ -1812,7 +1812,7 @@ operator|.
 name|buf
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"Could not make temporary directory"
 argument_list|)

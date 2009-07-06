@@ -2851,14 +2851,9 @@ argument_list|,
 name|mode
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to make temporary pack file readable: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to make temporary pack file readable"
 argument_list|)
 expr_stmt|;
 if|if
@@ -2870,14 +2865,9 @@ argument_list|,
 name|tmpname
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to rename temporary pack file: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to rename temporary pack file"
 argument_list|)
 expr_stmt|;
 comment|/* 			 * Packs are runtime accessed in their mtime 			 * order since newer packs are more likely to contain 			 * younger objects.  So if we are creating multiple 			 * packs then we should modify the mtime of later ones 			 * to preserve this property. 			 */
@@ -2995,14 +2985,9 @@ argument_list|,
 name|mode
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to make temporary index file readable: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to make temporary index file readable"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3014,14 +2999,9 @@ argument_list|,
 name|tmpname
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to rename temporary index file: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to rename temporary index file"
 argument_list|)
 expr_stmt|;
 name|free
@@ -9323,14 +9303,9 @@ name|errno
 operator|!=
 name|EINTR
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"fgets: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"fgets"
 argument_list|)
 expr_stmt|;
 name|clearerr

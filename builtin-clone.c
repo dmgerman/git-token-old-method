@@ -1162,9 +1162,9 @@ condition|(
 operator|!
 name|dir
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to open %s"
+literal|"failed to open '%s'"
 argument_list|,
 name|src
 operator|->
@@ -1189,9 +1189,9 @@ name|errno
 operator|!=
 name|EEXIST
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to create directory %s"
+literal|"failed to create directory '%s'"
 argument_list|,
 name|dest
 operator|->
@@ -1211,9 +1211,9 @@ operator|&
 name|buf
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to stat %s"
+literal|"failed to stat '%s'"
 argument_list|,
 name|dest
 operator|->
@@ -1380,18 +1380,13 @@ name|errno
 operator|!=
 name|ENOENT
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to unlink %s: %s"
+literal|"failed to unlink '%s'"
 argument_list|,
 name|dest
 operator|->
 name|buf
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1419,9 +1414,9 @@ if|if
 condition|(
 name|option_local
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to create link %s"
+literal|"failed to create link '%s'"
 argument_list|,
 name|dest
 operator|->
@@ -1448,9 +1443,9 @@ argument_list|,
 literal|0666
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"failed to copy file to %s"
+literal|"failed to copy file to '%s'"
 argument_list|,
 name|dest
 operator|->
@@ -2252,16 +2247,11 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not create leading directories of '%s': %s"
+literal|"could not create leading directories of '%s'"
 argument_list|,
 name|work_tree
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2276,16 +2266,11 @@ argument_list|,
 literal|0755
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not create work tree dir '%s': %s."
+literal|"could not create work tree dir '%s'."
 argument_list|,
 name|work_tree
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|set_git_work_tree

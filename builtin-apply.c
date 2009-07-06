@@ -1327,14 +1327,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"git apply: read returned %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"git apply: failed to read"
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Make sure that we have some slop in the buffer 	 * so that we can do speculative "memcmp" etc, and 	 * see to it that it is NUL-filled. 	 */
@@ -13814,9 +13809,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to stat newly created file %s"
+literal|"unable to stat newly created file '%s'"
 argument_list|,
 name|path
 argument_list|)
@@ -14054,16 +14049,11 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"closing file %s: %s"
+literal|"closing file '%s'"
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -14283,9 +14273,9 @@ name|nr
 expr_stmt|;
 block|}
 block|}
-name|die
+name|die_errno
 argument_list|(
-literal|"unable to write file %s mode %o"
+literal|"unable to write file '%s' mode %o"
 argument_list|,
 name|path
 argument_list|,
@@ -16554,16 +16544,11 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"can't open patch '%s': %s"
+literal|"can't open patch '%s'"
 argument_list|,
 name|arg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|read_stdin

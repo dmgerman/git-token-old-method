@@ -1517,9 +1517,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -1721,14 +1721,9 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Writing SQUASH_MSG: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"Writing SQUASH_MSG"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1738,14 +1733,9 @@ argument_list|(
 name|fd
 argument_list|)
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Finishing SQUASH_MSG: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"Finishing SQUASH_MSG"
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -2453,18 +2443,13 @@ condition|(
 operator|!
 name|fp
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"could not open %s for reading: %s"
+literal|"could not open '%s' for reading"
 argument_list|,
 name|git_path
 argument_list|(
 literal|"FETCH_HEAD"
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4743,9 +4728,9 @@ condition|(
 operator|!
 name|fp
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6573,9 +6558,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6602,9 +6587,9 @@ name|buf
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6647,9 +6632,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6676,9 +6661,9 @@ name|merge_msg
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6715,9 +6700,9 @@ name|fd
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could open %s for writing"
+literal|"Could not open '%s' for writing"
 argument_list|,
 name|git_path
 argument_list|(
@@ -6763,9 +6748,9 @@ name|buf
 operator|.
 name|len
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to '%s'"
 argument_list|,
 name|git_path
 argument_list|(
