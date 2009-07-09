@@ -341,13 +341,8 @@ name|char
 modifier|*
 name|path
 parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|base
-parameter_list|,
 name|int
-name|baselen
+name|len
 parameter_list|,
 specifier|const
 name|char
