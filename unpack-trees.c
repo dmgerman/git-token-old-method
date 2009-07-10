@@ -628,6 +628,8 @@ index|]
 init|=
 block|{
 name|ce
+block|,
+name|NULL
 block|, }
 decl_stmt|;
 name|o
