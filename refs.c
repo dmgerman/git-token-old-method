@@ -8162,10 +8162,17 @@ argument_list|,
 name|logfp
 argument_list|)
 condition|)
+block|{
+name|fclose
+argument_list|(
+name|logfp
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
+block|}
 block|}
 while|while
 condition|(
