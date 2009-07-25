@@ -1246,7 +1246,7 @@ condition|)
 block|{
 if|if
 condition|(
-literal|1
+literal|0
 operator|<
 name|len
 operator|&&
@@ -1269,7 +1269,7 @@ operator|--
 expr_stmt|;
 if|if
 condition|(
-literal|1
+literal|0
 operator|<
 name|len
 operator|&&
