@@ -146,6 +146,14 @@ name|apply_default_whitespace
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|apply_default_ignorewhitespace
+specifier|const
+name|char
+modifier|*
+name|apply_default_ignorewhitespace
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|zlib_compression_level
 name|int
 name|zlib_compression_level
