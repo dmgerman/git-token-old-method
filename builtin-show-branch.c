@@ -3560,7 +3560,7 @@ argument_list|,
 operator|&
 name|merge_base
 argument_list|,
-literal|"act like git merge-base -a"
+literal|"show possible merge bases"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
