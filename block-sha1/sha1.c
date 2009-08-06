@@ -433,7 +433,7 @@ name|x
 parameter_list|,
 name|n
 parameter_list|)
-value|({ unsigned int __res; asm(op " %1,%0":"=r" (__res):"i" (n), "0" (x)); __res; })
+value|({ unsigned int __res; __asm__(op " %1,%0":"=r" (__res):"i" (n), "0" (x)); __res; })
 end_define
 begin_define
 DECL|macro|SHA_ROL
@@ -471,7 +471,9 @@ name|SHA_ROT
 parameter_list|(
 name|X
 parameter_list|,
-name|n
+name|l
+parameter_list|,
+name|r
 parameter_list|)
 value|(((X)<< (l)) | ((X)>> (r)))
 end_define
