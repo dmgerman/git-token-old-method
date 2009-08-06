@@ -124,6 +124,13 @@ literal|10
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|found_names
+specifier|static
+name|int
+name|found_names
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|pattern
 specifier|static
 specifier|const
@@ -306,6 +313,10 @@ operator|=
 name|e
 expr_stmt|;
 block|}
+name|found_names
+operator|=
+literal|1
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -1153,6 +1164,21 @@ name|NULL
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|found_names
+condition|)
+name|die
+argument_list|(
+literal|"cannot describe '%s'"
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|sha1
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|n
 operator|=
 name|cmit
