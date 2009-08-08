@@ -6706,12 +6706,10 @@ name|len
 operator|<=
 name|used
 operator|||
-sizeof|sizeof
+name|bitsizeof
 argument_list|(
 name|long
 argument_list|)
-operator|*
-literal|8
 operator|<=
 name|shift
 condition|)
