@@ -60,30 +60,6 @@ directive|include
 file|"remote.h"
 end_include
 begin_decl_stmt
-DECL|variable|wt_status_relative_paths
-name|int
-name|wt_status_relative_paths
-init|=
-literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|wt_status_use_color
-name|int
-name|wt_status_use_color
-init|=
-operator|-
-literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|wt_status_submodule_summary
-specifier|static
-name|int
-name|wt_status_submodule_summary
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|wt_status_colors
 specifier|static
 name|char
@@ -113,15 +89,6 @@ name|GIT_COLOR_RED
 block|,
 comment|/* WT_STATUS_UNMERGED */
 block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|show_untracked_files
-name|enum
-name|untracked_status_type
-name|show_untracked_files
-init|=
-name|SHOW_NORMAL_UNTRACKED_FILES
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -258,10 +225,17 @@ name|color
 parameter_list|(
 name|int
 name|slot
+parameter_list|,
+name|struct
+name|wt_status
+modifier|*
+name|s
 parameter_list|)
 block|{
 return|return
-name|wt_status_use_color
+name|s
+operator|->
+name|use_color
 operator|>
 literal|0
 condition|?
@@ -309,6 +283,25 @@ operator|*
 name|s
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|show_untracked_files
+operator|=
+name|SHOW_NORMAL_UNTRACKED_FILES
+expr_stmt|;
+name|s
+operator|->
+name|use_color
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|s
+operator|->
+name|relative_paths
+operator|=
+literal|1
 expr_stmt|;
 name|head
 operator|=
@@ -385,6 +378,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|color_fprintf_ln
@@ -476,6 +471,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|color_fprintf_ln
@@ -563,6 +560,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|color_fprintf_ln
@@ -648,6 +647,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|color_fprintf_ln
@@ -706,6 +707,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#"
@@ -745,6 +748,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_UNMERGED
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|struct
@@ -800,6 +805,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#\t"
@@ -929,6 +936,8 @@ init|=
 name|color
 argument_list|(
 name|change_type
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|int
@@ -1051,6 +1060,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#\t"
@@ -2542,7 +2553,9 @@ name|summary_limit
 argument_list|,
 literal|"%d"
 argument_list|,
-name|wt_status_submodule_summary
+name|s
+operator|->
+name|submodule_summary
 argument_list|)
 expr_stmt|;
 name|snprintf
@@ -2673,10 +2686,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|s
 operator|->
-name|untracked
+name|show_untracked_files
+operator|!=
+name|SHOW_ALL_UNTRACKED_FILES
 condition|)
 name|dir
 operator|.
@@ -2774,6 +2788,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#\t"
@@ -2788,6 +2804,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_UNTRACKED
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"%s"
@@ -3051,6 +3069,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"# %.*s"
@@ -3076,6 +3096,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#"
@@ -3109,6 +3131,8 @@ init|=
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|s
@@ -3186,6 +3210,8 @@ operator|=
 name|color
 argument_list|(
 name|WT_STATUS_NOBRANCH
+argument_list|,
+name|s
 argument_list|)
 expr_stmt|;
 name|on_what
@@ -3202,6 +3228,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"# "
@@ -3256,6 +3284,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#"
@@ -3270,6 +3300,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"# Initial commit"
@@ -3284,6 +3316,8 @@ argument_list|,
 name|color
 argument_list|(
 name|WT_STATUS_HEADER
+argument_list|,
+name|s
 argument_list|)
 argument_list|,
 literal|"#"
@@ -3307,7 +3341,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wt_status_submodule_summary
+name|s
+operator|->
+name|submodule_summary
 condition|)
 name|wt_status_print_submodule_summary
 argument_list|(
@@ -3316,6 +3352,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|show_untracked_files
 condition|)
 name|wt_status_print_untracked
@@ -3422,6 +3460,8 @@ elseif|else
 if|if
 condition|(
 operator|!
+name|s
+operator|->
 name|show_untracked_files
 condition|)
 name|printf
@@ -3458,6 +3498,13 @@ modifier|*
 name|cb
 parameter_list|)
 block|{
+name|struct
+name|wt_status
+modifier|*
+name|s
+init|=
+name|cb
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -3472,7 +3519,9 @@ block|{
 name|int
 name|is_bool
 decl_stmt|;
-name|wt_status_submodule_summary
+name|s
+operator|->
+name|submodule_summary
 operator|=
 name|git_config_bool_or_int
 argument_list|(
@@ -3488,9 +3537,13 @@ if|if
 condition|(
 name|is_bool
 operator|&&
-name|wt_status_submodule_summary
+name|s
+operator|->
+name|submodule_summary
 condition|)
-name|wt_status_submodule_summary
+name|s
+operator|->
+name|submodule_summary
 operator|=
 operator|-
 literal|1
@@ -3518,7 +3571,9 @@ literal|"color.status"
 argument_list|)
 condition|)
 block|{
-name|wt_status_use_color
+name|s
+operator|->
+name|use_color
 operator|=
 name|git_config_colorbool
 argument_list|(
@@ -3601,7 +3656,9 @@ literal|"status.relativepaths"
 argument_list|)
 condition|)
 block|{
-name|wt_status_relative_paths
+name|s
+operator|->
+name|relative_paths
 operator|=
 name|git_config_bool
 argument_list|(
@@ -3647,6 +3704,8 @@ argument_list|,
 literal|"no"
 argument_list|)
 condition|)
+name|s
+operator|->
 name|show_untracked_files
 operator|=
 name|SHOW_NO_UNTRACKED_FILES
@@ -3662,6 +3721,8 @@ argument_list|,
 literal|"normal"
 argument_list|)
 condition|)
+name|s
+operator|->
 name|show_untracked_files
 operator|=
 name|SHOW_NORMAL_UNTRACKED_FILES
@@ -3677,6 +3738,8 @@ argument_list|,
 literal|"all"
 argument_list|)
 condition|)
+name|s
+operator|->
 name|show_untracked_files
 operator|=
 name|SHOW_ALL_UNTRACKED_FILES
@@ -3701,7 +3764,7 @@ name|k
 argument_list|,
 name|v
 argument_list|,
-name|cb
+name|NULL
 argument_list|)
 return|;
 block|}
