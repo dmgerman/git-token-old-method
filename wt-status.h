@@ -20,6 +20,11 @@ include|#
 directive|include
 file|"string-list.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"color.h"
+end_include
 begin_enum
 DECL|enum|color_wt_status
 enum|enum
@@ -27,6 +32,8 @@ name|color_wt_status
 block|{
 DECL|enumerator|WT_STATUS_HEADER
 name|WT_STATUS_HEADER
+init|=
+literal|0
 block|,
 DECL|enumerator|WT_STATUS_UPDATED
 name|WT_STATUS_UPDATED
@@ -134,6 +141,18 @@ DECL|member|show_untracked_files
 name|enum
 name|untracked_status_type
 name|show_untracked_files
+decl_stmt|;
+DECL|member|color_palette
+name|char
+name|color_palette
+index|[
+name|WT_STATUS_UNMERGED
+operator|+
+literal|1
+index|]
+index|[
+name|COLOR_MAXLEN
+index|]
 decl_stmt|;
 comment|/* These are computed during processing of the individual sections */
 DECL|member|commitable
