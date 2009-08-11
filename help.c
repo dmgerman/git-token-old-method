@@ -1877,7 +1877,7 @@ literal|0
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|main_cmds
+name|other_cmds
 argument_list|)
 argument_list|)
 expr_stmt|;
