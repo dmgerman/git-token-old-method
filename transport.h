@@ -236,6 +236,13 @@ directive|define
 name|TRANSPORT_PUSH_PORCELAIN
 value|32
 end_define
+begin_define
+DECL|macro|TRANSPORT_PUSH_QUIET
+define|#
+directive|define
+name|TRANSPORT_PUSH_QUIET
+value|64
+end_define
 begin_comment
 comment|/* Returns a transport suitable for the url */
 end_comment
