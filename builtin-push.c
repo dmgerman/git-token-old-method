@@ -707,6 +707,9 @@ decl_stmt|;
 name|int
 name|err
 decl_stmt|;
+name|int
+name|nonfastforward
+decl_stmt|;
 if|if
 condition|(
 name|receivepack
@@ -762,6 +765,9 @@ argument_list|,
 name|refspec
 argument_list|,
 name|flags
+argument_list|,
+operator|&
+name|nonfastforward
 argument_list|)
 expr_stmt|;
 name|err
@@ -787,6 +793,19 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nonfastforward
+condition|)
+block|{
+name|printf
+argument_list|(
+literal|"To prevent you from losing history, non-fast-forward updates were rejected.\n"
+literal|"Merge the remote changes before pushing again.\n"
+literal|"See 'non-fast forward' section of 'git push --help' for details.\n"
+argument_list|)
+expr_stmt|;
+block|}
 name|errs
 operator|++
 expr_stmt|;
