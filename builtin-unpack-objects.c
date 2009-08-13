@@ -919,7 +919,7 @@ operator|!
 name|obj
 condition|)
 return|return
-literal|0
+literal|1
 return|;
 if|if
 condition|(
@@ -930,7 +930,7 @@ operator|&
 name|FLAG_WRITTEN
 condition|)
 return|return
-literal|1
+literal|0
 return|;
 if|if
 condition|(
@@ -1002,7 +1002,7 @@ operator||=
 name|FLAG_WRITTEN
 expr_stmt|;
 return|return
-literal|1
+literal|0
 return|;
 block|}
 if|if
@@ -1023,7 +1023,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|fsck_walk
 argument_list|(
 name|obj
@@ -1051,7 +1050,7 @@ name|obj
 argument_list|)
 expr_stmt|;
 return|return
-literal|1
+literal|0
 return|;
 block|}
 end_function
@@ -1080,6 +1079,16 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
+if|if
+condition|(
+name|obj_list
+index|[
+name|i
+index|]
+operator|.
+name|obj
+condition|)
 name|check_object
 argument_list|(
 name|obj_list
@@ -1094,6 +1103,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function_decl
