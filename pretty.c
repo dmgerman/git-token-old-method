@@ -3283,7 +3283,9 @@ init|=
 literal|" ("
 decl_stmt|;
 name|load_ref_decorations
-argument_list|()
+argument_list|(
+name|DECORATE_SHORT_REFS
+argument_list|)
 expr_stmt|;
 name|d
 operator|=
