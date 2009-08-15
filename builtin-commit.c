@@ -5284,6 +5284,18 @@ if|if
 condition|(
 name|dry_run
 condition|)
+block|{
+if|if
+condition|(
+name|diff_use_color_default
+operator|==
+operator|-
+literal|1
+condition|)
+name|diff_use_color_default
+operator|=
+name|git_use_color_default
+expr_stmt|;
 return|return
 name|dry_run_commit
 argument_list|(
@@ -5297,6 +5309,7 @@ operator|&
 name|s
 argument_list|)
 return|;
+block|}
 name|index_file
 operator|=
 name|prepare_index
