@@ -4158,7 +4158,7 @@ argument_list|(
 operator|&
 name|path
 argument_list|,
-literal|1
+name|REMOVE_DIR_EMPTY_ONLY
 argument_list|)
 expr_stmt|;
 name|strbuf_release
