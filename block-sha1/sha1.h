@@ -6,6 +6,12 @@ begin_typedef
 typedef|typedef
 struct|struct
 block|{
+DECL|member|size
+name|unsigned
+name|long
+name|long
+name|size
+decl_stmt|;
 DECL|member|H
 name|unsigned
 name|int
@@ -21,12 +27,6 @@ name|W
 index|[
 literal|16
 index|]
-decl_stmt|;
-DECL|member|size
-name|unsigned
-name|long
-name|long
-name|size
 decl_stmt|;
 block|}
 DECL|typedef|blk_SHA_CTX
