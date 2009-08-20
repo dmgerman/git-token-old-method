@@ -1069,14 +1069,6 @@ name|buf_p
 operator|=
 name|buf
 expr_stmt|;
-name|buf
-index|[
-name|size
-operator|++
-index|]
-operator|=
-literal|'\n'
-expr_stmt|;
 name|entry
 operator|=
 name|buf
@@ -1088,7 +1080,7 @@ operator|=
 literal|0
 init|;
 name|i
-operator|<
+operator|<=
 name|size
 condition|;
 name|i
@@ -1097,6 +1089,10 @@ control|)
 block|{
 if|if
 condition|(
+name|i
+operator|==
+name|size
+operator|||
 name|buf
 index|[
 name|i
