@@ -636,6 +636,13 @@ directive|define
 name|CE_INTENT_TO_ADD
 value|0x20000000
 end_define
+begin_define
+DECL|macro|CE_SKIP_WORKTREE
+define|#
+directive|define
+name|CE_SKIP_WORKTREE
+value|0x40000000
+end_define
 begin_comment
 comment|/* CE_EXTENDED2 is for future extension */
 end_comment
@@ -651,7 +658,7 @@ DECL|macro|CE_EXTENDED_FLAGS
 define|#
 directive|define
 name|CE_EXTENDED_FLAGS
-value|(CE_INTENT_TO_ADD)
+value|(CE_INTENT_TO_ADD | CE_SKIP_WORKTREE)
 end_define
 begin_comment
 comment|/*  * Safeguard to avoid saving wrong flags:  *  - CE_EXTENDED2 won't get saved until its semantic is known  *  - Bits in 0x0000FFFF have been saved in ce_flags already  *  - Bits in 0x003F0000 are currently in-memory flags  */
@@ -866,6 +873,16 @@ parameter_list|(
 name|ce
 parameter_list|)
 value|((ce)->ce_flags& CE_UPTODATE)
+end_define
+begin_define
+DECL|macro|ce_skip_worktree
+define|#
+directive|define
+name|ce_skip_worktree
+parameter_list|(
+name|ce
+parameter_list|)
+value|((ce)->ce_flags& CE_SKIP_WORKTREE)
 end_define
 begin_define
 DECL|macro|ce_mark_uptodate
