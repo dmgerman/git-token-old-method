@@ -1133,6 +1133,14 @@ operator|&
 name|CE_UPDATE
 condition|)
 continue|continue;
+if|if
+condition|(
+name|ce_skip_worktree
+argument_list|(
+name|ce
+argument_list|)
+condition|)
+continue|continue;
 name|err
 operator|=
 name|lstat
