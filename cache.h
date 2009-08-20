@@ -3093,6 +3093,12 @@ name|int
 name|core_preload_index
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|core_apply_sparse_checkout
+decl_stmt|;
+end_decl_stmt
 begin_enum
 DECL|enum|safe_crlf
 enum|enum
