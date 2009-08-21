@@ -1458,7 +1458,7 @@ name|refresh_cache
 parameter_list|(
 name|flags
 parameter_list|)
-value|refresh_index(&the_index, (flags), NULL, NULL)
+value|refresh_index(&the_index, (flags), NULL, NULL, NULL)
 end_define
 begin_define
 DECL|macro|ce_match_stat
@@ -2751,6 +2751,10 @@ parameter_list|,
 name|char
 modifier|*
 name|seen
+parameter_list|,
+name|char
+modifier|*
+name|header_msg
 parameter_list|)
 function_decl|;
 end_function_decl
