@@ -1402,7 +1402,7 @@ name|quiet
 condition|?
 name|REFRESH_QUIET
 else|:
-name|REFRESH_SAY_CHANGED
+name|REFRESH_IN_PORCELAIN
 argument_list|)
 return|;
 block|}
@@ -1619,7 +1619,7 @@ name|quiet
 condition|?
 name|REFRESH_QUIET
 else|:
-name|REFRESH_SAY_CHANGED
+name|REFRESH_IN_PORCELAIN
 argument_list|)
 expr_stmt|;
 break|break;
