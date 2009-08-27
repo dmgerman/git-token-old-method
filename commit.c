@@ -2938,7 +2938,7 @@ decl_stmt|;
 name|struct
 name|commit_list
 modifier|*
-name|n
+name|next
 decl_stmt|;
 name|int
 name|flags
@@ -2949,7 +2949,7 @@ name|list
 operator|->
 name|item
 expr_stmt|;
-name|n
+name|next
 operator|=
 name|list
 operator|->
@@ -2962,7 +2962,7 @@ argument_list|)
 expr_stmt|;
 name|list
 operator|=
-name|n
+name|next
 expr_stmt|;
 name|flags
 operator|=
@@ -3119,7 +3119,7 @@ block|{
 name|struct
 name|commit_list
 modifier|*
-name|n
+name|next
 init|=
 name|list
 operator|->
@@ -3157,7 +3157,7 @@ argument_list|)
 expr_stmt|;
 name|list
 operator|=
-name|n
+name|next
 expr_stmt|;
 block|}
 return|return
