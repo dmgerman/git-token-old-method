@@ -1,11 +1,17 @@
 begin_unit
 begin_comment
-comment|/*  * Based on the Mozilla SHA1 (see mozilla-sha1/sha1.h),  * optimized to do word accesses rather than byte accesses,  * and to avoid unnecessary copies into the context array.  */
+comment|/*  * SHA1 routine optimized to do word accesses rather than byte accesses,  * and to avoid unnecessary copies into the context array.  *  * This was initially based on the Mozilla SHA1 implementation, although  * none of the original Mozilla code remains.  */
 end_comment
 begin_typedef
 typedef|typedef
 struct|struct
 block|{
+DECL|member|size
+name|unsigned
+name|long
+name|long
+name|size
+decl_stmt|;
 DECL|member|H
 name|unsigned
 name|int
@@ -21,12 +27,6 @@ name|W
 index|[
 literal|16
 index|]
-decl_stmt|;
-DECL|member|size
-name|unsigned
-name|long
-name|long
-name|size
 decl_stmt|;
 block|}
 DECL|typedef|blk_SHA_CTX
