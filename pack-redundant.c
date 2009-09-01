@@ -257,7 +257,6 @@ condition|;
 name|i
 operator|++
 control|)
-block|{
 name|llist_item_put
 argument_list|(
 operator|&
@@ -267,7 +266,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|new

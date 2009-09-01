@@ -105,7 +105,6 @@ condition|;
 name|ptr
 operator|++
 control|)
-block|{
 name|printf
 argument_list|(
 literal|"%s=%s\n"
@@ -122,7 +121,6 @@ name|IDENT_WARN_ON_NO_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
