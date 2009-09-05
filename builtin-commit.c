@@ -5409,6 +5409,8 @@ block|{
 name|STATUS_FORMAT_LONG
 block|,
 name|STATUS_FORMAT_SHORT
+block|,
+name|STATUS_FORMAT_PORCELAIN
 block|, 	}
 name|status_format
 init|=
@@ -5446,6 +5448,20 @@ argument_list|,
 literal|"show status concisely"
 argument_list|,
 name|STATUS_FORMAT_SHORT
+argument_list|)
+block|,
+name|OPT_SET_INT
+argument_list|(
+literal|0
+argument_list|,
+literal|"porcelain"
+argument_list|,
+operator|&
+name|status_format
+argument_list|,
+literal|"show porcelain output format"
+argument_list|,
+name|STATUS_FORMAT_PORCELAIN
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5498,7 +5514,7 @@ name|STATUS_FORMAT_LONG
 condition|)
 name|status_format
 operator|=
-name|STATUS_FORMAT_SHORT
+name|STATUS_FORMAT_PORCELAIN
 expr_stmt|;
 name|wt_status_prepare
 argument_list|(
@@ -5593,6 +5609,18 @@ condition|)
 block|{
 case|case
 name|STATUS_FORMAT_SHORT
+case|:
+name|short_print
+argument_list|(
+operator|&
+name|s
+argument_list|,
+name|null_termination
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|STATUS_FORMAT_PORCELAIN
 case|:
 name|short_print
 argument_list|(
