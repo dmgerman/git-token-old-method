@@ -2233,6 +2233,10 @@ condition|)
 return|return
 name|hit
 return|;
+name|hit
+operator|=
+literal|0
+expr_stmt|;
 block|}
 endif|#
 directive|endif
