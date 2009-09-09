@@ -291,6 +291,12 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|advice_status_hints
+condition|)
+return|return;
+if|if
+condition|(
+operator|!
 name|s
 operator|->
 name|is_initial
@@ -384,6 +390,12 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|advice_status_hints
+condition|)
+return|return;
+if|if
+condition|(
+operator|!
 name|s
 operator|->
 name|is_initial
@@ -473,6 +485,12 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|advice_status_hints
+condition|)
+return|return;
+if|if
+condition|(
+operator|!
 name|has_deleted
 condition|)
 name|color_fprintf_ln
@@ -557,6 +575,12 @@ argument_list|,
 literal|"# Untracked files:"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|advice_status_hints
+condition|)
+return|return;
 name|color_fprintf_ln
 argument_list|(
 name|s
