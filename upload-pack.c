@@ -615,7 +615,7 @@ name|revs
 decl_stmt|;
 name|pack_pipe
 operator|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|fd
 argument_list|,
@@ -1605,7 +1605,7 @@ name|FILE
 modifier|*
 name|pipe_fd
 init|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|pack_objects
 operator|.

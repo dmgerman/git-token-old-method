@@ -1168,7 +1168,7 @@ name|diffopt
 operator|.
 name|file
 operator|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|out
 argument_list|,

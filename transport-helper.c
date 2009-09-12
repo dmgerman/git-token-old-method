@@ -247,7 +247,7 @@ argument_list|)
 expr_stmt|;
 name|file
 operator|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|helper
 operator|->
@@ -451,7 +451,7 @@ name|FILE
 modifier|*
 name|file
 init|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|helper
 operator|->
@@ -740,7 +740,7 @@ argument_list|)
 expr_stmt|;
 name|file
 operator|=
-name|fdopen
+name|xfdopen
 argument_list|(
 name|helper
 operator|->
