@@ -2523,15 +2523,13 @@ argument_list|)
 operator|<
 literal|0
 operator|||
-name|write_in_full
+name|write_str_in_full
 argument_list|(
 name|revlist
 operator|.
 name|in
 argument_list|,
 literal|"\n"
-argument_list|,
-literal|1
 argument_list|)
 operator|<
 literal|0
