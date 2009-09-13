@@ -425,7 +425,7 @@ init|=
 block|{
 name|OPT_STRING
 argument_list|(
-literal|0
+literal|'o'
 argument_list|,
 literal|"output"
 argument_list|,
