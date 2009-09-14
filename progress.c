@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Simple text-based progress display module for GIT  *  * Copyright (c) 2007 by Nicolas Pitre<nico@cam.org>  *  * This code is free software; you can redistribute it and/or modify  * it under the terms of the GNU General Public License version 2 as  * published by the Free Software Foundation.  */
+comment|/*  * Simple text-based progress display module for GIT  *  * Copyright (c) 2007 by Nicolas Pitre<nico@fluxnic.net>  *  * This code is free software; you can redistribute it and/or modify  * it under the terms of the GNU General Public License version 2 as  * published by the Free Software Foundation.  */
 end_comment
 begin_include
 include|#
