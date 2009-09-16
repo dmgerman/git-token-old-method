@@ -771,6 +771,7 @@ return|;
 ifdef|#
 directive|ifdef
 name|__MINGW32__
+block|{
 comment|/* cannot trust the executable bit, peek into the file instead */
 name|char
 name|buf
@@ -856,6 +857,7 @@ argument_list|(
 name|fd
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif

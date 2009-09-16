@@ -755,6 +755,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+block|{
 name|int
 name|s0
 init|=
@@ -1185,6 +1186,7 @@ argument_list|(
 name|s2
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
