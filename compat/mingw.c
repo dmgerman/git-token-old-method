@@ -19,6 +19,11 @@ include|#
 directive|include
 file|"../strbuf.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<shellapi.h>
+end_include
 begin_function
 DECL|function|err_win_to_posix
 specifier|static
