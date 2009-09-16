@@ -383,7 +383,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|__MINGW32__
+name|WIN32
 name|fflush
 argument_list|(
 name|NULL
@@ -1790,7 +1790,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|__MINGW32__
+name|WIN32
 end_ifdef
 begin_function
 DECL|function|run_thread
@@ -1879,7 +1879,7 @@ index|]
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|__MINGW32__
+name|WIN32
 comment|/* Flush stdio before fork() to avoid cloning buffers */
 name|fflush
 argument_list|(
@@ -2047,7 +2047,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|__MINGW32__
+name|WIN32
 name|int
 name|ret
 init|=
