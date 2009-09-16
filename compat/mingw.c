@@ -19,15 +19,6 @@ include|#
 directive|include
 file|"../strbuf.h"
 end_include
-begin_decl_stmt
-DECL|variable|_CRT_fmode
-name|unsigned
-name|int
-name|_CRT_fmode
-init|=
-name|_O_BINARY
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|err_win_to_posix
 specifier|static
