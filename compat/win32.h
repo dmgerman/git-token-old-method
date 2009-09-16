@@ -1,4 +1,15 @@
 begin_unit
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|WIN32_H
+end_ifndef
+begin_define
+DECL|macro|WIN32_H
+define|#
+directive|define
+name|WIN32_H
+end_define
 begin_comment
 comment|/* common Win32 functions for MinGW and Cygwin */
 end_comment
@@ -127,4 +138,8 @@ return|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit
