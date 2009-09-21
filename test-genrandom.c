@@ -5,12 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<stdio.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
+file|"git-compat-util.h"
 end_include
 begin_function
 DECL|function|main
