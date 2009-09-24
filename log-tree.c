@@ -2020,7 +2020,13 @@ name|CMIT_FMT_ONELINE
 argument_list|,
 name|opt
 operator|->
+name|date_mode_explicit
+condition|?
+name|opt
+operator|->
 name|date_mode
+else|:
+name|DATE_NORMAL
 argument_list|)
 expr_stmt|;
 if|if
