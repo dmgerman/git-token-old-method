@@ -9713,10 +9713,16 @@ name|char
 modifier|*
 name|endp
 decl_stmt|;
+name|unsigned
+name|long
+name|num
+decl_stmt|;
 name|errno
 operator|=
 literal|0
 expr_stmt|;
+name|num
+operator|=
 name|strtoul
 argument_list|(
 name|src
@@ -9727,6 +9733,7 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+comment|/* NEEDSWORK: perhaps check for reasonable values? */
 if|if
 condition|(
 name|errno
@@ -9766,6 +9773,8 @@ return|return
 operator|-
 literal|1
 return|;
+name|num
+operator|=
 name|strtoul
 argument_list|(
 name|src
@@ -9785,6 +9794,8 @@ operator|||
 name|endp
 operator|==
 name|src
+operator|+
+literal|1
 operator|||
 operator|*
 name|endp
@@ -9796,6 +9807,10 @@ name|orig_src
 operator|)
 operator|>=
 name|maxlen
+operator|||
+literal|1400
+operator|<
+name|num
 condition|)
 return|return
 operator|-
