@@ -891,6 +891,13 @@ directive|define
 name|NORETURN
 value|__attribute__((__noreturn__))
 end_define
+begin_define
+DECL|macro|NORETURN_PTR
+define|#
+directive|define
+name|NORETURN_PTR
+value|__attribute__((__noreturn__))
+end_define
 begin_else
 else|#
 directive|else
@@ -900,6 +907,12 @@ DECL|macro|NORETURN
 define|#
 directive|define
 name|NORETURN
+end_define
+begin_define
+DECL|macro|NORETURN_PTR
+define|#
+directive|define
+name|NORETURN_PTR
 end_define
 begin_ifndef
 ifndef|#
@@ -1055,7 +1068,7 @@ specifier|extern
 name|void
 name|set_die_routine
 argument_list|(
-name|NORETURN
+name|NORETURN_PTR
 name|void
 argument_list|(
 argument|*routine
