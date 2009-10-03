@@ -677,7 +677,7 @@ if|if
 condition|(
 name|diff
 operator|<
-literal|360
+literal|365
 condition|)
 block|{
 name|snprintf
