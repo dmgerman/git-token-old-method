@@ -620,6 +620,9 @@ specifier|const
 name|char
 modifier|*
 name|output_encoding
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 specifier|static
@@ -817,6 +820,12 @@ condition|)
 name|msglen
 operator|--
 expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|NOTES_SHOW_HEADER
+condition|)
 name|strbuf_addstr
 argument_list|(
 name|sb
@@ -854,6 +863,12 @@ argument_list|)
 operator|-
 name|msg_p
 expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|NOTES_INDENT
+condition|)
 name|strbuf_addstr
 argument_list|(
 name|sb
