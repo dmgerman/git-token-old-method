@@ -4265,7 +4265,7 @@ modifier|*
 name|commit
 parameter_list|,
 specifier|const
-name|void
+name|char
 modifier|*
 name|format
 parameter_list|,
