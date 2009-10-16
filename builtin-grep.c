@@ -3085,6 +3085,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|sb
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|patterns
 operator|=
