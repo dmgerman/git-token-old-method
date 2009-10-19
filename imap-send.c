@@ -341,6 +341,12 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_undef
+DECL|macro|DRV_OK
+undef|#
+directive|undef
+name|DRV_OK
+end_undef
 begin_define
 DECL|macro|DRV_OK
 define|#
