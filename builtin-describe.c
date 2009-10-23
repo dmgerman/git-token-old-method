@@ -1168,6 +1168,9 @@ if|if
 condition|(
 operator|!
 name|found_names
+operator|&&
+operator|!
+name|always
 condition|)
 name|die
 argument_list|(
