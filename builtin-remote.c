@@ -6000,7 +6000,7 @@ name|PUSH_STATUS_FASTFORWARD
 case|:
 name|status
 operator|=
-literal|"fast forwardable"
+literal|"fast-forwardable"
 expr_stmt|;
 break|break;
 case|case

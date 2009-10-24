@@ -1523,7 +1523,7 @@ name|r
 operator|=
 name|s_update_ref
 argument_list|(
-literal|"fast forward"
+literal|"fast-forward"
 argument_list|,
 name|ref
 argument_list|,
@@ -1669,7 +1669,7 @@ name|sprintf
 argument_list|(
 name|display
 argument_list|,
-literal|"! %-*s %-*s -> %s  (non fast forward)"
+literal|"! %-*s %-*s -> %s  (non-fast-forward)"
 argument_list|,
 name|SUMMARY_WIDTH
 argument_list|,
