@@ -4852,6 +4852,11 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+name|int
+name|use_patch_format
+init|=
+literal|0
+decl_stmt|;
 specifier|const
 name|struct
 name|option
@@ -5040,6 +5045,18 @@ operator|&
 name|no_binary_diff
 argument_list|,
 literal|"don't output binary diffs"
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|'p'
+argument_list|,
+name|NULL
+argument_list|,
+operator|&
+name|use_patch_format
+argument_list|,
+literal|"show patch format instead of default (patch + stat)"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5598,6 +5615,19 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|use_patch_format
+condition|)
+name|rev
+operator|.
+name|diffopt
+operator|.
+name|output_format
+operator||=
+name|DIFF_FORMAT_PATCH
+expr_stmt|;
+elseif|else
 if|if
 condition|(
 operator|!
