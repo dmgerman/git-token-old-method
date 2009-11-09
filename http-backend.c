@@ -1086,10 +1086,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|send_file
+DECL|function|send_local_file
 specifier|static
 name|void
-name|send_file
+name|send_local_file
 parameter_list|(
 specifier|const
 name|char
@@ -1294,7 +1294,7 @@ expr_stmt|;
 name|hdr_nocache
 argument_list|()
 expr_stmt|;
-name|send_file
+name|send_local_file
 argument_list|(
 literal|"text/plain"
 argument_list|,
@@ -1320,7 +1320,7 @@ expr_stmt|;
 name|hdr_cache_forever
 argument_list|()
 expr_stmt|;
-name|send_file
+name|send_local_file
 argument_list|(
 literal|"application/x-git-loose-object"
 argument_list|,
@@ -1346,7 +1346,7 @@ expr_stmt|;
 name|hdr_cache_forever
 argument_list|()
 expr_stmt|;
-name|send_file
+name|send_local_file
 argument_list|(
 literal|"application/x-git-packed-objects"
 argument_list|,
@@ -1372,7 +1372,7 @@ expr_stmt|;
 name|hdr_cache_forever
 argument_list|()
 expr_stmt|;
-name|send_file
+name|send_local_file
 argument_list|(
 literal|"application/x-git-packed-objects-toc"
 argument_list|,
