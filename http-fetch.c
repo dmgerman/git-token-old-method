@@ -7,6 +7,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"exec_cmd.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"walker.h"
 end_include
 begin_function
@@ -101,6 +106,14 @@ name|get_recover
 init|=
 literal|0
 decl_stmt|;
+name|git_extract_argv0_path
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 name|prefix
 operator|=
 name|setup_git_directory
