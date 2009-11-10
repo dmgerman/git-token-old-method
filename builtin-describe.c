@@ -575,18 +575,6 @@ condition|)
 return|return
 literal|0
 return|;
-if|if
-condition|(
-operator|!
-name|tags
-operator|&&
-name|prio
-operator|<
-literal|2
-condition|)
-return|return
-literal|0
-return|;
 block|}
 name|add_to_known_names
 argument_list|(
@@ -1144,6 +1132,12 @@ name|seen_commits
 init|=
 literal|0
 decl_stmt|;
+name|unsigned
+name|int
+name|unannotated_cnt
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|get_sha1
@@ -1330,6 +1324,26 @@ condition|(
 name|n
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|tags
+operator|&&
+operator|!
+name|all
+operator|&&
+name|n
+operator|->
+name|prio
+operator|<
+literal|2
+condition|)
+block|{
+name|unannotated_cnt
+operator|++
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|match_cnt
@@ -1597,9 +1611,26 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|unannotated_cnt
+condition|)
 name|die
 argument_list|(
-literal|"cannot describe '%s'"
+literal|"No annotated tags can describe '%s'.\n"
+literal|"However, there were unannotated tags: try --tags."
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|sha1
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|else
+name|die
+argument_list|(
+literal|"No tags can describe '%s'.\n"
+literal|"Try --always, or create some tags."
 argument_list|,
 name|sha1_to_hex
 argument_list|(
