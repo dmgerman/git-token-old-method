@@ -98,6 +98,7 @@ end_enum
 begin_decl_stmt
 DECL|variable|all
 DECL|variable|append
+DECL|variable|dry_run
 DECL|variable|force
 DECL|variable|keep
 DECL|variable|multiple
@@ -109,6 +110,8 @@ name|int
 name|all
 decl_stmt|,
 name|append
+decl_stmt|,
+name|dry_run
 decl_stmt|,
 name|force
 decl_stmt|,
@@ -284,6 +287,18 @@ operator|&
 name|prune
 argument_list|,
 literal|"prune tracking branches no longer on remote"
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"dry-run"
+argument_list|,
+operator|&
+name|dry_run
+argument_list|,
+literal|"dry run"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1029,6 +1044,13 @@ name|ref_lock
 modifier|*
 name|lock
 decl_stmt|;
+if|if
+condition|(
+name|dry_run
+condition|)
+return|return
+literal|0
+return|;
 if|if
 condition|(
 operator|!
@@ -1811,6 +1833,10 @@ decl_stmt|,
 modifier|*
 name|filename
 init|=
+name|dry_run
+condition|?
+literal|"/dev/null"
+else|:
 name|git_path
 argument_list|(
 literal|"FETCH_HEAD"
@@ -3466,6 +3492,9 @@ if|if
 condition|(
 operator|!
 name|append
+operator|&&
+operator|!
+name|dry_run
 condition|)
 block|{
 name|char
@@ -4079,6 +4108,8 @@ block|,
 name|NULL
 block|,
 name|NULL
+block|,
+name|NULL
 block|}
 decl_stmt|;
 name|int
@@ -4086,6 +4117,18 @@ name|argc
 init|=
 literal|1
 decl_stmt|;
+if|if
+condition|(
+name|dry_run
+condition|)
+name|argv
+index|[
+name|argc
+operator|++
+index|]
+operator|=
+literal|"--dry-run"
+expr_stmt|;
 if|if
 condition|(
 name|prune
