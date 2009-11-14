@@ -576,6 +576,16 @@ name|NULL
 return|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|2
+argument|,
+literal|3
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|format_write
 specifier|static
@@ -881,6 +891,16 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|not_found
 specifier|static
@@ -947,6 +967,16 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|forbidden
 specifier|static
