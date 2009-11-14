@@ -320,6 +320,16 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|logerror
 specifier|static
@@ -360,6 +370,16 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|loginfo
 specifier|static
