@@ -569,7 +569,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"* %s: fast forward to %s\n"
+literal|"* %s: fast-forward to %s\n"
 argument_list|,
 name|name
 argument_list|,
@@ -590,7 +590,7 @@ expr_stmt|;
 return|return
 name|update_ref_env
 argument_list|(
-literal|"fast forward"
+literal|"fast-forward"
 argument_list|,
 name|name
 argument_list|,
@@ -610,7 +610,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"* %s: not updating to non-fast forward %s\n"
+literal|"* %s: not updating to non-fast-forward %s\n"
 argument_list|,
 name|name
 argument_list|,
@@ -636,7 +636,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"* %s: forcing update to non-fast forward %s\n"
+literal|"* %s: forcing update to non-fast-forward %s\n"
 argument_list|,
 name|name
 argument_list|,
