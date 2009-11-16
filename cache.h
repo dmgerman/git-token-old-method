@@ -6875,10 +6875,10 @@ begin_comment
 comment|/*  * whitespace rules.  * used by both diff and apply  */
 end_comment
 begin_define
-DECL|macro|WS_TRAILING_SPACE
+DECL|macro|WS_BLANK_AT_EOL
 define|#
 directive|define
-name|WS_TRAILING_SPACE
+name|WS_BLANK_AT_EOL
 value|01
 end_define
 begin_define
@@ -6901,6 +6901,20 @@ define|#
 directive|define
 name|WS_CR_AT_EOL
 value|010
+end_define
+begin_define
+DECL|macro|WS_BLANK_AT_EOF
+define|#
+directive|define
+name|WS_BLANK_AT_EOF
+value|020
+end_define
+begin_define
+DECL|macro|WS_TRAILING_SPACE
+define|#
+directive|define
+name|WS_TRAILING_SPACE
+value|(WS_BLANK_AT_EOL|WS_BLANK_AT_EOF)
 end_define
 begin_define
 DECL|macro|WS_DEFAULT_RULE
