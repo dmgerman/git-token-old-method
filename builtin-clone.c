@@ -1975,9 +1975,6 @@ name|refs
 decl_stmt|,
 modifier|*
 name|remote_head
-decl_stmt|,
-modifier|*
-name|mapped_refs
 decl_stmt|;
 specifier|const
 name|struct
@@ -1990,6 +1987,11 @@ name|struct
 name|ref
 modifier|*
 name|our_head_points_at
+decl_stmt|;
+name|struct
+name|ref
+modifier|*
+name|mapped_refs
 decl_stmt|;
 name|struct
 name|strbuf

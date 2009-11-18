@@ -458,7 +458,6 @@ parameter_list|,
 name|int
 name|nr_heads
 parameter_list|,
-specifier|const
 name|struct
 name|ref
 modifier|*
@@ -612,7 +611,6 @@ parameter_list|,
 name|int
 name|nr_heads
 parameter_list|,
-specifier|const
 name|struct
 name|ref
 modifier|*
