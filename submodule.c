@@ -268,6 +268,8 @@ name|left
 decl_stmt|,
 modifier|*
 name|right
+init|=
+name|right
 decl_stmt|;
 name|struct
 name|commit_list
