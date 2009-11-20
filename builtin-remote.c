@@ -58,13 +58,132 @@ literal|"git remote rename<old><new>"
 block|,
 literal|"git remote rm<name>"
 block|,
-literal|"git remote set-head<name> [-a | -d |<branch>]"
+literal|"git remote set-head<name> (-a | -d |<branch>)"
 block|,
-literal|"git remote show [-n]<name>"
+literal|"git remote [-v | --verbose] show [-n]<name>"
 block|,
 literal|"git remote prune [-n | --dry-run]<name>"
 block|,
 literal|"git remote [-v | --verbose] update [-p | --prune] [group]"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_add_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_add_usage
+index|[]
+init|=
+block|{
+literal|"git remote add [<options>]<name><url>"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_rename_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_rename_usage
+index|[]
+init|=
+block|{
+literal|"git remote rename<old><new>"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_rm_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_rm_usage
+index|[]
+init|=
+block|{
+literal|"git remote rm<name>"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_sethead_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_sethead_usage
+index|[]
+init|=
+block|{
+literal|"git remote set-head<name> (-a | -d |<branch>])"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_show_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_show_usage
+index|[]
+init|=
+block|{
+literal|"git remote show [<options>]<name>"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_prune_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_prune_usage
+index|[]
+init|=
+block|{
+literal|"git remote prune [<options>]<name>"
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_remote_update_usage
+specifier|static
+specifier|const
+name|char
+modifier|*
+specifier|const
+name|builtin_remote_update_usage
+index|[]
+init|=
+block|{
+literal|"git remote update [<options>] [<group> |<remote>]..."
 block|,
 name|NULL
 block|}
@@ -385,11 +504,6 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_GROUP
-argument_list|(
-literal|"add specific options"
-argument_list|)
-block|,
 name|OPT_BOOLEAN
 argument_list|(
 literal|'f'
@@ -460,7 +574,7 @@ name|NULL
 argument_list|,
 name|options
 argument_list|,
-name|builtin_remote_usage
+name|builtin_remote_add_usage
 argument_list|,
 literal|0
 argument_list|)
@@ -473,7 +587,7 @@ literal|2
 condition|)
 name|usage_with_options
 argument_list|(
-name|builtin_remote_usage
+name|builtin_remote_add_usage
 argument_list|,
 name|options
 argument_list|)
@@ -3346,7 +3460,7 @@ literal|3
 condition|)
 name|usage_with_options
 argument_list|(
-name|builtin_remote_usage
+name|builtin_remote_rename_usage
 argument_list|,
 name|options
 argument_list|)
@@ -4406,7 +4520,7 @@ literal|2
 condition|)
 name|usage_with_options
 argument_list|(
-name|builtin_remote_usage
+name|builtin_remote_rm_usage
 argument_list|,
 name|options
 argument_list|)
@@ -6113,11 +6227,6 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_GROUP
-argument_list|(
-literal|"show specific options"
-argument_list|)
-block|,
 name|OPT_BOOLEAN
 argument_list|(
 literal|'n'
@@ -6168,7 +6277,7 @@ name|NULL
 argument_list|,
 name|options
 argument_list|,
-name|builtin_remote_usage
+name|builtin_remote_show_usage
 argument_list|,
 literal|0
 argument_list|)
@@ -6827,11 +6936,6 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_GROUP
-argument_list|(
-literal|"set-head specific options"
-argument_list|)
-block|,
 name|OPT_BOOLEAN
 argument_list|(
 literal|'a'
@@ -6872,7 +6976,7 @@ name|NULL
 argument_list|,
 name|options
 argument_list|,
-name|builtin_remote_usage
+name|builtin_remote_sethead_usage
 argument_list|,
 literal|0
 argument_list|)
@@ -7103,7 +7207,7 @@ block|}
 else|else
 name|usage_with_options
 argument_list|(
-name|builtin_remote_usage
+name|builtin_remote_sethead_usage
 argument_list|,
 name|options
 argument_list|)
@@ -7260,11 +7364,6 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_GROUP
-argument_list|(
-literal|"prune specific options"
-argument_list|)
-block|,
 name|OPT__DRY_RUN
 argument_list|(
 operator|&
@@ -7287,7 +7386,7 @@ name|NULL
 argument_list|,
 name|options
 argument_list|,
-name|builtin_remote_usage
+name|builtin_remote_prune_usage
 argument_list|,
 literal|0
 argument_list|)
@@ -7300,7 +7399,7 @@ literal|1
 condition|)
 name|usage_with_options
 argument_list|(
-name|builtin_remote_usage
+name|builtin_remote_prune_usage
 argument_list|,
 name|options
 argument_list|)
@@ -7768,11 +7867,6 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_GROUP
-argument_list|(
-literal|"update specific options"
-argument_list|)
-block|,
 name|OPT_BOOLEAN
 argument_list|(
 literal|'p'
@@ -7801,7 +7895,7 @@ name|NULL
 argument_list|,
 name|options
 argument_list|,
-name|builtin_remote_usage
+name|builtin_remote_update_usage
 argument_list|,
 name|PARSE_OPT_KEEP_ARGV0
 argument_list|)
@@ -8421,10 +8515,16 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT__VERBOSE
+name|OPT_BOOLEAN
 argument_list|(
+literal|'v'
+argument_list|,
+literal|"verbose"
+argument_list|,
 operator|&
 name|verbose
+argument_list|,
+literal|"be verbose; must be placed before a subcommand"
 argument_list|)
 block|,
 name|OPT_END
