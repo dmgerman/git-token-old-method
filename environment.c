@@ -329,6 +329,13 @@ name|OBJECT_CREATION_MODE
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|notes_ref_name
+name|char
+modifier|*
+name|notes_ref_name
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|grafts_replace_parents
 name|int
 name|grafts_replace_parents
