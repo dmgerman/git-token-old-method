@@ -399,6 +399,13 @@ name|dry_run
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|helper_status
+specifier|static
+name|int
+name|helper_status
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|objects
 specifier|static
 name|struct
@@ -3233,7 +3240,7 @@ name|finish_http_pack_request
 argument_list|(
 name|preq
 argument_list|)
-operator|>
+operator|==
 literal|0
 condition|)
 name|fail
@@ -10016,6 +10023,23 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"--helper-status"
+argument_list|)
+condition|)
+block|{
+name|helper_status
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"--verbose"
 argument_list|)
 condition|)
@@ -10493,6 +10517,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|fprintf
 argument_list|(
 name|stderr
@@ -10505,6 +10530,21 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"error %s cannot remove\n"
+argument_list|,
+name|refspec
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 goto|goto
 name|cleanup
 goto|;
@@ -10553,6 +10593,15 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"No refs in common and none specified; doing nothing.\n"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"error null no match\n"
 argument_list|)
 expr_stmt|;
 name|rc
@@ -10653,12 +10702,39 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"error %s cannot remove\n"
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 operator|-
 literal|4
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"ok %s\n"
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 name|new_refs
 operator|++
 expr_stmt|;
@@ -10692,6 +10768,19 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"'%s': up-to-date\n"
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"ok %s up to date\n"
 argument_list|,
 name|ref
 operator|->
@@ -10759,6 +10848,19 @@ argument_list|,
 name|ref
 operator|->
 name|peer_ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"error %s non-fast forward\n"
+argument_list|,
+name|ref
 operator|->
 name|name
 argument_list|)
@@ -10862,7 +10964,22 @@ if|if
 condition|(
 name|dry_run
 condition|)
+block|{
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"ok %s\n"
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 continue|continue;
+block|}
 comment|/* Lock remote branch ref */
 name|ref_lock
 operator|=
@@ -10887,6 +11004,19 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"Unable to lock remote branch %s\n"
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"error %s lock error\n"
 argument_list|,
 name|ref
 operator|->
@@ -11131,6 +11261,26 @@ argument_list|(
 name|stderr
 argument_list|,
 literal|"    done\n"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|helper_status
+condition|)
+name|printf
+argument_list|(
+literal|"%s %s\n"
+argument_list|,
+operator|!
+name|rc
+condition|?
+literal|"ok"
+else|:
+literal|"error"
+argument_list|,
+name|ref
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 name|unlock_remote
