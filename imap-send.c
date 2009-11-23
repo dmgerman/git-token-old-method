@@ -396,6 +396,16 @@ decl_stmt|,
 name|Quiet
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 specifier|static
 name|void
@@ -409,6 +419,16 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 specifier|static
 name|void
@@ -445,6 +465,16 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 specifier|static
 name|int
@@ -2807,6 +2837,16 @@ name|cmd
 return|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|issue_imap_cmd
 specifier|static
@@ -2871,6 +2911,16 @@ name|ret
 return|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|imap_exec
 specifier|static
@@ -2946,6 +2996,16 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|imap_exec_m
 specifier|static
@@ -4902,6 +4962,10 @@ name|NULL
 argument_list|,
 literal|"CREATE \"%.*s\""
 argument_list|,
+call|(
+name|int
+call|)
+argument_list|(
 name|strchr
 argument_list|(
 name|p
@@ -4914,6 +4978,7 @@ operator|-
 name|p
 operator|+
 literal|1
+argument_list|)
 argument_list|,
 name|p
 argument_list|)
