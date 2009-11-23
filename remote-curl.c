@@ -1901,9 +1901,9 @@ name|slot
 operator|->
 name|curl
 argument_list|,
-name|CURLOPT_POST
+name|CURLOPT_NOBODY
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|curl_easy_setopt
@@ -1912,9 +1912,9 @@ name|slot
 operator|->
 name|curl
 argument_list|,
-name|CURLOPT_NOBODY
+name|CURLOPT_POST
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|curl_easy_setopt
