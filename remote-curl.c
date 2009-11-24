@@ -1675,7 +1675,6 @@ name|max
 operator|<
 name|avail
 condition|)
-empty_stmt|;
 name|avail
 operator|=
 name|max
