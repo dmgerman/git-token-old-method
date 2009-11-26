@@ -627,6 +627,7 @@ operator|->
 name|len
 argument_list|)
 expr_stmt|;
+block|}
 name|exclude_cmds
 argument_list|(
 operator|&
@@ -636,7 +637,6 @@ operator|&
 name|not_strategies
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
