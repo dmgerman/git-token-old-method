@@ -20,6 +20,9 @@ directive|define
 name|COLOR_MAXLEN
 value|24
 end_define
+begin_comment
+comment|/*  * IMPORTANT: Due to the way these color codes are emulated on Windows,  * write them only using printf(), fprintf(), and fputs(). In particular,  * do not use puts() or write().  */
+end_comment
 begin_define
 DECL|macro|GIT_COLOR_NORMAL
 define|#
@@ -184,6 +187,16 @@ name|dst
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 name|int
 name|color_fprintf
@@ -206,6 +219,16 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 name|int
 name|color_fprintf_ln

@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"advice.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -388,6 +393,16 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|output
 specifier|static
@@ -995,8 +1010,6 @@ name|struct
 name|unpack_trees_options
 name|opts
 decl_stmt|;
-specifier|static
-specifier|const
 name|struct
 name|unpack_trees_error_msgs
 name|msgs
@@ -1018,6 +1031,23 @@ comment|/* bind_overlap -- will not happen here */
 name|NULL
 block|, 	}
 decl_stmt|;
+if|if
+condition|(
+name|advice_commit_before_merge
+condition|)
+block|{
+name|msgs
+operator|.
+name|would_overwrite
+operator|=
+name|msgs
+operator|.
+name|not_uptodate_file
+operator|=
+literal|"Your local changes to '%s' would be overwritten by merge.  Aborting.\n"
+literal|"Please, commit your changes or stash them before you can merge."
+expr_stmt|;
+block|}
 name|memset
 argument_list|(
 operator|&
@@ -1218,6 +1248,9 @@ argument_list|(
 name|ce
 argument_list|)
 argument_list|,
+operator|(
+name|int
+operator|)
 name|ce_namelen
 argument_list|(
 name|ce

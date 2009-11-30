@@ -48,7 +48,7 @@ name|push_usage
 index|[]
 init|=
 block|{
-literal|"git push [--all | --mirror] [-n | --dry-run] [--porcelain] [--tags] [--receive-pack=<git-receive-pack>] [--repo=<repository>] [-f | --force] [-v] [<repository><refspec>...]"
+literal|"git push [<options>] [<repository><refspec>...]"
 block|,
 name|NULL
 block|, }
@@ -366,13 +366,6 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|git_config
-argument_list|(
-name|git_default_config
-argument_list|,
-name|NULL
-argument_list|)
-expr_stmt|;
 switch|switch
 condition|(
 name|push_default
@@ -803,7 +796,7 @@ block|{
 name|printf
 argument_list|(
 literal|"To prevent you from losing history, non-fast-forward updates were rejected\n"
-literal|"Merge the remote changes before pushing again.  See the 'non-fast forward'\n"
+literal|"Merge the remote changes before pushing again.  See the 'non-fast-forward'\n"
 literal|"section of 'git push --help' for details.\n"
 argument_list|)
 expr_stmt|;
@@ -949,7 +942,7 @@ argument_list|,
 operator|&
 name|tags
 argument_list|,
-literal|"push tags"
+literal|"push tags (can't be used with --all or --mirror)"
 argument_list|)
 block|,
 name|OPT_BIT
@@ -1038,6 +1031,13 @@ name|OPT_END
 argument_list|()
 block|}
 decl_stmt|;
+name|git_config
+argument_list|(
+name|git_default_config
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 name|argc
 operator|=
 name|parse_options
