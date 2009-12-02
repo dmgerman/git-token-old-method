@@ -854,6 +854,12 @@ name|builtin_gc_options
 index|[]
 init|=
 block|{
+name|OPT__QUIET
+argument_list|(
+operator|&
+name|quiet
+argument_list|)
+block|,
 block|{
 name|OPTION_STRING
 block|,
@@ -900,18 +906,6 @@ operator|&
 name|auto_gc
 argument_list|,
 literal|"enable auto-gc mode"
-argument_list|)
-block|,
-name|OPT_BOOLEAN
-argument_list|(
-literal|'q'
-argument_list|,
-literal|"quiet"
-argument_list|,
-operator|&
-name|quiet
-argument_list|,
-literal|"suppress progress reports"
 argument_list|)
 block|,
 name|OPT_END
