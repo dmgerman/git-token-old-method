@@ -4888,7 +4888,7 @@ if|if
 condition|(
 name|argc
 operator|>
-literal|1
+literal|2
 condition|)
 block|{
 name|unsigned
