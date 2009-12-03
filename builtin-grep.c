@@ -1700,9 +1700,7 @@ if|if
 condition|(
 name|opt
 operator|->
-name|regflags
-operator|&
-name|REG_ICASE
+name|ignore_case
 condition|)
 name|push_arg
 argument_list|(
@@ -3694,7 +3692,7 @@ argument_list|,
 literal|"show non-matching lines"
 argument_list|)
 block|,
-name|OPT_BIT
+name|OPT_BOOLEAN
 argument_list|(
 literal|'i'
 argument_list|,
@@ -3703,11 +3701,9 @@ argument_list|,
 operator|&
 name|opt
 operator|.
-name|regflags
+name|ignore_case
 argument_list|,
 literal|"case insensitive matching"
-argument_list|,
-name|REG_ICASE
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4470,6 +4466,23 @@ name|die
 argument_list|(
 literal|"no pattern given."
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|opt
+operator|.
+name|fixed
+operator|&&
+name|opt
+operator|.
+name|ignore_case
+condition|)
+name|opt
+operator|.
+name|regflags
+operator||=
+name|REG_ICASE
 expr_stmt|;
 if|if
 condition|(
