@@ -497,6 +497,21 @@ operator|&
 name|nonfastforward
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|err
+operator|!=
+literal|0
+condition|)
+name|error
+argument_list|(
+literal|"failed to push some refs to '%s'"
+argument_list|,
+name|transport
+operator|->
+name|url
+argument_list|)
+expr_stmt|;
 name|err
 operator||=
 name|transport_disconnect
@@ -512,15 +527,6 @@ condition|)
 return|return
 literal|0
 return|;
-name|error
-argument_list|(
-literal|"failed to push some refs to '%s'"
-argument_list|,
-name|transport
-operator|->
-name|url
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|nonfastforward
