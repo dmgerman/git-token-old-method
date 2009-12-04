@@ -6275,7 +6275,9 @@ literal|"not exceeded, and then \"git reset HEAD\" to recover."
 argument_list|)
 expr_stmt|;
 name|rerere
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 name|run_hook
 argument_list|(
