@@ -1868,7 +1868,7 @@ break|break;
 case|case
 name|STATUS_FORMAT_PORCELAIN
 case|:
-name|wt_shortstatus_print
+name|wt_porcelain_print
 argument_list|(
 name|s
 argument_list|,
@@ -5165,7 +5165,7 @@ break|break;
 case|case
 name|STATUS_FORMAT_PORCELAIN
 case|:
-name|wt_shortstatus_print
+name|wt_porcelain_print
 argument_list|(
 operator|&
 name|s
