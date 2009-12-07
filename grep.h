@@ -121,6 +121,12 @@ name|fixed
 range|:
 literal|1
 decl_stmt|;
+DECL|member|ignore_case
+name|unsigned
+name|ignore_case
+range|:
+literal|1
+decl_stmt|;
 DECL|member|word_regexp
 name|unsigned
 name|word_regexp
@@ -247,6 +253,10 @@ decl_stmt|;
 DECL|member|invert
 name|int
 name|invert
+decl_stmt|;
+DECL|member|ignore_case
+name|int
+name|ignore_case
 decl_stmt|;
 DECL|member|status_only
 name|int

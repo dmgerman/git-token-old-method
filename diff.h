@@ -375,6 +375,13 @@ name|DIFF_OPT_ALLOW_TEXTCONV
 value|(1<< 21)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_SUBMODULE_LOG
+define|#
+directive|define
+name|DIFF_OPT_SUBMODULE_LOG
+value|(1<< 23)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
@@ -673,6 +680,11 @@ DECL|enumerator|DIFF_WHITESPACE
 name|DIFF_WHITESPACE
 init|=
 literal|7
+block|,
+DECL|enumerator|DIFF_FUNCINFO
+name|DIFF_FUNCINFO
+init|=
+literal|8
 block|, }
 enum|;
 end_enum

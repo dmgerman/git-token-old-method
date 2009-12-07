@@ -465,10 +465,6 @@ block|}
 block|}
 name|remote
 operator|=
-name|nongit
-condition|?
-name|NULL
-else|:
 name|remote_get
 argument_list|(
 name|dest
@@ -476,8 +472,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|remote
-operator|&&
 operator|!
 name|remote
 operator|->
