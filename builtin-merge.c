@@ -92,6 +92,11 @@ include|#
 directive|include
 file|"merge-recursive.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"resolve-undo.h"
+end_include
 begin_define
 DECL|macro|DEFAULT_TWOHEAD
 define|#
@@ -3722,6 +3727,9 @@ argument_list|(
 literal|"failed to read the cache"
 argument_list|)
 expr_stmt|;
+name|resolve_undo_clear
+argument_list|()
+expr_stmt|;
 return|return
 name|ret
 return|;
@@ -5190,6 +5198,9 @@ argument_list|(
 literal|"You are in the middle of a conflicted merge."
 literal|" (index unmerged)"
 argument_list|)
+expr_stmt|;
+name|resolve_undo_clear
+argument_list|()
 expr_stmt|;
 comment|/* 	 * Check if we are _not_ on a detached HEAD, i.e. if there is a 	 * current branch. 	 */
 name|branch
