@@ -298,10 +298,10 @@ name|DIFF_OPT_HAS_CHANGES
 value|(1<< 10)
 end_define
 begin_define
-DECL|macro|DIFF_OPT_QUIET
+DECL|macro|DIFF_OPT_QUICK
 define|#
 directive|define
-name|DIFF_OPT_QUIET
+name|DIFF_OPT_QUICK
 value|(1<< 11)
 end_define
 begin_define
@@ -373,6 +373,13 @@ define|#
 directive|define
 name|DIFF_OPT_ALLOW_TEXTCONV
 value|(1<< 21)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_DIFF_FROM_CONTENTS
+define|#
+directive|define
+name|DIFF_OPT_DIFF_FROM_CONTENTS
+value|(1<< 22)
 end_define
 begin_define
 DECL|macro|DIFF_OPT_SUBMODULE_LOG
