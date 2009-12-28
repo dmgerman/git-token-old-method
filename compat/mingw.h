@@ -19,6 +19,13 @@ name|int
 name|pid_t
 typedef|;
 end_typedef
+begin_typedef
+DECL|typedef|uid_t
+typedef|typedef
+name|int
+name|uid_t
+typedef|;
+end_typedef
 begin_define
 DECL|macro|hstrerror
 define|#
@@ -443,7 +450,7 @@ begin_function
 DECL|function|fork
 specifier|static
 specifier|inline
-name|int
+name|pid_t
 name|fork
 parameter_list|(
 name|void
@@ -500,7 +507,7 @@ begin_function
 DECL|function|getppid
 specifier|static
 specifier|inline
-name|int
+name|pid_t
 name|getppid
 parameter_list|(
 name|void
@@ -526,9 +533,11 @@ begin_function
 DECL|function|getuid
 specifier|static
 specifier|inline
-name|int
+name|uid_t
 name|getuid
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 return|return
 literal|1
@@ -681,7 +690,7 @@ begin_function
 DECL|function|waitpid
 specifier|static
 specifier|inline
-name|int
+name|pid_t
 name|waitpid
 parameter_list|(
 name|pid_t
@@ -962,7 +971,7 @@ name|passwd
 modifier|*
 name|getpwuid
 parameter_list|(
-name|int
+name|uid_t
 name|uid
 parameter_list|)
 function_decl|;
