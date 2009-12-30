@@ -878,10 +878,6 @@ name|args
 index|[]
 init|=
 block|{
-literal|"sh"
-block|,
-literal|"-c"
-block|,
 name|NULL
 block|,
 name|NULL
@@ -974,7 +970,7 @@ argument_list|)
 expr_stmt|;
 name|args
 index|[
-literal|2
+literal|0
 index|]
 operator|=
 name|cmd
@@ -987,7 +983,7 @@ name|run_command_v_opt
 argument_list|(
 name|args
 argument_list|,
-literal|0
+name|RUN_USING_SHELL
 argument_list|)
 expr_stmt|;
 name|fd
