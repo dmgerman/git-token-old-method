@@ -1146,6 +1146,13 @@ index|]
 operator|=
 name|NULL
 expr_stmt|;
+name|trace_argv_printf
+argument_list|(
+name|argv
+argument_list|,
+literal|"trace: grep:"
+argument_list|)
+expr_stmt|;
 name|pid
 operator|=
 name|fork
