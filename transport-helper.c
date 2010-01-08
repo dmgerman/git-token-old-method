@@ -2529,6 +2529,24 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+if|if
+condition|(
+name|ref
+operator|->
+name|status
+operator|!=
+name|REF_STATUS_NONE
+condition|)
+block|{
+comment|/* 			 * Earlier, the ref was marked not to be pushed, so ignore the ref 			 * status reported by the remote helper if the latter is 'no match'. 			 */
+if|if
+condition|(
+name|status
+operator|==
+name|REF_STATUS_NONE
+condition|)
+continue|continue;
+block|}
 name|ref
 operator|->
 name|status
