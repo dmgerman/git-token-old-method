@@ -786,7 +786,7 @@ operator|+
 literal|'a'
 operator|-
 literal|26
-operator|+
+operator|-
 literal|1
 expr_stmt|;
 name|printf
