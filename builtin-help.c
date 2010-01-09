@@ -98,6 +98,9 @@ DECL|enum|help_format
 enum|enum
 name|help_format
 block|{
+DECL|enumerator|HELP_FORMAT_NONE
+name|HELP_FORMAT_NONE
+block|,
 DECL|enumerator|HELP_FORMAT_MAN
 name|HELP_FORMAT_MAN
 block|,
@@ -125,7 +128,7 @@ name|enum
 name|help_format
 name|help_format
 init|=
-name|HELP_FORMAT_MAN
+name|HELP_FORMAT_NONE
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2253,6 +2256,10 @@ name|char
 modifier|*
 name|alias
 decl_stmt|;
+name|enum
+name|help_format
+name|parsed_help_format
+decl_stmt|;
 name|load_command_list
 argument_list|(
 literal|"git-"
@@ -2280,6 +2287,10 @@ name|builtin_help_usage
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|parsed_help_format
+operator|=
+name|help_format
 expr_stmt|;
 if|if
 condition|(
@@ -2358,6 +2369,16 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|parsed_help_format
+operator|!=
+name|HELP_FORMAT_NONE
+condition|)
+name|help_format
+operator|=
+name|parsed_help_format
+expr_stmt|;
 name|alias
 operator|=
 name|alias_lookup
@@ -2403,6 +2424,9 @@ condition|(
 name|help_format
 condition|)
 block|{
+case|case
+name|HELP_FORMAT_NONE
+case|:
 case|case
 name|HELP_FORMAT_MAN
 case|:
