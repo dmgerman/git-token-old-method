@@ -2924,6 +2924,7 @@ comment|/*  * This is a pseudo random number generator based on "man 3 rand".  *
 end_comment
 begin_function
 DECL|function|get_prn
+specifier|static
 name|int
 name|get_prn
 parameter_list|(
