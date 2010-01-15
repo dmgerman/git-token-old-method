@@ -21,7 +21,6 @@ file|"../strbuf.h"
 end_include
 begin_function
 DECL|function|err_win_to_posix
-specifier|static
 name|int
 name|err_win_to_posix
 parameter_list|(
