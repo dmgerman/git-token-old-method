@@ -13494,7 +13494,7 @@ name|run_command_v_opt
 argument_list|(
 name|spawn_arg
 argument_list|,
-literal|0
+name|RUN_USING_SHELL
 argument_list|)
 expr_stmt|;
 name|remove_tempfile
@@ -22202,6 +22202,12 @@ argument_list|(
 name|child
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|child
+operator|.
+name|use_shell
+operator|=
+literal|1
 expr_stmt|;
 name|child
 operator|.
