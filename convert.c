@@ -1704,8 +1704,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"crlf"
-argument_list|,
-literal|4
 argument_list|)
 expr_stmt|;
 name|attr_ident
@@ -1713,8 +1711,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"ident"
-argument_list|,
-literal|5
 argument_list|)
 expr_stmt|;
 name|attr_filter
@@ -1722,8 +1718,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"filter"
-argument_list|,
-literal|6
 argument_list|)
 expr_stmt|;
 name|user_convert_tail

@@ -3533,8 +3533,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"delta"
-argument_list|,
-literal|5
 argument_list|)
 expr_stmt|;
 name|check
