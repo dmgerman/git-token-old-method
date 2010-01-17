@@ -6440,6 +6440,15 @@ name|int
 name|user_ident_explicitly_given
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+specifier|extern
+name|int
+name|user_ident_sufficiently_given
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
 specifier|extern
 specifier|const
