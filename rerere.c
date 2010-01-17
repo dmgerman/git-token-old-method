@@ -34,6 +34,11 @@ include|#
 directive|include
 file|"ll-merge.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"attr.h"
+end_include
 begin_comment
 comment|/* if rerere_enabled == -1, fall back to detection of .git/rr-cache */
 end_comment
@@ -1395,7 +1400,10 @@ decl_stmt|;
 name|int
 name|marker_size
 init|=
-literal|7
+name|ll_merge_marker_size
+argument_list|(
+name|path
+argument_list|)
 decl_stmt|;
 name|memset
 argument_list|(
@@ -1815,7 +1823,10 @@ decl_stmt|;
 name|int
 name|marker_size
 init|=
-literal|7
+name|ll_merge_marker_size
+argument_list|(
+name|path
+argument_list|)
 decl_stmt|;
 comment|/* 	 * Reproduce the conflicted merge in-core 	 */
 name|len

@@ -53,6 +53,17 @@ name|virtual_ancestor
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|int
+name|ll_merge_marker_size
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|path
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
