@@ -69,6 +69,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|old_dirty_submodule
+parameter_list|,
+name|unsigned
+name|new_dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -102,6 +108,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -1035,6 +1044,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1069,6 +1081,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule1
+parameter_list|,
+name|unsigned
+name|dirty_submodule2
 parameter_list|)
 function_decl|;
 end_function_decl
