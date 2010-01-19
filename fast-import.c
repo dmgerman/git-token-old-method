@@ -13060,6 +13060,10 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+name|enum
+name|object_type
+name|type
+decl_stmt|;
 comment|/* Obtain the new tag name from the rest of our command */
 name|sp
 operator|=
@@ -13177,6 +13181,10 @@ operator|->
 name|sha1
 argument_list|)
 expr_stmt|;
+name|type
+operator|=
+name|OBJ_COMMIT
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -13212,22 +13220,11 @@ argument_list|(
 name|from_mark
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|type
+operator|=
 name|oe
 operator|->
 name|type
-operator|!=
-name|OBJ_COMMIT
-condition|)
-name|die
-argument_list|(
-literal|"Mark :%"
-name|PRIuMAX
-literal|" not a commit"
-argument_list|,
-name|from_mark
-argument_list|)
 expr_stmt|;
 name|hashcpy
 argument_list|(
@@ -13261,16 +13258,15 @@ name|buf
 decl_stmt|;
 name|buf
 operator|=
-name|read_object_with_reference
+name|read_sha1_file
 argument_list|(
 name|sha1
 argument_list|,
-name|commit_type
+operator|&
+name|type
 argument_list|,
 operator|&
 name|size
-argument_list|,
-name|sha1
 argument_list|)
 expr_stmt|;
 if|if
@@ -13368,7 +13364,10 @@ argument_list|(
 name|sha1
 argument_list|)
 argument_list|,
-name|commit_type
+name|typename
+argument_list|(
+name|type
+argument_list|)
 argument_list|,
 name|t
 operator|->
