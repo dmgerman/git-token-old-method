@@ -31,6 +31,7 @@ file|"revision.h"
 end_include
 begin_function
 DECL|function|add_submodule_odb
+specifier|static
 name|int
 name|add_submodule_odb
 parameter_list|(

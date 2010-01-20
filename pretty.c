@@ -454,6 +454,7 @@ comment|/* High bit set, or ISO-2022-INT */
 end_comment
 begin_function
 DECL|function|non_ascii
+specifier|static
 name|int
 name|non_ascii
 parameter_list|(

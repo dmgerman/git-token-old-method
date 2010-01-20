@@ -1086,6 +1086,7 @@ comment|/*  * Pick one ucs character starting from the location *start points at
 end_comment
 begin_function
 DECL|function|pick_one_utf8_char
+specifier|static
 name|ucs_char_t
 name|pick_one_utf8_char
 parameter_list|(

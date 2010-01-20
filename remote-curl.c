@@ -1724,6 +1724,7 @@ name|NO_CURL_IOCTL
 end_ifndef
 begin_function
 DECL|function|rpc_ioctl
+specifier|static
 name|curlioerr
 name|rpc_ioctl
 parameter_list|(
