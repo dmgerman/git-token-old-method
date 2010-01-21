@@ -6572,6 +6572,12 @@ argument_list|)
 expr_stmt|;
 name|revs
 operator|->
+name|pretty_given
+operator|=
+literal|1
+expr_stmt|;
+name|revs
+operator|->
 name|abbrev_commit
 operator|=
 literal|1
