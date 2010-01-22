@@ -1973,6 +1973,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"mktag"
+block|,
+name|cmd_mktag
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"mktree"
 block|,
 name|cmd_mktree
