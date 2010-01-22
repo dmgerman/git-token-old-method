@@ -1909,6 +1909,14 @@ name|cmd_merge_file
 block|}
 block|,
 block|{
+literal|"merge-index"
+block|,
+name|cmd_merge_index
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"merge-ours"
 block|,
 name|cmd_merge_ours
