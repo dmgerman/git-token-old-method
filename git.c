@@ -1999,6 +1999,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"patch-id"
+block|,
+name|cmd_patch_id
+block|}
+block|,
+block|{
 literal|"peek-remote"
 block|,
 name|cmd_ls_remote
