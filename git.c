@@ -2239,6 +2239,12 @@ name|cmd_upload_archive
 block|}
 block|,
 block|{
+literal|"var"
+block|,
+name|cmd_var
+block|}
+block|,
+block|{
 literal|"verify-tag"
 block|,
 name|cmd_verify_tag
