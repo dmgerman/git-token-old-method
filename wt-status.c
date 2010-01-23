@@ -2612,6 +2612,9 @@ name|struct
 name|wt_status
 modifier|*
 name|s
+parameter_list|,
+name|int
+name|uncommitted
 parameter_list|)
 block|{
 name|struct
@@ -2653,6 +2656,10 @@ literal|"submodule"
 block|,
 literal|"summary"
 block|,
+name|uncommitted
+operator|?
+literal|"--files"
+operator|:
 literal|"--cached"
 block|,
 literal|"--for-status"
@@ -2661,6 +2668,11 @@ literal|"--summary-limit"
 block|,
 name|summary_limit
 block|,
+name|uncommitted
+operator|?
+name|NULL
+operator|:
+operator|(
 name|s
 operator|->
 name|amend
@@ -2668,6 +2680,7 @@ operator|?
 literal|"HEAD^"
 operator|:
 literal|"HEAD"
+operator|)
 block|,
 name|NULL
 block|}
@@ -3379,11 +3392,24 @@ name|s
 operator|->
 name|submodule_summary
 condition|)
+block|{
 name|wt_status_print_submodule_summary
 argument_list|(
 name|s
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
+comment|/* staged */
+name|wt_status_print_submodule_summary
+argument_list|(
+name|s
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+comment|/* unstaged */
+block|}
 if|if
 condition|(
 name|s
