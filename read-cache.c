@@ -3106,6 +3106,16 @@ argument_list|(
 name|ce
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|S_ISGITLINK
+argument_list|(
+name|alias
+operator|->
+name|ce_mode
+argument_list|)
+condition|)
 name|ce_mark_uptodate
 argument_list|(
 name|alias
@@ -4921,6 +4931,16 @@ comment|/* mark this one VALID again */
 else|else
 block|{
 comment|/* 			 * We do not mark the index itself "modified" 			 * because CE_UPTODATE flag is in-core only; 			 * we are not going to write this change out. 			 */
+if|if
+condition|(
+operator|!
+name|S_ISGITLINK
+argument_list|(
+name|ce
+operator|->
+name|ce_mode
+argument_list|)
+condition|)
 name|ce_mark_uptodate
 argument_list|(
 name|ce
