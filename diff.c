@@ -9763,6 +9763,10 @@ name|two
 operator|->
 name|sha1
 argument_list|,
+name|two
+operator|->
+name|dirty_submodule
+argument_list|,
 name|del
 argument_list|,
 name|add
