@@ -7006,10 +7006,8 @@ name|char
 modifier|*
 name|buf
 init|=
-name|xmalloc
+name|xmallocz
 argument_list|(
-literal|1
-operator|+
 name|size
 argument_list|)
 decl_stmt|;
@@ -7099,13 +7097,6 @@ name|Z_FINISH
 argument_list|)
 expr_stmt|;
 block|}
-name|buf
-index|[
-name|size
-index|]
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|status
