@@ -2228,6 +2228,11 @@ literal|0
 expr_stmt|;
 else|else
 block|{
+name|int
+name|errors
+init|=
+literal|0
+decl_stmt|;
 name|char
 modifier|*
 name|tmp
@@ -2245,8 +2250,22 @@ argument_list|)
 decl_stmt|;
 name|at_time
 operator|=
-name|approxidate
+name|approxidate_careful
 argument_list|(
+name|tmp
+argument_list|,
+operator|&
+name|errors
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|errors
+condition|)
+name|die
+argument_list|(
+literal|"Bogus timestamp '%s'"
+argument_list|,
 name|tmp
 argument_list|)
 expr_stmt|;
