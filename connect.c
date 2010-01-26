@@ -2704,6 +2704,7 @@ operator|=
 literal|':'
 expr_stmt|;
 block|}
+comment|/* 	 * Don't do destructive transforms with git:// as that 	 * protocol code does '[]' dewrapping of its own. 	 */
 if|if
 condition|(
 name|host
@@ -2730,15 +2731,23 @@ condition|(
 name|end
 condition|)
 block|{
+if|if
+condition|(
+name|protocol
+operator|!=
+name|PROTO_GIT
+condition|)
+block|{
 operator|*
 name|end
 operator|=
 literal|0
 expr_stmt|;
-name|end
+name|host
 operator|++
 expr_stmt|;
-name|host
+block|}
+name|end
 operator|++
 expr_stmt|;
 block|}
