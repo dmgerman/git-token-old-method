@@ -454,6 +454,7 @@ comment|/* High bit set, or ISO-2022-INT */
 end_comment
 begin_function
 DECL|function|non_ascii
+specifier|static
 name|int
 name|non_ascii
 parameter_list|(
@@ -6073,9 +6074,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|fmt
-operator|!=
-name|CMIT_FMT_ONELINE
+name|context
+operator|->
+name|show_notes
 condition|)
 name|get_commit_notes
 argument_list|(

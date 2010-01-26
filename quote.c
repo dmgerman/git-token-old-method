@@ -336,6 +336,7 @@ block|}
 end_function
 begin_function
 DECL|function|sq_dequote_step
+specifier|static
 name|char
 modifier|*
 name|sq_dequote_step

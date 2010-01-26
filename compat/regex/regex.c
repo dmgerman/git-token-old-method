@@ -8256,6 +8256,7 @@ name|end
 operator|=
 operator|(
 name|regoff_t
+operator|*
 operator|)
 literal|0
 expr_stmt|;

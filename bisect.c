@@ -2924,6 +2924,7 @@ comment|/*  * This is a pseudo random number generator based on "man 3 rand".  *
 end_comment
 begin_function
 DECL|function|get_prn
+specifier|static
 name|int
 name|get_prn
 parameter_list|(
@@ -4068,15 +4069,13 @@ argument_list|,
 literal|' '
 argument_list|)
 decl_stmt|;
-name|fprintf
+name|warning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Warning: the merge base between %s and [%s] "
+literal|"the merge base between %s and [%s] "
 literal|"must be skipped.\n"
 literal|"So we cannot be sure the first bad commit is "
 literal|"between %s and %s.\n"
-literal|"We continue anyway.\n"
+literal|"We continue anyway."
 argument_list|,
 name|bad_hex
 argument_list|,

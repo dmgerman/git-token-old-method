@@ -12,6 +12,7 @@ comment|/*  * This is like mktime, but without normalization of tm_wday and tm_y
 end_comment
 begin_function
 DECL|function|tm_to_time_t
+specifier|static
 name|time_t
 name|tm_to_time_t
 parameter_list|(

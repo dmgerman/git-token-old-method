@@ -90,6 +90,12 @@ name|stdout_to_stderr
 range|:
 literal|1
 decl_stmt|;
+DECL|member|use_shell
+name|unsigned
+name|use_shell
+range|:
+literal|1
+decl_stmt|;
 DECL|member|preexec_cb
 name|void
 function_decl|(
@@ -183,6 +189,13 @@ define|#
 directive|define
 name|RUN_SILENT_EXEC_FAILURE
 value|8
+end_define
+begin_define
+DECL|macro|RUN_USING_SHELL
+define|#
+directive|define
+name|RUN_USING_SHELL
+value|16
 end_define
 begin_function_decl
 name|int

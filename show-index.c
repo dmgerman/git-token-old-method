@@ -338,7 +338,7 @@ block|}
 modifier|*
 name|entries
 init|=
-name|xmalloc
+name|malloc
 argument_list|(
 name|nr
 operator|*
