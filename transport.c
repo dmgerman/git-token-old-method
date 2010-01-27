@@ -5227,6 +5227,11 @@ modifier|*
 name|url
 parameter_list|)
 block|{
+specifier|const
+name|char
+modifier|*
+name|helper
+decl_stmt|;
 name|struct
 name|transport
 modifier|*
@@ -5259,6 +5264,12 @@ name|remote
 operator|=
 name|remote
 expr_stmt|;
+name|helper
+operator|=
+name|remote
+operator|->
+name|foreign_vcs
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5284,13 +5295,6 @@ operator|->
 name|url
 operator|=
 name|url
-expr_stmt|;
-comment|/* In case previous URL had helper forced, reset it. */
-name|remote
-operator|->
-name|foreign_vcs
-operator|=
-name|NULL
 expr_stmt|;
 comment|/* maybe it is a foreign URL? */
 if|if
@@ -5326,9 +5330,7 @@ argument_list|,
 literal|"::"
 argument_list|)
 condition|)
-name|remote
-operator|->
-name|foreign_vcs
+name|helper
 operator|=
 name|xstrndup
 argument_list|(
@@ -5342,20 +5344,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|remote
-operator|&&
-name|remote
-operator|->
-name|foreign_vcs
+name|helper
 condition|)
 block|{
 name|transport_helper_init
 argument_list|(
 name|ret
 argument_list|,
-name|remote
-operator|->
-name|foreign_vcs
+name|helper
 argument_list|)
 expr_stmt|;
 block|}
