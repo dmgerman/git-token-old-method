@@ -1213,7 +1213,7 @@ literal|1
 operator|<
 name|commit_graft_nr
 condition|)
-name|memcpy
+name|memmove
 argument_list|(
 name|commit_graft
 operator|+
