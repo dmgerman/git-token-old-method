@@ -46,32 +46,83 @@ directive|define
 name|DEFINE_ALLOCATOR
 parameter_list|(
 name|name
+parameter_list|,
+name|type
 parameter_list|)
 define|\
-value|static unsigned int name##_allocs;				\ struct name *alloc_##name##_node(void)				\ {								\ 	static int nr;						\ 	static struct name *block;				\ 								\ 	if (!nr) {						\ 		nr = BLOCKING;					\ 		block = xcalloc(BLOCKING, sizeof(struct name));	\ 	}							\ 	nr--;							\ 	name##_allocs++;					\ 	return block++;						\ }
+value|static unsigned int name##_allocs;				\ void *alloc_##name##_node(void)					\ {								\ 	static int nr;						\ 	static type *block;					\ 	void *ret;						\ 								\ 	if (!nr) {						\ 		nr = BLOCKING;					\ 		block = xmalloc(BLOCKING * sizeof(type));	\ 	}							\ 	nr--;							\ 	name##_allocs++;					\ 	ret = block++;						\ 	memset(ret, 0, sizeof(type));				\ 	return ret;						\ }
 end_define
+begin_union
+DECL|union|any_object
+union|union
+name|any_object
+block|{
+DECL|member|object
+name|struct
+name|object
+name|object
+decl_stmt|;
+DECL|member|blob
+name|struct
+name|blob
+name|blob
+decl_stmt|;
+DECL|member|tree
+name|struct
+name|tree
+name|tree
+decl_stmt|;
+DECL|member|commit
+name|struct
+name|commit
+name|commit
+decl_stmt|;
+DECL|member|tag
+name|struct
+name|tag
+name|tag
+decl_stmt|;
+block|}
+union|;
+end_union
 begin_macro
 name|DEFINE_ALLOCATOR
 argument_list|(
 argument|blob
+argument_list|,
+argument|struct blob
 argument_list|)
 end_macro
 begin_macro
 name|DEFINE_ALLOCATOR
 argument_list|(
 argument|tree
+argument_list|,
+argument|struct tree
 argument_list|)
 end_macro
 begin_macro
 name|DEFINE_ALLOCATOR
 argument_list|(
 argument|commit
+argument_list|,
+argument|struct commit
 argument_list|)
 end_macro
 begin_macro
 name|DEFINE_ALLOCATOR
 argument_list|(
 argument|tag
+argument_list|,
+argument|struct tag
+argument_list|)
+end_macro
+begin_macro
+name|DEFINE_ALLOCATOR
+argument_list|(
+argument|object
+argument_list|,
+argument|union any_object
 argument_list|)
 end_macro
 begin_ifdef

@@ -352,6 +352,7 @@ name|char
 modifier|*
 name|dst
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|buffer
@@ -487,6 +488,7 @@ operator|*=
 literal|85
 operator|)
 condition|)
+return|return
 name|error
 argument_list|(
 literal|"invalid base85 sequence %.5s"
@@ -495,7 +497,7 @@ name|buffer
 operator|-
 literal|5
 argument_list|)
-expr_stmt|;
+return|;
 name|acc
 operator|+=
 name|de
@@ -572,6 +574,7 @@ name|char
 modifier|*
 name|buf
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -617,7 +620,7 @@ operator|-=
 literal|8
 control|)
 block|{
-name|int
+name|unsigned
 name|ch
 init|=
 operator|*

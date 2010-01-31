@@ -1,12 +1,12 @@
 being_unit
 comment|/*  *  SHA transform optimized for ARM  *  *  Copyright:	(C) 2005 by Nicolas Pitre <nico@cam.org>  *  Created:	September 17, 2005  *  *  This program is free software; you can redistribute it and/or modify  *  it under the terms of the GNU General Public License version 2 as  *  published by the Free Software Foundation.  */
 .text
-.globl sha_transform
+.globl arm_sha_transform
 comment|/*  * void sha_transform(uint32_t *hash, const unsigned char *data, uint32_t *W);  *  * note: the "data" pointer may be unaligned.  */
-sha_transform:
+arm_sha_transform:
 stmfd sp!, {r4 - r8, lr}
 comment|for (i = 0; i < 16; i++)
-comment|W[i] = ntohl(((uint32_t *)data)[i]); */
+comment|W[i] = ntohl(((uint32_t *)data)[i]);
 #ifdef __ARMEB__
 mov r4, r0
 mov r0, r2

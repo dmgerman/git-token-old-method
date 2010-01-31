@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*   * The contents of this file are subject to the Mozilla Public  * License Version 1.1 (the "License"); you may not use this file  * except in compliance with the License. You may obtain a copy of  * the License at http://www.mozilla.org/MPL/  *   * Software distributed under the License is distributed on an "AS  * IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or  * implied. See the License for the specific language governing  * rights and limitations under the License.  *   * The Original Code is SHA 180-1 Reference Implementation (Compact version)  *   * The Initial Developer of the Original Code is Paul Kocher of  * Cryptography Research.  Portions created by Paul Kocher are   * Copyright (C) 1995-9 by Cryptography Research, Inc.  All  * Rights Reserved.  *   * Contributor(s):  *  *     Paul Kocher  *   * Alternatively, the contents of this file may be used under the  * terms of the GNU General Public License Version 2 or later (the  * "GPL"), in which case the provisions of the GPL are applicable   * instead of those above.  If you wish to allow use of your   * version of this file only under the terms of the GPL and not to  * allow others to use your version of this file under the MPL,  * indicate your decision by deleting the provisions above and  * replace them with the notice and other provisions required by  * the GPL.  If you do not delete the provisions above, a recipient  * may use your version of this file under either the MPL or the  * GPL.  */
+comment|/*  * The contents of this file are subject to the Mozilla Public  * License Version 1.1 (the "License"); you may not use this file  * except in compliance with the License. You may obtain a copy of  * the License at http://www.mozilla.org/MPL/  *  * Software distributed under the License is distributed on an "AS  * IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or  * implied. See the License for the specific language governing  * rights and limitations under the License.  *  * The Original Code is SHA 180-1 Reference Implementation (Compact version)  *  * The Initial Developer of the Original Code is Paul Kocher of  * Cryptography Research.  Portions created by Paul Kocher are  * Copyright (C) 1995-9 by Cryptography Research, Inc.  All  * Rights Reserved.  *  * Contributor(s):  *  *     Paul Kocher  *  * Alternatively, the contents of this file may be used under the  * terms of the GNU General Public License Version 2 or later (the  * "GPL"), in which case the provisions of the GPL are applicable  * instead of those above.  If you wish to allow use of your  * version of this file only under the terms of the GPL and not to  * allow others to use your version of this file under the MPL,  * indicate your decision by deleting the provisions above and  * replace them with the notice and other provisions required by  * the GPL.  If you do not delete the provisions above, a recipient  * may use your version of this file under either the MPL or the  * GPL.  */
 end_comment
 begin_include
 include|#
@@ -12,18 +12,18 @@ specifier|static
 name|void
 name|shaHashBlock
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_function
-DECL|function|SHA1_Init
+DECL|function|moz_SHA1_Init
 name|void
-name|SHA1_Init
+name|moz_SHA1_Init
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
@@ -118,11 +118,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|SHA1_Update
+DECL|function|moz_SHA1_Update
 name|void
-name|SHA1_Update
+name|moz_SHA1_Update
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|,
@@ -242,9 +242,9 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|SHA1_Final
+DECL|function|moz_SHA1_Final
 name|void
-name|SHA1_Final
+name|moz_SHA1_Final
 parameter_list|(
 name|unsigned
 name|char
@@ -253,7 +253,7 @@ index|[
 literal|20
 index|]
 parameter_list|,
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
@@ -449,7 +449,7 @@ operator|&
 literal|255
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -467,7 +467,7 @@ name|lenW
 operator|!=
 literal|56
 condition|)
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -477,7 +477,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -536,7 +536,7 @@ literal|8
 expr_stmt|;
 block|}
 comment|/*    *  Re-initialize the context (also zeroizes contents)    */
-name|SHA1_Init
+name|moz_SHA1_Init
 argument_list|(
 name|ctx
 argument_list|)
@@ -561,7 +561,7 @@ specifier|static
 name|void
 name|shaHashBlock
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)

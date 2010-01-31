@@ -26,7 +26,7 @@ DECL|macro|XDL_LINE_MAX
 define|#
 directive|define
 name|XDL_LINE_MAX
-value|(long)((1UL<< (8 * sizeof(long) - 1)) - 1)
+value|(long)((1UL<< (CHAR_BIT * sizeof(long) - 1)) - 1)
 end_define
 begin_define
 DECL|macro|XDL_SNAKE_CNT
@@ -1324,10 +1324,6 @@ name|ec
 return|;
 block|}
 block|}
-return|return
-operator|-
-literal|1
-return|;
 block|}
 end_function
 begin_comment
@@ -1544,9 +1540,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|long
-name|ec
-decl_stmt|;
 name|xdpsplit_t
 name|spl
 decl_stmt|;
@@ -1563,9 +1556,6 @@ expr_stmt|;
 comment|/* 		 * Divide ... 		 */
 if|if
 condition|(
-operator|(
-name|ec
-operator|=
 name|xdl_split
 argument_list|(
 name|ha1
@@ -1591,7 +1581,6 @@ name|spl
 argument_list|,
 name|xenv
 argument_list|)
-operator|)
 operator|<
 literal|0
 condition|)
@@ -1722,6 +1711,26 @@ name|dd1
 decl_stmt|,
 name|dd2
 decl_stmt|;
+if|if
+condition|(
+name|xpp
+operator|->
+name|flags
+operator|&
+name|XDF_PATIENCE_DIFF
+condition|)
+return|return
+name|xdl_do_patience_diff
+argument_list|(
+name|mf1
+argument_list|,
+name|mf2
+argument_list|,
+name|xpp
+argument_list|,
+name|xe
+argument_list|)
+return|;
 if|if
 condition|(
 name|xdl_prepare_env
@@ -2346,7 +2355,7 @@ index|]
 condition|)
 empty_stmt|;
 block|}
-comment|/* 			 * Record the end-of-group position in case we are matched 			 * with a group of changes in the other file (that is, the 			 * change record before the enf-of-group index in the other 			 * file is set). 			 */
+comment|/* 			 * Record the end-of-group position in case we are matched 			 * with a group of changes in the other file (that is, the 			 * change record before the end-of-group index in the other 			 * file is set). 			 */
 name|ixref
 operator|=
 name|rchgo
@@ -2767,6 +2776,22 @@ decl_stmt|;
 name|xdfenv_t
 name|xe
 decl_stmt|;
+name|emit_func_t
+name|ef
+init|=
+name|xecfg
+operator|->
+name|emit_func
+condition|?
+operator|(
+name|emit_func_t
+operator|)
+name|xecfg
+operator|->
+name|emit_func
+else|:
+name|xdl_emit_diff
+decl_stmt|;
 if|if
 condition|(
 name|xdl_do_diff
@@ -2859,7 +2884,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|xdl_emit_diff
+name|ef
 argument_list|(
 operator|&
 name|xe

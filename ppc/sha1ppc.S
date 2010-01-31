@@ -64,8 +64,8 @@ STEPUP4(fn, (t)+4, (s)+4,); \
 STEPUP4(fn, (t)+8, (s)+8,); \
 STEPUP4(fn, (t)+12, (s)+12,); \
 STEPUP4(fn, (t)+16, (s)+16, loadk)
-.globl sha1_core
-sha1_core:
+.globl ppc_sha1_core
+ppc_sha1_core:
 stwu %r1,-80(%r1)
 stmw %r13,4(%r1)
 comment|/* Load up A - E */

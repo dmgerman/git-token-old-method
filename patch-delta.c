@@ -224,6 +224,9 @@ condition|)
 name|cp_off
 operator||=
 operator|(
+operator|(
+name|unsigned
+operator|)
 operator|*
 name|data
 operator|++

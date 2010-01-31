@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_DIFFCORE_H_
+name|DIFFCORE_H
 end_ifndef
 begin_define
-DECL|macro|_DIFFCORE_H_
+DECL|macro|DIFFCORE_H
 define|#
 directive|define
-name|_DIFFCORE_H_
+name|DIFFCORE_H
 end_define
 begin_comment
 comment|/* This header file is internal between diff.c and its diff transformers  * (e.g. diffcore-rename, diffcore-pickaxe).  Never include this header  * in anything else.  */
@@ -70,6 +70,11 @@ begin_comment
 DECL|macro|MINIMUM_BREAK_SIZE
 comment|/* do not break a file smaller than this */
 end_comment
+begin_struct_decl
+struct_decl|struct
+name|userdiff_driver
+struct_decl|;
+end_struct_decl
 begin_struct
 DECL|struct|diff_filespec
 struct|struct
@@ -98,16 +103,32 @@ name|void
 modifier|*
 name|cnt_data
 decl_stmt|;
+DECL|member|funcname_pattern_ident
+specifier|const
+name|char
+modifier|*
+name|funcname_pattern_ident
+decl_stmt|;
 DECL|member|size
 name|unsigned
 name|long
 name|size
 decl_stmt|;
+DECL|member|count
+name|int
+name|count
+decl_stmt|;
+comment|/* Reference count */
 DECL|member|xfrm_flags
 name|int
 name|xfrm_flags
 decl_stmt|;
 comment|/* for use by the xfrm */
+DECL|member|rename_used
+name|int
+name|rename_used
+decl_stmt|;
+comment|/* Count of rename users */
 DECL|member|mode
 name|unsigned
 name|short
@@ -143,6 +164,17 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* data should be munmap()'ed */
+DECL|member|driver
+name|struct
+name|userdiff_driver
+modifier|*
+name|driver
+decl_stmt|;
+comment|/* data should be considered "binary"; -1 means "don't know yet" */
+DECL|member|is_binary
+name|int
+name|is_binary
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -155,6 +187,17 @@ name|alloc_filespec
 parameter_list|(
 specifier|const
 name|char
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|free_filespec
+parameter_list|(
+name|struct
+name|diff_filespec
 modifier|*
 parameter_list|)
 function_decl|;
@@ -202,6 +245,28 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|diff_free_filespec_blob
+parameter_list|(
+name|struct
+name|diff_filespec
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|diff_filespec_is_binary
+parameter_list|(
+name|struct
+name|diff_filespec
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_struct
 DECL|struct|diff_filepair
 struct|struct
@@ -229,14 +294,7 @@ DECL|member|status
 name|char
 name|status
 decl_stmt|;
-comment|/* M C R N D U (see Documentation/diff-format.txt) */
-DECL|member|source_stays
-name|unsigned
-name|source_stays
-range|:
-literal|1
-decl_stmt|;
-comment|/* all of R/C are copies */
+comment|/* M C R A D U etc. (see Documentation/diff-format.txt or DIFF_STATUS_* in diff.h) */
 DECL|member|broken_pair
 name|unsigned
 name|broken_pair
@@ -395,19 +453,6 @@ parameter_list|,
 name|struct
 name|diff_filepair
 modifier|*
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|void
-name|diffcore_pathspec
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-modifier|*
-name|pathspec
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -573,21 +618,15 @@ specifier|extern
 name|int
 name|diffcore_count_changes
 parameter_list|(
-name|void
+name|struct
+name|diff_filespec
 modifier|*
 name|src
 parameter_list|,
-name|unsigned
-name|long
-name|src_size
-parameter_list|,
-name|void
+name|struct
+name|diff_filespec
 modifier|*
 name|dst
-parameter_list|,
-name|unsigned
-name|long
-name|dst_size
 parameter_list|,
 name|void
 modifier|*

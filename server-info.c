@@ -153,12 +153,9 @@ name|char
 modifier|*
 name|path0
 init|=
-name|xstrdup
-argument_list|(
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"info/refs"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -220,7 +217,7 @@ name|error
 argument_list|(
 literal|"unable to update %s"
 argument_list|,
-name|path0
+name|path1
 argument_list|)
 return|;
 name|for_each_ref
@@ -233,6 +230,11 @@ expr_stmt|;
 name|fclose
 argument_list|(
 name|info_ref_fp
+argument_list|)
+expr_stmt|;
+name|adjust_shared_perm
+argument_list|(
+name|path1
 argument_list|)
 expr_stmt|;
 name|rename
@@ -526,6 +528,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|len
+operator|&&
 name|line
 index|[
 name|len
@@ -1186,6 +1190,11 @@ argument_list|(
 name|fp
 argument_list|)
 expr_stmt|;
+name|adjust_shared_perm
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|rename
 argument_list|(
 name|name
@@ -1235,7 +1244,7 @@ name|force
 argument_list|)
 expr_stmt|;
 comment|/* remove leftover rev-cache file if there is any */
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|git_path
 argument_list|(
