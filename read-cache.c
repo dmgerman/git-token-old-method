@@ -98,7 +98,7 @@ value|0x52455543
 end_define
 begin_comment
 DECL|macro|CACHE_EXT_RESOLVE_UNDO
-comment|/* "REUN" */
+comment|/* "REUC" */
 end_comment
 begin_decl_stmt
 DECL|variable|the_index
