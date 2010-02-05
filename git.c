@@ -1813,6 +1813,8 @@ literal|"grep"
 block|,
 name|cmd_grep
 block|,
+name|RUN_SETUP
+operator||
 name|USE_PAGER
 block|}
 block|,
