@@ -154,6 +154,15 @@ name|commit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|commit_name
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|commit_name
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|allow_rerere_auto
 specifier|static
 name|int
@@ -213,11 +222,6 @@ name|sha1
 index|[
 literal|20
 index|]
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|arg
 decl_stmt|;
 name|int
 name|noop
@@ -336,7 +340,7 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
-name|arg
+name|commit_name
 operator|=
 name|argv
 index|[
@@ -347,7 +351,7 @@ if|if
 condition|(
 name|get_sha1
 argument_list|(
-name|arg
+name|commit_name
 argument_list|,
 name|sha1
 argument_list|)
@@ -356,7 +360,7 @@ name|die
 argument_list|(
 literal|"Cannot find '%s'"
 argument_list|,
-name|arg
+name|commit_name
 argument_list|)
 expr_stmt|;
 name|commit
@@ -1151,10 +1155,9 @@ modifier|*
 name|help_msg
 parameter_list|(
 specifier|const
-name|unsigned
 name|char
 modifier|*
-name|sha1
+name|name
 parameter_list|)
 block|{
 name|struct
@@ -1204,12 +1207,7 @@ argument_list|,
 literal|"  When committing, use the option '-c %s'\n"
 literal|"to retain authorship and message."
 argument_list|,
-name|find_unique_abbrev
-argument_list|(
-name|sha1
-argument_list|,
-name|DEFAULT_ABBREV
-argument_list|)
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -2173,11 +2171,7 @@ name|me
 argument_list|,
 name|help_msg
 argument_list|(
-name|commit
-operator|->
-name|object
-operator|.
-name|sha1
+name|commit_name
 argument_list|)
 argument_list|)
 expr_stmt|;
