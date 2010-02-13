@@ -1119,7 +1119,7 @@ name|OPT_CALLBACK
 argument_list|(
 literal|'m'
 argument_list|,
-name|NULL
+literal|"message"
 argument_list|,
 operator|&
 name|msg
@@ -1135,7 +1135,7 @@ name|OPT_FILENAME
 argument_list|(
 literal|'F'
 argument_list|,
-name|NULL
+literal|"file"
 argument_list|,
 operator|&
 name|msgfile
