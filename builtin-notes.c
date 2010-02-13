@@ -64,7 +64,7 @@ literal|"git notes add [-f] [-m<msg> | -F<file>] [<object>]"
 block|,
 literal|"git notes append [-m<msg> | -F<file>] [<object>]"
 block|,
-literal|"git notes edit [-m<msg> | -F<file>] [<object>]"
+literal|"git notes edit [<object>]"
 block|,
 literal|"git notes show [<object>]"
 block|,
@@ -1218,7 +1218,7 @@ init|=
 block|{
 name|OPT_GROUP
 argument_list|(
-literal|"Notes edit options"
+literal|"Notes options"
 argument_list|)
 block|,
 name|OPT_CALLBACK
@@ -1499,6 +1499,29 @@ argument_list|(
 name|git_notes_usage
 argument_list|,
 name|options
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|(
+name|msg
+operator|.
+name|given
+operator|||
+name|msgfile
+operator|)
+operator|&&
+name|edit
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"The -m and -F options has been deprecated for"
+literal|" the 'edit' subcommand.\n"
+literal|"Please use 'git notes add -f -m/-F' instead.\n"
 argument_list|)
 expr_stmt|;
 block|}
