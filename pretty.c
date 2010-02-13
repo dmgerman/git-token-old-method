@@ -4529,6 +4529,8 @@ literal|'N'
 case|:
 name|format_note
 argument_list|(
+name|NULL
+argument_list|,
 name|commit
 operator|->
 name|object
@@ -6084,6 +6086,8 @@ name|show_notes
 condition|)
 name|format_note
 argument_list|(
+name|NULL
+argument_list|,
 name|commit
 operator|->
 name|object
