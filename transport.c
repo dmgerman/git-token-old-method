@@ -5260,6 +5260,12 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|->
+name|got_remote_refs
+operator|=
+literal|0
+expr_stmt|;
+name|ret
+operator|->
 name|remote
 operator|=
 name|remote
@@ -6155,8 +6161,9 @@ condition|(
 operator|!
 name|transport
 operator|->
-name|remote_refs
+name|got_remote_refs
 condition|)
+block|{
 name|transport
 operator|->
 name|remote_refs
@@ -6170,6 +6177,13 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|transport
+operator|->
+name|got_remote_refs
+operator|=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|transport
 operator|->
