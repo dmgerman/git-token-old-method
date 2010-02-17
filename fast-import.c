@@ -95,15 +95,16 @@ DECL|struct|object_entry
 struct|struct
 name|object_entry
 block|{
+DECL|member|idx
+name|struct
+name|pack_idx_entry
+name|idx
+decl_stmt|;
 DECL|member|next
 name|struct
 name|object_entry
 modifier|*
 name|next
-decl_stmt|;
-DECL|member|offset
-name|uint32_t
-name|offset
 decl_stmt|;
 DECL|member|type
 name|uint32_t
@@ -120,14 +121,6 @@ DECL|member|depth
 name|depth
 range|:
 name|DEPTH_BITS
-decl_stmt|;
-DECL|member|sha1
-name|unsigned
-name|char
-name|sha1
-index|[
-literal|20
-index|]
 decl_stmt|;
 block|}
 struct|;
@@ -2191,6 +2184,8 @@ name|hashcpy
 argument_list|(
 name|e
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|,
 name|sha1
@@ -2262,6 +2257,8 @@ name|sha1
 argument_list|,
 name|e
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 condition|)
@@ -2334,6 +2331,8 @@ name|sha1
 argument_list|,
 name|e
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 condition|)
@@ -2366,6 +2365,8 @@ name|NULL
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 literal|0
@@ -4329,10 +4330,14 @@ name|hashcmp
 argument_list|(
 name|a
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|,
 name|b
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 return|;
@@ -4533,6 +4538,8 @@ operator|*
 name|next
 operator|)
 operator|->
+name|idx
+operator|.
 name|sha1
 index|[
 literal|0
@@ -4629,6 +4636,8 @@ operator|*
 name|c
 operator|)
 operator|->
+name|idx
+operator|.
 name|offset
 argument_list|)
 decl_stmt|;
@@ -4651,6 +4660,8 @@ operator|*
 name|c
 operator|)
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|,
 sizeof|sizeof
@@ -4660,6 +4671,8 @@ operator|*
 name|c
 operator|)
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 argument_list|)
@@ -4674,6 +4687,8 @@ operator|*
 name|c
 operator|)
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|,
 literal|20
@@ -5538,6 +5553,8 @@ if|if
 condition|(
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 condition|)
 block|{
@@ -5576,6 +5593,8 @@ name|MAX_PACK_ID
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 literal|1
@@ -5935,6 +5954,8 @@ name|pack_id
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 name|pack_size
@@ -5959,6 +5980,8 @@ name|ofs
 init|=
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|-
 name|last
@@ -6180,6 +6203,8 @@ name|offset
 operator|=
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 expr_stmt|;
 name|last
@@ -6686,6 +6711,8 @@ if|if
 condition|(
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 condition|)
 block|{
@@ -6726,6 +6753,8 @@ name|MAX_PACK_ID
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 literal|1
@@ -6765,6 +6794,8 @@ name|pack_id
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 name|offset
@@ -6868,6 +6899,8 @@ name|p
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|offset
 argument_list|,
 operator|&
@@ -7908,6 +7941,8 @@ name|offset
 operator|=
 name|le
 operator|->
+name|idx
+operator|.
 name|offset
 expr_stmt|;
 name|lo
@@ -9667,6 +9702,8 @@ index|[
 name|k
 index|]
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 argument_list|)
@@ -10086,6 +10123,8 @@ name|MAX_PACK_ID
 expr_stmt|;
 name|e
 operator|->
+name|idx
+operator|.
 name|offset
 operator|=
 literal|1
@@ -12058,6 +12097,8 @@ name|sha1
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -12871,6 +12912,8 @@ name|sha1
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -13028,6 +13071,8 @@ name|commit_sha1
 argument_list|,
 name|commit_oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -13803,6 +13848,8 @@ name|sha1
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -14048,6 +14095,8 @@ name|sha1
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -14968,6 +15017,8 @@ name|sha1
 argument_list|,
 name|oe
 operator|->
+name|idx
+operator|.
 name|sha1
 argument_list|)
 expr_stmt|;
