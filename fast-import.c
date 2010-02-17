@@ -208,7 +208,7 @@ name|strbuf
 name|data
 decl_stmt|;
 DECL|member|offset
-name|uint32_t
+name|off_t
 name|offset
 decl_stmt|;
 DECL|member|depth
@@ -562,14 +562,6 @@ DECL|variable|max_packsize
 specifier|static
 name|off_t
 name|max_packsize
-init|=
-operator|(
-literal|1LL
-operator|<<
-literal|32
-operator|)
-operator|-
-literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -838,8 +830,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|pack_size
 specifier|static
-name|unsigned
-name|long
+name|off_t
 name|pack_size
 decl_stmt|;
 end_decl_stmt
@@ -5524,6 +5515,9 @@ comment|/* Determine if we should auto-checkpoint. */
 if|if
 condition|(
 operator|(
+name|max_packsize
+operator|&&
+operator|(
 name|pack_size
 operator|+
 literal|60
@@ -5534,6 +5528,7 @@ name|total_out
 operator|)
 operator|>
 name|max_packsize
+operator|)
 operator|||
 operator|(
 name|pack_size
@@ -5706,8 +5701,7 @@ condition|(
 name|delta
 condition|)
 block|{
-name|unsigned
-name|long
+name|off_t
 name|ofs
 init|=
 name|e
@@ -6113,6 +6107,9 @@ comment|/* Determine if we should auto-checkpoint. */
 if|if
 condition|(
 operator|(
+name|max_packsize
+operator|&&
+operator|(
 name|pack_size
 operator|+
 literal|60
@@ -6121,6 +6118,7 @@ name|len
 operator|)
 operator|>
 name|max_packsize
+operator|)
 operator|||
 operator|(
 name|pack_size
