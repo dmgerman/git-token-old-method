@@ -5468,8 +5468,12 @@ argument_list|,
 name|argv
 argument_list|)
 expr_stmt|;
-name|read_cache
-argument_list|()
+name|read_cache_preload
+argument_list|(
+name|s
+operator|.
+name|pathspec
+argument_list|)
 expr_stmt|;
 name|refresh_index
 argument_list|(
