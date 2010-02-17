@@ -3727,7 +3727,7 @@ operator|!
 name|has_glob_specials
 condition|)
 block|{
-comment|/* Append impiled '/' '*' if not present. */
+comment|/* Append implied '/' '*' if not present. */
 if|if
 condition|(
 name|real_pattern
