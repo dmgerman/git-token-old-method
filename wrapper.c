@@ -1290,6 +1290,12 @@ block|{
 name|int
 name|fd
 decl_stmt|;
+comment|/* 	 * we let the umask do its job, don't try to be more 	 * restrictive except to remove write permission. 	 */
+name|int
+name|mode
+init|=
+literal|0444
+decl_stmt|;
 name|snprintf
 argument_list|(
 name|template
@@ -1306,9 +1312,11 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|=
-name|mkstemp
+name|git_mkstemp_mode
 argument_list|(
 name|template
+argument_list|,
+name|mode
 argument_list|)
 expr_stmt|;
 if|if
@@ -1342,9 +1350,11 @@ name|template
 argument_list|)
 expr_stmt|;
 return|return
-name|xmkstemp
+name|xmkstemp_mode
 argument_list|(
 name|template
+argument_list|,
+name|mode
 argument_list|)
 return|;
 block|}
