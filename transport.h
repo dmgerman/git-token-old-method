@@ -258,7 +258,7 @@ name|verbose
 range|:
 literal|3
 decl_stmt|;
-comment|/* Force progress even if stderr is not a tty */
+comment|/** 	 * Transports should not set this directly, and should use this 	 * value without having to check isatty(2), -q/--quiet 	 * (transport->verbose< 0), etc. - checking has already been done 	 * in transport_set_verbosity(). 	 **/
 DECL|member|progress
 name|unsigned
 name|progress
@@ -434,6 +434,9 @@ name|transport
 parameter_list|,
 name|int
 name|verbosity
+parameter_list|,
+name|int
+name|force_progress
 parameter_list|)
 function_decl|;
 end_function_decl
