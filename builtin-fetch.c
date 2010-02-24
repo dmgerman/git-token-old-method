@@ -127,6 +127,13 @@ name|verbosity
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|progress
+specifier|static
+name|int
+name|progress
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|tags
 specifier|static
 name|int
@@ -323,6 +330,18 @@ operator|&
 name|update_head_ok
 argument_list|,
 literal|"allow updating of HEAD ref"
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"progress"
+argument_list|,
+operator|&
+name|progress
+argument_list|,
+literal|"force progress reporting"
 argument_list|)
 block|,
 name|OPT_STRING
@@ -4534,7 +4553,7 @@ name|transport
 argument_list|,
 name|verbosity
 argument_list|,
-literal|0
+name|progress
 argument_list|)
 expr_stmt|;
 if|if
