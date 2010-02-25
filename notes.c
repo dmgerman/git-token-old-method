@@ -2954,7 +2954,7 @@ name|strbuf_addf
 argument_list|(
 name|buf
 argument_list|,
-literal|"%06o %.*s%c"
+literal|"%o %.*s%c"
 argument_list|,
 name|mode
 argument_list|,
