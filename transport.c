@@ -3931,6 +3931,10 @@ name|count
 condition|)
 name|fprintf
 argument_list|(
+name|porcelain
+condition|?
+name|stdout
+else|:
 name|stderr
 argument_list|,
 literal|"To %s\n"
