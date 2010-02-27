@@ -26,6 +26,11 @@ name|quiet
 range|:
 literal|1
 decl_stmt|,
+DECL|member|porcelain
+name|porcelain
+range|:
+literal|1
+decl_stmt|,
 DECL|member|send_mirror
 name|send_mirror
 range|:
