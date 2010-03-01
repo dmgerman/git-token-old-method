@@ -183,21 +183,7 @@ init|=
 literal|0
 decl_stmt|;
 name|int
-name|level
-init|=
-name|XDL_MERGE_ZEALOUS_ALNUM
-decl_stmt|;
-name|int
-name|style
-init|=
-literal|0
-decl_stmt|,
 name|quiet
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|favor
 init|=
 literal|0
 decl_stmt|;
@@ -229,6 +215,8 @@ argument_list|,
 literal|"diff3"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|style
 argument_list|,
 literal|"use a diff3 based merge"
@@ -243,6 +231,8 @@ argument_list|,
 literal|"ours"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|favor
 argument_list|,
 literal|"for conflicts, use our version"
@@ -257,6 +247,8 @@ argument_list|,
 literal|"theirs"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|favor
 argument_list|,
 literal|"for conflicts, use their version"
@@ -290,6 +282,24 @@ name|OPT_END
 argument_list|()
 block|, 	}
 decl_stmt|;
+name|xmp
+operator|.
+name|level
+operator|=
+name|XDL_MERGE_ZEALOUS_ALNUM
+expr_stmt|;
+name|xmp
+operator|.
+name|style
+operator|=
+literal|0
+expr_stmt|;
+name|xmp
+operator|.
+name|favor
+operator|=
+literal|0
+expr_stmt|;
 name|prefix
 operator|=
 name|setup_git_directory_gently
@@ -318,6 +328,8 @@ literal|0
 operator|<=
 name|git_xmerge_style
 condition|)
+name|xmp
+operator|.
 name|style
 operator|=
 name|git_xmerge_style
@@ -492,15 +504,6 @@ index|]
 argument_list|,
 operator|&
 name|xmp
-argument_list|,
-name|XDL_MERGE_FLAGS
-argument_list|(
-name|level
-argument_list|,
-name|style
-argument_list|,
-name|favor
-argument_list|)
 argument_list|,
 operator|&
 name|result
