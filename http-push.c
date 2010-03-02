@@ -10760,8 +10760,6 @@ block|{
 if|if
 condition|(
 name|push_verbosely
-operator|||
-literal|1
 condition|)
 name|fprintf
 argument_list|(
