@@ -2686,9 +2686,6 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|http_cleanup
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2702,11 +2699,6 @@ specifier|const
 name|char
 modifier|*
 name|url
-parameter_list|,
-name|struct
-name|remote
-modifier|*
-name|remote
 parameter_list|)
 block|{
 name|char
@@ -2741,11 +2733,6 @@ name|walker
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|http_init
-argument_list|(
-name|remote
-argument_list|)
-expr_stmt|;
 name|data
 operator|->
 name|alt
