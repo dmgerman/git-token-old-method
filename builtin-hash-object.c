@@ -185,6 +185,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_decl_stmt
+DECL|variable|no_filters
+specifier|static
+name|int
+name|no_filters
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|hash_stdin_paths
 specifier|static
@@ -282,6 +289,10 @@ name|type
 argument_list|,
 name|write_objects
 argument_list|,
+name|no_filters
+condition|?
+name|NULL
+else|:
 name|buf
 operator|.
 name|buf
@@ -349,13 +360,6 @@ DECL|variable|stdin_paths
 specifier|static
 name|int
 name|stdin_paths
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|no_filters
-specifier|static
-name|int
-name|no_filters
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -591,15 +595,6 @@ condition|)
 name|errstr
 operator|=
 literal|"Can't use --stdin-paths with --path"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|no_filters
-condition|)
-name|errstr
-operator|=
-literal|"Can't use --stdin-paths with --no-filters"
 expr_stmt|;
 block|}
 else|else
