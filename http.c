@@ -1145,7 +1145,7 @@ name|user_pass
 operator|=
 name|xstrdup
 argument_list|(
-name|getpass
+name|git_getpass
 argument_list|(
 literal|"Password: "
 argument_list|)
@@ -1220,7 +1220,7 @@ literal|1
 expr_stmt|;
 name|ssl_cert_password
 operator|=
-name|getpass
+name|git_getpass
 argument_list|(
 literal|"Certificate Password: "
 argument_list|)
