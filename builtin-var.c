@@ -20,7 +20,7 @@ name|char
 name|var_usage
 index|[]
 init|=
-literal|"git var [-l |<variable>]"
+literal|"git var (-l |<variable>)"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -80,7 +80,9 @@ modifier|*
 name|pgm
 init|=
 name|git_pager
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
