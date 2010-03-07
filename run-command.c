@@ -393,6 +393,11 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+name|ssize_t
+name|unused
+decl_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_notifier
@@ -425,6 +430,9 @@ name|msg
 index|[
 literal|4096
 index|]
+decl_stmt|;
+name|ssize_t
+name|unused
 decl_stmt|;
 name|int
 name|len
@@ -459,6 +467,8 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
@@ -468,6 +478,8 @@ argument_list|,
 literal|7
 argument_list|)
 expr_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
@@ -477,6 +489,8 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
