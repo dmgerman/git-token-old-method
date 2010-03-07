@@ -109,11 +109,6 @@ argument_list|,
 name|filename
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|expire
-condition|)
-block|{
 name|struct
 name|stat
 name|st
@@ -147,7 +142,6 @@ condition|)
 return|return
 literal|0
 return|;
-block|}
 name|printf
 argument_list|(
 literal|"Removing stale temporary file %s\n"
@@ -206,11 +200,6 @@ argument_list|,
 name|filename
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|expire
-condition|)
-block|{
 name|struct
 name|stat
 name|st
@@ -244,7 +233,6 @@ condition|)
 return|return
 literal|0
 return|;
-block|}
 if|if
 condition|(
 name|show_only
@@ -722,6 +710,10 @@ name|char
 modifier|*
 name|s
 decl_stmt|;
+name|expire
+operator|=
+name|ULONG_MAX
+expr_stmt|;
 name|save_commit_buffer
 operator|=
 literal|0
