@@ -398,6 +398,13 @@ name|DIFF_OPT_SUBMODULE_LOG
 value|(1<< 23)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_DIRTY_SUBMODULES
+define|#
+directive|define
+name|DIFF_OPT_DIRTY_SUBMODULES
+value|(1<< 24)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
