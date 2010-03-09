@@ -2431,11 +2431,11 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|ASYNC_AS_THREAD
-end_ifdef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_PTHREADS
+end_ifndef
 begin_decl_stmt
 DECL|variable|main_thread
 specifier|static
@@ -2476,6 +2476,9 @@ name|async
 init|=
 name|data
 decl_stmt|;
+name|intptr_t
+name|ret
+decl_stmt|;
 name|pthread_setspecific
 argument_list|(
 name|async_key
@@ -2483,9 +2486,8 @@ argument_list|,
 name|async
 argument_list|)
 expr_stmt|;
-name|intptr_t
 name|ret
-init|=
+operator|=
 name|async
 operator|->
 name|proc
@@ -2502,7 +2504,7 @@ name|async
 operator|->
 name|data
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 operator|(
 name|void
@@ -2830,9 +2832,9 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|ASYNC_AS_THREAD
+ifdef|#
+directive|ifdef
+name|NO_PTHREADS
 comment|/* Flush stdio before fork() to avoid cloning buffers */
 name|fflush
 argument_list|(
@@ -3146,9 +3148,9 @@ modifier|*
 name|async
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|ASYNC_AS_THREAD
+ifdef|#
+directive|ifdef
+name|NO_PTHREADS
 return|return
 name|wait_or_whine
 argument_list|(
