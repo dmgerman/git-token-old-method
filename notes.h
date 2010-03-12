@@ -125,6 +125,10 @@ DECL|member|initialized
 name|int
 name|initialized
 decl_stmt|;
+DECL|member|dirty
+name|int
+name|dirty
+decl_stmt|;
 block|}
 name|default_notes_tree
 struct|;
