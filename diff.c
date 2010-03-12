@@ -12083,11 +12083,6 @@ decl_stmt|;
 comment|/* Are we looking at the work tree? */
 if|if
 condition|(
-operator|!
-name|s
-operator|->
-name|sha1_valid
-operator|&&
 name|s
 operator|->
 name|dirty_submodule
@@ -18149,6 +18144,16 @@ name|two
 operator|->
 name|sha1
 argument_list|)
+operator|&&
+operator|!
+name|one
+operator|->
+name|dirty_submodule
+operator|&&
+operator|!
+name|two
+operator|->
+name|dirty_submodule
 condition|)
 return|return
 literal|1
@@ -18923,6 +18928,18 @@ operator|->
 name|two
 operator|->
 name|mode
+operator|||
+name|p
+operator|->
+name|one
+operator|->
+name|dirty_submodule
+operator|||
+name|p
+operator|->
+name|two
+operator|->
+name|dirty_submodule
 operator|||
 name|is_null_sha1
 argument_list|(

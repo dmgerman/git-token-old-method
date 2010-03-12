@@ -257,15 +257,6 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|*
-name|dirty_submodule
-condition|)
-name|changed
-operator|=
-literal|1
-expr_stmt|;
 block|}
 return|return
 name|changed
@@ -905,6 +896,9 @@ if|if
 condition|(
 operator|!
 name|changed
+operator|&&
+operator|!
+name|dirty_submodule
 condition|)
 block|{
 name|ce_mark_uptodate
@@ -1693,6 +1687,9 @@ name|old
 operator|->
 name|sha1
 argument_list|)
+operator|&&
+operator|!
+name|dirty_submodule
 operator|&&
 operator|!
 name|DIFF_OPT_TST
