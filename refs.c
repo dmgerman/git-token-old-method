@@ -3663,11 +3663,6 @@ name|struct
 name|ref_filter
 name|filter
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|has_glob_specials
-decl_stmt|;
 name|int
 name|ret
 decl_stmt|;
@@ -3712,22 +3707,16 @@ argument_list|,
 name|pattern
 argument_list|)
 expr_stmt|;
-name|has_glob_specials
-operator|=
-name|strpbrk
-argument_list|(
-name|pattern
-argument_list|,
-literal|"?*["
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
 name|has_glob_specials
+argument_list|(
+name|pattern
+argument_list|)
 condition|)
 block|{
-comment|/* Append impiled '/' '*' if not present. */
+comment|/* Append implied '/' '*' if not present. */
 if|if
 condition|(
 name|real_pattern

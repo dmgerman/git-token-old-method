@@ -20,6 +20,11 @@ include|#
 directive|include
 file|"grep.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"notes.h"
+end_include
 begin_define
 DECL|macro|SEEN
 define|#
@@ -120,6 +125,11 @@ end_struct_decl
 begin_struct_decl
 struct_decl|struct
 name|log_info
+struct_decl|;
+end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|string_list
 struct_decl|;
 end_struct_decl
 begin_struct
@@ -564,6 +574,12 @@ DECL|member|merge_simplification
 name|struct
 name|decoration
 name|merge_simplification
+decl_stmt|;
+comment|/* notes-specific options: which refs to show */
+DECL|member|notes_opt
+name|struct
+name|display_notes_opt
+name|notes_opt
 decl_stmt|;
 block|}
 struct|;

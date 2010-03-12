@@ -4527,10 +4527,8 @@ comment|/* unknown %g placeholder */
 case|case
 literal|'N'
 case|:
-name|format_note
+name|format_display_notes
 argument_list|(
-name|NULL
-argument_list|,
 name|commit
 operator|->
 name|object
@@ -6084,10 +6082,8 @@ name|context
 operator|->
 name|show_notes
 condition|)
-name|format_note
+name|format_display_notes
 argument_list|(
-name|NULL
-argument_list|,
 name|commit
 operator|->
 name|object
