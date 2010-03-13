@@ -881,6 +881,9 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+name|int
+name|ignore_untracked
 parameter_list|)
 block|{
 name|int
@@ -903,6 +906,8 @@ block|{
 literal|"status"
 block|,
 literal|"--porcelain"
+block|,
+name|NULL
 block|,
 name|NULL
 block|, 	}
@@ -1052,6 +1057,17 @@ index|]
 operator|=
 name|NULL
 expr_stmt|;
+if|if
+condition|(
+name|ignore_untracked
+condition|)
+name|argv
+index|[
+literal|2
+index|]
+operator|=
+literal|"-uno"
+expr_stmt|;
 name|memset
 argument_list|(
 operator|&
@@ -1177,9 +1193,13 @@ name|DIRTY_SUBMODULE_MODIFIED
 expr_stmt|;
 if|if
 condition|(
+name|ignore_untracked
+operator|||
+operator|(
 name|dirty_submodule
 operator|&
 name|DIRTY_SUBMODULE_UNTRACKED
+operator|)
 condition|)
 break|break;
 block|}
