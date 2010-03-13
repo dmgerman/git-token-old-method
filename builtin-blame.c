@@ -8869,8 +8869,6 @@ init|;
 name|i
 operator|<=
 name|lines
-operator|+
-literal|1
 condition|;
 name|width
 operator|++
