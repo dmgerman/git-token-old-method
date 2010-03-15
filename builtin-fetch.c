@@ -2316,6 +2316,7 @@ if|if
 condition|(
 name|ref
 condition|)
+block|{
 name|rc
 operator||=
 name|update_local_ref
@@ -2327,6 +2328,12 @@ argument_list|,
 name|note
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 name|sprintf
 argument_list|(
