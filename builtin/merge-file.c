@@ -183,21 +183,7 @@ init|=
 literal|0
 decl_stmt|;
 name|int
-name|level
-init|=
-name|XDL_MERGE_ZEALOUS_ALNUM
-decl_stmt|;
-name|int
-name|style
-init|=
-literal|0
-decl_stmt|,
 name|quiet
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|favor
 init|=
 literal|0
 decl_stmt|;
@@ -229,6 +215,8 @@ argument_list|,
 literal|"diff3"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|style
 argument_list|,
 literal|"use a diff3 based merge"
@@ -243,6 +231,8 @@ argument_list|,
 literal|"ours"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|favor
 argument_list|,
 literal|"for conflicts, use our version"
@@ -257,11 +247,43 @@ argument_list|,
 literal|"theirs"
 argument_list|,
 operator|&
+name|xmp
+operator|.
 name|favor
 argument_list|,
 literal|"for conflicts, use their version"
 argument_list|,
 name|XDL_MERGE_FAVOR_THEIRS
+argument_list|)
+block|,
+name|OPT_SET_INT
+argument_list|(
+literal|0
+argument_list|,
+literal|"union"
+argument_list|,
+operator|&
+name|xmp
+operator|.
+name|favor
+argument_list|,
+literal|"for conflicts, use a union version"
+argument_list|,
+name|XDL_MERGE_FAVOR_UNION
+argument_list|)
+block|,
+name|OPT_INTEGER
+argument_list|(
+literal|0
+argument_list|,
+literal|"marker-size"
+argument_list|,
+operator|&
+name|xmp
+operator|.
+name|marker_size
+argument_list|,
+literal|"for conflicts, use this marker size"
 argument_list|)
 block|,
 name|OPT__QUIET
@@ -290,6 +312,24 @@ name|OPT_END
 argument_list|()
 block|, 	}
 decl_stmt|;
+name|xmp
+operator|.
+name|level
+operator|=
+name|XDL_MERGE_ZEALOUS_ALNUM
+expr_stmt|;
+name|xmp
+operator|.
+name|style
+operator|=
+literal|0
+expr_stmt|;
+name|xmp
+operator|.
+name|favor
+operator|=
+literal|0
+expr_stmt|;
 name|prefix
 operator|=
 name|setup_git_directory_gently
@@ -318,6 +358,8 @@ literal|0
 operator|<=
 name|git_xmerge_style
 condition|)
+name|xmp
+operator|.
 name|style
 operator|=
 name|git_xmerge_style
@@ -492,15 +534,6 @@ index|]
 argument_list|,
 operator|&
 name|xmp
-argument_list|,
-name|XDL_MERGE_FLAGS
-argument_list|(
-name|level
-argument_list|,
-name|style
-argument_list|,
-name|favor
-argument_list|)
 argument_list|,
 operator|&
 name|result
