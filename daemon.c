@@ -1933,6 +1933,7 @@ name|port
 condition|)
 block|{
 operator|*
+operator|*
 name|port
 operator|=
 literal|'\0'
