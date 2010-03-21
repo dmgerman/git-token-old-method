@@ -428,6 +428,13 @@ DECL|member|style
 name|int
 name|style
 decl_stmt|;
+DECL|member|ancestor
+specifier|const
+name|char
+modifier|*
+name|ancestor
+decl_stmt|;
+comment|/* label for orig */
 block|}
 DECL|typedef|xmparam_t
 name|xmparam_t
