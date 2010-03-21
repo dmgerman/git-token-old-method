@@ -917,7 +917,7 @@ argument_list|,
 operator|&
 name|ancestor
 argument_list|,
-name|NULL
+literal|"base"
 argument_list|,
 operator|&
 name|ours
