@@ -1554,6 +1554,9 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+name|base_label
+decl_stmt|,
+modifier|*
 name|next_label
 decl_stmt|;
 name|int
@@ -1970,6 +1973,12 @@ name|base
 operator|=
 name|commit
 expr_stmt|;
+name|base_label
+operator|=
+name|msg
+operator|.
+name|label
+expr_stmt|;
 name|next
 operator|=
 name|parent
@@ -2048,6 +2057,12 @@ name|base
 operator|=
 name|parent
 expr_stmt|;
+name|base_label
+operator|=
+name|msg
+operator|.
+name|parent_label
+expr_stmt|;
 name|next
 operator|=
 name|commit
@@ -2109,6 +2124,16 @@ argument_list|(
 operator|&
 name|o
 argument_list|)
+expr_stmt|;
+name|o
+operator|.
+name|ancestor
+operator|=
+name|base
+condition|?
+name|base_label
+else|:
+literal|"(empty tree)"
 expr_stmt|;
 name|o
 operator|.
