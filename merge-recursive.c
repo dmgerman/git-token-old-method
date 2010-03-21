@@ -3643,6 +3643,8 @@ argument_list|,
 operator|&
 name|orig
 argument_list|,
+name|NULL
+argument_list|,
 operator|&
 name|src1
 argument_list|,

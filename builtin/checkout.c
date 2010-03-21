@@ -917,6 +917,8 @@ argument_list|,
 operator|&
 name|ancestor
 argument_list|,
+name|NULL
+argument_list|,
 operator|&
 name|ours
 argument_list|,
