@@ -435,6 +435,20 @@ modifier|*
 name|ancestor
 decl_stmt|;
 comment|/* label for orig */
+DECL|member|file1
+specifier|const
+name|char
+modifier|*
+name|file1
+decl_stmt|;
+comment|/* label for mf1 */
+DECL|member|file2
+specifier|const
+name|char
+modifier|*
+name|file2
+decl_stmt|;
+comment|/* label for mf2 */
 block|}
 DECL|typedef|xmparam_t
 name|xmparam_t
@@ -455,19 +469,9 @@ name|mmfile_t
 modifier|*
 name|mf1
 parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name1
-parameter_list|,
 name|mmfile_t
 modifier|*
 name|mf2
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name2
 parameter_list|,
 name|xmparam_t
 specifier|const
