@@ -8102,6 +8102,12 @@ condition|)
 name|read_cache
 argument_list|()
 expr_stmt|;
+name|o
+operator|->
+name|ancestor
+operator|=
+literal|"merged common ancestors"
+expr_stmt|;
 name|clean
 operator|=
 name|merge_trees
