@@ -61,6 +61,12 @@ operator|)
 return|;
 block|}
 end_function
+begin_undef
+DECL|macro|bswap32
+undef|#
+directive|undef
+name|bswap32
+end_undef
 begin_if
 if|#
 directive|if
