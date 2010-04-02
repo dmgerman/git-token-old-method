@@ -11644,6 +11644,7 @@ parameter_list|,
 name|int
 name|hdrlen
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|buf
@@ -11872,6 +11873,10 @@ name|stream
 operator|.
 name|next_in
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|buf
 expr_stmt|;
 name|stream
@@ -12099,6 +12104,7 @@ DECL|function|write_sha1_file
 name|int
 name|write_sha1_file
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|buf
