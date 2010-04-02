@@ -7375,10 +7375,11 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+name|void
 name|ws_fix_copy
 parameter_list|(
-name|char
+name|struct
+name|strbuf
 modifier|*
 parameter_list|,
 specifier|const
