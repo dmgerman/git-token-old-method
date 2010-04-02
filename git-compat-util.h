@@ -302,6 +302,7 @@ argument_list|(
 name|__USLC__
 argument_list|)
 operator|&&
+expr|\
 operator|!
 name|defined
 argument_list|(
@@ -312,6 +313,12 @@ operator|!
 name|defined
 argument_list|(
 name|sgi
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__DragonFly__
 argument_list|)
 end_elif
 begin_define
