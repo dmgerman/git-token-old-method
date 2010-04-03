@@ -161,6 +161,7 @@ decl_stmt|;
 name|mmbuffer_t
 name|res
 decl_stmt|;
+comment|/* 	 * This function is only used by cmd_merge_tree, which 	 * does not respect the merge.conflictstyle option. 	 * There is no need to worry about a label for the 	 * common ancestor. 	 */
 name|merge_status
 operator|=
 name|ll_merge
@@ -171,6 +172,8 @@ argument_list|,
 name|path
 argument_list|,
 name|base
+argument_list|,
+name|NULL
 argument_list|,
 name|our
 argument_list|,
