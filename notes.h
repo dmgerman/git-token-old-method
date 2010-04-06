@@ -449,6 +449,7 @@ struct|struct
 name|display_notes_opt
 block|{
 DECL|member|suppress_default_notes
+name|unsigned
 name|int
 name|suppress_default_notes
 range|:
