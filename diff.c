@@ -3289,6 +3289,10 @@ name|textconv_one
 condition|)
 name|free
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|data_one
 argument_list|)
 expr_stmt|;
@@ -3298,6 +3302,10 @@ name|textconv_two
 condition|)
 name|free
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|data_two
 argument_list|)
 expr_stmt|;
