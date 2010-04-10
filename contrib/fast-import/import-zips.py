@@ -1,5 +1,5 @@
 begin_unit
-comment|'#!/usr/bin/python'
+comment|'#!/usr/bin/env python'
 nl|'\n'
 nl|'\n'
 comment|'## zip archive frontend for git-fast-import'
