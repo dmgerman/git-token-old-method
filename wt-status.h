@@ -160,6 +160,10 @@ DECL|member|submodule_summary
 name|int
 name|submodule_summary
 decl_stmt|;
+DECL|member|show_ignored_files
+name|int
+name|show_ignored_files
+decl_stmt|;
 DECL|member|show_untracked_files
 name|enum
 name|untracked_status_type
@@ -212,6 +216,11 @@ DECL|member|untracked
 name|struct
 name|string_list
 name|untracked
+decl_stmt|;
+DECL|member|ignored
+name|struct
+name|string_list
+name|ignored
 decl_stmt|;
 block|}
 struct|;
