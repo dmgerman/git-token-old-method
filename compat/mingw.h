@@ -1481,6 +1481,11 @@ modifier|*
 modifier|*
 name|env
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|dir
+parameter_list|,
 name|int
 name|fhin
 parameter_list|,

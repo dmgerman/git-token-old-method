@@ -3752,6 +3752,11 @@ modifier|*
 modifier|*
 name|env
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|dir
+parameter_list|,
 name|int
 name|prepend_cmd
 parameter_list|,
@@ -4171,7 +4176,7 @@ name|buf
 else|:
 name|NULL
 argument_list|,
-name|NULL
+name|dir
 argument_list|,
 operator|&
 name|si
@@ -4263,6 +4268,8 @@ name|argv
 argument_list|,
 name|env
 argument_list|,
+name|NULL
+argument_list|,
 name|prepend_cmd
 argument_list|,
 literal|0
@@ -4294,6 +4301,11 @@ name|char
 modifier|*
 modifier|*
 name|env
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|dir
 parameter_list|,
 name|int
 name|fhin
@@ -4420,6 +4432,8 @@ name|argv
 argument_list|,
 name|env
 argument_list|,
+name|dir
+argument_list|,
 literal|1
 argument_list|,
 name|fhin
@@ -4453,6 +4467,8 @@ argument_list|,
 name|argv
 argument_list|,
 name|env
+argument_list|,
+name|dir
 argument_list|,
 literal|0
 argument_list|,
