@@ -1311,6 +1311,9 @@ name|n
 parameter_list|,
 name|int
 name|num_parent
+parameter_list|,
+name|int
+name|result_deleted
 parameter_list|)
 block|{
 name|unsigned
@@ -1351,8 +1354,7 @@ name|sz
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|cnt
+name|result_deleted
 condition|)
 return|return;
 comment|/* result deleted */
@@ -2720,6 +2722,9 @@ name|num_parent
 parameter_list|,
 name|int
 name|use_color
+parameter_list|,
+name|int
+name|result_deleted
 parameter_list|)
 block|{
 name|unsigned
@@ -2825,8 +2830,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|cnt
+name|result_deleted
 condition|)
 return|return;
 comment|/* result deleted */
@@ -3686,6 +3690,11 @@ name|cnt
 decl_stmt|,
 name|lno
 decl_stmt|;
+name|int
+name|result_deleted
+init|=
+literal|0
+decl_stmt|;
 name|char
 modifier|*
 name|result
@@ -4188,6 +4197,10 @@ else|else
 block|{
 name|deleted_file
 label|:
+name|result_deleted
+operator|=
+literal|1
+expr_stmt|;
 name|result_size
 operator|=
 literal|0
@@ -4610,6 +4623,8 @@ argument_list|,
 name|i
 argument_list|,
 name|num_parent
+argument_list|,
+name|result_deleted
 argument_list|)
 expr_stmt|;
 if|if
@@ -5031,6 +5046,8 @@ name|opt
 argument_list|,
 name|COLOR_DIFF
 argument_list|)
+argument_list|,
+name|result_deleted
 argument_list|)
 expr_stmt|;
 block|}
