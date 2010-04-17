@@ -5454,11 +5454,6 @@ name|abort
 label|:
 name|free
 argument_list|(
-name|filename
-argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
 name|preq
 operator|->
 name|url
