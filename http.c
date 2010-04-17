@@ -5014,15 +5014,6 @@ operator|->
 name|packfile
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|preq
-operator|->
-name|packfile
-operator|!=
-name|NULL
-condition|)
-block|{
 name|fclose
 argument_list|(
 name|preq
@@ -5044,7 +5035,6 @@ name|local
 operator|=
 name|NULL
 expr_stmt|;
-block|}
 name|lst
 operator|=
 name|preq
