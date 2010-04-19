@@ -1376,6 +1376,7 @@ modifier|*
 name|array
 parameter_list|)
 block|{
+name|unsigned
 name|int
 name|ref
 decl_stmt|,
@@ -1399,12 +1400,12 @@ operator|=
 literal|0
 init|;
 name|ref
+operator|+
+literal|1
 operator|<
 name|array
 operator|->
 name|nr
-operator|-
-literal|1
 condition|;
 name|ref
 operator|++
