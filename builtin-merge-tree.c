@@ -575,7 +575,7 @@ name|xpp
 operator|.
 name|flags
 operator|=
-name|XDF_NEED_MINIMAL
+literal|0
 expr_stmt|;
 name|memset
 argument_list|(
