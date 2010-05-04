@@ -1341,9 +1341,6 @@ decl_stmt|;
 name|mmfile_t
 name|parent_file
 decl_stmt|;
-name|xdemitcb_t
-name|ecb
-decl_stmt|;
 name|struct
 name|combine_diff_state
 name|state
@@ -1470,9 +1467,6 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
-argument_list|,
-operator|&
-name|ecb
 argument_list|)
 expr_stmt|;
 name|free
