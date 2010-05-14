@@ -1399,7 +1399,7 @@ literal|"--recount"
 block|,
 literal|"--cached"
 block|,
-name|file
+name|NULL
 block|,
 name|NULL
 block|}
@@ -1419,6 +1419,13 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
+name|apply_argv
+index|[
+literal|3
+index|]
+operator|=
+name|file
+expr_stmt|;
 name|git_config
 argument_list|(
 name|git_diff_basic_config
