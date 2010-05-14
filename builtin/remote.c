@@ -1798,7 +1798,7 @@ name|PUSH_STATUS_OUTOFDATE
 block|,
 DECL|enumerator|PUSH_STATUS_NOTQUERIED
 name|PUSH_STATUS_NOTQUERIED
-block|, 	}
+block|}
 DECL|member|status
 name|status
 enum|;

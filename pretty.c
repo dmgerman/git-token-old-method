@@ -4799,7 +4799,7 @@ block|,
 name|ADD_LF_BEFORE_NON_EMPTY
 block|,
 name|DEL_LF_BEFORE_EMPTY
-block|, 	}
+block|}
 name|magic
 init|=
 name|NO_MAGIC

@@ -2485,7 +2485,7 @@ name|index_directory
 block|,
 DECL|enumerator|index_gitdir
 name|index_gitdir
-block|, }
+block|}
 enum|;
 end_enum
 begin_comment
@@ -2628,7 +2628,7 @@ name|ignore_directory
 block|,
 DECL|enumerator|recurse_into_directory
 name|recurse_into_directory
-block|, }
+block|}
 enum|;
 end_enum
 begin_function
@@ -3277,7 +3277,7 @@ name|path_handled
 block|,
 DECL|enumerator|path_recurse
 name|path_recurse
-block|, }
+block|}
 enum|;
 end_enum
 begin_function

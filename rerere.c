@@ -946,7 +946,7 @@ block|,
 name|RR_SIDE_2
 block|,
 name|RR_ORIGINAL
-block|, 	}
+block|}
 name|hunk
 init|=
 name|RR_CONTEXT

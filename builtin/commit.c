@@ -224,7 +224,7 @@ name|COMMIT_NORMAL
 block|,
 DECL|enumerator|COMMIT_PARTIAL
 name|COMMIT_PARTIAL
-block|, }
+block|}
 DECL|variable|commit_style
 name|commit_style
 enum|;
@@ -360,7 +360,7 @@ name|CLEANUP_NONE
 block|,
 DECL|enumerator|CLEANUP_ALL
 name|CLEANUP_ALL
-block|, }
+block|}
 DECL|variable|cleanup_mode
 name|cleanup_mode
 enum|;
@@ -429,7 +429,7 @@ name|STATUS_FORMAT_SHORT
 block|,
 DECL|enumerator|STATUS_FORMAT_PORCELAIN
 name|STATUS_FORMAT_PORCELAIN
-block|, }
+block|}
 DECL|variable|status_format
 name|status_format
 init|=

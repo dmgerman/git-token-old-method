@@ -109,7 +109,7 @@ name|HELP_FORMAT_INFO
 block|,
 DECL|enumerator|HELP_FORMAT_WEB
 name|HELP_FORMAT_WEB
-block|, }
+block|}
 enum|;
 end_enum
 begin_decl_stmt

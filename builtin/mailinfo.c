@@ -107,7 +107,7 @@ block|,
 name|TE_QP
 block|,
 name|TE_BASE64
-block|, }
+block|}
 DECL|variable|transfer_encoding
 name|transfer_encoding
 enum|;
@@ -121,7 +121,7 @@ DECL|enumerator|TYPE_OTHER
 name|TYPE_TEXT
 block|,
 name|TYPE_OTHER
-block|, }
+block|}
 DECL|variable|message_type
 name|message_type
 enum|;

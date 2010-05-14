@@ -250,7 +250,7 @@ name|die_on_ws_error
 block|,
 DECL|enumerator|correct_ws_error
 name|correct_ws_error
-block|, }
+block|}
 DECL|variable|ws_error_action
 name|ws_error_action
 init|=
@@ -291,7 +291,7 @@ name|ignore_ws_none
 block|,
 DECL|enumerator|ignore_ws_change
 name|ignore_ws_change
-block|, }
+block|}
 DECL|variable|ws_ignore_action
 name|ws_ignore_action
 init|=

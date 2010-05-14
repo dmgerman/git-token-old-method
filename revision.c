@@ -10058,7 +10058,7 @@ name|rewrite_one_noparents
 block|,
 DECL|enumerator|rewrite_one_error
 name|rewrite_one_error
-block|, }
+block|}
 enum|;
 end_enum
 begin_function

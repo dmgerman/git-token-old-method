@@ -715,7 +715,7 @@ DECL|enumerator|DIFF_FUNCINFO
 name|DIFF_FUNCINFO
 init|=
 literal|8
-block|, }
+block|}
 enum|;
 end_enum
 begin_function_decl

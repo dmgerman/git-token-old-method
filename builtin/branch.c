@@ -176,7 +176,7 @@ DECL|enumerator|BRANCH_COLOR_CURRENT
 name|BRANCH_COLOR_CURRENT
 init|=
 literal|4
-block|, }
+block|}
 enum|;
 end_enum
 begin_enum
@@ -195,7 +195,7 @@ name|SHOW_NOT_MERGED
 block|,
 DECL|enumerator|SHOW_MERGED
 name|SHOW_MERGED
-block|, }
+block|}
 DECL|variable|merge_filter
 name|merge_filter
 enum|;

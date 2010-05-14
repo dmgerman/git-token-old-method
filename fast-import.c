@@ -514,7 +514,7 @@ name|WHENSPEC_RFC2822
 block|,
 DECL|enumerator|WHENSPEC_NOW
 name|WHENSPEC_NOW
-block|, }
+block|}
 DECL|typedef|whenspec_type
 name|whenspec_type
 typedef|;
