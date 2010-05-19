@@ -1449,7 +1449,7 @@ name|builtin_attr
 index|[]
 init|=
 block|{
-literal|"[attr]binary -diff -crlf"
+literal|"[attr]binary -diff -text"
 block|,
 name|NULL
 block|, }
