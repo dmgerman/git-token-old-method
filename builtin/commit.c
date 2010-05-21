@@ -397,6 +397,13 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|show_ignored_in_status
+specifier|static
+name|int
+name|show_ignored_in_status
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|only_include_assumed
 specifier|static
 specifier|const
@@ -5439,6 +5446,18 @@ operator|)
 literal|"all"
 block|}
 block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"ignored"
+argument_list|,
+operator|&
+name|show_ignored_in_status
+argument_list|,
+literal|"show ignored files"
+argument_list|)
+block|,
 name|OPT_END
 argument_list|()
 block|, 	}
@@ -5501,6 +5520,16 @@ argument_list|(
 operator|&
 name|s
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|show_ignored_in_status
+condition|)
+name|s
+operator|.
+name|show_ignored_files
+operator|=
+literal|1
 expr_stmt|;
 if|if
 condition|(
