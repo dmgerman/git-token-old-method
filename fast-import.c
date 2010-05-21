@@ -15235,6 +15235,11 @@ argument_list|(
 name|marks
 argument_list|)
 expr_stmt|;
+name|safe_create_leading_directories_const
+argument_list|(
+name|import_marks_file
+argument_list|)
+expr_stmt|;
 name|import_marks_file_from_stream
 operator|=
 name|from_stream
@@ -15387,6 +15392,11 @@ operator|=
 name|make_fast_import_path
 argument_list|(
 name|marks
+argument_list|)
+expr_stmt|;
+name|safe_create_leading_directories_const
+argument_list|(
+name|export_marks_file
 argument_list|)
 expr_stmt|;
 block|}
