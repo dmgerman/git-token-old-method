@@ -446,6 +446,13 @@ init|=
 name|STATUS_FORMAT_LONG
 enum|;
 end_enum
+begin_decl_stmt
+DECL|variable|status_show_branch
+specifier|static
+name|int
+name|status_show_branch
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|opt_parse_m
 specifier|static
@@ -783,6 +790,18 @@ argument_list|,
 literal|"show status concisely"
 argument_list|,
 name|STATUS_FORMAT_SHORT
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"branch"
+argument_list|,
+operator|&
+name|status_show_branch
+argument_list|,
+literal|"show branch information"
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -2032,6 +2051,8 @@ argument_list|(
 name|s
 argument_list|,
 name|null_termination
+argument_list|,
+name|status_show_branch
 argument_list|)
 expr_stmt|;
 break|break;
@@ -5396,6 +5417,18 @@ argument_list|,
 name|STATUS_FORMAT_SHORT
 argument_list|)
 block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|'b'
+argument_list|,
+literal|"branch"
+argument_list|,
+operator|&
+name|status_show_branch
+argument_list|,
+literal|"show branch information"
+argument_list|)
+block|,
 name|OPT_SET_INT
 argument_list|(
 literal|0
@@ -5695,6 +5728,8 @@ operator|&
 name|s
 argument_list|,
 name|null_termination
+argument_list|,
+name|status_show_branch
 argument_list|)
 expr_stmt|;
 break|break;
