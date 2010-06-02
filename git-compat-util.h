@@ -312,7 +312,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|sgi
+name|__sgi
 argument_list|)
 operator|&&
 operator|!
