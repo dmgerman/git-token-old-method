@@ -412,6 +412,13 @@ name|DIFF_OPT_IGNORE_UNTRACKED_IN_SUBMODULES
 value|(1<< 25)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_IGNORE_DIRTY_SUBMODULES
+define|#
+directive|define
+name|DIFF_OPT_IGNORE_DIRTY_SUBMODULES
+value|(1<< 26)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define

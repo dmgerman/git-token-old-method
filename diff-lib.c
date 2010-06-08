@@ -234,6 +234,14 @@ argument_list|,
 name|IGNORE_SUBMODULES
 argument_list|)
 operator|&&
+operator|!
+name|DIFF_OPT_TST
+argument_list|(
+name|diffopt
+argument_list|,
+name|IGNORE_DIRTY_SUBMODULES
+argument_list|)
+operator|&&
 operator|(
 operator|!
 name|changed
