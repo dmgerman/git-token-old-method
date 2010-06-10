@@ -6545,8 +6545,10 @@ name|ref_name
 parameter_list|,
 name|char
 modifier|*
-modifier|*
-name|log_file
+name|logfile
+parameter_list|,
+name|int
+name|bufsize
 parameter_list|)
 block|{
 name|int
@@ -6558,30 +6560,16 @@ name|O_APPEND
 operator||
 name|O_WRONLY
 decl_stmt|;
-name|char
-name|logfile
-index|[
-name|PATH_MAX
-index|]
-decl_stmt|;
 name|git_snpath
 argument_list|(
 name|logfile
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|logfile
-argument_list|)
+name|bufsize
 argument_list|,
 literal|"logs/%s"
 argument_list|,
 name|ref_name
 argument_list|)
-expr_stmt|;
-operator|*
-name|log_file
-operator|=
-name|logfile
 expr_stmt|;
 if|if
 condition|(
@@ -6626,8 +6614,7 @@ if|if
 condition|(
 name|safe_create_leading_directories
 argument_list|(
-operator|*
-name|log_file
+name|logfile
 argument_list|)
 operator|<
 literal|0
@@ -6637,8 +6624,7 @@ name|error
 argument_list|(
 literal|"unable to create directory for %s"
 argument_list|,
-operator|*
-name|log_file
+name|logfile
 argument_list|)
 return|;
 name|oflags
@@ -6650,8 +6636,7 @@ name|logfd
 operator|=
 name|open
 argument_list|(
-operator|*
-name|log_file
+name|logfile
 argument_list|,
 name|oflags
 argument_list|,
@@ -6698,8 +6683,7 @@ if|if
 condition|(
 name|remove_empty_directories
 argument_list|(
-operator|*
-name|log_file
+name|logfile
 argument_list|)
 condition|)
 block|{
@@ -6708,8 +6692,7 @@ name|error
 argument_list|(
 literal|"There are still logs under '%s'"
 argument_list|,
-operator|*
-name|log_file
+name|logfile
 argument_list|)
 return|;
 block|}
@@ -6717,8 +6700,7 @@ name|logfd
 operator|=
 name|open
 argument_list|(
-operator|*
-name|log_file
+name|logfile
 argument_list|,
 name|oflags
 argument_list|,
@@ -6737,8 +6719,7 @@ name|error
 argument_list|(
 literal|"Unable to append to %s: %s"
 argument_list|,
-operator|*
-name|log_file
+name|logfile
 argument_list|,
 name|strerror
 argument_list|(
@@ -6749,8 +6730,7 @@ return|;
 block|}
 name|adjust_shared_perm
 argument_list|(
-operator|*
-name|log_file
+name|logfile
 argument_list|)
 expr_stmt|;
 name|close
@@ -6814,8 +6794,10 @@ name|int
 name|msglen
 decl_stmt|;
 name|char
-modifier|*
 name|log_file
+index|[
+name|PATH_MAX
+index|]
 decl_stmt|;
 name|char
 modifier|*
@@ -6844,8 +6826,12 @@ name|log_ref_setup
 argument_list|(
 name|ref_name
 argument_list|,
-operator|&
 name|log_file
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|log_file
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
