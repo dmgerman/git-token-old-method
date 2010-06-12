@@ -2094,6 +2094,8 @@ condition|?
 name|PARSE_OPT_STOP_AT_NON_OPTION
 else|:
 literal|0
+operator||
+name|PARSE_OPT_SHELL_EVAL
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
