@@ -165,7 +165,7 @@ name|xmp
 init|=
 block|{
 block|{
-name|XDF_NEED_MINIMAL
+literal|0
 block|}
 block|}
 decl_stmt|;
