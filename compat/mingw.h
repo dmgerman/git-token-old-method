@@ -489,7 +489,10 @@ name|fd
 parameter_list|)
 block|{
 return|return
-literal|0
+name|_commit
+argument_list|(
+name|fd
+argument_list|)
 return|;
 block|}
 end_function
