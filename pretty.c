@@ -5372,6 +5372,8 @@ block|,
 name|ADD_LF_BEFORE_NON_EMPTY
 block|,
 name|DEL_LF_BEFORE_EMPTY
+block|,
+name|ADD_SP_BEFORE_NON_EMPTY
 block|, 	}
 name|magic
 init|=
@@ -5399,6 +5401,14 @@ case|:
 name|magic
 operator|=
 name|ADD_LF_BEFORE_NON_EMPTY
+expr_stmt|;
+break|break;
+case|case
+literal|' '
+case|:
+name|magic
+operator|=
+name|ADD_SP_BEFORE_NON_EMPTY
 expr_stmt|;
 break|break;
 default|default:
@@ -5488,19 +5498,19 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|(
 name|orig_len
 operator|!=
 name|sb
 operator|->
 name|len
-operator|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|magic
 operator|==
 name|ADD_LF_BEFORE_NON_EMPTY
 condition|)
-block|{
 name|strbuf_insert
 argument_list|(
 name|sb
@@ -5508,6 +5518,24 @@ argument_list|,
 name|orig_len
 argument_list|,
 literal|"\n"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|magic
+operator|==
+name|ADD_SP_BEFORE_NON_EMPTY
+condition|)
+name|strbuf_insert
+argument_list|(
+name|sb
+argument_list|,
+name|orig_len
+argument_list|,
+literal|" "
 argument_list|,
 literal|1
 argument_list|)
@@ -5559,6 +5587,11 @@ operator|*
 name|placeholder
 operator|==
 literal|'-'
+operator|||
+operator|*
+name|placeholder
+operator|==
+literal|' '
 condition|)
 name|placeholder
 operator|++
