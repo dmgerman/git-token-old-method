@@ -381,7 +381,6 @@ comment|/*  * Prepare diff_filespec and convert it using diff textconv API  * if
 end_comment
 begin_function
 DECL|function|textconv_object
-specifier|static
 name|int
 name|textconv_object
 parameter_list|(
