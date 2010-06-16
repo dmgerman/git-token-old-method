@@ -2769,7 +2769,7 @@ name|DEFAULT_ABBREV
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|strcat
+name|strcpy
 argument_list|(
 name|cmd_newh
 argument_list|,
@@ -2797,7 +2797,7 @@ name|DEFAULT_ABBREV
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|strcat
+name|strcpy
 argument_list|(
 name|dst_newh
 argument_list|,
