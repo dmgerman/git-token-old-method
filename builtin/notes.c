@@ -2333,6 +2333,8 @@ name|struct
 name|notes_tree
 modifier|*
 name|t
+init|=
+name|NULL
 decl_stmt|;
 name|int
 name|ret
