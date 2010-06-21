@@ -6745,11 +6745,23 @@ literal|1
 return|;
 block|}
 comment|/* Determine parents */
+name|reflog_msg
+operator|=
+name|getenv
+argument_list|(
+literal|"GIT_REFLOG_ACTION"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|initial_commit
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|reflog_msg
+condition|)
 name|reflog_msg
 operator|=
 literal|"commit (initial)"
@@ -6771,6 +6783,11 @@ name|commit
 modifier|*
 name|commit
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|reflog_msg
+condition|)
 name|reflog_msg
 operator|=
 literal|"commit (amend)"
@@ -6844,6 +6861,11 @@ name|FILE
 modifier|*
 name|fp
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|reflog_msg
+condition|)
 name|reflog_msg
 operator|=
 literal|"commit (merge)"
@@ -7030,6 +7052,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|reflog_msg
+condition|)
 name|reflog_msg
 operator|=
 literal|"commit"
