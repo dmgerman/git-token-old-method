@@ -86,7 +86,7 @@ name|DENY_WARN
 block|,
 DECL|enumerator|DENY_REFUSE
 name|DENY_REFUSE
-block|, }
+block|}
 enum|;
 end_enum
 begin_decl_stmt

@@ -89,7 +89,7 @@ DECL|enumerator|PARSE_OPT_NO_INTERNAL_HELP
 name|PARSE_OPT_NO_INTERNAL_HELP
 init|=
 literal|16
-block|, }
+block|}
 enum|;
 end_enum
 begin_enum
@@ -136,7 +136,7 @@ DECL|enumerator|PARSE_OPT_NEGHELP
 name|PARSE_OPT_NEGHELP
 init|=
 literal|128
-block|, }
+block|}
 enum|;
 end_enum
 begin_struct_decl
@@ -579,7 +579,7 @@ name|PARSE_OPT_DONE
 block|,
 DECL|enumerator|PARSE_OPT_UNKNOWN
 name|PARSE_OPT_UNKNOWN
-block|, }
+block|}
 enum|;
 end_enum
 begin_comment

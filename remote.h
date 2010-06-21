@@ -672,7 +672,7 @@ literal|1
 operator|<<
 literal|1
 operator|)
-block|, }
+block|}
 enum|;
 end_enum
 begin_comment

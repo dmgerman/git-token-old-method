@@ -50,7 +50,7 @@ name|MERGE_RECURSIVE_OURS
 block|,
 DECL|enumerator|MERGE_RECURSIVE_THEIRS
 name|MERGE_RECURSIVE_THEIRS
-block|, 	}
+block|}
 DECL|member|recursive_variant
 name|recursive_variant
 enum|;

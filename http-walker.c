@@ -64,7 +64,7 @@ name|ACTIVE
 block|,
 DECL|enumerator|COMPLETE
 name|COMPLETE
-block|, }
+block|}
 enum|;
 end_enum
 begin_struct
