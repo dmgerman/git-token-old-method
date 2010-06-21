@@ -10,6 +10,20 @@ define|#
 directive|define
 name|RUN_COMMAND_H
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_PTHREADS
+end_ifndef
+begin_include
+include|#
+directive|include
+file|<pthread.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 DECL|struct|child_process
 struct|struct
@@ -284,9 +298,9 @@ name|int
 name|out
 decl_stmt|;
 comment|/* caller reads from here and closes it */
-ifndef|#
-directive|ifndef
-name|WIN32
+ifdef|#
+directive|ifdef
+name|NO_PTHREADS
 DECL|member|pid
 name|pid_t
 name|pid
@@ -294,7 +308,7 @@ decl_stmt|;
 else|#
 directive|else
 DECL|member|tid
-name|HANDLE
+name|pthread_t
 name|tid
 decl_stmt|;
 DECL|member|proc_in
