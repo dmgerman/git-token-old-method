@@ -1769,11 +1769,11 @@ name|item
 operator|=
 name|string_list_lookup
 argument_list|(
+name|unmerged
+argument_list|,
 name|ce
 operator|->
 name|name
-argument_list|,
-name|unmerged
 argument_list|)
 expr_stmt|;
 if|if
@@ -2135,6 +2135,8 @@ name|item
 operator|=
 name|string_list_lookup
 argument_list|(
+name|entries
+argument_list|,
 name|re
 operator|->
 name|pair
@@ -2142,8 +2144,6 @@ operator|->
 name|one
 operator|->
 name|path
-argument_list|,
-name|entries
 argument_list|)
 expr_stmt|;
 if|if
@@ -2187,6 +2187,8 @@ name|item
 operator|=
 name|string_list_lookup
 argument_list|(
+name|entries
+argument_list|,
 name|re
 operator|->
 name|pair
@@ -2194,8 +2196,6 @@ operator|->
 name|two
 operator|->
 name|path
-argument_list|,
-name|entries
 argument_list|)
 expr_stmt|;
 if|if
@@ -6102,9 +6102,9 @@ name|item
 operator|=
 name|string_list_lookup
 argument_list|(
-name|ren1_dst
-argument_list|,
 name|renames2Dst
+argument_list|,
+name|ren1_dst
 argument_list|)
 operator|)
 condition|)
