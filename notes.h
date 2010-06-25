@@ -17,7 +17,10 @@ begin_typedef
 DECL|typedef|combine_notes_fn
 typedef|typedef
 name|int
+function_decl|(
+modifier|*
 name|combine_notes_fn
+function_decl|)
 parameter_list|(
 name|unsigned
 name|char
@@ -118,7 +121,6 @@ name|ref
 decl_stmt|;
 DECL|member|combine_notes
 name|combine_notes_fn
-modifier|*
 name|combine_notes
 decl_stmt|;
 DECL|member|initialized
