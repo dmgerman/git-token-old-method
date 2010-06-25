@@ -230,6 +230,11 @@ name|string_list_item
 modifier|*
 name|string_list_insert_at_index
 parameter_list|(
+name|struct
+name|string_list
+modifier|*
+name|list
+parameter_list|,
 name|int
 name|insert_at
 parameter_list|,
@@ -237,11 +242,6 @@ specifier|const
 name|char
 modifier|*
 name|string
-parameter_list|,
-name|struct
-name|string_list
-modifier|*
-name|list
 parameter_list|)
 function_decl|;
 end_function_decl
