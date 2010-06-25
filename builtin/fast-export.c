@@ -2433,9 +2433,9 @@ argument_list|)
 expr_stmt|;
 name|string_list_append
 argument_list|(
-name|full_name
-argument_list|,
 name|extra_refs
+argument_list|,
+name|full_name
 argument_list|)
 operator|->
 name|util
@@ -2552,9 +2552,9 @@ condition|)
 comment|/* more than one name for the same object */
 name|string_list_append
 argument_list|(
-name|full_name
-argument_list|,
 name|extra_refs
+argument_list|,
+name|full_name
 argument_list|)
 operator|->
 name|util

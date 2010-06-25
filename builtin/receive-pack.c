@@ -2696,9 +2696,9 @@ name|item
 operator|=
 name|string_list_lookup
 argument_list|(
-name|dst_name
-argument_list|,
 name|list
+argument_list|,
+name|dst_name
 argument_list|)
 operator|)
 operator|==
@@ -2898,12 +2898,12 @@ name|item
 init|=
 name|string_list_append
 argument_list|(
+operator|&
+name|ref_list
+argument_list|,
 name|cmd
 operator|->
 name|ref_name
-argument_list|,
-operator|&
-name|ref_list
 argument_list|)
 decl_stmt|;
 name|item
