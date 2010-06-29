@@ -3520,6 +3520,8 @@ name|next_non_note
 decl_stmt|;
 name|int
 name|cmp
+init|=
+literal|0
 decl_stmt|,
 name|ret
 decl_stmt|;
