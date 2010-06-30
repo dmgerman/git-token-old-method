@@ -352,6 +352,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|untracked_files_arg
 DECL|variable|force_date
+DECL|variable|ignore_submodule_arg
 specifier|static
 name|char
 modifier|*
@@ -359,6 +360,9 @@ name|untracked_files_arg
 decl_stmt|,
 modifier|*
 name|force_date
+decl_stmt|,
+modifier|*
+name|ignore_submodule_arg
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -5569,6 +5573,30 @@ argument_list|,
 literal|"show ignored files"
 argument_list|)
 block|,
+block|{
+name|OPTION_STRING
+block|,
+literal|0
+block|,
+literal|"ignore-submodules"
+block|,
+operator|&
+name|ignore_submodule_arg
+block|,
+literal|"when"
+block|,
+literal|"ignore changes to submodules, optional when: all, dirty, untracked. (Default: all)"
+block|,
+name|PARSE_OPT_OPTARG
+block|,
+name|NULL
+block|,
+operator|(
+name|intptr_t
+operator|)
+literal|"all"
+block|}
+block|,
 name|OPT_END
 argument_list|()
 block|, 	}
@@ -5748,6 +5776,12 @@ name|in_merge
 operator|=
 name|in_merge
 expr_stmt|;
+name|s
+operator|.
+name|ignore_submodule_arg
+operator|=
+name|ignore_submodule_arg
+expr_stmt|;
 name|wt_status_collect
 argument_list|(
 operator|&
@@ -5831,6 +5865,12 @@ operator|.
 name|verbose
 operator|=
 name|verbose
+expr_stmt|;
+name|s
+operator|.
+name|ignore_submodule_arg
+operator|=
+name|ignore_submodule_arg
 expr_stmt|;
 name|wt_status_print
 argument_list|(
