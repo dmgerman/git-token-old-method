@@ -7257,6 +7257,12 @@ argument_list|)
 expr_stmt|;
 name|string_list_append
 argument_list|(
+name|revs
+operator|->
+name|notes_opt
+operator|.
+name|extra_notes_refs
+argument_list|,
 name|strbuf_detach
 argument_list|(
 operator|&
@@ -7264,12 +7270,6 @@ name|buf
 argument_list|,
 name|NULL
 argument_list|)
-argument_list|,
-name|revs
-operator|->
-name|notes_opt
-operator|.
-name|extra_notes_refs
 argument_list|)
 expr_stmt|;
 block|}

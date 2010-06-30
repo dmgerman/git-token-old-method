@@ -136,11 +136,11 @@ argument_list|)
 condition|)
 name|string_list_insert
 argument_list|(
+name|list
+argument_list|,
 name|e
 operator|->
 name|d_name
-argument_list|,
-name|list
 argument_list|)
 expr_stmt|;
 name|closedir
