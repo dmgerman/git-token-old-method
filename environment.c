@@ -355,6 +355,12 @@ name|int
 name|core_apply_sparse_checkout
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|merge_renormalize
+name|int
+name|merge_renormalize
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* Parallel index stat data preload? */
 end_comment
