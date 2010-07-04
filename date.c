@@ -3413,6 +3413,9 @@ operator|*
 name|offset
 operator|=
 operator|(
+operator|(
+name|time_t
+operator|)
 operator|*
 name|timestamp
 operator|-
