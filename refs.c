@@ -5631,6 +5631,16 @@ name|ret
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * People using contrib's git-new-workdir have .git/logs/refs ->  * /some/other/path/.git/logs/refs, and that may live on another device.  *  * IOW, to avoid cross device rename errors, the temporary renamed log must  * live into logs/refs.  */
+end_comment
+begin_define
+DECL|macro|TMP_RENAMED_LOG
+define|#
+directive|define
+name|TMP_RENAMED_LOG
+value|"logs/refs/.tmp-renamed-log"
+end_define
 begin_function
 DECL|function|rename_ref
 name|int
@@ -5876,14 +5886,16 @@ argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
-literal|"tmp-renamed-log"
+name|TMP_RENAMED_LOG
 argument_list|)
 argument_list|)
 condition|)
 return|return
 name|error
 argument_list|(
-literal|"unable to move logfile logs/%s to tmp-renamed-log: %s"
+literal|"unable to move logfile logs/%s to "
+name|TMP_RENAMED_LOG
+literal|": %s"
 argument_list|,
 name|oldref
 argument_list|,
@@ -6022,7 +6034,7 @@ name|rename
 argument_list|(
 name|git_path
 argument_list|(
-literal|"tmp-renamed-log"
+name|TMP_RENAMED_LOG
 argument_list|)
 argument_list|,
 name|git_path
@@ -6078,7 +6090,9 @@ else|else
 block|{
 name|error
 argument_list|(
-literal|"unable to move logfile tmp-renamed-log to logs/%s: %s"
+literal|"unable to move logfile "
+name|TMP_RENAMED_LOG
+literal|" to logs/%s: %s"
 argument_list|,
 name|newref
 argument_list|,
@@ -6284,7 +6298,7 @@ name|rename
 argument_list|(
 name|git_path
 argument_list|(
-literal|"tmp-renamed-log"
+name|TMP_RENAMED_LOG
 argument_list|)
 argument_list|,
 name|git_path
@@ -6297,7 +6311,9 @@ argument_list|)
 condition|)
 name|error
 argument_list|(
-literal|"unable to restore logfile %s from tmp-renamed-log: %s"
+literal|"unable to restore logfile %s from "
+name|TMP_RENAMED_LOG
+literal|": %s"
 argument_list|,
 name|oldref
 argument_list|,
