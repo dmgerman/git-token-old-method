@@ -18,6 +18,7 @@ block|{
 if|if
 condition|(
 operator|!
+operator|*
 name|mktemp
 argument_list|(
 name|template

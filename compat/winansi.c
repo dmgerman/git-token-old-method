@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<windows.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"../git-compat-util.h"
 end_include
 begin_comment

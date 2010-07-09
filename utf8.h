@@ -23,22 +23,6 @@ DECL|typedef|ucs_char_t
 comment|/* assuming 32bit int */
 end_comment
 begin_function_decl
-name|ucs_char_t
-name|pick_one_utf8_char
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-modifier|*
-name|start
-parameter_list|,
-name|size_t
-modifier|*
-name|remainder_p
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|int
 name|utf8_width
 parameter_list|(
@@ -89,8 +73,13 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|int
-name|print_wrapped_text
+name|strbuf_add_wrapped_text
 parameter_list|(
+name|struct
+name|strbuf
+modifier|*
+name|buf
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -103,7 +92,7 @@ name|int
 name|indent2
 parameter_list|,
 name|int
-name|len
+name|width
 parameter_list|)
 function_decl|;
 end_function_decl

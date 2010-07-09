@@ -159,10 +159,8 @@ name|prefix
 operator|=
 name|PREFIX
 expr_stmt|;
-name|fprintf
+name|trace_printf
 argument_list|(
-name|stderr
-argument_list|,
 literal|"RUNTIME_PREFIX requested, "
 literal|"but prefix computation failed.  "
 literal|"Using static fallback '%s'.\n"
@@ -482,7 +480,7 @@ argument_list|(
 operator|&
 name|new_path
 argument_list|,
-literal|"/usr/local/bin:/usr/bin:/bin"
+name|_PATH_DEFPATH
 argument_list|)
 expr_stmt|;
 name|setenv
