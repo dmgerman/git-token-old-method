@@ -1573,11 +1573,12 @@ name|ceil_offset
 decl_stmt|,
 name|root_len
 decl_stmt|;
-name|int
+name|dev_t
 name|current_device
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|int
 name|one_filesystem
 init|=
 literal|1
