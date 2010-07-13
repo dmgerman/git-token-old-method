@@ -4790,17 +4790,6 @@ name|path
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|int
-name|offset_1st_component
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|path
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_comment
 comment|/* object replacement */
 end_comment
