@@ -2669,12 +2669,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|strbuf_addstr
+name|strbuf_addf
 argument_list|(
 operator|&
 name|mebuf
 argument_list|,
+literal|"%s of commit %s"
+argument_list|,
 name|me
+argument_list|,
+name|find_unique_abbrev
+argument_list|(
+name|commit
+operator|->
+name|object
+operator|.
+name|sha1
+argument_list|,
+name|DEFAULT_ABBREV
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2847,7 +2860,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Finished one %s.\n"
+literal|"Finished %s.\n"
 argument_list|,
 name|mebuf
 operator|.
