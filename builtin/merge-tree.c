@@ -306,6 +306,15 @@ decl_stmt|,
 modifier|*
 name|their
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|path
+init|=
+name|entry
+operator|->
+name|path
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -401,8 +410,6 @@ expr_stmt|;
 return|return
 name|merge_file
 argument_list|(
-name|entry
-operator|->
 name|path
 argument_list|,
 name|base
