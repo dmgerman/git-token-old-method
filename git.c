@@ -942,6 +942,9 @@ operator|==
 literal|'!'
 condition|)
 block|{
+name|commit_pager_choice
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|*
@@ -2639,6 +2642,9 @@ decl_stmt|;
 name|int
 name|status
 decl_stmt|;
+name|commit_pager_choice
+argument_list|()
+expr_stmt|;
 name|strbuf_addf
 argument_list|(
 operator|&
