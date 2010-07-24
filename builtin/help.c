@@ -593,6 +593,10 @@ name|man_page
 operator|.
 name|buf
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -763,6 +767,10 @@ name|man_page
 operator|.
 name|buf
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -815,6 +823,10 @@ literal|"man"
 argument_list|,
 name|page
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -879,6 +891,10 @@ name|shell_cmd
 operator|.
 name|buf
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -2053,6 +2069,10 @@ literal|"gitman"
 argument_list|,
 name|page
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -2175,6 +2195,10 @@ literal|"help.browser"
 argument_list|,
 name|path
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
