@@ -1578,6 +1578,14 @@ argument_list|(
 literal|"HOME"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|home
+condition|)
+goto|goto
+name|return_null
+goto|;
 name|strbuf_add
 argument_list|(
 operator|&
