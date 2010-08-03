@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"vcs-svn/svndump.h"
+file|"svndump.h"
 end_include
 begin_function
 DECL|function|main
