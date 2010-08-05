@@ -3734,6 +3734,16 @@ else|:
 literal|0
 operator|)
 operator||
+operator|(
+name|o
+operator|->
+name|renormalize
+condition|?
+name|LL_OPT_RENORMALIZE
+else|:
+literal|0
+operator|)
+operator||
 name|create_ll_flag
 argument_list|(
 name|favor
