@@ -6802,7 +6802,9 @@ decl_stmt|;
 name|int
 name|normalize
 init|=
-name|merge_renormalize
+name|o
+operator|->
+name|renormalize
 decl_stmt|;
 name|unsigned
 name|o_mode
@@ -8973,6 +8975,12 @@ name|merge_rename_limit
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|o
+operator|->
+name|renormalize
+operator|=
+name|merge_renormalize
 expr_stmt|;
 name|git_config
 argument_list|(
