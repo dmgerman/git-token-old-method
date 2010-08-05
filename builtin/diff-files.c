@@ -27,6 +27,11 @@ include|#
 directive|include
 file|"builtin.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"submodule.h"
+end_include
 begin_decl_stmt
 DECL|variable|diff_files_usage
 specifier|static
@@ -78,6 +83,9 @@ name|rev
 argument_list|,
 name|prefix
 argument_list|)
+expr_stmt|;
+name|gitmodules_config
+argument_list|()
 expr_stmt|;
 name|git_config
 argument_list|(

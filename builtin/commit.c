@@ -102,6 +102,11 @@ include|#
 directive|include
 file|"quote.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"submodule.h"
+end_include
 begin_decl_stmt
 DECL|variable|builtin_commit_usage
 specifier|static
@@ -5633,6 +5638,9 @@ argument_list|(
 operator|&
 name|s
 argument_list|)
+expr_stmt|;
+name|gitmodules_config
+argument_list|()
 expr_stmt|;
 name|git_config
 argument_list|(
