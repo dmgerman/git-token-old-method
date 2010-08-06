@@ -7728,6 +7728,24 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
+comment|/* git.c */
+end_comment
+begin_struct
+DECL|struct|startup_info
+struct|struct
+name|startup_info
+block|{ }
+struct|;
+end_struct
+begin_decl_stmt
+specifier|extern
+name|struct
+name|startup_info
+modifier|*
+name|startup_info
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|/* builtin/merge.c */
 end_comment
 begin_function_decl
