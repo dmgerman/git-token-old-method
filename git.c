@@ -1708,6 +1708,8 @@ block|{
 literal|"bundle"
 block|,
 name|cmd_bundle
+block|,
+name|RUN_SETUP_GENTLY
 block|}
 block|,
 block|{
