@@ -2436,6 +2436,8 @@ block|{
 literal|"var"
 block|,
 name|cmd_var
+block|,
+name|RUN_SETUP_GENTLY
 block|}
 block|,
 block|{
