@@ -2048,6 +2048,8 @@ block|{
 literal|"merge-file"
 block|,
 name|cmd_merge_file
+block|,
+name|RUN_SETUP_GENTLY
 block|}
 block|,
 block|{
