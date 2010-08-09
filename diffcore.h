@@ -57,7 +57,7 @@ value|36000
 end_define
 begin_comment
 DECL|macro|DEFAULT_MERGE_SCORE
-comment|/* maximum for break-merge to happen 60%) */
+comment|/* maximum for break-merge to happen (60%) */
 end_comment
 begin_define
 DECL|macro|MINIMUM_BREAK_SIZE
