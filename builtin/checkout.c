@@ -2307,6 +2307,12 @@ name|exclude_per_dir
 operator|=
 literal|".gitignore"
 expr_stmt|;
+name|topts
+operator|.
+name|show_all_errors
+operator|=
+literal|1
+expr_stmt|;
 name|tree
 operator|=
 name|parse_tree_indirect
