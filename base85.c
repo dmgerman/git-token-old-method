@@ -63,7 +63,9 @@ name|say
 parameter_list|(
 name|a
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_define
 DECL|macro|say1
@@ -75,7 +77,9 @@ name|a
 parameter_list|,
 name|b
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_define
 DECL|macro|say2
@@ -89,7 +93,9 @@ name|b
 parameter_list|,
 name|c
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_endif
 endif|#

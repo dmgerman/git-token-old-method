@@ -443,7 +443,7 @@ parameter_list|(
 name|q
 parameter_list|)
 define|\
-value|do { \ 		(q)->queue = NULL; \ 		(q)->nr = (q)->alloc = 0; \ 		(q)->run = 0; \ 	} while(0);
+value|do { \ 		(q)->queue = NULL; \ 		(q)->nr = (q)->alloc = 0; \ 		(q)->run = 0; \ 	} while (0)
 end_define
 begin_decl_stmt
 specifier|extern
@@ -615,7 +615,9 @@ name|b
 parameter_list|,
 name|c
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_define
 DECL|macro|diff_debug_filepair
@@ -627,7 +629,9 @@ name|a
 parameter_list|,
 name|b
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_define
 DECL|macro|diff_debug_queue
@@ -639,7 +643,9 @@ name|a
 parameter_list|,
 name|b
 parameter_list|)
-value|do {} while(0)
+value|do {
+comment|/* nothing */
+value|} while (0)
 end_define
 begin_endif
 endif|#
