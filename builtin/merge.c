@@ -841,6 +841,12 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|ret
+operator|->
+name|attr
+operator|=
+name|NO_TRIVIAL
+expr_stmt|;
 return|return
 name|ret
 return|;
