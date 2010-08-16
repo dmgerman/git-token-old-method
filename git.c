@@ -1668,6 +1668,8 @@ block|{
 literal|"apply"
 block|,
 name|cmd_apply
+block|,
+name|RUN_SETUP_GENTLY
 block|}
 block|,
 block|{
