@@ -452,6 +452,13 @@ name|DIFF_OPT_IGNORE_DIRTY_SUBMODULES
 value|(1<< 26)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_OVERRIDE_SUBMODULE_CONFIG
+define|#
+directive|define
+name|DIFF_OPT_OVERRIDE_SUBMODULE_CONFIG
+value|(1<< 27)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
