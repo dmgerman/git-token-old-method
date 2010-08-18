@@ -4414,15 +4414,7 @@ name|struct
 name|string_list
 name|path_list
 init|=
-block|{
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 name|int
 name|i
