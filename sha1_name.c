@@ -3635,6 +3635,16 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * This interprets names like ':/Initial revision of "git"' by searching  * through history and returning the first commit whose message starts  * the given regular expression.  *  * For future extension, ':/!' is reserved. If you want to match a message  * beginning with a '!', you have to repeat the exclamation mark.  */
+end_comment
+begin_define
+DECL|macro|ONELINE_SEEN
+define|#
+directive|define
+name|ONELINE_SEEN
+value|(1u<<20)
+end_define
 begin_function
 DECL|function|handle_one_ref
 specifier|static
@@ -3741,21 +3751,17 @@ argument_list|,
 name|list
 argument_list|)
 expr_stmt|;
+name|object
+operator|->
+name|flags
+operator||=
+name|ONELINE_SEEN
+expr_stmt|;
 return|return
 literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*  * This interprets names like ':/Initial revision of "git"' by searching  * through history and returning the first commit whose message matches  * the given regular expression.  *  * For future extension, ':/!' is reserved. If you want to match a message  * beginning with a '!', you have to repeat the exclamation mark.  */
-end_comment
-begin_define
-DECL|macro|ONELINE_SEEN
-define|#
-directive|define
-name|ONELINE_SEEN
-value|(1u<<20)
-end_define
 begin_function
 DECL|function|get_sha1_oneline
 specifier|static
