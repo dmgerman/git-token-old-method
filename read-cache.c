@@ -7290,6 +7290,9 @@ name|char
 modifier|*
 name|name
 decl_stmt|;
+name|int
+name|result
+decl_stmt|;
 name|ondisk
 operator|->
 name|ctime
@@ -7506,7 +7509,8 @@ name|ce
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
+name|result
+operator|=
 name|ce_write
 argument_list|(
 name|c
@@ -7517,6 +7521,14 @@ name|ondisk
 argument_list|,
 name|size
 argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|ondisk
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 end_function

@@ -1723,6 +1723,13 @@ argument_list|(
 name|sha1
 argument_list|)
 condition|)
+block|{
+name|strbuf_release
+argument_list|(
+operator|&
+name|buffer
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 argument_list|(
@@ -1742,6 +1749,7 @@ argument_list|,
 name|path
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|ce
