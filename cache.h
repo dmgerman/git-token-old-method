@@ -638,9 +638,6 @@ directive|define
 name|CE_CONFLICTED
 value|(0x800000)
 end_define
-begin_comment
-comment|/* Only remove in work directory, not index */
-end_comment
 begin_define
 DECL|macro|CE_WT_REMOVE
 define|#
@@ -648,6 +645,10 @@ directive|define
 name|CE_WT_REMOVE
 value|(0x400000)
 end_define
+begin_comment
+DECL|macro|CE_WT_REMOVE
+comment|/* remove in work directory */
+end_comment
 begin_define
 DECL|macro|CE_UNPACKED
 define|#
