@@ -3623,7 +3623,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Determines the absolute path of cmd using the the split path in path.  * If cmd contains a slash or backslash, no lookup is performed.  */
+comment|/*  * Determines the absolute path of cmd using the split path in path.  * If cmd contains a slash or backslash, no lookup is performed.  */
 end_comment
 begin_function
 DECL|function|path_lookup
