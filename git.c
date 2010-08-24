@@ -1936,8 +1936,6 @@ block|,
 name|cmd_log
 block|,
 name|RUN_SETUP
-operator||
-name|USE_PAGER
 block|}
 block|,
 block|{
@@ -2286,8 +2284,6 @@ block|,
 name|cmd_show
 block|,
 name|RUN_SETUP
-operator||
-name|USE_PAGER
 block|}
 block|,
 block|{
@@ -2400,8 +2396,6 @@ block|,
 name|cmd_whatchanged
 block|,
 name|RUN_SETUP
-operator||
-name|USE_PAGER
 block|}
 block|,
 block|{
