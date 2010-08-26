@@ -19,6 +19,11 @@ include|#
 directive|include
 file|"merge-recursive.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"xdiff-interface.h"
+end_include
 begin_function
 DECL|function|better_branch_name
 specifier|static
