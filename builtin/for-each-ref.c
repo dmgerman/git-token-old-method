@@ -1161,6 +1161,8 @@ name|v
 operator|->
 name|s
 operator|=
+name|xstrdup
+argument_list|(
 name|find_unique_abbrev
 argument_list|(
 name|obj
@@ -1168,6 +1170,7 @@ operator|->
 name|sha1
 argument_list|,
 name|DEFAULT_ABBREV
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
