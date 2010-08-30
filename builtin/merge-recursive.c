@@ -19,6 +19,17 @@ include|#
 directive|include
 file|"merge-recursive.h"
 end_include
+begin_decl_stmt
+DECL|variable|builtin_merge_recursive_usage
+specifier|static
+specifier|const
+name|char
+name|builtin_merge_recursive_usage
+index|[]
+init|=
+literal|"git %s<base>... --<head><remote> ..."
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|better_branch_name
 specifier|static
@@ -183,7 +194,7 @@ literal|4
 condition|)
 name|usagef
 argument_list|(
-literal|"%s<base>... --<head><remote> ..."
+name|builtin_merge_recursive_usage
 argument_list|,
 name|argv
 index|[
