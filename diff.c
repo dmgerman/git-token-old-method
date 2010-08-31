@@ -24449,12 +24449,6 @@ condition|)
 name|diffcore_pickaxe
 argument_list|(
 name|options
-operator|->
-name|pickaxe
-argument_list|,
-name|options
-operator|->
-name|pickaxe_opts
 argument_list|)
 expr_stmt|;
 if|if
