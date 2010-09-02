@@ -1108,9 +1108,8 @@ name|the_index
 expr_stmt|;
 name|setup_unpack_trees_porcelain
 argument_list|(
+operator|&
 name|opts
-operator|.
-name|msgs
 argument_list|,
 literal|"merge"
 argument_list|)
