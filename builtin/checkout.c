@@ -2198,7 +2198,7 @@ operator|=
 operator|&
 name|the_index
 expr_stmt|;
-name|set_porcelain_error_msgs
+name|setup_unpack_trees_porcelain
 argument_list|(
 name|topts
 operator|.
