@@ -66,6 +66,12 @@ name|buffer_output
 range|:
 literal|1
 decl_stmt|;
+DECL|member|renormalize
+name|unsigned
+name|renormalize
+range|:
+literal|1
+decl_stmt|;
 DECL|member|verbosity
 name|int
 name|verbosity

@@ -922,6 +922,7 @@ operator|->
 name|sha1
 argument_list|)
 expr_stmt|;
+comment|/* 	 * NEEDSWORK: re-create conflicts from merges with 	 * merge.renormalize set, too 	 */
 name|status
 operator|=
 name|ll_merge
@@ -2456,6 +2457,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|/* 			 * NEEDSWORK: carrying over local changes 			 * when branches have different end-of-line 			 * normalization (or clean+smudge rules) is 			 * a pain; plumb in an option to set 			 * o.renormalize? 			 */
 name|init_merge_options
 argument_list|(
 operator|&
