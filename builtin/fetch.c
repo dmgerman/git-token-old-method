@@ -818,6 +818,7 @@ name|remote
 operator|->
 name|fetch_refspec_nr
 operator|||
+comment|/* Note: has_merge implies non-NULL branch->remote_name */
 operator|(
 name|has_merge
 operator|&&
@@ -925,7 +926,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-comment|/* 			 * if the remote we're fetching from is the same 			 * as given in branch.<name>.remote, we add the 			 * ref given in branch.<name>.merge, too. 			 */
+comment|/* 			 * if the remote we're fetching from is the same 			 * as given in branch.<name>.remote, we add the 			 * ref given in branch.<name>.merge, too. 			 * 			 * Note: has_merge implies non-NULL branch->remote_name 			 */
 if|if
 condition|(
 name|has_merge
