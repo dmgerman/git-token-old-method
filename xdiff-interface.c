@@ -1787,7 +1787,6 @@ name|result
 operator|=
 name|buffer_size
 expr_stmt|;
-else|else
 while|while
 condition|(
 name|result
