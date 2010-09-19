@@ -22283,7 +22283,7 @@ name|xecfg
 operator|.
 name|flags
 operator|=
-name|XDL_EMIT_FUNCNAMES
+literal|0
 expr_stmt|;
 name|xdi_diff_outf
 argument_list|(
