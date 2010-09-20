@@ -7013,6 +7013,11 @@ name|char
 modifier|*
 name|path
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|new_path
+parameter_list|,
 name|unsigned
 name|char
 modifier|*
@@ -7043,7 +7048,7 @@ argument_list|,
 literal|1
 argument_list|,
 literal|"CONFLICT (delete/modify): %s deleted in %s "
-literal|"and modified in %s. Version %s of %s left in tree."
+literal|"and modified in %s. Version %s of %s left in tree%s%s."
 argument_list|,
 name|path
 argument_list|,
@@ -7060,6 +7065,22 @@ operator|->
 name|branch2
 argument_list|,
 name|path
+argument_list|,
+name|path
+operator|==
+name|new_path
+condition|?
+literal|""
+else|:
+literal|" at "
+argument_list|,
+name|path
+operator|==
+name|new_path
+condition|?
+literal|""
+else|:
+name|new_path
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -7072,7 +7093,7 @@ name|b_sha
 argument_list|,
 name|b_mode
 argument_list|,
-name|path
+name|new_path
 argument_list|)
 expr_stmt|;
 block|}
@@ -7085,7 +7106,7 @@ argument_list|,
 literal|1
 argument_list|,
 literal|"CONFLICT (delete/modify): %s deleted in %s "
-literal|"and modified in %s. Version %s of %s left in tree."
+literal|"and modified in %s. Version %s of %s left in tree%s%s."
 argument_list|,
 name|path
 argument_list|,
@@ -7102,6 +7123,22 @@ operator|->
 name|branch1
 argument_list|,
 name|path
+argument_list|,
+name|path
+operator|==
+name|new_path
+condition|?
+literal|""
+else|:
+literal|" at "
+argument_list|,
+name|path
+operator|==
+name|new_path
+condition|?
+literal|""
+else|:
+name|new_path
 argument_list|)
 expr_stmt|;
 name|update_file
@@ -7114,7 +7151,7 @@ name|a_sha
 argument_list|,
 name|a_mode
 argument_list|,
-name|path
+name|new_path
 argument_list|)
 expr_stmt|;
 block|}
@@ -7796,6 +7833,8 @@ name|o
 argument_list|,
 name|path
 argument_list|,
+name|path
+argument_list|,
 name|a_sha
 argument_list|,
 name|a_mode
@@ -8391,6 +8430,51 @@ operator|)
 condition|)
 block|{
 comment|/* Modify/delete; deleted side may have put a directory in the way */
+specifier|const
+name|char
+modifier|*
+name|new_path
+init|=
+name|path
+decl_stmt|;
+if|if
+condition|(
+name|lstat
+argument_list|(
+name|path
+argument_list|,
+operator|&
+name|st
+argument_list|)
+operator|==
+literal|0
+operator|&&
+name|S_ISDIR
+argument_list|(
+name|st
+operator|.
+name|st_mode
+argument_list|)
+condition|)
+name|new_path
+operator|=
+name|unique_path
+argument_list|(
+name|o
+argument_list|,
+name|path
+argument_list|,
+name|a_sha
+condition|?
+name|o
+operator|->
+name|branch1
+else|:
+name|o
+operator|->
+name|branch2
+argument_list|)
+expr_stmt|;
 name|clean_merge
 operator|=
 literal|0
@@ -8400,6 +8484,8 @@ argument_list|(
 name|o
 argument_list|,
 name|path
+argument_list|,
+name|new_path
 argument_list|,
 name|a_sha
 argument_list|,
