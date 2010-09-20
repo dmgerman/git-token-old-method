@@ -5584,8 +5584,21 @@ name|dst_other
 decl_stmt|;
 name|int
 name|try_merge
-decl_stmt|,
-name|stage
+decl_stmt|;
+comment|/* 			 * unpack_trees loads entries from common-commit 			 * into stage 1, from head-commit into stage 2, and 			 * from merge-commit into stage 3.  We keep track 			 * of which side corresponds to the rename. 			 */
+name|int
+name|renamed_stage
+init|=
+name|a_renames
+operator|==
+name|renames1
+condition|?
+literal|2
+else|:
+literal|3
+decl_stmt|;
+name|int
+name|other_stage
 init|=
 name|a_renames
 operator|==
@@ -5607,9 +5620,9 @@ name|o
 operator|->
 name|call_depth
 operator|||
-name|stage
+name|renamed_stage
 operator|==
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -5624,7 +5637,7 @@ name|src_entry
 operator|->
 name|stages
 index|[
-name|stage
+name|other_stage
 index|]
 operator|.
 name|sha
@@ -5640,7 +5653,7 @@ name|src_entry
 operator|->
 name|stages
 index|[
-name|stage
+name|other_stage
 index|]
 operator|.
 name|mode
@@ -5657,7 +5670,7 @@ name|dst_entry
 operator|->
 name|stages
 index|[
-name|stage
+name|other_stage
 index|]
 operator|.
 name|sha
@@ -5673,7 +5686,7 @@ name|dst_entry
 operator|->
 name|stages
 index|[
-name|stage
+name|other_stage
 index|]
 operator|.
 name|mode
