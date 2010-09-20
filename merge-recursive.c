@@ -6413,6 +6413,10 @@ argument_list|,
 name|ren1_dst
 argument_list|)
 expr_stmt|;
+name|try_merge
+operator|=
+literal|0
+expr_stmt|;
 block|}
 else|else
 block|{
