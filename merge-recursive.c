@@ -7330,6 +7330,11 @@ name|b_sha
 parameter_list|,
 name|int
 name|b_mode
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|df_rename_conflict_branch
 parameter_list|)
 block|{
 specifier|const
@@ -7993,6 +7998,8 @@ argument_list|,
 name|b_sha
 argument_list|,
 name|b_mode
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 block|}
