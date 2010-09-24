@@ -3923,7 +3923,7 @@ name|opts
 operator|.
 name|new_branch_log
 argument_list|,
-literal|"log for new branch"
+literal|"create reflog for new branch"
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -3937,7 +3937,7 @@ name|opts
 operator|.
 name|track
 argument_list|,
-literal|"track"
+literal|"set upstream info for new branch"
 argument_list|,
 name|BRANCH_TRACK_EXPLICIT
 argument_list|)
@@ -3969,7 +3969,7 @@ name|opts
 operator|.
 name|writeout_stage
 argument_list|,
-literal|"stage"
+literal|"checkout our version for unmerged files"
 argument_list|,
 literal|2
 argument_list|)
@@ -3985,7 +3985,7 @@ name|opts
 operator|.
 name|writeout_stage
 argument_list|,
-literal|"stage"
+literal|"checkout their version for unmerged files"
 argument_list|,
 literal|3
 argument_list|)
@@ -4001,7 +4001,7 @@ name|opts
 operator|.
 name|force
 argument_list|,
-literal|"force"
+literal|"force checkout (throw away local modifications)"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4015,7 +4015,7 @@ name|opts
 operator|.
 name|merge
 argument_list|,
-literal|"merge"
+literal|"perform a 3-way merge with the new branch"
 argument_list|)
 block|,
 name|OPT_STRING
