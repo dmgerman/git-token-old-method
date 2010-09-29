@@ -5789,6 +5789,7 @@ index|]
 operator|==
 literal|'/'
 condition|)
+comment|/* don't need mode for commit */
 return|return
 name|get_sha1_oneline
 argument_list|(
@@ -5975,6 +5976,14 @@ name|ce
 operator|->
 name|sha1
 argument_list|)
+expr_stmt|;
+name|oc
+operator|->
+name|mode
+operator|=
+name|ce
+operator|->
+name|ce_mode
 expr_stmt|;
 return|return
 literal|0
