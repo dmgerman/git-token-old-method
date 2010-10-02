@@ -485,6 +485,7 @@ condition|(
 operator|!
 name|git_dir
 condition|)
+block|{
 name|git_dir
 operator|=
 name|read_gitfile_gently
@@ -492,6 +493,18 @@ argument_list|(
 name|DEFAULT_GIT_DIR_ENVIRONMENT
 argument_list|)
 expr_stmt|;
+name|git_dir
+operator|=
+name|git_dir
+condition|?
+name|xstrdup
+argument_list|(
+name|git_dir
+argument_list|)
+else|:
+name|NULL
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
