@@ -62,6 +62,11 @@ include|#
 directive|include
 file|"exec_cmd.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"dir.h"
+end_include
 begin_define
 DECL|macro|PACK_ID_BITS
 define|#
@@ -7946,7 +7951,7 @@ operator|==
 name|n
 operator|&&
 operator|!
-name|strncmp
+name|strncmp_icase
 argument_list|(
 name|p
 argument_list|,
@@ -8429,7 +8434,7 @@ operator|==
 name|n
 operator|&&
 operator|!
-name|strncmp
+name|strncmp_icase
 argument_list|(
 name|p
 argument_list|,
@@ -8749,7 +8754,7 @@ operator|==
 name|n
 operator|&&
 operator|!
-name|strncmp
+name|strncmp_icase
 argument_list|(
 name|p
 argument_list|,
