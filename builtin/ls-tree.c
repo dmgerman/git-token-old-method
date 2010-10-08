@@ -132,7 +132,7 @@ name|ls_tree_usage
 index|[]
 init|=
 block|{
-literal|"git ls-tree [<options>]<tree-ish> [path...]"
+literal|"git ls-tree [<options>]<tree-ish> [<path>...]"
 block|,
 name|NULL
 block|}
