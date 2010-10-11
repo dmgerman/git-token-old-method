@@ -530,7 +530,7 @@ name|line_buffer
 modifier|*
 name|buf
 parameter_list|,
-name|uint32_t
+name|off_t
 name|len
 parameter_list|)
 block|{
@@ -636,7 +636,7 @@ name|line_buffer
 modifier|*
 name|buf
 parameter_list|,
-name|uint32_t
+name|off_t
 name|len
 parameter_list|)
 block|{
