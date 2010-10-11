@@ -349,6 +349,11 @@ name|mark
 parameter_list|,
 name|uint32_t
 name|len
+parameter_list|,
+name|struct
+name|line_buffer
+modifier|*
+name|input
 parameter_list|)
 block|{
 if|if
@@ -361,6 +366,8 @@ block|{
 comment|/* svn symlink blobs start with "link " */
 name|buffer_skip_bytes
 argument_list|(
+name|input
+argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
@@ -384,6 +391,8 @@ argument_list|)
 expr_stmt|;
 name|buffer_copy_bytes
 argument_list|(
+name|input
+argument_list|,
 name|len
 argument_list|)
 expr_stmt|;

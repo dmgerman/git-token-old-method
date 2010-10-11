@@ -10,6 +10,11 @@ define|#
 directive|define
 name|FAST_EXPORT_H_
 end_define
+begin_include
+include|#
+directive|include
+file|"line_buffer.h"
+end_include
 begin_function_decl
 name|void
 name|fast_export_delete
@@ -80,6 +85,11 @@ name|mark
 parameter_list|,
 name|uint32_t
 name|len
+parameter_list|,
+name|struct
+name|line_buffer
+modifier|*
+name|input
 parameter_list|)
 function_decl|;
 end_function_decl
