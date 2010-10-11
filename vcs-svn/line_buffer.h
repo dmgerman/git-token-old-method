@@ -226,7 +226,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
+name|off_t
 name|buffer_skip_bytes
 parameter_list|(
 name|struct
