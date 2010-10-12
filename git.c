@@ -2234,6 +2234,12 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"remote-ext"
+block|,
+name|cmd_remote_ext
+block|}
+block|,
+block|{
 literal|"remote-fd"
 block|,
 name|cmd_remote_fd
