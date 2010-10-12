@@ -607,6 +607,18 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|int
+name|bidirectional_transfer_loop
+parameter_list|(
+name|int
+name|input
+parameter_list|,
+name|int
+name|output
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/* common methods used by transport.c and builtin-send-pack.c */
 end_comment
