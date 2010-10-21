@@ -67,7 +67,7 @@ name|char
 name|upload_pack_usage
 index|[]
 init|=
-literal|"git upload-pack [--strict] [--timeout=nn]<dir>"
+literal|"git upload-pack [--strict] [--timeout=<n>]<dir>"
 decl_stmt|;
 end_decl_stmt
 begin_comment

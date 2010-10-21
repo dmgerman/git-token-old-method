@@ -2297,7 +2297,7 @@ name|ls_files_usage
 index|[]
 init|=
 block|{
-literal|"git ls-files [options] [<file>]*"
+literal|"git ls-files [options] [<file>...]"
 block|,
 name|NULL
 block|}
