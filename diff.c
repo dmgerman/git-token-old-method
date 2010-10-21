@@ -18364,8 +18364,14 @@ operator|-
 literal|1
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"invalid argument to -B: %s"
+argument_list|,
+name|arg
+operator|+
+literal|2
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -18397,8 +18403,14 @@ operator|-
 literal|1
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"invalid argument to -M: %s"
+argument_list|,
+name|arg
+operator|+
+literal|2
+argument_list|)
 return|;
 name|options
 operator|->
@@ -18451,8 +18463,14 @@ operator|-
 literal|1
 condition|)
 return|return
-operator|-
-literal|1
+name|error
+argument_list|(
+literal|"invalid argument to -C: %s"
+argument_list|,
+name|arg
+operator|+
+literal|2
+argument_list|)
 return|;
 name|options
 operator|->
