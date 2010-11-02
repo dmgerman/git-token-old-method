@@ -2932,7 +2932,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/* don't delete non-remote refs */
+comment|/* don't delete non-remote-tracking refs */
 if|if
 condition|(
 name|prefixcmp
@@ -4882,10 +4882,10 @@ name|nr
 operator|==
 literal|1
 condition|?
-literal|"Note: A non-remote branch was not removed; "
+literal|"Note: A branch outside the refs/remotes/ hierarchy was not removed;\n"
 literal|"to delete it, use:\n"
 else|:
-literal|"Note: Non-remote branches were not removed; "
+literal|"Note: Some branches outside the refs/remotes/ hierarchy were not removed;\n"
 literal|"to delete them, use:\n"
 argument_list|)
 expr_stmt|;

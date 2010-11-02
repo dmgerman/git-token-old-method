@@ -2130,7 +2130,7 @@ condition|)
 block|{
 name|kind
 operator|=
-literal|"remote branch"
+literal|"remote-tracking branch"
 expr_stmt|;
 name|what
 operator|=
