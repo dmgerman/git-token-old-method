@@ -546,6 +546,11 @@ include|#
 directive|include
 file|<syslog.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<sys/poll.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -555,11 +560,6 @@ begin_include
 include|#
 directive|include
 file|<sys/wait.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<sys/poll.h>
 end_include
 begin_include
 include|#
