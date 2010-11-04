@@ -792,6 +792,13 @@ directive|define
 name|unlink
 value|mingw_unlink
 end_define
+begin_define
+DECL|macro|WNOHANG
+define|#
+directive|define
+name|WNOHANG
+value|1
+end_define
 begin_function_decl
 name|pid_t
 name|waitpid
