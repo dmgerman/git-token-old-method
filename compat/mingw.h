@@ -792,10 +792,7 @@ directive|define
 name|unlink
 value|mingw_unlink
 end_define
-begin_function
-DECL|function|waitpid
-specifier|static
-specifier|inline
+begin_function_decl
 name|pid_t
 name|waitpid
 parameter_list|(
@@ -809,33 +806,8 @@ parameter_list|,
 name|unsigned
 name|options
 parameter_list|)
-block|{
-if|if
-condition|(
-name|options
-operator|==
-literal|0
-condition|)
-return|return
-name|_cwait
-argument_list|(
-name|status
-argument_list|,
-name|pid
-argument_list|,
-literal|0
-argument_list|)
-return|;
-name|errno
-operator|=
-name|EINVAL
-expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
-block|}
-end_function
+function_decl|;
+end_function_decl
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -2046,7 +2018,7 @@ name|c
 parameter_list|,
 name|v
 parameter_list|)
-value|dummy_decl_mingw_main(); \ static int mingw_main(); \ int main(int argc, const char **argv) \ { \ 	_fmode = _O_BINARY; \ 	_setmode(_fileno(stdin), _O_BINARY); \ 	_setmode(_fileno(stdout), _O_BINARY); \ 	_setmode(_fileno(stderr), _O_BINARY); \ 	argv[0] = xstrdup(_pgmptr); \ 	return mingw_main(argc, argv); \ } \ static int mingw_main(c,v)
+value|dummy_decl_mingw_main(); \ static int mingw_main(); \ int main(int argc, const char **argv) \ { \ 	extern CRITICAL_SECTION pinfo_cs; \ 	_fmode = _O_BINARY; \ 	_setmode(_fileno(stdin), _O_BINARY); \ 	_setmode(_fileno(stdout), _O_BINARY); \ 	_setmode(_fileno(stderr), _O_BINARY); \ 	argv[0] = xstrdup(_pgmptr); \ 	InitializeCriticalSection(&pinfo_cs); \ 	return mingw_main(argc, argv); \ } \ static int mingw_main(c,v)
 end_define
 begin_ifndef
 ifndef|#
