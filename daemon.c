@@ -29,11 +29,6 @@ include|#
 directive|include
 file|"string-list.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<syslog.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
