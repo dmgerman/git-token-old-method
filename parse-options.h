@@ -871,8 +871,10 @@ directive|define
 name|OPT__DRY_RUN
 parameter_list|(
 name|var
+parameter_list|,
+name|h
 parameter_list|)
-value|OPT_BOOLEAN('n', "dry-run", (var), "dry run")
+value|OPT_BOOLEAN('n', "dry-run", (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__ABBREV
