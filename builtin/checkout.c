@@ -3878,6 +3878,8 @@ operator|&
 name|opts
 operator|.
 name|quiet
+argument_list|,
+literal|"be quiet"
 argument_list|)
 block|,
 name|OPT_STRING
