@@ -552,7 +552,7 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
-literal|"be quiet"
+literal|"suppress summary after successful commit"
 argument_list|)
 block|,
 name|OPT__VERBOSE
@@ -560,7 +560,7 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
-literal|"be verbose"
+literal|"show diff in commit message template"
 argument_list|)
 block|,
 name|OPT_GROUP

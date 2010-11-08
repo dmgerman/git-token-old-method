@@ -1363,7 +1363,7 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
-literal|"be quiet"
+literal|"be quiet, only report errors"
 argument_list|)
 block|,
 name|OPT_SET_INT
