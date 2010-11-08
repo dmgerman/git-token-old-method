@@ -506,6 +506,8 @@ name|OPT__VERBOSE
 argument_list|(
 operator|&
 name|verbose
+argument_list|,
+literal|"be verbose"
 argument_list|)
 block|,
 name|OPT_END

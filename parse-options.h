@@ -838,8 +838,10 @@ directive|define
 name|OPT__VERBOSE
 parameter_list|(
 name|var
+parameter_list|,
+name|h
 parameter_list|)
-value|OPT_BOOLEAN('v', "verbose", (var), "be verbose")
+value|OPT_BOOLEAN('v', "verbose", (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__QUIET
