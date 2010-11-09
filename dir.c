@@ -1890,6 +1890,15 @@ name|pathname
 argument_list|,
 name|exclude
 argument_list|)
+operator|&&
+name|pathname
+index|[
+name|x
+operator|->
+name|patternlen
+index|]
+operator|==
+literal|'/'
 condition|)
 return|return
 name|to_exclude
