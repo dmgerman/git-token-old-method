@@ -4513,7 +4513,6 @@ block|}
 end_function
 begin_function
 DECL|function|default_notes_ref
-specifier|static
 specifier|const
 name|char
 modifier|*
