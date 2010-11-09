@@ -4743,7 +4743,10 @@ literal|"Failed to read notes tree referenced by %s (%s)"
 argument_list|,
 name|notes_ref
 argument_list|,
+name|sha1_to_hex
+argument_list|(
 name|object_sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hashclr
