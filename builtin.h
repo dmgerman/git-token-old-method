@@ -130,7 +130,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|int
+name|void
 name|commit_notes
 parameter_list|(
 name|struct
