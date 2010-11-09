@@ -4069,7 +4069,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/* we will separate the notes by a newline anyway */
+comment|/* we will separate the notes by two newlines anyway */
 if|if
 condition|(
 name|cur_msg
@@ -4089,7 +4089,7 @@ name|buf_len
 operator|=
 name|cur_len
 operator|+
-literal|1
+literal|2
 operator|+
 name|new_len
 expr_stmt|;
@@ -4120,13 +4120,22 @@ index|]
 operator|=
 literal|'\n'
 expr_stmt|;
+name|buf
+index|[
+name|cur_len
+operator|+
+literal|1
+index|]
+operator|=
+literal|'\n'
+expr_stmt|;
 name|memcpy
 argument_list|(
 name|buf
 operator|+
 name|cur_len
 operator|+
-literal|1
+literal|2
 argument_list|,
 name|new_msg
 argument_list|,
