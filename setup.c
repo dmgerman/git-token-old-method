@@ -31,7 +31,6 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|prefix_path
-specifier|const
 name|char
 modifier|*
 name|prefix_path
