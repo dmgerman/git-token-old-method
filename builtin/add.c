@@ -2499,6 +2499,11 @@ condition|(
 name|ignore_missing
 condition|)
 block|{
+name|int
+name|dtype
+init|=
+name|DT_UNKNOWN
+decl_stmt|;
 if|if
 condition|(
 name|excluded
@@ -2511,7 +2516,8 @@ index|[
 name|i
 index|]
 argument_list|,
-name|DT_UNKNOWN
+operator|&
+name|dtype
 argument_list|)
 condition|)
 name|dir_add_ignored
