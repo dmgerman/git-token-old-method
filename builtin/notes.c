@@ -1731,6 +1731,20 @@ condition|)
 return|return
 name|combine_notes_concatenate
 return|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcasecmp
+argument_list|(
+name|v
+argument_list|,
+literal|"cat_sort_uniq"
+argument_list|)
+condition|)
+return|return
+name|combine_notes_cat_sort_uniq
+return|;
 else|else
 return|return
 name|NULL
@@ -4691,8 +4705,8 @@ name|strategy
 argument_list|,
 literal|"strategy"
 argument_list|,
-literal|"resolve notes conflicts using the given "
-literal|"strategy (manual/ours/theirs/union)"
+literal|"resolve notes conflicts using the given strategy "
+literal|"(manual/ours/theirs/union/cat_sort_uniq)"
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -4985,6 +4999,23 @@ operator|.
 name|strategy
 operator|=
 name|NOTES_MERGE_RESOLVE_UNION
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|strategy
+argument_list|,
+literal|"cat_sort_uniq"
+argument_list|)
+condition|)
+name|o
+operator|.
+name|strategy
+operator|=
+name|NOTES_MERGE_RESOLVE_CAT_SORT_UNIQ
 expr_stmt|;
 else|else
 block|{
