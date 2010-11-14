@@ -4266,6 +4266,11 @@ literal|20
 index|]
 decl_stmt|;
 name|struct
+name|notes_tree
+modifier|*
+name|t
+decl_stmt|;
+name|struct
 name|notes_merge_options
 name|o
 decl_stmt|;
@@ -4375,14 +4380,11 @@ name|remote_ref
 operator|.
 name|buf
 expr_stmt|;
-name|result
+name|t
 operator|=
-name|notes_merge
+name|init_notes_check
 argument_list|(
-operator|&
-name|o
-argument_list|,
-name|result_sha1
+literal|"merge"
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -4400,13 +4402,35 @@ name|default_notes_ref
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|o
+operator|.
+name|commit_msg
+operator|=
+name|msg
+operator|.
+name|buf
+operator|+
+literal|7
+expr_stmt|;
+comment|// skip "notes: " prefix
+name|result
+operator|=
+name|notes_merge
+argument_list|(
+operator|&
+name|o
+argument_list|,
+name|t
+argument_list|,
+name|result_sha1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|result
-operator|==
+operator|>=
 literal|0
 condition|)
-block|{
 comment|/* Merge resulted (trivially) in result_sha1 */
 comment|/* Update default notes ref with new commit */
 name|update_ref
@@ -4427,16 +4451,18 @@ argument_list|,
 name|DIE_ON_ERR
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 comment|/* TODO: */
 name|die
 argument_list|(
-literal|"'git notes merge' cannot yet handle non-trivial merges!"
+literal|"'git notes merge' cannot yet handle conflicts!"
 argument_list|)
 expr_stmt|;
-block|}
+name|free_notes
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
