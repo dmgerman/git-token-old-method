@@ -840,7 +840,7 @@ condition|)
 block|{
 name|warning
 argument_list|(
-literal|"failed to remove '%s'"
+literal|"failed to remove %s"
 argument_list|,
 name|qname
 argument_list|)
@@ -951,7 +951,7 @@ condition|)
 block|{
 name|warning
 argument_list|(
-literal|"failed to remove '%s'"
+literal|"failed to remove %s"
 argument_list|,
 name|qname
 argument_list|)
