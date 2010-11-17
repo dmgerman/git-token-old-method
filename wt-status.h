@@ -55,6 +55,12 @@ name|WT_STATUS_LOCAL_BRANCH
 block|,
 DECL|enumerator|WT_STATUS_REMOTE_BRANCH
 name|WT_STATUS_REMOTE_BRANCH
+block|,
+DECL|enumerator|WT_STATUS_ONBRANCH
+name|WT_STATUS_ONBRANCH
+block|,
+DECL|enumerator|WT_STATUS_MAXSLOT
+name|WT_STATUS_MAXSLOT
 block|}
 enum|;
 end_enum
@@ -185,9 +191,7 @@ DECL|member|color_palette
 name|char
 name|color_palette
 index|[
-name|WT_STATUS_REMOTE_BRANCH
-operator|+
-literal|1
+name|WT_STATUS_MAXSLOT
 index|]
 index|[
 name|COLOR_MAXLEN
