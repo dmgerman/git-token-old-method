@@ -607,12 +607,6 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-operator|(
-specifier|const
-name|char
-operator|*
-operator|*
-operator|)
 name|ret
 return|;
 block|}
@@ -1108,23 +1102,14 @@ block|{
 if|if
 condition|(
 name|argc
-operator|<
+operator|!=
 literal|3
 condition|)
-block|{
-name|fprintf
+name|die
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Error: URL missing"
+literal|"Expected two arguments"
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|command_loop
 argument_list|(
