@@ -846,6 +846,17 @@ else|else
 break|break;
 block|}
 block|}
+if|if
+condition|(
+name|trailing_whitespace
+operator|==
+operator|-
+literal|1
+condition|)
+name|trailing_whitespace
+operator|=
+name|len
+expr_stmt|;
 comment|/* Check indentation */
 for|for
 control|(
@@ -855,7 +866,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|len
+name|trailing_whitespace
 condition|;
 name|i
 operator|++
@@ -1105,17 +1116,6 @@ name|stream
 condition|)
 block|{
 comment|/* 		 * Now the rest of the line starts at "written". 		 * The non-highlighted part ends at "trailing_whitespace". 		 */
-if|if
-condition|(
-name|trailing_whitespace
-operator|==
-operator|-
-literal|1
-condition|)
-name|trailing_whitespace
-operator|=
-name|len
-expr_stmt|;
 comment|/* Emit non-highlighted (middle) segment. */
 if|if
 condition|(
