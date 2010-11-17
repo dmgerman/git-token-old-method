@@ -203,10 +203,6 @@ name|ignored_only
 init|=
 literal|0
 decl_stmt|,
-name|baselen
-init|=
-literal|0
-decl_stmt|,
 name|config_set
 init|=
 literal|0
@@ -734,7 +730,7 @@ name|name
 argument_list|,
 name|len
 argument_list|,
-name|baselen
+literal|0
 argument_list|,
 name|seen
 argument_list|)
@@ -840,7 +836,7 @@ condition|)
 block|{
 name|warning
 argument_list|(
-literal|"failed to remove '%s'"
+literal|"failed to remove %s"
 argument_list|,
 name|qname
 argument_list|)
@@ -951,7 +947,7 @@ condition|)
 block|{
 name|warning
 argument_list|(
-literal|"failed to remove '%s'"
+literal|"failed to remove %s"
 argument_list|,
 name|qname
 argument_list|)
