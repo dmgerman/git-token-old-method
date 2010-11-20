@@ -1881,7 +1881,7 @@ block|}
 end_function
 begin_function
 DECL|function|svndump_init
-name|void
+name|int
 name|svndump_init
 parameter_list|(
 specifier|const
@@ -1890,11 +1890,26 @@ modifier|*
 name|filename
 parameter_list|)
 block|{
+if|if
+condition|(
 name|buffer_init
 argument_list|(
 name|filename
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"cannot open %s: %s"
+argument_list|,
+name|filename
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+return|;
 name|repo_init
 argument_list|()
 expr_stmt|;
@@ -1917,6 +1932,9 @@ expr_stmt|;
 name|init_keys
 argument_list|()
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
