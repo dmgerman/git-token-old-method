@@ -1018,6 +1018,14 @@ operator|.
 name|dst
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|node_ctx
+operator|.
+name|action
+operator|==
+name|NODEACT_ADD
+condition|)
 name|node_ctx
 operator|.
 name|action
@@ -1061,8 +1069,15 @@ argument_list|,
 name|mark
 argument_list|)
 expr_stmt|;
-else|else
-comment|/* Node-action: add */
+elseif|else
+if|if
+condition|(
+name|node_ctx
+operator|.
+name|action
+operator|==
+name|NODEACT_ADD
+condition|)
 name|repo_add
 argument_list|(
 name|node_ctx
@@ -1072,6 +1087,12 @@ argument_list|,
 name|type
 argument_list|,
 name|mark
+argument_list|)
+expr_stmt|;
+else|else
+name|die
+argument_list|(
+literal|"invalid dump: Node-path block lacks Node-action"
 argument_list|)
 expr_stmt|;
 if|if
