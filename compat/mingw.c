@@ -8608,6 +8608,9 @@ if|if
 condition|(
 operator|!
 name|dir
+operator|||
+operator|!
+name|dir
 operator|->
 name|dd_handle
 condition|)
