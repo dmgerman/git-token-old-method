@@ -2346,6 +2346,8 @@ if|if
 condition|(
 name|allow_ff
 operator|&&
+name|parent
+operator|&&
 operator|!
 name|hashcmp
 argument_list|(
