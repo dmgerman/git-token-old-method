@@ -554,6 +554,8 @@ operator|&
 name|opts
 operator|.
 name|verbose_update
+argument_list|,
+literal|"be verbose"
 argument_list|)
 block|,
 name|OPT_GROUP

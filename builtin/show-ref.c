@@ -1050,6 +1050,8 @@ name|OPT__QUIET
 argument_list|(
 operator|&
 name|quiet
+argument_list|,
+literal|"do not print results to stdout (useful with --verify)"
 argument_list|)
 block|,
 block|{

@@ -7446,6 +7446,8 @@ name|OPT__DRY_RUN
 argument_list|(
 operator|&
 name|dry_run
+argument_list|,
+literal|"dry run"
 argument_list|)
 block|,
 name|OPT_END
@@ -9172,12 +9174,8 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT__VERBOSE
 argument_list|(
-literal|'v'
-argument_list|,
-literal|"verbose"
-argument_list|,
 operator|&
 name|verbose
 argument_list|,

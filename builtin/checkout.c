@@ -3878,6 +3878,8 @@ operator|&
 name|opts
 operator|.
 name|quiet
+argument_list|,
+literal|"suppress progress reporting"
 argument_list|)
 block|,
 name|OPT_STRING
@@ -3990,12 +3992,8 @@ argument_list|,
 literal|3
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT__FORCE
 argument_list|(
-literal|'f'
-argument_list|,
-literal|"force"
-argument_list|,
 operator|&
 name|opts
 operator|.
