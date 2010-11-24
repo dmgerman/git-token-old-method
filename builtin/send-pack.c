@@ -512,10 +512,8 @@ name|po
 argument_list|)
 condition|)
 return|return
-name|error
-argument_list|(
-literal|"pack-objects died with strange error"
-argument_list|)
+operator|-
+literal|1
 return|;
 return|return
 literal|0
