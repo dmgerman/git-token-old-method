@@ -5895,6 +5895,19 @@ operator|&
 name|IS_DIR
 condition|)
 block|{
+comment|/* ensure collection names end with slash */
+name|str_end_url_with_slash
+argument_list|(
+name|ls
+operator|->
+name|dentry_name
+argument_list|,
+operator|&
+name|ls
+operator|->
+name|dentry_name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ls
