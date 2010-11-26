@@ -2329,6 +2329,12 @@ argument_list|(
 name|git_dir
 argument_list|)
 expr_stmt|;
+name|startup_info
+operator|->
+name|setup_explicit
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 operator|!
