@@ -1179,7 +1179,7 @@ name|flags
 operator||=
 name|flags
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -4478,7 +4478,7 @@ name|flags
 operator|==
 name|flag
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|commit
 argument_list|,
@@ -4540,7 +4540,7 @@ argument_list|,
 name|extra
 argument_list|)
 expr_stmt|;
-name|sort_by_date
+name|commit_list_sort_by_date
 argument_list|(
 operator|&
 name|seen

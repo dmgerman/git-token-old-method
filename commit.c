@@ -1982,11 +1982,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|insert_by_date
+DECL|function|commit_list_insert_by_date
 name|struct
 name|commit_list
 modifier|*
-name|insert_by_date
+name|commit_list_insert_by_date
 parameter_list|(
 name|struct
 name|commit
@@ -2059,9 +2059,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|sort_by_date
+DECL|function|commit_list_sort_by_date
 name|void
-name|sort_by_date
+name|commit_list_sort_by_date
 parameter_list|(
 name|struct
 name|commit_list
@@ -2083,7 +2083,7 @@ operator|*
 name|list
 condition|)
 block|{
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 operator|(
 operator|*
@@ -2218,7 +2218,7 @@ name|flags
 operator||=
 name|mark
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|commit
 argument_list|,
@@ -2594,7 +2594,7 @@ condition|(
 operator|!
 name|lifo
 condition|)
-name|sort_by_date
+name|commit_list_sort_by_date
 argument_list|(
 operator|&
 name|work
@@ -2699,7 +2699,7 @@ condition|(
 operator|!
 name|lifo
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|parent
 argument_list|,
@@ -2966,7 +2966,7 @@ name|flags
 operator||=
 name|PARENT1
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|one
 argument_list|,
@@ -2999,7 +2999,7 @@ name|flags
 operator||=
 name|PARENT2
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|twos
 index|[
@@ -3107,7 +3107,7 @@ name|flags
 operator||=
 name|RESULT
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|commit
 argument_list|,
@@ -3181,7 +3181,7 @@ name|flags
 operator||=
 name|flags
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -3234,7 +3234,7 @@ operator|&
 name|STALE
 operator|)
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|list
 operator|->
@@ -3828,7 +3828,7 @@ index|[
 name|i
 index|]
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|rslt
 index|[

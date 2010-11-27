@@ -2022,7 +2022,7 @@ name|work
 init|=
 name|NULL
 decl_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|want
 argument_list|,
@@ -2168,7 +2168,7 @@ operator|&
 name|REACHABLE
 operator|)
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|parent
 argument_list|,

@@ -1033,7 +1033,7 @@ operator|&
 name|SEEN
 operator|)
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -1739,7 +1739,7 @@ operator|&
 name|SEEN
 operator|)
 condition|)
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -1870,7 +1870,7 @@ condition|(
 name|gave_up_on
 condition|)
 block|{
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|gave_up_on
 argument_list|,

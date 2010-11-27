@@ -3739,7 +3739,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 operator|(
 expr|struct
