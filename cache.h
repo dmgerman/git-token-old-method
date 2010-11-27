@@ -594,67 +594,67 @@ DECL|macro|CE_UPDATE
 define|#
 directive|define
 name|CE_UPDATE
-value|(0x10000)
+value|(1<< 16)
 end_define
 begin_define
 DECL|macro|CE_REMOVE
 define|#
 directive|define
 name|CE_REMOVE
-value|(0x20000)
+value|(1<< 17)
 end_define
 begin_define
 DECL|macro|CE_UPTODATE
 define|#
 directive|define
 name|CE_UPTODATE
-value|(0x40000)
+value|(1<< 18)
 end_define
 begin_define
 DECL|macro|CE_ADDED
 define|#
 directive|define
 name|CE_ADDED
-value|(0x80000)
+value|(1<< 19)
 end_define
 begin_define
 DECL|macro|CE_HASHED
 define|#
 directive|define
 name|CE_HASHED
-value|(0x100000)
+value|(1<< 20)
 end_define
 begin_define
 DECL|macro|CE_UNHASHED
 define|#
 directive|define
 name|CE_UNHASHED
-value|(0x200000)
-end_define
-begin_define
-DECL|macro|CE_CONFLICTED
-define|#
-directive|define
-name|CE_CONFLICTED
-value|(0x800000)
+value|(1<< 21)
 end_define
 begin_define
 DECL|macro|CE_WT_REMOVE
 define|#
 directive|define
 name|CE_WT_REMOVE
-value|(0x400000)
+value|(1<< 22)
 end_define
 begin_comment
 DECL|macro|CE_WT_REMOVE
 comment|/* remove in work directory */
 end_comment
 begin_define
+DECL|macro|CE_CONFLICTED
+define|#
+directive|define
+name|CE_CONFLICTED
+value|(1<< 23)
+end_define
+begin_define
 DECL|macro|CE_UNPACKED
 define|#
 directive|define
 name|CE_UNPACKED
-value|(0x1000000)
+value|(1<< 24)
 end_define
 begin_comment
 comment|/*  * Extended on-disk flags  */
@@ -664,14 +664,14 @@ DECL|macro|CE_INTENT_TO_ADD
 define|#
 directive|define
 name|CE_INTENT_TO_ADD
-value|0x20000000
+value|(1<< 29)
 end_define
 begin_define
 DECL|macro|CE_SKIP_WORKTREE
 define|#
 directive|define
 name|CE_SKIP_WORKTREE
-value|0x40000000
+value|(1<< 30)
 end_define
 begin_comment
 comment|/* CE_EXTENDED2 is for future extension */
@@ -681,7 +681,7 @@ DECL|macro|CE_EXTENDED2
 define|#
 directive|define
 name|CE_EXTENDED2
-value|0x80000000
+value|(1<< 31)
 end_define
 begin_define
 DECL|macro|CE_EXTENDED_FLAGS
