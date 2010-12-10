@@ -101,7 +101,9 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|uint32_t
+specifier|const
+name|char
+modifier|*
 name|repo_read_path
 parameter_list|(
 specifier|const
