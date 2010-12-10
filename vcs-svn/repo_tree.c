@@ -1708,7 +1708,11 @@ name|i
 decl_stmt|;
 name|mark
 operator|=
-literal|0
+literal|1024
+operator|*
+literal|1024
+operator|*
+literal|1024
 expr_stmt|;
 for|for
 control|(
