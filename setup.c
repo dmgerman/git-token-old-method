@@ -2479,6 +2479,7 @@ if|if
 condition|(
 name|startup_info
 condition|)
+block|{
 name|startup_info
 operator|->
 name|have_repository
@@ -2490,6 +2491,13 @@ operator|!
 operator|*
 name|nongit_ok
 expr_stmt|;
+name|startup_info
+operator|->
+name|prefix
+operator|=
+name|prefix
+expr_stmt|;
+block|}
 return|return
 name|prefix
 return|;
