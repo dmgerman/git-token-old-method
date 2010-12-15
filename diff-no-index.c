@@ -1445,7 +1445,9 @@ name|revs
 operator|->
 name|diffopt
 operator|.
-name|paths
+name|pathspec
+operator|.
+name|raw
 index|[
 literal|0
 index|]
@@ -1454,7 +1456,9 @@ name|revs
 operator|->
 name|diffopt
 operator|.
-name|paths
+name|pathspec
+operator|.
+name|raw
 index|[
 literal|1
 index|]
