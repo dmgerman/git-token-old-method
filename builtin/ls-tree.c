@@ -132,7 +132,7 @@ name|ls_tree_usage
 index|[]
 init|=
 block|{
-literal|"git ls-tree [<options>]<tree-ish> [path...]"
+literal|"git ls-tree [<options>]<tree-ish> [<path>...]"
 block|,
 name|NULL
 block|}
@@ -248,6 +248,21 @@ condition|(
 name|speclen
 operator|<=
 name|len
+condition|)
+continue|continue;
+if|if
+condition|(
+name|spec
+index|[
+name|len
+index|]
+operator|&&
+name|spec
+index|[
+name|len
+index|]
+operator|!=
+literal|'/'
 condition|)
 continue|continue;
 if|if

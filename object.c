@@ -1072,7 +1072,7 @@ name|obj
 operator|=
 name|parse_object_buffer
 argument_list|(
-name|repl
+name|sha1
 argument_list|,
 name|type
 argument_list|,

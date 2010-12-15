@@ -96,6 +96,13 @@ block|}
 struct|;
 end_struct
 begin_define
+DECL|macro|OBJECT_ARRAY_INIT
+define|#
+directive|define
+name|OBJECT_ARRAY_INIT
+value|{ 0, 0, NULL }
+end_define
+begin_define
 DECL|macro|TYPE_BITS
 define|#
 directive|define

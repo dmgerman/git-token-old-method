@@ -52,6 +52,11 @@ include|#
 directive|include
 file|"builtin.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"submodule.h"
+end_include
 begin_struct
 DECL|struct|blobinfo
 struct|struct
@@ -1493,6 +1498,9 @@ argument_list|(
 operator|&
 name|nongit
 argument_list|)
+expr_stmt|;
+name|gitmodules_config
+argument_list|()
 expr_stmt|;
 name|git_config
 argument_list|(
