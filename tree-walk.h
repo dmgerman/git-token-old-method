@@ -423,10 +423,9 @@ name|name_entry
 modifier|*
 parameter_list|,
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
-parameter_list|,
-name|int
 parameter_list|,
 specifier|const
 name|struct
