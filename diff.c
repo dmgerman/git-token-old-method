@@ -18443,7 +18443,7 @@ name|prefixcmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--detect-renames="
+literal|"--find-renames="
 argument_list|)
 operator|||
 operator|!
@@ -18451,7 +18451,7 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--detect-renames"
+literal|"--find-renames"
 argument_list|)
 condition|)
 block|{
@@ -18504,7 +18504,7 @@ name|prefixcmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--detect-copies="
+literal|"--find-copies="
 argument_list|)
 operator|||
 operator|!
@@ -18512,7 +18512,7 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
-literal|"--detect-copies"
+literal|"--find-copies"
 argument_list|)
 condition|)
 block|{
@@ -20093,7 +20093,7 @@ name|prefixcmp
 argument_list|(
 name|opt
 argument_list|,
-literal|"detect-copies"
+literal|"find-copies"
 argument_list|)
 condition|)
 block|{
@@ -20101,7 +20101,7 @@ name|opt
 operator|+=
 name|strlen
 argument_list|(
-literal|"detect-copies"
+literal|"find-copies"
 argument_list|)
 expr_stmt|;
 if|if
@@ -20130,7 +20130,7 @@ name|prefixcmp
 argument_list|(
 name|opt
 argument_list|,
-literal|"detect-renames"
+literal|"find-renames"
 argument_list|)
 condition|)
 block|{
@@ -20138,7 +20138,7 @@ name|opt
 operator|+=
 name|strlen
 argument_list|(
-literal|"detect-renames"
+literal|"find-renames"
 argument_list|)
 expr_stmt|;
 if|if
