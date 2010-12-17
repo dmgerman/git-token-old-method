@@ -473,6 +473,8 @@ name|entry
 argument_list|,
 name|base
 argument_list|,
+literal|0
+argument_list|,
 operator|&
 name|opt
 operator|->
@@ -804,6 +806,8 @@ operator|->
 name|entry
 argument_list|,
 name|base
+argument_list|,
+literal|0
 argument_list|,
 operator|&
 name|opt
