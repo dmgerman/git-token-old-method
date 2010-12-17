@@ -3596,6 +3596,8 @@ operator|&&
 name|revs
 operator|.
 name|prune_data
+operator|.
+name|nr
 condition|)
 name|full_tree
 operator|=
