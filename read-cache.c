@@ -3641,8 +3641,8 @@ modifier|*
 name|ce
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)
@@ -3655,6 +3655,16 @@ decl_stmt|,
 modifier|*
 name|name
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|ps
+init|=
+name|pathspec
+operator|->
+name|raw
+decl_stmt|;
 name|int
 name|len
 decl_stmt|;
@@ -3662,6 +3672,8 @@ if|if
 condition|(
 operator|!
 name|pathspec
+operator|->
+name|nr
 condition|)
 return|return
 literal|1
@@ -3685,7 +3697,7 @@ operator|(
 name|match
 operator|=
 operator|*
-name|pathspec
+name|ps
 operator|++
 operator|)
 operator|!=
