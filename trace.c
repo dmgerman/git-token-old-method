@@ -14,6 +14,7 @@ file|"quote.h"
 end_include
 begin_function
 DECL|function|do_nothing
+specifier|static
 name|void
 name|do_nothing
 parameter_list|(
