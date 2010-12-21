@@ -25790,6 +25790,10 @@ condition|(
 name|driver
 operator|->
 name|textconv_cache
+operator|&&
+name|df
+operator|->
+name|sha1_valid
 condition|)
 block|{
 operator|*
@@ -25849,6 +25853,10 @@ condition|(
 name|driver
 operator|->
 name|textconv_cache
+operator|&&
+name|df
+operator|->
+name|sha1_valid
 condition|)
 block|{
 comment|/* ignore errors, as we might be in a readonly repository */
