@@ -2065,10 +2065,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|insert_by_date_cached
+DECL|function|commit_list_insert_by_date_cached
 specifier|static
 name|void
-name|insert_by_date_cached
+name|commit_list_insert_by_date_cached
 parameter_list|(
 name|struct
 name|commit
@@ -2114,7 +2114,7 @@ name|date
 condition|)
 name|new_entry
 operator|=
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -2127,7 +2127,7 @@ expr_stmt|;
 else|else
 name|new_entry
 operator|=
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|p
 argument_list|,
@@ -2322,7 +2322,7 @@ name|flags
 operator||=
 name|SEEN
 expr_stmt|;
-name|insert_by_date_cached
+name|commit_list_insert_by_date_cached
 argument_list|(
 name|p
 argument_list|,
@@ -2455,7 +2455,7 @@ name|flags
 operator||=
 name|SEEN
 expr_stmt|;
-name|insert_by_date_cached
+name|commit_list_insert_by_date_cached
 argument_list|(
 name|p
 argument_list|,
@@ -10606,7 +10606,7 @@ name|flags
 operator||=
 name|SEEN
 expr_stmt|;
-name|insert_by_date
+name|commit_list_insert_by_date
 argument_list|(
 name|commit
 argument_list|,
