@@ -1951,12 +1951,14 @@ name|cache_entry
 modifier|*
 name|src
 index|[
-literal|5
+name|MAX_UNPACK_TREES
+operator|+
+literal|1
 index|]
 init|=
 block|{
 name|NULL
-block|}
+block|, }
 decl_stmt|;
 name|int
 name|ret
@@ -4615,6 +4617,7 @@ operator|&&
 name|empty_worktree
 condition|)
 block|{
+comment|/* dubious---why should this fail??? */
 name|ret
 operator|=
 name|unpack_failed
