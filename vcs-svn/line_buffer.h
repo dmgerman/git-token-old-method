@@ -211,8 +211,11 @@ name|len
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/* Returns number of bytes read (not necessarily written). */
+end_comment
 begin_function_decl
-name|void
+name|off_t
 name|buffer_copy_bytes
 parameter_list|(
 name|struct
