@@ -390,7 +390,7 @@ expr_stmt|;
 else|else
 name|usage
 argument_list|(
-literal|"test-line-buffer [file]< script"
+literal|"test-line-buffer [file |&fd]< script"
 argument_list|)
 expr_stmt|;
 if|if
@@ -415,6 +415,41 @@ condition|)
 block|{
 if|if
 condition|(
+operator|*
+name|filename
+operator|==
+literal|'&'
+condition|)
+block|{
+if|if
+condition|(
+name|buffer_fdinit
+argument_list|(
+operator|&
+name|file_buf
+argument_list|,
+name|strtouint32
+argument_list|(
+name|filename
+operator|+
+literal|1
+argument_list|)
+argument_list|)
+condition|)
+name|die_errno
+argument_list|(
+literal|"error opening fd %s"
+argument_list|,
+name|filename
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|buffer_init
 argument_list|(
 operator|&
@@ -430,6 +465,7 @@ argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
+block|}
 name|input
 operator|=
 operator|&
