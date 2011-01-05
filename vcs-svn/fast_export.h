@@ -74,6 +74,15 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|fast_export_begin_commit
+parameter_list|(
+name|uint32_t
+name|revision
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|fast_export_commit
 parameter_list|(
 name|uint32_t
