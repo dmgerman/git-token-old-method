@@ -51,11 +51,6 @@ DECL|struct|dirent
 struct|struct
 name|dirent
 block|{
-DECL|member|d_ino
-name|long
-name|d_ino
-decl_stmt|;
-comment|/* Always zero. */
 DECL|member|d_name
 name|char
 name|d_name
