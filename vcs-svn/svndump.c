@@ -1345,7 +1345,8 @@ literal|2
 condition|)
 name|die
 argument_list|(
-literal|"expected svn dump format version<= 2, found %d"
+literal|"expected svn dump format version<= 2, found %"
+name|PRIu32
 argument_list|,
 name|dump_ctx
 operator|.
