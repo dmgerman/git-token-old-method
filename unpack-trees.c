@@ -5829,6 +5829,8 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
 name|lstat
 argument_list|(
 name|path
@@ -5836,7 +5838,20 @@ argument_list|,
 operator|&
 name|st
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"cannot stat '%s': %s"
+argument_list|,
+name|path
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+return|;
 return|return
 name|check_ok_to_remove
 argument_list|(
