@@ -22,14 +22,6 @@ name|MAX_ARGS
 value|32
 end_define
 begin_decl_stmt
-specifier|extern
-name|char
-modifier|*
-modifier|*
-name|environ
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|argv_exec_path
 specifier|static
 specifier|const
