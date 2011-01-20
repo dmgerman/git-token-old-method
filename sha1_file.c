@@ -10993,6 +10993,8 @@ block|}
 if|if
 condition|(
 name|errno
+operator|&&
+name|errno
 operator|!=
 name|ENOENT
 condition|)
