@@ -477,12 +477,14 @@ name|parent
 init|=
 name|data
 decl_stmt|;
+comment|/* 	 * The only case data is NULL or type is OBJ_ANY is when 	 * mark_object_reachable() calls us.  All the callers of 	 * that function has non-NULL obj hence ... 	 */
 if|if
 condition|(
 operator|!
 name|obj
 condition|)
 block|{
+comment|/* ... these references to parent->fld are safe here */
 name|printf
 argument_list|(
 literal|"broken link from %7s %s\n"
@@ -542,6 +544,7 @@ name|type
 operator|!=
 name|type
 condition|)
+comment|/* ... and the reference to parent is safe here */
 name|objerror
 argument_list|(
 name|parent
@@ -686,11 +689,6 @@ name|struct
 name|object
 modifier|*
 name|obj
-parameter_list|,
-name|struct
-name|object
-modifier|*
-name|parent
 parameter_list|)
 block|{
 name|int
@@ -843,8 +841,6 @@ operator||=
 name|traverse_one_object
 argument_list|(
 name|obj
-argument_list|,
-name|parent
 argument_list|)
 expr_stmt|;
 block|}
@@ -2743,16 +2739,16 @@ return|return
 literal|1
 return|;
 block|}
-name|mark_object_reachable
-argument_list|(
-name|obj
-argument_list|)
-expr_stmt|;
 name|obj
 operator|->
 name|used
 operator|=
 literal|1
+expr_stmt|;
+name|mark_object_reachable
+argument_list|(
+name|obj
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
