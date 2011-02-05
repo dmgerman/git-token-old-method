@@ -90,6 +90,8 @@ name|type
 argument_list|)
 argument_list|,
 name|path
+argument_list|,
+literal|1
 argument_list|)
 condition|)
 name|die
