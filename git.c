@@ -2328,7 +2328,7 @@ block|,
 block|{
 literal|"repo-config"
 block|,
-name|cmd_config
+name|cmd_repo_config
 block|,
 name|RUN_SETUP_GENTLY
 block|}
