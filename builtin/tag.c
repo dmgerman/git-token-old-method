@@ -2019,9 +2019,9 @@ argument_list|,
 operator|&
 name|msg
 argument_list|,
-literal|"msg"
+literal|"MESSAGE"
 argument_list|,
-literal|"message for the tag"
+literal|"tag message"
 argument_list|,
 name|parse_msg_arg
 argument_list|)
@@ -2035,7 +2035,7 @@ argument_list|,
 operator|&
 name|msgfile
 argument_list|,
-literal|"message in a file"
+literal|"read message from file"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
