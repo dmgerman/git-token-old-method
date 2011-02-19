@@ -421,7 +421,14 @@ function_decl|)
 parameter_list|(
 name|void
 modifier|*
+parameter_list|,
+name|void
+modifier|*
 parameter_list|)
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|int
@@ -486,6 +493,8 @@ init|=
 name|fn
 argument_list|(
 name|ptr
+argument_list|,
+name|data
 argument_list|)
 decl_stmt|;
 if|if

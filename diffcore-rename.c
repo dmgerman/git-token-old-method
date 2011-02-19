@@ -1228,6 +1228,11 @@ name|struct
 name|file_similarity
 modifier|*
 name|dst
+parameter_list|,
+name|struct
+name|diff_options
+modifier|*
+name|options
 parameter_list|)
 block|{
 name|int
@@ -1481,6 +1486,10 @@ parameter_list|(
 name|void
 modifier|*
 name|ptr
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|int
@@ -1504,6 +1513,13 @@ modifier|*
 name|dst
 init|=
 name|NULL
+decl_stmt|;
+name|struct
+name|diff_options
+modifier|*
+name|options
+init|=
+name|data
 decl_stmt|;
 comment|/* Split the hash list up into sources and destinations */
 do|do
@@ -1574,6 +1590,8 @@ argument_list|(
 name|src
 argument_list|,
 name|dst
+argument_list|,
+name|options
 argument_list|)
 else|:
 literal|0
@@ -1787,7 +1805,10 @@ specifier|static
 name|int
 name|find_exact_renames
 parameter_list|(
-name|void
+name|struct
+name|diff_options
+modifier|*
+name|options
 parameter_list|)
 block|{
 name|int
@@ -1873,6 +1894,8 @@ operator|&
 name|file_table
 argument_list|,
 name|find_same_files
+argument_list|,
+name|options
 argument_list|)
 expr_stmt|;
 comment|/* .. and free the hash data structure */
@@ -2229,7 +2252,9 @@ comment|/* 	 * We really want to cull the candidates list early 	 * with cheap t
 name|rename_count
 operator|=
 name|find_exact_renames
-argument_list|()
+argument_list|(
+name|options
+argument_list|)
 expr_stmt|;
 comment|/* Did we only want exact renames? */
 if|if
