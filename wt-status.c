@@ -352,7 +352,9 @@ if|if
 condition|(
 name|s
 operator|->
-name|in_merge
+name|whence
+operator|!=
+name|FROM_COMMIT
 condition|)
 empty_stmt|;
 elseif|else
@@ -459,7 +461,9 @@ if|if
 condition|(
 name|s
 operator|->
-name|in_merge
+name|whence
+operator|!=
+name|FROM_COMMIT
 condition|)
 empty_stmt|;
 comment|/* NEEDSWORK: use "git reset --unresolve"??? */
