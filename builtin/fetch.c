@@ -1375,7 +1375,10 @@ literal|"= %-*s %-*s -> %s"
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[up to date]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1426,11 +1429,17 @@ name|sprintf
 argument_list|(
 name|display
 argument_list|,
+name|_
+argument_list|(
 literal|"! %-*s %-*s -> %s  (can't fetch in current branch)"
+argument_list|)
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[rejected]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1492,7 +1501,10 @@ literal|'-'
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[tag update]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1502,7 +1514,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -2489,7 +2504,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"From %.*s\n"
+argument_list|)
 argument_list|,
 name|url_len
 argument_list|,
@@ -2933,9 +2951,15 @@ name|dangling_msg
 init|=
 name|dry_run
 condition|?
+name|_
+argument_list|(
 literal|"   (%s will become dangling)\n"
+argument_list|)
 else|:
+name|_
+argument_list|(
 literal|"   (%s has become dangling)\n"
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -2985,11 +3009,17 @@ literal|" x %-*s %-*s -> %s\n"
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[deleted]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"(none)"
+argument_list|)
 argument_list|,
 name|prettify_refname
 argument_list|(
