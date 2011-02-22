@@ -4893,7 +4893,10 @@ name|in_merge
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You are in the middle of a merge -- cannot amend."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4904,7 +4907,10 @@ name|squash_message
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Options --squash and --fixup cannot be used together"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
