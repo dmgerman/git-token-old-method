@@ -1202,7 +1202,10 @@ name|err
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"grep: failed to create thread: %s"
+argument_list|)
 argument_list|,
 name|strerror
 argument_list|(
@@ -2167,7 +2170,10 @@ name|data
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s': unable to read %s"
+argument_list|)
 argument_list|,
 name|name
 argument_list|,
@@ -2416,7 +2422,10 @@ name|ENOENT
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s': %s"
+argument_list|)
 argument_list|,
 name|filename
 argument_list|,
@@ -2500,7 +2509,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s': short read %s"
+argument_list|)
 argument_list|,
 name|filename
 argument_list|,
@@ -2859,7 +2871,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to chdir: %s"
+argument_list|)
 argument_list|,
 name|prefix
 argument_list|)
@@ -3361,7 +3376,10 @@ name|data
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to read tree (%s)"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3527,7 +3545,10 @@ name|data
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to read tree (%s)"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3574,7 +3595,10 @@ return|;
 block|}
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to grep from object of type %s"
+argument_list|)
 argument_list|,
 name|typename
 argument_list|(
@@ -3890,7 +3914,10 @@ block|{
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"switch `%c' expects a numerical value"
+argument_list|)
 argument_list|,
 name|opt
 operator|->
@@ -3974,7 +4001,10 @@ name|patterns
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot open '%s'"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|)
@@ -5412,7 +5442,10 @@ name|pattern_list
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"no pattern given."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5448,7 +5481,10 @@ name|fixed
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot mix --fixed-strings and regexp"
+argument_list|)
 argument_list|)
 expr_stmt|;
 ifndef|#
@@ -5573,7 +5609,10 @@ name|object
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad object %s"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|)
@@ -5864,7 +5903,10 @@ name|cached
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--cached cannot be used with --no-index."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5875,7 +5917,10 @@ name|nr
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--no-index cannot be used with revs."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hit
@@ -5927,7 +5972,10 @@ name|cached
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"both --cached and trees are given."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hit
