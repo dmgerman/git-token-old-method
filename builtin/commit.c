@@ -3742,7 +3742,10 @@ name|s
 argument_list|,
 name|GIT_COLOR_NORMAL
 argument_list|,
+name|_
+argument_list|(
 literal|"Please enter the commit message for your changes."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3757,9 +3760,12 @@ name|s
 argument_list|,
 name|GIT_COLOR_NORMAL
 argument_list|,
+name|_
+argument_list|(
 literal|" Lines starting\n"
 literal|"with '#' will be ignored, and an empty"
 literal|" message aborts the commit.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
@@ -3770,10 +3776,13 @@ name|s
 argument_list|,
 name|GIT_COLOR_NORMAL
 argument_list|,
+name|_
+argument_list|(
 literal|" Lines starting\n"
 literal|"with '#' will be kept; you may remove them"
 literal|" yourself if you want to.\n"
 literal|"An empty message aborts the commit.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
