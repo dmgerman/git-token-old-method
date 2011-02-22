@@ -460,7 +460,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"You do not have a valid HEAD."
+argument_list|)
 argument_list|)
 return|;
 if|if
@@ -476,7 +479,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to find tree of HEAD."
+argument_list|)
 argument_list|)
 return|;
 name|nr
@@ -506,7 +512,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to find tree of %s."
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -549,7 +558,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write new index file."
+argument_list|)
 argument_list|)
 return|;
 return|return
@@ -592,7 +604,10 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"HEAD is now at %s"
+argument_list|)
 argument_list|,
 name|hex
 argument_list|)
@@ -728,7 +743,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not read index"
+argument_list|)
 argument_list|)
 return|;
 name|result
@@ -892,7 +910,10 @@ name|ce
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"make_cache_entry failed for path '%s'"
+argument_list|)
 argument_list|,
 name|one
 operator|->
@@ -1217,7 +1238,10 @@ name|size
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"Reflog action message too long: %.*s..."
+argument_list|)
 argument_list|,
 literal|50
 argument_list|,
@@ -1616,7 +1640,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to resolve '%s' as a valid ref."
+argument_list|)
 argument_list|,
 name|rev
 argument_list|)
@@ -1635,7 +1662,10 @@ name|commit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not parse object '%s'."
+argument_list|)
 argument_list|,
 name|rev
 argument_list|)
@@ -1664,7 +1694,10 @@ name|NONE
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--patch is incompatible with --{hard,mixed,soft}"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1696,7 +1729,10 @@ name|MIXED
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"--mixed with paths is deprecated; use 'git reset --<paths>' instead."
+argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -1842,7 +1878,10 @@ name|err
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not reset index file to revision '%s'."
+argument_list|)
 argument_list|,
 name|rev
 argument_list|)
