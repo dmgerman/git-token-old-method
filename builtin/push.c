@@ -220,7 +220,10 @@ name|i
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"tag shorthand without<tag>"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|len
@@ -352,7 +355,10 @@ name|deleterefs
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete only accepts plain target ref names"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|add_refspec
@@ -395,7 +401,10 @@ name|branch
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You are not currently on a branch."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -412,7 +421,10 @@ name|merge
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"The current branch %s is not tracking anything."
+argument_list|)
 argument_list|,
 name|branch
 operator|->
@@ -429,8 +441,11 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"The current branch %s is tracking multiple branches, "
 literal|"refusing to push."
+argument_list|)
 argument_list|,
 name|branch
 operator|->
@@ -512,8 +527,11 @@ name|PUSH_DEFAULT_NOTHING
 case|:
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You didn't specify any refspecs to push, and "
 literal|"push.default is \"nothing\"."
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -586,7 +604,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Pushing to %s\n"
+argument_list|)
 argument_list|,
 name|transport
 operator|->
@@ -617,7 +638,10 @@ literal|0
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to push some refs to '%s'"
+argument_list|)
 argument_list|,
 name|transport
 operator|->
@@ -712,14 +736,20 @@ name|repo
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad repository '%s'"
+argument_list|)
 argument_list|,
 name|repo
 argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No destination configured to push to."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -762,13 +792,19 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all and --tags are incompatible"
+argument_list|)
 argument_list|)
 return|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all can't be combined with refspecs"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -797,13 +833,19 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--mirror and --tags are incompatible"
+argument_list|)
 argument_list|)
 return|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--mirror can't be combined with refspecs"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -829,7 +871,10 @@ block|{
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all and --mirror are incompatible"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1280,7 +1325,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete is incompatible with --all, --mirror and --tags"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1293,7 +1341,10 @@ literal|2
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete doesn't make sense without any refs"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
