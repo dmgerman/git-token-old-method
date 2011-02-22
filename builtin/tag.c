@@ -1136,10 +1136,13 @@ name|char
 name|tag_template
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"\n"
 literal|"#\n"
 literal|"# Write a tag message\n"
 literal|"#\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -1634,11 +1637,17 @@ name|write_or_die
 argument_list|(
 name|fd
 argument_list|,
+name|_
+argument_list|(
 name|tag_template
+argument_list|)
 argument_list|,
 name|strlen
 argument_list|(
+name|_
+argument_list|(
 name|tag_template
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
