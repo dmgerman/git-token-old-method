@@ -151,7 +151,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not make %s writable by group"
+argument_list|)
 argument_list|,
 name|dir
 argument_list|)
@@ -265,7 +268,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"insanely long template name %s"
+argument_list|)
 argument_list|,
 name|de
 operator|->
@@ -321,7 +327,10 @@ name|ENOENT
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot stat '%s'"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -344,7 +353,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot stat template '%s'"
+argument_list|)
 argument_list|,
 name|template
 argument_list|)
@@ -389,7 +401,10 @@ name|subdir
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot opendir '%s'"
+argument_list|)
 argument_list|,
 name|template
 argument_list|)
@@ -487,7 +502,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot readlink '%s'"
+argument_list|)
 argument_list|,
 name|template
 argument_list|)
@@ -503,7 +521,10 @@ name|len
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"insanely long symlink %s"
+argument_list|)
 argument_list|,
 name|template
 argument_list|)
@@ -526,7 +547,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot symlink '%s' '%s'"
+argument_list|)
 argument_list|,
 name|lnk
 argument_list|,
@@ -560,7 +584,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot copy '%s' to '%s'"
+argument_list|)
 argument_list|,
 name|template
 argument_list|,
@@ -571,7 +598,10 @@ block|}
 else|else
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"ignoring template %s"
+argument_list|)
 argument_list|,
 name|template
 argument_list|)
@@ -690,7 +720,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"insanely long template path %s"
+argument_list|)
 argument_list|,
 name|template_dir
 argument_list|)
@@ -745,7 +778,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"templates not found %s"
+argument_list|)
 argument_list|,
 name|template_dir
 argument_list|)
@@ -793,8 +829,11 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"not copying templates of "
 literal|"a wrong format version %d from '%s'"
+argument_list|)
 argument_list|,
 name|repository_format_version
 argument_list|,
@@ -982,7 +1021,10 @@ literal|50
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"insane git directory %s"
+argument_list|)
 argument_list|,
 name|git_dir
 argument_list|)
@@ -1816,7 +1858,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot tell cwd"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2153,7 +2198,10 @@ literal|1
 case|:
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot mkdir %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -2185,7 +2233,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot mkdir %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -2203,7 +2254,10 @@ goto|;
 block|}
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot chdir to %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -2307,8 +2361,11 @@ name|work_tree
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s (or --work-tree=<directory>) not allowed without "
 literal|"specifying %s (or --git-dir=<directory>)"
+argument_list|)
 argument_list|,
 name|GIT_WORK_TREE_ENVIRONMENT
 argument_list|,
@@ -2423,7 +2480,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot access current working directory"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2457,7 +2517,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot access work tree '%s'"
+argument_list|)
 argument_list|,
 name|get_git_work_tree
 argument_list|()
