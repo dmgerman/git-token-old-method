@@ -454,7 +454,10 @@ else|else
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"switch `m' requires a value"
+argument_list|)
 argument_list|)
 return|;
 return|return
@@ -724,7 +727,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Could not find merge strategy '%s'.\n"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -733,7 +739,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Available strategies are:"
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -785,7 +794,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Available custom strategies are:"
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -1338,7 +1350,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not run stash."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|len
@@ -1376,7 +1391,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"stash failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -1411,7 +1429,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"not a valid object: %s"
+argument_list|)
 argument_list|,
 name|buffer
 operator|.
@@ -1522,7 +1543,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"read-tree failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1621,7 +1645,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"read-tree failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1730,7 +1757,10 @@ literal|"%s%s\n"
 argument_list|,
 name|squash
 condition|?
+name|_
+argument_list|(
 literal|" (nothing to squash)"
+argument_list|)
 else|:
 literal|""
 argument_list|,
@@ -1784,7 +1814,10 @@ block|}
 decl_stmt|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Squash commit -- not updating HEAD\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fd
@@ -1811,7 +1844,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write to '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -1918,7 +1954,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"revision walk setup failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -2020,7 +2059,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Writing SQUASH_MSG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2032,7 +2074,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Finishing SQUASH_MSG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -2138,7 +2183,10 @@ name|len
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"No merge message -- not updating HEAD\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
@@ -2241,7 +2289,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"diff_setup_done failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|diff_tree_sha1
@@ -2402,7 +2453,10 @@ name|remote_head
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' does not point to a commit"
+argument_list|)
 argument_list|,
 name|remote
 argument_list|)
@@ -2765,7 +2819,10 @@ name|fp
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not open '%s' for reading"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -2966,7 +3023,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Bad branch.%s.mergeoptions string: %s"
+argument_list|)
 argument_list|,
 name|branch
 argument_list|,
@@ -3178,7 +3238,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"%s: negative length %s"
+argument_list|)
 argument_list|,
 name|k
 argument_list|,
@@ -3487,7 +3550,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"git write-tree failed to write a tree"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3874,7 +3940,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to read the cache"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|resolve_undo_clear
@@ -3963,7 +4032,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Unable to write index."
+argument_list|)
 argument_list|)
 return|;
 name|rollback_lock_file
@@ -4044,7 +4116,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Not handling anything other than two heads merge."
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -4107,7 +4182,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Unknown option for merge-recursive: -X%s"
+argument_list|)
 argument_list|,
 name|xopts
 index|[
@@ -4208,7 +4286,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write %s"
+argument_list|)
 argument_list|,
 name|get_index_file
 argument_list|()
@@ -4660,7 +4741,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write new index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -5309,7 +5393,10 @@ name|fp
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not open '%s' for writing"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -5409,8 +5496,11 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Automatic merge failed; "
 literal|"fix conflicts and then commit the result.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -5488,7 +5578,10 @@ name|second_token
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' is not a commit"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -5829,7 +5922,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"There is no merge to abort (MERGE_HEAD missing)."
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* Invoke 'git reset --merge' */
@@ -5872,14 +5968,20 @@ name|advice_resolve_conflict
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You have not concluded your merge (MERGE_HEAD exists).\n"
 literal|"Please, commit your changes before you can merge."
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You have not concluded your merge (MERGE_HEAD exists)."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5908,7 +6010,10 @@ name|allow_fast_forward
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You cannot combine --squash with --no-ff."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|option_commit
@@ -5925,7 +6030,10 @@ name|fast_forward_only
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You cannot combine --no-ff with --ff-only."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6001,8 +6109,11 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Can merge only exactly one commit into "
 literal|"empty head"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6011,7 +6122,10 @@ name|squash
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Squash commit into empty head not supported yet"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6021,8 +6135,11 @@ name|allow_fast_forward
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Non-fast-forward commit does not make sense into "
 literal|"an empty head"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|remote_head
@@ -6048,7 +6165,10 @@ name|remote_head
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s - not something we can merge"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -6278,7 +6398,10 @@ name|o
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s - not something we can merge"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -6764,7 +6887,10 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Trying really trivial in-index merge...\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6797,7 +6923,10 @@ argument_list|()
 return|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Nope.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6902,7 +7031,10 @@ name|fast_forward_only
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Not possible to fast-forward, aborting."
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* We are going to make a new commit. */
@@ -6960,7 +7092,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Rewinding the tree to pristine...\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|restore_state
@@ -6975,7 +7110,10 @@ literal|1
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Trying merge strategy %s...\n"
+argument_list|)
 argument_list|,
 name|use_strategies
 index|[
@@ -7130,7 +7268,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"No merge strategy handled the merge.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
@@ -7138,7 +7279,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Merge with strategy %s failed.\n"
+argument_list|)
 argument_list|,
 name|use_strategies
 index|[
@@ -7165,7 +7309,10 @@ else|else
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Rewinding the tree to pristine...\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|restore_state
@@ -7173,7 +7320,10 @@ argument_list|()
 expr_stmt|;
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Using the %s to prepare resolving by hand.\n"
+argument_list|)
 argument_list|,
 name|best_strategy
 argument_list|)
@@ -7266,7 +7416,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not open '%s' for writing"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7295,7 +7448,10 @@ name|len
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write to '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7340,7 +7496,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not open '%s' for writing"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7369,7 +7528,10 @@ name|len
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write to '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7408,7 +7570,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not open '%s' for writing"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7456,7 +7621,10 @@ name|len
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write to '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7479,8 +7647,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Automatic merge went well; "
 literal|"stopped before committing as requested\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
