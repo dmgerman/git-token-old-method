@@ -149,6 +149,8 @@ name|char
 name|implicit_ident_advice
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"Your name and email address were configured automatically based\n"
 literal|"on your username and hostname. Please check that they are accurate.\n"
 literal|"You can suppress this message by setting them explicitly:\n"
@@ -159,6 +161,7 @@ literal|"\n"
 literal|"After doing this, you may fix the identity used for this commit with:\n"
 literal|"\n"
 literal|"    git commit --amend --reset-author\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -169,9 +172,12 @@ name|char
 name|empty_amend_advice
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"You asked to amend the most recent commit, but doing so would make\n"
 literal|"it empty. You can repeat your command with --allow-empty, or you can\n"
 literal|"remove the commit entirely with \"git reset HEAD^\".\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -4066,7 +4072,10 @@ name|amend
 condition|)
 name|fputs
 argument_list|(
+name|_
+argument_list|(
 name|empty_amend_advice
+argument_list|)
 argument_list|,
 name|stderr
 argument_list|)
@@ -6544,7 +6553,10 @@ argument_list|(
 operator|&
 name|format
 argument_list|,
+name|_
+argument_list|(
 name|implicit_ident_advice
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
