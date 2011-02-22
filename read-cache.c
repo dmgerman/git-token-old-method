@@ -5177,6 +5177,7 @@ name|int
 modifier|*
 name|first
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|header_msg
@@ -5238,6 +5239,7 @@ name|char
 modifier|*
 name|seen
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|header_msg
