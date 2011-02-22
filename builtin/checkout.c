@@ -3067,6 +3067,7 @@ operator|->
 name|path
 argument_list|)
 condition|)
+block|{
 name|fprintf
 argument_list|(
 name|stderr
@@ -3081,6 +3082,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -3088,19 +3090,21 @@ name|opts
 operator|->
 name|new_branch
 condition|)
+block|{
+if|if
+condition|(
+name|opts
+operator|->
+name|branch_exists
+condition|)
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Switched to%s branch '%s'\n"
-argument_list|,
-name|opts
-operator|->
-name|branch_exists
-condition|?
-literal|" and reset"
-else|:
-literal|" a new"
+name|_
+argument_list|(
+literal|"Switched to and reset branch '%s'\n"
+argument_list|)
 argument_list|,
 name|new
 operator|->
@@ -3108,6 +3112,23 @@ name|name
 argument_list|)
 expr_stmt|;
 else|else
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+name|_
+argument_list|(
+literal|"Switched to a new branch '%s'\n"
+argument_list|)
+argument_list|,
+name|new
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|fprintf
 argument_list|(
 name|stderr
@@ -3122,6 +3143,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
