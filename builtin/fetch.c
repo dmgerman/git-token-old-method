@@ -1591,7 +1591,10 @@ literal|"storing tag"
 expr_stmt|;
 name|what
 operator|=
+name|_
+argument_list|(
 literal|"[new tag]"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1602,7 +1605,10 @@ literal|"storing head"
 expr_stmt|;
 name|what
 operator|=
+name|_
+argument_list|(
 literal|"[new branch]"
+argument_list|)
 expr_stmt|;
 block|}
 name|r
@@ -1640,7 +1646,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -1743,7 +1752,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -1843,9 +1855,15 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"unable to update local ref"
+argument_list|)
 else|:
+name|_
+argument_list|(
 literal|"forced update"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
