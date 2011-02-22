@@ -415,7 +415,10 @@ name|ignored_only
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"-x and -X cannot be used together"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -463,7 +466,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -791,7 +797,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -816,7 +825,10 @@ name|quiet
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -836,7 +848,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to remove %s"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -854,7 +869,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would not remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -864,7 +882,10 @@ else|else
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Not removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -911,7 +932,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -927,7 +951,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -947,7 +974,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to remove %s"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
