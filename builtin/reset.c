@@ -123,15 +123,30 @@ name|reset_type_names
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"mixed"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"soft"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"hard"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"merge"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"keep"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -1275,12 +1290,18 @@ argument_list|()
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot do a %s reset in the middle of a merge."
+argument_list|)
 argument_list|,
+name|_
+argument_list|(
 name|reset_type_names
 index|[
 name|reset_type
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1744,12 +1765,18 @@ name|NONE
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot do %s reset with paths."
+argument_list|)
 argument_list|,
+name|_
+argument_list|(
 name|reset_type_names
 index|[
 name|reset_type
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1806,12 +1833,18 @@ argument_list|()
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s reset is not allowed in a bare repository"
+argument_list|)
 argument_list|,
+name|_
+argument_list|(
 name|reset_type_names
 index|[
 name|reset_type
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* Soft reset does not touch the index file nor the working tree 	 * at all, but requires them in a good order.  Other resets reset 	 * the index file to the tree object we are switching to. */
