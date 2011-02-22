@@ -1980,7 +1980,10 @@ name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
+name|_
+argument_list|(
 literal|"behind %d] "
+argument_list|)
 argument_list|,
 name|theirs
 argument_list|)
@@ -1995,7 +1998,10 @@ name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
+name|_
+argument_list|(
 literal|"ahead %d] "
+argument_list|)
 argument_list|,
 name|ours
 argument_list|)
@@ -2005,7 +2011,10 @@ name|strbuf_addf
 argument_list|(
 name|stat
 argument_list|,
+name|_
+argument_list|(
 literal|"ahead %d, behind %d] "
+argument_list|)
 argument_list|,
 name|ours
 argument_list|,
