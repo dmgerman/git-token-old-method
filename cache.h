@@ -7546,6 +7546,18 @@ name|prefix
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|trace_want
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|key
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/* convert.c */
 end_comment
