@@ -2880,10 +2880,6 @@ name|char
 modifier|*
 name|buffer
 decl_stmt|;
-name|FILE
-modifier|*
-name|fp
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -3380,6 +3376,8 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
+name|s
+operator|->
 name|fp
 operator|=
 name|fopen
@@ -3394,6 +3392,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|fp
 operator|==
 name|NULL
@@ -3568,6 +3568,8 @@ name|sb
 operator|.
 name|len
 argument_list|,
+name|s
+operator|->
 name|fp
 argument_list|)
 operator|<
@@ -3624,6 +3626,8 @@ name|in_merge
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"#\n"
@@ -3641,6 +3645,8 @@ argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"\n"
@@ -3655,6 +3661,8 @@ name|CLEANUP_ALL
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|" Lines starting\n"
@@ -3666,6 +3674,8 @@ else|else
 comment|/* CLEANUP_SPACE, that is. */
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|" Lines starting\n"
@@ -3680,6 +3690,8 @@ name|only_include_assumed
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"# %s\n"
@@ -3720,6 +3732,8 @@ argument_list|)
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"%s"
@@ -3745,6 +3759,8 @@ argument_list|()
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"%s"
@@ -3768,6 +3784,8 @@ name|ident_shown
 condition|)
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"#\n"
@@ -3789,6 +3807,8 @@ name|commitable
 operator|=
 name|run_status
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 name|index_file
@@ -3890,6 +3910,8 @@ argument_list|)
 expr_stmt|;
 name|fclose
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|)
 expr_stmt|;
