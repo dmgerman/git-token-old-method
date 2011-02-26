@@ -776,15 +776,13 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"# Unmerged paths:"
+literal|"Unmerged paths:"
 argument_list|)
 expr_stmt|;
 if|if
@@ -808,15 +806,13 @@ name|s
 operator|->
 name|is_initial
 condition|)
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git reset %s<file>...\" to unstage)"
+literal|"  (use \"git reset %s<file>...\" to unstage)"
 argument_list|,
 name|s
 operator|->
@@ -824,37 +820,31 @@ name|reference
 argument_list|)
 expr_stmt|;
 else|else
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git rm --cached<file>...\" to unstage)"
+literal|"  (use \"git rm --cached<file>...\" to unstage)"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git add/rm<file>...\" as appropriate to mark resolution)"
+literal|"  (use \"git add/rm<file>...\" as appropriate to mark resolution)"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -883,15 +873,13 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"# Changes to be committed:"
+literal|"Changes to be committed:"
 argument_list|)
 expr_stmt|;
 if|if
@@ -916,15 +904,13 @@ name|s
 operator|->
 name|is_initial
 condition|)
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git reset %s<file>...\" to unstage)"
+literal|"  (use \"git reset %s<file>...\" to unstage)"
 argument_list|,
 name|s
 operator|->
@@ -932,26 +918,22 @@ name|reference
 argument_list|)
 expr_stmt|;
 else|else
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git rm --cached<file>...\" to unstage)"
+literal|"  (use \"git rm --cached<file>...\" to unstage)"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -986,15 +968,13 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"# Changes not staged for commit:"
+literal|"Changes not staged for commit:"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1008,64 +988,54 @@ condition|(
 operator|!
 name|has_deleted
 condition|)
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git add<file>...\" to update what will be committed)"
+literal|"  (use \"git add<file>...\" to update what will be committed)"
 argument_list|)
 expr_stmt|;
 else|else
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git add/rm<file>...\" to update what will be committed)"
+literal|"  (use \"git add/rm<file>...\" to update what will be committed)"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git checkout --<file>...\" to discard changes in working directory)"
+literal|"  (use \"git checkout --<file>...\" to discard changes in working directory)"
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|has_dirty_submodules
 condition|)
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (commit or discard the untracked or modified content in submodules)"
+literal|"  (commit or discard the untracked or modified content in submodules)"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -1104,15 +1074,13 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"# %s files:"
+literal|"%s files:"
 argument_list|,
 name|what
 argument_list|)
@@ -1123,28 +1091,24 @@ operator|!
 name|advice_status_hints
 condition|)
 return|return;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#   (use \"git %s<file>...\" to include in what will be committed)"
+literal|"  (use \"git %s<file>...\" to include in what will be committed)"
 argument_list|,
 name|how
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -1161,11 +1125,9 @@ modifier|*
 name|s
 parameter_list|)
 block|{
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -1174,7 +1136,7 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -1259,11 +1221,9 @@ operator|->
 name|prefix
 argument_list|)
 expr_stmt|;
-name|color_fprintf
+name|status_printf
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -1272,7 +1232,7 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#\t"
+literal|"\t"
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -1339,11 +1299,9 @@ literal|"both modified:"
 expr_stmt|;
 break|break;
 block|}
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1606,11 +1564,9 @@ operator|->
 name|prefix
 argument_list|)
 expr_stmt|;
-name|color_fprintf
+name|status_printf
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -1619,7 +1575,7 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#\t"
+literal|"\t"
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -1630,11 +1586,9 @@ block|{
 case|case
 name|DIFF_STATUS_ADDED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1647,11 +1601,9 @@ break|break;
 case|case
 name|DIFF_STATUS_COPIED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1666,11 +1618,9 @@ break|break;
 case|case
 name|DIFF_STATUS_DELETED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1683,11 +1633,9 @@ break|break;
 case|case
 name|DIFF_STATUS_MODIFIED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1700,11 +1648,9 @@ break|break;
 case|case
 name|DIFF_STATUS_RENAMED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1719,11 +1665,9 @@ break|break;
 case|case
 name|DIFF_STATUS_TYPE_CHANGED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1736,11 +1680,9 @@ break|break;
 case|case
 name|DIFF_STATUS_UNKNOWN
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1753,11 +1695,9 @@ break|break;
 case|case
 name|DIFF_STATUS_UNMERGED
 case|:
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|c
 argument_list|,
@@ -1783,11 +1723,9 @@ operator|.
 name|len
 condition|)
 block|{
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -1810,11 +1748,11 @@ name|extra
 argument_list|)
 expr_stmt|;
 block|}
-name|fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
+argument_list|,
+name|GIT_COLOR_NORMAL
 argument_list|,
 literal|"\n"
 argument_list|)
@@ -3867,11 +3805,9 @@ name|i
 index|]
 operator|)
 expr_stmt|;
-name|color_fprintf
+name|status_printf
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -3880,14 +3816,12 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#\t"
+literal|"\t"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -3896,7 +3830,7 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|quote_path
 argument_list|(
@@ -4322,11 +4256,9 @@ operator|=
 literal|"Not currently on any branch."
 expr_stmt|;
 block|}
-name|color_fprintf
+name|status_printf
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -4335,14 +4267,12 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"# "
+literal|""
 argument_list|)
 expr_stmt|;
-name|color_fprintf
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|branch_status_color
 argument_list|,
@@ -4351,15 +4281,13 @@ argument_list|,
 name|on_what
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_more
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|branch_color
 argument_list|,
-literal|"%s"
+literal|"%s\n"
 argument_list|,
 name|branch_name
 argument_list|)
@@ -4384,11 +4312,9 @@ operator|->
 name|is_initial
 condition|)
 block|{
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -4397,14 +4323,12 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -4413,14 +4337,12 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"# Initial commit"
+literal|"Initial commit"
 argument_list|)
 expr_stmt|;
-name|color_fprintf_ln
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
 name|color
 argument_list|(
@@ -4429,7 +4351,7 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#"
+literal|""
 argument_list|)
 expr_stmt|;
 block|}
@@ -4537,13 +4459,13 @@ name|s
 operator|->
 name|commitable
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
-literal|"# Untracked files not listed%s\n"
+name|GIT_COLOR_NORMAL
+argument_list|,
+literal|"Untracked files not listed%s"
 argument_list|,
 name|advice_status_hints
 condition|?
@@ -4577,13 +4499,13 @@ name|s
 operator|->
 name|amend
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
 name|s
-operator|->
-name|fp
 argument_list|,
-literal|"# No changes\n"
+name|GIT_COLOR_NORMAL
+argument_list|,
+literal|"No changes"
 argument_list|)
 expr_stmt|;
 elseif|else
