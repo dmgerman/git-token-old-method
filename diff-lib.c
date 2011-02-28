@@ -465,6 +465,7 @@ name|ce_path_match
 argument_list|(
 name|ce
 argument_list|,
+operator|&
 name|revs
 operator|->
 name|prune_data
@@ -2037,6 +2038,7 @@ name|idx
 else|:
 name|tree
 argument_list|,
+operator|&
 name|revs
 operator|->
 name|prune_data
@@ -2438,13 +2440,19 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|init_pathspec
+argument_list|(
+operator|&
 name|revs
 operator|.
 name|prune_data
-operator|=
+argument_list|,
 name|opt
 operator|->
-name|paths
+name|pathspec
+operator|.
+name|raw
+argument_list|)
 expr_stmt|;
 name|tree
 operator|=
