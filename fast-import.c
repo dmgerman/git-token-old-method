@@ -15979,7 +15979,7 @@ name|unsigned
 name|long
 name|size
 decl_stmt|;
-name|void
+name|char
 modifier|*
 name|buf
 init|=
