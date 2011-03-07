@@ -2518,6 +2518,9 @@ name|struct
 name|patch_ids
 name|ids
 decl_stmt|;
+name|unsigned
+name|cherry_flag
+decl_stmt|;
 comment|/* First count the commits on the left and on the right */
 for|for
 control|(
@@ -2709,6 +2712,17 @@ name|ids
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* either cherry_mark or cherry_pick are true */
+name|cherry_flag
+operator|=
+name|revs
+operator|->
+name|cherry_mark
+condition|?
+name|PATCHSAME
+else|:
+name|SHOWN
+expr_stmt|;
 comment|/* Check the other side */
 for|for
 control|(
@@ -2798,7 +2812,7 @@ name|object
 operator|.
 name|flags
 operator||=
-name|SHOWN
+name|cherry_flag
 expr_stmt|;
 block|}
 comment|/* Now check the original side for seen ones */
@@ -2855,7 +2869,7 @@ name|object
 operator|.
 name|flags
 operator||=
-name|SHOWN
+name|cherry_flag
 expr_stmt|;
 name|commit
 operator|->
@@ -3704,6 +3718,10 @@ condition|(
 name|revs
 operator|->
 name|cherry_pick
+operator|||
+name|revs
+operator|->
+name|cherry_mark
 condition|)
 name|cherry_pick_list
 argument_list|(
@@ -7007,10 +7025,58 @@ name|strcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"--cherry-mark"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|revs
+operator|->
+name|cherry_pick
+condition|)
+name|die
+argument_list|(
+literal|"--cherry-mark is incompatible with --cherry-pick"
+argument_list|)
+expr_stmt|;
+name|revs
+operator|->
+name|cherry_mark
+operator|=
+literal|1
+expr_stmt|;
+name|revs
+operator|->
+name|limited
+operator|=
+literal|1
+expr_stmt|;
+comment|/* needs limit_list() */
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"--cherry-pick"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|revs
+operator|->
+name|cherry_mark
+condition|)
+name|die
+argument_list|(
+literal|"--cherry-pick is incompatible with --cherry-mark"
+argument_list|)
+expr_stmt|;
 name|revs
 operator|->
 name|cherry_pick
@@ -12414,6 +12480,20 @@ return|;
 elseif|else
 if|if
 condition|(
+name|commit
+operator|->
+name|object
+operator|.
+name|flags
+operator|&
+name|PATCHSAME
+condition|)
+return|return
+literal|"="
+return|;
+elseif|else
+if|if
+condition|(
 operator|!
 name|revs
 operator|||
@@ -12449,6 +12529,16 @@ name|graph
 condition|)
 return|return
 literal|"*"
+return|;
+elseif|else
+if|if
+condition|(
+name|revs
+operator|->
+name|cherry_mark
+condition|)
+return|return
+literal|"+"
 return|;
 return|return
 literal|""
