@@ -1132,9 +1132,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|git_config_global
-argument_list|()
-operator|&&
 name|home
 condition|)
 name|global
