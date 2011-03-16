@@ -377,6 +377,10 @@ parameter_list|(
 name|void
 modifier|*
 name|chain
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|struct
@@ -1650,6 +1654,8 @@ operator|&
 name|names
 argument_list|,
 name|set_util
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|have_util
