@@ -2994,7 +2994,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"MSG"
+literal|"msg"
 block|,
 literal|"note contents as a string"
 block|,
@@ -3013,7 +3013,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"FILE"
+literal|"file"
 block|,
 literal|"note contents in a file"
 block|,
@@ -3032,7 +3032,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"OBJECT"
+literal|"object"
 block|,
 literal|"reuse and edit specified note object"
 block|,
@@ -3051,7 +3051,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"OBJECT"
+literal|"object"
 block|,
 literal|"reuse specified note object"
 block|,
@@ -3772,7 +3772,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"MSG"
+literal|"msg"
 block|,
 literal|"note contents as a string"
 block|,
@@ -3791,7 +3791,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"FILE"
+literal|"file"
 block|,
 literal|"note contents in a file"
 block|,
@@ -3810,7 +3810,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"OBJECT"
+literal|"object"
 block|,
 literal|"reuse and edit specified note object"
 block|,
@@ -3829,7 +3829,7 @@ block|,
 operator|&
 name|msg
 block|,
-literal|"OBJECT"
+literal|"object"
 block|,
 literal|"reuse specified note object"
 block|,

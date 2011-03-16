@@ -2019,7 +2019,7 @@ argument_list|,
 operator|&
 name|msg
 argument_list|,
-literal|"MESSAGE"
+literal|"message"
 argument_list|,
 literal|"tag message"
 argument_list|,
