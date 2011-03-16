@@ -3318,15 +3318,6 @@ elseif|else
 if|if
 condition|(
 name|template_file
-operator|&&
-operator|!
-name|stat
-argument_list|(
-name|template_file
-argument_list|,
-operator|&
-name|statbuf
-argument_list|)
 condition|)
 block|{
 if|if
