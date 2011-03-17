@@ -4046,7 +4046,7 @@ name|other
 operator|=
 name|xstrdup
 argument_list|(
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|e
 operator|->

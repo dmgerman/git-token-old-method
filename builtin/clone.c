@@ -541,7 +541,7 @@ expr_stmt|;
 return|return
 name|xstrdup
 argument_list|(
-name|make_nonrelative_path
+name|absolute_path
 argument_list|(
 name|path
 argument_list|)
@@ -612,7 +612,7 @@ expr_stmt|;
 return|return
 name|xstrdup
 argument_list|(
-name|make_nonrelative_path
+name|absolute_path
 argument_list|(
 name|path
 argument_list|)
@@ -1086,7 +1086,7 @@ name|extra
 decl_stmt|;
 name|ref_git
 operator|=
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|option_reference
 argument_list|)
@@ -2198,7 +2198,7 @@ name|repo
 operator|=
 name|xstrdup
 argument_list|(
-name|make_nonrelative_path
+name|absolute_path
 argument_list|(
 name|repo_name
 argument_list|)
@@ -2484,7 +2484,7 @@ argument_list|)
 expr_stmt|;
 name|set_git_dir
 argument_list|(
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|git_dir
 argument_list|)
