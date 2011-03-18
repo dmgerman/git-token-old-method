@@ -2070,6 +2070,14 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+comment|/* 	 * Do not do any of this crazyness during the recursive; we don't 	 * even write anything to the working tree! 	 */
+if|if
+condition|(
+name|o
+operator|->
+name|call_depth
+condition|)
+return|return;
 for|for
 control|(
 name|i
@@ -7543,6 +7551,12 @@ name|a
 operator|.
 name|mode
 operator|&&
+operator|!
+name|o
+operator|->
+name|call_depth
+operator|&&
+operator|!
 name|lstat
 argument_list|(
 name|path
@@ -7550,8 +7564,6 @@ argument_list|,
 operator|&
 name|st
 argument_list|)
-operator|==
-literal|0
 condition|)
 block|{
 name|output
