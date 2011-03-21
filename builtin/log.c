@@ -5797,7 +5797,7 @@ literal|1
 expr_stmt|;
 name|rev
 operator|.
-name|no_merges
+name|max_parents
 operator|=
 literal|1
 expr_stmt|;
