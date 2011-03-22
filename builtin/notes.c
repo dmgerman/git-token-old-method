@@ -2333,6 +2333,7 @@ block|}
 end_function
 begin_function
 DECL|function|notes_copy_from_stdin
+specifier|static
 name|int
 name|notes_copy_from_stdin
 parameter_list|(
@@ -4486,7 +4487,7 @@ name|sha1
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

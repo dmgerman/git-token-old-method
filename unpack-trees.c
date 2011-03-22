@@ -55,6 +55,7 @@ comment|/*  * Error messages expected by scripts out of plumbing commands such a
 end_comment
 begin_decl_stmt
 DECL|variable|unpack_plumbing_errors
+specifier|static
 specifier|const
 name|char
 modifier|*

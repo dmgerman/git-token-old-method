@@ -16583,7 +16583,7 @@ name|tree_entry
 name|leaf
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|;
 comment|/* ls SP (<treeish> SP)?<path> */

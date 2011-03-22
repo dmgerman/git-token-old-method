@@ -51,6 +51,7 @@ file|"string-list.h"
 end_include
 begin_decl_stmt
 DECL|variable|config_name_for_path
+specifier|static
 name|struct
 name|string_list
 name|config_name_for_path
@@ -58,6 +59,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|config_fetch_recurse_submodules_for_name
+specifier|static
 name|struct
 name|string_list
 name|config_fetch_recurse_submodules_for_name
@@ -65,6 +67,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|config_ignore_for_name
+specifier|static
 name|struct
 name|string_list
 name|config_ignore_for_name

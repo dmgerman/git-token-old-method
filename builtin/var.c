@@ -5,12 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"cache.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"exec_cmd.h"
+file|"builtin.h"
 end_include
 begin_decl_stmt
 DECL|variable|var_usage

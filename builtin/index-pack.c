@@ -1029,6 +1029,7 @@ end_empty_stmt
 begin_function
 DECL|function|bad_object
 specifier|static
+name|NORETURN
 name|void
 name|bad_object
 parameter_list|(

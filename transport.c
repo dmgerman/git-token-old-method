@@ -1029,7 +1029,7 @@ name|ref
 name|dummy
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|,
 modifier|*

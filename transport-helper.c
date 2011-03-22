@@ -402,6 +402,7 @@ block|}
 end_function
 begin_function
 DECL|function|remove_ext_force
+specifier|static
 specifier|const
 name|char
 modifier|*
