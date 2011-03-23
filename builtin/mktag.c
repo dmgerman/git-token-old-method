@@ -109,33 +109,6 @@ name|ret
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|NO_C99_FORMAT
-end_ifdef
-begin_define
-DECL|macro|PD_FMT
-define|#
-directive|define
-name|PD_FMT
-value|"%d"
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|PD_FMT
-define|#
-directive|define
-name|PD_FMT
-value|"%td"
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|verify_tag
 specifier|static
@@ -298,13 +271,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": could not find next \"\\n\""
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|type_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 name|tag_line
@@ -331,13 +309,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": no \"tag \" found"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tag_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 comment|/* Get the actual type */
@@ -364,15 +347,20 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": type too long"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|type_line
 operator|+
 literal|5
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 name|memcpy
@@ -452,13 +440,18 @@ continue|continue;
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": could not verify tag name"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tag_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -481,13 +474,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": could not find \"tagger \""
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 comment|/* 	 * Check for correct form for name and email 	 * i.e. "<" followed by "> " on _this_ line 	 * No angle brackets within the name or email address fields. 	 * No spaces within the email address field. 	 */
@@ -548,13 +546,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": malformed tagger field"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 comment|/* Check for author name, at least one character, space is acceptable */
@@ -567,13 +570,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": missing tagger name"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 comment|/* timestamp, 1 or more digits followed by space */
@@ -600,13 +608,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": missing tag timestamp"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 name|tagger_line
@@ -623,13 +636,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": malformed tag timestamp"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 name|tagger_line
@@ -687,13 +705,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": malformed tag timezone"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 name|tagger_line
@@ -711,13 +734,18 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"char"
-name|PD_FMT
+literal|"char%"
+name|PRIuMAX
 literal|": trailing garbage in tag header"
 argument_list|,
+call|(
+name|uintmax_t
+call|)
+argument_list|(
 name|tagger_line
 operator|-
 name|buffer
+argument_list|)
 argument_list|)
 return|;
 comment|/* The actual stuff afterwards we don't care about.. */
@@ -726,12 +754,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_undef
-DECL|macro|PD_FMT
-undef|#
-directive|undef
-name|PD_FMT
-end_undef
 begin_function
 DECL|function|cmd_mktag
 name|int
