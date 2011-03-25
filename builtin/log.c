@@ -1989,6 +1989,10 @@ name|struct
 name|setup_revision_opt
 name|opt
 decl_stmt|;
+name|struct
+name|pathspec
+name|match_all
+decl_stmt|;
 name|int
 name|i
 decl_stmt|,
@@ -2015,6 +2019,14 @@ condition|)
 name|diff_use_color_default
 operator|=
 name|git_use_color_default
+expr_stmt|;
+name|init_pathspec
+argument_list|(
+operator|&
+name|match_all
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
 name|init_revisions
 argument_list|(
@@ -2346,7 +2358,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|NULL
+operator|&
+name|match_all
 argument_list|,
 name|show_tree_object
 argument_list|,
