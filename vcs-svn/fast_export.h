@@ -15,6 +15,11 @@ include|#
 directive|include
 file|"line_buffer.h"
 end_include
+begin_struct_decl
+struct_decl|struct
+name|strbuf
+struct_decl|;
+end_struct_decl
 begin_function_decl
 name|void
 name|fast_export_delete
@@ -59,7 +64,9 @@ name|char
 modifier|*
 name|author
 parameter_list|,
-name|char
+specifier|const
+name|struct
+name|strbuf
 modifier|*
 name|log
 parameter_list|,

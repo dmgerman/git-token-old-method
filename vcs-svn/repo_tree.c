@@ -1635,7 +1635,9 @@ name|char
 modifier|*
 name|author
 parameter_list|,
-name|char
+specifier|const
+name|struct
+name|strbuf
 modifier|*
 name|log
 parameter_list|,
