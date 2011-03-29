@@ -148,13 +148,6 @@ name|nr_our_refs
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|no_done
-specifier|static
-name|int
-name|no_done
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|use_thin_pack
 DECL|variable|use_ofs_delta
 DECL|variable|use_include_tag
@@ -2379,11 +2372,6 @@ name|got_other
 init|=
 literal|0
 decl_stmt|;
-name|int
-name|sent_ready
-init|=
-literal|0
-decl_stmt|;
 name|save_commit_buffer
 operator|=
 literal|0
@@ -2432,11 +2420,6 @@ operator|&&
 name|ok_to_give_up
 argument_list|()
 condition|)
-block|{
-name|sent_ready
-operator|=
-literal|1
-expr_stmt|;
 name|packet_write
 argument_list|(
 literal|1
@@ -2446,7 +2429,6 @@ argument_list|,
 name|last_hex
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|have_obj
@@ -2464,26 +2446,6 @@ argument_list|,
 literal|"NAK\n"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|no_done
-operator|&&
-name|sent_ready
-condition|)
-block|{
-name|packet_write
-argument_list|(
-literal|1
-argument_list|,
-literal|"ACK %s\n"
-argument_list|,
-name|last_hex
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
 if|if
 condition|(
 name|stateless_rpc
@@ -2566,11 +2528,6 @@ name|multi_ack
 operator|==
 literal|2
 condition|)
-block|{
-name|sent_ready
-operator|=
-literal|1
-expr_stmt|;
 name|packet_write
 argument_list|(
 literal|1
@@ -2580,7 +2537,6 @@ argument_list|,
 name|hex
 argument_list|)
 expr_stmt|;
-block|}
 else|else
 name|packet_write
 argument_list|(
@@ -3000,21 +2956,6 @@ literal|"multi_ack"
 argument_list|)
 condition|)
 name|multi_ack
-operator|=
-literal|1
-expr_stmt|;
-if|if
-condition|(
-name|strstr
-argument_list|(
-name|line
-operator|+
-literal|45
-argument_list|,
-literal|"no-done"
-argument_list|)
-condition|)
-name|no_done
 operator|=
 literal|1
 expr_stmt|;
@@ -3563,7 +3504,7 @@ name|capabilities
 init|=
 literal|"multi_ack thin-pack side-band"
 literal|" side-band-64k ofs-delta shallow no-progress"
-literal|" include-tag multi_ack_detailed no-done"
+literal|" include-tag multi_ack_detailed"
 decl_stmt|;
 name|struct
 name|object
