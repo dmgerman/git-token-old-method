@@ -5457,10 +5457,6 @@ expr_stmt|;
 if|if
 condition|(
 name|opt
-operator|&&
-name|opt
-operator|->
-name|extra_notes_refs
 condition|)
 block|{
 name|struct
@@ -5472,7 +5468,7 @@ name|for_each_string_list_item
 argument_list|(
 argument|item
 argument_list|,
-argument|opt->extra_notes_refs
+argument|&opt->extra_notes_refs
 argument_list|)
 name|string_list_add_refs_by_glob
 argument_list|(
