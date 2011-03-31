@@ -5530,7 +5530,7 @@ block|{
 name|die
 argument_list|(
 literal|"Path '%s' exists, but not '%s'.\n"
-literal|"Did you mean '%s:%s'?"
+literal|"Did you mean '%s:%s' aka '%s:./%s'?"
 argument_list|,
 name|fullname
 argument_list|,
@@ -5539,6 +5539,10 @@ argument_list|,
 name|object_name
 argument_list|,
 name|fullname
+argument_list|,
+name|object_name
+argument_list|,
+name|filename
 argument_list|)
 expr_stmt|;
 block|}
@@ -5782,7 +5786,7 @@ condition|)
 name|die
 argument_list|(
 literal|"Path '%s' is in the index, but not '%s'.\n"
-literal|"Did you mean ':%d:%s'?"
+literal|"Did you mean ':%d:%s' aka ':%d:./%s'?"
 argument_list|,
 name|fullname
 argument_list|,
@@ -5794,6 +5798,13 @@ name|ce
 argument_list|)
 argument_list|,
 name|fullname
+argument_list|,
+name|ce_stage
+argument_list|(
+name|ce
+argument_list|)
+argument_list|,
+name|filename
 argument_list|)
 expr_stmt|;
 block|}
