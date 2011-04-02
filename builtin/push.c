@@ -220,7 +220,10 @@ name|i
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"tag shorthand without<tag>"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|len
@@ -352,7 +355,10 @@ name|deleterefs
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete only accepts plain target ref names"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|add_refspec
@@ -398,11 +404,14 @@ name|branch
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You are not currently on a branch.\n"
 literal|"To push the history leading to the current (detached HEAD)\n"
 literal|"state now, use\n"
 literal|"\n"
 literal|"    git push %s HEAD:<name-of-remote-branch>\n"
+argument_list|)
 argument_list|,
 name|remote
 operator|->
@@ -423,10 +432,13 @@ name|merge
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"The current branch %s has no upstream branch.\n"
 literal|"To push the current branch and set the remote as upstream, use\n"
 literal|"\n"
 literal|"    git push --set-upstream %s %s\n"
+argument_list|)
 argument_list|,
 name|branch
 operator|->
@@ -451,8 +463,11 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"The current branch %s has multiple upstream branches, "
 literal|"refusing to push."
+argument_list|)
 argument_list|,
 name|branch
 operator|->
@@ -539,8 +554,11 @@ name|PUSH_DEFAULT_NOTHING
 case|:
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You didn't specify any refspecs to push, and "
 literal|"push.default is \"nothing\"."
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -613,7 +631,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Pushing to %s\n"
+argument_list|)
 argument_list|,
 name|transport
 operator|->
@@ -644,7 +665,10 @@ literal|0
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to push some refs to '%s'"
+argument_list|)
 argument_list|,
 name|transport
 operator|->
@@ -677,9 +701,12 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"To prevent you from losing history, non-fast-forward updates were rejected\n"
 literal|"Merge the remote changes (e.g. 'git pull') before pushing again.  See the\n"
 literal|"'Note about fast-forwards' section of 'git push --help' for details.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -739,12 +766,17 @@ name|repo
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad repository '%s'"
+argument_list|)
 argument_list|,
 name|repo
 argument_list|)
 expr_stmt|;
 name|die
+argument_list|(
+name|_
 argument_list|(
 literal|"No configured push destination.\n"
 literal|"Either specify the URL from the command-line or configure a remote repository using\n"
@@ -754,6 +786,7 @@ literal|"\n"
 literal|"and then push using the remote name\n"
 literal|"\n"
 literal|"    git push<name>\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -796,13 +829,19 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all and --tags are incompatible"
+argument_list|)
 argument_list|)
 return|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all can't be combined with refspecs"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -831,13 +870,19 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--mirror and --tags are incompatible"
+argument_list|)
 argument_list|)
 return|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--mirror can't be combined with refspecs"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -863,7 +908,10 @@ block|{
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"--all and --mirror are incompatible"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1321,7 +1369,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete is incompatible with --all, --mirror and --tags"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1334,7 +1385,10 @@ literal|2
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--delete doesn't make sense without any refs"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

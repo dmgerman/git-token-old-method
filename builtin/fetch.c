@@ -1043,7 +1043,10 @@ name|ref_map
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Couldn't find remote ref HEAD"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ref_map
@@ -1330,7 +1333,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"object %s not found"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1369,7 +1375,10 @@ literal|"= %-*s %-*s -> %s"
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[up to date]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1420,11 +1429,17 @@ name|sprintf
 argument_list|(
 name|display
 argument_list|,
+name|_
+argument_list|(
 literal|"! %-*s %-*s -> %s  (can't fetch in current branch)"
+argument_list|)
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[rejected]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1486,7 +1501,10 @@ literal|'-'
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[tag update]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
@@ -1496,7 +1514,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -1570,7 +1591,10 @@ literal|"storing tag"
 expr_stmt|;
 name|what
 operator|=
+name|_
+argument_list|(
 literal|"[new tag]"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1581,7 +1605,10 @@ literal|"storing head"
 expr_stmt|;
 name|what
 operator|=
+name|_
+argument_list|(
 literal|"[new branch]"
+argument_list|)
 expr_stmt|;
 block|}
 name|r
@@ -1619,7 +1646,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -1722,7 +1752,10 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"  (unable to update local ref)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -1822,9 +1855,15 @@ name|pretty_ref
 argument_list|,
 name|r
 condition|?
+name|_
+argument_list|(
 literal|"unable to update local ref"
+argument_list|)
 else|:
+name|_
+argument_list|(
 literal|"forced update"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1837,17 +1876,25 @@ name|sprintf
 argument_list|(
 name|display
 argument_list|,
-literal|"! %-*s %-*s -> %s  (non-fast-forward)"
+literal|"! %-*s %-*s -> %s  %s"
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[rejected]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
 name|remote
 argument_list|,
 name|pretty_ref
+argument_list|,
+name|_
+argument_list|(
+literal|"(non-fast-forward)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1954,7 +2001,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot open %s: %s\n"
+argument_list|)
 argument_list|,
 name|filename
 argument_list|,
@@ -2480,7 +2530,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"From %.*s\n"
+argument_list|)
 argument_list|,
 name|url_len
 argument_list|,
@@ -2527,9 +2580,12 @@ name|STORE_REF_ERROR_DF_CONFLICT
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"some local refs could not be updated; try running\n"
 literal|" 'git remote prune %s' to remove any old, conflicting "
 literal|"branches"
+argument_list|)
 argument_list|,
 name|remote_name
 argument_list|)
@@ -2664,7 +2720,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"could not run rev-list"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2738,7 +2797,10 @@ name|EINVAL
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"failed write to rev-list: %s"
+argument_list|)
 argument_list|,
 name|strerror
 argument_list|(
@@ -2766,7 +2828,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to close rev-list's stdin: %s"
+argument_list|)
 argument_list|,
 name|strerror
 argument_list|(
@@ -2912,9 +2977,15 @@ name|dangling_msg
 init|=
 name|dry_run
 condition|?
+name|_
+argument_list|(
 literal|"   (%s will become dangling)\n"
+argument_list|)
 else|:
+name|_
+argument_list|(
 literal|"   (%s has become dangling)\n"
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -2964,11 +3035,17 @@ literal|" x %-*s %-*s -> %s\n"
 argument_list|,
 name|TRANSPORT_SUMMARY_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"[deleted]"
+argument_list|)
 argument_list|,
 name|REFCOL_WIDTH
 argument_list|,
+name|_
+argument_list|(
 literal|"(none)"
+argument_list|)
 argument_list|,
 name|prettify_refname
 argument_list|(
@@ -3537,8 +3614,11 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Refusing to fetch into current branch %s "
 literal|"of non-bare repository"
+argument_list|)
 argument_list|,
 name|current_branch
 operator|->
@@ -3584,7 +3664,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot open %s: %s\n"
+argument_list|)
 argument_list|,
 name|filename
 argument_list|,
@@ -3719,7 +3802,10 @@ name|fetch
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Don't know how to fetch from %s"
+argument_list|)
 argument_list|,
 name|transport
 operator|->
@@ -3996,7 +4082,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Option \"%s\" value \"%s\" is not valid for %s"
+argument_list|)
 argument_list|,
 name|name
 argument_list|,
@@ -4015,7 +4104,10 @@ literal|0
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"Option \"%s\" is ignored for %s\n"
+argument_list|)
 argument_list|,
 name|name
 argument_list|,
@@ -4590,7 +4682,10 @@ literal|0
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Fetching %s\n"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -4607,7 +4702,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not fetch %s"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -4671,8 +4769,11 @@ name|remote
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No remote repository specified.  Please, specify either a URL or a\n"
 literal|"remote name from which new revisions should be fetched."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|transport
@@ -4797,7 +4898,10 @@ name|argc
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You need to specify a tag name."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ref
@@ -5034,7 +5138,10 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"fetch --all does not take a repository argument"
+argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -5046,7 +5153,10 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"fetch --all does not make sense with refspecs"
+argument_list|)
 argument_list|)
 expr_stmt|;
 operator|(
@@ -5133,7 +5243,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No such remote or remote group: %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -5185,7 +5298,10 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Fetching a group and specifying refspecs does not make sense"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|result
