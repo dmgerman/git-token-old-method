@@ -123,9 +123,14 @@ specifier|static
 name|int
 name|abbrev
 init|=
-name|DEFAULT_ABBREV
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
+begin_comment
+DECL|variable|abbrev
+comment|/* unspecified */
+end_comment
 begin_decl_stmt
 DECL|variable|max_candidates
 specifier|static
@@ -2422,6 +2427,13 @@ name|OPT_END
 argument_list|()
 block|, 	}
 decl_stmt|;
+name|git_config
+argument_list|(
+name|git_default_config
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 name|argc
 operator|=
 name|parse_options
@@ -2438,6 +2450,16 @@ name|describe_usage
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|abbrev
+operator|<
+literal|0
+condition|)
+name|abbrev
+operator|=
+name|DEFAULT_ABBREV
 expr_stmt|;
 if|if
 condition|(
