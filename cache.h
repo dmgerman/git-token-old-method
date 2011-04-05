@@ -3272,6 +3272,13 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|extern
+name|unsigned
+name|long
+name|big_file_threshold
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
 name|int
 name|read_replace_refs
 decl_stmt|;
