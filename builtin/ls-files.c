@@ -2061,7 +2061,7 @@ index|[
 literal|0
 index|]
 operator|.
-name|has_wildcard
+name|use_wildcard
 operator|=
 literal|0
 expr_stmt|;

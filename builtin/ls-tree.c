@@ -894,6 +894,12 @@ index|[
 name|i
 index|]
 operator|.
+name|use_wildcard
+operator|=
+literal|0
+expr_stmt|;
+name|pathspec
+operator|.
 name|has_wildcard
 operator|=
 literal|0

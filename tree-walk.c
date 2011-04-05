@@ -2743,7 +2743,7 @@ index|[
 name|i
 index|]
 operator|.
-name|has_wildcard
+name|use_wildcard
 condition|)
 block|{
 if|if
@@ -2797,7 +2797,7 @@ index|[
 name|i
 index|]
 operator|.
-name|has_wildcard
+name|use_wildcard
 condition|)
 continue|continue;
 comment|/* 		 * Concatenate base and entry->path into one and do 		 * fnmatch() on it. 		 */
