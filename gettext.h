@@ -157,7 +157,7 @@ name|N_
 parameter_list|(
 name|msgid
 parameter_list|)
-value|(msgid)
+value|msgid
 end_define
 begin_endif
 endif|#
