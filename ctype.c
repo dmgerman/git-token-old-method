@@ -35,7 +35,13 @@ DECL|enumerator|R
 name|R
 init|=
 name|GIT_REGEX_SPECIAL
+block|,
 comment|/* $, (, ), +, ., ^, {, | */
+DECL|enumerator|P
+name|P
+init|=
+name|GIT_PATHSPEC_MAGIC
+comment|/* other non-alnum, except for ] and } */
 block|}
 enum|;
 end_enum
@@ -117,19 +123,19 @@ block|,
 comment|/*  16.. 31 */
 name|S
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
 name|R
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
 name|R
 block|,
@@ -139,13 +145,13 @@ name|G
 block|,
 name|R
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
 name|R
 block|,
-literal|0
+name|P
 block|,
 comment|/*  32.. 47 */
 name|D
@@ -168,20 +174,20 @@ name|D
 block|,
 name|D
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
-literal|0
+name|P
 block|,
 name|G
 block|,
 comment|/*  48.. 63 */
-literal|0
+name|P
 block|,
 name|A
 block|,
@@ -244,10 +250,10 @@ literal|0
 block|,
 name|R
 block|,
-literal|0
+name|P
 block|,
 comment|/*  80.. 95 */
-literal|0
+name|P
 block|,
 name|A
 block|,
@@ -308,7 +314,7 @@ name|R
 block|,
 literal|0
 block|,
-literal|0
+name|P
 block|,
 literal|0
 block|,
