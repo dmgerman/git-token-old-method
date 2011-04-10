@@ -172,6 +172,7 @@ if|if
 condition|(
 name|hint
 condition|)
+block|{
 name|strbuf_grow
 argument_list|(
 name|sb
@@ -179,6 +180,16 @@ argument_list|,
 name|hint
 argument_list|)
 expr_stmt|;
+name|sb
+operator|->
+name|buf
+index|[
+literal|0
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
