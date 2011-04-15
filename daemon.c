@@ -3339,7 +3339,7 @@ name|child_process
 name|cld
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|;
 name|char

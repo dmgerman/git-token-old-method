@@ -11,7 +11,7 @@ directive|define
 name|SVNDUMP_H_
 end_define
 begin_function_decl
-name|void
+name|int
 name|svndump_init
 parameter_list|(
 specifier|const

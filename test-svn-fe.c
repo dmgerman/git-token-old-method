@@ -37,6 +37,8 @@ argument_list|(
 literal|"test-svn-fe<file>"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|svndump_init
 argument_list|(
 name|argv
@@ -44,7 +46,10 @@ index|[
 literal|1
 index|]
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+literal|1
+return|;
 name|svndump_read
 argument_list|(
 name|NULL

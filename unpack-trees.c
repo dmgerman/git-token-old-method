@@ -55,6 +55,7 @@ comment|/*  * Error messages expected by scripts out of plumbing commands such a
 end_comment
 begin_decl_stmt
 DECL|variable|unpack_plumbing_errors
+specifier|static
 specifier|const
 name|char
 modifier|*
@@ -1879,12 +1880,14 @@ name|cache_entry
 modifier|*
 name|src
 index|[
-literal|5
+name|MAX_UNPACK_TREES
+operator|+
+literal|1
 index|]
 init|=
 block|{
 name|NULL
-block|}
+block|, }
 decl_stmt|;
 name|int
 name|ret
@@ -5294,6 +5297,7 @@ operator|&&
 name|empty_worktree
 condition|)
 block|{
+comment|/* dubious---why should this fail??? */
 name|ret
 operator|=
 name|unpack_failed
@@ -6477,6 +6481,8 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
 name|lstat
 argument_list|(
 name|path
@@ -6484,7 +6490,20 @@ argument_list|,
 operator|&
 name|st
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"cannot stat '%s': %s"
+argument_list|,
+name|path
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+return|;
 return|return
 name|check_ok_to_remove
 argument_list|(
@@ -6508,7 +6527,6 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
 name|lstat
 argument_list|(
 name|ce
@@ -6519,6 +6537,34 @@ operator|&
 name|st
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|errno
+operator|!=
+name|ENOENT
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"cannot stat '%s': %s"
+argument_list|,
+name|ce
+operator|->
+name|name
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+return|;
+return|return
+literal|0
+return|;
+block|}
+else|else
+block|{
 return|return
 name|check_ok_to_remove
 argument_list|(
@@ -6546,9 +6592,7 @@ argument_list|,
 name|o
 argument_list|)
 return|;
-return|return
-literal|0
-return|;
+block|}
 block|}
 end_function
 begin_function

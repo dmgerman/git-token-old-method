@@ -149,6 +149,8 @@ name|char
 name|implicit_ident_advice
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"Your name and email address were configured automatically based\n"
 literal|"on your username and hostname. Please check that they are accurate.\n"
 literal|"You can suppress this message by setting them explicitly:\n"
@@ -159,6 +161,7 @@ literal|"\n"
 literal|"After doing this, you may fix the identity used for this commit with:\n"
 literal|"\n"
 literal|"    git commit --amend --reset-author\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -169,9 +172,31 @@ name|char
 name|empty_amend_advice
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"You asked to amend the most recent commit, but doing so would make\n"
 literal|"it empty. You can repeat your command with --allow-empty, or you can\n"
 literal|"remove the commit entirely with \"git reset HEAD^\".\n"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|empty_cherry_pick_advice
+specifier|static
+specifier|const
+name|char
+name|empty_cherry_pick_advice
+index|[]
+init|=
+name|N_
+argument_list|(
+literal|"The previous cherry-pick is now empty, possibly due to conflict resolution.\n"
+literal|"If you wish to commit it anyway, use:\n"
+literal|"\n"
+literal|"    git commit --allow-empty\n"
+literal|"\n"
+literal|"Otherwise, please use 'git reset'\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -188,6 +213,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|use_message_buffer
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|use_message_buffer
@@ -267,6 +293,22 @@ specifier|const
 name|char
 modifier|*
 name|template_file
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|/*  * The _message variables are commit names from which to take  * the commit message and/or authorship.  */
+end_comment
+begin_decl_stmt
+DECL|variable|author_message
+DECL|variable|author_message_buffer
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|author_message
+decl_stmt|,
+modifier|*
+name|author_message_buffer
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -395,9 +437,16 @@ name|cleanup_arg
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|whence
+specifier|static
+name|enum
+name|commit_whence
+name|whence
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|use_editor
 DECL|variable|initial_commit
-DECL|variable|in_merge
 DECL|variable|include_status
 specifier|static
 name|int
@@ -406,8 +455,6 @@ init|=
 literal|1
 decl_stmt|,
 name|initial_commit
-decl_stmt|,
-name|in_merge
 decl_stmt|,
 name|include_status
 init|=
@@ -973,6 +1020,112 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_function
+DECL|function|determine_whence
+specifier|static
+name|void
+name|determine_whence
+parameter_list|(
+name|struct
+name|wt_status
+modifier|*
+name|s
+parameter_list|)
+block|{
+if|if
+condition|(
+name|file_exists
+argument_list|(
+name|git_path
+argument_list|(
+literal|"MERGE_HEAD"
+argument_list|)
+argument_list|)
+condition|)
+name|whence
+operator|=
+name|FROM_MERGE
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|file_exists
+argument_list|(
+name|git_path
+argument_list|(
+literal|"CHERRY_PICK_HEAD"
+argument_list|)
+argument_list|)
+condition|)
+name|whence
+operator|=
+name|FROM_CHERRY_PICK
+expr_stmt|;
+else|else
+name|whence
+operator|=
+name|FROM_COMMIT
+expr_stmt|;
+if|if
+condition|(
+name|s
+condition|)
+name|s
+operator|->
+name|whence
+operator|=
+name|whence
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|whence_s
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|whence_s
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+name|char
+modifier|*
+name|s
+init|=
+literal|""
+decl_stmt|;
+switch|switch
+condition|(
+name|whence
+condition|)
+block|{
+case|case
+name|FROM_COMMIT
+case|:
+break|break;
+case|case
+name|FROM_MERGE
+case|:
+name|s
+operator|=
+literal|"merge"
+expr_stmt|;
+break|break;
+case|case
+name|FROM_CHERRY_PICK
+case|:
+name|s
+operator|=
+literal|"cherry-pick"
+expr_stmt|;
+break|break;
+block|}
+return|return
+name|s
+return|;
+block|}
+end_function
+begin_function
 DECL|function|rollback_index_files
 specifier|static
 name|void
@@ -1346,7 +1499,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"updating files failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1458,7 +1614,10 @@ name|tree
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to unpack HEAD tree object"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|parse_tree
@@ -1601,7 +1760,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"interactive add failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1615,7 +1777,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|commit_style
@@ -1652,7 +1817,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Non partial, non as-is commit. 	 * 	 * (1) get the real index; 	 * (2) update the_index as necessary; 	 * (3) write the_index out to the real index (still locked); 	 * (4) return the name of the locked index file. 	 * 	 * The caller should run hooks on the locked real index, and 	 * (A) if all goes well, commit the real index; 	 * (B) on failure, rollback the real index. 	 */
@@ -1717,7 +1885,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write new_index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|commit_style
@@ -1780,7 +1951,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write new_index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1809,11 +1983,19 @@ name|COMMIT_PARTIAL
 expr_stmt|;
 if|if
 condition|(
-name|in_merge
+name|whence
+operator|!=
+name|FROM_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"cannot do a partial commit during a merge."
+name|_
+argument_list|(
+literal|"cannot do a partial commit during a %s."
+argument_list|)
+argument_list|,
+name|whence_s
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|memset
@@ -1870,7 +2052,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot read the index"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fd
@@ -1913,7 +2098,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write new_index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fd
@@ -1971,7 +2159,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write temporary index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|discard_cache
@@ -2184,7 +2375,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not parse HEAD commit"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2260,10 +2454,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|use_message
-operator|&&
-operator|!
-name|renew_authorship
+name|author_message
 condition|)
 block|{
 specifier|const
@@ -2284,7 +2475,7 @@ name|a
 operator|=
 name|strstr
 argument_list|(
-name|use_message_buffer
+name|author_message_buffer
 argument_list|,
 literal|"\nauthor "
 argument_list|)
@@ -2296,9 +2487,12 @@ name|a
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"invalid commit: %s"
+argument_list|)
 argument_list|,
-name|use_message
+name|author_message
 argument_list|)
 expr_stmt|;
 name|lb
@@ -2349,9 +2543,12 @@ name|eol
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"invalid commit: %s"
+argument_list|)
 argument_list|,
-name|use_message
+name|author_message
 argument_list|)
 expr_stmt|;
 if|if
@@ -2492,7 +2689,10 @@ name|rb
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"malformed --author parameter"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|name
@@ -2812,7 +3012,10 @@ literal|' '
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Malformed ident string: '%s'"
+argument_list|)
 argument_list|,
 name|string
 argument_list|)
@@ -2879,10 +3082,6 @@ decl_stmt|;
 name|char
 modifier|*
 name|buffer
-decl_stmt|;
-name|FILE
-modifier|*
-name|fp
 decl_stmt|;
 specifier|const
 name|char
@@ -2975,7 +3174,10 @@ name|c
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not lookup commit %s"
+argument_list|)
 argument_list|,
 name|squash_message
 argument_list|)
@@ -3048,7 +3250,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"(reading log message from standard input)\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3067,7 +3272,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read log from standard input"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -3097,7 +3305,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read log file '%s'"
+argument_list|)
 argument_list|,
 name|logfile
 argument_list|)
@@ -3136,7 +3347,10 @@ literal|'\0'
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"commit has empty message"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_add
@@ -3198,7 +3412,10 @@ name|commit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not lookup commit %s"
+argument_list|)
 argument_list|,
 name|fixup_message
 argument_list|)
@@ -3263,7 +3480,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read MERGE_MSG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -3306,7 +3526,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read SQUASH_MSG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
@@ -3336,7 +3559,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read '%s'"
+argument_list|)
 argument_list|,
 name|template_file
 argument_list|)
@@ -3346,16 +3572,35 @@ operator|=
 literal|"template"
 expr_stmt|;
 block|}
-comment|/* 	 * This final case does not modify the template message, 	 * it just sets the argument to the prepare-commit-msg hook. 	 */
+comment|/* 	 * The remaining cases don't modify the template message, but 	 * just set the argument(s) to the prepare-commit-msg hook. 	 */
 elseif|else
 if|if
 condition|(
-name|in_merge
+name|whence
+operator|==
+name|FROM_MERGE
 condition|)
 name|hook_arg1
 operator|=
 literal|"merge"
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|whence
+operator|==
+name|FROM_CHERRY_PICK
+condition|)
+block|{
+name|hook_arg1
+operator|=
+literal|"commit"
+expr_stmt|;
+name|hook_arg2
+operator|=
+literal|"CHERRY_PICK_HEAD"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|squash_message
@@ -3371,6 +3616,8 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
+name|s
+operator|->
 name|fp
 operator|=
 name|fopen
@@ -3385,13 +3632,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|fp
 operator|==
 name|NULL
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not open '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -3559,6 +3811,8 @@ name|sb
 operator|.
 name|len
 argument_list|,
+name|s
+operator|->
 name|fp
 argument_list|)
 operator|<
@@ -3568,7 +3822,10 @@ name|len
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not write commit template"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -3611,31 +3868,60 @@ name|ci_tmp
 decl_stmt|;
 if|if
 condition|(
-name|in_merge
+name|whence
+operator|!=
+name|FROM_COMMIT
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
-name|fp
+name|s
 argument_list|,
-literal|"#\n"
-literal|"# It looks like you may be committing a MERGE.\n"
-literal|"# If this is not correct, please remove the file\n"
-literal|"#	%s\n"
-literal|"# and try again.\n"
-literal|"#\n"
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
+literal|"\n"
+literal|"It looks like you may be committing a %s.\n"
+literal|"If this is not correct, please remove the file\n"
+literal|"	%s\n"
+literal|"and try again.\n"
+literal|""
+argument_list|)
+argument_list|,
+name|whence_s
+argument_list|()
 argument_list|,
 name|git_path
 argument_list|(
+name|whence
+operator|==
+name|FROM_MERGE
+condition|?
 literal|"MERGE_HEAD"
+else|:
+literal|"CHERRY_PICK_HEAD"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 literal|"\n"
-literal|"# Please enter the commit message for your changes."
+argument_list|)
+expr_stmt|;
+name|status_printf
+argument_list|(
+name|s
+argument_list|,
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
+literal|"Please enter the commit message for your changes."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3644,36 +3930,48 @@ name|cleanup_mode
 operator|==
 name|CLEANUP_ALL
 condition|)
-name|fprintf
+name|status_printf_more
 argument_list|(
-name|fp
+name|s
 argument_list|,
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
 literal|" Lines starting\n"
-literal|"# with '#' will be ignored, and an empty"
+literal|"with '#' will be ignored, and an empty"
 literal|" message aborts the commit.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
 comment|/* CLEANUP_SPACE, that is. */
-name|fprintf
+name|status_printf_more
 argument_list|(
-name|fp
+name|s
 argument_list|,
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
 literal|" Lines starting\n"
-literal|"# with '#' will be kept; you may remove them"
+literal|"with '#' will be kept; you may remove them"
 literal|" yourself if you want to.\n"
-literal|"# An empty message aborts the commit.\n"
+literal|"An empty message aborts the commit.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|only_include_assumed
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
-name|fp
+name|s
 argument_list|,
-literal|"# %s\n"
+name|GIT_COLOR_NORMAL
+argument_list|,
+literal|"%s"
 argument_list|,
 name|only_include_assumed
 argument_list|)
@@ -3709,19 +4007,24 @@ operator|.
 name|buf
 argument_list|)
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
-name|fp
+name|s
 argument_list|,
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
 literal|"%s"
-literal|"# Author:    %s\n"
+literal|"Author:    %s"
+argument_list|)
 argument_list|,
 name|ident_shown
 operator|++
 condition|?
 literal|""
 else|:
-literal|"#\n"
+literal|"\n"
 argument_list|,
 name|author_ident
 operator|->
@@ -3734,19 +4037,24 @@ operator|!
 name|user_ident_sufficiently_given
 argument_list|()
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
-name|fp
+name|s
 argument_list|,
+name|GIT_COLOR_NORMAL
+argument_list|,
+name|_
+argument_list|(
 literal|"%s"
-literal|"# Committer: %s\n"
+literal|"Committer: %s"
+argument_list|)
 argument_list|,
 name|ident_shown
 operator|++
 condition|?
 literal|""
 else|:
-literal|"#\n"
+literal|"\n"
 argument_list|,
 name|committer_ident
 operator|.
@@ -3757,11 +4065,13 @@ if|if
 condition|(
 name|ident_shown
 condition|)
-name|fprintf
+name|status_printf_ln
 argument_list|(
-name|fp
+name|s
 argument_list|,
-literal|"#\n"
+name|GIT_COLOR_NORMAL
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|saved_color_setting
@@ -3780,6 +4090,8 @@ name|commitable
 operator|=
 name|run_status
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|,
 name|index_file
@@ -3836,7 +4148,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot read index"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3881,16 +4196,20 @@ argument_list|)
 expr_stmt|;
 name|fclose
 argument_list|(
+name|s
+operator|->
 name|fp
 argument_list|)
 expr_stmt|;
+comment|/* 	 * Reject an attempt to record a non-merge empty commit without 	 * explicit --allow-empty. In the cherry-pick case, it may be 	 * empty due to conflict resolution, which the user should okay. 	 */
 if|if
 condition|(
 operator|!
 name|commitable
 operator|&&
-operator|!
-name|in_merge
+name|whence
+operator|!=
+name|FROM_MERGE
 operator|&&
 operator|!
 name|allow_empty
@@ -3925,7 +4244,27 @@ name|amend
 condition|)
 name|fputs
 argument_list|(
+name|_
+argument_list|(
 name|empty_amend_advice
+argument_list|)
+argument_list|,
+name|stderr
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|whence
+operator|==
+name|FROM_CHERRY_PICK
+condition|)
+name|fputs
+argument_list|(
+name|_
+argument_list|(
+name|empty_cherry_pick_advice
+argument_list|)
 argument_list|,
 name|stderr
 argument_list|)
@@ -3973,7 +4312,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Error building trees"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -4066,7 +4408,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Please supply the message using either -m or -F option.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exit
@@ -4509,7 +4854,10 @@ return|;
 block|}
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No existing author found with '%s'"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -4589,11 +4937,98 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Invalid untracked files mode '%s'"
+argument_list|)
 argument_list|,
 name|untracked_files_arg
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|read_commit_message
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|read_commit_message
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|)
+block|{
+specifier|const
+name|char
+modifier|*
+name|out_enc
+decl_stmt|,
+modifier|*
+name|out
+decl_stmt|;
+name|struct
+name|commit
+modifier|*
+name|commit
+decl_stmt|;
+name|commit
+operator|=
+name|lookup_commit_reference_by_name
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|commit
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"could not lookup commit %s"
+argument_list|)
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|out_enc
+operator|=
+name|get_commit_output_encoding
+argument_list|()
+expr_stmt|;
+name|out
+operator|=
+name|logmsg_reencode
+argument_list|(
+name|commit
+argument_list|,
+name|out_enc
+argument_list|)
+expr_stmt|;
+comment|/* 	 * If we failed to reencode the buffer, just copy it 	 * byte for byte so the user can try to fix it up. 	 * This also handles the case where input and output 	 * encodings are identical. 	 */
+if|if
+condition|(
+name|out
+operator|==
+name|NULL
+condition|)
+name|out
+operator|=
+name|xstrdup
+argument_list|(
+name|commit
+operator|->
+name|buffer
+argument_list|)
+expr_stmt|;
+return|return
+name|out
+return|;
 block|}
 end_function
 begin_function
@@ -4678,7 +5113,10 @@ name|renew_authorship
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Using both --reset-author and --author does not make sense"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4741,18 +5179,29 @@ name|initial_commit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You have nothing to amend."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|amend
 operator|&&
-name|in_merge
+name|whence
+operator|!=
+name|FROM_COMMIT
 condition|)
 name|die
 argument_list|(
-literal|"You are in the middle of a merge -- cannot amend."
+name|_
+argument_list|(
+literal|"You are in the middle of a %s -- cannot amend."
+argument_list|)
+argument_list|,
+name|whence_s
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -4763,7 +5212,10 @@ name|squash_message
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Options --squash and --fixup cannot be used together"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4802,7 +5254,10 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Only one of -c/-C/-F/--fixup can be used."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4817,7 +5272,12 @@ literal|0
 condition|)
 name|die
 argument_list|(
+operator|(
+name|_
+argument_list|(
 literal|"Option -m cannot be combined with -c/-C/-F/--fixup."
+argument_list|)
+operator|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4847,11 +5307,18 @@ condition|(
 operator|!
 name|use_message
 operator|&&
+name|whence
+operator|!=
+name|FROM_CHERRY_PICK
+operator|&&
 name|renew_authorship
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--reset-author can be used only with -C, -c or --amend."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4859,19 +5326,9 @@ condition|(
 name|use_message
 condition|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|out_enc
-decl_stmt|;
-name|struct
-name|commit
-modifier|*
-name|commit
-decl_stmt|;
-name|commit
+name|use_message_buffer
 operator|=
-name|lookup_commit_reference_by_name
+name|read_commit_message
 argument_list|(
 name|use_message
 argument_list|)
@@ -4879,43 +5336,38 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|commit
+name|renew_authorship
 condition|)
-name|die
-argument_list|(
-literal|"could not lookup commit %s"
-argument_list|,
+block|{
+name|author_message
+operator|=
 name|use_message
-argument_list|)
 expr_stmt|;
-name|out_enc
+name|author_message_buffer
 operator|=
-name|get_commit_output_encoding
-argument_list|()
-expr_stmt|;
 name|use_message_buffer
-operator|=
-name|logmsg_reencode
-argument_list|(
-name|commit
-argument_list|,
-name|out_enc
-argument_list|)
 expr_stmt|;
-comment|/* 		 * If we failed to reencode the buffer, just copy it 		 * byte for byte so the user can try to fix it up. 		 * This also handles the case where input and output 		 * encodings are identical. 		 */
+block|}
+block|}
 if|if
 condition|(
-name|use_message_buffer
+name|whence
 operator|==
-name|NULL
+name|FROM_CHERRY_PICK
+operator|&&
+operator|!
+name|renew_authorship
 condition|)
-name|use_message_buffer
+block|{
+name|author_message
 operator|=
-name|xstrdup
+literal|"CHERRY_PICK_HEAD"
+expr_stmt|;
+name|author_message_buffer
+operator|=
+name|read_commit_message
 argument_list|(
-name|commit
-operator|->
-name|buffer
+name|author_message
 argument_list|)
 expr_stmt|;
 block|}
@@ -4941,7 +5393,10 @@ literal|1
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Only one of --include/--only/--all/--interactive can be used."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4963,7 +5418,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No paths with --include/--only does not make sense."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4978,7 +5436,10 @@ name|amend
 condition|)
 name|only_include_assumed
 operator|=
+name|_
+argument_list|(
 literal|"Clever... amending the last one with dirty index."
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4994,7 +5455,10 @@ name|only
 condition|)
 name|only_include_assumed
 operator|=
+name|_
+argument_list|(
 literal|"Explicit paths specified without -i nor -o; assuming --only paths..."
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -5065,7 +5529,10 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Invalid cleanup mode %s"
+argument_list|)
 argument_list|,
 name|cleanup_arg
 argument_list|)
@@ -5085,7 +5552,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Paths with -a does not make sense."
+argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -5099,7 +5569,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Paths with --interactive does not make sense."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5621,7 +6094,10 @@ else|else
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Invalid untracked files mode '%s'"
+argument_list|)
 argument_list|,
 name|v
 argument_list|)
@@ -5860,14 +6336,10 @@ operator|&
 name|s
 argument_list|)
 expr_stmt|;
-name|in_merge
-operator|=
-name|file_exists
+name|determine_whence
 argument_list|(
-name|git_path
-argument_list|(
-literal|"MERGE_HEAD"
-argument_list|)
+operator|&
+name|s
 argument_list|)
 expr_stmt|;
 name|argc
@@ -5985,12 +6457,6 @@ condition|?
 literal|1
 else|:
 literal|0
-expr_stmt|;
-name|s
-operator|.
-name|in_merge
-operator|=
-name|in_merge
 expr_stmt|;
 name|s
 operator|.
@@ -6191,7 +6657,10 @@ name|commit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"couldn't look up newly created commit"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6206,7 +6675,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not parse newly created commit"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
@@ -6315,7 +6787,10 @@ argument_list|(
 operator|&
 name|format
 argument_list|,
+name|_
+argument_list|(
 name|implicit_ident_advice
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6408,14 +6883,6 @@ name|rev
 operator|.
 name|diffopt
 operator|.
-name|rename_limit
-operator|=
-literal|100
-expr_stmt|;
-name|rev
-operator|.
-name|diffopt
-operator|.
 name|break_opt
 operator|=
 literal|0
@@ -6452,13 +6919,19 @@ argument_list|,
 literal|"HEAD"
 argument_list|)
 condition|?
+name|_
+argument_list|(
 literal|"detached HEAD"
+argument_list|)
 else|:
 name|head
 argument_list|,
 name|initial_commit
 condition|?
+name|_
+argument_list|(
 literal|" (root-commit)"
+argument_list|)
 else|:
 literal|""
 argument_list|)
@@ -6912,21 +7385,11 @@ operator|&
 name|s
 argument_list|)
 expr_stmt|;
-name|in_merge
-operator|=
-name|file_exists
+name|determine_whence
 argument_list|(
-name|git_path
-argument_list|(
-literal|"MERGE_HEAD"
-argument_list|)
-argument_list|)
-expr_stmt|;
+operator|&
 name|s
-operator|.
-name|in_merge
-operator|=
-name|in_merge
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -7094,7 +7557,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not parse HEAD commit"
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -7131,7 +7597,9 @@ block|}
 elseif|else
 if|if
 condition|(
-name|in_merge
+name|whence
+operator|==
+name|FROM_MERGE
 condition|)
 block|{
 name|struct
@@ -7188,7 +7656,10 @@ name|NULL
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not open '%s' for reading"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -7233,7 +7704,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Corrupt MERGE_HEAD file (%s)"
+argument_list|)
 argument_list|,
 name|m
 operator|.
@@ -7301,7 +7775,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read MERGE_MODE"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -7342,6 +7819,14 @@ name|reflog_msg
 condition|)
 name|reflog_msg
 operator|=
+operator|(
+name|whence
+operator|==
+name|FROM_CHERRY_PICK
+operator|)
+condition|?
+literal|"commit (cherry-pick)"
+else|:
 literal|"commit"
 expr_stmt|;
 name|pptr
@@ -7395,7 +7880,10 @@ argument_list|()
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"could not read commit message: %s"
+argument_list|)
 argument_list|,
 name|strerror
 argument_list|(
@@ -7477,7 +7965,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Aborting commit due to empty commit message.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exit
@@ -7513,7 +8004,10 @@ argument_list|()
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to write commit object"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7617,7 +8111,10 @@ argument_list|()
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot lock HEAD ref"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7642,10 +8139,21 @@ argument_list|()
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot update HEAD ref"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|unlink
+argument_list|(
+name|git_path
+argument_list|(
+literal|"CHERRY_PICK_HEAD"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|unlink
 argument_list|(
 name|git_path
@@ -7685,9 +8193,12 @@ argument_list|()
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Repository has been updated, but unable to write\n"
 literal|"new_index file. Check that disk is not full or quota is\n"
 literal|"not exceeded, and then \"git reset HEAD\" to recover."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|rerere

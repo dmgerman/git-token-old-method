@@ -3508,6 +3508,7 @@ end_function
 begin_function
 DECL|function|usage_with_options
 name|void
+name|NORETURN
 name|usage_with_options
 parameter_list|(
 specifier|const
@@ -3547,6 +3548,7 @@ end_function
 begin_function
 DECL|function|usage_msg_opt
 name|void
+name|NORETURN
 name|usage_msg_opt
 parameter_list|(
 specifier|const

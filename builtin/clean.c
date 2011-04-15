@@ -415,7 +415,10 @@ name|ignored_only
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"-x and -X cannot be used together"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -426,18 +429,31 @@ operator|&&
 operator|!
 name|force
 condition|)
+block|{
+if|if
+condition|(
+name|config_set
+condition|)
 name|die
 argument_list|(
-literal|"clean.requireForce %s to true and neither -n nor -f given; "
+name|_
+argument_list|(
+literal|"clean.requireForce set to true and neither -n nor -f given; "
 literal|"refusing to clean"
-argument_list|,
-name|config_set
-condition|?
-literal|"set"
-else|:
-literal|"defaults"
+argument_list|)
 argument_list|)
 expr_stmt|;
+else|else
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"clean.requireForce defaults to true and neither -n nor -f given; "
+literal|"refusing to clean"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|force
@@ -463,7 +479,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -791,7 +810,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -816,7 +838,10 @@ name|quiet
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -836,7 +861,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to remove %s"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -854,7 +882,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would not remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -864,7 +895,10 @@ else|else
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Not removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -911,7 +945,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Would remove %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -927,7 +964,10 @@ condition|)
 block|{
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Removing %s\n"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
@@ -947,7 +987,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to remove %s"
+argument_list|)
 argument_list|,
 name|qname
 argument_list|)
