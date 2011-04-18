@@ -393,9 +393,11 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-comment|/* 	 * execvp failed.  If possible, we'd like to let start_command 	 * know, so failures like ENOENT can be handled right away; but 	 * otherwise, finish_command will still report the error. 	 */
-if|if
-condition|(
+name|ssize_t
+name|unused
+decl_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_notifier
@@ -404,9 +406,7 @@ literal|""
 argument_list|,
 literal|1
 argument_list|)
-condition|)
-empty_stmt|;
-comment|/* yes, dear gcc -D_FORTIFY_SOURCE, there was an error. */
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -430,6 +430,9 @@ name|msg
 index|[
 literal|4096
 index|]
+decl_stmt|;
+name|ssize_t
+name|unused
 decl_stmt|;
 name|int
 name|len
@@ -464,8 +467,8 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
@@ -474,7 +477,9 @@ literal|"fatal: "
 argument_list|,
 literal|7
 argument_list|)
-operator|||
+expr_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
@@ -483,7 +488,9 @@ name|msg
 argument_list|,
 name|len
 argument_list|)
-operator|||
+expr_stmt|;
+name|unused
+operator|=
 name|write
 argument_list|(
 name|child_err
@@ -492,9 +499,7 @@ literal|"\n"
 argument_list|,
 literal|1
 argument_list|)
-condition|)
-empty_stmt|;
-comment|/* yes, gcc -D_FORTIFY_SOURCE, we know there was an error. */
+expr_stmt|;
 name|exit
 argument_list|(
 literal|128
