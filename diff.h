@@ -1193,7 +1193,9 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
-name|void
+name|struct
+name|diff_filepair
+modifier|*
 name|diff_unmerge
 parameter_list|(
 name|struct
