@@ -9014,6 +9014,11 @@ operator|!=
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|this_dir
+condition|)
+block|{
 name|int
 name|permille
 init|=
@@ -9023,11 +9028,6 @@ literal|1000
 operator|/
 name|changed
 decl_stmt|;
-if|if
-condition|(
-name|permille
-condition|)
-block|{
 name|int
 name|percent
 init|=
