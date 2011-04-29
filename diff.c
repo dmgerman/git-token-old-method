@@ -637,7 +637,10 @@ name|strbuf_addf
 argument_list|(
 name|errmsg
 argument_list|,
+name|_
+argument_list|(
 literal|"  Failed to parse dirstat cut-off percentage '%.*s'\n"
+argument_list|)
 argument_list|,
 name|p_len
 argument_list|,
@@ -655,7 +658,10 @@ name|strbuf_addf
 argument_list|(
 name|errmsg
 argument_list|,
+name|_
+argument_list|(
 literal|"  Unknown dirstat parameter '%.*s'\n"
+argument_list|)
 argument_list|,
 name|p_len
 argument_list|,
@@ -1179,7 +1185,10 @@ argument_list|)
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"Found errors in 'diff.dirstat' config variable:\n%s"
+argument_list|)
 argument_list|,
 name|errmsg
 operator|.
@@ -18815,7 +18824,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to parse --dirstat/-X option parameter:\n%s"
+argument_list|)
 argument_list|,
 name|errmsg
 operator|.
