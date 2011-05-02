@@ -5243,7 +5243,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not read from '%s'"
+argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
@@ -5989,7 +5992,10 @@ name|branch
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No current branch."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6001,7 +6007,10 @@ name|remote
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No remote for the current branch."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6013,7 +6022,10 @@ name|merge_nr
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No default upstream defined for the current branch."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|args
@@ -6063,7 +6075,10 @@ name|dst
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No remote tracking branch for %s from %s"
+argument_list|)
 argument_list|,
 name|branch
 operator|->
@@ -6434,14 +6449,20 @@ name|advice_resolve_conflict
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists).\n"
 literal|"Please, commit your changes before you can merge."
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"You have not concluded your cherry-pick (CHERRY_PICK_HEAD exists)."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
