@@ -363,7 +363,7 @@ DECL|function|fread_buffer
 name|size_t
 name|fread_buffer
 parameter_list|(
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -514,8 +514,7 @@ DECL|function|fwrite_buffer
 name|size_t
 name|fwrite_buffer
 parameter_list|(
-specifier|const
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -566,8 +565,7 @@ DECL|function|fwrite_null
 name|size_t
 name|fwrite_null
 parameter_list|(
-specifier|const
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -5862,7 +5860,7 @@ specifier|static
 name|size_t
 name|fwrite_sha1_file
 parameter_list|(
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -5967,6 +5965,10 @@ name|stream
 operator|.
 name|next_in
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|ptr
 expr_stmt|;
 do|do
@@ -6089,7 +6091,6 @@ decl_stmt|;
 name|int
 name|prevlocal
 decl_stmt|;
-name|unsigned
 name|char
 name|prev_buf
 index|[

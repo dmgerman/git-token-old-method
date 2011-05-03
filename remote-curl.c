@@ -1847,8 +1847,7 @@ specifier|static
 name|size_t
 name|rpc_in
 parameter_list|(
-specifier|const
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
