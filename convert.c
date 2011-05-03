@@ -49,7 +49,7 @@ name|CRLF_CRLF
 block|,
 DECL|enumerator|CRLF_AUTO
 name|CRLF_AUTO
-block|, }
+block|}
 enum|;
 end_enum
 begin_struct

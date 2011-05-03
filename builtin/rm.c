@@ -327,9 +327,12 @@ name|errs
 operator|=
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' has staged content different "
 literal|"from both the file and the HEAD\n"
 literal|"(use -f to force removal)"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -350,9 +353,12 @@ name|errs
 operator|=
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' has changes staged in the index\n"
 literal|"(use --cached to keep the file, "
 literal|"or -f to force removal)"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -365,9 +371,12 @@ name|errs
 operator|=
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' has local modifications\n"
 literal|"(use --cached to keep the file, "
 literal|"or -f to force removal)"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -597,7 +606,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pathspec
@@ -783,7 +795,10 @@ condition|)
 block|{
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"pathspec '%s' did not match any files"
+argument_list|)
 argument_list|,
 name|match
 argument_list|)
@@ -811,7 +826,10 @@ name|MATCHED_RECURSIVELY
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"not removing '%s' recursively without -r"
+argument_list|)
 argument_list|,
 operator|*
 name|match
@@ -926,7 +944,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"git rm: unable to remove %s"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -1032,7 +1053,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Unable to write new index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -213,7 +213,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"%s is okay\n"
+argument_list|)
 argument_list|,
 name|bundle_file
 argument_list|)
@@ -272,7 +275,10 @@ name|have_repository
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Need a repository to create a bundle."
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -312,7 +318,10 @@ name|have_repository
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Need a repository to unbundle."
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

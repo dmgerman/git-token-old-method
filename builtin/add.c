@@ -185,7 +185,10 @@ block|{
 default|default:
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unexpected diff status %c"
+argument_list|)
 argument_list|,
 name|p
 operator|->
@@ -243,7 +246,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"updating files failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|data
@@ -298,7 +304,10 @@ operator|)
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"remove '%s'\n"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -356,11 +365,15 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|init_pathspec
+argument_list|(
+operator|&
 name|rev
 operator|.
 name|prune_data
-operator|=
+argument_list|,
 name|pathspec
+argument_list|)
 expr_stmt|;
 name|rev
 operator|.
@@ -879,7 +892,10 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Path '%s' is in submodule '%.*s'"
+argument_list|)
 argument_list|,
 name|pathspec
 index|[
@@ -963,7 +979,10 @@ name|pathspec
 argument_list|,
 name|seen
 argument_list|,
+name|_
+argument_list|(
 literal|"Unstaged changes after refreshing the index:"
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -990,7 +1009,10 @@ index|]
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"pathspec '%s' did not match any files"
+argument_list|)
 argument_list|,
 name|pathspec
 index|[
@@ -1096,7 +1118,10 @@ literal|0
 decl_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' is beyond a symbolic link"
+argument_list|)
 argument_list|,
 operator|*
 name|p
@@ -1443,7 +1468,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not read the index"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|init_revisions
@@ -1505,7 +1533,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not open '%s' for writing."
+argument_list|)
 argument_list|,
 name|file
 argument_list|)
@@ -1543,7 +1574,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not write patch"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|launch_editor
@@ -1567,7 +1601,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not stat '%s'"
+argument_list|)
 argument_list|,
 name|file
 argument_list|)
@@ -1581,7 +1618,10 @@ name|st_size
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Empty patch. Aborted."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|memset
@@ -1619,7 +1659,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not apply '%s'"
+argument_list|)
 argument_list|,
 name|file
 argument_list|)
@@ -1650,7 +1693,10 @@ name|char
 name|ignore_error
 index|[]
 init|=
+name|N_
+argument_list|(
 literal|"The following paths are ignored by one of your .gitignore files:\n"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1802,7 +1848,7 @@ argument_list|,
 operator|&
 name|addremove
 argument_list|,
-literal|"add all, noticing removal of tracked files"
+literal|"add changes from all tracked and untracked files"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1944,7 +1990,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 name|ignore_error
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -1982,12 +2031,18 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Use -f if you really want to add them.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"no files added"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2030,7 +2085,10 @@ name|ignore_add_errors
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"adding files failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exit_status
@@ -2178,7 +2236,10 @@ name|take_worktree_changes
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"-A and -u are mutually incompatible"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2190,7 +2251,10 @@ name|ignore_missing
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Option --ignore-missing can only be used together with --dry-run"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2314,14 +2378,20 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Nothing specified, nothing added.\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Maybe you wanted to say 'git add .'?\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2348,7 +2418,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|treat_gitlinks
@@ -2551,7 +2624,10 @@ block|}
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"pathspec '%s' did not match any files"
+argument_list|)
 argument_list|,
 name|pathspec
 index|[
@@ -2618,7 +2694,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Unable to write new index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

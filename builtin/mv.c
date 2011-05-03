@@ -489,7 +489,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"index file corrupt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|source
@@ -686,7 +689,10 @@ name|show_only
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Checking rename of '%s' to '%s'\n"
+argument_list|)
 argument_list|,
 name|src
 argument_list|,
@@ -714,7 +720,10 @@ literal|0
 condition|)
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"bad source"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -748,7 +757,10 @@ condition|)
 block|{
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"can not move directory into itself"
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -777,7 +789,10 @@ literal|0
 condition|)
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"cannot move directory over file"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -831,7 +846,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Huh? %.*s is in index?"
+argument_list|)
 argument_list|,
 name|len_w_slash
 argument_list|,
@@ -903,7 +921,10 @@ literal|1
 condition|)
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"source directory is empty"
+argument_list|)
 expr_stmt|;
 else|else
 block|{
@@ -1090,7 +1111,10 @@ literal|0
 condition|)
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"not under version control"
+argument_list|)
 expr_stmt|;
 elseif|else
 if|if
@@ -1108,7 +1132,10 @@ condition|)
 block|{
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"destination exists"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1135,7 +1162,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"%s; will overwrite!"
+argument_list|)
 argument_list|,
 name|bad
 argument_list|)
@@ -1148,7 +1178,10 @@ block|}
 else|else
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"Cannot overwrite"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1165,7 +1198,10 @@ argument_list|)
 condition|)
 name|bad
 operator|=
+name|_
+argument_list|(
 literal|"multiple sources for the same target"
+argument_list|)
 expr_stmt|;
 else|else
 name|string_list_insert
@@ -1252,7 +1288,10 @@ block|}
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s, source=%s, destination=%s"
+argument_list|)
 argument_list|,
 name|bad
 argument_list|,
@@ -1315,7 +1354,10 @@ name|verbose
 condition|)
 name|printf
 argument_list|(
+name|_
+argument_list|(
 literal|"Renaming %s to %s\n"
+argument_list|)
 argument_list|,
 name|src
 argument_list|,
@@ -1345,7 +1387,10 @@ name|ignore_errors
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"renaming '%s' failed"
+argument_list|)
 argument_list|,
 name|src
 argument_list|)
@@ -1413,7 +1458,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Unable to write new index file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

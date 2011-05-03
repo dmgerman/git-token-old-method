@@ -2,7 +2,7 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|"git-compat-util.h"
+file|"builtin.h"
 end_include
 begin_include
 include|#
@@ -73,16 +73,6 @@ init|=
 literal|0
 decl_stmt|;
 name|size_t
-name|pslen
-init|=
-literal|0
-decl_stmt|;
-name|size_t
-name|pSlen
-init|=
-literal|0
-decl_stmt|;
-name|size_t
 name|psoff
 init|=
 literal|0
@@ -109,19 +99,6 @@ condition|)
 name|psoff
 operator|=
 literal|4
-expr_stmt|;
-name|pSlen
-operator|=
-name|strlen
-argument_list|(
-name|service
-argument_list|)
-expr_stmt|;
-name|pslen
-operator|=
-name|pSlen
-operator|-
-name|psoff
 expr_stmt|;
 comment|/* Pass the service to command. */
 name|setenv

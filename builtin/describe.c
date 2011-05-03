@@ -123,9 +123,14 @@ specifier|static
 name|int
 name|abbrev
 init|=
-name|DEFAULT_ABBREV
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
+begin_comment
+DECL|variable|abbrev
+comment|/* unspecified */
+end_comment
 begin_decl_stmt
 DECL|variable|max_candidates
 specifier|static
@@ -377,6 +382,10 @@ parameter_list|(
 name|void
 modifier|*
 name|chain
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|struct
@@ -1277,7 +1286,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"annotated tag %s not available"
+argument_list|)
 argument_list|,
 name|n
 operator|->
@@ -1308,7 +1320,10 @@ name|tag
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"annotated tag %s has no embedded name"
+argument_list|)
 argument_list|,
 name|n
 operator|->
@@ -1340,7 +1355,10 @@ argument_list|)
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"tag '%s' is really '%s' here"
+argument_list|)
 argument_list|,
 name|n
 operator|->
@@ -1505,7 +1523,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Not a valid object name %s"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|)
@@ -1524,7 +1545,10 @@ name|cmit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s is not a valid '%s' object"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|,
@@ -1613,7 +1637,10 @@ name|max_candidates
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"no tag exactly matches '%s'"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1633,7 +1660,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"searching to describe %s\n"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|)
@@ -1650,6 +1680,8 @@ operator|&
 name|names
 argument_list|,
 name|set_util
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|have_util
@@ -1876,7 +1908,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"finished search at %s\n"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2009,8 +2044,11 @@ name|unannotated_cnt
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No annotated tags can describe '%s'.\n"
 literal|"However, there were unannotated tags: try --tags."
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2021,8 +2059,11 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No tags can describe '%s'.\n"
 literal|"Try --always, or create some tags."
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2145,7 +2186,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"traversed %lu commits\n"
+argument_list|)
 argument_list|,
 name|seen_commits
 argument_list|)
@@ -2159,8 +2203,11 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"more than %i tags found; listed %i most recent\n"
 literal|"gave up search at %s\n"
+argument_list|)
 argument_list|,
 name|max_candidates
 argument_list|,
@@ -2416,6 +2463,13 @@ name|OPT_END
 argument_list|()
 block|, 	}
 decl_stmt|;
+name|git_config
+argument_list|(
+name|git_default_config
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 name|argc
 operator|=
 name|parse_options
@@ -2432,6 +2486,16 @@ name|describe_usage
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|abbrev
+operator|<
+literal|0
+condition|)
+name|abbrev
+operator|=
+name|DEFAULT_ABBREV
 expr_stmt|;
 if|if
 condition|(
@@ -2468,7 +2532,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--long is incompatible with --abbrev=0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2659,7 +2726,10 @@ name|always
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No names found, cannot describe anything."
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2708,7 +2778,10 @@ condition|)
 block|{
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"--dirty is incompatible with committishes"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

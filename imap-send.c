@@ -6024,7 +6024,7 @@ name|child_process
 name|tunnel
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|;
 name|imap_info

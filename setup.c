@@ -73,7 +73,7 @@ name|char
 modifier|*
 name|temp
 init|=
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|path
 argument_list|)
@@ -1070,9 +1070,10 @@ argument_list|)
 condition|)
 name|git_dir
 operator|=
-name|make_absolute_path
+name|real_path
 argument_list|(
-name|git_dir
+name|get_git_dir
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1109,7 +1110,7 @@ argument_list|)
 expr_stmt|;
 name|set_git_dir
 argument_list|(
-name|make_relative_path
+name|relative_path
 argument_list|(
 name|git_dir
 argument_list|,
@@ -1527,7 +1528,7 @@ argument_list|)
 expr_stmt|;
 name|path
 operator|=
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|dir
 argument_list|)
@@ -1885,7 +1886,7 @@ block|{
 comment|/* cwd inside worktree */
 name|set_git_dir
 argument_list|(
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|gitdirenv
 argument_list|)
@@ -2019,7 +2020,7 @@ name|gitdir
 operator|=
 name|xstrdup
 argument_list|(
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|gitdir
 argument_list|)
@@ -2066,7 +2067,7 @@ name|len
 condition|?
 name|gitdir
 else|:
-name|make_absolute_path
+name|real_path
 argument_list|(
 name|gitdir
 argument_list|)

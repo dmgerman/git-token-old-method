@@ -370,7 +370,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"failed to stat '%s'"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -396,7 +399,10 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s': not a regular file or symlink"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -783,7 +789,9 @@ name|revs
 operator|->
 name|diffopt
 operator|.
-name|paths
+name|pathspec
+operator|.
+name|raw
 argument_list|)
 operator|<
 literal|0
@@ -1149,27 +1157,11 @@ operator||
 name|REFRESH_UNMERGED
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|active_cache_changed
-operator|&&
-operator|!
-name|write_cache
+name|update_index_if_able
 argument_list|(
-name|fd
+operator|&
+name|the_index
 argument_list|,
-name|active_cache
-argument_list|,
-name|active_nr
-argument_list|)
-condition|)
-name|commit_locked_index
-argument_list|(
-name|lock_file
-argument_list|)
-expr_stmt|;
-name|rollback_lock_file
-argument_list|(
 name|lock_file
 argument_list|)
 expr_stmt|;
@@ -1322,7 +1314,10 @@ else|else
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"invalid option: %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -1383,7 +1378,9 @@ name|revs
 operator|->
 name|diffopt
 operator|.
-name|paths
+name|pathspec
+operator|.
+name|raw
 argument_list|)
 operator|<
 literal|0
@@ -1581,7 +1578,10 @@ name|nongit
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Not a git repository"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|argc
@@ -1630,7 +1630,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"diff_setup_done failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1883,7 +1886,10 @@ name|obj
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"invalid object '%s' given."
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -1932,7 +1938,10 @@ name|ents
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"more than %d trees given: '%s'"
+argument_list|)
 argument_list|,
 operator|(
 name|int
@@ -1991,7 +2000,10 @@ name|blobs
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"more than two blobs given: '%s'"
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -2037,7 +2049,10 @@ continue|continue;
 block|}
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unhandled object '%s' given."
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -2048,22 +2063,8 @@ condition|(
 name|rev
 operator|.
 name|prune_data
-condition|)
-block|{
-specifier|const
-name|char
-modifier|*
-modifier|*
-name|pathspec
-init|=
-name|rev
 operator|.
-name|prune_data
-decl_stmt|;
-while|while
-condition|(
-operator|*
-name|pathspec
+name|nr
 condition|)
 block|{
 if|if
@@ -2073,16 +2074,25 @@ name|path
 condition|)
 name|path
 operator|=
-operator|*
-name|pathspec
+name|rev
+operator|.
+name|prune_data
+operator|.
+name|items
+index|[
+literal|0
+index|]
+operator|.
+name|match
 expr_stmt|;
 name|paths
-operator|++
+operator|+=
+name|rev
+operator|.
+name|prune_data
+operator|.
+name|nr
 expr_stmt|;
-name|pathspec
-operator|++
-expr_stmt|;
-block|}
 block|}
 comment|/* 	 * Now, do the arguments look reasonable? 	 */
 if|if

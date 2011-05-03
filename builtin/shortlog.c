@@ -1005,7 +1005,10 @@ name|author
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Missing author: %s"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -1149,7 +1152,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"revision walk setup failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 while|while
@@ -1788,7 +1794,10 @@ condition|)
 block|{
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"unrecognized argument: %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -1868,7 +1877,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"(reading log message from standard input)\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|read_from_stdin

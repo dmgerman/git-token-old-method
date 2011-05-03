@@ -379,7 +379,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Invalid %s: '%s'"
+argument_list|)
 argument_list|,
 name|var
 argument_list|,
@@ -460,7 +463,10 @@ name|max_length
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Too many options specified"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|cmd
@@ -559,7 +565,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"insanely long object directory %.*s"
+argument_list|)
 argument_list|,
 literal|50
 argument_list|,
@@ -1065,21 +1074,31 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|quiet
+condition|)
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Auto packing the repository for optimum performance.%s\n"
+name|_
+argument_list|(
+literal|"Auto packing the repository for optimum performance.\n"
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|else
+name|fprintf
+argument_list|(
+name|stderr
 argument_list|,
-name|quiet
-condition|?
-literal|""
-else|:
-operator|(
-literal|" You may also\n"
+name|_
+argument_list|(
+literal|"Auto packing the repository for optimum performance. You may also\n"
 literal|"run \"git gc\" manually. See "
 literal|"\"git help gc\" for more information."
-operator|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1229,8 +1248,11 @@ argument_list|()
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"There are too many unreachable loose objects; "
 literal|"run 'git prune' to remove them."
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

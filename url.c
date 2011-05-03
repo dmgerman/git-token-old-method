@@ -4,6 +4,11 @@ include|#
 directive|include
 file|"cache.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"url.h"
+end_include
 begin_function
 DECL|function|is_urlschemechar
 name|int
