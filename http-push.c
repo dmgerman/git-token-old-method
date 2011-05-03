@@ -809,6 +809,7 @@ name|char
 modifier|*
 name|xml_entities
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|s
@@ -4220,6 +4221,7 @@ specifier|static
 name|void
 name|one_remote_ref
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|refname
@@ -8212,6 +8214,7 @@ specifier|static
 name|void
 name|one_remote_ref
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|refname
@@ -9267,6 +9270,7 @@ specifier|static
 name|int
 name|delete_remote_branch
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|pattern
