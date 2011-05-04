@@ -5595,8 +5595,12 @@ operator|!
 name|dir
 condition|)
 return|return
-operator|-
-literal|1
+name|rmdir
+argument_list|(
+name|path
+operator|->
+name|buf
+argument_list|)
 return|;
 if|if
 condition|(
