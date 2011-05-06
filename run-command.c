@@ -393,12 +393,8 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|ssize_t
-name|unused
-decl_stmt|;
-name|unused
-operator|=
-name|write
+comment|/* 	 * execvp failed.  If possible, we'd like to let start_command 	 * know, so failures like ENOENT can be handled right away; but 	 * otherwise, finish_command will still report the error. 	 */
+name|xwrite
 argument_list|(
 name|child_notifier
 argument_list|,
@@ -430,9 +426,6 @@ name|msg
 index|[
 literal|4096
 index|]
-decl_stmt|;
-name|ssize_t
-name|unused
 decl_stmt|;
 name|int
 name|len
@@ -467,9 +460,7 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
-name|unused
-operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|child_err
 argument_list|,
@@ -478,9 +469,7 @@ argument_list|,
 literal|7
 argument_list|)
 expr_stmt|;
-name|unused
-operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|child_err
 argument_list|,
@@ -489,9 +478,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|unused
-operator|=
-name|write
+name|write_in_full
 argument_list|(
 name|child_err
 argument_list|,
