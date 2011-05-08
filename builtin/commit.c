@@ -3102,6 +3102,15 @@ name|ident_shown
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|clean_message_contents
+init|=
+operator|(
+name|cleanup_mode
+operator|!=
+name|CLEANUP_NONE
+operator|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -3571,6 +3580,10 @@ name|hook_arg1
 operator|=
 literal|"template"
 expr_stmt|;
+name|clean_message_contents
+operator|=
+literal|0
+expr_stmt|;
 block|}
 comment|/* 	 * The remaining cases don't modify the template message, but 	 * just set the argument(s) to the prepare-commit-msg hook. 	 */
 elseif|else
@@ -3653,9 +3666,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cleanup_mode
-operator|!=
-name|CLEANUP_NONE
+name|clean_message_contents
 condition|)
 name|stripspace
 argument_list|(
