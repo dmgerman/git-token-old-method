@@ -8008,6 +8008,13 @@ directive|define
 name|OUTPUT_SHOW_EMAIL
 value|0400
 end_define
+begin_define
+DECL|macro|OUTPUT_LINE_PORCELAIN
+define|#
+directive|define
+name|OUTPUT_LINE_PORCELAIN
+value|01000
+end_define
 begin_function
 DECL|function|emit_porcelain_details
 specifier|static
@@ -8073,6 +8080,13 @@ name|int
 name|opt
 parameter_list|)
 block|{
+name|int
+name|repeat
+init|=
+name|opt
+operator|&
+name|OUTPUT_LINE_PORCELAIN
+decl_stmt|;
 name|int
 name|cnt
 decl_stmt|;
@@ -8148,7 +8162,7 @@ name|emit_porcelain_details
 argument_list|(
 name|suspect
 argument_list|,
-literal|0
+name|repeat
 argument_list|)
 expr_stmt|;
 name|cp
@@ -8185,6 +8199,7 @@ if|if
 condition|(
 name|cnt
 condition|)
+block|{
 name|printf
 argument_list|(
 literal|"%s %d %d\n"
@@ -8208,6 +8223,18 @@ operator|+
 name|cnt
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|repeat
+condition|)
+name|emit_porcelain_details
+argument_list|(
+name|suspect
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|putchar
 argument_list|(
 literal|'\t'
@@ -11790,6 +11817,22 @@ argument_list|,
 literal|"Show in a format designed for machine consumption"
 argument_list|,
 name|OUTPUT_PORCELAIN
+argument_list|)
+block|,
+name|OPT_BIT
+argument_list|(
+literal|0
+argument_list|,
+literal|"line-porcelain"
+argument_list|,
+operator|&
+name|output_option
+argument_list|,
+literal|"Show porcelain format with per-line commit information"
+argument_list|,
+name|OUTPUT_PORCELAIN
+operator||
+name|OUTPUT_LINE_PORCELAIN
 argument_list|)
 block|,
 name|OPT_BIT
