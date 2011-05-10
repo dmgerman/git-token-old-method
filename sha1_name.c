@@ -5859,7 +5859,7 @@ modifier|*
 name|mode
 parameter_list|,
 name|int
-name|gently
+name|only_to_die
 parameter_list|,
 specifier|const
 name|char
@@ -5885,7 +5885,7 @@ argument_list|,
 operator|&
 name|oc
 argument_list|,
-name|gently
+name|only_to_die
 argument_list|,
 name|prefix
 argument_list|)
@@ -6002,7 +6002,7 @@ modifier|*
 name|oc
 parameter_list|,
 name|int
-name|gently
+name|only_to_die
 parameter_list|,
 specifier|const
 name|char
@@ -6098,6 +6098,9 @@ name|pos
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|only_to_die
+operator|&&
 name|namelen
 operator|>
 literal|2
@@ -6366,8 +6369,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|gently
+name|only_to_die
 operator|&&
 name|name
 index|[
@@ -6476,8 +6478,7 @@ name|NULL
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|gently
+name|only_to_die
 condition|)
 block|{
 name|object_name
@@ -6575,8 +6576,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|gently
+name|only_to_die
 condition|)
 block|{
 name|diagnose_invalid_sha1_path
@@ -6650,8 +6650,7 @@ else|else
 block|{
 if|if
 condition|(
-operator|!
-name|gently
+name|only_to_die
 condition|)
 name|die
 argument_list|(
