@@ -912,7 +912,6 @@ name|alt_req
 operator|->
 name|base
 decl_stmt|;
-specifier|static
 specifier|const
 name|char
 name|null_byte
@@ -1082,6 +1081,10 @@ block|}
 block|}
 name|fwrite_buffer
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 operator|&
 name|null_byte
 argument_list|,

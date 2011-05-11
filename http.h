@@ -282,7 +282,7 @@ specifier|extern
 name|size_t
 name|fread_buffer
 parameter_list|(
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -303,8 +303,7 @@ specifier|extern
 name|size_t
 name|fwrite_buffer
 parameter_list|(
-specifier|const
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
@@ -325,8 +324,7 @@ specifier|extern
 name|size_t
 name|fwrite_null
 parameter_list|(
-specifier|const
-name|void
+name|char
 modifier|*
 name|ptr
 parameter_list|,
