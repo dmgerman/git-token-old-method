@@ -7639,9 +7639,7 @@ block|}
 end_function
 begin_function
 DECL|function|packed_object_info_detail
-specifier|const
-name|char
-modifier|*
+name|int
 name|packed_object_info_detail
 parameter_list|(
 name|struct
@@ -7788,10 +7786,7 @@ name|w_curs
 argument_list|)
 expr_stmt|;
 return|return
-name|typename
-argument_list|(
 name|type
-argument_list|)
 return|;
 case|case
 name|OBJ_OFS_DELTA
