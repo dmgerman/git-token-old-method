@@ -6836,6 +6836,9 @@ name|OI_LOOSE
 block|,
 DECL|enumerator|OI_PACKED
 name|OI_PACKED
+block|,
+DECL|enumerator|OI_DBCACHED
+name|OI_DBCACHED
 block|}
 DECL|member|whence
 name|whence
