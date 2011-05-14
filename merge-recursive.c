@@ -10122,7 +10122,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|strcasecmp
+name|strcmp
 argument_list|(
 name|var
 argument_list|,
@@ -10148,7 +10148,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|strcasecmp
+name|strcmp
 argument_list|(
 name|var
 argument_list|,
@@ -10174,7 +10174,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|strcasecmp
+name|strcmp
 argument_list|(
 name|var
 argument_list|,
