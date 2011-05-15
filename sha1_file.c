@@ -5977,7 +5977,6 @@ block|}
 end_function
 begin_function
 DECL|function|map_sha1_file
-specifier|static
 name|void
 modifier|*
 name|map_sha1_file
@@ -6269,7 +6268,6 @@ block|}
 end_function
 begin_function
 DECL|function|unpack_sha1_header
-specifier|static
 name|int
 name|unpack_sha1_header
 parameter_list|(
@@ -6677,7 +6675,6 @@ comment|/*  * We used to just use "sscanf()", but that's actually way  * too per
 end_comment
 begin_function
 DECL|function|parse_sha1_header
-specifier|static
 name|int
 name|parse_sha1_header
 parameter_list|(
