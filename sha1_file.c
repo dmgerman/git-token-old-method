@@ -142,23 +142,6 @@ literal|20
 index|]
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-specifier|static
-name|int
-name|git_open_noatime
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|struct
-name|packed_git
-modifier|*
-name|p
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_comment
 comment|/*  * This is meant to hold a *small* number of objects that you would  * want read_sha1_file() to be able to return, but yet you do not want  * to write them into the object store (e.g. a browse-only  * application).  */
 end_comment
@@ -1084,6 +1067,18 @@ name|depth
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|static
+name|int
+name|git_open_noatime
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/*  * Prepare alternate object database registry.  *  * The variable alt_odb_list points at the list of struct  * alternate_object_database.  The elements on this list come from  * non-empty elements from colon separated ALTERNATE_DB_ENVIRONMENT  * environment variable, and $GIT_OBJECT_DIRECTORY/info/alternates,  * whose contents is similar to that environment variable but can be  * LF separated.  Its base points at a statically allocated buffer that  * contains "/the/directory/corresponding/to/.git/objects/...", while  * its name points just after the slash at the end of ".git/objects/"  * in the example above, and has enough space to hold 40-byte hex  * SHA1, an extra slash for the first level indirection, and the  * terminating NUL.  */
 end_comment
@@ -1691,8 +1686,6 @@ operator|=
 name|git_open_noatime
 argument_list|(
 name|path
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -2311,8 +2304,6 @@ init|=
 name|git_open_noatime
 argument_list|(
 name|path
-argument_list|,
-name|p
 argument_list|)
 decl_stmt|;
 name|struct
@@ -3645,8 +3636,6 @@ argument_list|(
 name|p
 operator|->
 name|pack_name
-argument_list|,
-name|p
 argument_list|)
 expr_stmt|;
 if|if
@@ -5817,11 +5806,6 @@ specifier|const
 name|char
 modifier|*
 name|name
-parameter_list|,
-name|struct
-name|packed_git
-modifier|*
-name|p
 parameter_list|)
 block|{
 specifier|static
@@ -5915,8 +5899,6 @@ operator|=
 name|git_open_noatime
 argument_list|(
 name|name
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -5970,8 +5952,6 @@ argument_list|(
 name|alt
 operator|->
 name|base
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -6590,7 +6570,7 @@ operator|<=
 name|size
 condition|)
 block|{
-comment|/* 		 * The above condition must be (bytes<= size), not 		 * (bytes< size).  In other words, even though we 		 * expect no more output and set avail_out to zer0, 		 * the input zlib stream may have bytes that express 		 * "this concludes the stream", and we *do* want to 		 * eat that input. 		 * 		 * Otherwise we would not be able to test that we 		 * consumed all the input to reach the expected size; 		 * we also want to check that zlib tells us that all 		 * went well with status == Z_STREAM_END at the end. 		 */
+comment|/* 		 * The above condition must be (bytes<= size), not 		 * (bytes< size).  In other words, even though we 		 * expect no more output and set avail_out to zero, 		 * the input zlib stream may have bytes that express 		 * "this concludes the stream", and we *do* want to 		 * eat that input. 		 * 		 * Otherwise we would not be able to test that we 		 * consumed all the input to reach the expected size; 		 * we also want to check that zlib tells us that all 		 * went well with status == Z_STREAM_END at the end. 		 */
 name|stream
 operator|->
 name|next_out
