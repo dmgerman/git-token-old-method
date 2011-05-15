@@ -11230,10 +11230,10 @@ begin_comment
 comment|/*  * This function dies on corrupt objects; the callers who want to  * deal with them should arrange to call read_object() and give error  * messages themselves.  */
 end_comment
 begin_function
-DECL|function|read_sha1_file_repl
+DECL|function|read_sha1_file
 name|void
 modifier|*
-name|read_sha1_file_repl
+name|read_sha1_file
 parameter_list|(
 specifier|const
 name|unsigned
@@ -11250,13 +11250,6 @@ name|unsigned
 name|long
 modifier|*
 name|size
-parameter_list|,
-specifier|const
-name|unsigned
-name|char
-modifier|*
-modifier|*
-name|replacement
 parameter_list|)
 block|{
 specifier|const
@@ -11303,20 +11296,9 @@ if|if
 condition|(
 name|data
 condition|)
-block|{
-if|if
-condition|(
-name|replacement
-condition|)
-operator|*
-name|replacement
-operator|=
-name|repl
-expr_stmt|;
 return|return
 name|data
 return|;
-block|}
 if|if
 condition|(
 name|errno
