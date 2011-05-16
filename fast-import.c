@@ -17696,7 +17696,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|prefixcmp
+name|strcmp
 argument_list|(
 name|feature
 argument_list|,
@@ -17713,7 +17713,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|prefixcmp
+name|strcmp
 argument_list|(
 name|feature
 argument_list|,
@@ -17730,7 +17730,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|prefixcmp
+name|strcmp
 argument_list|(
 name|feature
 argument_list|,
