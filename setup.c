@@ -697,6 +697,7 @@ value|(1<<0)
 end_define
 begin_struct
 DECL|struct|pathspec_magic
+specifier|static
 struct|struct
 name|pathspec_magic
 block|{
@@ -736,6 +737,7 @@ comment|/*  * Take an element of a pathspec and check for magic signatures.  * A
 end_comment
 begin_function
 DECL|function|prefix_pathspec
+specifier|static
 specifier|const
 name|char
 modifier|*
