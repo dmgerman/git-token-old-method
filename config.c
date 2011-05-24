@@ -232,6 +232,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_config_parse_parameter
+specifier|static
 name|int
 name|git_config_parse_parameter
 parameter_list|(
@@ -439,6 +440,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_config_parse_environment
+specifier|static
 name|int
 name|git_config_parse_environment
 parameter_list|(
