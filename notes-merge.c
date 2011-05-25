@@ -4042,7 +4042,7 @@ argument_list|,
 operator|&
 name|st
 argument_list|,
-literal|1
+name|HASH_WRITE_OBJECT
 argument_list|)
 condition|)
 name|die

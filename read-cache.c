@@ -524,8 +524,6 @@ name|fd
 argument_list|,
 name|st
 argument_list|,
-literal|0
-argument_list|,
 name|OBJ_BLOB
 argument_list|,
 name|ce
@@ -3266,7 +3264,7 @@ name|path
 argument_list|,
 name|st
 argument_list|,
-literal|1
+name|HASH_WRITE_OBJECT
 argument_list|)
 condition|)
 return|return
