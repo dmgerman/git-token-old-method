@@ -971,6 +971,11 @@ condition|(
 name|o
 operator|->
 name|update
+operator|&&
+operator|!
+name|o
+operator|->
+name|dry_run
 condition|)
 name|unlink_entry
 argument_list|(
@@ -1048,6 +1053,11 @@ condition|(
 name|o
 operator|->
 name|update
+operator|&&
+operator|!
+name|o
+operator|->
+name|dry_run
 condition|)
 block|{
 name|errs
