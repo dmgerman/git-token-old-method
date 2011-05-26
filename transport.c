@@ -830,11 +830,6 @@ condition|)
 continue|continue;
 if|if
 condition|(
-operator|!
-name|ref
-operator|->
-name|new_sha1
-operator|||
 name|is_null_sha1
 argument_list|(
 name|ref
