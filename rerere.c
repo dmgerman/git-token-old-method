@@ -4421,6 +4421,11 @@ name|d_name
 argument_list|)
 expr_stmt|;
 block|}
+name|closedir
+argument_list|(
+name|dir
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|i
