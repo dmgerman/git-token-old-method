@@ -6376,6 +6376,12 @@ argument_list|,
 operator|*
 name|msg_p
 argument_list|,
+name|pp
+operator|->
+name|preserve_subject
+condition|?
+literal|"\n"
+else|:
 literal|" "
 argument_list|)
 expr_stmt|;
