@@ -14017,7 +14017,7 @@ argument_list|(
 name|buf
 argument_list|)
 decl_stmt|;
-name|size_t
+name|ssize_t
 name|actual
 decl_stmt|;
 name|actual
