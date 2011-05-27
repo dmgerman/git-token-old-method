@@ -34,6 +34,11 @@ DECL|member|width
 name|size_t
 name|width
 decl_stmt|;
+DECL|member|max_off
+name|off_t
+name|max_off
+decl_stmt|;
+comment|/* -1 means unlimited */
 DECL|member|buf
 name|struct
 name|strbuf
@@ -49,8 +54,10 @@ directive|define
 name|SLIDING_VIEW_INIT
 parameter_list|(
 name|input
+parameter_list|,
+name|len
 parameter_list|)
-value|{ (input), 0, 0, STRBUF_INIT }
+value|{ (input), 0, 0, (len), STRBUF_INIT }
 end_define
 begin_function_decl
 specifier|extern
