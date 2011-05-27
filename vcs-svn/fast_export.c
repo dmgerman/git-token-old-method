@@ -1071,11 +1071,6 @@ block|{
 name|long
 name|ret
 decl_stmt|;
-name|off_t
-name|preimage_len
-init|=
-literal|0
-decl_stmt|;
 name|struct
 name|sliding_view
 name|preimage
@@ -1085,8 +1080,7 @@ argument_list|(
 operator|&
 name|report_buffer
 argument_list|,
-operator|-
-literal|1
+literal|0
 argument_list|)
 decl_stmt|;
 name|FILE
@@ -1160,7 +1154,9 @@ argument_list|(
 name|response
 argument_list|,
 operator|&
-name|preimage_len
+name|preimage
+operator|.
+name|max_off
 argument_list|)
 condition|)
 name|die
@@ -1168,6 +1164,15 @@ argument_list|(
 literal|"invalid cat-blob response: %s"
 argument_list|,
 name|response
+argument_list|)
+expr_stmt|;
+name|check_preimage_overflow
+argument_list|(
+name|preimage
+operator|.
+name|max_off
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1190,7 +1195,9 @@ argument_list|)
 expr_stmt|;
 name|check_preimage_overflow
 argument_list|(
-name|preimage_len
+name|preimage
+operator|.
+name|max_off
 argument_list|,
 name|strlen
 argument_list|(
@@ -1198,11 +1205,22 @@ literal|"link "
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|preimage_len
+name|preimage
+operator|.
+name|max_off
 operator|+=
 name|strlen
 argument_list|(
 literal|"link "
+argument_list|)
+expr_stmt|;
+name|check_preimage_overflow
+argument_list|(
+name|preimage
+operator|.
+name|max_off
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1231,6 +1249,25 @@ name|old_data
 condition|)
 block|{
 comment|/* Read the remainder of preimage and trailing newline. */
+name|assert
+argument_list|(
+operator|!
+name|signed_add_overflows
+argument_list|(
+name|preimage
+operator|.
+name|max_off
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|preimage
+operator|.
+name|max_off
+operator|++
+expr_stmt|;
+comment|/* room for newline */
 if|if
 condition|(
 name|move_window
@@ -1238,7 +1275,11 @@ argument_list|(
 operator|&
 name|preimage
 argument_list|,
-name|preimage_len
+name|preimage
+operator|.
+name|max_off
+operator|-
+literal|1
 argument_list|,
 literal|1
 argument_list|)
