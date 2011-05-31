@@ -1666,7 +1666,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s already exists"
+argument_list|)
 argument_list|,
 name|git_dir
 argument_list|)
@@ -1687,7 +1690,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"%s already exists"
+argument_list|)
 argument_list|,
 name|real_git_dir
 argument_list|)
@@ -1801,7 +1807,10 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to handle file type %d"
+argument_list|)
 argument_list|,
 name|st
 operator|.
@@ -1819,7 +1828,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to move %s to %s"
+argument_list|)
 argument_list|,
 name|src
 argument_list|,
@@ -1843,7 +1855,10 @@ name|fp
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not create git link %s"
+argument_list|)
 argument_list|,
 name|git_link
 argument_list|)
