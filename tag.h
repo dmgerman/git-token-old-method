@@ -44,12 +44,11 @@ name|char
 modifier|*
 name|tag
 decl_stmt|;
-DECL|member|signature
-name|char
-modifier|*
-name|signature
+DECL|member|date
+name|unsigned
+name|long
+name|date
 decl_stmt|;
-comment|/* not actually implemented */
 block|}
 struct|;
 end_struct
@@ -78,6 +77,7 @@ name|tag
 modifier|*
 name|item
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|data
@@ -116,6 +116,22 @@ name|char
 modifier|*
 parameter_list|,
 name|int
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|size_t
+name|parse_signature
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|unsigned
+name|long
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

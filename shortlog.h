@@ -53,6 +53,10 @@ DECL|member|user_format
 name|int
 name|user_format
 decl_stmt|;
+DECL|member|abbrev
+name|int
+name|abbrev
+decl_stmt|;
 DECL|member|common_repo_prefix
 name|char
 modifier|*

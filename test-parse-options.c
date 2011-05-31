@@ -83,6 +83,13 @@ init|=
 name|NULL
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|ambiguous
+specifier|static
+name|int
+name|ambiguous
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|length_callback
 specifier|static
@@ -350,7 +357,7 @@ argument_list|,
 operator|&
 name|file
 argument_list|,
-literal|"set file to<FILE>"
+literal|"set file to<file>"
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -475,6 +482,44 @@ operator||
 name|PARSE_OPT_NODASH
 block|}
 block|,
+block|{
+name|OPTION_BOOLEAN
+block|,
+literal|0
+block|,
+literal|"ambiguous"
+block|,
+operator|&
+name|ambiguous
+block|,
+name|NULL
+block|,
+literal|"positive ambiguity"
+block|,
+name|PARSE_OPT_NOARG
+operator||
+name|PARSE_OPT_NONEG
+block|}
+block|,
+block|{
+name|OPTION_BOOLEAN
+block|,
+literal|0
+block|,
+literal|"no-ambiguous"
+block|,
+operator|&
+name|ambiguous
+block|,
+name|NULL
+block|,
+literal|"negative ambiguity"
+block|,
+name|PARSE_OPT_NOARG
+operator||
+name|PARSE_OPT_NONEG
+block|}
+block|,
 name|OPT_GROUP
 argument_list|(
 literal|"Standard options"
@@ -490,18 +535,24 @@ name|OPT__VERBOSE
 argument_list|(
 operator|&
 name|verbose
+argument_list|,
+literal|"be verbose"
 argument_list|)
 block|,
 name|OPT__DRY_RUN
 argument_list|(
 operator|&
 name|dry_run
+argument_list|,
+literal|"dry run"
 argument_list|)
 block|,
 name|OPT__QUIET
 argument_list|(
 operator|&
 name|quiet
+argument_list|,
+literal|"be quiet"
 argument_list|)
 block|,
 name|OPT_END

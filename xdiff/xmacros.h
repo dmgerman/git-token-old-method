@@ -62,6 +62,16 @@ parameter_list|)
 value|((c)>= '0'&& (c)<= '9')
 end_define
 begin_define
+DECL|macro|XDL_ISSPACE
+define|#
+directive|define
+name|XDL_ISSPACE
+parameter_list|(
+name|c
+parameter_list|)
+value|(isspace((unsigned char)(c)))
+end_define
+begin_define
 DECL|macro|XDL_ADDBITS
 define|#
 directive|define

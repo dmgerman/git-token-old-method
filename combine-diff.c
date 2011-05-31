@@ -1311,6 +1311,9 @@ name|n
 parameter_list|,
 name|int
 name|num_parent
+parameter_list|,
+name|int
+name|result_deleted
 parameter_list|)
 block|{
 name|unsigned
@@ -1338,9 +1341,6 @@ decl_stmt|;
 name|mmfile_t
 name|parent_file
 decl_stmt|;
-name|xdemitcb_t
-name|ecb
-decl_stmt|;
 name|struct
 name|combine_diff_state
 name|state
@@ -1351,8 +1351,7 @@ name|sz
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|cnt
+name|result_deleted
 condition|)
 return|return;
 comment|/* result deleted */
@@ -1393,7 +1392,7 @@ name|xpp
 operator|.
 name|flags
 operator|=
-name|XDF_NEED_MINIMAL
+literal|0
 expr_stmt|;
 name|memset
 argument_list|(
@@ -1468,9 +1467,6 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
-argument_list|,
-operator|&
-name|ecb
 argument_list|)
 expr_stmt|;
 name|free
@@ -2720,6 +2716,9 @@ name|num_parent
 parameter_list|,
 name|int
 name|use_color
+parameter_list|,
+name|int
+name|result_deleted
 parameter_list|)
 block|{
 name|unsigned
@@ -2761,6 +2760,18 @@ argument_list|(
 name|use_color
 argument_list|,
 name|DIFF_FRAGINFO
+argument_list|)
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|c_func
+init|=
+name|diff_get_color
+argument_list|(
+name|use_color
+argument_list|,
+name|DIFF_FUNCINFO
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -2813,8 +2824,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|cnt
+name|result_deleted
 condition|)
 return|return;
 comment|/* result deleted */
@@ -3135,9 +3145,17 @@ if|if
 condition|(
 name|comment_end
 condition|)
-name|putchar
+name|printf
 argument_list|(
-literal|' '
+literal|"%s%s %s%s"
+argument_list|,
+name|c_reset
+argument_list|,
+name|c_plain
+argument_list|,
+name|c_reset
+argument_list|,
+name|c_func
 argument_list|)
 expr_stmt|;
 for|for
@@ -3666,6 +3684,11 @@ name|cnt
 decl_stmt|,
 name|lno
 decl_stmt|;
+name|int
+name|result_deleted
+init|=
+literal|0
+decl_stmt|;
 name|char
 modifier|*
 name|result
@@ -4168,6 +4191,10 @@ else|else
 block|{
 name|deleted_file
 label|:
+name|result_deleted
+operator|=
+literal|1
+expr_stmt|;
 name|result_size
 operator|=
 literal|0
@@ -4590,6 +4617,8 @@ argument_list|,
 name|i
 argument_list|,
 name|num_parent
+argument_list|,
+name|result_deleted
 argument_list|)
 expr_stmt|;
 if|if
@@ -5011,6 +5040,8 @@ name|opt
 argument_list|,
 name|COLOR_DIFF
 argument_list|)
+argument_list|,
+name|result_deleted
 argument_list|)
 expr_stmt|;
 block|}

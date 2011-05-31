@@ -583,10 +583,6 @@ case|case
 literal|'D'
 case|:
 comment|/* we used to emit D but that was misguided. */
-goto|goto
-name|out_stale
-goto|;
-break|break;
 case|case
 literal|'T'
 case|:
@@ -594,7 +590,6 @@ comment|/* we used to emit T but nobody uses it. */
 goto|goto
 name|out_stale
 goto|;
-break|break;
 default|default:
 name|error
 argument_list|(

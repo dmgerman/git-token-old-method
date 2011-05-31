@@ -126,6 +126,7 @@ index|[
 name|i
 index|]
 condition|)
+block|{
 name|cache_tree_free
 argument_list|(
 operator|&
@@ -139,6 +140,17 @@ operator|->
 name|cache_tree
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|it
+operator|->
+name|down
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 name|free
 argument_list|(
 name|it
@@ -1723,6 +1735,13 @@ argument_list|(
 name|sha1
 argument_list|)
 condition|)
+block|{
+name|strbuf_release
+argument_list|(
+operator|&
+name|buffer
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 argument_list|(
@@ -1742,6 +1761,7 @@ argument_list|,
 name|path
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|ce
