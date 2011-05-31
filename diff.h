@@ -1000,6 +1000,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|int
+name|diff_can_quit_early
+parameter_list|(
+name|struct
+name|diff_options
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|void
 name|diff_addremove
 parameter_list|(
