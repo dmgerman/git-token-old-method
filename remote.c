@@ -5291,7 +5291,6 @@ block|}
 end_function
 begin_function
 DECL|function|copy_ref
-specifier|static
 name|struct
 name|ref
 modifier|*
