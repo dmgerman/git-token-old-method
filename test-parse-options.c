@@ -9,6 +9,11 @@ include|#
 directive|include
 file|"parse-options.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"string-list.h"
+end_include
 begin_decl_stmt
 DECL|variable|boolean
 specifier|static
@@ -88,6 +93,14 @@ DECL|variable|ambiguous
 specifier|static
 name|int
 name|ambiguous
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|list
+specifier|static
+name|struct
+name|string_list
+name|list
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -439,6 +452,20 @@ operator|)
 literal|"default"
 argument_list|)
 block|,
+name|OPT_STRING_LIST
+argument_list|(
+literal|0
+argument_list|,
+literal|"list"
+argument_list|,
+operator|&
+name|list
+argument_list|,
+literal|"str"
+argument_list|,
+literal|"add str to list"
+argument_list|)
+block|,
 name|OPT_GROUP
 argument_list|(
 literal|"Magic arguments"
@@ -656,6 +683,35 @@ condition|?
 name|file
 else|:
 literal|"(not set)"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|list
+operator|.
+name|nr
+condition|;
+name|i
+operator|++
+control|)
+name|printf
+argument_list|(
+literal|"list: %s\n"
+argument_list|,
+name|list
+operator|.
+name|items
+index|[
+name|i
+index|]
+operator|.
+name|string
 argument_list|)
 expr_stmt|;
 for|for
