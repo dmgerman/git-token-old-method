@@ -4128,7 +4128,7 @@ name|off_t
 name|offset
 parameter_list|,
 name|unsigned
-name|int
+name|long
 modifier|*
 name|left
 parameter_list|)
@@ -6268,7 +6268,7 @@ specifier|static
 name|int
 name|unpack_sha1_header
 parameter_list|(
-name|z_stream
+name|git_zstream
 modifier|*
 name|stream
 parameter_list|,
@@ -6478,7 +6478,7 @@ name|void
 modifier|*
 name|unpack_sha1_rest
 parameter_list|(
-name|z_stream
+name|git_zstream
 modifier|*
 name|stream
 parameter_list|,
@@ -6868,7 +6868,7 @@ block|{
 name|int
 name|ret
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|char
@@ -6972,7 +6972,7 @@ decl_stmt|,
 modifier|*
 name|in
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|int
@@ -7569,7 +7569,7 @@ modifier|*
 name|base
 decl_stmt|;
 name|unsigned
-name|int
+name|long
 name|left
 decl_stmt|;
 name|unsigned
@@ -8103,7 +8103,7 @@ block|{
 name|int
 name|st
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|unsigned
@@ -10509,7 +10509,7 @@ name|void
 modifier|*
 name|map
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|char
@@ -12225,7 +12225,7 @@ index|[
 literal|4096
 index|]
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|git_SHA_CTX

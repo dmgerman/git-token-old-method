@@ -670,7 +670,7 @@ name|long
 name|size
 parameter_list|)
 block|{
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|void
@@ -819,7 +819,7 @@ name|long
 name|expect
 parameter_list|)
 block|{
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|unsigned
@@ -990,7 +990,7 @@ modifier|*
 name|in
 decl_stmt|;
 name|unsigned
-name|int
+name|long
 name|avail
 decl_stmt|;
 while|while
@@ -1022,7 +1022,7 @@ name|avail
 operator|=
 operator|(
 name|unsigned
-name|int
+name|long
 operator|)
 name|len
 expr_stmt|;
@@ -5182,7 +5182,7 @@ decl_stmt|,
 name|used_0
 decl_stmt|;
 name|unsigned
-name|int
+name|long
 name|avail
 decl_stmt|;
 name|off_t

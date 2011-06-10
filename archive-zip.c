@@ -564,7 +564,7 @@ modifier|*
 name|compressed_size
 parameter_list|)
 block|{
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|unsigned

@@ -150,7 +150,7 @@ decl_stmt|;
 do|do
 block|{
 name|unsigned
-name|int
+name|long
 name|avail
 decl_stmt|;
 name|void
@@ -321,7 +321,7 @@ expr_stmt|;
 do|do
 block|{
 name|unsigned
-name|int
+name|long
 name|remaining
 decl_stmt|;
 name|unsigned

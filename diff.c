@@ -10248,7 +10248,7 @@ name|char
 modifier|*
 name|deflated
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|memset
