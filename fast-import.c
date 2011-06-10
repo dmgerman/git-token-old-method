@@ -5487,7 +5487,7 @@ name|s
 operator|.
 name|avail_out
 operator|=
-name|deflateBound
+name|git_deflate_bound
 argument_list|(
 operator|&
 name|s
@@ -5634,7 +5634,7 @@ name|s
 operator|.
 name|avail_out
 operator|=
-name|deflateBound
+name|git_deflate_bound
 argument_list|(
 operator|&
 name|s
