@@ -1568,7 +1568,7 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|=
-name|inflate
+name|git_inflate
 argument_list|(
 operator|&
 name|stream
@@ -1638,7 +1638,7 @@ block|}
 block|}
 name|done
 label|:
-name|inflateEnd
+name|git_inflate_end
 argument_list|(
 operator|&
 name|stream
