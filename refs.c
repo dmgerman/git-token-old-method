@@ -2993,15 +2993,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|strncmp
+name|prefixcmp
 argument_list|(
-name|base
-argument_list|,
 name|entry
 operator|->
 name|name
 argument_list|,
-name|trim
+name|base
 argument_list|)
 condition|)
 return|return
@@ -3794,7 +3792,7 @@ name|do_for_each_ref
 argument_list|(
 name|NULL
 argument_list|,
-literal|"refs/"
+literal|""
 argument_list|,
 name|fn
 argument_list|,
@@ -3830,7 +3828,7 @@ name|do_for_each_ref
 argument_list|(
 name|submodule
 argument_list|,
-literal|"refs/"
+literal|""
 argument_list|,
 name|fn
 argument_list|,
@@ -4339,7 +4337,7 @@ name|do_for_each_ref
 argument_list|(
 name|NULL
 argument_list|,
-literal|"refs/"
+literal|""
 argument_list|,
 name|fn
 argument_list|,
