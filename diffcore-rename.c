@@ -751,7 +751,7 @@ name|diff_populate_filespec
 argument_list|(
 name|src
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 condition|)
 return|return
@@ -768,7 +768,7 @@ name|diff_populate_filespec
 argument_list|(
 name|dst
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 condition|)
 return|return
@@ -838,6 +838,40 @@ operator|<
 name|delta_size
 operator|*
 name|MAX_SCORE
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
+operator|!
+name|src
+operator|->
+name|cnt_data
+operator|&&
+name|diff_populate_filespec
+argument_list|(
+name|src
+argument_list|,
+literal|0
+argument_list|)
+condition|)
+return|return
+literal|0
+return|;
+if|if
+condition|(
+operator|!
+name|dst
+operator|->
+name|cnt_data
+operator|&&
+name|diff_populate_filespec
+argument_list|(
+name|dst
+argument_list|,
+literal|0
+argument_list|)
 condition|)
 return|return
 literal|0
@@ -1263,7 +1297,7 @@ name|p
 operator|->
 name|filespec
 decl_stmt|;
-comment|/* False hash collission? */
+comment|/* False hash collision? */
 if|if
 condition|(
 name|hashcmp
@@ -2275,7 +2309,11 @@ name|warn_on_too_large_rename
 condition|)
 name|warning
 argument_list|(
-literal|"too many files, skipping inexact rename detection"
+literal|"too many files (created: %d deleted: %d), skipping inexact rename detection"
+argument_list|,
+name|num_create
+argument_list|,
+name|num_src
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -2448,18 +2486,18 @@ operator|&
 name|this_src
 argument_list|)
 expr_stmt|;
+comment|/* 			 * Once we run estimate_similarity, 			 * We do not need the text anymore. 			 */
 name|diff_free_filespec_blob
 argument_list|(
 name|one
 argument_list|)
 expr_stmt|;
-block|}
-comment|/* We do not need the text anymore */
 name|diff_free_filespec_blob
 argument_list|(
 name|two
 argument_list|)
 expr_stmt|;
+block|}
 name|dst_cnt
 operator|++
 expr_stmt|;

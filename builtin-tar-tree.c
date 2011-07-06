@@ -36,7 +36,18 @@ name|tar_tree_usage
 index|[]
 init|=
 literal|"git tar-tree [--remote=<repo>]<tree-ish> [basedir]\n"
-literal|"*** Note that this command is now deprecated; use git-archive instead."
+literal|"*** Note that this command is now deprecated; use \"git archive\" instead."
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|builtin_get_tar_commit_id_usage
+specifier|static
+specifier|const
+name|char
+name|builtin_get_tar_commit_id_usage
+index|[]
+init|=
+literal|"git get-tar-commit-id<<tarfile>"
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -59,7 +70,7 @@ modifier|*
 name|prefix
 parameter_list|)
 block|{
-comment|/* 	 * git-tar-tree is now a wrapper around git-archive --format=tar 	 * 	 * $0 --remote=<repo> arg... ==> 	 *	git-archive --format=tar --remote=<repo> arg... 	 * $0 tree-ish ==> 	 *	git-archive --format=tar tree-ish 	 * $0 tree-ish basedir ==> 	 * 	git-archive --format-tar --prefix=basedir tree-ish 	 */
+comment|/* 	 * "git tar-tree" is now a wrapper around "git archive --format=tar" 	 * 	 * $0 --remote=<repo> arg... ==> 	 *	git archive --format=tar --remote=<repo> arg... 	 * $0 tree-ish ==> 	 *	git archive --format=tar tree-ish 	 * $0 tree-ish basedir ==> 	 * 	git archive --format-tar --prefix=basedir tree-ish 	 */
 name|int
 name|i
 decl_stmt|;
@@ -79,7 +90,7 @@ argument_list|)
 argument_list|,
 name|argc
 operator|+
-literal|2
+literal|3
 argument_list|)
 decl_stmt|;
 name|char
@@ -97,7 +108,7 @@ name|nargc
 operator|++
 index|]
 operator|=
-literal|"git-archive"
+literal|"archive"
 expr_stmt|;
 name|nargv
 index|[
@@ -143,6 +154,15 @@ name|argc
 operator|--
 expr_stmt|;
 block|}
+comment|/* 	 * Because it's just a compatibility wrapper, tar-tree supports only 	 * the old behaviour of reading attributes from the work tree. 	 */
+name|nargv
+index|[
+name|nargc
+operator|++
+index|]
+operator|=
+literal|"--worktree-attributes"
+expr_stmt|;
 switch|switch
 condition|(
 name|argc
@@ -222,8 +242,8 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"*** git-tar-tree is now deprecated.\n"
-literal|"*** Running git-archive instead.\n***"
+literal|"*** \"git tar-tree\" is now deprecated.\n"
+literal|"*** Running \"git archive\" instead.\n***"
 argument_list|)
 expr_stmt|;
 for|for
@@ -343,6 +363,17 @@ decl_stmt|;
 name|ssize_t
 name|n
 decl_stmt|;
+if|if
+condition|(
+name|argc
+operator|!=
+literal|1
+condition|)
+name|usage
+argument_list|(
+name|builtin_get_tar_commit_id_usage
+argument_list|)
+expr_stmt|;
 name|n
 operator|=
 name|read_in_full
@@ -362,7 +393,7 @@ name|HEADERSIZE
 condition|)
 name|die
 argument_list|(
-literal|"git-get-tar-commit-id: read error"
+literal|"git get-tar-commit-id: read error"
 argument_list|)
 expr_stmt|;
 if|if
@@ -412,9 +443,9 @@ name|n
 operator|<
 literal|41
 condition|)
-name|die
+name|die_errno
 argument_list|(
-literal|"git-get-tar-commit-id: write error"
+literal|"git get-tar-commit-id: write error"
 argument_list|)
 expr_stmt|;
 return|return

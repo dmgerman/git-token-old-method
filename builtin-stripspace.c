@@ -301,6 +301,8 @@ block|{
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 name|int
 name|strip_comments
@@ -310,8 +312,8 @@ decl_stmt|;
 if|if
 condition|(
 name|argc
-operator|>
-literal|1
+operator|==
+literal|2
 operator|&&
 operator|(
 operator|!
@@ -341,12 +343,16 @@ name|strip_comments
 operator|=
 literal|1
 expr_stmt|;
-name|strbuf_init
+elseif|else
+if|if
+condition|(
+name|argc
+operator|>
+literal|1
+condition|)
+name|usage
 argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
+literal|"git stripspace [-s | --strip-comments]<<stream>"
 argument_list|)
 expr_stmt|;
 if|if
@@ -363,7 +369,7 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-name|die
+name|die_errno
 argument_list|(
 literal|"could not read the input"
 argument_list|)

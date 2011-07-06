@@ -33,7 +33,7 @@ name|int
 name|offset
 decl_stmt|;
 DECL|member|ctx
-name|SHA_CTX
+name|git_SHA_CTX
 name|ctx
 decl_stmt|;
 DECL|member|total
@@ -159,6 +159,18 @@ modifier|*
 parameter_list|,
 name|unsigned
 name|int
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|sha1flush
+parameter_list|(
+name|struct
+name|sha1file
+modifier|*
+name|f
 parameter_list|)
 function_decl|;
 end_function_decl
