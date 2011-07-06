@@ -41,7 +41,8 @@ parameter_list|,
 name|int
 name|reflog
 parameter_list|,
-name|int
+name|enum
+name|branch_track
 name|track
 parameter_list|)
 function_decl|;

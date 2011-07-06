@@ -1231,6 +1231,14 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|int
+name|dtype
+init|=
+name|ce_to_dtype
+argument_list|(
+name|ce
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|excluded
@@ -1240,6 +1248,9 @@ argument_list|,
 name|ce
 operator|->
 name|name
+argument_list|,
+operator|&
+name|dtype
 argument_list|)
 operator|!=
 name|dir
@@ -1321,6 +1332,14 @@ decl_stmt|;
 name|int
 name|err
 decl_stmt|;
+name|int
+name|dtype
+init|=
+name|ce_to_dtype
+argument_list|(
+name|ce
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|excluded
@@ -1330,6 +1349,9 @@ argument_list|,
 name|ce
 operator|->
 name|name
+argument_list|,
+operator|&
+name|dtype
 argument_list|)
 operator|!=
 name|dir
@@ -2112,7 +2134,7 @@ name|char
 name|ls_files_usage
 index|[]
 init|=
-literal|"git-ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* "
+literal|"git ls-files [-z] [-t] [-v] (--[cached|deleted|others|stage|unmerged|killed|modified])* "
 literal|"[ --ignored ] [--exclude=<pattern>] [--exclude-from=<file>] "
 literal|"[ --exclude-per-directory=<filename> ] [--exclude-standard] "
 literal|"[--full-name] [--abbrev] [--] [<file>]*"
@@ -2181,6 +2203,8 @@ expr_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 for|for

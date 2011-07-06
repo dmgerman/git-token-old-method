@@ -103,6 +103,7 @@ parameter_list|,
 name|int
 name|refs_nr
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*
@@ -270,6 +271,16 @@ name|TRANS_OPT_DEPTH
 value|"depth"
 end_define
 begin_comment
+comment|/* Aggressively fetch annotated tags if possible */
+end_comment
+begin_define
+DECL|macro|TRANS_OPT_FOLLOWTAGS
+define|#
+directive|define
+name|TRANS_OPT_FOLLOWTAGS
+value|"followtags"
+end_define
+begin_comment
 comment|/**  * Returns 0 if the option was used, non-zero otherwise. Prints a  * message to stderr if the option is not used.  **/
 end_comment
 begin_function_decl
@@ -339,6 +350,7 @@ name|transport
 modifier|*
 name|transport
 parameter_list|,
+specifier|const
 name|struct
 name|ref
 modifier|*

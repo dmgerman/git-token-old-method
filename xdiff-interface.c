@@ -950,10 +950,16 @@ operator|=
 name|xmalloc
 argument_list|(
 name|sz
+condition|?
+name|sz
+else|:
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|sz
+operator|&&
 name|fread
 argument_list|(
 name|ptr
@@ -1517,10 +1523,6 @@ argument_list|,
 name|expression
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|buffer
-condition|)
 name|free
 argument_list|(
 name|buffer

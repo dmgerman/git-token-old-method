@@ -15,7 +15,7 @@ name|char
 name|var_usage
 index|[]
 init|=
-literal|"git-var [-l |<variable>]"
+literal|"git var [-l |<variable>]"
 decl_stmt|;
 end_decl_stmt
 begin_struct
@@ -208,6 +208,10 @@ specifier|const
 name|char
 modifier|*
 name|value
+parameter_list|,
+name|void
+modifier|*
+name|cb
 parameter_list|)
 block|{
 if|if
@@ -237,6 +241,8 @@ argument_list|(
 name|var
 argument_list|,
 name|value
+argument_list|,
+name|cb
 argument_list|)
 return|;
 block|}
@@ -260,6 +266,9 @@ name|char
 modifier|*
 name|val
 decl_stmt|;
+name|int
+name|nongit
+decl_stmt|;
 if|if
 condition|(
 name|argc
@@ -273,8 +282,11 @@ name|var_usage
 argument_list|)
 expr_stmt|;
 block|}
-name|setup_git_directory
-argument_list|()
+name|setup_git_directory_gently
+argument_list|(
+operator|&
+name|nongit
+argument_list|)
 expr_stmt|;
 name|val
 operator|=
@@ -298,6 +310,8 @@ block|{
 name|git_config
 argument_list|(
 name|show_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|list_vars
@@ -310,6 +324,8 @@ block|}
 name|git_config
 argument_list|(
 name|git_default_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|val

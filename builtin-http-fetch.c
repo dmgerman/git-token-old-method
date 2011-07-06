@@ -104,6 +104,8 @@ decl_stmt|;
 name|git_config
 argument_list|(
 name|git_default_config
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 while|while
@@ -396,6 +398,8 @@ operator|=
 name|get_http_walker
 argument_list|(
 name|url
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|walker
@@ -478,10 +482,6 @@ argument_list|(
 name|walker
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|rewritten_url
-condition|)
 name|free
 argument_list|(
 name|rewritten_url

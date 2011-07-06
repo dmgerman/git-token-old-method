@@ -27,7 +27,7 @@ name|char
 name|ls_remote_usage
 index|[]
 init|=
-literal|"git-ls-remote [--upload-pack=<git-upload-pack>] [<host>:]<directory>"
+literal|"git ls-remote [--upload-pack=<git-upload-pack>] [<host>:]<directory>"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -170,8 +170,6 @@ name|NULL
 decl_stmt|;
 name|int
 name|nongit
-init|=
-literal|0
 decl_stmt|;
 name|unsigned
 name|flags
@@ -534,8 +532,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|ref
+name|transport_disconnect
+argument_list|(
+name|transport
+argument_list|)
 condition|)
 return|return
 literal|1

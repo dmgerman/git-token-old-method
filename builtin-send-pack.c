@@ -47,7 +47,7 @@ name|char
 name|send_pack_usage
 index|[]
 init|=
-literal|"git-send-pack [--all | --mirror] [--dry-run] [--force] [--receive-pack=<git-receive-pack>] [--verbose] [--thin] [<host>:]<directory> [<ref>...]\n"
+literal|"git send-pack [--all | --mirror] [--dry-run] [--force] [--receive-pack=<git-receive-pack>] [--verbose] [--thin] [<host>:]<directory> [<ref>...]\n"
 literal|"  --all and explicit<ref> specification are mutually exclusive."
 decl_stmt|;
 end_decl_stmt
@@ -311,6 +311,13 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+name|close
+argument_list|(
+name|po
+operator|.
+name|in
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|finish_command
@@ -1167,8 +1174,6 @@ operator|->
 name|deletion
 condition|)
 block|{
-if|if
-condition|(
 name|delete_ref
 argument_list|(
 name|rs
@@ -1176,11 +1181,6 @@ operator|.
 name|dst
 argument_list|,
 name|NULL
-argument_list|)
-condition|)
-name|error
-argument_list|(
-literal|"Failed to delete"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1411,28 +1411,12 @@ literal|20
 index|]
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|abbrev
-decl_stmt|;
-name|abbrev
-operator|=
+return|return
 name|find_unique_abbrev
 argument_list|(
 name|sha1
 argument_list|,
 name|DEFAULT_ABBREV
-argument_list|)
-expr_stmt|;
-return|return
-name|abbrev
-condition|?
-name|abbrev
-else|:
-name|sha1_to_hex
-argument_list|(
-name|sha1
 argument_list|)
 return|;
 block|}
@@ -2140,10 +2124,17 @@ argument_list|,
 name|flags
 argument_list|)
 condition|)
+block|{
+name|close
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -2156,6 +2147,11 @@ name|stderr
 argument_list|,
 literal|"No refs in common and none specified; doing nothing.\n"
 literal|"Perhaps you should specify a branch such as 'master'.\n"
+argument_list|)
+expr_stmt|;
+name|close
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 return|return
@@ -2470,18 +2466,12 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-block|{
-name|close
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
 block|}
-block|}
+else|else
 name|close
 argument_list|(
 name|out
@@ -2648,9 +2638,19 @@ block|{
 specifier|const
 name|char
 modifier|*
+name|local
+init|=
+name|heads
+index|[
+name|i
+index|]
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
 name|remote
 init|=
-name|strchr
+name|strrchr
 argument_list|(
 name|heads
 index|[
@@ -2660,6 +2660,31 @@ argument_list|,
 literal|':'
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|*
+name|local
+operator|==
+literal|'+'
+condition|)
+name|local
+operator|++
+expr_stmt|;
+comment|/* A matching refspec is okay.  */
+if|if
+condition|(
+name|remote
+operator|==
+name|local
+operator|&&
+name|remote
+index|[
+literal|1
+index|]
+operator|==
+literal|'\0'
+condition|)
+continue|continue;
 name|remote
 operator|=
 name|remote
@@ -2670,10 +2695,7 @@ operator|+
 literal|1
 operator|)
 else|:
-name|heads
-index|[
-name|i
-index|]
+name|local
 expr_stmt|;
 switch|switch
 condition|(
@@ -3221,14 +3243,7 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-name|close
-argument_list|(
-name|fd
-index|[
-literal|1
-index|]
-argument_list|)
-expr_stmt|;
+comment|/* do_send_pack always closes fd[1] */
 name|ret
 operator||=
 name|finish_connect
