@@ -15,17 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/socket.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<netinet/in.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<arpa/inet.h>
+file|"../git-compat-util.h"
 end_include
 begin_include
 include|#
@@ -105,6 +95,11 @@ name|dst
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NO_IPV6
+end_ifndef
 begin_function_decl
 specifier|static
 name|int
@@ -122,6 +117,10 @@ name|dst
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* int  * inet_pton4(src, dst)  *      like inet_aton() but without all the hexadecimal and shorthand.  * return:  *      1 if `src' is a valid dotted quad, else 0.  * notice:  *      does not touch `dst' unless it's returning 1.  * author:  *      Paul Vixie, 1996.  */
 end_comment

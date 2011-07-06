@@ -8,10 +8,9 @@ directive|include
 file|"git-compat-util.h"
 end_include
 begin_function
-DECL|function|report
-specifier|static
+DECL|function|vreportf
 name|void
-name|report
+name|vreportf
 parameter_list|(
 specifier|const
 name|char
@@ -76,7 +75,7 @@ name|va_list
 name|params
 parameter_list|)
 block|{
-name|report
+name|vreportf
 argument_list|(
 literal|"usage: "
 argument_list|,
@@ -108,7 +107,7 @@ name|va_list
 name|params
 parameter_list|)
 block|{
-name|report
+name|vreportf
 argument_list|(
 literal|"fatal: "
 argument_list|,
@@ -139,7 +138,7 @@ name|va_list
 name|params
 parameter_list|)
 block|{
-name|report
+name|vreportf
 argument_list|(
 literal|"error: "
 argument_list|,
@@ -165,7 +164,7 @@ name|va_list
 name|params
 parameter_list|)
 block|{
-name|report
+name|vreportf
 argument_list|(
 literal|"warning: "
 argument_list|,
@@ -295,6 +294,7 @@ end_decl_stmt
 begin_function
 DECL|function|usagef
 name|void
+name|NORETURN
 name|usagef
 parameter_list|(
 specifier|const
@@ -332,6 +332,7 @@ end_function
 begin_function
 DECL|function|usage
 name|void
+name|NORETURN
 name|usage
 parameter_list|(
 specifier|const
@@ -352,6 +353,7 @@ end_function
 begin_function
 DECL|function|die
 name|void
+name|NORETURN
 name|die
 parameter_list|(
 specifier|const
@@ -389,6 +391,7 @@ end_function
 begin_function
 DECL|function|die_errno
 name|void
+name|NORETURN
 name|die_errno
 parameter_list|(
 specifier|const

@@ -239,11 +239,6 @@ specifier|const
 name|char
 modifier|*
 name|url
-parameter_list|,
-name|struct
-name|remote
-modifier|*
-name|remote
 parameter_list|)
 function_decl|;
 end_function_decl

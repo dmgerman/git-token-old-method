@@ -37,7 +37,7 @@ name|void
 modifier|*
 name|temp
 decl_stmt|;
-name|size_t
+name|off_t
 name|len
 decl_stmt|;
 name|struct
@@ -80,12 +80,9 @@ argument_list|)
 condition|)
 name|len
 operator|=
-name|xsize_t
-argument_list|(
 name|st
 operator|.
 name|st_size
-argument_list|)
 expr_stmt|;
 else|else
 name|die
@@ -105,9 +102,12 @@ name|len
 condition|)
 name|length
 operator|=
+name|xsize_t
+argument_list|(
 name|len
 operator|-
 name|offset
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

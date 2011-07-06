@@ -1261,6 +1261,21 @@ operator|)
 operator|/
 name|RABIN_WINDOW
 expr_stmt|;
+if|if
+condition|(
+name|bufsize
+operator|>=
+literal|0xffffffffUL
+condition|)
+block|{
+comment|/* 		 * Current delta format can't encode offsets into 		 * reference buffer with more than 32 bits. 		 */
+name|entries
+operator|=
+literal|0xfffffffeU
+operator|/
+name|RABIN_WINDOW
+expr_stmt|;
+block|}
 name|hsize
 operator|=
 name|entries
