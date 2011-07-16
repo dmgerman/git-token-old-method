@@ -2153,7 +2153,7 @@ name|argv
 operator|=
 name|xcalloc
 argument_list|(
-literal|4
+literal|5
 operator|+
 name|revlist_args
 operator|->
@@ -2177,6 +2177,16 @@ operator|++
 index|]
 operator|=
 literal|"fast-export"
+expr_stmt|;
+name|fastexport
+operator|->
+name|argv
+index|[
+name|argc
+operator|++
+index|]
+operator|=
+literal|"--use-done-feature"
 expr_stmt|;
 if|if
 condition|(
@@ -2377,18 +2387,6 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|disconnect_helper
-argument_list|(
-name|transport
-argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"Error while disconnecting helper"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|finish_command
@@ -4144,12 +4142,6 @@ argument_list|(
 literal|"Couldn't run fast-export"
 argument_list|)
 expr_stmt|;
-name|data
-operator|->
-name|no_disconnect_req
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|finish_command
@@ -4161,18 +4153,6 @@ condition|)
 name|die
 argument_list|(
 literal|"Error while running fast-export"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|disconnect_helper
-argument_list|(
-name|transport
-argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"Error while disconnecting helper"
 argument_list|)
 expr_stmt|;
 return|return
