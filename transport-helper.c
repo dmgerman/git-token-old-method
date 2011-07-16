@@ -4096,6 +4096,19 @@ if|if
 condition|(
 name|ref
 operator|->
+name|deletion
+condition|)
+block|{
+name|die
+argument_list|(
+literal|"remote-helpers do not support ref deletion"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ref
+operator|->
 name|peer_ref
 condition|)
 name|string_list_append
