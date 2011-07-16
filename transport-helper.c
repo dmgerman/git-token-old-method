@@ -1178,6 +1178,11 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+name|int
+name|res
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|data
@@ -1246,6 +1251,8 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
+name|res
+operator|=
 name|finish_command
 argument_list|(
 name|data
@@ -1293,7 +1300,7 @@ name|NULL
 expr_stmt|;
 block|}
 return|return
-literal|0
+name|res
 return|;
 block|}
 end_function
@@ -1705,6 +1712,11 @@ modifier|*
 name|transport
 parameter_list|)
 block|{
+name|int
+name|res
+init|=
+literal|0
+decl_stmt|;
 name|struct
 name|helper_data
 modifier|*
@@ -1731,6 +1743,8 @@ name|refspecs
 operator|=
 name|NULL
 expr_stmt|;
+name|res
+operator|=
 name|disconnect_helper
 argument_list|(
 name|transport
@@ -1744,7 +1758,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+name|res
 return|;
 block|}
 end_function
@@ -2363,15 +2377,29 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|disconnect_helper
 argument_list|(
 name|transport
 argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Error while disconnecting helper"
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|finish_command
 argument_list|(
 operator|&
 name|fastimport
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Error while running fast-import"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4122,15 +4150,29 @@ name|no_disconnect_req
 operator|=
 literal|1
 expr_stmt|;
+if|if
+condition|(
 name|finish_command
 argument_list|(
 operator|&
 name|exporter
 argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Error while running fast-export"
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|disconnect_helper
 argument_list|(
 name|transport
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Error while disconnecting helper"
 argument_list|)
 expr_stmt|;
 return|return
