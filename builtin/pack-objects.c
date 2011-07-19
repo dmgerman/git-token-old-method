@@ -316,6 +316,14 @@ name|allow_ofs_delta
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|pack_idx_opts
+specifier|static
+name|struct
+name|pack_idx_option
+name|pack_idx_opts
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|base_name
 specifier|static
 specifier|const
@@ -2674,6 +2682,9 @@ argument_list|,
 name|written_list
 argument_list|,
 name|nr_written
+argument_list|,
+operator|&
+name|pack_idx_opts
 argument_list|,
 name|sha1
 argument_list|)
@@ -9307,7 +9318,9 @@ literal|"pack.indexversion"
 argument_list|)
 condition|)
 block|{
-name|pack_idx_default_version
+name|pack_idx_opts
+operator|.
+name|version
 operator|=
 name|git_config_int
 argument_list|(
@@ -9318,7 +9331,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|pack_idx_default_version
+name|pack_idx_opts
+operator|.
+name|version
 operator|>
 literal|2
 condition|)
@@ -9327,7 +9342,9 @@ argument_list|(
 literal|"bad pack.indexversion=%"
 name|PRIu32
 argument_list|,
-name|pack_idx_default_version
+name|pack_idx_opts
+operator|.
+name|version
 argument_list|)
 expr_stmt|;
 return|return
@@ -10670,6 +10687,12 @@ name|rp_ac
 operator|=
 literal|2
 expr_stmt|;
+name|reset_pack_idx_option
+argument_list|(
+operator|&
+name|pack_idx_opts
+argument_list|)
+expr_stmt|;
 name|git_config
 argument_list|(
 name|git_pack_config
@@ -11428,7 +11451,9 @@ name|char
 modifier|*
 name|c
 decl_stmt|;
-name|pack_idx_default_version
+name|pack_idx_opts
+operator|.
+name|version
 operator|=
 name|strtoul
 argument_list|(
@@ -11444,7 +11469,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|pack_idx_default_version
+name|pack_idx_opts
+operator|.
+name|version
 operator|>
 literal|2
 condition|)
@@ -11462,7 +11489,9 @@ name|c
 operator|==
 literal|','
 condition|)
-name|pack_idx_off32_limit
+name|pack_idx_opts
+operator|.
+name|off32_limit
 operator|=
 name|strtoul
 argument_list|(
@@ -11481,7 +11510,9 @@ condition|(
 operator|*
 name|c
 operator|||
-name|pack_idx_off32_limit
+name|pack_idx_opts
+operator|.
+name|off32_limit
 operator|&
 literal|0x80000000
 condition|)
