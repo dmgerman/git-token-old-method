@@ -1311,7 +1311,7 @@ block|{
 name|int
 name|status
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|void
@@ -1874,7 +1874,7 @@ decl_stmt|,
 modifier|*
 name|inbuf
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|int
@@ -3639,7 +3639,7 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|z_stream
+name|git_zstream
 name|stream
 decl_stmt|;
 name|int
@@ -3665,7 +3665,7 @@ name|stream
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|deflateInit
+name|git_deflate_init
 argument_list|(
 operator|&
 name|stream
@@ -3704,7 +3704,7 @@ argument_list|)
 expr_stmt|;
 name|status
 operator|=
-name|deflate
+name|git_deflate
 argument_list|(
 operator|&
 name|stream
@@ -3755,7 +3755,7 @@ name|stream
 operator|.
 name|total_out
 expr_stmt|;
-name|deflateEnd
+name|git_deflate_end
 argument_list|(
 operator|&
 name|stream
