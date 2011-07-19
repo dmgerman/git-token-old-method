@@ -1080,6 +1080,12 @@ name|defined
 argument_list|(
 name|__GNUC__
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|NO_NORETURN
+argument_list|)
 end_elif
 begin_define
 DECL|macro|NORETURN
