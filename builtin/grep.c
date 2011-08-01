@@ -4620,6 +4620,20 @@ argument_list|,
 literal|"show a line with the function name before matches"
 argument_list|)
 block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|'W'
+argument_list|,
+name|NULL
+argument_list|,
+operator|&
+name|opt
+operator|.
+name|funcbody
+argument_list|,
+literal|"show the surrounding function"
+argument_list|)
+block|,
 name|OPT_GROUP
 argument_list|(
 literal|""
@@ -5370,6 +5384,10 @@ operator|||
 name|opt
 operator|.
 name|file_break
+operator|||
+name|opt
+operator|.
+name|funcbody
 condition|)
 name|skip_first_line
 operator|=
