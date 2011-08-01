@@ -1168,6 +1168,11 @@ modifier|*
 modifier|*
 name|pathspec
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|prefix
+parameter_list|,
 name|struct
 name|checkout_opts
 modifier|*
@@ -1352,7 +1357,7 @@ name|ps_matched
 argument_list|,
 name|pathspec
 argument_list|,
-literal|0
+name|prefix
 argument_list|)
 condition|)
 return|return
@@ -5776,6 +5781,8 @@ argument_list|(
 name|source_tree
 argument_list|,
 name|pathspec
+argument_list|,
+name|prefix
 argument_list|,
 operator|&
 name|opts
