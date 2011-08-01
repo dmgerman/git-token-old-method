@@ -5291,7 +5291,6 @@ block|}
 end_function
 begin_function
 DECL|function|copy_ref
-specifier|static
 name|struct
 name|ref
 modifier|*
@@ -9191,6 +9190,16 @@ condition|(
 name|r
 operator|!=
 name|head
+operator|&&
+operator|!
+name|prefixcmp
+argument_list|(
+name|r
+operator|->
+name|name
+argument_list|,
+literal|"refs/heads/"
+argument_list|)
 operator|&&
 operator|!
 name|hashcmp
