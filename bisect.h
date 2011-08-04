@@ -146,6 +146,9 @@ specifier|const
 name|char
 modifier|*
 name|prefix
+parameter_list|,
+name|int
+name|no_checkout
 parameter_list|)
 function_decl|;
 end_function_decl
