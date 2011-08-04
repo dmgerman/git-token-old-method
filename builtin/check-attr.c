@@ -25,6 +25,13 @@ directive|include
 file|"parse-options.h"
 end_include
 begin_decl_stmt
+DECL|variable|all_attrs
+specifier|static
+name|int
+name|all_attrs
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|stdin_paths
 specifier|static
 name|int
@@ -42,9 +49,9 @@ name|check_attr_usage
 index|[]
 init|=
 block|{
-literal|"git check-attr attr... [--] pathname..."
+literal|"git check-attr [-a | --all | attr...] [--] pathname..."
 block|,
-literal|"git check-attr --stdin attr...<<list-of-paths>"
+literal|"git check-attr --stdin [-a | --all | attr...]<<list-of-paths>"
 block|,
 name|NULL
 block|}
@@ -67,6 +74,18 @@ name|check_attr_options
 index|[]
 init|=
 block|{
+name|OPT_BOOLEAN
+argument_list|(
+literal|'a'
+argument_list|,
+literal|"all"
+argument_list|,
+operator|&
+name|all_attrs
+argument_list|,
+literal|"report all attributes set on file"
+argument_list|)
+block|,
 name|OPT_BOOLEAN
 argument_list|(
 literal|0
@@ -233,6 +252,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|check
+operator|!=
+name|NULL
+condition|)
+block|{
+if|if
+condition|(
 name|git_checkattr
 argument_list|(
 name|file
@@ -256,6 +282,42 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|git_all_attrs
+argument_list|(
+name|file
+argument_list|,
+operator|&
+name|cnt
+argument_list|,
+operator|&
+name|check
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"git_all_attrs died"
+argument_list|)
+expr_stmt|;
+name|output_attr
+argument_list|(
+name|cnt
+argument_list|,
+name|check
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|check
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -536,7 +598,35 @@ operator|=
 name|i
 expr_stmt|;
 block|}
-comment|/* Check attribute argument(s): */
+comment|/* Process --all and/or attribute arguments: */
+if|if
+condition|(
+name|all_attrs
+condition|)
+block|{
+if|if
+condition|(
+name|doubledash
+operator|>=
+literal|1
+condition|)
+name|error_with_usage
+argument_list|(
+literal|"Attributes and --all both specified"
+argument_list|)
+expr_stmt|;
+name|cnt
+operator|=
+literal|0
+expr_stmt|;
+name|filei
+operator|=
+name|doubledash
+operator|+
+literal|1
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|doubledash
@@ -623,6 +713,18 @@ literal|"No file specified"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|all_attrs
+condition|)
+block|{
+name|check
+operator|=
+name|NULL
+expr_stmt|;
+block|}
+else|else
+block|{
 name|check
 operator|=
 name|xcalloc
@@ -696,6 +798,7 @@ name|attr
 operator|=
 name|a
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
