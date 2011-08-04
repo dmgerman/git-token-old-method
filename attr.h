@@ -86,7 +86,7 @@ parameter_list|)
 value|((v) == NULL)
 end_define
 begin_comment
-comment|/*  * Send one or more git_attr_check to git_checkattr(), and  * each 'value' member tells what its value is.  * Unset one is returned as NULL.  */
+comment|/*  * Send one or more git_attr_check to git_check_attr(), and  * each 'value' member tells what its value is.  * Unset one is returned as NULL.  */
 end_comment
 begin_struct
 DECL|struct|git_attr_check
@@ -124,7 +124,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|int
-name|git_checkattr
+name|git_check_attr
 parameter_list|(
 specifier|const
 name|char

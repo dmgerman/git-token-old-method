@@ -3766,9 +3766,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|git_checkattr
+DECL|function|git_check_attr
 name|int
-name|git_checkattr
+name|git_check_attr
 parameter_list|(
 specifier|const
 name|char
