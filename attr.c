@@ -667,7 +667,6 @@ modifier|*
 name|cp
 parameter_list|,
 name|int
-modifier|*
 name|num_attr
 parameter_list|,
 name|struct
@@ -807,7 +806,6 @@ name|res
 operator|->
 name|state
 index|[
-operator|*
 name|num_attr
 index|]
 operator|)
@@ -891,12 +889,6 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
-operator|(
-operator|*
-name|num_attr
-operator|)
-operator|++
-expr_stmt|;
 return|return
 name|ep
 operator|+
@@ -1156,7 +1148,6 @@ name|lineno
 argument_list|,
 name|cp
 argument_list|,
-operator|&
 name|num_attr
 argument_list|,
 name|res
@@ -1170,6 +1161,9 @@ condition|)
 return|return
 name|NULL
 return|;
+name|num_attr
+operator|++
+expr_stmt|;
 block|}
 if|if
 condition|(
