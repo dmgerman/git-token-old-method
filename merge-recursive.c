@@ -1992,10 +1992,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|make_room_for_directories_of_df_conflicts
+DECL|function|record_df_conflict_files
 specifier|static
 name|void
-name|make_room_for_directories_of_df_conflicts
+name|record_df_conflict_files
 parameter_list|(
 name|struct
 name|merge_options
@@ -2008,7 +2008,7 @@ modifier|*
 name|entries
 parameter_list|)
 block|{
-comment|/* If there are D/F conflicts, and the paths currently exist 	 * in the working copy as a file, we want to remove them to 	 * make room for the corresponding directory.  Such paths will 	 * later be processed in process_df_entry() at the end.  If 	 * the corresponding directory ends up being removed by the 	 * merge, then the file will be reinstated at that time; 	 * otherwise, if the file is not supposed to be removed by the 	 * merge, the contents of the file will be placed in another 	 * unique filename. 	 */
+comment|/* If there is a D/F conflict and the file for such a conflict 	 * currently exist in the working copy, we want to allow it to 	 * be removed to make room for the corresponding directory if 	 * needed.  The files underneath the directories of such D/F 	 * conflicts will be handled in process_entry(), while the 	 * files of such D/F conflicts will be processed later in 	 * process_df_entry().  If the corresponding directory ends up 	 * being removed by the merge, then no additional work needs 	 * to be done by process_df_entry() for the conflicting file. 	 * If the directory needs to be written to the working copy, 	 * then the conflicting file will simply be removed (e.g. in 	 * make_room_for_path).  If the directory is written to the 	 * working copy but the file also has a conflict that needs to 	 * be resolved, then process_df_entry() will reinstate the 	 * file with a new unique name. 	 */
 specifier|const
 name|char
 modifier|*
@@ -2052,6 +2052,16 @@ name|items
 argument_list|)
 argument_list|,
 name|string_list_df_name_compare
+argument_list|)
+expr_stmt|;
+name|string_list_clear
+argument_list|(
+operator|&
+name|o
+operator|->
+name|df_conflict_file_set
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 for|for
@@ -2106,7 +2116,7 @@ index|]
 operator|.
 name|util
 decl_stmt|;
-comment|/* 		 * Check if last_file& path correspond to a D/F conflict; 		 * i.e. whether path is last_file+'/'+<something>. 		 * If so, remove last_file to make room for path and friends. 		 */
+comment|/* 		 * Check if last_file& path correspond to a D/F conflict; 		 * i.e. whether path is last_file+'/'+<something>. 		 * If so, record that it's okay to remove last_file to make 		 * room for path and friends if needed. 		 */
 if|if
 condition|(
 name|last_file
@@ -2145,8 +2155,13 @@ argument_list|,
 name|last_file
 argument_list|)
 expr_stmt|;
-name|unlink
+name|string_list_insert
 argument_list|(
+operator|&
+name|o
+operator|->
+name|df_conflict_file_set
+argument_list|,
 name|last_file
 argument_list|)
 expr_stmt|;
@@ -9128,7 +9143,7 @@ operator|=
 name|get_unmerged
 argument_list|()
 expr_stmt|;
-name|make_room_for_directories_of_df_conflicts
+name|record_df_conflict_files
 argument_list|(
 name|o
 argument_list|,
@@ -10530,6 +10545,30 @@ expr_stmt|;
 name|o
 operator|->
 name|current_directory_set
+operator|.
+name|strdup_strings
+operator|=
+literal|1
+expr_stmt|;
+name|memset
+argument_list|(
+operator|&
+name|o
+operator|->
+name|df_conflict_file_set
+argument_list|,
+literal|0
+argument_list|,
+sizeof|sizeof
+argument_list|(
+expr|struct
+name|string_list
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|o
+operator|->
+name|df_conflict_file_set
 operator|.
 name|strdup_strings
 operator|=
