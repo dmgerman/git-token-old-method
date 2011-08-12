@@ -1278,7 +1278,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"BUG: %d %.*s"
+literal|"BUG: %d %.*s\n"
 argument_list|,
 name|ce_stage
 argument_list|(
