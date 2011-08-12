@@ -6203,11 +6203,6 @@ name|null_sha1
 argument_list|)
 condition|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|new_path
-decl_stmt|;
 name|clean_merge
 operator|=
 literal|0
@@ -6389,8 +6384,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|char
+modifier|*
 name|new_path
-operator|=
+init|=
 name|unique_path
 argument_list|(
 name|o
@@ -6399,7 +6396,7 @@ name|ren1_dst
 argument_list|,
 name|branch2
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|output
 argument_list|(
 name|o
@@ -6425,6 +6422,11 @@ name|dst_other
 operator|.
 name|mode
 argument_list|,
+name|new_path
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
 name|new_path
 argument_list|)
 expr_stmt|;
@@ -7436,7 +7438,6 @@ condition|(
 name|df_conflict_remains
 condition|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|new_path
@@ -7511,6 +7512,11 @@ argument_list|,
 literal|0
 argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|new_path
 argument_list|)
 expr_stmt|;
 block|}
@@ -8383,12 +8389,11 @@ operator|)
 condition|)
 block|{
 comment|/* Modify/delete; deleted side may have put a directory in the way */
-specifier|const
 name|char
 modifier|*
-name|new_path
+name|renamed
 init|=
-name|path
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -8409,7 +8414,8 @@ operator|.
 name|st_mode
 argument_list|)
 condition|)
-name|new_path
+block|{
+name|renamed
 operator|=
 name|unique_path
 argument_list|(
@@ -8428,6 +8434,7 @@ operator|->
 name|branch2
 argument_list|)
 expr_stmt|;
+block|}
 name|clean_merge
 operator|=
 literal|0
@@ -8438,7 +8445,11 @@ name|o
 argument_list|,
 name|path
 argument_list|,
-name|new_path
+name|renamed
+condition|?
+name|renamed
+else|:
+name|path
 argument_list|,
 name|a_sha
 argument_list|,
@@ -8447,6 +8458,11 @@ argument_list|,
 name|b_sha
 argument_list|,
 name|b_mode
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|renamed
 argument_list|)
 expr_stmt|;
 block|}
@@ -8567,7 +8583,6 @@ name|st_mode
 argument_list|)
 condition|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|new_path
@@ -8615,6 +8630,11 @@ name|sha
 argument_list|,
 name|mode
 argument_list|,
+name|new_path
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
 name|new_path
 argument_list|)
 expr_stmt|;
