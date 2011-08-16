@@ -893,6 +893,14 @@ condition|(
 name|one
 operator|->
 name|mode
+operator|&&
+operator|!
+name|is_null_sha1
+argument_list|(
+name|one
+operator|->
+name|sha1
+argument_list|)
 condition|)
 block|{
 name|struct
