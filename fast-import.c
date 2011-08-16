@@ -5199,7 +5199,7 @@ decl_stmt|;
 name|git_SHA_CTX
 name|c
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|s
 decl_stmt|;
 name|hdrlen
@@ -5434,7 +5434,7 @@ name|s
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|deflateInit
+name|git_deflate_init
 argument_list|(
 operator|&
 name|s
@@ -5487,7 +5487,7 @@ name|s
 operator|.
 name|avail_out
 operator|=
-name|deflateBound
+name|git_deflate_bound
 argument_list|(
 operator|&
 name|s
@@ -5512,7 +5512,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-name|deflate
+name|git_deflate
 argument_list|(
 operator|&
 name|s
@@ -5522,9 +5522,9 @@ argument_list|)
 operator|==
 name|Z_OK
 condition|)
-comment|/* nothing */
 empty_stmt|;
-name|deflateEnd
+comment|/* nothing */
+name|git_deflate_end
 argument_list|(
 operator|&
 name|s
@@ -5602,7 +5602,7 @@ name|s
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|deflateInit
+name|git_deflate_init
 argument_list|(
 operator|&
 name|s
@@ -5634,7 +5634,7 @@ name|s
 operator|.
 name|avail_out
 operator|=
-name|deflateBound
+name|git_deflate_bound
 argument_list|(
 operator|&
 name|s
@@ -5661,7 +5661,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-name|deflate
+name|git_deflate
 argument_list|(
 operator|&
 name|s
@@ -5671,9 +5671,9 @@ argument_list|)
 operator|==
 name|Z_OK
 condition|)
-comment|/* nothing */
 empty_stmt|;
-name|deflateEnd
+comment|/* nothing */
+name|git_deflate_end
 argument_list|(
 operator|&
 name|s
@@ -6114,7 +6114,7 @@ decl_stmt|;
 name|git_SHA_CTX
 name|pack_file_ctx
 decl_stmt|;
-name|z_stream
+name|git_zstream
 name|s
 decl_stmt|;
 name|int
@@ -6233,7 +6233,7 @@ name|s
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|deflateInit
+name|git_deflate_init
 argument_list|(
 operator|&
 name|s
@@ -6374,7 +6374,7 @@ expr_stmt|;
 block|}
 name|status
 operator|=
-name|deflate
+name|git_deflate
 argument_list|(
 operator|&
 name|s
@@ -6458,7 +6458,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|deflateEnd
+name|git_deflate_end
 argument_list|(
 operator|&
 name|s
