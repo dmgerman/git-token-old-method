@@ -1011,6 +1011,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|want_color
+argument_list|(
 name|graph
 operator|->
 name|revs
@@ -1018,8 +1021,7 @@ operator|->
 name|diffopt
 operator|.
 name|use_color
-operator|<=
-literal|0
+argument_list|)
 condition|)
 return|return
 name|column_colors_max

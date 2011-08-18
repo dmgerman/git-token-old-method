@@ -127,7 +127,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|want_color
+argument_list|(
 name|showbranch_use_color
+argument_list|)
 condition|)
 return|return
 name|column_colors_ansi
@@ -155,7 +158,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|want_color
+argument_list|(
 name|showbranch_use_color
+argument_list|)
 condition|)
 return|return
 name|GIT_COLOR_RESET
