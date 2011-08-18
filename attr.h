@@ -86,7 +86,7 @@ parameter_list|)
 value|((v) == NULL)
 end_define
 begin_comment
-comment|/*  * Send one or more git_attr_check to git_checkattr(), and  * each 'value' member tells what its value is.  * Unset one is returned as NULL.  */
+comment|/*  * Send one or more git_attr_check to git_check_attr(), and  * each 'value' member tells what its value is.  * Unset one is returned as NULL.  */
 end_comment
 begin_struct
 DECL|struct|git_attr_check
@@ -108,9 +108,23 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|/*  * Return the name of the attribute represented by the argument.  The  * return value is a pointer to a null-delimited string that is part  * of the internal data structure; it should not be modified or freed.  */
+end_comment
+begin_function_decl
+name|char
+modifier|*
+name|git_attr_name
+parameter_list|(
+name|struct
+name|git_attr
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function_decl
 name|int
-name|git_checkattr
+name|git_check_attr
 parameter_list|(
 specifier|const
 name|char
@@ -122,6 +136,30 @@ parameter_list|,
 name|struct
 name|git_attr_check
 modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/*  * Retrieve all attributes that apply to the specified path.  *num  * will be set the the number of attributes on the path; **check will  * be set to point at a newly-allocated array of git_attr_check  * objects describing the attributes and their values.  *check must be  * free()ed by the caller.  */
+end_comment
+begin_function_decl
+name|int
+name|git_all_attrs
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|path
+parameter_list|,
+name|int
+modifier|*
+name|num
+parameter_list|,
+name|struct
+name|git_attr_check
+modifier|*
+modifier|*
+name|check
 parameter_list|)
 function_decl|;
 end_function_decl

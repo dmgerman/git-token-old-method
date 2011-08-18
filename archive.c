@@ -727,7 +727,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|git_checkattr
+name|git_check_attr
 argument_list|(
 name|path_without_prefix
 argument_list|,
