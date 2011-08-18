@@ -30,7 +30,7 @@ name|git_bisect_helper_usage
 index|[]
 init|=
 block|{
-literal|"git bisect--helper --next-all"
+literal|"git bisect--helper --next-all [--no-checkout]"
 block|,
 name|NULL
 block|}
@@ -61,6 +61,11 @@ name|next_all
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|no_checkout
+init|=
+literal|0
+decl_stmt|;
 name|struct
 name|option
 name|options
@@ -77,6 +82,18 @@ operator|&
 name|next_all
 argument_list|,
 literal|"perform 'git bisect next'"
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"no-checkout"
+argument_list|,
+operator|&
+name|no_checkout
+argument_list|,
+literal|"update BISECT_HEAD instead of checking out the current commit"
 argument_list|)
 block|,
 name|OPT_END
@@ -117,6 +134,8 @@ return|return
 name|bisect_next_all
 argument_list|(
 name|prefix
+argument_list|,
+name|no_checkout
 argument_list|)
 return|;
 block|}
