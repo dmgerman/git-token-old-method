@@ -322,13 +322,9 @@ directive|define
 name|DIFF_OPT_FOLLOW_RENAMES
 value|(1<<  7)
 end_define
-begin_define
-DECL|macro|DIFF_OPT_COLOR_DIFF
-define|#
-directive|define
-name|DIFF_OPT_COLOR_DIFF
-value|(1<<  8)
-end_define
+begin_comment
+comment|/* (1<<  8) unused */
+end_comment
 begin_comment
 comment|/* (1<<  9) unused */
 end_comment
@@ -601,6 +597,10 @@ DECL|member|flags
 name|unsigned
 name|flags
 decl_stmt|;
+DECL|member|use_color
+name|int
+name|use_color
+decl_stmt|;
 DECL|member|context
 name|int
 name|context
@@ -839,7 +839,7 @@ parameter_list|,
 name|ix
 parameter_list|)
 define|\
-value|diff_get_color(DIFF_OPT_TST((o), COLOR_DIFF), ix)
+value|diff_get_color((o)->use_color, ix)
 end_define
 begin_decl_stmt
 specifier|extern
