@@ -17,6 +17,15 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|color_stdout_is_tty
+name|int
+name|color_stdout_is_tty
+init|=
+operator|-
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * The list of available column colors.  */
 end_comment
@@ -827,9 +836,6 @@ specifier|const
 name|char
 modifier|*
 name|value
-parameter_list|,
-name|int
-name|stdout_is_tty
 parameter_list|)
 block|{
 if|if
@@ -905,11 +911,11 @@ name|auto_color
 label|:
 if|if
 condition|(
-name|stdout_is_tty
+name|color_stdout_is_tty
 operator|<
 literal|0
 condition|)
-name|stdout_is_tty
+name|color_stdout_is_tty
 operator|=
 name|isatty
 argument_list|(
@@ -918,7 +924,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|stdout_is_tty
+name|color_stdout_is_tty
 operator|||
 operator|(
 name|pager_in_use
@@ -995,9 +1001,6 @@ argument_list|(
 name|var
 argument_list|,
 name|value
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 return|return
