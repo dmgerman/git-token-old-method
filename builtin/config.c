@@ -1865,6 +1865,13 @@ name|int
 name|get_diff_color_found
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|get_color_ui_found
+specifier|static
+name|int
+name|get_color_ui_found
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|git_get_colorbool_config
 specifier|static
@@ -1936,7 +1943,7 @@ argument_list|,
 literal|"color.ui"
 argument_list|)
 condition|)
-name|git_use_color_default
+name|get_color_ui_found
 operator|=
 name|git_config_colorbool
 argument_list|(
@@ -2006,7 +2013,7 @@ literal|0
 condition|)
 name|get_colorbool_found
 operator|=
-name|git_use_color_default
+name|get_color_ui_found
 expr_stmt|;
 block|}
 name|get_colorbool_found
