@@ -223,15 +223,6 @@ name|GIT_COLOR_AUTO
 value|2
 end_define
 begin_comment
-comment|/*  * This variable stores the value of color.ui  */
-end_comment
-begin_decl_stmt
-specifier|extern
-name|int
-name|git_use_color_default
-decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|/* A default list of colors to use for commit graphs and show-branch output */
 end_comment
 begin_decl_stmt
