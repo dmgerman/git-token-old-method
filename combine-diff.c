@@ -4190,6 +4190,9 @@ parameter_list|,
 name|int
 name|dense
 parameter_list|,
+name|int
+name|working_tree_file
+parameter_list|,
 name|struct
 name|rev_info
 modifier|*
@@ -4241,16 +4244,6 @@ name|int
 name|i
 decl_stmt|,
 name|show_hunks
-decl_stmt|;
-name|int
-name|working_tree_file
-init|=
-name|is_null_sha1
-argument_list|(
-name|elem
-operator|->
-name|sha1
-argument_list|)
 decl_stmt|;
 name|mmfile_t
 name|result_file
@@ -5821,6 +5814,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * The result (p->elem) is from the working tree and their  * parents are typically from multiple stages during a merge  * (i.e. diff-files) or the state in HEAD and in the index  * (i.e. diff-index).  */
+end_comment
 begin_function
 DECL|function|show_combined_diff
 name|void
@@ -5900,6 +5896,8 @@ argument_list|,
 name|num_parent
 argument_list|,
 name|dense
+argument_list|,
+literal|1
 argument_list|,
 name|rev
 argument_list|)
@@ -6289,6 +6287,8 @@ argument_list|,
 name|num_parent
 argument_list|,
 name|dense
+argument_list|,
+literal|0
 argument_list|,
 name|rev
 argument_list|)
