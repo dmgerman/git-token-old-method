@@ -1829,7 +1829,7 @@ name|alt
 init|=
 name|mkpath
 argument_list|(
-literal|"%s/objects\n"
+literal|"%s\n"
 argument_list|,
 name|reference
 argument_list|)
