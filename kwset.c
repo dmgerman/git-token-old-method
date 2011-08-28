@@ -24,7 +24,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"obstack.h"
+file|"compat/obstack.h"
 end_include
 begin_define
 DECL|macro|NCHAR
