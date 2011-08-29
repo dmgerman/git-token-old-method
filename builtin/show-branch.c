@@ -127,7 +127,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|want_color
+argument_list|(
 name|showbranch_use_color
+argument_list|)
 condition|)
 return|return
 name|column_colors_ansi
@@ -155,7 +158,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|want_color
+argument_list|(
 name|showbranch_use_color
+argument_list|)
 condition|)
 return|return
 name|GIT_COLOR_RESET
@@ -3018,9 +3024,6 @@ argument_list|(
 name|var
 argument_list|,
 name|value
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -3650,17 +3653,6 @@ name|git_show_branch_config
 argument_list|,
 name|NULL
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|showbranch_use_color
-operator|==
-operator|-
-literal|1
-condition|)
-name|showbranch_use_color
-operator|=
-name|git_use_color_default
 expr_stmt|;
 comment|/* If nothing is specified, try the default first */
 if|if
