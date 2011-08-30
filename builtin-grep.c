@@ -3097,6 +3097,9 @@ decl_stmt|;
 name|int
 name|hit
 decl_stmt|;
+name|read_sha1_lock
+argument_list|()
+expr_stmt|;
 name|data
 operator|=
 name|read_object_with_reference
@@ -3112,6 +3115,9 @@ name|size
 argument_list|,
 name|NULL
 argument_list|)
+expr_stmt|;
+name|read_sha1_unlock
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
