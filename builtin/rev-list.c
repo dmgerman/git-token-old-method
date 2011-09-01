@@ -734,6 +734,10 @@ specifier|const
 name|char
 modifier|*
 name|name
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 if|if
@@ -787,6 +791,10 @@ specifier|const
 name|char
 modifier|*
 name|component
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 name|finish_object
@@ -796,6 +804,8 @@ argument_list|,
 name|path
 argument_list|,
 name|component
+argument_list|,
+name|cb_data
 argument_list|)
 expr_stmt|;
 name|show_object_with_name
