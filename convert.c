@@ -2366,7 +2366,7 @@ operator|!
 name|dollar
 condition|)
 break|break;
-name|memcpy
+name|memmove
 argument_list|(
 name|dst
 argument_list|,
@@ -2489,7 +2489,7 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-name|memcpy
+name|memmove
 argument_list|(
 name|dst
 argument_list|,
