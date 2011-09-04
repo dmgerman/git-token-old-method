@@ -2887,8 +2887,6 @@ name|max_prefix
 operator|=
 name|pathspec_prefix
 argument_list|(
-name|prefix
-argument_list|,
 name|pathspec
 argument_list|)
 expr_stmt|;
