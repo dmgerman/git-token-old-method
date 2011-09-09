@@ -2692,9 +2692,13 @@ name|max_depth
 argument_list|)
 return|;
 block|}
-comment|/* Does the base match? */
+comment|/* Either there must be no base, or the base must match. */
 if|if
 condition|(
+name|baselen
+operator|==
+literal|0
+operator|||
 operator|!
 name|strncmp
 argument_list|(
