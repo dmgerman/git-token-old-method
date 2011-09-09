@@ -448,7 +448,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|int
-name|match_refs
+name|match_push_refs
 parameter_list|(
 name|struct
 name|ref
