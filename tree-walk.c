@@ -1639,6 +1639,8 @@ name|struct
 name|name_entry
 modifier|*
 name|e
+init|=
+name|NULL
 decl_stmt|;
 name|int
 name|len
