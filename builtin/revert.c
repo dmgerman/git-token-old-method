@@ -3532,6 +3532,7 @@ comment|/*  * Append a commit to the end of the commit_list.  *  * next starts b
 end_comment
 begin_function
 DECL|function|commit_list_append
+specifier|static
 name|struct
 name|commit_list
 modifier|*
