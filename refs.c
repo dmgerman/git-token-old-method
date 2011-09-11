@@ -863,6 +863,7 @@ block|}
 end_function
 begin_function
 DECL|function|create_cached_refs
+specifier|static
 name|struct
 name|cached_refs
 modifier|*
