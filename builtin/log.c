@@ -3276,6 +3276,14 @@ name|var
 argument_list|,
 literal|"color.diff"
 argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|var
+argument_list|,
+literal|"color.ui"
+argument_list|)
 condition|)
 block|{
 return|return
