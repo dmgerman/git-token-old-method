@@ -30,7 +30,7 @@ name|char
 name|builtin_check_ref_format_usage
 index|[]
 init|=
-literal|"git check-ref-format [--print] [options]<refname>\n"
+literal|"git check-ref-format [--normalize] [options]<refname>\n"
 literal|"   or: git check-ref-format --branch<branchname-shorthand>"
 decl_stmt|;
 end_decl_stmt
@@ -207,7 +207,7 @@ name|int
 name|i
 decl_stmt|;
 name|int
-name|print
+name|normalize
 init|=
 literal|0
 decl_stmt|;
@@ -303,10 +303,21 @@ index|[
 name|i
 index|]
 argument_list|,
+literal|"--normalize"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
 literal|"--print"
 argument_list|)
 condition|)
-name|print
+name|normalize
 operator|=
 literal|1
 expr_stmt|;
@@ -397,6 +408,17 @@ index|]
 expr_stmt|;
 if|if
 condition|(
+name|normalize
+condition|)
+name|refname
+operator|=
+name|collapse_slashes
+argument_list|(
+name|refname
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|check_refname_format
 argument_list|(
 name|refname
@@ -409,16 +431,8 @@ literal|1
 return|;
 if|if
 condition|(
-name|print
+name|normalize
 condition|)
-block|{
-name|refname
-operator|=
-name|collapse_slashes
-argument_list|(
-name|refname
-argument_list|)
-expr_stmt|;
 name|printf
 argument_list|(
 literal|"%s\n"
@@ -426,7 +440,6 @@ argument_list|,
 name|refname
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|0
 return|;
