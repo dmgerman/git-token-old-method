@@ -2610,6 +2610,11 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|private
+condition|)
+block|{
 name|read_ref
 argument_list|(
 name|private
@@ -2624,6 +2629,7 @@ argument_list|(
 name|private
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|strbuf_release
 argument_list|(
