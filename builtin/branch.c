@@ -3138,6 +3138,8 @@ operator|&
 name|newref
 argument_list|,
 name|force
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
