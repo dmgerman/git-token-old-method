@@ -6417,6 +6417,9 @@ literal|11
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|branch
+operator|||
 name|is_null_sha1
 argument_list|(
 name|head
