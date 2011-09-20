@@ -1350,7 +1350,7 @@ name|dirty_submodule
 init|=
 literal|0
 decl_stmt|;
-comment|/* 	 * New file in the index: it might actually be different in 	 * the working copy. 	 */
+comment|/* 	 * New file in the index: it might actually be different in 	 * the working tree. 	 */
 if|if
 condition|(
 name|get_stat_data
