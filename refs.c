@@ -4379,6 +4379,10 @@ literal|' '
 operator|||
 name|ch
 operator|==
+literal|0x7f
+operator|||
+name|ch
+operator|==
 literal|'~'
 operator|||
 name|ch
