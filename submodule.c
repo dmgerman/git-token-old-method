@@ -145,7 +145,7 @@ argument_list|)
 expr_stmt|;
 name|git_dir
 operator|=
-name|read_gitfile_gently
+name|read_gitfile
 argument_list|(
 name|objects_directory
 operator|.
@@ -2960,7 +2960,7 @@ argument_list|)
 expr_stmt|;
 name|git_dir
 operator|=
-name|read_gitfile_gently
+name|read_gitfile
 argument_list|(
 name|submodule_git_dir
 operator|.
@@ -3151,7 +3151,7 @@ argument_list|)
 expr_stmt|;
 name|git_dir
 operator|=
-name|read_gitfile_gently
+name|read_gitfile
 argument_list|(
 name|buf
 operator|.
