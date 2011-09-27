@@ -35,10 +35,9 @@ block|,
 DECL|enumerator|OPTION_NEGBIT
 name|OPTION_NEGBIT
 block|,
-DECL|enumerator|OPTION_BOOLEAN
-name|OPTION_BOOLEAN
+DECL|enumerator|OPTION_COUNTUP
+name|OPTION_COUNTUP
 block|,
-comment|/* _INCR would have been a better name */
 DECL|enumerator|OPTION_SET_INT
 name|OPTION_SET_INT
 block|,
@@ -63,6 +62,16 @@ name|OPTION_FILENAME
 block|}
 enum|;
 end_enum
+begin_comment
+comment|/* Deprecated synonym */
+end_comment
+begin_define
+DECL|macro|OPTION_BOOLEAN
+define|#
+directive|define
+name|OPTION_BOOLEAN
+value|OPTION_COUNTUP
+end_define
 begin_enum
 DECL|enum|parse_opt_flags
 enum|enum
@@ -323,10 +332,10 @@ parameter_list|)
 value|{ OPTION_NEGBIT, (s), (l), (v), NULL, \ 				      (h), PARSE_OPT_NOARG, NULL, (b) }
 end_define
 begin_define
-DECL|macro|OPT_BOOLEAN
+DECL|macro|OPT_COUNTUP
 define|#
 directive|define
-name|OPT_BOOLEAN
+name|OPT_COUNTUP
 parameter_list|(
 name|s
 parameter_list|,
@@ -336,7 +345,7 @@ name|v
 parameter_list|,
 name|h
 parameter_list|)
-value|{ OPTION_BOOLEAN, (s), (l), (v), NULL, \ 				      (h), PARSE_OPT_NOARG }
+value|{ OPTION_COUNTUP, (s), (l), (v), NULL, \ 				      (h), PARSE_OPT_NOARG }
 end_define
 begin_define
 DECL|macro|OPT_SET_INT
@@ -355,6 +364,22 @@ parameter_list|,
 name|i
 parameter_list|)
 value|{ OPTION_SET_INT, (s), (l), (v), NULL, \ 				      (h), PARSE_OPT_NOARG, NULL, (i) }
+end_define
+begin_define
+DECL|macro|OPT_BOOL
+define|#
+directive|define
+name|OPT_BOOL
+parameter_list|(
+name|s
+parameter_list|,
+name|l
+parameter_list|,
+name|v
+parameter_list|,
+name|h
+parameter_list|)
+value|OPT_SET_INT(s, l, v, h, 1)
 end_define
 begin_define
 DECL|macro|OPT_SET_PTR
@@ -528,6 +553,16 @@ name|h
 parameter_list|)
 define|\
 value|{ OPTION_CALLBACK, (s), (l), (v), "when", (h), PARSE_OPT_OPTARG, \ 		parse_opt_color_flag_cb, (intptr_t)"always" }
+end_define
+begin_comment
+comment|/* Deprecated synonym */
+end_comment
+begin_define
+DECL|macro|OPT_BOOLEAN
+define|#
+directive|define
+name|OPT_BOOLEAN
+value|OPT_COUNTUP
 end_define
 begin_comment
 comment|/* parse_options() will filter out the processed options and leave the  * non-option arguments in argv[].  * Returns the number of arguments left in argv[].  */
