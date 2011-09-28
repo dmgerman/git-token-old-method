@@ -10088,6 +10088,7 @@ DECL|function|ref_exists
 name|int
 name|ref_exists
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|refname
