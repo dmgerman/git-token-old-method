@@ -11237,6 +11237,13 @@ name|e
 operator|++
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|leak_pending
+condition|)
 name|free
 argument_list|(
 name|list
