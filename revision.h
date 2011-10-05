@@ -329,6 +329,11 @@ name|blob_objects
 range|:
 literal|1
 decl_stmt|,
+DECL|member|verify_objects
+name|verify_objects
+range|:
+literal|1
+decl_stmt|,
 DECL|member|edge_hint
 name|edge_hint
 range|:
