@@ -121,6 +121,13 @@ name|verbose
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|BUNDLE_VERBOSE
+define|#
+directive|define
+name|BUNDLE_VERBOSE
+value|1
+end_define
 begin_function_decl
 name|int
 name|unbundle
@@ -132,6 +139,9 @@ name|header
 parameter_list|,
 name|int
 name|bundle_fd
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -333,6 +333,8 @@ operator|&
 name|header
 argument_list|,
 name|bundle_fd
+argument_list|,
+literal|0
 argument_list|)
 operator|||
 name|list_bundle_refs
