@@ -2327,7 +2327,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'l'
 argument_list|,
-name|NULL
+literal|"list"
 argument_list|,
 operator|&
 name|list
@@ -2360,7 +2360,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'d'
 argument_list|,
-name|NULL
+literal|"delete"
 argument_list|,
 operator|&
 name|delete
@@ -2372,7 +2372,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'v'
 argument_list|,
-name|NULL
+literal|"verify"
 argument_list|,
 operator|&
 name|verify
@@ -2389,7 +2389,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'a'
 argument_list|,
-name|NULL
+literal|"annotate"
 argument_list|,
 operator|&
 name|annotate
@@ -2401,7 +2401,7 @@ name|OPT_CALLBACK
 argument_list|(
 literal|'m'
 argument_list|,
-name|NULL
+literal|"message"
 argument_list|,
 operator|&
 name|msg
@@ -2417,7 +2417,7 @@ name|OPT_FILENAME
 argument_list|(
 literal|'F'
 argument_list|,
-name|NULL
+literal|"file"
 argument_list|,
 operator|&
 name|msgfile
@@ -2429,7 +2429,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'s'
 argument_list|,
-name|NULL
+literal|"sign"
 argument_list|,
 operator|&
 name|sign
@@ -2441,7 +2441,7 @@ name|OPT_STRING
 argument_list|(
 literal|'u'
 argument_list|,
-name|NULL
+literal|"local-user"
 argument_list|,
 operator|&
 name|keyid
