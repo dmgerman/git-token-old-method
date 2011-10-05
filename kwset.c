@@ -3572,7 +3572,7 @@ name|maxd
 expr_stmt|;
 name|lmch
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|d
 operator|=
