@@ -1272,7 +1272,8 @@ specifier|static
 name|void
 name|print_advice
 parameter_list|(
-name|void
+name|int
+name|show_hint
 parameter_list|)
 block|{
 name|char
@@ -1309,6 +1310,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|show_hint
+condition|)
+block|{
 name|advise
 argument_list|(
 literal|"after resolving the conflicts, mark the corrected paths"
@@ -1324,6 +1330,7 @@ argument_list|(
 literal|"and commit the result with 'git commit'"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -2793,7 +2800,11 @@ name|subject
 argument_list|)
 expr_stmt|;
 name|print_advice
-argument_list|()
+argument_list|(
+name|res
+operator|==
+literal|1
+argument_list|)
 expr_stmt|;
 name|rerere
 argument_list|(
