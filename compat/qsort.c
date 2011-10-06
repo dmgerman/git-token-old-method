@@ -305,7 +305,7 @@ name|char
 modifier|*
 name|tmp
 init|=
-name|malloc
+name|xmalloc
 argument_list|(
 name|size
 argument_list|)
