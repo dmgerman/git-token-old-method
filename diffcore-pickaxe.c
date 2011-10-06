@@ -1165,13 +1165,8 @@ for|for
 control|(
 name|i
 operator|=
-name|has_changes
-operator|=
 literal|0
 init|;
-operator|!
-name|has_changes
-operator|&&
 name|i
 operator|<
 name|q
@@ -1314,13 +1309,15 @@ condition|)
 name|has_changes
 operator|++
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|has_changes
 condition|)
-return|return;
-comment|/* not munge the queue */
+goto|goto
+name|out
+goto|;
+comment|/* do not munge the queue */
+block|}
 comment|/* otherwise we will clear the whole queue 		 * by copying the empty outq at the end of this 		 * function, but first clear the current entries 		 * in the queue. 		 */
 for|for
 control|(
@@ -1525,6 +1522,20 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
+name|free
+argument_list|(
+name|q
+operator|->
+name|queue
+argument_list|)
+expr_stmt|;
+operator|*
+name|q
+operator|=
+name|outq
+expr_stmt|;
+name|out
+label|:
 if|if
 condition|(
 name|opts
@@ -1542,18 +1553,6 @@ name|kwsfree
 argument_list|(
 name|kws
 argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
-name|q
-operator|->
-name|queue
-argument_list|)
-expr_stmt|;
-operator|*
-name|q
-operator|=
-name|outq
 expr_stmt|;
 return|return;
 block|}
