@@ -536,6 +536,11 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
 name|i
