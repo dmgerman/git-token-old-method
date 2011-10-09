@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"refs.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"fmt-merge-msg.h"
+end_include
 begin_decl_stmt
 DECL|variable|git_default_email
 name|char
