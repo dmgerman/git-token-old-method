@@ -1031,7 +1031,7 @@ name|refspec_nr
 operator|++
 index|]
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|capname
 operator|+
@@ -2603,13 +2603,18 @@ expr_stmt|;
 else|else
 name|private
 operator|=
-name|strdup
+name|xstrdup
 argument_list|(
 name|posn
 operator|->
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|private
+condition|)
+block|{
 name|read_ref
 argument_list|(
 name|private
@@ -2624,6 +2629,7 @@ argument_list|(
 name|private
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|strbuf_release
 argument_list|(
