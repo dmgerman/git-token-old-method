@@ -466,6 +466,7 @@ specifier|extern
 name|int
 name|ref_exists
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 parameter_list|)
