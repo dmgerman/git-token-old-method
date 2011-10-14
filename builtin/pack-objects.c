@@ -4264,7 +4264,7 @@ name|p
 argument_list|)
 condition|)
 block|{
-name|error
+name|warning
 argument_list|(
 literal|"packfile %s cannot be accessed"
 argument_list|,
