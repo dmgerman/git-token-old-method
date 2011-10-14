@@ -6860,6 +6860,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|int
+name|is_pack_valid
+parameter_list|(
+name|struct
+name|packed_git
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|void
 modifier|*
 name|unpack_entry
