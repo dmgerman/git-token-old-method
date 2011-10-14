@@ -13274,6 +13274,20 @@ condition|(
 name|s
 condition|)
 block|{
+if|if
+condition|(
+name|is_null_sha1
+argument_list|(
+name|s
+operator|->
+name|sha1
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Can't add a note on empty branch."
+argument_list|)
+expr_stmt|;
 name|hashcpy
 argument_list|(
 name|commit_sha1
@@ -15244,6 +15258,20 @@ condition|(
 name|s
 condition|)
 block|{
+if|if
+condition|(
+name|is_null_sha1
+argument_list|(
+name|s
+operator|->
+name|sha1
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"Can't tag an empty branch."
+argument_list|)
+expr_stmt|;
 name|hashcpy
 argument_list|(
 name|sha1
