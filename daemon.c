@@ -1244,10 +1244,9 @@ name|errno
 operator|=
 name|EACCES
 expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -1261,10 +1260,9 @@ name|dir
 argument_list|)
 operator|)
 condition|)
-return|return
-operator|-
-literal|1
-return|;
+goto|goto
+name|failed
+goto|;
 comment|/* 	 * Security on the cheap. 	 * 	 * We want a readable HEAD, usable "objects" directory, and 	 * a "git-daemon-export-ok" flag that says that the other side 	 * is ok with us doing this. 	 * 	 * path_ok() uses enter_repo() and does whitelist checking. 	 * We only need to make sure the repository is exported. 	 */
 if|if
 condition|(
@@ -1290,10 +1288,9 @@ name|errno
 operator|=
 name|EACCES
 expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -1350,10 +1347,9 @@ name|errno
 operator|=
 name|EACCES
 expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 comment|/* 	 * We'll ignore SIGTERM from now on, we have a 	 * good client. 	 */
 name|signal
@@ -1368,6 +1364,21 @@ name|service
 operator|->
 name|fn
 argument_list|()
+return|;
+name|failed
+label|:
+name|packet_write
+argument_list|(
+literal|1
+argument_list|,
+literal|"ERR %s: access denied"
+argument_list|,
+name|dir
+argument_list|)
+expr_stmt|;
+return|return
+operator|-
+literal|1
 return|;
 block|}
 end_function
