@@ -2476,6 +2476,7 @@ end_function
 begin_function
 DECL|function|add_to_write_order
 specifier|static
+specifier|inline
 name|void
 name|add_to_write_order
 parameter_list|(
