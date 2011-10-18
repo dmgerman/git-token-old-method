@@ -2486,6 +2486,7 @@ modifier|*
 modifier|*
 name|wo
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 name|endp
@@ -2534,6 +2535,7 @@ modifier|*
 modifier|*
 name|wo
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 name|endp
@@ -2613,6 +2615,7 @@ modifier|*
 modifier|*
 name|wo
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 name|endp
@@ -2678,6 +2681,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+name|unsigned
 name|int
 name|i
 decl_stmt|,
@@ -2757,15 +2761,11 @@ control|(
 name|i
 operator|=
 name|nr_objects
-operator|-
-literal|1
 init|;
+name|i
+operator|>
 literal|0
-operator|<=
-name|i
 condition|;
-name|i
-operator|--
 control|)
 block|{
 name|struct
@@ -2776,6 +2776,7 @@ init|=
 operator|&
 name|objects
 index|[
+operator|--
 name|i
 index|]
 decl_stmt|;
