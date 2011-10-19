@@ -25,21 +25,14 @@ directive|include
 file|"dir.h"
 end_include
 begin_comment
-comment|/* ISSYMREF=01 and ISPACKED=02 are public interfaces */
+comment|/* ISSYMREF=0x01, ISPACKED=0x02 and ISBROKEN=0x04 are public interfaces */
 end_comment
 begin_define
 DECL|macro|REF_KNOWS_PEELED
 define|#
 directive|define
 name|REF_KNOWS_PEELED
-value|04
-end_define
-begin_define
-DECL|macro|REF_BROKEN
-define|#
-directive|define
-name|REF_BROKEN
-value|010
+value|0x10
 end_define
 begin_struct
 DECL|struct|ref_list
@@ -1571,7 +1564,7 @@ argument_list|)
 expr_stmt|;
 name|flag
 operator||=
-name|REF_BROKEN
+name|REF_ISBROKEN
 expr_stmt|;
 block|}
 block|}
@@ -1599,7 +1592,7 @@ argument_list|)
 expr_stmt|;
 name|flag
 operator||=
-name|REF_BROKEN
+name|REF_ISBROKEN
 expr_stmt|;
 block|}
 name|list
@@ -3144,12 +3137,12 @@ name|entry
 operator|->
 name|flag
 operator|&
-name|REF_BROKEN
+name|REF_ISBROKEN
 condition|)
 return|return
 literal|0
 return|;
-comment|/* ignore dangling symref */
+comment|/* ignore broken refs e.g. dangling symref */
 if|if
 condition|(
 operator|!

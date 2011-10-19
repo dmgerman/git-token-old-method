@@ -55,14 +55,21 @@ DECL|macro|REF_ISSYMREF
 define|#
 directive|define
 name|REF_ISSYMREF
-value|01
+value|0x01
 end_define
 begin_define
 DECL|macro|REF_ISPACKED
 define|#
 directive|define
 name|REF_ISPACKED
-value|02
+value|0x02
+end_define
+begin_define
+DECL|macro|REF_ISBROKEN
+define|#
+directive|define
+name|REF_ISBROKEN
+value|0x04
 end_define
 begin_comment
 comment|/*  * Calls the specified function for each ref file until it returns nonzero,  * and returns the value  */
