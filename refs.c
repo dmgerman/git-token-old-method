@@ -5291,6 +5291,8 @@ literal|"%.*s"
 block|,
 literal|"refs/%.*s"
 block|,
+literal|"refs/tags/%.*s"
+block|,
 literal|"refs/heads/%.*s"
 block|,
 name|NULL
