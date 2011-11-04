@@ -1499,11 +1499,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|init_curl_http_auth
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ssl_cert
@@ -4204,6 +4199,8 @@ block|{
 if|if
 condition|(
 name|user_name
+operator|&&
+name|user_pass
 condition|)
 block|{
 name|ret
@@ -4214,6 +4211,11 @@ block|}
 else|else
 block|{
 comment|/* 				 * git_getpass is needed here because its very likely stdin/stdout are 				 * pipes to our parent process.  So we instead need to use /dev/tty, 				 * but that is non-portable.  Using git_getpass() can at least be stubbed 				 * on other platforms with a different implementation if/when necessary. 				 */
+if|if
+condition|(
+operator|!
+name|user_name
+condition|)
 name|user_name
 operator|=
 name|xstrdup
