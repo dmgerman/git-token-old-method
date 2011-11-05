@@ -10,6 +10,11 @@ define|#
 directive|define
 name|REACHEABLE_H
 end_define
+begin_struct_decl
+struct_decl|struct
+name|progress
+struct_decl|;
+end_struct_decl
 begin_function_decl
 specifier|extern
 name|void
@@ -22,6 +27,10 @@ name|revs
 parameter_list|,
 name|int
 name|mark_reflog
+parameter_list|,
+name|struct
+name|progress
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl

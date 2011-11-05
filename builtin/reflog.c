@@ -3493,6 +3493,8 @@ operator|.
 name|revs
 argument_list|,
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
