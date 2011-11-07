@@ -720,7 +720,6 @@ condition|(
 operator|!
 name|data
 condition|)
-block|{
 name|err
 operator|=
 name|error
@@ -754,8 +753,7 @@ operator|.
 name|offset
 argument_list|)
 expr_stmt|;
-break|break;
-block|}
+elseif|else
 if|if
 condition|(
 name|check_sha1_signature
@@ -777,7 +775,6 @@ name|type
 argument_list|)
 argument_list|)
 condition|)
-block|{
 name|err
 operator|=
 name|error
@@ -799,13 +796,6 @@ operator|->
 name|pack_name
 argument_list|)
 expr_stmt|;
-name|free
-argument_list|(
-name|data
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
 name|free
 argument_list|(
 name|data
