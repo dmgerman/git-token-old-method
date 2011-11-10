@@ -12,18 +12,18 @@ specifier|static
 name|void
 name|shaHashBlock
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_function
-DECL|function|SHA1_Init
+DECL|function|moz_SHA1_Init
 name|void
-name|SHA1_Init
+name|moz_SHA1_Init
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
@@ -118,11 +118,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|SHA1_Update
+DECL|function|moz_SHA1_Update
 name|void
-name|SHA1_Update
+name|moz_SHA1_Update
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|,
@@ -242,9 +242,9 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|SHA1_Final
+DECL|function|moz_SHA1_Final
 name|void
-name|SHA1_Final
+name|moz_SHA1_Final
 parameter_list|(
 name|unsigned
 name|char
@@ -253,7 +253,7 @@ index|[
 literal|20
 index|]
 parameter_list|,
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)
@@ -449,7 +449,7 @@ operator|&
 literal|255
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -467,7 +467,7 @@ name|lenW
 operator|!=
 literal|56
 condition|)
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -477,7 +477,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|moz_SHA1_Update
 argument_list|(
 name|ctx
 argument_list|,
@@ -536,7 +536,7 @@ literal|8
 expr_stmt|;
 block|}
 comment|/*    *  Re-initialize the context (also zeroizes contents)    */
-name|SHA1_Init
+name|moz_SHA1_Init
 argument_list|(
 name|ctx
 argument_list|)
@@ -561,7 +561,7 @@ specifier|static
 name|void
 name|shaHashBlock
 parameter_list|(
-name|SHA_CTX
+name|moz_SHA_CTX
 modifier|*
 name|ctx
 parameter_list|)

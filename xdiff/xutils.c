@@ -1245,9 +1245,6 @@ argument_list|,
 name|s1
 argument_list|)
 return|;
-return|return
-literal|0
-return|;
 block|}
 end_function
 begin_function
@@ -1348,6 +1345,15 @@ if|if
 condition|(
 name|flags
 operator|&
+name|XDF_IGNORE_WHITESPACE
+condition|)
+empty_stmt|;
+comment|/* already handled */
+elseif|else
+if|if
+condition|(
+name|flags
+operator|&
 name|XDF_IGNORE_WHITESPACE_CHANGE
 operator|&&
 name|ptr
@@ -1375,6 +1381,7 @@ operator|)
 literal|' '
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|flags

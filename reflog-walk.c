@@ -27,7 +27,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"path-list.h"
+file|"string-list.h"
 end_include
 begin_include
 include|#
@@ -798,7 +798,7 @@ name|reflogs
 decl_stmt|;
 DECL|member|complete_reflogs
 name|struct
-name|path_list
+name|string_list
 name|complete_reflogs
 decl_stmt|;
 DECL|member|last_commit_reflog
@@ -872,7 +872,7 @@ operator|-
 literal|1
 decl_stmt|;
 name|struct
-name|path_list_item
+name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
@@ -994,7 +994,7 @@ literal|0
 expr_stmt|;
 name|item
 operator|=
-name|path_list_lookup
+name|string_list_lookup
 argument_list|(
 name|branch
 argument_list|,
@@ -1171,7 +1171,7 @@ return|return
 operator|-
 literal|1
 return|;
-name|path_list_insert
+name|string_list_insert
 argument_list|(
 name|branch
 argument_list|,
@@ -1474,8 +1474,9 @@ parameter_list|,
 name|int
 name|oneline
 parameter_list|,
-name|int
-name|relative_date
+name|enum
+name|date_mode
+name|dmode
 parameter_list|)
 block|{
 if|if
@@ -1539,7 +1540,7 @@ name|commit_reflog
 operator|->
 name|flag
 operator|||
-name|relative_date
+name|dmode
 condition|)
 name|printf
 argument_list|(
@@ -1551,9 +1552,11 @@ name|info
 operator|->
 name|timestamp
 argument_list|,
-literal|0
+name|info
+operator|->
+name|tz
 argument_list|,
-literal|1
+name|dmode
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1604,7 +1607,7 @@ name|commit_reflog
 operator|->
 name|flag
 operator|||
-name|relative_date
+name|dmode
 condition|)
 name|printf
 argument_list|(
@@ -1620,7 +1623,7 @@ name|info
 operator|->
 name|tz
 argument_list|,
-name|relative_date
+name|dmode
 argument_list|)
 argument_list|)
 expr_stmt|;
