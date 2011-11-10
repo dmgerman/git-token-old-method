@@ -69,6 +69,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|old_dirty_submodule
+parameter_list|,
+name|unsigned
+name|new_dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -102,6 +108,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -298,10 +307,10 @@ name|DIFF_OPT_HAS_CHANGES
 value|(1<< 10)
 end_define
 begin_define
-DECL|macro|DIFF_OPT_QUIET
+DECL|macro|DIFF_OPT_QUICK
 define|#
 directive|define
-name|DIFF_OPT_QUIET
+name|DIFF_OPT_QUICK
 value|(1<< 11)
 end_define
 begin_define
@@ -373,6 +382,20 @@ define|#
 directive|define
 name|DIFF_OPT_ALLOW_TEXTCONV
 value|(1<< 21)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_DIFF_FROM_CONTENTS
+define|#
+directive|define
+name|DIFF_OPT_DIFF_FROM_CONTENTS
+value|(1<< 22)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_SUBMODULE_LOG
+define|#
+directive|define
+name|DIFF_OPT_SUBMODULE_LOG
+value|(1<< 23)
 end_define
 begin_define
 DECL|macro|DIFF_OPT_TST
@@ -673,6 +696,11 @@ DECL|enumerator|DIFF_WHITESPACE
 name|DIFF_WHITESPACE
 init|=
 literal|7
+block|,
+DECL|enumerator|DIFF_FUNCINFO
+name|DIFF_FUNCINFO
+init|=
+literal|8
 block|, }
 enum|;
 end_enum
@@ -1016,6 +1044,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1050,6 +1081,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule1
+parameter_list|,
+name|unsigned
+name|dirty_submodule2
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1219,6 +1256,17 @@ begin_function_decl
 specifier|extern
 name|void
 name|diffcore_std
+parameter_list|(
+name|struct
+name|diff_options
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|diffcore_fix_diff_index
 parameter_list|(
 name|struct
 name|diff_options

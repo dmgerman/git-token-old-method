@@ -1016,7 +1016,10 @@ name|int
 name|filter_buffer
 parameter_list|(
 name|int
-name|fd
+name|in
+parameter_list|,
+name|int
+name|out
 parameter_list|,
 name|void
 modifier|*
@@ -1052,10 +1055,6 @@ name|argv
 index|[]
 init|=
 block|{
-literal|"sh"
-block|,
-literal|"-c"
-block|,
 name|params
 operator|->
 name|cmd
@@ -1084,6 +1083,12 @@ name|argv
 expr_stmt|;
 name|child_process
 operator|.
+name|use_shell
+operator|=
+literal|1
+expr_stmt|;
+name|child_process
+operator|.
 name|in
 operator|=
 operator|-
@@ -1093,7 +1098,7 @@ name|child_process
 operator|.
 name|out
 operator|=
-name|fd
+name|out
 expr_stmt|;
 if|if
 condition|(
@@ -1180,7 +1185,6 @@ name|params
 operator|->
 name|cmd
 argument_list|,
-operator|-
 name|status
 argument_list|)
 expr_stmt|;
@@ -1276,6 +1280,13 @@ name|data
 operator|=
 operator|&
 name|params
+expr_stmt|;
+name|async
+operator|.
+name|out
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|params
 operator|.
@@ -1705,8 +1716,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"crlf"
-argument_list|,
-literal|4
 argument_list|)
 expr_stmt|;
 name|attr_ident
@@ -1714,8 +1723,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"ident"
-argument_list|,
-literal|5
 argument_list|)
 expr_stmt|;
 name|attr_filter
@@ -1723,8 +1730,6 @@ operator|=
 name|git_attr
 argument_list|(
 literal|"filter"
-argument_list|,
-literal|6
 argument_list|)
 expr_stmt|;
 name|user_convert_tail

@@ -144,16 +144,11 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"write failure on %s: %s"
+literal|"write failure on '%s'"
 argument_list|,
 name|desc
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -183,16 +178,11 @@ operator|<
 literal|0
 condition|)
 block|{
-name|die
+name|die_errno
 argument_list|(
-literal|"%s: fsync error (%s)"
+literal|"fsync error on '%s'"
 argument_list|,
 name|msg
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -240,14 +230,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|die
+name|die_errno
 argument_list|(
-literal|"write error (%s)"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"write error"
 argument_list|)
 expr_stmt|;
 block|}
