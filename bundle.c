@@ -2001,8 +2001,7 @@ condition|)
 continue|continue;
 if|if
 condition|(
-operator|!
-name|resolve_ref
+name|read_ref_full
 argument_list|(
 name|e
 operator|->
