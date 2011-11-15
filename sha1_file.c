@@ -13201,7 +13201,7 @@ name|write_object
 condition|?
 name|safe_crlf
 else|:
-literal|0
+name|SAFE_CRLF_FALSE
 argument_list|)
 condition|)
 block|{
