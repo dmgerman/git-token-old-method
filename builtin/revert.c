@@ -1766,7 +1766,7 @@ name|die_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not write to %s."
+literal|"Could not write to %s"
 argument_list|)
 argument_list|,
 name|filename
@@ -4102,7 +4102,7 @@ name|die_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not open %s."
+literal|"Could not open %s"
 argument_list|)
 argument_list|,
 name|todo_file
@@ -4656,7 +4656,7 @@ name|die_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not create sequencer directory '%s'."
+literal|"Could not create sequencer directory %s"
 argument_list|)
 argument_list|,
 name|seq_dir
@@ -4746,7 +4746,7 @@ name|die_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not write to %s."
+literal|"Could not write to %s"
 argument_list|)
 argument_list|,
 name|head_file
@@ -4879,7 +4879,7 @@ name|die_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not write to %s."
+literal|"Could not write to %s"
 argument_list|)
 argument_list|,
 name|todo_file
