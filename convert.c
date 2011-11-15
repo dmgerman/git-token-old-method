@@ -2877,7 +2877,8 @@ end_function
 begin_function
 DECL|function|git_path_check_crlf
 specifier|static
-name|int
+name|enum
+name|crlf_action
 name|git_path_check_crlf
 parameter_list|(
 specifier|const
@@ -2966,7 +2967,8 @@ end_function
 begin_function
 DECL|function|git_path_check_eol
 specifier|static
-name|int
+name|enum
+name|crlf_action
 name|git_path_check_eol
 parameter_list|(
 specifier|const
@@ -3915,7 +3917,7 @@ name|len
 argument_list|,
 name|dst
 argument_list|,
-literal|0
+name|SAFE_CRLF_FALSE
 argument_list|)
 return|;
 block|}
