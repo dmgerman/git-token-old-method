@@ -18500,6 +18500,9 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+name|git_setup_gettext
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|argc
