@@ -218,6 +218,9 @@ parameter_list|,
 name|int
 name|flag
 parameter_list|,
+name|int
+name|check_name
+parameter_list|,
 name|struct
 name|ref_array
 modifier|*
@@ -279,6 +282,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|check_name
+operator|&&
 name|check_refname_format
 argument_list|(
 name|name
@@ -1233,6 +1238,8 @@ name|sha1
 argument_list|,
 name|flag
 argument_list|,
+literal|1
+argument_list|,
 name|array
 argument_list|,
 operator|&
@@ -1320,6 +1327,8 @@ argument_list|,
 name|sha1
 argument_list|,
 name|flag
+argument_list|,
+literal|0
 argument_list|,
 operator|&
 name|extra_refs
@@ -1792,6 +1801,8 @@ argument_list|,
 name|sha1
 argument_list|,
 name|flag
+argument_list|,
+literal|1
 argument_list|,
 name|array
 argument_list|,
