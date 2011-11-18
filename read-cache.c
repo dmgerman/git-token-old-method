@@ -5265,14 +5265,14 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|needs_update_fmt
+name|modified_fmt
 decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|needs_merge_fmt
+name|unmerged_fmt
 decl_stmt|;
-name|needs_update_fmt
+name|modified_fmt
 operator|=
 operator|(
 name|in_porcelain
@@ -5282,7 +5282,7 @@ else|:
 literal|"%s: needs update\n"
 operator|)
 expr_stmt|;
-name|needs_merge_fmt
+name|unmerged_fmt
 operator|=
 operator|(
 name|in_porcelain
@@ -5390,7 +5390,7 @@ condition|)
 continue|continue;
 name|show_file
 argument_list|(
-name|needs_merge_fmt
+name|unmerged_fmt
 argument_list|,
 name|ce
 operator|->
@@ -5505,7 +5505,7 @@ condition|)
 continue|continue;
 name|show_file
 argument_list|(
-name|needs_update_fmt
+name|modified_fmt
 argument_list|,
 name|ce
 operator|->
