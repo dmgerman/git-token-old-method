@@ -4810,6 +4810,10 @@ parameter_list|,
 name|int
 modifier|*
 name|err
+parameter_list|,
+name|int
+modifier|*
+name|changed_ret
 parameter_list|)
 block|{
 name|struct
@@ -4935,6 +4939,15 @@ name|st
 argument_list|,
 name|options
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|changed_ret
+condition|)
+operator|*
+name|changed_ret
+operator|=
+name|changed
 expr_stmt|;
 if|if
 condition|(
@@ -5435,6 +5448,8 @@ name|options
 argument_list|,
 operator|&
 name|cache_errno
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -5551,6 +5566,8 @@ argument_list|,
 name|ce
 argument_list|,
 name|really
+argument_list|,
+name|NULL
 argument_list|,
 name|NULL
 argument_list|)
