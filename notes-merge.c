@@ -132,21 +132,6 @@ name|NOTES_MERGE_VERBOSITY_DEFAULT
 expr_stmt|;
 block|}
 end_function
-begin_define
-DECL|macro|OUTPUT
-define|#
-directive|define
-name|OUTPUT
-parameter_list|(
-name|o
-parameter_list|,
-name|v
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|do { \ 		if ((o)->verbosity>= (v)) { \ 			printf(__VA_ARGS__); \ 			puts(""); \ 		} \ 	} while (0)
-end_define
 begin_function
 DECL|function|path_to_sha1
 specifier|static
@@ -2154,13 +2139,17 @@ name|obj
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Auto-merging notes for %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Auto-merging notes for %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2197,15 +2186,19 @@ name|remote
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|1
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"CONFLICT (delete/modify): Notes for object %s "
 literal|"deleted in %s and modified in %s. Version from %s "
-literal|"left in tree."
+literal|"left in tree.\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2256,15 +2249,19 @@ name|local
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|1
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"CONFLICT (delete/modify): Notes for object %s "
 literal|"deleted in %s and modified in %s. Version from %s "
-literal|"left in tree."
+literal|"left in tree.\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2337,14 +2334,18 @@ name|remote
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|1
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"CONFLICT (%s): Merge conflict in notes for "
-literal|"object %s"
+literal|"object %s\n"
 argument_list|,
 name|reason
 argument_list|,
@@ -2429,13 +2430,17 @@ return|;
 case|case
 name|NOTES_MERGE_RESOLVE_OURS
 case|:
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Using local notes for %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Using local notes for %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2452,13 +2457,17 @@ return|;
 case|case
 name|NOTES_MERGE_RESOLVE_THEIRS
 case|:
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Using remote notes for %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Using remote notes for %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2496,13 +2505,17 @@ return|;
 case|case
 name|NOTES_MERGE_RESOLVE_UNION
 case|:
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Concatenating local and remote notes for %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Concatenating local and remote notes for %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2541,14 +2554,18 @@ return|;
 case|case
 name|NOTES_MERGE_RESOLVE_CAT_SORT_UNIQ
 case|:
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"Concatenating unique lines in local and remote "
-literal|"notes for %s"
+literal|"notes for %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -2932,13 +2949,17 @@ argument_list|(
 name|changes
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
-literal|"Merge result: %i unmerged notes and a %s notes tree"
+condition|)
+name|printf
+argument_list|(
+literal|"Merge result: %i unmerged notes and a %s notes tree\n"
 argument_list|,
 name|conflicts
 argument_list|,
@@ -3476,13 +3497,17 @@ name|base_tree_sha1
 operator|=
 name|EMPTY_TREE_SHA1_BIN
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
-literal|"No merge base found; doing history-less merge"
+condition|)
+name|printf
+argument_list|(
+literal|"No merge base found; doing history-less merge\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3517,13 +3542,17 @@ name|object
 operator|.
 name|sha1
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
-literal|"One merge base found (%.7s)"
+condition|)
+name|printf
+argument_list|(
+literal|"One merge base found (%.7s)\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3557,14 +3586,18 @@ name|object
 operator|.
 name|sha1
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|3
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"Multiple merge bases found. Using the first "
-literal|"(%.7s)"
+literal|"(%.7s)\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3573,14 +3606,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
+condition|)
+name|printf
+argument_list|(
 literal|"Merging remote commit %.7s into local commit %.7s with "
-literal|"merge-base %.7s"
+literal|"merge-base %.7s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3622,13 +3659,17 @@ argument_list|)
 condition|)
 block|{
 comment|/* Already merged; result == local commit */
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Already up-to-date!"
+condition|)
+name|printf
+argument_list|(
+literal|"Already up-to-date!\n"
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -3662,13 +3703,17 @@ argument_list|)
 condition|)
 block|{
 comment|/* Fast-forward; result == remote commit */
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|2
-argument_list|,
-literal|"Fast-forward"
+condition|)
+name|printf
+argument_list|(
+literal|"Fast-forward\n"
 argument_list|)
 expr_stmt|;
 name|hashcpy
@@ -3864,13 +3909,17 @@ argument_list|,
 literal|"\n\n"
 argument_list|)
 decl_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|3
-argument_list|,
-literal|"Committing notes in notes merge worktree at %.*s"
+condition|)
+name|printf
+argument_list|(
+literal|"Committing notes in notes merge worktree at %.*s\n"
 argument_list|,
 name|path_len
 operator|-
@@ -3998,13 +4047,17 @@ name|obj_sha1
 argument_list|)
 condition|)
 block|{
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|3
-argument_list|,
-literal|"Skipping non-SHA1 entry '%s'"
+condition|)
+name|printf
+argument_list|(
+literal|"Skipping non-SHA1 entry '%s'\n"
 argument_list|,
 name|ent
 operator|->
@@ -4082,13 +4135,17 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
-literal|"Added resolved note for object %s: %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Added resolved note for object %s: %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -4115,13 +4172,17 @@ argument_list|,
 name|result_sha1
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|4
-argument_list|,
-literal|"Finalized notes merge commit: %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Finalized notes merge commit: %s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -4171,13 +4232,17 @@ name|NOTES_MERGE_WORKTREE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OUTPUT
-argument_list|(
+if|if
+condition|(
 name|o
-argument_list|,
+operator|->
+name|verbosity
+operator|>=
 literal|3
-argument_list|,
-literal|"Removing notes merge worktree at %s"
+condition|)
+name|printf
+argument_list|(
+literal|"Removing notes merge worktree at %s\n"
 argument_list|,
 name|buf
 operator|.
