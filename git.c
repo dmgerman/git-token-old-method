@@ -2672,6 +2672,12 @@ name|cmd_upload_archive
 block|}
 block|,
 block|{
+literal|"upload-archive--writer"
+block|,
+name|cmd_upload_archive_writer
+block|}
+block|,
+block|{
 literal|"var"
 block|,
 name|cmd_var
