@@ -141,14 +141,14 @@ end_enum
 begin_enum
 DECL|enum|replay_subcommand
 DECL|enumerator|REPLAY_NONE
-DECL|enumerator|REPLAY_RESET
+DECL|enumerator|REPLAY_REMOVE_STATE
 DECL|enumerator|REPLAY_CONTINUE
 enum|enum
 name|replay_subcommand
 block|{
 name|REPLAY_NONE
 block|,
-name|REPLAY_RESET
+name|REPLAY_REMOVE_STATE
 block|,
 name|REPLAY_CONTINUE
 block|}
@@ -639,7 +639,7 @@ name|opts
 argument_list|)
 decl_stmt|;
 name|int
-name|reset
+name|remove_state
 init|=
 literal|0
 decl_stmt|;
@@ -658,12 +658,12 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|0
 argument_list|,
-literal|"reset"
+literal|"quit"
 argument_list|,
 operator|&
-name|reset
+name|remove_state
 argument_list|,
-literal|"forget the current operation"
+literal|"end revert or cherry-pick sequence"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -675,7 +675,7 @@ argument_list|,
 operator|&
 name|contin
 argument_list|,
-literal|"continue the current operation"
+literal|"resume revert or cherry-pick sequence"
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -780,6 +780,25 @@ literal|"option for merge strategy"
 argument_list|,
 name|option_parse_x
 argument_list|)
+block|,
+block|{
+name|OPTION_BOOLEAN
+block|,
+literal|0
+block|,
+literal|"reset"
+block|,
+operator|&
+name|remove_state
+block|,
+name|NULL
+block|,
+literal|"alias for --quit (deprecated)"
+block|,
+name|PARSE_OPT_HIDDEN
+operator||
+name|PARSE_OPT_NOARG
+block|}
 block|,
 name|OPT_END
 argument_list|()
@@ -887,9 +906,9 @@ name|verify_opt_mutually_compatible
 argument_list|(
 name|me
 argument_list|,
-literal|"--reset"
+literal|"--quit"
 argument_list|,
-name|reset
+name|remove_state
 argument_list|,
 literal|"--continue"
 argument_list|,
@@ -901,13 +920,13 @@ expr_stmt|;
 comment|/* Set the subcommand */
 if|if
 condition|(
-name|reset
+name|remove_state
 condition|)
 name|opts
 operator|->
 name|subcommand
 operator|=
-name|REPLAY_RESET
+name|REPLAY_REMOVE_STATE
 expr_stmt|;
 elseif|else
 if|if
@@ -947,11 +966,11 @@ name|opts
 operator|->
 name|subcommand
 operator|==
-name|REPLAY_RESET
+name|REPLAY_REMOVE_STATE
 condition|)
 name|this_operation
 operator|=
-literal|"--reset"
+literal|"--quit"
 expr_stmt|;
 else|else
 name|this_operation
@@ -5303,7 +5322,7 @@ name|opts
 operator|->
 name|subcommand
 operator|==
-name|REPLAY_RESET
+name|REPLAY_REMOVE_STATE
 condition|)
 block|{
 name|remove_sequencer_state
@@ -5410,7 +5429,7 @@ name|advise
 argument_list|(
 name|_
 argument_list|(
-literal|"or --reset to forget about it"
+literal|"or --quit to forget about it"
 argument_list|)
 argument_list|)
 expr_stmt|;
