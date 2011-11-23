@@ -51,6 +51,13 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|int
+name|flag
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
 parameter_list|)
 block|{
 name|struct
@@ -63,6 +70,15 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|o
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 name|fprintf
 argument_list|(
 name|info_ref_fp
@@ -83,7 +99,7 @@ name|o
 operator|->
 name|type
 operator|==
-name|tag_type
+name|OBJ_TAG
 condition|)
 block|{
 name|o
@@ -137,12 +153,9 @@ name|char
 modifier|*
 name|path0
 init|=
-name|strdup
-argument_list|(
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"info/refs"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -204,17 +217,24 @@ name|error
 argument_list|(
 literal|"unable to update %s"
 argument_list|,
-name|path0
+name|path1
 argument_list|)
 return|;
 name|for_each_ref
 argument_list|(
 name|add_info_ref
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|fclose
 argument_list|(
 name|info_ref_fp
+argument_list|)
+expr_stmt|;
+name|adjust_shared_perm
+argument_list|(
+name|path1
 argument_list|)
 expr_stmt|;
 name|rename
@@ -482,7 +502,7 @@ condition|)
 return|return
 literal|1
 return|;
-comment|/* nonexisting is not an error. */
+comment|/* nonexistent is not an error. */
 while|while
 condition|(
 name|fgets
@@ -508,6 +528,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|len
+operator|&&
 name|line
 index|[
 name|len
@@ -561,10 +583,6 @@ case|case
 literal|'D'
 case|:
 comment|/* we used to emit D but that was misguided. */
-goto|goto
-name|out_stale
-goto|;
-break|break;
 case|case
 literal|'T'
 case|:
@@ -572,7 +590,6 @@ comment|/* we used to emit T but nobody uses it. */
 goto|goto
 name|out_stale
 goto|;
-break|break;
 default|default:
 name|error
 argument_list|(
@@ -1168,6 +1185,11 @@ argument_list|(
 name|fp
 argument_list|)
 expr_stmt|;
+name|adjust_shared_perm
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|rename
 argument_list|(
 name|name
@@ -1217,7 +1239,7 @@ name|force
 argument_list|)
 expr_stmt|;
 comment|/* remove leftover rev-cache file if there is any */
-name|unlink
+name|unlink_or_warn
 argument_list|(
 name|git_path
 argument_list|(
