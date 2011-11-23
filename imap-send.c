@@ -554,12 +554,6 @@ name|imap_server_conf_t
 modifier|*
 name|server
 decl_stmt|;
-DECL|member|use_namespace
-name|unsigned
-name|use_namespace
-range|:
-literal|1
-decl_stmt|;
 block|}
 DECL|typedef|imap_store_conf_t
 name|imap_store_conf_t
