@@ -3998,9 +3998,6 @@ operator|&&
 operator|!
 name|rename
 operator|&&
-operator|!
-name|force_create
-operator|&&
 name|argc
 operator|==
 literal|0
@@ -4148,6 +4145,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|argc
+operator|>
+literal|0
+operator|&&
 name|argc
 operator|<=
 literal|2
