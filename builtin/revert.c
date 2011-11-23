@@ -5226,6 +5226,11 @@ condition|)
 goto|goto
 name|fail
 goto|;
+name|remove_sequencer_state
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
