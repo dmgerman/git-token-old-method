@@ -4207,6 +4207,8 @@ name|force_create
 argument_list|,
 name|reflog
 argument_list|,
+literal|0
+argument_list|,
 name|track
 argument_list|)
 expr_stmt|;
