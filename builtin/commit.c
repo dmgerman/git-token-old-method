@@ -1977,6 +1977,11 @@ argument_list|(
 name|refresh_flags
 argument_list|)
 expr_stmt|;
+name|update_main_cache_tree
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|write_cache
@@ -2043,6 +2048,11 @@ condition|(
 name|active_cache_changed
 condition|)
 block|{
+name|update_main_cache_tree
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|write_cache
