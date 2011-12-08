@@ -705,7 +705,7 @@ name|int
 modifier|*
 name|status
 parameter_list|,
-name|unsigned
+name|int
 name|options
 parameter_list|)
 function_decl|;
