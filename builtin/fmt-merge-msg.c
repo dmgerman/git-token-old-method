@@ -2327,6 +2327,13 @@ name|current_branch
 operator|+=
 literal|11
 expr_stmt|;
+name|current_branch
+operator|=
+name|xstrdup
+argument_list|(
+name|current_branch
+argument_list|)
+expr_stmt|;
 comment|/* get a line */
 while|while
 condition|(
@@ -2560,6 +2567,15 @@ block|}
 name|strbuf_complete_line
 argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
+name|current_branch
 argument_list|)
 expr_stmt|;
 return|return
