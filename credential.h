@@ -35,6 +35,11 @@ DECL|member|configured
 name|configured
 range|:
 literal|1
+decl_stmt|,
+DECL|member|use_http_path
+name|use_http_path
+range|:
+literal|1
 decl_stmt|;
 DECL|member|username
 name|char
