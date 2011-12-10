@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"run-command.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"prompt.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
