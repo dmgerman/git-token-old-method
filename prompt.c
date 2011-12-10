@@ -19,6 +19,11 @@ include|#
 directive|include
 file|"prompt.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compat/terminal.h"
+end_include
 begin_function
 DECL|function|do_askpass
 specifier|static
@@ -266,9 +271,13 @@ return|;
 block|}
 name|r
 operator|=
-name|getpass
+name|git_terminal_prompt
 argument_list|(
 name|prompt
+argument_list|,
+name|flags
+operator|&
+name|PROMPT_ECHO
 argument_list|)
 expr_stmt|;
 if|if
