@@ -3099,7 +3099,7 @@ name|NULL
 expr_stmt|;
 name|head_ref
 operator|=
-name|resolve_ref
+name|resolve_ref_unsafe
 argument_list|(
 literal|"HEAD"
 argument_list|,
@@ -5859,7 +5859,7 @@ name|char
 modifier|*
 name|r
 init|=
-name|resolve_ref
+name|resolve_ref_unsafe
 argument_list|(
 name|peer
 operator|->
@@ -6098,7 +6098,7 @@ name|flag
 decl_stmt|;
 name|dst_value
 operator|=
-name|resolve_ref
+name|resolve_ref_unsafe
 argument_list|(
 name|matched_src
 operator|->

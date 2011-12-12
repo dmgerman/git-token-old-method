@@ -5718,7 +5718,7 @@ argument_list|)
 expr_stmt|;
 name|branch
 operator|=
-name|resolve_ref
+name|resolve_ref_unsafe
 argument_list|(
 name|buf
 operator|.
@@ -7077,7 +7077,7 @@ argument_list|)
 expr_stmt|;
 name|ref
 operator|=
-name|resolve_ref
+name|resolve_ref_unsafe
 argument_list|(
 literal|"HEAD"
 argument_list|,

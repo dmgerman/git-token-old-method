@@ -5328,7 +5328,7 @@ specifier|extern
 specifier|const
 name|char
 modifier|*
-name|resolve_ref
+name|resolve_ref_unsafe
 parameter_list|(
 specifier|const
 name|char
