@@ -782,10 +782,10 @@ name|extra_refs
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|free_ref_array
+DECL|function|clear_ref_array
 specifier|static
 name|void
-name|free_ref_array
+name|clear_ref_array
 parameter_list|(
 name|struct
 name|ref_array
@@ -864,7 +864,7 @@ name|refs
 operator|->
 name|did_packed
 condition|)
-name|free_ref_array
+name|clear_ref_array
 argument_list|(
 operator|&
 name|refs
@@ -898,7 +898,7 @@ name|refs
 operator|->
 name|did_loose
 condition|)
-name|free_ref_array
+name|clear_ref_array
 argument_list|(
 operator|&
 name|refs
@@ -1347,7 +1347,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|free_ref_array
+name|clear_ref_array
 argument_list|(
 operator|&
 name|extra_refs
