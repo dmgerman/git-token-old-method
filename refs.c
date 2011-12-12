@@ -208,7 +208,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|name
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -247,7 +247,7 @@ name|len
 operator|=
 name|strlen
 argument_list|(
-name|name
+name|refname
 argument_list|)
 operator|+
 literal|1
@@ -287,7 +287,7 @@ name|check_name
 operator|&&
 name|check_refname_format
 argument_list|(
-name|name
+name|refname
 argument_list|,
 name|REFNAME_ALLOW_ONELEVEL
 operator||
@@ -298,7 +298,7 @@ name|die
 argument_list|(
 literal|"Reference has invalid format: '%s'"
 argument_list|,
-name|name
+name|refname
 argument_list|)
 expr_stmt|;
 name|memcpy
@@ -307,7 +307,7 @@ name|entry
 operator|->
 name|name
 argument_list|,
-name|name
+name|refname
 argument_list|,
 name|len
 argument_list|)
@@ -604,7 +604,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|name
+name|refname
 parameter_list|)
 block|{
 name|struct
@@ -621,7 +621,7 @@ name|len
 decl_stmt|;
 if|if
 condition|(
-name|name
+name|refname
 operator|==
 name|NULL
 condition|)
@@ -642,7 +642,7 @@ name|len
 operator|=
 name|strlen
 argument_list|(
-name|name
+name|refname
 argument_list|)
 operator|+
 literal|1
@@ -666,7 +666,7 @@ name|e
 operator|->
 name|name
 argument_list|,
-name|name
+name|refname
 argument_list|,
 name|len
 argument_list|)
@@ -1159,7 +1159,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|name
+name|refname
 decl_stmt|;
 specifier|static
 specifier|const
@@ -1217,7 +1217,7 @@ expr_stmt|;
 comment|/* perhaps other traits later as well */
 continue|continue;
 block|}
-name|name
+name|refname
 operator|=
 name|parse_ref_line
 argument_list|(
@@ -1228,12 +1228,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|name
+name|refname
 condition|)
 block|{
 name|add_ref
 argument_list|(
-name|name
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -1309,7 +1309,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|name
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -1323,7 +1323,7 @@ parameter_list|)
 block|{
 name|add_ref
 argument_list|(
-name|name
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -1545,7 +1545,7 @@ argument_list|)
 decl_stmt|;
 name|char
 modifier|*
-name|ref
+name|refname
 init|=
 name|xmalloc
 argument_list|(
@@ -1556,7 +1556,7 @@ argument_list|)
 decl_stmt|;
 name|memcpy
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|base
 argument_list|,
@@ -1576,7 +1576,7 @@ index|]
 operator|!=
 literal|'/'
 condition|)
-name|ref
+name|refname
 index|[
 name|baselen
 operator|++
@@ -1662,7 +1662,7 @@ condition|)
 continue|continue;
 name|memcpy
 argument_list|(
-name|ref
+name|refname
 operator|+
 name|baselen
 argument_list|,
@@ -1685,14 +1685,14 @@ name|submodule
 argument_list|,
 literal|"%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 else|:
 name|git_path
 argument_list|(
 literal|"%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -1722,7 +1722,7 @@ name|get_ref_dir
 argument_list|(
 name|submodule
 argument_list|,
-name|ref
+name|refname
 argument_list|,
 name|array
 argument_list|)
@@ -1749,7 +1749,7 @@ name|resolve_gitlink_ref
 argument_list|(
 name|submodule
 argument_list|,
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|)
@@ -1773,7 +1773,7 @@ if|if
 condition|(
 name|read_ref_full
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -1796,7 +1796,7 @@ expr_stmt|;
 block|}
 name|add_ref
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -1812,7 +1812,7 @@ expr_stmt|;
 block|}
 name|free
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 name|closedir
@@ -2627,7 +2627,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|char
@@ -2654,7 +2654,7 @@ name|search_ref_array
 argument_list|(
 name|packed
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 decl_stmt|;
 if|if
@@ -2691,7 +2691,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|char
@@ -2722,7 +2722,7 @@ index|]
 decl_stmt|;
 specifier|static
 name|char
-name|ref_buffer
+name|refname_buffer
 index|[
 literal|256
 index|]
@@ -2740,7 +2740,7 @@ if|if
 condition|(
 name|check_refname_format
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|REFNAME_ALLOW_ONELEVEL
 argument_list|)
@@ -2792,7 +2792,7 @@ argument_list|)
 argument_list|,
 literal|"%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -2823,7 +2823,7 @@ condition|(
 operator|!
 name|get_packed_ref
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|)
@@ -2839,7 +2839,7 @@ operator||=
 name|REF_ISPACKED
 expr_stmt|;
 return|return
-name|ref
+name|refname
 return|;
 block|}
 comment|/* The reference is not a packed reference, either. */
@@ -2860,7 +2860,7 @@ name|sha1
 argument_list|)
 expr_stmt|;
 return|return
-name|ref
+name|refname
 return|;
 block|}
 block|}
@@ -2928,14 +2928,14 @@ condition|)
 block|{
 name|strcpy
 argument_list|(
-name|ref_buffer
+name|refname_buffer
 argument_list|,
 name|buffer
 argument_list|)
 expr_stmt|;
-name|ref
+name|refname
 operator|=
-name|ref_buffer
+name|refname_buffer
 expr_stmt|;
 if|if
 condition|(
@@ -3101,11 +3101,11 @@ return|return
 name|NULL
 return|;
 block|}
-name|ref
+name|refname
 operator|=
 name|strcpy
 argument_list|(
-name|ref_buffer
+name|refname_buffer
 argument_list|,
 name|buf
 argument_list|)
@@ -3154,7 +3154,7 @@ name|NULL
 return|;
 block|}
 return|return
-name|ref
+name|refname
 return|;
 block|}
 end_function
@@ -3193,7 +3193,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|char
@@ -3212,7 +3212,7 @@ if|if
 condition|(
 name|resolve_ref
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -3238,7 +3238,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|char
@@ -3249,7 +3249,7 @@ block|{
 return|return
 name|read_ref_full
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha1
 argument_list|,
@@ -3393,7 +3393,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -3429,7 +3429,7 @@ name|filter
 operator|->
 name|pattern
 argument_list|,
-name|ref
+name|refname
 argument_list|,
 literal|0
 argument_list|)
@@ -3442,7 +3442,7 @@ name|filter
 operator|->
 name|fn
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|sha
 argument_list|,
@@ -3463,7 +3463,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|char
@@ -3495,7 +3495,7 @@ name|current_ref
 operator|->
 name|name
 operator|==
-name|ref
+name|refname
 operator|||
 operator|!
 name|strcmp
@@ -3504,7 +3504,7 @@ name|current_ref
 operator|->
 name|name
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 operator|)
 condition|)
@@ -3548,7 +3548,7 @@ if|if
 condition|(
 name|read_ref_full
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|base
 argument_list|,
@@ -3590,7 +3590,7 @@ name|search_ref_array
 argument_list|(
 name|array
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 decl_stmt|;
 if|if
@@ -3646,7 +3646,7 @@ name|deref_tag
 argument_list|(
 name|o
 argument_list|,
-name|ref
+name|refname
 argument_list|,
 literal|0
 argument_list|)
@@ -4922,7 +4922,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Try to read one refname component from the front of ref.  Return  * the length of the component found, or -1 if the component is not  * legal.  */
+comment|/*  * Try to read one refname component from the front of refname.  Return  * the length of the component found, or -1 if the component is not  * legal.  */
 end_comment
 begin_function
 DECL|function|check_refname_component
@@ -4933,7 +4933,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|int
 name|flags
@@ -4953,7 +4953,7 @@ for|for
 control|(
 name|cp
 operator|=
-name|ref
+name|refname
 init|;
 condition|;
 name|cp
@@ -5028,7 +5028,7 @@ if|if
 condition|(
 name|cp
 operator|==
-name|ref
+name|refname
 condition|)
 return|return
 operator|-
@@ -5037,7 +5037,7 @@ return|;
 comment|/* Component has zero length. */
 if|if
 condition|(
-name|ref
+name|refname
 index|[
 literal|0
 index|]
@@ -5062,7 +5062,7 @@ comment|/* Component starts with '.'. */
 comment|/* 		 * Even if leading dots are allowed, don't allow "." 		 * as a component (".." is prevented by a rule above). 		 */
 if|if
 condition|(
-name|ref
+name|refname
 index|[
 literal|1
 index|]
@@ -5079,7 +5079,7 @@ if|if
 condition|(
 name|cp
 operator|-
-name|ref
+name|refname
 operator|>=
 literal|5
 operator|&&
@@ -5103,7 +5103,7 @@ comment|/* Refname ends with ".lock". */
 return|return
 name|cp
 operator|-
-name|ref
+name|refname
 return|;
 block|}
 end_function
@@ -5115,7 +5115,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|int
 name|flags
@@ -5138,7 +5138,7 @@ name|component_len
 operator|=
 name|check_refname_component
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|flags
 argument_list|)
@@ -5158,7 +5158,7 @@ operator|&
 name|REFNAME_REFSPEC_PATTERN
 operator|)
 operator|&&
-name|ref
+name|refname
 index|[
 literal|0
 index|]
@@ -5166,14 +5166,14 @@ operator|==
 literal|'*'
 operator|&&
 operator|(
-name|ref
+name|refname
 index|[
 literal|1
 index|]
 operator|==
 literal|'\0'
 operator|||
-name|ref
+name|refname
 index|[
 literal|1
 index|]
@@ -5206,7 +5206,7 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-name|ref
+name|refname
 index|[
 name|component_len
 index|]
@@ -5215,7 +5215,7 @@ literal|'\0'
 condition|)
 break|break;
 comment|/* Skip to next component. */
-name|ref
+name|refname
 operator|+=
 name|component_len
 operator|+
@@ -5224,7 +5224,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ref
+name|refname
 index|[
 name|component_len
 operator|-
@@ -5589,12 +5589,12 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|oldref
+name|oldrefname
 parameter_list|,
 name|struct
 name|ref_array
@@ -5612,7 +5612,7 @@ name|namlen
 init|=
 name|strlen
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 decl_stmt|;
 comment|/* e.g. 'foo/bar' */
@@ -5648,11 +5648,11 @@ comment|/* entry->name could be 'foo' or 'foo/bar/baz' */
 if|if
 condition|(
 operator|!
-name|oldref
+name|oldrefname
 operator|||
 name|strcmp
 argument_list|(
-name|oldref
+name|oldrefname
 argument_list|,
 name|entry
 operator|->
@@ -5698,14 +5698,14 @@ name|entry
 operator|->
 name|name
 else|:
-name|ref
+name|refname
 decl_stmt|;
 if|if
 condition|(
 operator|!
 name|strncmp
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|entry
 operator|->
@@ -5735,7 +5735,7 @@ name|entry
 operator|->
 name|name
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 return|return
@@ -6288,7 +6288,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -6311,9 +6311,9 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|orig_ref
+name|orig_refname
 init|=
-name|ref
+name|refname
 decl_stmt|;
 name|struct
 name|ref_lock
@@ -6368,11 +6368,11 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|ref
+name|refname
 operator|=
 name|resolve_ref
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|lock
 operator|->
@@ -6387,7 +6387,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|ref
+name|refname
 operator|&&
 name|errno
 operator|==
@@ -6401,7 +6401,7 @@ name|git_path
 argument_list|(
 literal|"%s"
 argument_list|,
-name|orig_ref
+name|orig_refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -6420,18 +6420,18 @@ name|error
 argument_list|(
 literal|"there are still refs under '%s'"
 argument_list|,
-name|orig_ref
+name|orig_refname
 argument_list|)
 expr_stmt|;
 goto|goto
 name|error_return
 goto|;
 block|}
-name|ref
+name|refname
 operator|=
 name|resolve_ref
 argument_list|(
-name|orig_ref
+name|orig_refname
 argument_list|,
 name|lock
 operator|->
@@ -6456,7 +6456,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|ref
+name|refname
 condition|)
 block|{
 name|last_errno
@@ -6467,7 +6467,7 @@ name|error
 argument_list|(
 literal|"unable to resolve reference %s: %s"
 argument_list|,
-name|orig_ref
+name|orig_refname
 argument_list|,
 name|strerror
 argument_list|(
@@ -6496,7 +6496,7 @@ operator|&&
 operator|!
 name|is_refname_available
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|NULL
 argument_list|,
@@ -6543,9 +6543,9 @@ operator|&
 name|REF_NODEREF
 condition|)
 block|{
-name|ref
+name|refname
 operator|=
-name|orig_ref
+name|orig_refname
 expr_stmt|;
 name|lflags
 operator||=
@@ -6558,7 +6558,7 @@ name|ref_name
 operator|=
 name|xstrdup
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 name|lock
@@ -6567,7 +6567,7 @@ name|orig_ref_name
 operator|=
 name|xstrdup
 argument_list|(
-name|orig_ref
+name|orig_refname
 argument_list|)
 expr_stmt|;
 name|ref_file
@@ -6576,7 +6576,7 @@ name|git_path
 argument_list|(
 literal|"%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -6687,7 +6687,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -6706,7 +6706,7 @@ if|if
 condition|(
 name|check_refname_format
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 literal|0
 argument_list|)
@@ -6722,7 +6722,7 @@ name|mkpath
 argument_list|(
 literal|"refs/%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6750,7 +6750,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -6766,7 +6766,7 @@ if|if
 condition|(
 name|check_refname_format
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|REFNAME_ALLOW_ONELEVEL
 argument_list|)
@@ -6777,7 +6777,7 @@ return|;
 return|return
 name|lock_ref_sha1_basic
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|old_sha1
 argument_list|,
@@ -7232,12 +7232,12 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|oldref
+name|oldrefname
 parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|newref
+name|newrefname
 parameter_list|,
 specifier|const
 name|char
@@ -7285,7 +7285,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 argument_list|,
 operator|&
@@ -7315,14 +7315,14 @@ name|error
 argument_list|(
 literal|"reflog for %s is a symlink"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 return|;
 name|symref
 operator|=
 name|resolve_ref
 argument_list|(
-name|oldref
+name|oldrefname
 argument_list|,
 name|orig_sha1
 argument_list|,
@@ -7343,7 +7343,7 @@ name|error
 argument_list|(
 literal|"refname %s is a symbolic ref, renaming it is not supported"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 return|;
 if|if
@@ -7356,7 +7356,7 @@ name|error
 argument_list|(
 literal|"refname %s not found"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 return|;
 if|if
@@ -7364,9 +7364,9 @@ condition|(
 operator|!
 name|is_refname_available
 argument_list|(
-name|newref
+name|newrefname
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|,
 name|get_packed_refs
 argument_list|(
@@ -7384,9 +7384,9 @@ condition|(
 operator|!
 name|is_refname_available
 argument_list|(
-name|newref
+name|newrefname
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|,
 name|get_loose_refs
 argument_list|(
@@ -7409,7 +7409,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 argument_list|,
 name|git_path
@@ -7425,7 +7425,7 @@ literal|"unable to move logfile logs/%s to "
 name|TMP_RENAMED_LOG
 literal|": %s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|,
 name|strerror
 argument_list|(
@@ -7437,7 +7437,7 @@ if|if
 condition|(
 name|delete_ref
 argument_list|(
-name|oldref
+name|oldrefname
 argument_list|,
 name|orig_sha1
 argument_list|,
@@ -7449,7 +7449,7 @@ name|error
 argument_list|(
 literal|"unable to delete old %s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7461,7 +7461,7 @@ condition|(
 operator|!
 name|read_ref_full
 argument_list|(
-name|newref
+name|newrefname
 argument_list|,
 name|sha1
 argument_list|,
@@ -7473,7 +7473,7 @@ argument_list|)
 operator|&&
 name|delete_ref
 argument_list|(
-name|newref
+name|newrefname
 argument_list|,
 name|sha1
 argument_list|,
@@ -7496,7 +7496,7 @@ name|git_path
 argument_list|(
 literal|"%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7505,7 +7505,7 @@ name|error
 argument_list|(
 literal|"Directory not empty: %s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7519,7 +7519,7 @@ name|error
 argument_list|(
 literal|"unable to delete existing %s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7537,7 +7537,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7546,7 +7546,7 @@ name|error
 argument_list|(
 literal|"unable to create directory for %s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7570,7 +7570,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7595,7 +7595,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7604,7 +7604,7 @@ name|error
 argument_list|(
 literal|"Directory not empty: logs/%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7623,7 +7623,7 @@ literal|"unable to move logfile "
 name|TMP_RENAMED_LOG
 literal|" to logs/%s: %s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|,
 name|strerror
 argument_list|(
@@ -7644,7 +7644,7 @@ name|lock
 operator|=
 name|lock_ref_sha1_basic
 argument_list|(
-name|newref
+name|newrefname
 argument_list|,
 name|NULL
 argument_list|,
@@ -7663,7 +7663,7 @@ name|error
 argument_list|(
 literal|"unable to lock %s for update"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7701,7 +7701,7 @@ name|error
 argument_list|(
 literal|"unable to write current sha1 into %s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7717,7 +7717,7 @@ name|lock
 operator|=
 name|lock_ref_sha1_basic
 argument_list|(
-name|oldref
+name|oldrefname
 argument_list|,
 name|NULL
 argument_list|,
@@ -7736,7 +7736,7 @@ name|error
 argument_list|(
 literal|"unable to lock %s for rollback"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -7772,7 +7772,7 @@ name|error
 argument_list|(
 literal|"unable to write current sha1 into %s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 expr_stmt|;
 name|log_all_ref_updates
@@ -7791,14 +7791,14 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|newref
+name|newrefname
 argument_list|)
 argument_list|,
 name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7806,9 +7806,9 @@ name|error
 argument_list|(
 literal|"unable to restore logfile %s from %s: %s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|,
-name|newref
+name|newrefname
 argument_list|,
 name|strerror
 argument_list|(
@@ -7834,7 +7834,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|)
 argument_list|)
 condition|)
@@ -7844,7 +7844,7 @@ literal|"unable to restore logfile %s from "
 name|TMP_RENAMED_LOG
 literal|": %s"
 argument_list|,
-name|oldref
+name|oldrefname
 argument_list|,
 name|strerror
 argument_list|(
@@ -8096,7 +8096,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref_name
+name|refname
 parameter_list|,
 name|char
 modifier|*
@@ -8123,7 +8123,7 @@ name|bufsize
 argument_list|,
 literal|"logs/%s"
 argument_list|,
-name|ref_name
+name|refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -8134,7 +8134,7 @@ operator|(
 operator|!
 name|prefixcmp
 argument_list|(
-name|ref_name
+name|refname
 argument_list|,
 literal|"refs/heads/"
 argument_list|)
@@ -8142,7 +8142,7 @@ operator|||
 operator|!
 name|prefixcmp
 argument_list|(
-name|ref_name
+name|refname
 argument_list|,
 literal|"refs/remotes/"
 argument_list|)
@@ -8150,7 +8150,7 @@ operator|||
 operator|!
 name|prefixcmp
 argument_list|(
-name|ref_name
+name|refname
 argument_list|,
 literal|"refs/notes/"
 argument_list|)
@@ -8158,7 +8158,7 @@ operator|||
 operator|!
 name|strcmp
 argument_list|(
-name|ref_name
+name|refname
 argument_list|,
 literal|"HEAD"
 argument_list|)
@@ -8307,7 +8307,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref_name
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -8379,7 +8379,7 @@ name|result
 operator|=
 name|log_ref_setup
 argument_list|(
-name|ref_name
+name|refname
 argument_list|,
 name|log_file
 argument_list|,
@@ -9372,7 +9372,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|unsigned
 name|long
@@ -9466,7 +9466,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 name|logfd
@@ -10055,7 +10055,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|each_reflog_ent_fn
 name|fn
@@ -10094,7 +10094,7 @@ name|git_path
 argument_list|(
 literal|"logs/%s"
 argument_list|,
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 name|logfp
@@ -10476,7 +10476,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|each_reflog_ent_fn
 name|fn
@@ -10489,7 +10489,7 @@ block|{
 return|return
 name|for_each_recent_reflog_ent
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|fn
 argument_list|,
@@ -11171,7 +11171,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref
+name|refname
 parameter_list|,
 name|int
 name|strict
@@ -11313,15 +11313,15 @@ condition|)
 return|return
 name|xstrdup
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 return|;
-comment|/* buffer for scanf result, at most ref must fit */
+comment|/* buffer for scanf result, at most refname must fit */
 name|short_name
 operator|=
 name|xstrdup
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 expr_stmt|;
 comment|/* skip first rule, it will always match */
@@ -11358,7 +11358,7 @@ literal|1
 operator|!=
 name|sscanf
 argument_list|(
-name|ref
+name|refname
 argument_list|,
 name|scanf_fmts
 index|[
@@ -11469,7 +11469,7 @@ expr_stmt|;
 return|return
 name|xstrdup
 argument_list|(
-name|ref
+name|refname
 argument_list|)
 return|;
 block|}
