@@ -2112,7 +2112,7 @@ parameter_list|,
 name|unsigned
 name|char
 modifier|*
-name|result
+name|sha1
 parameter_list|)
 block|{
 name|int
@@ -2191,7 +2191,7 @@ condition|)
 block|{
 name|memcpy
 argument_list|(
-name|result
+name|sha1
 argument_list|,
 name|ref
 operator|->
@@ -2231,7 +2231,7 @@ parameter_list|,
 name|unsigned
 name|char
 modifier|*
-name|result
+name|sha1
 parameter_list|,
 name|int
 name|recursion
@@ -2307,7 +2307,7 @@ name|pathlen
 argument_list|,
 name|refname
 argument_list|,
-name|result
+name|sha1
 argument_list|)
 return|;
 name|len
@@ -2373,7 +2373,7 @@ name|get_sha1_hex
 argument_list|(
 name|buffer
 argument_list|,
-name|result
+name|sha1
 argument_list|)
 condition|)
 return|return
@@ -2421,7 +2421,7 @@ name|pathlen
 argument_list|,
 name|p
 argument_list|,
-name|result
+name|sha1
 argument_list|,
 name|recursion
 operator|+
@@ -2448,7 +2448,7 @@ parameter_list|,
 name|unsigned
 name|char
 modifier|*
-name|result
+name|sha1
 parameter_list|)
 block|{
 name|int
@@ -2600,7 +2600,7 @@ name|len
 argument_list|,
 name|refname
 argument_list|,
-name|result
+name|sha1
 argument_list|,
 literal|0
 argument_list|)
@@ -3399,7 +3399,7 @@ specifier|const
 name|unsigned
 name|char
 modifier|*
-name|sha
+name|sha1
 parameter_list|,
 name|int
 name|flags
@@ -3444,7 +3444,7 @@ name|fn
 argument_list|(
 name|refname
 argument_list|,
-name|sha
+name|sha1
 argument_list|,
 name|flags
 argument_list|,
