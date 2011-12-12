@@ -5580,6 +5580,9 @@ name|result
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Return true iff a reference named refname could be created without  * conflicting with the name of an existing reference.  If oldrefname  * is non-NULL, ignore potential conflicts with oldrefname (e.g.,  * because oldrefname is scheduled for deletion in the same  * operation).  */
+end_comment
 begin_function
 DECL|function|is_refname_available
 specifier|static
@@ -5600,9 +5603,6 @@ name|struct
 name|ref_array
 modifier|*
 name|array
-parameter_list|,
-name|int
-name|quiet
 parameter_list|)
 block|{
 name|int
@@ -5722,11 +5722,6 @@ operator|==
 literal|'/'
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-name|quiet
-condition|)
 name|error
 argument_list|(
 literal|"'%s' exists; cannot create '%s'"
@@ -6504,8 +6499,6 @@ name|get_packed_refs
 argument_list|(
 name|NULL
 argument_list|)
-argument_list|,
-literal|0
 argument_list|)
 condition|)
 block|{
@@ -7372,8 +7365,6 @@ name|get_packed_refs
 argument_list|(
 name|NULL
 argument_list|)
-argument_list|,
-literal|0
 argument_list|)
 condition|)
 return|return
@@ -7392,8 +7383,6 @@ name|get_loose_refs
 argument_list|(
 name|NULL
 argument_list|)
-argument_list|,
-literal|0
 argument_list|)
 condition|)
 return|return
