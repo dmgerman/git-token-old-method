@@ -1175,10 +1175,10 @@ name|warning
 argument_list|(
 name|_
 argument_list|(
-literal|"%s; will overwrite!"
+literal|"overwriting '%s'"
 argument_list|)
 argument_list|,
-name|bad
+name|dst
 argument_list|)
 expr_stmt|;
 name|bad
