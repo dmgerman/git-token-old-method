@@ -4496,6 +4496,10 @@ name|struct
 name|pretty_print_context
 name|pretty_ctx
 decl_stmt|;
+name|void
+modifier|*
+name|local_ref_to_free
+decl_stmt|;
 name|int
 name|ret
 decl_stmt|;
@@ -4600,7 +4604,9 @@ name|o
 operator|->
 name|local_ref
 operator|=
-name|resolve_ref
+name|local_ref_to_free
+operator|=
+name|resolve_refdup
 argument_list|(
 literal|"NOTES_MERGE_REF"
 argument_list|,
@@ -4621,17 +4627,6 @@ condition|)
 name|die
 argument_list|(
 literal|"Failed to resolve NOTES_MERGE_REF"
-argument_list|)
-expr_stmt|;
-name|o
-operator|->
-name|local_ref
-operator|=
-name|xstrdup
-argument_list|(
-name|o
-operator|->
-name|local_ref
 argument_list|)
 expr_stmt|;
 if|if
@@ -4743,13 +4738,7 @@ argument_list|)
 expr_stmt|;
 name|free
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|o
-operator|->
-name|local_ref
+name|local_ref_to_free
 argument_list|)
 expr_stmt|;
 return|return
