@@ -6616,14 +6616,6 @@ modifier|*
 modifier|*
 name|list
 parameter_list|,
-name|int
-name|nr_match
-parameter_list|,
-name|char
-modifier|*
-modifier|*
-name|match
-parameter_list|,
 name|unsigned
 name|int
 name|flags
