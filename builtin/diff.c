@@ -1095,6 +1095,10 @@ argument_list|)
 expr_stmt|;
 name|free
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|parent
 argument_list|)
 expr_stmt|;
