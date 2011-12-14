@@ -1342,7 +1342,8 @@ name|char
 modifier|*
 name|remote
 parameter_list|,
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|display
 parameter_list|)
@@ -1383,11 +1384,6 @@ operator|->
 name|name
 argument_list|)
 decl_stmt|;
-operator|*
-name|display
-operator|=
-literal|0
-expr_stmt|;
 name|type
 operator|=
 name|sha1_object_info
@@ -1441,7 +1437,7 @@ name|verbosity
 operator|>
 literal|0
 condition|)
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -1499,7 +1495,7 @@ argument_list|)
 condition|)
 block|{
 comment|/* 		 * If this is the head, and it's not okay to update 		 * the head, and the old value of the head isn't empty... 		 */
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -1561,7 +1557,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -1717,7 +1713,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -1844,7 +1840,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -1968,7 +1964,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -2009,7 +2005,7 @@ return|;
 block|}
 else|else
 block|{
-name|sprintf
+name|strbuf_addf
 argument_list|(
 name|display
 argument_list|,
@@ -2141,8 +2137,6 @@ name|url_len
 decl_stmt|,
 name|i
 decl_stmt|,
-name|note_len
-decl_stmt|,
 name|shown_url
 init|=
 literal|0
@@ -2151,11 +2145,11 @@ name|rc
 init|=
 literal|0
 decl_stmt|;
-name|char
+name|struct
+name|strbuf
 name|note
-index|[
-literal|1024
-index|]
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 specifier|const
 name|char
@@ -2569,9 +2563,11 @@ name|i
 operator|-
 literal|3
 expr_stmt|;
-name|note_len
-operator|=
-literal|0
+name|strbuf_reset
+argument_list|(
+operator|&
+name|note
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2584,26 +2580,20 @@ condition|(
 operator|*
 name|kind
 condition|)
-name|note_len
-operator|+=
-name|sprintf
+name|strbuf_addf
 argument_list|(
+operator|&
 name|note
-operator|+
-name|note_len
 argument_list|,
 literal|"%s "
 argument_list|,
 name|kind
 argument_list|)
 expr_stmt|;
-name|note_len
-operator|+=
-name|sprintf
+name|strbuf_addf
 argument_list|(
+operator|&
 name|note
-operator|+
-name|note_len
 argument_list|,
 literal|"'%s' of "
 argument_list|,
@@ -2611,13 +2601,6 @@ name|what
 argument_list|)
 expr_stmt|;
 block|}
-name|note
-index|[
-name|note_len
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
 name|fprintf
 argument_list|(
 name|fp
@@ -2640,6 +2623,8 @@ else|:
 literal|"not-for-merge"
 argument_list|,
 name|note
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 for|for
@@ -2689,6 +2674,12 @@ argument_list|,
 name|fp
 argument_list|)
 expr_stmt|;
+name|strbuf_reset
+argument_list|(
+operator|&
+name|note
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ref
@@ -2702,6 +2693,7 @@ name|ref
 argument_list|,
 name|what
 argument_list|,
+operator|&
 name|note
 argument_list|)
 expr_stmt|;
@@ -2712,8 +2704,9 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|sprintf
+name|strbuf_addf
 argument_list|(
+operator|&
 name|note
 argument_list|,
 literal|"* %-*s %-*s -> FETCH_HEAD"
@@ -2739,8 +2732,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|*
 name|note
+operator|.
+name|len
 condition|)
 block|{
 if|if
@@ -2785,6 +2779,8 @@ argument_list|,
 literal|" %s\n"
 argument_list|,
 name|note
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 block|}
@@ -2809,6 +2805,12 @@ argument_list|)
 expr_stmt|;
 name|abort
 label|:
+name|strbuf_release
+argument_list|(
+operator|&
+name|note
+argument_list|)
+expr_stmt|;
 name|free
 argument_list|(
 name|url
