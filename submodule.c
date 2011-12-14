@@ -4114,7 +4114,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"Could not run git status --porcelain"
+literal|"Could not run 'git status --porcelain' in submodule %s"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 name|len
@@ -4243,7 +4245,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"git status --porcelain failed"
+literal|"'git status --porcelain' failed in submodule %s"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 name|strbuf_release
