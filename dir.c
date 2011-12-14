@@ -4530,11 +4530,6 @@ name|contents
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|fdir
-condition|)
-block|{
 name|struct
 name|dirent
 modifier|*
@@ -4548,6 +4543,14 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|fdir
+condition|)
+return|return
+literal|0
+return|;
 name|memcpy
 argument_list|(
 name|path
@@ -4654,7 +4657,6 @@ argument_list|(
 name|fdir
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|contents
 return|;
