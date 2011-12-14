@@ -3870,6 +3870,8 @@ name|int
 name|saved
 decl_stmt|,
 name|status
+decl_stmt|,
+name|padding
 decl_stmt|;
 if|if
 condition|(
@@ -3878,7 +3880,7 @@ name|prefixcmp
 argument_list|(
 name|bol
 argument_list|,
-literal|"pick "
+literal|"pick"
 argument_list|)
 condition|)
 block|{
@@ -3890,7 +3892,7 @@ name|bol
 operator|+=
 name|strlen
 argument_list|(
-literal|"pick "
+literal|"pick"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3902,7 +3904,7 @@ name|prefixcmp
 argument_list|(
 name|bol
 argument_list|,
-literal|"revert "
+literal|"revert"
 argument_list|)
 condition|)
 block|{
@@ -3914,7 +3916,7 @@ name|bol
 operator|+=
 name|strlen
 argument_list|(
-literal|"revert "
+literal|"revert"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3922,6 +3924,28 @@ else|else
 return|return
 name|NULL
 return|;
+comment|/* Eat up extra spaces/ tabs before object name */
+name|padding
+operator|=
+name|strspn
+argument_list|(
+name|bol
+argument_list|,
+literal|" \t"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|padding
+condition|)
+return|return
+name|NULL
+return|;
+name|bol
+operator|+=
+name|padding
+expr_stmt|;
 name|end_of_object_name
 operator|=
 name|bol
@@ -3930,7 +3954,7 @@ name|strcspn
 argument_list|(
 name|bol
 argument_list|,
-literal|" \n"
+literal|" \t\n"
 argument_list|)
 expr_stmt|;
 name|saved
