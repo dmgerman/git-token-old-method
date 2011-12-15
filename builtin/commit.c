@@ -8055,9 +8055,8 @@ if|if
 condition|(
 name|commit_tree
 argument_list|(
+operator|&
 name|sb
-operator|.
-name|buf
 argument_list|,
 name|active_cache_tree
 operator|->

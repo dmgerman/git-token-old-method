@@ -4514,7 +4514,8 @@ name|int
 name|commit_tree
 parameter_list|(
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|msg
 parameter_list|,
@@ -4690,7 +4691,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 comment|/* And add the comment */
-name|strbuf_addstr
+name|strbuf_addbuf
 argument_list|(
 operator|&
 name|buffer

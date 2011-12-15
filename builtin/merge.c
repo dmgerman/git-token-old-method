@@ -5759,9 +5759,8 @@ if|if
 condition|(
 name|commit_tree
 argument_list|(
+operator|&
 name|merge_msg
-operator|.
-name|buf
 argument_list|,
 name|result_tree
 argument_list|,
@@ -5949,9 +5948,8 @@ if|if
 condition|(
 name|commit_tree
 argument_list|(
+operator|&
 name|merge_msg
-operator|.
-name|buf
 argument_list|,
 name|result_tree
 argument_list|,
