@@ -1151,7 +1151,7 @@ name|transport
 operator|->
 name|verbose
 operator|>
-literal|0
+literal|1
 operator|)
 condition|?
 literal|"-rv"
@@ -1449,7 +1449,7 @@ name|transport
 operator|->
 name|verbose
 operator|>
-literal|0
+literal|1
 operator|)
 condition|?
 literal|"-rv"
@@ -1929,7 +1929,7 @@ name|transport
 operator|->
 name|verbose
 operator|>
-literal|0
+literal|1
 condition|)
 name|args
 index|[
@@ -3014,7 +3014,7 @@ name|transport
 operator|->
 name|verbose
 operator|>
-literal|0
+literal|1
 operator|)
 expr_stmt|;
 name|args
@@ -5720,7 +5720,7 @@ if|if
 condition|(
 name|verbosity
 operator|>=
-literal|2
+literal|1
 condition|)
 name|transport
 operator|->
