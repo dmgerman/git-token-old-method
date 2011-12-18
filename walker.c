@@ -119,7 +119,6 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|fprintf
 argument_list|(
 name|stderr
@@ -1070,7 +1069,7 @@ name|ref
 modifier|*
 name|ref
 init|=
-name|alloc_ref_from_str
+name|alloc_ref
 argument_list|(
 name|target
 argument_list|)
@@ -1213,6 +1212,8 @@ decl_stmt|;
 name|struct
 name|strbuf
 name|buf
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 operator|*
 name|target
@@ -1223,14 +1224,6 @@ operator|*
 name|write_ref
 operator|=
 name|NULL
-expr_stmt|;
-name|strbuf_init
-argument_list|(
-operator|&
-name|buf
-argument_list|,
-literal|0
-argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -1423,11 +1416,6 @@ expr_stmt|;
 if|if
 condition|(
 name|write_ref
-operator|&&
-name|write_ref
-index|[
-name|targets
-index|]
 condition|)
 name|free
 argument_list|(

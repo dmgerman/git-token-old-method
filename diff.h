@@ -69,6 +69,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|old_dirty_submodule
+parameter_list|,
+name|unsigned
+name|new_dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -102,6 +108,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_typedef
@@ -178,13 +187,6 @@ define|#
 directive|define
 name|DIFF_FORMAT_DIRSTAT
 value|0x0040
-end_define
-begin_define
-DECL|macro|DIFF_FORMAT_CUMULATIVE
-define|#
-directive|define
-name|DIFF_FORMAT_CUMULATIVE
-value|0x0080
 end_define
 begin_comment
 comment|/* These override all above */
@@ -305,10 +307,10 @@ name|DIFF_OPT_HAS_CHANGES
 value|(1<< 10)
 end_define
 begin_define
-DECL|macro|DIFF_OPT_QUIET
+DECL|macro|DIFF_OPT_QUICK
 define|#
 directive|define
-name|DIFF_OPT_QUIET
+name|DIFF_OPT_QUICK
 value|(1<< 11)
 end_define
 begin_define
@@ -361,6 +363,41 @@ name|DIFF_OPT_IGNORE_SUBMODULES
 value|(1<< 18)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_DIRSTAT_CUMULATIVE
+define|#
+directive|define
+name|DIFF_OPT_DIRSTAT_CUMULATIVE
+value|(1<< 19)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_DIRSTAT_BY_FILE
+define|#
+directive|define
+name|DIFF_OPT_DIRSTAT_BY_FILE
+value|(1<< 20)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_ALLOW_TEXTCONV
+define|#
+directive|define
+name|DIFF_OPT_ALLOW_TEXTCONV
+value|(1<< 21)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_DIFF_FROM_CONTENTS
+define|#
+directive|define
+name|DIFF_OPT_DIFF_FROM_CONTENTS
+value|(1<< 22)
+end_define
+begin_define
+DECL|macro|DIFF_OPT_SUBMODULE_LOG
+define|#
+directive|define
+name|DIFF_OPT_SUBMODULE_LOG
+value|(1<< 23)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
@@ -395,6 +432,42 @@ parameter_list|,
 name|flag
 parameter_list|)
 value|((opts)->flags&= ~DIFF_OPT_##flag)
+end_define
+begin_define
+DECL|macro|DIFF_XDL_TST
+define|#
+directive|define
+name|DIFF_XDL_TST
+parameter_list|(
+name|opts
+parameter_list|,
+name|flag
+parameter_list|)
+value|((opts)->xdl_opts& XDF_##flag)
+end_define
+begin_define
+DECL|macro|DIFF_XDL_SET
+define|#
+directive|define
+name|DIFF_XDL_SET
+parameter_list|(
+name|opts
+parameter_list|,
+name|flag
+parameter_list|)
+value|((opts)->xdl_opts |= XDF_##flag)
+end_define
+begin_define
+DECL|macro|DIFF_XDL_CLR
+define|#
+directive|define
+name|DIFF_XDL_CLR
+parameter_list|(
+name|opts
+parameter_list|,
+name|flag
+parameter_list|)
+value|((opts)->xdl_opts&= ~XDF_##flag)
 end_define
 begin_struct
 DECL|struct|diff_options
@@ -442,6 +515,10 @@ decl_stmt|;
 DECL|member|context
 name|int
 name|context
+decl_stmt|;
+DECL|member|interhunkcontext
+name|int
+name|interhunkcontext
 decl_stmt|;
 DECL|member|break_opt
 name|int
@@ -518,6 +595,12 @@ decl_stmt|;
 DECL|member|stat_name_width
 name|int
 name|stat_name_width
+decl_stmt|;
+DECL|member|word_regex
+specifier|const
+name|char
+modifier|*
+name|word_regex
 decl_stmt|;
 comment|/* this is set by diffcore for DIFF_FORMAT_PATCH */
 DECL|member|found_changes
@@ -613,6 +696,11 @@ DECL|enumerator|DIFF_WHITESPACE
 name|DIFF_WHITESPACE
 init|=
 literal|7
+block|,
+DECL|enumerator|DIFF_FUNCINFO
+name|DIFF_FUNCINFO
+init|=
+literal|8
 block|, }
 enum|;
 end_enum
@@ -911,6 +999,27 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|void
+name|diff_set_mnemonic_prefix
+parameter_list|(
+name|struct
+name|diff_options
+modifier|*
+name|options
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|a
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|b
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 specifier|extern
 name|void
 name|diff_addremove
@@ -935,6 +1044,9 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -969,6 +1081,12 @@ specifier|const
 name|char
 modifier|*
 name|fullpath
+parameter_list|,
+name|unsigned
+name|dirty_submodule1
+parameter_list|,
+name|unsigned
+name|dirty_submodule2
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1138,6 +1256,17 @@ begin_function_decl
 specifier|extern
 name|void
 name|diffcore_std
+parameter_list|(
+name|struct
+name|diff_options
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|diffcore_fix_diff_index
 parameter_list|(
 name|struct
 name|diff_options
@@ -1381,6 +1510,21 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|index_differs_from
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|def
+parameter_list|,
+name|int
+name|diff_flags
 parameter_list|)
 function_decl|;
 end_function_decl

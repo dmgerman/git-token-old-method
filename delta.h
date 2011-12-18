@@ -271,11 +271,9 @@ operator|*
 name|datap
 decl_stmt|;
 name|unsigned
-name|char
-name|cmd
-decl_stmt|;
-name|unsigned
 name|long
+name|cmd
+decl_stmt|,
 name|size
 init|=
 literal|0
@@ -298,8 +296,7 @@ operator||=
 operator|(
 name|cmd
 operator|&
-operator|~
-literal|0x80
+literal|0x7f
 operator|)
 operator|<<
 name|i
