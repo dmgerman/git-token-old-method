@@ -690,6 +690,11 @@ include|#
 directive|include
 file|<pwd.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<sys/un.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
