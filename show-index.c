@@ -52,6 +52,9 @@ index|[
 literal|256
 index|]
 decl_stmt|;
+name|git_setup_gettext
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|argc
