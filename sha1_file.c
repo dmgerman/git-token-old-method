@@ -12271,7 +12271,7 @@ name|filename
 decl_stmt|;
 specifier|static
 name|char
-name|tmpfile
+name|tmp_file
 index|[
 name|PATH_MAX
 index|]
@@ -12287,11 +12287,11 @@ name|fd
 operator|=
 name|create_tmpfile
 argument_list|(
-name|tmpfile
+name|tmp_file
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|tmpfile
+name|tmp_file
 argument_list|)
 argument_list|,
 name|filename
@@ -12325,7 +12325,7 @@ name|error
 argument_list|(
 literal|"unable to create temporary sha1 filename %s: %s\n"
 argument_list|,
-name|tmpfile
+name|tmp_file
 argument_list|,
 name|strerror
 argument_list|(
@@ -12619,7 +12619,7 @@ if|if
 condition|(
 name|utime
 argument_list|(
-name|tmpfile
+name|tmp_file
 argument_list|,
 operator|&
 name|utb
@@ -12631,7 +12631,7 @@ name|warning
 argument_list|(
 literal|"failed utime() on %s: %s"
 argument_list|,
-name|tmpfile
+name|tmp_file
 argument_list|,
 name|strerror
 argument_list|(
@@ -12643,7 +12643,7 @@ block|}
 return|return
 name|move_temp_to_file
 argument_list|(
-name|tmpfile
+name|tmp_file
 argument_list|,
 name|filename
 argument_list|)

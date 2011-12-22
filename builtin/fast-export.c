@@ -133,7 +133,7 @@ name|REWRITE
 block|}
 name|tag_of_filtered_mode
 init|=
-name|ABORT
+name|ERROR
 enum|;
 end_enum
 begin_decl_stmt
@@ -303,7 +303,7 @@ argument_list|)
 condition|)
 name|tag_of_filtered_mode
 operator|=
-name|ABORT
+name|ERROR
 expr_stmt|;
 elseif|else
 if|if
