@@ -1220,7 +1220,8 @@ name|int
 name|commit_tree
 parameter_list|(
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|msg
 parameter_list|,
@@ -1252,7 +1253,8 @@ name|int
 name|commit_tree_extended
 parameter_list|(
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|msg
 parameter_list|,

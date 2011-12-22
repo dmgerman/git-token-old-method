@@ -5285,7 +5285,8 @@ name|int
 name|commit_tree
 parameter_list|(
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|msg
 parameter_list|,
@@ -5381,7 +5382,8 @@ name|int
 name|commit_tree_extended
 parameter_list|(
 specifier|const
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|msg
 parameter_list|,
@@ -5428,6 +5430,27 @@ argument_list|,
 name|OBJ_TREE
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|memchr
+argument_list|(
+name|msg
+operator|->
+name|buf
+argument_list|,
+literal|'\0'
+argument_list|,
+name|msg
+operator|->
+name|len
+argument_list|)
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"a NUL byte in commit log message not allowed."
+argument_list|)
+return|;
 comment|/* Not having i18n.commitencoding is the same as having utf-8 */
 name|encoding_is_utf8
 operator|=
@@ -5589,7 +5612,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 comment|/* And add the comment */
-name|strbuf_addstr
+name|strbuf_addbuf
 argument_list|(
 operator|&
 name|buffer
