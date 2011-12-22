@@ -483,6 +483,8 @@ specifier|static
 name|struct
 name|strbuf
 name|message
+init|=
+name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
