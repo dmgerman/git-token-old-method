@@ -483,6 +483,9 @@ specifier|const
 name|char
 modifier|*
 name|url
+parameter_list|,
+name|int
+name|proactive_auth
 parameter_list|)
 function_decl|;
 end_function_decl
