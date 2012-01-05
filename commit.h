@@ -1302,6 +1302,11 @@ parameter_list|(
 name|struct
 name|commit
 modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1319,6 +1324,11 @@ name|buf
 parameter_list|,
 name|size_t
 name|len
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
