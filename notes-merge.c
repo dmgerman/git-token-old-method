@@ -3095,6 +3095,8 @@ argument_list|,
 name|result_sha1
 argument_list|,
 name|NULL
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 name|die
