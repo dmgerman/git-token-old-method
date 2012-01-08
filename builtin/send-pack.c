@@ -1292,6 +1292,20 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|server_supports
+argument_list|(
+literal|"quiet"
+argument_list|)
+condition|)
+name|args
+operator|->
+name|quiet
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+operator|!
 name|remote_refs
 condition|)
 block|{
@@ -1434,6 +1448,10 @@ operator|(
 name|status_report
 operator|||
 name|use_sideband
+operator|||
+name|args
+operator|->
+name|quiet
 operator|)
 condition|)
 block|{
@@ -1442,7 +1460,7 @@ argument_list|(
 operator|&
 name|req_buf
 argument_list|,
-literal|"%s %s %s%c%s%s"
+literal|"%s %s %s%c%s%s%s"
 argument_list|,
 name|old_hex
 argument_list|,
@@ -1463,6 +1481,14 @@ argument_list|,
 name|use_sideband
 condition|?
 literal|" side-band-64k"
+else|:
+literal|""
+argument_list|,
+name|args
+operator|->
+name|quiet
+condition|?
+literal|" quiet"
 else|:
 literal|""
 argument_list|)
@@ -2126,6 +2152,25 @@ block|{
 name|args
 operator|.
 name|force_update
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|arg
+argument_list|,
+literal|"--quiet"
+argument_list|)
+condition|)
+block|{
+name|args
+operator|.
+name|quiet
 operator|=
 literal|1
 expr_stmt|;
