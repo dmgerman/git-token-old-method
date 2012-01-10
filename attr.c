@@ -2844,8 +2844,6 @@ comment|/* 	 * Pop the ones from directories that are not the prefix of 	 * the 
 while|while
 condition|(
 name|attr_stack
-operator|&&
-name|attr_stack
 operator|->
 name|origin
 condition|)
