@@ -4706,10 +4706,7 @@ name|si
 operator|.
 name|hStdInput
 operator|=
-operator|(
-name|HANDLE
-operator|)
-name|_get_osfhandle
+name|winansi_get_osfhandle
 argument_list|(
 name|fhin
 argument_list|)
@@ -4718,10 +4715,7 @@ name|si
 operator|.
 name|hStdOutput
 operator|=
-operator|(
-name|HANDLE
-operator|)
-name|_get_osfhandle
+name|winansi_get_osfhandle
 argument_list|(
 name|fhout
 argument_list|)
@@ -4730,10 +4724,7 @@ name|si
 operator|.
 name|hStdError
 operator|=
-operator|(
-name|HANDLE
-operator|)
-name|_get_osfhandle
+name|winansi_get_osfhandle
 argument_list|(
 name|fherr
 argument_list|)
@@ -10480,6 +10471,10 @@ argument_list|)
 argument_list|,
 name|_O_BINARY
 argument_list|)
+expr_stmt|;
+comment|/* initialize Unicode console */
+name|winansi_init
+argument_list|()
 expr_stmt|;
 block|}
 end_function
