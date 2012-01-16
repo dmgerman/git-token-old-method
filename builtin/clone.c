@@ -4125,12 +4125,6 @@ name|remote_head
 condition|)
 block|{
 comment|/* Source had detached HEAD pointing somewhere. */
-if|if
-condition|(
-operator|!
-name|option_bare
-condition|)
-block|{
 name|update_ref
 argument_list|(
 name|reflog_msg
@@ -4154,7 +4148,6 @@ name|our_head_points_at
 operator|=
 name|remote_head
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
