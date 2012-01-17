@@ -2485,7 +2485,7 @@ operator|->
 name|peer_ref
 condition|)
 continue|continue;
-name|add_extra_ref
+name|add_packed_ref
 argument_list|(
 name|r
 operator|->
@@ -2496,8 +2496,6 @@ argument_list|,
 name|r
 operator|->
 name|old_sha1
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -2505,9 +2503,6 @@ name|pack_refs
 argument_list|(
 name|PACK_REFS_ALL
 argument_list|)
-expr_stmt|;
-name|clear_extra_refs
-argument_list|()
 expr_stmt|;
 block|}
 end_function
