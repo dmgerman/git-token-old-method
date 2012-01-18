@@ -423,12 +423,28 @@ name|buf
 argument_list|)
 operator|<
 literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|errno
+operator|!=
+name|ENOENT
 operator|&&
-operator|(
+name|errno
+operator|!=
+name|ECONNREFUSED
+condition|)
+name|die_errno
+argument_list|(
+literal|"unable to connect to cache daemon"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|flags
 operator|&
 name|FLAG_SPAWN
-operator|)
 condition|)
 block|{
 name|spawn_daemon
@@ -453,6 +469,7 @@ argument_list|(
 literal|"unable to connect to cache daemon"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|strbuf_release
 argument_list|(
