@@ -582,7 +582,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|prefixcmp
+name|strcmp
 argument_list|(
 name|refname
 argument_list|,
@@ -597,7 +597,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|prefixcmp
+name|strcmp
 argument_list|(
 name|refname
 argument_list|,

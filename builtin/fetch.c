@@ -3325,7 +3325,7 @@ name|ref
 operator|->
 name|name
 argument_list|,
-literal|"refs/tags"
+literal|"refs/tags/"
 argument_list|)
 condition|)
 continue|continue;
