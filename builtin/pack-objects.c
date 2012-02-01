@@ -12259,6 +12259,11 @@ operator|*
 name|c
 operator|==
 literal|','
+operator|&&
+name|c
+index|[
+literal|1
+index|]
 condition|)
 name|pack_idx_opts
 operator|.
