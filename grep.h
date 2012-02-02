@@ -648,11 +648,6 @@ name|grep_opt
 modifier|*
 name|opt
 parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
 name|char
 modifier|*
 name|buf
