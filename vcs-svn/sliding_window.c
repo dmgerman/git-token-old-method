@@ -159,7 +159,7 @@ parameter_list|(
 name|off_t
 name|offset
 parameter_list|,
-name|size_t
+name|uintmax_t
 name|len
 parameter_list|)
 block|{
@@ -180,9 +180,6 @@ literal|"%"
 name|PRIuMAX
 literal|"> OFF_MAX"
 argument_list|,
-operator|(
-name|uintmax_t
-operator|)
 name|len
 argument_list|)
 return|;
@@ -213,9 +210,6 @@ name|uintmax_t
 operator|)
 name|offset
 argument_list|,
-operator|(
-name|uintmax_t
-operator|)
 name|len
 argument_list|)
 return|;
