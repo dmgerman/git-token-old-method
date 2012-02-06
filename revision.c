@@ -2086,6 +2086,10 @@ decl_stmt|,
 name|tree_same
 init|=
 literal|0
+decl_stmt|,
+name|nth_parent
+init|=
+literal|0
 decl_stmt|;
 comment|/* 	 * If we don't do pruning, everything is interesting 	 */
 if|if
@@ -2175,6 +2179,17 @@ name|parent
 operator|->
 name|item
 decl_stmt|;
+comment|/* 		 * Do not compare with later parents when we care only about 		 * the first parent chain, in order to avoid derailing the 		 * traversal to follow a side branch that brought everything 		 * in the path we are limited to by the pathspec. 		 */
+if|if
+condition|(
+name|revs
+operator|->
+name|first_parent_only
+operator|&&
+name|nth_parent
+operator|++
+condition|)
+break|break;
 if|if
 condition|(
 name|parse_commit
