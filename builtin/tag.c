@@ -445,17 +445,37 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|type
+operator|!=
+name|OBJ_COMMIT
+operator|&&
+name|type
+operator|!=
+name|OBJ_TAG
+condition|)
+goto|goto
+name|free_return
+goto|;
+if|if
+condition|(
 operator|!
 name|size
 condition|)
-block|{
-name|free
+name|die
 argument_list|(
-name|buf
+literal|"an empty %s object %s?"
+argument_list|,
+name|typename
+argument_list|(
+name|type
+argument_list|)
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 comment|/* skip header */
 name|sp
 operator|=
@@ -471,15 +491,16 @@ condition|(
 operator|!
 name|sp
 condition|)
-block|{
-name|free
-argument_list|(
-name|buf
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-comment|/* only take up to "lines" lines, and strip the signature */
+goto|goto
+name|free_return
+goto|;
+comment|/* only take up to "lines" lines, and strip the signature from a tag */
+if|if
+condition|(
+name|type
+operator|==
+name|OBJ_TAG
+condition|)
 name|size
 operator|=
 name|parse_signature
@@ -579,6 +600,8 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+name|free_return
+label|:
 name|free
 argument_list|(
 name|buf
