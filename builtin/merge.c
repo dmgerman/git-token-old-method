@@ -7783,6 +7783,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|fast_forward_only
+operator|&&
 name|merge_remote_util
 argument_list|(
 name|commit
