@@ -798,7 +798,7 @@ name|cb_data
 parameter_list|)
 block|{
 name|struct
-name|rev_info
+name|rev_list_info
 modifier|*
 name|info
 init|=
@@ -818,6 +818,8 @@ expr_stmt|;
 if|if
 condition|(
 name|info
+operator|->
+name|revs
 operator|->
 name|verify_objects
 operator|&&
