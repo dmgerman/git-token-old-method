@@ -2059,6 +2059,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|function|parse_opt_points_at
+specifier|static
 name|int
 name|parse_opt_points_at
 argument_list|(
