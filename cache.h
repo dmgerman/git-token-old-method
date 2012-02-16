@@ -7643,14 +7643,6 @@ name|data
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_decl_stmt
-specifier|extern
-specifier|const
-name|char
-modifier|*
-name|config_exclusive_filename
-decl_stmt|;
-end_decl_stmt
 begin_define
 DECL|macro|MAX_GITNAME
 define|#

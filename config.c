@@ -92,16 +92,6 @@ name|int
 name|zlib_compression_seen
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|config_exclusive_filename
-specifier|const
-name|char
-modifier|*
-name|config_exclusive_filename
-init|=
-name|NULL
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|lowercase
 specifier|static
@@ -4705,7 +4695,7 @@ name|fn
 argument_list|,
 name|data
 argument_list|,
-name|config_exclusive_filename
+name|NULL
 argument_list|)
 return|;
 block|}
@@ -6976,7 +6966,7 @@ block|{
 return|return
 name|git_config_set_multivar_in_file
 argument_list|(
-name|config_exclusive_filename
+name|NULL
 argument_list|,
 name|key
 argument_list|,
@@ -7622,7 +7612,7 @@ block|{
 return|return
 name|git_config_rename_section_in_file
 argument_list|(
-name|config_exclusive_filename
+name|NULL
 argument_list|,
 name|old_name
 argument_list|,
