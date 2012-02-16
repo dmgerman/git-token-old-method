@@ -2246,6 +2246,8 @@ name|prefix
 condition|)
 name|config_exclusive_filename
 operator|=
+name|xstrdup
+argument_list|(
 name|prefix_filename
 argument_list|(
 name|prefix
@@ -2256,6 +2258,7 @@ name|prefix
 argument_list|)
 argument_list|,
 name|given_config_file
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
