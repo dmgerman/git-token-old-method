@@ -1133,7 +1133,7 @@ operator|->
 name|flags
 operator|&
 operator|~
-name|XDF_HISTOGRAM_DIFF
+name|XDF_DIFF_ALGORITHM_MASK
 expr_stmt|;
 return|return
 name|xdl_fall_back_diff

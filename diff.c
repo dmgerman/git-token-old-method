@@ -19922,7 +19922,11 @@ argument_list|,
 literal|"--patience"
 argument_list|)
 condition|)
-name|DIFF_XDL_SET
+name|options
+operator|->
+name|xdl_opts
+operator|=
+name|DIFF_WITH_ALG
 argument_list|(
 name|options
 argument_list|,
@@ -19940,7 +19944,11 @@ argument_list|,
 literal|"--histogram"
 argument_list|)
 condition|)
-name|DIFF_XDL_SET
+name|options
+operator|->
+name|xdl_opts
+operator|=
+name|DIFF_WITH_ALG
 argument_list|(
 name|options
 argument_list|,
