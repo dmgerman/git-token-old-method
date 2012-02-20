@@ -3920,6 +3920,10 @@ condition|(
 name|args
 operator|.
 name|quiet
+operator|||
+name|args
+operator|.
+name|no_progress
 condition|)
 operator|*
 name|av

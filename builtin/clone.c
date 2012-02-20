@@ -195,6 +195,9 @@ DECL|variable|option_progress
 specifier|static
 name|int
 name|option_progress
+init|=
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -279,7 +282,7 @@ operator|&
 name|option_verbosity
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
