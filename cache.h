@@ -7979,6 +7979,15 @@ name|int
 name|pager_use_color
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+specifier|extern
+name|int
+name|term_columns
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
 specifier|extern
 specifier|const
