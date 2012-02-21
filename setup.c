@@ -1103,7 +1103,6 @@ comment|/*  * Test if it looks like we're at a git directory.  * We want to see:
 end_comment
 begin_function
 DECL|function|is_git_directory
-specifier|static
 name|int
 name|is_git_directory
 parameter_list|(
