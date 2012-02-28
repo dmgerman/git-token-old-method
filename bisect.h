@@ -98,13 +98,6 @@ directive|define
 name|BISECT_SHOW_ALL
 value|(1<<0)
 end_define
-begin_define
-DECL|macro|BISECT_SHOW_TRIED
-define|#
-directive|define
-name|BISECT_SHOW_TRIED
-value|(1<<1)
-end_define
 begin_struct
 DECL|struct|rev_list_info
 struct|struct
