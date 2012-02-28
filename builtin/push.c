@@ -94,6 +94,9 @@ DECL|variable|progress
 specifier|static
 name|int
 name|progress
+init|=
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1405,7 +1408,7 @@ argument_list|,
 name|TRANSPORT_PUSH_SET_UPSTREAM
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -1415,6 +1418,20 @@ operator|&
 name|progress
 argument_list|,
 literal|"force progress reporting"
+argument_list|)
+block|,
+name|OPT_BIT
+argument_list|(
+literal|0
+argument_list|,
+literal|"prune"
+argument_list|,
+operator|&
+name|flags
+argument_list|,
+literal|"prune locally removed refs"
+argument_list|,
+name|TRANSPORT_PUSH_PRUNE
 argument_list|)
 block|,
 name|OPT_END
