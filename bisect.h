@@ -88,15 +88,19 @@ name|format_last
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/* bisect_show_flags flags in struct rev_list_info */
-end_comment
 begin_define
 DECL|macro|BISECT_SHOW_ALL
 define|#
 directive|define
 name|BISECT_SHOW_ALL
 value|(1<<0)
+end_define
+begin_define
+DECL|macro|REV_LIST_QUIET
+define|#
+directive|define
+name|REV_LIST_QUIET
+value|(1<<1)
 end_define
 begin_struct
 DECL|struct|rev_list_info
@@ -109,9 +113,9 @@ name|rev_info
 modifier|*
 name|revs
 decl_stmt|;
-DECL|member|bisect_show_flags
+DECL|member|flags
 name|int
-name|bisect_show_flags
+name|flags
 decl_stmt|;
 DECL|member|show_timestamp
 name|int
