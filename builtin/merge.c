@@ -2412,6 +2412,14 @@ expr_stmt|;
 comment|/* use full terminal width */
 name|opts
 operator|.
+name|stat_graph_width
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|/* respect statGraphWidth config */
+name|opts
+operator|.
 name|output_format
 operator||=
 name|DIFF_FORMAT_SUMMARY
