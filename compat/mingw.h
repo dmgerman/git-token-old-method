@@ -1999,15 +1999,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
-name|winansi_isatty
-parameter_list|(
-name|int
-name|fd
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|HANDLE
 name|winansi_get_osfhandle
 parameter_list|(
@@ -2016,13 +2007,6 @@ name|fd
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_define
-DECL|macro|isatty
-define|#
-directive|define
-name|isatty
-value|winansi_isatty
-end_define
 begin_comment
 comment|/*  * git specific compatibility  */
 end_comment
