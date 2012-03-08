@@ -187,6 +187,15 @@ operator|-
 literal|1
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|show_dangling
+specifier|static
+name|int
+name|show_dangling
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_define
 DECL|macro|ERROR_OBJECT
 define|#
@@ -1063,6 +1072,10 @@ operator|->
 name|used
 condition|)
 block|{
+if|if
+condition|(
+name|show_dangling
+condition|)
 name|printf
 argument_list|(
 literal|"dangling %s %s\n"
@@ -3063,6 +3076,18 @@ operator|&
 name|show_unreachable
 argument_list|,
 literal|"show unreachable objects"
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"dangling"
+argument_list|,
+operator|&
+name|show_dangling
+argument_list|,
+literal|"show dangling objects"
 argument_list|)
 block|,
 name|OPT_BOOLEAN

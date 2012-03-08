@@ -479,6 +479,13 @@ name|DIFF_OPT_FUNCCONTEXT
 value|(1<< 29)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_PICKAXE_IGNORE_CASE
+define|#
+directive|define
+name|DIFF_OPT_PICKAXE_IGNORE_CASE
+value|(1<< 30)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_TST
 define|#
 directive|define
@@ -713,6 +720,10 @@ decl_stmt|;
 DECL|member|stat_name_width
 name|int
 name|stat_name_width
+decl_stmt|;
+DECL|member|stat_graph_width
+name|int
+name|stat_graph_width
 decl_stmt|;
 DECL|member|stat_count
 name|int
