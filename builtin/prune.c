@@ -484,6 +484,11 @@ name|d_name
 argument_list|)
 expr_stmt|;
 block|}
+name|closedir
+argument_list|(
+name|dir
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -492,11 +497,6 @@ condition|)
 name|rmdir
 argument_list|(
 name|path
-argument_list|)
-expr_stmt|;
-name|closedir
-argument_list|(
-name|dir
 argument_list|)
 expr_stmt|;
 return|return
