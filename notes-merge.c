@@ -1501,6 +1501,15 @@ argument_list|(
 name|NOTES_MERGE_WORKTREE
 argument_list|)
 argument_list|)
+operator|&&
+operator|!
+name|is_empty_dir
+argument_list|(
+name|git_path
+argument_list|(
+name|NOTES_MERGE_WORKTREE
+argument_list|)
+argument_list|)
 condition|)
 block|{
 if|if
@@ -4266,7 +4275,7 @@ modifier|*
 name|o
 parameter_list|)
 block|{
-comment|/* Remove .git/NOTES_MERGE_WORKTREE directory and all files within */
+comment|/* 	 * Remove all files within .git/NOTES_MERGE_WORKTREE. We do not remove 	 * the .git/NOTES_MERGE_WORKTREE directory itself, since it might be 	 * the current working directory of the user. 	 */
 name|struct
 name|strbuf
 name|buf
@@ -4297,7 +4306,7 @@ literal|3
 condition|)
 name|printf
 argument_list|(
-literal|"Removing notes merge worktree at %s\n"
+literal|"Removing notes merge worktree at %s/*\n"
 argument_list|,
 name|buf
 operator|.
@@ -4311,7 +4320,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-literal|0
+name|REMOVE_DIR_KEEP_TOPLEVEL
 argument_list|)
 expr_stmt|;
 name|strbuf_release
