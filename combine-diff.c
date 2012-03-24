@@ -2275,6 +2275,8 @@ literal|1
 expr_stmt|;
 while|while
 condition|(
+name|la
+operator|&&
 name|j
 operator|<=
 operator|--
