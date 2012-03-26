@@ -688,6 +688,9 @@ name|force
 parameter_list|,
 name|int
 name|kinds
+parameter_list|,
+name|int
+name|quiet
 parameter_list|)
 block|{
 name|struct
@@ -1037,6 +1040,11 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|quiet
+condition|)
 name|printf
 argument_list|(
 name|_
@@ -3813,6 +3821,11 @@ name|edit_description
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|quiet
+init|=
+literal|0
+decl_stmt|;
 name|enum
 name|branch_track
 name|track
@@ -3846,6 +3859,14 @@ operator|&
 name|verbose
 argument_list|,
 literal|"show hash and subject, give twice for upstream branch"
+argument_list|)
+block|,
+name|OPT__QUIET
+argument_list|(
+operator|&
+name|quiet
+argument_list|,
+literal|"suppress informational messages"
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -4329,6 +4350,8 @@ operator|>
 literal|1
 argument_list|,
 name|kinds
+argument_list|,
+name|quiet
 argument_list|)
 return|;
 elseif|else
@@ -4589,7 +4612,7 @@ name|reflog
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+name|quiet
 argument_list|,
 name|track
 argument_list|)
