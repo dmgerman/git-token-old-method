@@ -5908,6 +5908,9 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+name|int
+name|hdr_version
+decl_stmt|;
 if|if
 condition|(
 name|hdr
@@ -5925,30 +5928,31 @@ argument_list|(
 literal|"bad signature"
 argument_list|)
 return|;
+name|hdr_version
+operator|=
+name|ntohl
+argument_list|(
+name|hdr
+operator|->
+name|hdr_version
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|hdr
-operator|->
 name|hdr_version
-operator|!=
-name|htonl
-argument_list|(
+operator|<
 literal|2
-argument_list|)
-operator|&&
-name|hdr
-operator|->
-name|hdr_version
-operator|!=
-name|htonl
-argument_list|(
+operator|||
 literal|3
-argument_list|)
+operator|<
+name|hdr_version
 condition|)
 return|return
 name|error
 argument_list|(
-literal|"bad index version"
+literal|"bad index version %d"
+argument_list|,
+name|hdr_version
 argument_list|)
 return|;
 name|git_SHA1_Init
