@@ -3844,6 +3844,10 @@ literal|1
 return|;
 if|if
 condition|(
+name|o
+operator|->
+name|merge
+operator|&&
 name|src
 index|[
 literal|0
