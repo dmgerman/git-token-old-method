@@ -633,6 +633,25 @@ name|ref
 return|;
 block|}
 end_function
+begin_function
+DECL|function|free_ref_entry
+specifier|static
+name|void
+name|free_ref_entry
+parameter_list|(
+name|struct
+name|ref_entry
+modifier|*
+name|entry
+parameter_list|)
+block|{
+name|free
+argument_list|(
+name|entry
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/* Add a ref_entry to the end of the ref_array (unsorted). */
 end_comment
@@ -714,7 +733,7 @@ condition|;
 name|i
 operator|++
 control|)
-name|free
+name|free_ref_entry
 argument_list|(
 name|array
 operator|->
@@ -1133,7 +1152,7 @@ index|]
 argument_list|)
 condition|)
 block|{
-name|free
+name|free_ref_entry
 argument_list|(
 name|array
 operator|->
