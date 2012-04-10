@@ -209,8 +209,7 @@ operator|==
 name|refname
 condition|)
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 comment|/* Component has zero length. */
 if|if
@@ -324,7 +323,7 @@ expr_stmt|;
 if|if
 condition|(
 name|component_len
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
