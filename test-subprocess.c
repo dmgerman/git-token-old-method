@@ -17,6 +17,7 @@ parameter_list|(
 name|int
 name|argc
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -49,6 +50,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|argc
+operator|>
+literal|1
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
@@ -91,12 +96,6 @@ name|cp
 operator|.
 name|argv
 operator|=
-operator|(
-specifier|const
-name|char
-operator|*
-operator|*
-operator|)
 name|argv
 operator|+
 literal|1
