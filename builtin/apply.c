@@ -647,6 +647,7 @@ name|newpos
 decl_stmt|,
 name|newlines
 decl_stmt|;
+comment|/* 	 * 'patch' is usually borrowed from buf in apply_patch(), 	 * but some codepaths store an allocated buffer. 	 */
 DECL|member|patch
 specifier|const
 name|char
@@ -1509,6 +1510,9 @@ operator|++
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * "buf" has the file contents to be patched (read from various sources).  * attach it to "image" and add line-based index to it.  * "image" now owns the "buf".  */
+end_comment
 begin_function
 DECL|function|prepare_image
 specifier|static
@@ -8120,6 +8124,9 @@ name|offset
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * We have seen "diff --git a/... b/..." header (or a traditional patch  * header).  Read hunks that belong to this patch into fragments and hang  * them to the given patch structure.  *  * The (fragment->patch, fragment->size) pair points into the memory given  * by the caller, not a copy, when we return.  */
+end_comment
 begin_function
 DECL|function|parse_single_patch
 specifier|static
@@ -8614,6 +8621,9 @@ name|out
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Read a binary hunk and return a new fragment; fragment->patch  * points at an allocated memory that the caller must free, so  * it is marked as "->free_patch = 1".  */
+end_comment
 begin_function
 DECL|function|parse_binary_hunk
 specifier|static
@@ -9224,6 +9234,9 @@ name|used
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Read the patch text in "buffer" taht extends for "size" bytes; stop  * reading after seeing a single patch (i.e. changes to a single file).  * Create fragments (i.e. patch hunks) and hang them to the given patch.  * Return the number of bytes consumed, so that the caller can call us  * again for the next patch.  */
+end_comment
 begin_function
 DECL|function|parse_chunk
 specifier|static
@@ -11729,6 +11742,9 @@ name|len
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * The change from "preimage" and "postimage" has been found to  * apply at applied_pos (counts in line numbers) in "img".  * Update "img" to remove "preimage" and replace it with "postimage".  */
+end_comment
 begin_function
 DECL|function|update_image
 specifier|static
@@ -12132,6 +12148,9 @@ name|nr
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * Use the patch-hunk text in "frag" to prepare two images (preimage and  * postimage) for the hunk.  Find lines that match "preimage" in "img" and  * replace the part of "img" with "postimage" text.  */
+end_comment
 begin_function
 DECL|function|apply_one_fragment
 specifier|static
@@ -13408,6 +13427,9 @@ literal|1
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Replace "img" with the result of applying the binary patch.  * The binary patch data itself in patch->fragment is still kept  * but the preimage prepared by the caller in "img" is freed here  * or in the helper function apply_binary_fragment() this calls.  */
+end_comment
 begin_function
 DECL|function|apply_binary
 specifier|static
@@ -14356,7 +14378,7 @@ name|old_name
 argument_list|)
 return|;
 block|}
-comment|/* We have a patched copy in memory use that */
+comment|/* We have a patched copy in memory; use that. */
 name|strbuf_add
 argument_list|(
 operator|&
@@ -15229,6 +15251,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Check and apply the patch in-core; leave the result in patch->result  * for the caller to write it out to the final destination.  */
+end_comment
 begin_function
 DECL|function|check_patch
 specifier|static
@@ -18334,6 +18359,7 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+comment|/* owns the patch text */
 name|struct
 name|patch
 modifier|*
