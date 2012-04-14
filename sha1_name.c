@@ -4649,7 +4649,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"HEAD does not point to a branch"
+argument_list|)
 argument_list|)
 return|;
 if|if
@@ -4683,7 +4686,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"No such branch: '%s'"
+argument_list|)
 argument_list|,
 name|cp
 argument_list|)
@@ -4698,7 +4704,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"No upstream configured for branch '%s'"
+argument_list|)
 argument_list|,
 name|upstream
 operator|->
@@ -4708,7 +4717,10 @@ return|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Upstream branch '%s' not stored as a remote-tracking branch"
+argument_list|)
 argument_list|,
 name|upstream
 operator|->
