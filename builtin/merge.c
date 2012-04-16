@@ -256,15 +256,6 @@ name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|remoteheads
-specifier|static
-name|struct
-name|commit_list
-modifier|*
-name|remoteheads
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|use_strategies
 specifier|static
 name|struct
@@ -1918,6 +1909,11 @@ name|struct
 name|commit
 modifier|*
 name|commit
+parameter_list|,
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 parameter_list|)
 block|{
 name|struct
@@ -2236,6 +2232,11 @@ name|commit
 modifier|*
 name|head_commit
 parameter_list|,
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
+parameter_list|,
 specifier|const
 name|unsigned
 name|char
@@ -2321,6 +2322,8 @@ block|{
 name|squash_message
 argument_list|(
 name|head_commit
+argument_list|,
+name|remoteheads
 argument_list|)
 expr_stmt|;
 block|}
@@ -4246,6 +4249,11 @@ modifier|*
 name|common
 parameter_list|,
 name|struct
+name|commit_list
+modifier|*
+name|remoteheads
+parameter_list|,
+name|struct
 name|commit
 modifier|*
 name|head
@@ -5493,7 +5501,9 @@ specifier|static
 name|void
 name|write_merge_state
 parameter_list|(
-name|void
+name|struct
+name|commit_list
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -5503,6 +5513,11 @@ specifier|static
 name|void
 name|abort_commit
 parameter_list|(
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -5531,7 +5546,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|write_merge_state
-argument_list|()
+argument_list|(
+name|remoteheads
+argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
@@ -5564,7 +5581,10 @@ specifier|static
 name|void
 name|prepare_to_commit
 parameter_list|(
-name|void
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 parameter_list|)
 block|{
 name|struct
@@ -5667,6 +5687,8 @@ argument_list|)
 condition|)
 name|abort_commit
 argument_list|(
+name|remoteheads
+argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
@@ -5694,6 +5716,8 @@ name|len
 condition|)
 name|abort_commit
 argument_list|(
+name|remoteheads
+argument_list|,
 name|_
 argument_list|(
 literal|"Empty commit message."
@@ -5733,6 +5757,11 @@ name|struct
 name|commit
 modifier|*
 name|head
+parameter_list|,
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 parameter_list|)
 block|{
 name|unsigned
@@ -5814,7 +5843,9 @@ operator|=
 name|NULL
 expr_stmt|;
 name|prepare_to_commit
-argument_list|()
+argument_list|(
+name|remoteheads
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -5846,6 +5877,8 @@ name|finish
 argument_list|(
 name|head
 argument_list|,
+name|remoteheads
+argument_list|,
 name|result_commit
 argument_list|,
 literal|"In-index merge"
@@ -5874,6 +5907,11 @@ name|struct
 name|commit_list
 modifier|*
 name|common
+parameter_list|,
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 parameter_list|,
 name|unsigned
 name|char
@@ -6000,7 +6038,9 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 name|prepare_to_commit
-argument_list|()
+argument_list|(
+name|remoteheads
+argument_list|)
 expr_stmt|;
 name|free_commit_list
 argument_list|(
@@ -6046,6 +6086,8 @@ expr_stmt|;
 name|finish
 argument_list|(
 name|head
+argument_list|,
+name|remoteheads
 argument_list|,
 name|result_commit
 argument_list|,
@@ -6600,7 +6642,10 @@ specifier|static
 name|void
 name|write_merge_state
 parameter_list|(
-name|void
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 parameter_list|)
 block|{
 specifier|const
@@ -7109,6 +7154,13 @@ name|NULL
 decl_stmt|,
 modifier|*
 name|wt_strategy
+init|=
+name|NULL
+decl_stmt|;
+name|struct
+name|commit_list
+modifier|*
+name|remoteheads
 init|=
 name|NULL
 decl_stmt|;
@@ -8371,6 +8423,8 @@ name|finish
 argument_list|(
 name|head_commit
 argument_list|,
+name|remoteheads
+argument_list|,
 name|commit
 operator|->
 name|object
@@ -8481,6 +8535,8 @@ operator|=
 name|merge_trivial
 argument_list|(
 name|head_commit
+argument_list|,
+name|remoteheads
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -8712,6 +8768,8 @@ name|name
 argument_list|,
 name|common
 argument_list|,
+name|remoteheads
+argument_list|,
 name|head_commit
 argument_list|,
 name|head_arg
@@ -8814,6 +8872,8 @@ argument_list|(
 name|head_commit
 argument_list|,
 name|common
+argument_list|,
+name|remoteheads
 argument_list|,
 name|result_tree
 argument_list|,
@@ -8930,6 +8990,8 @@ name|best_strategy
 argument_list|,
 name|common
 argument_list|,
+name|remoteheads
+argument_list|,
 name|head_commit
 argument_list|,
 name|head_arg
@@ -8944,6 +9006,8 @@ name|finish
 argument_list|(
 name|head_commit
 argument_list|,
+name|remoteheads
+argument_list|,
 name|NULL
 argument_list|,
 name|NULL
@@ -8951,7 +9015,9 @@ argument_list|)
 expr_stmt|;
 else|else
 name|write_merge_state
-argument_list|()
+argument_list|(
+name|remoteheads
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
