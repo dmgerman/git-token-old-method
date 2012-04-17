@@ -142,10 +142,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|mergesort
+DECL|function|llist_mergesort
 name|void
 modifier|*
-name|mergesort
+name|llist_mergesort
 parameter_list|(
 name|void
 modifier|*

@@ -2383,7 +2383,7 @@ block|{
 operator|*
 name|list
 operator|=
-name|mergesort
+name|llist_mergesort
 argument_list|(
 operator|*
 name|list
