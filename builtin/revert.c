@@ -636,6 +636,9 @@ argument_list|()
 block|,
 name|OPT_END
 argument_list|()
+block|,
+name|OPT_END
+argument_list|()
 block|, 	}
 decl_stmt|;
 if|if
@@ -692,7 +695,21 @@ name|opts
 operator|->
 name|allow_empty
 argument_list|,
-literal|"preserve empty commits"
+literal|"preserve initially empty commits"
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"keep-redundant-commits"
+argument_list|,
+operator|&
+name|opts
+operator|->
+name|keep_redundant_commits
+argument_list|,
+literal|"keep redundant, empty commits"
 argument_list|)
 block|,
 name|OPT_END
@@ -760,6 +777,19 @@ name|rollback
 argument_list|,
 name|NULL
 argument_list|)
+expr_stmt|;
+comment|/* implies allow_empty */
+if|if
+condition|(
+name|opts
+operator|->
+name|keep_redundant_commits
+condition|)
+name|opts
+operator|->
+name|allow_empty
+operator|=
+literal|1
 expr_stmt|;
 comment|/* Set the subcommand */
 if|if
