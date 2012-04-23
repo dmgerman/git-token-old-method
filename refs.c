@@ -2005,6 +2005,15 @@ argument_list|,
 name|refname
 argument_list|)
 expr_stmt|;
+name|fputc
+argument_list|(
+literal|'\n'
+argument_list|,
+name|d
+operator|->
+name|fp
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
