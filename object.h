@@ -382,6 +382,15 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|clear_object_flags
+parameter_list|(
+name|unsigned
+name|flags
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

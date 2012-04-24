@@ -932,6 +932,15 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|void
+name|reset_revision_walk
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|int
 name|prepare_revision_walk
 parameter_list|(
