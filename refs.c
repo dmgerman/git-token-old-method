@@ -3594,11 +3594,6 @@ specifier|static
 name|void
 name|read_loose_refs
 parameter_list|(
-name|struct
-name|ref_cache
-modifier|*
-name|refs
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -3610,6 +3605,15 @@ modifier|*
 name|dir
 parameter_list|)
 block|{
+name|struct
+name|ref_cache
+modifier|*
+name|refs
+init|=
+name|dir
+operator|->
+name|ref_cache
+decl_stmt|;
 name|DIR
 modifier|*
 name|d
@@ -3832,8 +3836,6 @@ argument_list|)
 expr_stmt|;
 name|read_loose_refs
 argument_list|(
-name|refs
-argument_list|,
 name|refname
 operator|.
 name|buf
@@ -4003,8 +4005,6 @@ argument_list|)
 expr_stmt|;
 name|read_loose_refs
 argument_list|(
-name|refs
-argument_list|,
 literal|"refs/"
 argument_list|,
 name|search_for_subdir
