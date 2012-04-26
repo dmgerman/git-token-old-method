@@ -1852,7 +1852,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"unrecognized argument: %s'"
+literal|"unrecognized argument: %s"
 argument_list|,
 name|argv
 index|[
