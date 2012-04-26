@@ -467,6 +467,11 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_struct_decl
+struct_decl|struct
+name|ref_cache
+struct_decl|;
+end_struct_decl
 begin_struct
 DECL|struct|ref_dir
 struct|struct
@@ -483,6 +488,13 @@ comment|/* 	 * Entries with index 0<= i< sorted are sorted by name.  New 	 * ent
 DECL|member|sorted
 name|int
 name|sorted
+decl_stmt|;
+comment|/* A pointer to the ref_cache that contains this ref_dir. */
+DECL|member|ref_cache
+name|struct
+name|ref_cache
+modifier|*
+name|ref_cache
 decl_stmt|;
 DECL|member|entries
 name|struct
@@ -890,6 +902,11 @@ name|ref_entry
 modifier|*
 name|create_dir_entry
 parameter_list|(
+name|struct
+name|ref_cache
+modifier|*
+name|ref_cache
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -938,6 +955,16 @@ name|len
 operator|+
 literal|1
 argument_list|)
+expr_stmt|;
+name|direntry
+operator|->
+name|u
+operator|.
+name|subdir
+operator|.
+name|ref_cache
+operator|=
+name|ref_cache
 expr_stmt|;
 name|direntry
 operator|->
@@ -1208,6 +1235,10 @@ name|entry
 operator|=
 name|create_dir_entry
 argument_list|(
+name|dir
+operator|->
+name|ref_cache
+argument_list|,
 name|subdirname
 argument_list|)
 expr_stmt|;
@@ -3439,6 +3470,8 @@ name|packed
 operator|=
 name|create_dir_entry
 argument_list|(
+name|refs
+argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
@@ -3963,6 +3996,8 @@ name|loose
 operator|=
 name|create_dir_entry
 argument_list|(
+name|refs
+argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
