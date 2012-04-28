@@ -80,7 +80,9 @@ end_function_decl
 begin_function_decl
 name|void
 name|gitmodules_config
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl

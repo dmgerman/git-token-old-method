@@ -1765,7 +1765,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
+name|int
 name|mingw_execvp
 parameter_list|(
 specifier|const
@@ -1789,7 +1789,7 @@ name|execvp
 value|mingw_execvp
 end_define
 begin_function_decl
-name|void
+name|int
 name|mingw_execv
 parameter_list|(
 specifier|const
