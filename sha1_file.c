@@ -12543,9 +12543,7 @@ else|else
 return|return
 name|error
 argument_list|(
-literal|"unable to create temporary sha1 filename %s: %s"
-argument_list|,
-name|tmp_file
+literal|"unable to create temporary file: %s"
 argument_list|,
 name|strerror
 argument_list|(
