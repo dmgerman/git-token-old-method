@@ -4259,6 +4259,12 @@ argument_list|,
 literal|"\n"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cleanup_mode
+operator|==
+name|CLEANUP_ALL
+condition|)
 name|status_printf
 argument_list|(
 name|s
@@ -4268,32 +4274,14 @@ argument_list|,
 name|_
 argument_list|(
 literal|"Please enter the commit message for your changes."
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|cleanup_mode
-operator|==
-name|CLEANUP_ALL
-condition|)
-name|status_printf_more
-argument_list|(
-name|s
-argument_list|,
-name|GIT_COLOR_NORMAL
-argument_list|,
-name|_
-argument_list|(
-literal|" Lines starting\n"
-literal|"with '#' will be ignored, and an empty"
+literal|" Lines starting\nwith '#' will be ignored, and an empty"
 literal|" message aborts the commit.\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
 comment|/* CLEANUP_SPACE, that is. */
-name|status_printf_more
+name|status_printf
 argument_list|(
 name|s
 argument_list|,
@@ -4301,6 +4289,7 @@ name|GIT_COLOR_NORMAL
 argument_list|,
 name|_
 argument_list|(
+literal|"Please enter the commit message for your changes."
 literal|" Lines starting\n"
 literal|"with '#' will be kept; you may remove them"
 literal|" yourself if you want to.\n"
