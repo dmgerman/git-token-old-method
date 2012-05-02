@@ -812,7 +812,7 @@ literal|' '
 condition|)
 name|die
 argument_list|(
-literal|"invalid property line: %s\n"
+literal|"invalid property line: %s"
 argument_list|,
 name|t
 argument_list|)
@@ -947,7 +947,7 @@ continue|continue;
 default|default:
 name|die
 argument_list|(
-literal|"invalid property line: %s\n"
+literal|"invalid property line: %s"
 argument_list|,
 name|t
 argument_list|)

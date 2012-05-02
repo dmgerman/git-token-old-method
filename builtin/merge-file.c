@@ -413,7 +413,7 @@ return|return
 name|error
 argument_list|(
 literal|"failed to redirect stderr to /dev/null: "
-literal|"%s\n"
+literal|"%s"
 argument_list|,
 name|strerror
 argument_list|(
@@ -519,7 +519,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"Cannot merge binary files: %s\n"
+literal|"Cannot merge binary files: %s"
 argument_list|,
 name|argv
 index|[
