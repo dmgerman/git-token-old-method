@@ -8817,6 +8817,10 @@ name|width
 operator|=
 name|term_columns
 argument_list|()
+operator|-
+name|options
+operator|->
+name|output_prefix_length
 expr_stmt|;
 else|else
 name|width
@@ -8936,6 +8940,7 @@ name|number_width
 operator|-
 literal|6
 condition|)
+block|{
 name|graph_width
 operator|=
 name|width
@@ -8948,6 +8953,17 @@ name|number_width
 operator|-
 literal|6
 expr_stmt|;
+if|if
+condition|(
+name|graph_width
+operator|<
+literal|6
+condition|)
+name|graph_width
+operator|=
+literal|6
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|options
