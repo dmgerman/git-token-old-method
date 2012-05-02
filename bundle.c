@@ -231,7 +231,10 @@ name|report_path
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' does not look like a v2 bundle file"
+argument_list|)
 argument_list|,
 name|report_path
 argument_list|)
@@ -365,7 +368,10 @@ name|report_path
 condition|)
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"unrecognized header: %s%s (%d)"
+argument_list|)
 argument_list|,
 operator|(
 name|is_prereq
@@ -495,7 +501,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"could not open '%s'"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -795,7 +804,10 @@ name|char
 modifier|*
 name|message
 init|=
+name|_
+argument_list|(
 literal|"Repository lacks these prerequisite commits:"
+argument_list|)
 decl_stmt|;
 name|init_revisions
 argument_list|(
@@ -957,7 +969,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"revision walk setup failed"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|i
@@ -1098,25 +1113,22 @@ name|header
 operator|->
 name|references
 expr_stmt|;
-name|printf
+name|printf_ln
 argument_list|(
-literal|"The bundle contains %d ref%s\n"
+name|Q_
+argument_list|(
+literal|"The bundle contains %d ref"
+argument_list|,
+literal|"The bundle contains %d refs"
 argument_list|,
 name|r
 operator|->
 name|nr
+argument_list|)
 argument_list|,
-operator|(
-literal|1
-operator|<
 name|r
 operator|->
 name|nr
-operator|)
-condition|?
-literal|"s"
-else|:
-literal|""
 argument_list|)
 expr_stmt|;
 name|list_refs
@@ -1135,25 +1147,22 @@ name|header
 operator|->
 name|prerequisites
 expr_stmt|;
-name|printf
+name|printf_ln
 argument_list|(
-literal|"The bundle requires these %d ref%s\n"
+name|Q_
+argument_list|(
+literal|"The bundle requires this ref"
+argument_list|,
+literal|"The bundle requires these %d refs"
 argument_list|,
 name|r
 operator|->
 name|nr
+argument_list|)
 argument_list|,
-operator|(
-literal|1
-operator|<
 name|r
 operator|->
 name|nr
-operator|)
-condition|?
-literal|"s"
-else|:
-literal|""
 argument_list|)
 expr_stmt|;
 name|list_refs
@@ -1825,7 +1834,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"rev-list died"
+argument_list|)
 argument_list|)
 return|;
 comment|/* write references */
@@ -1852,7 +1864,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"unrecognized argument: %s"
+argument_list|)
 argument_list|,
 name|argv
 index|[
@@ -2044,7 +2059,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"ref '%s' is excluded by the rev-list options"
+argument_list|)
 argument_list|,
 name|e
 operator|->
@@ -2199,7 +2217,10 @@ name|ref_count
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Refusing to create empty bundle."
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* end header */
@@ -2304,7 +2325,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Could not spawn pack-objects"
+argument_list|)
 argument_list|)
 return|;
 comment|/* 	 * start_command closed bundle_fd if it was> 1 	 * so set the lock fd to -1 so commit_lock_file() 	 * won't fail trying to close it. 	 */
@@ -2414,7 +2438,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"pack-objects died"
+argument_list|)
 argument_list|)
 return|;
 if|if
@@ -2433,7 +2460,10 @@ argument_list|)
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"cannot create '%s'"
+argument_list|)
 argument_list|,
 name|path
 argument_list|)
@@ -2557,7 +2587,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"index-pack died"
+argument_list|)
 argument_list|)
 return|;
 return|return
