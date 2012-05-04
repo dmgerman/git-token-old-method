@@ -1596,7 +1596,15 @@ name|selector
 operator|==
 name|SELECTOR_DATE
 operator|||
+operator|(
+name|commit_reflog
+operator|->
+name|selector
+operator|==
+name|SELECTOR_NONE
+operator|&&
 name|dmode
+operator|)
 condition|)
 block|{
 name|info
