@@ -5826,9 +5826,6 @@ name|struct
 name|wt_status
 modifier|*
 name|s
-parameter_list|,
-name|int
-name|show_branch
 parameter_list|)
 block|{
 name|int
@@ -5836,6 +5833,8 @@ name|i
 decl_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|show_branch
 condition|)
 name|wt_shortstatus_print_tracking
@@ -6041,8 +6040,6 @@ expr_stmt|;
 name|wt_shortstatus_print
 argument_list|(
 name|s
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
