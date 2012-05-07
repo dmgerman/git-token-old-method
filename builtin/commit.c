@@ -500,13 +500,6 @@ init|=
 name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|null_termination
-specifier|static
-name|int
-name|null_termination
-decl_stmt|;
-end_decl_stmt
 begin_enum
 specifier|static
 enum|enum
@@ -2013,8 +2006,6 @@ name|wt_shortstatus_print
 argument_list|(
 name|s
 argument_list|,
-name|null_termination
-argument_list|,
 name|status_show_branch
 argument_list|)
 expr_stmt|;
@@ -2025,8 +2016,6 @@ case|:
 name|wt_porcelain_print
 argument_list|(
 name|s
-argument_list|,
-name|null_termination
 argument_list|)
 expr_stmt|;
 break|break;
@@ -5519,6 +5508,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
 name|null_termination
 operator|&&
 name|status_format
@@ -6162,6 +6153,8 @@ argument_list|,
 literal|"null"
 argument_list|,
 operator|&
+name|s
+operator|.
 name|null_termination
 argument_list|,
 literal|"terminate entries with NUL"
@@ -6297,6 +6290,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|.
 name|null_termination
 operator|&&
 name|status_format
@@ -6443,8 +6438,6 @@ argument_list|(
 operator|&
 name|s
 argument_list|,
-name|null_termination
-argument_list|,
 name|status_show_branch
 argument_list|)
 expr_stmt|;
@@ -6456,8 +6449,6 @@ name|wt_porcelain_print
 argument_list|(
 operator|&
 name|s
-argument_list|,
-name|null_termination
 argument_list|)
 expr_stmt|;
 break|break;
@@ -7609,6 +7600,8 @@ argument_list|,
 literal|"null"
 argument_list|,
 operator|&
+name|s
+operator|.
 name|null_termination
 argument_list|,
 literal|"terminate entries with NUL"
