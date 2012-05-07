@@ -3638,7 +3638,11 @@ argument_list|)
 expr_stmt|;
 name|putchar
 argument_list|(
-literal|'\n'
+name|opt
+operator|->
+name|diffopt
+operator|.
+name|line_termination
 argument_list|)
 expr_stmt|;
 block|}
