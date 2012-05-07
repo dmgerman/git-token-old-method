@@ -429,14 +429,6 @@ modifier|*
 name|sign_commit
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|colopts
-specifier|static
-name|unsigned
-name|int
-name|colopts
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|/*  * The default commit message cleanup mode will remove the lines  * beginning with # (shell comments) and leading and trailing  * whitespaces (empty lines or containing only whitespaces)  * if editor is used, and only the whitespaces if the message  * is specified explicitly.  */
 end_comment
@@ -5788,6 +5780,8 @@ argument_list|,
 literal|"status"
 argument_list|,
 operator|&
+name|s
+operator|->
 name|colopts
 argument_list|)
 return|;
@@ -6239,6 +6233,8 @@ argument_list|,
 literal|"column"
 argument_list|,
 operator|&
+name|s
+operator|.
 name|colopts
 argument_list|,
 literal|"list untracked files in columns"
@@ -6315,17 +6311,13 @@ expr_stmt|;
 name|finalize_colopts
 argument_list|(
 operator|&
+name|s
+operator|.
 name|colopts
 argument_list|,
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|s
-operator|.
-name|colopts
-operator|=
-name|colopts
 expr_stmt|;
 if|if
 condition|(
@@ -7856,6 +7848,12 @@ argument_list|(
 operator|&
 name|s
 argument_list|)
+expr_stmt|;
+name|s
+operator|.
+name|colopts
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(
