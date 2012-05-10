@@ -3179,7 +3179,7 @@ name|verbose_update
 operator|=
 operator|(
 name|option_verbosity
-operator|>
+operator|>=
 literal|0
 operator|)
 expr_stmt|;
