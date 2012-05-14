@@ -5703,6 +5703,12 @@ name|pretty_ctx
 operator|->
 name|date_mode
 argument_list|,
+name|c
+operator|->
+name|pretty_ctx
+operator|->
+name|date_mode_explicit
+argument_list|,
 operator|(
 name|placeholder
 index|[
