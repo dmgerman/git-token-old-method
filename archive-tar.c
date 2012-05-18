@@ -466,11 +466,13 @@ modifier|*
 name|header
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|p
 init|=
 operator|(
+specifier|const
 name|char
 operator|*
 operator|)
@@ -521,6 +523,7 @@ condition|(
 name|p
 operator|<
 operator|(
+specifier|const
 name|char
 operator|*
 operator|)
