@@ -456,6 +456,7 @@ name|git_default_name
 operator|.
 name|len
 condition|)
+block|{
 name|copy_gecos
 argument_list|(
 name|xgetpwuid_self
@@ -465,6 +466,13 @@ operator|&
 name|git_default_name
 argument_list|)
 expr_stmt|;
+name|strbuf_trim
+argument_list|(
+operator|&
+name|git_default_name
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|git_default_name
 operator|.
@@ -529,6 +537,12 @@ argument_list|(
 name|xgetpwuid_self
 argument_list|()
 argument_list|,
+operator|&
+name|git_default_email
+argument_list|)
+expr_stmt|;
+name|strbuf_trim
+argument_list|(
 operator|&
 name|git_default_email
 argument_list|)
