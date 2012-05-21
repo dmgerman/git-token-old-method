@@ -4711,12 +4711,14 @@ name|ref
 init|=
 name|NULL
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|dest
 init|=
 name|NULL
-decl_stmt|,
+decl_stmt|;
+name|char
 modifier|*
 modifier|*
 name|heads
@@ -5087,10 +5089,6 @@ expr_stmt|;
 block|}
 name|dest
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|arg
 expr_stmt|;
 name|heads
@@ -5340,10 +5338,6 @@ name|git_connect
 argument_list|(
 name|fd
 argument_list|,
-operator|(
-name|char
-operator|*
-operator|)
 name|dest
 argument_list|,
 name|args
