@@ -983,6 +983,9 @@ name|char
 modifier|*
 name|dirname
 parameter_list|,
+name|size_t
+name|len
+parameter_list|,
 name|int
 name|incomplete
 parameter_list|)
@@ -991,14 +994,6 @@ name|struct
 name|ref_entry
 modifier|*
 name|direntry
-decl_stmt|;
-name|int
-name|len
-init|=
-name|strlen
-argument_list|(
-name|dirname
-argument_list|)
 decl_stmt|;
 name|direntry
 operator|=
@@ -1026,9 +1021,16 @@ argument_list|,
 name|dirname
 argument_list|,
 name|len
-operator|+
-literal|1
 argument_list|)
+expr_stmt|;
+name|direntry
+operator|->
+name|name
+index|[
+name|len
+index|]
+operator|=
+literal|'\0'
 expr_stmt|;
 name|direntry
 operator|->
@@ -1335,6 +1337,8 @@ operator|->
 name|ref_cache
 argument_list|,
 name|subdirname
+argument_list|,
+name|len
 argument_list|,
 literal|0
 argument_list|)
@@ -3583,6 +3587,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -3956,6 +3962,10 @@ name|refname
 operator|.
 name|buf
 argument_list|,
+name|refname
+operator|.
+name|len
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -4112,6 +4122,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|/* 		 * Create an incomplete entry for "refs/": 		 */
@@ -4129,6 +4141,8 @@ argument_list|(
 name|refs
 argument_list|,
 literal|"refs/"
+argument_list|,
+literal|5
 argument_list|,
 literal|1
 argument_list|)
