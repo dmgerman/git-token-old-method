@@ -1139,7 +1139,7 @@ operator|-
 literal|2
 init|;
 name|line
-operator|<
+operator|<=
 name|cp
 condition|;
 name|cp
