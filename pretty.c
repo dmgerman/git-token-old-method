@@ -2351,11 +2351,10 @@ name|commit
 operator|->
 name|buffer
 decl_stmt|;
-for|for
-control|(
-init|;
-condition|;
-control|)
+while|while
+condition|(
+name|line
+condition|)
 block|{
 specifier|const
 name|char
@@ -2387,6 +2386,20 @@ operator|!
 name|eol
 condition|)
 block|{
+name|warning
+argument_list|(
+literal|"malformed commit (header is missing newline): %s"
+argument_list|,
+name|sha1_to_hex
+argument_list|(
+name|commit
+operator|->
+name|object
+operator|.
+name|sha1
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|eol
 operator|=
 name|line
@@ -2458,6 +2471,9 @@ operator|=
 name|next
 expr_stmt|;
 block|}
+return|return
+name|NULL
+return|;
 block|}
 end_function
 begin_function
