@@ -1315,9 +1315,7 @@ argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
-literal|"empty ident %s<%s> not allowed"
-argument_list|,
-name|name
+literal|"empty ident name (for<%s>) not allowed"
 argument_list|,
 name|email
 argument_list|)
