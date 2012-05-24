@@ -4081,6 +4081,8 @@ argument_list|(
 name|IDENT_NO_NAME
 operator||
 name|IDENT_NO_DATE
+operator||
+name|IDENT_STRICT
 argument_list|)
 argument_list|)
 expr_stmt|;
