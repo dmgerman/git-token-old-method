@@ -5755,10 +5755,10 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_define
-DECL|macro|IDENT_ERROR_ON_NO_NAME
+DECL|macro|IDENT_STRICT
 define|#
 directive|define
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 value|1
 end_define
 begin_define

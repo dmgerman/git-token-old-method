@@ -45,7 +45,7 @@ name|pgm
 operator|&&
 name|flag
 operator|&
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 condition|)
 name|die
 argument_list|(
@@ -280,7 +280,7 @@ name|ptr
 operator|->
 name|read
 argument_list|(
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 argument_list|)
 expr_stmt|;
 break|break;

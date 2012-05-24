@@ -1244,12 +1244,12 @@ literal|50
 index|]
 decl_stmt|;
 name|int
-name|error_on_no_name
+name|strict
 init|=
 operator|(
 name|flag
 operator|&
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 operator|)
 decl_stmt|;
 name|int
@@ -1310,7 +1310,7 @@ name|pw
 decl_stmt|;
 if|if
 condition|(
-name|error_on_no_name
+name|strict
 condition|)
 block|{
 if|if
@@ -1501,7 +1501,7 @@ name|email
 argument_list|,
 name|NULL
 argument_list|,
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 operator||
 name|IDENT_NO_DATE
 argument_list|)

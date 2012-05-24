@@ -6305,7 +6305,7 @@ name|author
 operator|=
 name|git_author_info
 argument_list|(
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -6327,7 +6327,7 @@ literal|"committer %s\n"
 argument_list|,
 name|git_committer_info
 argument_list|(
-name|IDENT_ERROR_ON_NO_NAME
+name|IDENT_STRICT
 argument_list|)
 argument_list|)
 expr_stmt|;
