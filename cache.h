@@ -5768,6 +5768,13 @@ directive|define
 name|IDENT_NO_DATE
 value|2
 end_define
+begin_define
+DECL|macro|IDENT_NO_NAME
+define|#
+directive|define
+name|IDENT_NO_NAME
+value|4
+end_define
 begin_function_decl
 specifier|extern
 specifier|const
