@@ -2047,6 +2047,11 @@ operator|!
 name|o
 operator|->
 name|quiet
+operator|&&
+name|isatty
+argument_list|(
+literal|2
+argument_list|)
 expr_stmt|;
 name|opts
 operator|.
@@ -2453,6 +2458,11 @@ operator|!
 name|opts
 operator|->
 name|quiet
+operator|&&
+name|isatty
+argument_list|(
+literal|2
+argument_list|)
 expr_stmt|;
 name|topts
 operator|.
