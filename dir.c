@@ -2527,11 +2527,16 @@ name|i
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|el
 operator|->
 name|nr
 condition|)
-block|{
+return|return
+operator|-
+literal|1
+return|;
+comment|/* undefined */
 for|for
 control|(
 name|i
@@ -2709,17 +2714,9 @@ return|return
 name|to_exclude
 return|;
 block|}
+continue|continue;
 block|}
-else|else
-block|{
-comment|/* match with FNM_PATHNAME: 				 * exclude has base (baselen long) implicitly 				 * in front of it. 				 */
-name|int
-name|baselen
-init|=
-name|x
-operator|->
-name|baselen
-decl_stmt|;
+comment|/* match with FNM_PATHNAME: 		 * exclude has base (baselen long) implicitly in front of it. 		 */
 if|if
 condition|(
 operator|*
@@ -2734,13 +2731,19 @@ if|if
 condition|(
 name|pathlen
 operator|<
+name|x
+operator|->
 name|baselen
 operator|||
 operator|(
+name|x
+operator|->
 name|baselen
 operator|&&
 name|pathname
 index|[
+name|x
+operator|->
 name|baselen
 operator|-
 literal|1
@@ -2757,6 +2760,8 @@ name|x
 operator|->
 name|base
 argument_list|,
+name|x
+operator|->
 name|baselen
 argument_list|)
 condition|)
@@ -2779,6 +2784,8 @@ name|exclude
 argument_list|,
 name|pathname
 operator|+
+name|x
+operator|->
 name|baselen
 argument_list|)
 condition|)
@@ -2796,6 +2803,8 @@ name|exclude
 argument_list|,
 name|pathname
 operator|+
+name|x
+operator|->
 name|baselen
 argument_list|,
 name|FNM_PATHNAME
@@ -2806,8 +2815,6 @@ condition|)
 return|return
 name|to_exclude
 return|;
-block|}
-block|}
 block|}
 block|}
 return|return
