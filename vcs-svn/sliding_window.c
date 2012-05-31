@@ -326,6 +326,9 @@ name|max_off
 operator|<
 name|off
 operator|+
+operator|(
+name|off_t
+operator|)
 name|width
 condition|)
 return|return
