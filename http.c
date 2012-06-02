@@ -29,6 +29,11 @@ include|#
 directive|include
 file|"credential.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"version.h"
+end_include
 begin_decl_stmt
 DECL|variable|active_requests
 name|int
@@ -1640,7 +1645,8 @@ name|user_agent
 condition|?
 name|user_agent
 else|:
-name|GIT_HTTP_USER_AGENT
+name|git_user_agent
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
