@@ -2851,6 +2851,7 @@ block|}
 end_function
 begin_function
 DECL|function|excluded
+specifier|static
 name|int
 name|excluded
 parameter_list|(
