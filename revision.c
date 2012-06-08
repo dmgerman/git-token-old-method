@@ -11243,7 +11243,7 @@ return|return
 name|tail
 return|;
 block|}
-comment|/* 	 * Do we know what commit all of our parents should be rewritten to? 	 * Otherwise we are not ready to rewrite this one yet. 	 */
+comment|/* 	 * Do we know what commit all of our parents that matter 	 * should be rewritten to?  Otherwise we are not ready to 	 * rewrite this one yet. 	 */
 for|for
 control|(
 name|cnt
@@ -11302,6 +11302,13 @@ name|cnt
 operator|++
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|revs
+operator|->
+name|first_parent_only
+condition|)
+break|break;
 block|}
 if|if
 condition|(
@@ -11361,13 +11368,32 @@ name|pst
 operator|->
 name|simplified
 expr_stmt|;
+if|if
+condition|(
+name|revs
+operator|->
+name|first_parent_only
+condition|)
+break|break;
 block|}
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|first_parent_only
+condition|)
 name|cnt
 operator|=
 name|remove_duplicate_parents
 argument_list|(
 name|commit
 argument_list|)
+expr_stmt|;
+else|else
+name|cnt
+operator|=
+literal|1
 expr_stmt|;
 comment|/* 	 * It is possible that we are a merge and one side branch 	 * does not have any commit that touches the given paths; 	 * in such a case, the immediate parents will be rewritten 	 * to different commits. 	 * 	 *      o----X		X: the commit we are looking at; 	 *     /    /		o: a commit that touches the paths; 	 * ---o----' 	 * 	 * Further reduce the parents by removing redundant parents. 	 */
 if|if
