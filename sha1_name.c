@@ -549,12 +549,12 @@ specifier|const
 name|unsigned
 name|char
 modifier|*
-name|now
+name|current
 decl_stmt|;
 name|int
 name|cmp
 decl_stmt|;
-name|now
+name|current
 operator|=
 name|nth_packed_object_sha1
 argument_list|(
@@ -569,7 +569,7 @@ name|hashcmp
 argument_list|(
 name|match
 argument_list|,
-name|now
+name|current
 argument_list|)
 expr_stmt|;
 if|if
@@ -615,12 +615,12 @@ specifier|const
 name|unsigned
 name|char
 modifier|*
-name|now
+name|current
 decl_stmt|,
 modifier|*
 name|next
 decl_stmt|;
-name|now
+name|current
 operator|=
 name|nth_packed_object_sha1
 argument_list|(
@@ -637,7 +637,7 @@ name|len
 argument_list|,
 name|match
 argument_list|,
-name|now
+name|current
 argument_list|)
 condition|)
 block|{
@@ -677,7 +677,7 @@ condition|)
 block|{
 name|found_sha1
 operator|=
-name|now
+name|current
 expr_stmt|;
 name|found
 operator|++
@@ -690,7 +690,7 @@ name|hashcmp
 argument_list|(
 name|found_sha1
 argument_list|,
-name|now
+name|current
 argument_list|)
 condition|)
 block|{
