@@ -1037,8 +1037,8 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
-name|int
-name|quietly
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -1062,6 +1062,17 @@ decl_stmt|;
 name|struct
 name|disambiguate_state
 name|ds
+decl_stmt|;
+name|int
+name|quietly
+init|=
+operator|!
+operator|!
+operator|(
+name|flags
+operator|&
+name|GET_SHA1_QUIETLY
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -1371,7 +1382,7 @@ name|len
 argument_list|,
 name|sha1_ret
 argument_list|,
-literal|1
+name|GET_SHA1_QUIETLY
 argument_list|)
 expr_stmt|;
 if|if
@@ -3135,7 +3146,7 @@ name|len
 argument_list|,
 name|sha1
 argument_list|,
-literal|1
+name|GET_SHA1_QUIETLY
 argument_list|)
 return|;
 block|}
