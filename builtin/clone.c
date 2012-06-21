@@ -124,6 +124,9 @@ DECL|variable|option_recursive
 specifier|static
 name|int
 name|option_local
+init|=
+operator|-
+literal|1
 decl_stmt|,
 name|option_no_hardlinks
 decl_stmt|,
@@ -349,7 +352,7 @@ argument_list|,
 literal|"create a mirror repository (implies bare)"
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'l'
 argument_list|,
@@ -1948,6 +1951,8 @@ continue|continue;
 if|if
 condition|(
 name|option_local
+operator|>
+literal|0
 condition|)
 name|die_errno
 argument_list|(
@@ -3723,6 +3728,10 @@ name|repo_name
 expr_stmt|;
 name|is_local
 operator|=
+name|option_local
+operator|!=
+literal|0
+operator|&&
 name|path
 operator|&&
 operator|!
