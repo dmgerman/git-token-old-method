@@ -5112,6 +5112,13 @@ directive|define
 name|GET_SHA1_QUIETLY
 value|01
 end_define
+begin_define
+DECL|macro|GET_SHA1_COMMIT
+define|#
+directive|define
+name|GET_SHA1_COMMIT
+value|02
+end_define
 begin_function_decl
 specifier|extern
 name|int
