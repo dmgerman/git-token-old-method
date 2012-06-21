@@ -39,6 +39,11 @@ include|#
 directive|include
 file|"column.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"version.h"
+end_include
 begin_function
 DECL|function|add_cmdname
 name|void
