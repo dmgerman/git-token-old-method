@@ -1048,7 +1048,6 @@ block|}
 end_function
 begin_function
 DECL|function|credential_write
-specifier|static
 name|void
 name|credential_write
 parameter_list|(
