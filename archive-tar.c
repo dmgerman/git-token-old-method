@@ -633,12 +633,14 @@ name|header
 parameter_list|)
 block|{
 specifier|const
+name|unsigned
 name|char
 modifier|*
 name|p
 init|=
 operator|(
 specifier|const
+name|unsigned
 name|char
 operator|*
 operator|)
@@ -654,6 +656,12 @@ while|while
 condition|(
 name|p
 operator|<
+operator|(
+specifier|const
+name|unsigned
+name|char
+operator|*
+operator|)
 name|header
 operator|->
 name|chksum
@@ -690,6 +698,7 @@ name|p
 operator|<
 operator|(
 specifier|const
+name|unsigned
 name|char
 operator|*
 operator|)
