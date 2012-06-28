@@ -2540,6 +2540,8 @@ argument_list|(
 name|prefix
 argument_list|,
 name|arg
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -3788,6 +3790,8 @@ argument_list|(
 name|prefix
 argument_list|,
 name|arg
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
