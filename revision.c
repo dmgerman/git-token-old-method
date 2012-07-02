@@ -5522,8 +5522,8 @@ parameter_list|,
 name|int
 name|flags
 parameter_list|,
-name|int
-name|cant_be_filename
+name|unsigned
+name|revarg_opt
 parameter_list|)
 block|{
 name|struct
@@ -5555,6 +5555,13 @@ modifier|*
 name|arg
 init|=
 name|arg_
+decl_stmt|;
+name|int
+name|cant_be_filename
+init|=
+name|revarg_opt
+operator|&
+name|REVARG_CANNOT_BE_FILENAME
 decl_stmt|;
 name|dotdot
 operator|=
@@ -6388,7 +6395,7 @@ name|revs
 argument_list|,
 literal|0
 argument_list|,
-literal|1
+name|REVARG_CANNOT_BE_FILENAME
 argument_list|)
 condition|)
 name|die
@@ -9948,6 +9955,8 @@ decl_stmt|,
 name|got_rev_arg
 init|=
 literal|0
+decl_stmt|,
+name|revarg_opt
 decl_stmt|;
 name|struct
 name|cmdline_pathspec
@@ -10063,6 +10072,14 @@ block|}
 comment|/* Second, deal with arguments and options */
 name|flags
 operator|=
+literal|0
+expr_stmt|;
+name|revarg_opt
+operator|=
+name|seen_dashdash
+condition|?
+name|REVARG_CANNOT_BE_FILENAME
+else|:
 literal|0
 expr_stmt|;
 name|read_from_stdin
@@ -10247,7 +10264,7 @@ name|revs
 argument_list|,
 name|flags
 argument_list|,
-name|seen_dashdash
+name|revarg_opt
 argument_list|)
 condition|)
 block|{
