@@ -1646,6 +1646,9 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|unsigned
+name|lookup_flags
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1870,6 +1873,8 @@ operator|.
 name|len
 argument_list|,
 name|sha1
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -2254,6 +2259,8 @@ argument_list|,
 name|len
 argument_list|,
 name|sha1
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|struct
@@ -2416,6 +2423,8 @@ argument_list|,
 name|len
 argument_list|,
 name|sha1
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -2887,6 +2896,8 @@ operator|-
 literal|2
 argument_list|,
 name|outer
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 return|return
@@ -3229,6 +3240,9 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|unsigned
+name|lookup_flags
 parameter_list|)
 block|{
 name|int
@@ -5708,6 +5722,8 @@ argument_list|,
 name|namelen
 argument_list|,
 name|sha1
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -6177,6 +6193,8 @@ operator|-
 name|name
 argument_list|,
 name|tree_sha1
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 block|{
