@@ -1045,7 +1045,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|get_sha1
+name|get_sha1_committish
 argument_list|(
 name|this
 argument_list|,
@@ -1053,7 +1053,7 @@ name|sha1
 argument_list|)
 operator|&&
 operator|!
-name|get_sha1
+name|get_sha1_committish
 argument_list|(
 name|next
 argument_list|,
@@ -1271,7 +1271,7 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|get_sha1
+name|get_sha1_committish
 argument_list|(
 name|arg
 argument_list|,
