@@ -274,6 +274,14 @@ name|size_t
 name|len
 parameter_list|)
 block|{
+name|assert
+argument_list|(
+operator|*
+name|delta_len
+operator|>=
+literal|0
+argument_list|)
+expr_stmt|;
 name|strbuf_reset
 argument_list|(
 name|buf
@@ -283,6 +291,9 @@ if|if
 condition|(
 name|len
 operator|>
+operator|(
+name|uintmax_t
+operator|)
 operator|*
 name|delta_len
 operator|||
@@ -1545,6 +1556,10 @@ operator|&&
 name|preimage
 operator|&&
 name|postimage
+operator|&&
+name|delta_len
+operator|>=
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
