@@ -5345,11 +5345,9 @@ name|ce
 operator|->
 name|name
 argument_list|,
-name|strlen
+name|ce_namelen
 argument_list|(
 name|ce
-operator|->
-name|name
 argument_list|)
 argument_list|,
 literal|0
@@ -9148,11 +9146,9 @@ literal|1
 expr_stmt|;
 name|len
 operator|=
-name|strlen
+name|ce_namelen
 argument_list|(
 name|ce
-operator|->
-name|name
 argument_list|)
 expr_stmt|;
 name|size
