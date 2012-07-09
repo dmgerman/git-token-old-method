@@ -2027,6 +2027,14 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
+literal|"credential"
+block|,
+name|cmd_credential
+block|,
+name|RUN_SETUP_GENTLY
+block|}
+block|,
+block|{
 literal|"describe"
 block|,
 name|cmd_describe
