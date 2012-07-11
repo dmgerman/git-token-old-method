@@ -1140,6 +1140,25 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|r
+operator|->
+name|nr
+condition|)
+block|{
+name|printf_ln
+argument_list|(
+name|_
+argument_list|(
+literal|"The bundle records a complete history."
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|r
 operator|=
 operator|&
@@ -1174,6 +1193,7 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|ret
