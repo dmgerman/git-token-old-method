@@ -4734,6 +4734,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|xdg_config
+operator|&&
 operator|!
 name|access
 argument_list|(
@@ -4761,6 +4763,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|user_config
+operator|&&
 operator|!
 name|access
 argument_list|(
