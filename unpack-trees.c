@@ -6086,11 +6086,9 @@ block|}
 comment|/* 	 * First let's make sure we do not have a local modification 	 * in that directory. 	 */
 name|namelen
 operator|=
-name|strlen
+name|ce_namelen
 argument_list|(
 name|ce
-operator|->
-name|name
 argument_list|)
 expr_stmt|;
 for|for
