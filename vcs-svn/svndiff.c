@@ -274,6 +274,14 @@ name|size_t
 name|len
 parameter_list|)
 block|{
+name|assert
+argument_list|(
+operator|*
+name|delta_len
+operator|>=
+literal|0
+argument_list|)
+expr_stmt|;
 name|strbuf_reset
 argument_list|(
 name|buf
@@ -283,6 +291,9 @@ if|if
 condition|(
 name|len
 operator|>
+operator|(
+name|uintmax_t
+operator|)
 operator|*
 name|delta_len
 operator|||
@@ -1347,6 +1358,12 @@ modifier|*
 name|out
 parameter_list|)
 block|{
+name|int
+name|rv
+init|=
+operator|-
+literal|1
+decl_stmt|;
 name|struct
 name|window
 name|ctx
@@ -1466,6 +1483,8 @@ operator|!=
 name|out_len
 condition|)
 block|{
+name|rv
+operator|=
 name|error
 argument_list|(
 literal|"invalid delta: incorrect postimage length"
@@ -1490,15 +1509,10 @@ condition|)
 goto|goto
 name|error_out
 goto|;
-name|window_release
-argument_list|(
-operator|&
-name|ctx
-argument_list|)
-expr_stmt|;
-return|return
+name|rv
+operator|=
 literal|0
-return|;
+expr_stmt|;
 name|error_out
 label|:
 name|window_release
@@ -1508,8 +1522,7 @@ name|ctx
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|rv
 return|;
 block|}
 end_function
@@ -1543,6 +1556,10 @@ operator|&&
 name|preimage
 operator|&&
 name|postimage
+operator|&&
+name|delta_len
+operator|>=
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -1568,9 +1585,9 @@ comment|/* For each window: */
 name|off_t
 name|pre_off
 init|=
-name|pre_off
+operator|-
+literal|1
 decl_stmt|;
-comment|/* stupid GCC... */
 name|size_t
 name|pre_len
 decl_stmt|;
