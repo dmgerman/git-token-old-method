@@ -3202,6 +3202,10 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+name|use_editor
+operator|&&
+operator|(
+operator|!
 name|buffer
 operator|||
 name|buffer
@@ -3210,6 +3214,7 @@ literal|2
 index|]
 operator|==
 literal|'\0'
+operator|)
 condition|)
 name|die
 argument_list|(
