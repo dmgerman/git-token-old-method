@@ -320,7 +320,7 @@ name|SHA_SRC
 parameter_list|(
 name|t
 parameter_list|)
-value|get_be32((unsigned char *) block + t*4)
+value|get_be32((unsigned char *) block + (t)*4)
 end_define
 begin_define
 DECL|macro|SHA_MIX
@@ -330,7 +330,7 @@ name|SHA_MIX
 parameter_list|(
 name|t
 parameter_list|)
-value|SHA_ROL(W(t+13) ^ W(t+8) ^ W(t+2) ^ W(t), 1)
+value|SHA_ROL(W((t)+13) ^ W((t)+8) ^ W((t)+2) ^ W(t), 1);
 end_define
 begin_define
 DECL|macro|SHA_ROUND
