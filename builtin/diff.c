@@ -128,6 +128,12 @@ name|char
 modifier|*
 name|new_sha1
 parameter_list|,
+name|int
+name|old_sha1_valid
+parameter_list|,
+name|int
+name|new_sha1_valid
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -292,6 +298,8 @@ name|one
 argument_list|,
 name|old_sha1
 argument_list|,
+name|old_sha1_valid
+argument_list|,
 name|old_mode
 argument_list|)
 expr_stmt|;
@@ -300,6 +308,8 @@ argument_list|(
 name|two
 argument_list|,
 name|new_sha1
+argument_list|,
+name|new_sha1_valid
 argument_list|,
 name|new_mode
 argument_list|)
@@ -479,6 +489,10 @@ name|sha1
 argument_list|,
 name|null_sha1
 argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
 name|path
 argument_list|,
 name|path
@@ -626,6 +640,10 @@ literal|1
 index|]
 operator|.
 name|sha1
+argument_list|,
+literal|1
+argument_list|,
+literal|1
 argument_list|,
 name|blob
 index|[

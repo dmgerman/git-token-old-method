@@ -651,6 +651,8 @@ name|mode
 argument_list|,
 name|sha1
 argument_list|,
+literal|1
+argument_list|,
 operator|&
 name|buf
 argument_list|,
