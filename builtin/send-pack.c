@@ -49,6 +49,11 @@ include|#
 directive|include
 file|"transport.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"version.h"
+end_include
 begin_decl_stmt
 DECL|variable|send_pack_usage
 specifier|static
@@ -1483,7 +1488,7 @@ argument_list|(
 operator|&
 name|req_buf
 argument_list|,
-literal|"%s %s %s%c%s%s%s"
+literal|"%s %s %s%c%s%s%s agent=%s"
 argument_list|,
 name|old_hex
 argument_list|,
@@ -1512,6 +1517,9 @@ condition|?
 literal|" quiet"
 else|:
 literal|""
+argument_list|,
+name|git_user_agent_sanitized
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -59,6 +59,11 @@ include|#
 directive|include
 file|"transport.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"version.h"
+end_include
 begin_decl_stmt
 DECL|variable|transfer_unpack_limit
 specifier|static
@@ -1713,6 +1718,17 @@ operator|&
 name|c
 argument_list|,
 literal|" ofs-delta"
+argument_list|)
+expr_stmt|;
+name|strbuf_addf
+argument_list|(
+operator|&
+name|c
+argument_list|,
+literal|" agent=%s"
+argument_list|,
+name|git_user_agent_sanitized
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|packet_buf_write
