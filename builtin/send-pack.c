@@ -1477,8 +1477,6 @@ name|status_report
 operator|||
 name|use_sideband
 operator|||
-name|args
-operator|->
 name|quiet
 operator|)
 condition|)
