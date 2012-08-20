@@ -489,7 +489,7 @@ name|actions
 argument_list|,
 name|N_
 argument_list|(
-literal|"adds a new variable: name value"
+literal|"add a new variable: name value"
 argument_list|)
 argument_list|,
 name|ACTION_ADD
@@ -506,7 +506,7 @@ name|actions
 argument_list|,
 name|N_
 argument_list|(
-literal|"removes a variable: name [value-regex]"
+literal|"remove a variable: name [value-regex]"
 argument_list|)
 argument_list|,
 name|ACTION_UNSET
@@ -523,7 +523,7 @@ name|actions
 argument_list|,
 name|N_
 argument_list|(
-literal|"removes all matches: name [value-regex]"
+literal|"remove all matches: name [value-regex]"
 argument_list|)
 argument_list|,
 name|ACTION_UNSET_ALL
@@ -591,7 +591,7 @@ name|actions
 argument_list|,
 name|N_
 argument_list|(
-literal|"opens an editor"
+literal|"open an editor"
 argument_list|)
 argument_list|,
 name|ACTION_EDIT

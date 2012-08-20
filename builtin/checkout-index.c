@@ -995,7 +995,7 @@ name|all
 argument_list|,
 name|N_
 argument_list|(
-literal|"checks out all files in the index"
+literal|"check out all files in the index"
 argument_list|)
 argument_list|)
 block|,
@@ -1006,7 +1006,7 @@ name|force
 argument_list|,
 name|N_
 argument_list|(
-literal|"forces overwrite of existing files"
+literal|"force overwrite of existing files"
 argument_list|)
 argument_list|)
 block|,

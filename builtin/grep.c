@@ -3668,7 +3668,7 @@ name|use_index
 argument_list|,
 name|N_
 argument_list|(
-literal|"finds in contents not managed by git"
+literal|"find in contents not managed by git"
 argument_list|)
 argument_list|,
 literal|1
