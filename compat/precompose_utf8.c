@@ -54,10 +54,10 @@ literal|"UTF-8-MAC"
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|has_utf8
+DECL|function|has_non_ascii
 specifier|static
 name|size_t
-name|has_utf8
+name|has_non_ascii
 parameter_list|(
 specifier|const
 name|char
@@ -75,7 +75,7 @@ block|{
 specifier|const
 name|uint8_t
 modifier|*
-name|utf8p
+name|ptr
 init|=
 operator|(
 specifier|const
@@ -97,11 +97,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|utf8p
+name|ptr
 operator|||
 operator|!
 operator|*
-name|utf8p
+name|ptr
 condition|)
 return|return
 literal|0
@@ -109,7 +109,7 @@ return|;
 while|while
 condition|(
 operator|*
-name|utf8p
+name|ptr
 operator|&&
 name|maxlen
 condition|)
@@ -117,7 +117,7 @@ block|{
 if|if
 condition|(
 operator|*
-name|utf8p
+name|ptr
 operator|&
 literal|0x80
 condition|)
@@ -127,7 +127,7 @@ expr_stmt|;
 name|strlen_chars
 operator|++
 expr_stmt|;
-name|utf8p
+name|ptr
 operator|++
 expr_stmt|;
 name|maxlen
@@ -364,7 +364,7 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|has_utf8
+name|has_non_ascii
 argument_list|(
 name|oldarg
 argument_list|,
@@ -660,7 +660,7 @@ operator|==
 literal|1
 operator|)
 operator|&&
-name|has_utf8
+name|has_non_ascii
 argument_list|(
 name|res
 operator|->
