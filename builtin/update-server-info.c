@@ -25,7 +25,10 @@ name|update_server_info_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git update-server-info [--force]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -67,7 +70,10 @@ argument_list|(
 operator|&
 name|force
 argument_list|,
+name|N_
+argument_list|(
 literal|"update the info files from scratch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
