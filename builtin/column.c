@@ -40,7 +40,10 @@ name|builtin_column_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git column [options]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -153,9 +156,15 @@ argument_list|,
 operator|&
 name|real_command
 argument_list|,
+name|N_
+argument_list|(
 literal|"name"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"lookup config vars"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_COLUMN
@@ -167,7 +176,10 @@ argument_list|,
 operator|&
 name|colopts
 argument_list|,
+name|N_
+argument_list|(
 literal|"layout to use"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -179,7 +191,10 @@ argument_list|,
 operator|&
 name|colopts
 argument_list|,
+name|N_
+argument_list|(
 literal|"layout to use"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -193,7 +208,10 @@ name|copts
 operator|.
 name|width
 argument_list|,
+name|N_
+argument_list|(
 literal|"Maximum width"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -207,9 +225,15 @@ name|copts
 operator|.
 name|indent
 argument_list|,
+name|N_
+argument_list|(
 literal|"string"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"Padding space on left border"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -223,7 +247,10 @@ name|copts
 operator|.
 name|nl
 argument_list|,
+name|N_
+argument_list|(
 literal|"Padding space on right border"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -237,7 +264,10 @@ name|copts
 operator|.
 name|padding
 argument_list|,
+name|N_
+argument_list|(
 literal|"Padding space between columns"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
