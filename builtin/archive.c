@@ -535,9 +535,15 @@ argument_list|,
 operator|&
 name|output
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"write the archive to this file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -549,9 +555,15 @@ argument_list|,
 operator|&
 name|remote
 argument_list|,
+name|N_
+argument_list|(
 literal|"repo"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"retrieve the archive from remote repository<repo>"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -563,9 +575,15 @@ argument_list|,
 operator|&
 name|exec
 argument_list|,
+name|N_
+argument_list|(
 literal|"cmd"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"path to the remote git-upload-archive command"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
