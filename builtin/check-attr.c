@@ -56,9 +56,15 @@ name|check_attr_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git check-attr [-a | --all | attr...] [--] pathname..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git check-attr --stdin [-a | --all | attr...]<<list-of-paths>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -90,7 +96,10 @@ argument_list|,
 operator|&
 name|all_attrs
 argument_list|,
+name|N_
+argument_list|(
 literal|"report all attributes set on file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -102,7 +111,10 @@ argument_list|,
 operator|&
 name|cached_attrs
 argument_list|,
+name|N_
+argument_list|(
 literal|"use .gitattributes only from the index"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -114,7 +126,10 @@ argument_list|,
 operator|&
 name|stdin_paths
 argument_list|,
+name|N_
+argument_list|(
 literal|"read file names from stdin"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -126,7 +141,10 @@ argument_list|,
 operator|&
 name|null_term_line
 argument_list|,
+name|N_
+argument_list|(
 literal|"input paths are terminated by a null character"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
