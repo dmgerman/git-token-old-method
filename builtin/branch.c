@@ -73,13 +73,25 @@ name|builtin_branch_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git branch [options] [-r | -a] [--merged | --no-merged]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git branch [options] [-l] [-f]<branchname> [<start-point>]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git branch [options] [-r] (-d | -D)<branchname>..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git branch [options] (-m | -M) [<oldbranch>]<newbranch>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -4012,7 +4024,10 @@ init|=
 block|{
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Generic options"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__VERBOSE
@@ -4020,7 +4035,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"show hash and subject, give twice for upstream branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__QUIET
@@ -4028,7 +4046,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress informational messages"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -4040,7 +4061,10 @@ argument_list|,
 operator|&
 name|track
 argument_list|,
+name|N_
+argument_list|(
 literal|"set up tracking mode (see git-pull(1))"
+argument_list|)
 argument_list|,
 name|BRANCH_TRACK_EXPLICIT
 argument_list|)
@@ -4054,7 +4078,10 @@ argument_list|,
 operator|&
 name|track
 argument_list|,
+name|N_
+argument_list|(
 literal|"change upstream info"
+argument_list|)
 argument_list|,
 name|BRANCH_TRACK_OVERRIDE
 argument_list|)
@@ -4064,7 +4091,10 @@ argument_list|(
 operator|&
 name|branch_use_color
 argument_list|,
+name|N_
+argument_list|(
 literal|"use colored output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -4076,7 +4106,10 @@ argument_list|,
 operator|&
 name|kinds
 argument_list|,
+name|N_
+argument_list|(
 literal|"act on remote-tracking branches"
+argument_list|)
 argument_list|,
 name|REF_REMOTE_BRANCH
 argument_list|)
@@ -4091,9 +4124,15 @@ block|,
 operator|&
 name|with_commit
 block|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"print only branches that contain the commit"
+argument_list|)
 block|,
 name|PARSE_OPT_LASTARG_DEFAULT
 block|,
@@ -4115,9 +4154,15 @@ block|,
 operator|&
 name|with_commit
 block|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"print only branches that contain the commit"
+argument_list|)
 block|,
 name|PARSE_OPT_HIDDEN
 operator||
@@ -4139,7 +4184,10 @@ argument_list|)
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Specific git-branch actions:"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -4151,7 +4199,10 @@ argument_list|,
 operator|&
 name|kinds
 argument_list|,
+name|N_
+argument_list|(
 literal|"list both remote-tracking and local branches"
+argument_list|)
 argument_list|,
 name|REF_REMOTE_BRANCH
 operator||
@@ -4167,7 +4218,10 @@ argument_list|,
 operator|&
 name|delete
 argument_list|,
+name|N_
+argument_list|(
 literal|"delete fully merged branch"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -4181,7 +4235,10 @@ argument_list|,
 operator|&
 name|delete
 argument_list|,
+name|N_
+argument_list|(
 literal|"delete branch (even if not merged)"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -4195,7 +4252,10 @@ argument_list|,
 operator|&
 name|rename
 argument_list|,
+name|N_
+argument_list|(
 literal|"move/rename a branch and its reflog"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -4209,7 +4269,10 @@ argument_list|,
 operator|&
 name|rename
 argument_list|,
+name|N_
+argument_list|(
 literal|"move/rename a branch, even if target exists"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -4223,7 +4286,10 @@ argument_list|,
 operator|&
 name|list
 argument_list|,
+name|N_
+argument_list|(
 literal|"list branch names"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4235,7 +4301,10 @@ argument_list|,
 operator|&
 name|reflog
 argument_list|,
+name|N_
+argument_list|(
 literal|"create the branch's reflog"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4247,7 +4316,10 @@ argument_list|,
 operator|&
 name|edit_description
 argument_list|,
+name|N_
+argument_list|(
 literal|"edit the description for the branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__FORCE
@@ -4255,7 +4327,10 @@ argument_list|(
 operator|&
 name|force_create
 argument_list|,
+name|N_
+argument_list|(
 literal|"force creation (when already exists)"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -4268,9 +4343,15 @@ block|,
 operator|&
 name|merge_filter_ref
 block|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"print only not merged branches"
+argument_list|)
 block|,
 name|PARSE_OPT_LASTARG_DEFAULT
 operator||
@@ -4294,9 +4375,15 @@ block|,
 operator|&
 name|merge_filter_ref
 block|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"print only merged branches"
+argument_list|)
 block|,
 name|PARSE_OPT_LASTARG_DEFAULT
 operator||
@@ -4319,7 +4406,10 @@ argument_list|,
 operator|&
 name|colopts
 argument_list|,
+name|N_
+argument_list|(
 literal|"list branches in columns"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
