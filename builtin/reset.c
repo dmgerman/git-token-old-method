@@ -78,11 +78,20 @@ name|git_reset_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [<commit>]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git reset [-q]<commit> [--]<paths>..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git reset --patch [<commit>] [--] [<paths>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -1331,7 +1340,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"be quiet, only report errors"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -1343,7 +1355,10 @@ argument_list|,
 operator|&
 name|reset_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"reset HEAD and index"
+argument_list|)
 argument_list|,
 name|MIXED
 argument_list|)
@@ -1357,7 +1372,10 @@ argument_list|,
 operator|&
 name|reset_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"reset only HEAD"
+argument_list|)
 argument_list|,
 name|SOFT
 argument_list|)
@@ -1371,7 +1389,10 @@ argument_list|,
 operator|&
 name|reset_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"reset HEAD, index and working tree"
+argument_list|)
 argument_list|,
 name|HARD
 argument_list|)
@@ -1385,7 +1406,10 @@ argument_list|,
 operator|&
 name|reset_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"reset HEAD, index and working tree"
+argument_list|)
 argument_list|,
 name|MERGE
 argument_list|)
@@ -1399,7 +1423,10 @@ argument_list|,
 operator|&
 name|reset_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"reset HEAD but keep local changes"
+argument_list|)
 argument_list|,
 name|KEEP
 argument_list|)
@@ -1413,7 +1440,10 @@ argument_list|,
 operator|&
 name|patch_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"select hunks interactively"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
