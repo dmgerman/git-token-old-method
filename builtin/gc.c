@@ -45,7 +45,10 @@ name|builtin_gc_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git gc [options]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -776,7 +779,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress progress reporting"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -789,9 +795,15 @@ block|,
 operator|&
 name|prune_expire
 block|,
+name|N_
+argument_list|(
 literal|"date"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"prune unreferenced objects"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -812,7 +824,10 @@ argument_list|,
 operator|&
 name|aggressive
 argument_list|,
+name|N_
+argument_list|(
 literal|"be more thorough (increased runtime)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -824,7 +839,10 @@ argument_list|,
 operator|&
 name|auto_gc
 argument_list|,
+name|N_
+argument_list|(
 literal|"enable auto-gc mode"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
