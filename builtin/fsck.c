@@ -3019,7 +3019,10 @@ name|fsck_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git fsck [options] [<object>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -3039,7 +3042,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"be verbose"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3051,7 +3057,10 @@ argument_list|,
 operator|&
 name|show_unreachable
 argument_list|,
+name|N_
+argument_list|(
 literal|"show unreachable objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -3063,7 +3072,10 @@ argument_list|,
 operator|&
 name|show_dangling
 argument_list|,
+name|N_
+argument_list|(
 literal|"show dangling objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3075,7 +3087,10 @@ argument_list|,
 operator|&
 name|show_tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"report tags"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3087,7 +3102,10 @@ argument_list|,
 operator|&
 name|show_root
 argument_list|,
+name|N_
+argument_list|(
 literal|"report root nodes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3099,7 +3117,10 @@ argument_list|,
 operator|&
 name|keep_cache_objects
 argument_list|,
+name|N_
+argument_list|(
 literal|"make index objects head nodes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3111,7 +3132,10 @@ argument_list|,
 operator|&
 name|include_reflogs
 argument_list|,
+name|N_
+argument_list|(
 literal|"make reflogs head nodes (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3123,7 +3147,10 @@ argument_list|,
 operator|&
 name|check_full
 argument_list|,
+name|N_
+argument_list|(
 literal|"also consider packs and alternate objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3135,7 +3162,10 @@ argument_list|,
 operator|&
 name|check_strict
 argument_list|,
+name|N_
+argument_list|(
 literal|"enable more strict checking"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3147,7 +3177,10 @@ argument_list|,
 operator|&
 name|write_lost_and_found
 argument_list|,
+name|N_
+argument_list|(
 literal|"write dangling objects in .git/lost-found"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -3159,7 +3192,10 @@ argument_list|,
 operator|&
 name|show_progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"show progress"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
