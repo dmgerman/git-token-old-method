@@ -3103,7 +3103,7 @@ name|msg
 block|,
 name|N_
 argument_list|(
-literal|"msg"
+literal|"message"
 argument_list|)
 block|,
 name|N_
@@ -3990,7 +3990,7 @@ name|msg
 block|,
 name|N_
 argument_list|(
-literal|"msg"
+literal|"message"
 argument_list|)
 block|,
 name|N_
