@@ -78,13 +78,25 @@ name|builtin_fetch_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git fetch [<options>] [<repository> [<refspec>...]]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git fetch [<options>]<group>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git fetch --multiple [<options>] [(<repository> |<group>)...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git fetch --all [<options>]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -305,7 +317,10 @@ argument_list|,
 operator|&
 name|all
 argument_list|,
+name|N_
+argument_list|(
 literal|"fetch from all remotes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -317,7 +332,10 @@ argument_list|,
 operator|&
 name|append
 argument_list|,
+name|N_
+argument_list|(
 literal|"append to .git/FETCH_HEAD instead of overwriting"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -329,9 +347,15 @@ argument_list|,
 operator|&
 name|upload_pack
 argument_list|,
+name|N_
+argument_list|(
 literal|"path"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"path to upload pack on remote end"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__FORCE
@@ -339,7 +363,10 @@ argument_list|(
 operator|&
 name|force
 argument_list|,
+name|N_
+argument_list|(
 literal|"force overwrite of local branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -351,7 +378,10 @@ argument_list|,
 operator|&
 name|multiple
 argument_list|,
+name|N_
+argument_list|(
 literal|"fetch from multiple remotes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -363,7 +393,10 @@ argument_list|,
 operator|&
 name|tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"fetch all tags and associated objects"
+argument_list|)
 argument_list|,
 name|TAGS_SET
 argument_list|)
@@ -377,7 +410,10 @@ argument_list|,
 operator|&
 name|tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not fetch all tags (--no-tags)"
+argument_list|)
 argument_list|,
 name|TAGS_UNSET
 argument_list|)
@@ -391,7 +427,10 @@ argument_list|,
 operator|&
 name|prune
 argument_list|,
+name|N_
+argument_list|(
 literal|"prune remote-tracking branches no longer on remote"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -403,9 +442,15 @@ literal|"recurse-submodules"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"on-demand"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"control recursive fetching of submodules"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -421,7 +466,10 @@ argument_list|,
 operator|&
 name|dry_run
 argument_list|,
+name|N_
+argument_list|(
 literal|"dry run"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -433,7 +481,10 @@ argument_list|,
 operator|&
 name|keep
 argument_list|,
+name|N_
+argument_list|(
 literal|"keep downloaded pack"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -445,7 +496,10 @@ argument_list|,
 operator|&
 name|update_head_ok
 argument_list|,
+name|N_
+argument_list|(
 literal|"allow updating of HEAD ref"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -457,7 +511,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"force progress reporting"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -469,9 +526,15 @@ argument_list|,
 operator|&
 name|depth
 argument_list|,
+name|N_
+argument_list|(
 literal|"depth"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"deepen history of shallow clone"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -484,9 +547,15 @@ block|,
 operator|&
 name|submodule_prefix
 block|,
+name|N_
+argument_list|(
 literal|"dir"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"prepend this to submodule path output"
+argument_list|)
 block|,
 name|PARSE_OPT_HIDDEN
 block|}
@@ -503,7 +572,10 @@ name|recurse_submodules_default
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"default mode for recursion"
+argument_list|)
 block|,
 name|PARSE_OPT_HIDDEN
 block|}
