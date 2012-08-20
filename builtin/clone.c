@@ -91,7 +91,10 @@ name|builtin_clone_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git clone [options] [--]<repo> [<dir>]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -294,7 +297,10 @@ argument_list|,
 operator|&
 name|option_progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"force progress reporting"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -306,7 +312,10 @@ argument_list|,
 operator|&
 name|option_no_checkout
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't create a checkout"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -318,7 +327,10 @@ argument_list|,
 operator|&
 name|option_bare
 argument_list|,
+name|N_
+argument_list|(
 literal|"create a bare repository"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -333,7 +345,10 @@ name|option_bare
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"create a bare repository"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -349,7 +364,10 @@ argument_list|,
 operator|&
 name|option_mirror
 argument_list|,
+name|N_
+argument_list|(
 literal|"create a mirror repository (implies bare)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -361,7 +379,10 @@ argument_list|,
 operator|&
 name|option_local
 argument_list|,
+name|N_
+argument_list|(
 literal|"to clone from a local repository"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -373,7 +394,10 @@ argument_list|,
 operator|&
 name|option_no_hardlinks
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't use local hardlinks, always copy"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -385,7 +409,10 @@ argument_list|,
 operator|&
 name|option_shared
 argument_list|,
+name|N_
+argument_list|(
 literal|"setup as shared repository"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -397,7 +424,10 @@ argument_list|,
 operator|&
 name|option_recursive
 argument_list|,
+name|N_
+argument_list|(
 literal|"initialize submodules in the clone"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -409,7 +439,10 @@ argument_list|,
 operator|&
 name|option_recursive
 argument_list|,
+name|N_
+argument_list|(
 literal|"initialize submodules in the clone"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -421,9 +454,15 @@ argument_list|,
 operator|&
 name|option_template
 argument_list|,
+name|N_
+argument_list|(
 literal|"template-directory"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"directory from which templates will be used"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_CALLBACK
@@ -435,9 +474,15 @@ argument_list|,
 operator|&
 name|option_reference
 argument_list|,
+name|N_
+argument_list|(
 literal|"repo"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"reference repository"
+argument_list|)
 argument_list|,
 operator|&
 name|opt_parse_reference
@@ -452,9 +497,15 @@ argument_list|,
 operator|&
 name|option_origin
 argument_list|,
+name|N_
+argument_list|(
 literal|"name"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"use<name> instead of 'origin' to track upstream"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -466,9 +517,15 @@ argument_list|,
 operator|&
 name|option_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"checkout<branch> instead of the remote's HEAD"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -480,9 +537,15 @@ argument_list|,
 operator|&
 name|option_upload_pack
 argument_list|,
+name|N_
+argument_list|(
 literal|"path"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"path to git-upload-pack on the remote"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -494,9 +557,15 @@ argument_list|,
 operator|&
 name|option_depth
 argument_list|,
+name|N_
+argument_list|(
 literal|"depth"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"create a shallow clone of that depth"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -508,7 +577,10 @@ argument_list|,
 operator|&
 name|option_single_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"clone only one branch, HEAD or --branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -520,9 +592,15 @@ argument_list|,
 operator|&
 name|real_git_dir
 argument_list|,
+name|N_
+argument_list|(
 literal|"gitdir"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"separate git dir from working tree"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING_LIST
@@ -534,9 +612,15 @@ argument_list|,
 operator|&
 name|option_config
 argument_list|,
+name|N_
+argument_list|(
 literal|"key=value"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"set config inside the new repository"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
