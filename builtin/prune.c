@@ -55,7 +55,10 @@ name|prune_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git prune [-n] [-v] [--expire<time>] [--] [<head>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -693,7 +696,10 @@ argument_list|(
 operator|&
 name|show_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not remove, show only"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__VERBOSE
@@ -701,7 +707,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"report pruned objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -713,7 +722,10 @@ argument_list|,
 operator|&
 name|show_progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"show progress"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_DATE
@@ -725,7 +737,10 @@ argument_list|,
 operator|&
 name|expire
 argument_list|,
+name|N_
+argument_list|(
 literal|"expire objects older than<time>"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
