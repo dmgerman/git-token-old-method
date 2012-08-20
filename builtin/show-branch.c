@@ -39,9 +39,15 @@ name|show_branch_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git show-branch [-a|--all] [-r|--remotes] [--topo-order | --date-order] [--current] [--color[=<when>] | --no-color] [--sparse] [--more=<n> | --list | --independent | --merge-base] [--no-name | --sha1-name] [--topics] [(<rev> |<glob>)...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git show-branch (-g|--reflog)[=<n>[,<base>]] [--list] [<ref>]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -3446,7 +3452,10 @@ argument_list|,
 operator|&
 name|all_heads
 argument_list|,
+name|N_
+argument_list|(
 literal|"show remote-tracking and local branches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3458,7 +3467,10 @@ argument_list|,
 operator|&
 name|all_remotes
 argument_list|,
+name|N_
+argument_list|(
 literal|"show remote-tracking branches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__COLOR
@@ -3466,7 +3478,10 @@ argument_list|(
 operator|&
 name|showbranch_use_color
 argument_list|,
+name|N_
+argument_list|(
 literal|"color '*!+-' corresponding to the branch"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -3479,9 +3494,15 @@ block|,
 operator|&
 name|extra
 block|,
+name|N_
+argument_list|(
 literal|"n"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"show<n> more commits after the common ancestor"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -3502,7 +3523,10 @@ argument_list|,
 operator|&
 name|extra
 argument_list|,
+name|N_
+argument_list|(
 literal|"synonym to more=-1"
+argument_list|)
 argument_list|,
 operator|-
 literal|1
@@ -3517,7 +3541,10 @@ argument_list|,
 operator|&
 name|no_name
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress naming strings"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3529,7 +3556,10 @@ argument_list|,
 operator|&
 name|with_current_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"include the current branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3541,7 +3571,10 @@ argument_list|,
 operator|&
 name|sha1_name
 argument_list|,
+name|N_
+argument_list|(
 literal|"name commits with their object names"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3553,7 +3586,10 @@ argument_list|,
 operator|&
 name|merge_base
 argument_list|,
+name|N_
+argument_list|(
 literal|"show possible merge bases"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3565,7 +3601,10 @@ argument_list|,
 operator|&
 name|independent
 argument_list|,
+name|N_
+argument_list|(
 literal|"show refs unreachable from any other ref"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3577,7 +3616,10 @@ argument_list|,
 operator|&
 name|lifo
 argument_list|,
+name|N_
+argument_list|(
 literal|"show commits in topological order"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3589,7 +3631,10 @@ argument_list|,
 operator|&
 name|topics
 argument_list|,
+name|N_
+argument_list|(
 literal|"show only commits not on the first branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -3601,7 +3646,10 @@ argument_list|,
 operator|&
 name|dense
 argument_list|,
+name|N_
+argument_list|(
 literal|"show merges reachable from only one tip"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3615,8 +3663,11 @@ argument_list|,
 operator|&
 name|lifo
 argument_list|,
+name|N_
+argument_list|(
 literal|"show commits where no parent comes before its "
 literal|"children"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -3631,10 +3682,16 @@ block|,
 operator|&
 name|reflog_base
 block|,
+name|N_
+argument_list|(
 literal|"<n>[,<base>]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"show<n> most recent ref-log entries starting at "
 literal|"base"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 operator||
