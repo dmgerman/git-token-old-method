@@ -82,7 +82,10 @@ name|fast_export_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git fast-export [rev-list-opts]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -3486,7 +3489,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"show progress after<n> objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_CALLBACK
@@ -3498,9 +3504,15 @@ argument_list|,
 operator|&
 name|signed_tag_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"mode"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"select handling of signed tags"
+argument_list|)
 argument_list|,
 name|parse_opt_signed_tag_mode
 argument_list|)
@@ -3514,9 +3526,15 @@ argument_list|,
 operator|&
 name|tag_of_filtered_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"mode"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"select handling of tags that tag filtered objects"
+argument_list|)
 argument_list|,
 name|parse_opt_tag_of_filtered_mode
 argument_list|)
@@ -3530,9 +3548,15 @@ argument_list|,
 operator|&
 name|export_filename
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"Dump marks to this file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -3544,9 +3568,15 @@ argument_list|,
 operator|&
 name|import_filename
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"Import marks from this file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3558,7 +3588,10 @@ argument_list|,
 operator|&
 name|fake_missing_tagger
 argument_list|,
+name|N_
+argument_list|(
 literal|"Fake a tagger when tags lack one"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3570,7 +3603,10 @@ argument_list|,
 operator|&
 name|full_tree
 argument_list|,
+name|N_
+argument_list|(
 literal|"Output full tree for each commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3582,7 +3618,10 @@ argument_list|,
 operator|&
 name|use_done_feature
 argument_list|,
+name|N_
+argument_list|(
 literal|"Use the done feature to terminate the stream"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -3594,7 +3633,10 @@ argument_list|,
 operator|&
 name|no_data
 argument_list|,
+name|N_
+argument_list|(
 literal|"Skip output of blob data"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
