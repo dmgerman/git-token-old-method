@@ -83,7 +83,10 @@ name|grep_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git grep [options] [-e]<pattern> [<rev>...] [[--]<path>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -3648,7 +3651,10 @@ argument_list|,
 operator|&
 name|cached
 argument_list|,
+name|N_
+argument_list|(
 literal|"search in index instead of in the work tree"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_NEGBIT
@@ -3660,7 +3666,10 @@ argument_list|,
 operator|&
 name|use_index
 argument_list|,
+name|N_
+argument_list|(
 literal|"finds in contents not managed by git"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -3674,7 +3683,10 @@ argument_list|,
 operator|&
 name|untracked
 argument_list|,
+name|N_
+argument_list|(
 literal|"search in both tracked and untracked files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -3686,7 +3698,10 @@ argument_list|,
 operator|&
 name|opt_exclude
 argument_list|,
+name|N_
+argument_list|(
 literal|"search also in ignored files"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -3707,7 +3722,10 @@ name|opt
 operator|.
 name|invert
 argument_list|,
+name|N_
+argument_list|(
 literal|"show non-matching lines"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3721,7 +3739,10 @@ name|opt
 operator|.
 name|ignore_case
 argument_list|,
+name|N_
+argument_list|(
 literal|"case insensitive matching"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3735,7 +3756,10 @@ name|opt
 operator|.
 name|word_regexp
 argument_list|,
+name|N_
+argument_list|(
 literal|"match patterns only at word boundaries"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -3749,7 +3773,10 @@ name|opt
 operator|.
 name|binary
 argument_list|,
+name|N_
+argument_list|(
 literal|"process binary files as text"
+argument_list|)
 argument_list|,
 name|GREP_BINARY_TEXT
 argument_list|)
@@ -3765,7 +3792,10 @@ name|opt
 operator|.
 name|binary
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't match patterns in binary files"
+argument_list|)
 argument_list|,
 name|GREP_BINARY_NOMATCH
 argument_list|)
@@ -3782,9 +3812,15 @@ name|opt
 operator|.
 name|max_depth
 block|,
+name|N_
+argument_list|(
 literal|"depth"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"descend at most<depth> levels"
+argument_list|)
 block|,
 name|PARSE_OPT_NONEG
 block|,
@@ -3807,7 +3843,10 @@ argument_list|,
 operator|&
 name|pattern_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"use extended POSIX regular expressions"
+argument_list|)
 argument_list|,
 name|pattern_type_ere
 argument_list|)
@@ -3821,7 +3860,10 @@ argument_list|,
 operator|&
 name|pattern_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"use basic POSIX regular expressions (default)"
+argument_list|)
 argument_list|,
 name|pattern_type_bre
 argument_list|)
@@ -3835,7 +3877,10 @@ argument_list|,
 operator|&
 name|pattern_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"interpret patterns as fixed strings"
+argument_list|)
 argument_list|,
 name|pattern_type_fixed
 argument_list|)
@@ -3849,7 +3894,10 @@ argument_list|,
 operator|&
 name|pattern_type
 argument_list|,
+name|N_
+argument_list|(
 literal|"use Perl-compatible regular expressions"
+argument_list|)
 argument_list|,
 name|pattern_type_pcre
 argument_list|)
@@ -3870,7 +3918,10 @@ name|opt
 operator|.
 name|linenum
 argument_list|,
+name|N_
+argument_list|(
 literal|"show line numbers"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_NEGBIT
@@ -3884,7 +3935,10 @@ name|opt
 operator|.
 name|pathname
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't show filenames"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -3900,7 +3954,10 @@ name|opt
 operator|.
 name|pathname
 argument_list|,
+name|N_
+argument_list|(
 literal|"show filenames"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -3916,7 +3973,10 @@ name|opt
 operator|.
 name|relative
 argument_list|,
+name|N_
+argument_list|(
 literal|"show filenames relative to top directory"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -3932,7 +3992,10 @@ name|opt
 operator|.
 name|name_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"show only filenames instead of matching lines"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3946,7 +4009,10 @@ name|opt
 operator|.
 name|name_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"synonym for --files-with-matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3960,7 +4026,10 @@ name|opt
 operator|.
 name|unmatch_name_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"show only the names of files without match"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3974,7 +4043,10 @@ name|opt
 operator|.
 name|null_following_name
 argument_list|,
+name|N_
+argument_list|(
 literal|"print NUL after filenames"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -3988,7 +4060,10 @@ name|opt
 operator|.
 name|count
 argument_list|,
+name|N_
+argument_list|(
 literal|"show the number of matches instead of matching lines"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__COLOR
@@ -3998,7 +4073,10 @@ name|opt
 operator|.
 name|color
 argument_list|,
+name|N_
+argument_list|(
 literal|"highlight matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4012,7 +4090,10 @@ name|opt
 operator|.
 name|file_break
 argument_list|,
+name|N_
+argument_list|(
 literal|"print empty line between matches from different files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4026,7 +4107,10 @@ name|opt
 operator|.
 name|heading
 argument_list|,
+name|N_
+argument_list|(
 literal|"show filename only once above matches from same file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -4043,9 +4127,15 @@ argument_list|,
 operator|&
 name|opt
 argument_list|,
+name|N_
+argument_list|(
 literal|"n"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"show<n> context lines before and after matches"
+argument_list|)
 argument_list|,
 name|context_callback
 argument_list|)
@@ -4061,7 +4151,10 @@ name|opt
 operator|.
 name|pre_context
 argument_list|,
+name|N_
+argument_list|(
 literal|"show<n> context lines before matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -4075,7 +4168,10 @@ name|opt
 operator|.
 name|post_context
 argument_list|,
+name|N_
+argument_list|(
 literal|"show<n> context lines after matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_NUMBER_CALLBACK
@@ -4083,7 +4179,10 @@ argument_list|(
 operator|&
 name|opt
 argument_list|,
+name|N_
+argument_list|(
 literal|"shortcut for -C NUM"
+argument_list|)
 argument_list|,
 name|context_callback
 argument_list|)
@@ -4099,7 +4198,10 @@ name|opt
 operator|.
 name|funcname
 argument_list|,
+name|N_
+argument_list|(
 literal|"show a line with the function name before matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4113,7 +4215,10 @@ name|opt
 operator|.
 name|funcbody
 argument_list|,
+name|N_
+argument_list|(
 literal|"show the surrounding function"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -4130,9 +4235,15 @@ argument_list|,
 operator|&
 name|opt
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"read patterns from file"
+argument_list|)
 argument_list|,
 name|file_callback
 argument_list|)
@@ -4147,9 +4258,15 @@ block|,
 operator|&
 name|opt
 block|,
+name|N_
+argument_list|(
 literal|"pattern"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"match<pattern>"
+argument_list|)
 block|,
 name|PARSE_OPT_NONEG
 block|,
@@ -4168,7 +4285,10 @@ name|opt
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"combine patterns specified with -e"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -4263,7 +4383,10 @@ name|opt
 operator|.
 name|status_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"indicate hit with exit status without output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -4277,7 +4400,10 @@ name|opt
 operator|.
 name|all_match
 argument_list|,
+name|N_
+argument_list|(
 literal|"show only matches from files that match all patterns"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -4295,9 +4421,15 @@ block|,
 operator|&
 name|show_in_pager
 block|,
+name|N_
+argument_list|(
 literal|"pager"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"show matching files in the pager"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -4318,7 +4450,10 @@ argument_list|,
 operator|&
 name|external_grep_allowed__ignored
 argument_list|,
+name|N_
+argument_list|(
 literal|"allow calling of grep(1) (ignored by this build)"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -4333,7 +4468,10 @@ name|options
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"show usage"
+argument_list|)
 block|,
 name|PARSE_OPT_HIDDEN
 operator||
