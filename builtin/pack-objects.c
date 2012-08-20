@@ -109,9 +109,15 @@ name|pack_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git pack-objects --stdout [options...] [< ref-list |< object-list]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git pack-objects [options...] base-name [< ref-list |< object-list]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -12254,7 +12260,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not show progress meter"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -12268,7 +12277,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"show progress meter"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -12282,7 +12294,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"show progress meter during object writing phase"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -12296,7 +12311,10 @@ argument_list|,
 operator|&
 name|all_progress_implied
 argument_list|,
+name|N_
+argument_list|(
 literal|"similar to --all-progress when progress meter is shown"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -12308,9 +12326,15 @@ literal|"index-version"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"version[,offset]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"write the pack index file in the specified idx format version"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -12326,7 +12350,10 @@ argument_list|,
 operator|&
 name|pack_size_limit
 argument_list|,
+name|N_
+argument_list|(
 literal|"maximum size of each output pack file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12338,7 +12365,10 @@ argument_list|,
 operator|&
 name|local
 argument_list|,
+name|N_
+argument_list|(
 literal|"ignore borrowed objects from alternate object store"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12350,7 +12380,10 @@ argument_list|,
 operator|&
 name|incremental
 argument_list|,
+name|N_
+argument_list|(
 literal|"ignore packed objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -12362,7 +12395,10 @@ argument_list|,
 operator|&
 name|window
 argument_list|,
+name|N_
+argument_list|(
 literal|"limit pack window by objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_ULONG
@@ -12374,7 +12410,10 @@ argument_list|,
 operator|&
 name|window_memory_limit
 argument_list|,
+name|N_
+argument_list|(
 literal|"limit pack window by memory in addition to object limit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -12386,7 +12425,10 @@ argument_list|,
 operator|&
 name|depth
 argument_list|,
+name|N_
+argument_list|(
 literal|"maximum length of delta chain allowed in the resulting pack"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12398,7 +12440,10 @@ argument_list|,
 operator|&
 name|reuse_delta
 argument_list|,
+name|N_
+argument_list|(
 literal|"reuse existing deltas"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12410,7 +12455,10 @@ argument_list|,
 operator|&
 name|reuse_object
 argument_list|,
+name|N_
+argument_list|(
 literal|"reuse existing objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12422,7 +12470,10 @@ argument_list|,
 operator|&
 name|allow_ofs_delta
 argument_list|,
+name|N_
+argument_list|(
 literal|"use OFS_DELTA objects"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -12434,7 +12485,10 @@ argument_list|,
 operator|&
 name|delta_search_threads
 argument_list|,
+name|N_
+argument_list|(
 literal|"use threads when searching for best delta matches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12446,7 +12500,10 @@ argument_list|,
 operator|&
 name|non_empty
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not create an empty pack output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12458,7 +12515,10 @@ argument_list|,
 operator|&
 name|use_internal_rev_list
 argument_list|,
+name|N_
+argument_list|(
 literal|"read revision arguments from standard input"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -12473,7 +12533,10 @@ name|rev_list_unpacked
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"limit the objects to those that are not yet packed"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -12496,7 +12559,10 @@ name|rev_list_all
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"include objects reachable from any reference"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -12519,7 +12585,10 @@ name|rev_list_reflog
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"include objects referred by reflog entries"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -12539,7 +12608,10 @@ argument_list|,
 operator|&
 name|pack_to_stdout
 argument_list|,
+name|N_
+argument_list|(
 literal|"output pack to stdout"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12551,7 +12623,10 @@ argument_list|,
 operator|&
 name|include_tag
 argument_list|,
+name|N_
+argument_list|(
 literal|"include tag objects that refer to objects to be packed"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12563,7 +12638,10 @@ argument_list|,
 operator|&
 name|keep_unreachable
 argument_list|,
+name|N_
+argument_list|(
 literal|"keep unreachable objects"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -12575,9 +12653,15 @@ literal|"unpack-unreachable"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"time"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"unpack unreachable objects newer than<time>"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -12593,7 +12677,10 @@ argument_list|,
 operator|&
 name|thin
 argument_list|,
+name|N_
+argument_list|(
 literal|"create thin packs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -12605,7 +12692,10 @@ argument_list|,
 operator|&
 name|ignore_packed_keep
 argument_list|,
+name|N_
+argument_list|(
 literal|"ignore packs that have companion .keep file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -12617,7 +12707,10 @@ argument_list|,
 operator|&
 name|pack_compression_level
 argument_list|,
+name|N_
+argument_list|(
 literal|"pack compression level"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -12629,7 +12722,10 @@ argument_list|,
 operator|&
 name|grafts_replace_parents
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not hide commits by grafts"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
