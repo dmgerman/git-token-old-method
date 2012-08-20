@@ -50,29 +50,65 @@ name|builtin_remote_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote [-v | --verbose]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote add [-t<branch>] [-m<master>] [-f] [--tags|--no-tags] [--mirror=<fetch|push>]<name><url>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote rename<old><new>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote rm<name>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-head<name> (-a | -d |<branch>)"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote [-v | --verbose] show [-n]<name>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote prune [-n | --dry-run]<name>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote [-v | --verbose] update [-p | --prune] [(<group> |<remote>)...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-branches [--add]<name><branch>..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-url [--push]<name><newurl> [<oldurl>]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-url --add<name><newurl>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-url --delete<name><url>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -89,7 +125,10 @@ name|builtin_remote_add_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote add [<options>]<name><url>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -106,7 +145,10 @@ name|builtin_remote_rename_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote rename<old><new>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -123,7 +165,10 @@ name|builtin_remote_rm_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote rm<name>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -140,7 +185,10 @@ name|builtin_remote_sethead_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote set-head<name> (-a | -d |<branch>])"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -157,9 +205,15 @@ name|builtin_remote_setbranches_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote set-branches<name><branch>..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-branches --add<name><branch>..."
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -176,7 +230,10 @@ name|builtin_remote_show_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote show [<options>]<name>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -193,7 +250,10 @@ name|builtin_remote_prune_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote prune [<options>]<name>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -210,7 +270,10 @@ name|builtin_remote_update_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote update [<options>] [<group> |<remote>]..."
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -227,11 +290,20 @@ name|builtin_remote_seturl_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git remote set-url [--push]<name><newurl> [<oldurl>]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-url --add<name><newurl>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git remote set-url --delete<name><url>"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -772,7 +844,10 @@ argument_list|,
 operator|&
 name|fetch
 argument_list|,
+name|N_
+argument_list|(
 literal|"fetch the remote branches"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -784,7 +859,10 @@ argument_list|,
 operator|&
 name|fetch_tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"import all tags and associated objects when fetching"
+argument_list|)
 argument_list|,
 name|TAGS_SET
 argument_list|)
@@ -798,7 +876,10 @@ argument_list|,
 operator|&
 name|fetch_tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"or do not fetch any tag at all (--no-tags)"
+argument_list|)
 argument_list|,
 name|TAGS_UNSET
 argument_list|)
@@ -812,9 +893,15 @@ argument_list|,
 operator|&
 name|track
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch(es) to track"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -826,9 +913,15 @@ argument_list|,
 operator|&
 name|master
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"master branch"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -841,9 +934,15 @@ block|,
 operator|&
 name|mirror
 block|,
+name|N_
+argument_list|(
 literal|"push|fetch"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"set up remote as a mirror to push to or fetch from"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -6712,7 +6811,10 @@ argument_list|,
 operator|&
 name|no_query
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not query remotes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -7450,7 +7552,10 @@ argument_list|,
 operator|&
 name|opt_a
 argument_list|,
+name|N_
+argument_list|(
 literal|"set refs/remotes/<name>/HEAD according to remote"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7462,7 +7567,10 @@ argument_list|,
 operator|&
 name|opt_d
 argument_list|,
+name|N_
+argument_list|(
 literal|"delete refs/remotes/<name>/HEAD"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -7876,7 +7984,10 @@ argument_list|(
 operator|&
 name|dry_run
 argument_list|,
+name|N_
+argument_list|(
 literal|"dry run"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -8247,7 +8358,10 @@ argument_list|,
 operator|&
 name|prune
 argument_list|,
+name|N_
+argument_list|(
 literal|"prune remotes after fetching"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -8726,7 +8840,10 @@ argument_list|,
 operator|&
 name|add_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"add branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -8896,7 +9013,10 @@ argument_list|,
 operator|&
 name|push_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"manipulate push URLs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -8908,7 +9028,10 @@ argument_list|,
 operator|&
 name|add_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"add URL"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -8920,7 +9043,10 @@ argument_list|,
 operator|&
 name|delete_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"delete URLs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -9661,7 +9787,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"be verbose; must be placed before a subcommand"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
