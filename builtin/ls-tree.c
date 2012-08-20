@@ -130,7 +130,10 @@ name|ls_tree_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git ls-tree [<options>]<tree-ish> [<path>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -615,7 +618,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"only show trees"
+argument_list|)
 argument_list|,
 name|LS_TREE_ONLY
 argument_list|)
@@ -629,7 +635,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"recurse into subtrees"
+argument_list|)
 argument_list|,
 name|LS_RECURSIVE
 argument_list|)
@@ -643,7 +652,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"show trees when recursing"
+argument_list|)
 argument_list|,
 name|LS_SHOW_TREES
 argument_list|)
@@ -657,7 +669,10 @@ argument_list|,
 operator|&
 name|line_termination
 argument_list|,
+name|N_
+argument_list|(
 literal|"terminate entries with NUL byte"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -671,7 +686,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"include object size"
+argument_list|)
 argument_list|,
 name|LS_SHOW_SIZE
 argument_list|)
@@ -685,7 +703,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"list only filenames"
+argument_list|)
 argument_list|,
 name|LS_NAME_ONLY
 argument_list|)
@@ -699,7 +720,10 @@ argument_list|,
 operator|&
 name|ls_options
 argument_list|,
+name|N_
+argument_list|(
 literal|"list only filenames"
+argument_list|)
 argument_list|,
 name|LS_NAME_ONLY
 argument_list|)
@@ -713,7 +737,10 @@ argument_list|,
 operator|&
 name|chomp_prefix
 argument_list|,
+name|N_
+argument_list|(
 literal|"use full path names"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -727,8 +754,11 @@ argument_list|,
 operator|&
 name|full_tree
 argument_list|,
+name|N_
+argument_list|(
 literal|"list entire tree; not just current directory "
 literal|"(implies --full-name)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__ABBREV
