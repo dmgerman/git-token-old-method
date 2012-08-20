@@ -53,7 +53,10 @@ name|push_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git push [<options>] [<repository> [<refspec>...]]"
+argument_list|)
 block|,
 name|NULL
 block|, }
@@ -1647,9 +1650,15 @@ argument_list|,
 operator|&
 name|repo
 argument_list|,
+name|N_
+argument_list|(
 literal|"repository"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"repository"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -1661,7 +1670,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"push all refs"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_ALL
 argument_list|)
@@ -1675,7 +1687,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"mirror all refs"
+argument_list|)
 argument_list|,
 operator|(
 name|TRANSPORT_PUSH_MIRROR
@@ -1693,7 +1708,10 @@ argument_list|,
 operator|&
 name|deleterefs
 argument_list|,
+name|N_
+argument_list|(
 literal|"delete refs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1705,7 +1723,10 @@ argument_list|,
 operator|&
 name|tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"push tags (can't be used with --all or --mirror)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -1717,7 +1738,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"dry run"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_DRY_RUN
 argument_list|)
@@ -1731,7 +1755,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"machine-readable output"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_PORCELAIN
 argument_list|)
@@ -1745,7 +1772,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"force updates"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_FORCE
 argument_list|)
@@ -1760,9 +1790,15 @@ block|,
 operator|&
 name|flags
 block|,
+name|N_
+argument_list|(
 literal|"check"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"controls recursive pushing of submodules"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -1778,7 +1814,10 @@ argument_list|,
 operator|&
 name|thin
 argument_list|,
+name|N_
+argument_list|(
 literal|"use thin pack"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -1792,7 +1831,10 @@ name|receivepack
 argument_list|,
 literal|"receive-pack"
 argument_list|,
+name|N_
+argument_list|(
 literal|"receive pack program"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -1806,7 +1848,10 @@ name|receivepack
 argument_list|,
 literal|"receive-pack"
 argument_list|,
+name|N_
+argument_list|(
 literal|"receive pack program"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -1818,7 +1863,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"set upstream for git pull/status"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_SET_UPSTREAM
 argument_list|)
@@ -1832,7 +1880,10 @@ argument_list|,
 operator|&
 name|progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"force progress reporting"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -1844,7 +1895,10 @@ argument_list|,
 operator|&
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"prune locally removed refs"
+argument_list|)
 argument_list|,
 name|TRANSPORT_PUSH_PRUNE
 argument_list|)
