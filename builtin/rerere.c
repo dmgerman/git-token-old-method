@@ -50,7 +50,10 @@ name|rerere_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git rerere [clear | forget path... | status | remaining | diff | gc]"
+argument_list|)
 block|,
 name|NULL
 block|, }
@@ -339,7 +342,10 @@ argument_list|,
 operator|&
 name|autoupdate
 argument_list|,
+name|N_
+argument_list|(
 literal|"register clean resolutions in index"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
