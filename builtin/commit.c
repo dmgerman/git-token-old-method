@@ -128,7 +128,10 @@ name|builtin_commit_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git commit [options] [--]<filepattern>..."
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -6255,7 +6258,10 @@ name|s
 operator|.
 name|colopts
 argument_list|,
+name|N_
+argument_list|(
 literal|"list untracked files in columns"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -7284,7 +7290,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress summary after successful commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__VERBOSE
@@ -7292,12 +7301,18 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"show diff in commit message template"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Commit message options"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_FILENAME
@@ -7309,7 +7324,10 @@ argument_list|,
 operator|&
 name|logfile
 argument_list|,
+name|N_
+argument_list|(
 literal|"read message from file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7321,9 +7339,15 @@ argument_list|,
 operator|&
 name|force_author
 argument_list|,
+name|N_
+argument_list|(
 literal|"author"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"override author for commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7335,9 +7359,15 @@ argument_list|,
 operator|&
 name|force_date
 argument_list|,
+name|N_
+argument_list|(
 literal|"date"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"override date for commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_CALLBACK
@@ -7349,9 +7379,15 @@ argument_list|,
 operator|&
 name|message
 argument_list|,
+name|N_
+argument_list|(
 literal|"message"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit message"
+argument_list|)
 argument_list|,
 name|opt_parse_m
 argument_list|)
@@ -7365,9 +7401,15 @@ argument_list|,
 operator|&
 name|edit_message
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"reuse and edit message from specified commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7379,9 +7421,15 @@ argument_list|,
 operator|&
 name|use_message
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"reuse message from specified commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7393,9 +7441,15 @@ argument_list|,
 operator|&
 name|fixup_message
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"use autosquash formatted message to fixup specified commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7407,9 +7461,15 @@ argument_list|,
 operator|&
 name|squash_message
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"use autosquash formatted message to squash specified commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7421,7 +7481,10 @@ argument_list|,
 operator|&
 name|renew_authorship
 argument_list|,
+name|N_
+argument_list|(
 literal|"the commit is authored by me now (used with -C/-c/--amend)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7433,7 +7496,10 @@ argument_list|,
 operator|&
 name|signoff
 argument_list|,
+name|N_
+argument_list|(
 literal|"add Signed-off-by:"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_FILENAME
@@ -7445,7 +7511,10 @@ argument_list|,
 operator|&
 name|template_file
 argument_list|,
+name|N_
+argument_list|(
 literal|"use specified template file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -7457,7 +7526,10 @@ argument_list|,
 operator|&
 name|edit_flag
 argument_list|,
+name|N_
+argument_list|(
 literal|"force edit of commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -7469,9 +7541,15 @@ argument_list|,
 operator|&
 name|cleanup_arg
 argument_list|,
+name|N_
+argument_list|(
 literal|"default"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"how to strip spaces and #comments from message"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7483,7 +7561,10 @@ argument_list|,
 operator|&
 name|include_status
 argument_list|,
+name|N_
+argument_list|(
 literal|"include status in commit message template"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -7496,9 +7577,15 @@ block|,
 operator|&
 name|sign_commit
 block|,
+name|N_
+argument_list|(
 literal|"key id"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"GPG sign commit"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -7513,7 +7600,10 @@ block|,
 comment|/* end commit message options */
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Commit contents options"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7525,7 +7615,10 @@ argument_list|,
 operator|&
 name|all
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit all changed files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7537,7 +7630,10 @@ argument_list|,
 operator|&
 name|also
 argument_list|,
+name|N_
+argument_list|(
 literal|"add specified files to index for commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7549,7 +7645,10 @@ argument_list|,
 operator|&
 name|interactive
 argument_list|,
+name|N_
+argument_list|(
 literal|"interactively add files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7561,7 +7660,10 @@ argument_list|,
 operator|&
 name|patch_interactive
 argument_list|,
+name|N_
+argument_list|(
 literal|"interactively add changes"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7573,7 +7675,10 @@ argument_list|,
 operator|&
 name|only
 argument_list|,
+name|N_
+argument_list|(
 literal|"commit only specified files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7585,7 +7690,10 @@ argument_list|,
 operator|&
 name|no_verify
 argument_list|,
+name|N_
+argument_list|(
 literal|"bypass pre-commit hook"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7597,7 +7705,10 @@ argument_list|,
 operator|&
 name|dry_run
 argument_list|,
+name|N_
+argument_list|(
 literal|"show what would be committed"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -7609,7 +7720,10 @@ argument_list|,
 operator|&
 name|status_format
 argument_list|,
+name|N_
+argument_list|(
 literal|"show status concisely"
+argument_list|)
 argument_list|,
 name|STATUS_FORMAT_SHORT
 argument_list|)
@@ -7625,7 +7739,10 @@ name|s
 operator|.
 name|show_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"show branch information"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -7637,7 +7754,10 @@ argument_list|,
 operator|&
 name|status_format
 argument_list|,
+name|N_
+argument_list|(
 literal|"machine-readable output"
+argument_list|)
 argument_list|,
 name|STATUS_FORMAT_PORCELAIN
 argument_list|)
@@ -7653,7 +7773,10 @@ name|s
 operator|.
 name|null_termination
 argument_list|,
+name|N_
+argument_list|(
 literal|"terminate entries with NUL"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7665,7 +7788,10 @@ argument_list|,
 operator|&
 name|amend
 argument_list|,
+name|N_
+argument_list|(
 literal|"amend previous commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -7677,7 +7803,10 @@ argument_list|,
 operator|&
 name|no_post_rewrite
 argument_list|,
+name|N_
+argument_list|(
 literal|"bypass post-rewrite hook"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -7690,9 +7819,15 @@ block|,
 operator|&
 name|untracked_files_arg
 block|,
+name|N_
+argument_list|(
 literal|"mode"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"show untracked files, optional modes: all, normal, no. (Default: all)"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -7717,7 +7852,10 @@ name|allow_empty
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"ok to record an empty change"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -7736,7 +7874,10 @@ name|allow_empty_message
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"ok to record a change with an empty message"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
