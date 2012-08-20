@@ -30,7 +30,10 @@ name|git_symbolic_ref_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git symbolic-ref [options] name [ref]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -190,7 +193,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress error message for non-symbolic (detached) refs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -202,7 +208,10 @@ argument_list|,
 operator|&
 name|shorten
 argument_list|,
+name|N_
+argument_list|(
 literal|"shorten ref output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -214,9 +223,15 @@ argument_list|,
 operator|&
 name|msg
 argument_list|,
+name|N_
+argument_list|(
 literal|"reason"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"reason of the update"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
