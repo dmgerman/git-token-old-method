@@ -69,9 +69,15 @@ name|describe_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git describe [options]<committish>*"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git describe [options] --dirty"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -2326,7 +2332,10 @@ argument_list|,
 operator|&
 name|contains
 argument_list|,
+name|N_
+argument_list|(
 literal|"find the tag that comes after the commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2338,7 +2347,10 @@ argument_list|,
 operator|&
 name|debug
 argument_list|,
+name|N_
+argument_list|(
 literal|"debug search strategy on stderr"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2350,7 +2362,10 @@ argument_list|,
 operator|&
 name|all
 argument_list|,
+name|N_
+argument_list|(
 literal|"use any ref in .git/refs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2362,7 +2377,10 @@ argument_list|,
 operator|&
 name|tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"use any tag in .git/refs/tags"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2374,7 +2392,10 @@ argument_list|,
 operator|&
 name|longformat
 argument_list|,
+name|N_
+argument_list|(
 literal|"always use long format"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__ABBREV
@@ -2392,7 +2413,10 @@ argument_list|,
 operator|&
 name|max_candidates
 argument_list|,
+name|N_
+argument_list|(
 literal|"only output exact matches"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -2406,7 +2430,10 @@ argument_list|,
 operator|&
 name|max_candidates
 argument_list|,
+name|N_
+argument_list|(
 literal|"consider<n> most recent tags (default: 10)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -2418,9 +2445,15 @@ argument_list|,
 operator|&
 name|pattern
 argument_list|,
+name|N_
+argument_list|(
 literal|"pattern"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"only consider tags matching<pattern>"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2432,7 +2465,10 @@ argument_list|,
 operator|&
 name|always
 argument_list|,
+name|N_
+argument_list|(
 literal|"show abbreviated commit object as fallback"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -2445,9 +2481,15 @@ block|,
 operator|&
 name|dirty
 block|,
+name|N_
+argument_list|(
 literal|"mark"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"append<mark> on dirty working tree (default: \"-dirty\")"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
