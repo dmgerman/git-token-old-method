@@ -1889,6 +1889,27 @@ condition|)
 block|{
 if|if
 condition|(
+name|errno
+operator|!=
+name|ENOENT
+condition|)
+name|warning
+argument_list|(
+name|_
+argument_list|(
+literal|"unable to access '%s': %s"
+argument_list|)
+argument_list|,
+name|fname
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 literal|0
 operator|<=
 name|fd
@@ -6230,7 +6251,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|access
+name|access_or_warn
 argument_list|(
 name|path
 argument_list|,
@@ -6249,7 +6270,7 @@ condition|(
 name|excludes_file
 operator|&&
 operator|!
-name|access
+name|access_or_warn
 argument_list|(
 name|excludes_file
 argument_list|,
