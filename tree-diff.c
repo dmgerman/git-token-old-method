@@ -333,6 +333,10 @@ name|sha1
 argument_list|,
 name|sha2
 argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|,
 name|base
 operator|->
 name|buf
@@ -379,6 +383,10 @@ argument_list|,
 name|sha1
 argument_list|,
 name|sha2
+argument_list|,
+literal|1
+argument_list|,
+literal|1
 argument_list|,
 name|base
 operator|->
@@ -673,6 +681,8 @@ name|mode
 argument_list|,
 name|sha1
 argument_list|,
+literal|1
+argument_list|,
 name|base
 operator|->
 name|buf
@@ -730,6 +740,8 @@ argument_list|,
 name|mode
 argument_list|,
 name|sha1
+argument_list|,
+literal|1
 argument_list|,
 name|base
 operator|->
