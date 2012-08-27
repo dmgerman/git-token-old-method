@@ -9365,10 +9365,7 @@ name|in_merge_bases
 argument_list|(
 name|old_cmit
 argument_list|,
-operator|&
 name|new_cmit
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 block|{

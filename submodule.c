@@ -4381,10 +4381,7 @@ name|in_merge_bases
 argument_list|(
 name|b
 argument_list|,
-operator|&
 name|commit
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 name|add_object_array
@@ -4483,10 +4480,7 @@ name|in_merge_bases
 argument_list|(
 name|m2
 argument_list|,
-operator|&
 name|m1
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 block|{
@@ -4793,10 +4787,7 @@ name|in_merge_bases
 argument_list|(
 name|commit_base
 argument_list|,
-operator|&
 name|commit_a
-argument_list|,
-literal|1
 argument_list|)
 operator|||
 operator|!
@@ -4804,10 +4795,7 @@ name|in_merge_bases
 argument_list|(
 name|commit_base
 argument_list|,
-operator|&
 name|commit_b
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 block|{
@@ -4829,10 +4817,7 @@ name|in_merge_bases
 argument_list|(
 name|commit_a
 argument_list|,
-operator|&
 name|commit_b
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 block|{
@@ -4853,10 +4838,7 @@ name|in_merge_bases
 argument_list|(
 name|commit_b
 argument_list|,
-operator|&
 name|commit_a
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 block|{

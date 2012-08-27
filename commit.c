@@ -4069,6 +4069,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Is "commit" a decendant of one of the elements on the "with_commit" list?  */
+end_comment
 begin_function
 DECL|function|is_descendant_of
 name|int
@@ -4121,10 +4124,7 @@ name|in_merge_bases
 argument_list|(
 name|other
 argument_list|,
-operator|&
 name|commit
-argument_list|,
-literal|1
 argument_list|)
 condition|)
 return|return
@@ -4136,6 +4136,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Is "commit" an ancestor of (i.e. reachable from) the "reference"?  */
+end_comment
 begin_function
 DECL|function|in_merge_bases
 name|int
@@ -4149,11 +4152,7 @@ parameter_list|,
 name|struct
 name|commit
 modifier|*
-modifier|*
 name|reference
-parameter_list|,
-name|int
-name|num
 parameter_list|)
 block|{
 name|struct
@@ -4169,28 +4168,15 @@ name|ret
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|num
-operator|==
-literal|1
-condition|)
 name|bases
 operator|=
 name|get_merge_bases
 argument_list|(
 name|commit
 argument_list|,
-operator|*
 name|reference
 argument_list|,
 literal|1
-argument_list|)
-expr_stmt|;
-else|else
-name|die
-argument_list|(
-literal|"not yet"
 argument_list|)
 expr_stmt|;
 for|for
