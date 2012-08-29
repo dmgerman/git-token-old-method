@@ -1042,7 +1042,7 @@ name|revs
 operator|->
 name|no_walk
 operator|=
-name|REVISION_WALK_NO_WALK_SORTED
+name|REVISION_WALK_NO_WALK_UNSORTED
 expr_stmt|;
 if|if
 condition|(
