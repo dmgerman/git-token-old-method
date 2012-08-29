@@ -153,10 +153,6 @@ DECL|member|writeout_stage
 name|int
 name|writeout_stage
 decl_stmt|;
-DECL|member|writeout_error
-name|int
-name|writeout_error
-decl_stmt|;
 DECL|member|overwrite_ignore
 name|int
 name|overwrite_ignore
@@ -1213,6 +1209,7 @@ name|char
 modifier|*
 name|prefix
 parameter_list|,
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
@@ -1817,6 +1814,7 @@ name|object
 modifier|*
 name|head
 parameter_list|,
+specifier|const
 name|struct
 name|diff_options
 modifier|*
@@ -1963,6 +1961,7 @@ name|tree
 modifier|*
 name|tree
 parameter_list|,
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
@@ -1970,6 +1969,10 @@ name|o
 parameter_list|,
 name|int
 name|worktree
+parameter_list|,
+name|int
+modifier|*
+name|writeout_error
 parameter_list|)
 block|{
 name|struct
@@ -2096,8 +2099,7 @@ case|case
 operator|-
 literal|2
 case|:
-name|o
-operator|->
+operator|*
 name|writeout_error
 operator|=
 literal|1
@@ -2231,6 +2233,7 @@ specifier|static
 name|int
 name|merge_working_tree
 parameter_list|(
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
@@ -2245,6 +2248,10 @@ name|struct
 name|branch_info
 modifier|*
 name|new
+parameter_list|,
+name|int
+modifier|*
+name|writeout_error
 parameter_list|)
 block|{
 name|int
@@ -2317,6 +2324,8 @@ argument_list|,
 name|opts
 argument_list|,
 literal|1
+argument_list|,
+name|writeout_error
 argument_list|)
 expr_stmt|;
 if|if
@@ -2669,6 +2678,8 @@ argument_list|,
 name|opts
 argument_list|,
 literal|1
+argument_list|,
+name|writeout_error
 argument_list|)
 expr_stmt|;
 if|if
@@ -2736,6 +2747,8 @@ argument_list|,
 name|opts
 argument_list|,
 literal|0
+argument_list|,
+name|writeout_error
 argument_list|)
 expr_stmt|;
 if|if
@@ -2868,6 +2881,7 @@ specifier|static
 name|void
 name|update_refs_for_switch
 parameter_list|(
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
@@ -3944,6 +3958,7 @@ specifier|static
 name|int
 name|switch_branches
 parameter_list|(
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
@@ -3977,6 +3992,10 @@ index|]
 decl_stmt|;
 name|int
 name|flag
+decl_stmt|,
+name|writeout_error
+init|=
+literal|0
 decl_stmt|;
 name|memset
 argument_list|(
@@ -4119,6 +4138,9 @@ operator|&
 name|old
 argument_list|,
 name|new
+argument_list|,
+operator|&
+name|writeout_error
 argument_list|)
 expr_stmt|;
 if|if
@@ -4203,8 +4225,6 @@ expr_stmt|;
 return|return
 name|ret
 operator|||
-name|opts
-operator|->
 name|writeout_error
 return|;
 block|}
@@ -4903,6 +4923,7 @@ specifier|static
 name|int
 name|switch_unborn_to_new_branch
 parameter_list|(
+specifier|const
 name|struct
 name|checkout_opts
 modifier|*
