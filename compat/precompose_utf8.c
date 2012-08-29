@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Converts filenames from decomposed unicode into precomposed unicode.  * Used on MacOS X. */
+comment|/*  * Converts filenames from decomposed unicode into precomposed unicode.  * Used on MacOS X.  */
 end_comment
 begin_define
 DECL|macro|PRECOMPOSE_UNICODE_C
@@ -33,8 +33,8 @@ typedef|;
 end_typedef
 begin_decl_stmt
 DECL|variable|repo_encoding
-specifier|const
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|repo_encoding
@@ -44,8 +44,8 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|path_encoding
-specifier|const
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|path_encoding
@@ -54,10 +54,10 @@ literal|"UTF-8-MAC"
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|has_utf8
+DECL|function|has_non_ascii
 specifier|static
 name|size_t
-name|has_utf8
+name|has_non_ascii
 parameter_list|(
 specifier|const
 name|char
@@ -75,7 +75,7 @@ block|{
 specifier|const
 name|uint8_t
 modifier|*
-name|utf8p
+name|ptr
 init|=
 operator|(
 specifier|const
@@ -96,28 +96,20 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
-name|utf8p
-operator|)
+name|ptr
 operator|||
-operator|(
 operator|!
 operator|*
-name|utf8p
-operator|)
+name|ptr
 condition|)
-block|{
 return|return
 literal|0
 return|;
-block|}
 while|while
 condition|(
-operator|(
 operator|*
-name|utf8p
-operator|)
+name|ptr
 operator|&&
 name|maxlen
 condition|)
@@ -125,7 +117,7 @@ block|{
 if|if
 condition|(
 operator|*
-name|utf8p
+name|ptr
 operator|&
 literal|0x80
 condition|)
@@ -135,7 +127,7 @@ expr_stmt|;
 name|strlen_chars
 operator|++
 expr_stmt|;
-name|utf8p
+name|ptr
 operator|++
 expr_stmt|;
 name|maxlen
@@ -169,16 +161,16 @@ name|int
 name|len
 parameter_list|)
 block|{
-specifier|const
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|auml_nfc
 init|=
 literal|"\xc3\xa4"
 decl_stmt|;
-specifier|const
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|auml_nfd
@@ -197,13 +189,6 @@ literal|1
 condition|)
 return|return;
 comment|/* We found it defined in the global config, respect it */
-name|path
-index|[
-name|len
-index|]
-operator|=
-literal|0
-expr_stmt|;
 name|strcpy
 argument_list|(
 name|path
@@ -240,13 +225,6 @@ argument_list|(
 name|output_fd
 argument_list|)
 expr_stmt|;
-name|path
-index|[
-name|len
-index|]
-operator|=
-literal|0
-expr_stmt|;
 name|strcpy
 argument_list|(
 name|path
@@ -259,8 +237,7 @@ expr_stmt|;
 comment|/* Indicate to the user, that we can configure it to true */
 if|if
 condition|(
-literal|0
-operator|==
+operator|!
 name|access
 argument_list|(
 name|path
@@ -280,13 +257,6 @@ name|precomposed_unicode
 operator|=
 literal|0
 expr_stmt|;
-name|path
-index|[
-name|len
-index|]
-operator|=
-literal|0
-expr_stmt|;
 name|strcpy
 argument_list|(
 name|path
@@ -296,8 +266,20 @@ argument_list|,
 name|auml_nfc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|unlink
 argument_list|(
+name|path
+argument_list|)
+condition|)
+name|die_errno
+argument_list|(
+name|_
+argument_list|(
+literal|"failed to unlink '%s'"
+argument_list|)
+argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
@@ -382,7 +364,7 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|has_utf8
+name|has_non_ascii
 argument_list|(
 name|oldarg
 argument_list|,
@@ -678,7 +660,7 @@ operator|==
 literal|1
 operator|)
 operator|&&
-name|has_utf8
+name|has_non_ascii
 argument_list|(
 name|res
 operator|->
