@@ -1399,9 +1399,12 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"pack version %"
 name|PRIu32
 literal|" unsupported"
+argument_list|)
 argument_list|,
 name|ntohl
 argument_list|(
@@ -5745,7 +5748,10 @@ name|ret
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to create thread: %s"
+argument_list|)
 argument_list|,
 name|strerror
 argument_list|(
@@ -5988,7 +5994,10 @@ name|sprintf
 argument_list|(
 name|msg
 argument_list|,
+name|_
+argument_list|(
 literal|"completed with %d local objects"
+argument_list|)
 argument_list|,
 name|nr_objects
 operator|-
@@ -6049,8 +6058,11 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Unexpected tail checksum for %s "
 literal|"(disk corruption?)"
+argument_list|)
 argument_list|,
 name|curr_pack
 argument_list|)
@@ -7305,8 +7317,11 @@ literal|2
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad pack.indexversion=%"
 name|PRIu32
+argument_list|)
 argument_list|,
 name|opts
 operator|->
@@ -7345,7 +7360,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"invalid number of threads specified (%d)"
+argument_list|)
 argument_list|,
 name|nr_threads
 argument_list|)
@@ -7361,7 +7379,10 @@ literal|1
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"no threads support, ignoring %s"
+argument_list|)
 argument_list|,
 name|k
 argument_list|)
@@ -8405,8 +8426,11 @@ literal|1
 condition|)
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"no threads support, "
 literal|"ignoring %s"
+argument_list|)
 argument_list|,
 name|arg
 argument_list|)
