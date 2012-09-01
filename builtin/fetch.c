@@ -5633,13 +5633,8 @@ name|result
 operator|=
 name|fetch_populated_submodules
 argument_list|(
+operator|&
 name|options
-operator|.
-name|argc
-argument_list|,
-name|options
-operator|.
-name|argv
 argument_list|,
 name|submodule_prefix
 argument_list|,
