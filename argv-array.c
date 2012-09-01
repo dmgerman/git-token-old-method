@@ -380,7 +380,6 @@ argument_list|(
 operator|(
 name|char
 operator|*
-operator|*
 operator|)
 name|array
 operator|->
