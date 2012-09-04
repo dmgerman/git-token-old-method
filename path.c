@@ -336,6 +336,10 @@ parameter_list|,
 modifier|...
 parameter_list|)
 block|{
+name|char
+modifier|*
+name|ret
+decl_stmt|;
 name|va_list
 name|args
 decl_stmt|;
@@ -346,9 +350,8 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
-operator|(
-name|void
-operator|)
+name|ret
+operator|=
 name|vsnpath
 argument_list|(
 name|buf
@@ -366,7 +369,7 @@ name|args
 argument_list|)
 expr_stmt|;
 return|return
-name|buf
+name|ret
 return|;
 block|}
 end_function
@@ -389,6 +392,9 @@ name|path
 index|[
 name|PATH_MAX
 index|]
+decl_stmt|,
+modifier|*
+name|ret
 decl_stmt|;
 name|va_list
 name|args
@@ -400,9 +406,8 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
-operator|(
-name|void
-operator|)
+name|ret
+operator|=
 name|vsnpath
 argument_list|(
 name|path
@@ -425,7 +430,7 @@ expr_stmt|;
 return|return
 name|xstrdup
 argument_list|(
-name|path
+name|ret
 argument_list|)
 return|;
 block|}
