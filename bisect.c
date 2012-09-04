@@ -4002,12 +4002,9 @@ name|char
 modifier|*
 name|filename
 init|=
-name|xstrdup
-argument_list|(
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"BISECT_ANCESTORS_OK"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|struct
