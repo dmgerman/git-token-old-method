@@ -56,7 +56,7 @@ literal|"git remote add [-t<branch>] [-m<master>] [-f] [--tags|--no-tags] [--mir
 block|,
 literal|"git remote rename<old><new>"
 block|,
-literal|"git remote rm<name>"
+literal|"git remote remove<name>"
 block|,
 literal|"git remote set-head<name> (-a | -d |<branch>)"
 block|,
@@ -123,7 +123,7 @@ name|builtin_remote_rm_usage
 index|[]
 init|=
 block|{
-literal|"git remote rm<name>"
+literal|"git remote remove<name>"
 block|,
 name|NULL
 block|}
@@ -9757,6 +9757,17 @@ literal|0
 index|]
 argument_list|,
 literal|"rm"
+argument_list|)
+operator|||
+operator|!
+name|strcmp
+argument_list|(
+name|argv
+index|[
+literal|0
+index|]
+argument_list|,
+literal|"remove"
 argument_list|)
 condition|)
 name|result
