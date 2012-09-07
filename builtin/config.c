@@ -30,7 +30,10 @@ name|builtin_config_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git config [options]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -328,7 +331,10 @@ init|=
 block|{
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Config file location"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -340,7 +346,10 @@ argument_list|,
 operator|&
 name|use_global_config
 argument_list|,
+name|N_
+argument_list|(
 literal|"use global config file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -352,7 +361,10 @@ argument_list|,
 operator|&
 name|use_system_config
 argument_list|,
+name|N_
+argument_list|(
 literal|"use system config file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -364,7 +376,10 @@ argument_list|,
 operator|&
 name|use_local_config
 argument_list|,
+name|N_
+argument_list|(
 literal|"use repository config file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -376,14 +391,23 @@ argument_list|,
 operator|&
 name|given_config_file
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"use given config file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Action"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -395,7 +419,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"get value: name [value-regex]"
+argument_list|)
 argument_list|,
 name|ACTION_GET
 argument_list|)
@@ -409,7 +436,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"get all values: key [value-regex]"
+argument_list|)
 argument_list|,
 name|ACTION_GET_ALL
 argument_list|)
@@ -423,7 +453,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"get values for regexp: name-regex [value-regex]"
+argument_list|)
 argument_list|,
 name|ACTION_GET_REGEXP
 argument_list|)
@@ -437,7 +470,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"replace all matching variables: name value [value_regex]"
+argument_list|)
 argument_list|,
 name|ACTION_REPLACE_ALL
 argument_list|)
@@ -451,7 +487,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
-literal|"adds a new variable: name value"
+name|N_
+argument_list|(
+literal|"add a new variable: name value"
+argument_list|)
 argument_list|,
 name|ACTION_ADD
 argument_list|)
@@ -465,7 +504,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
-literal|"removes a variable: name [value-regex]"
+name|N_
+argument_list|(
+literal|"remove a variable: name [value-regex]"
+argument_list|)
 argument_list|,
 name|ACTION_UNSET
 argument_list|)
@@ -479,7 +521,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
-literal|"removes all matches: name [value-regex]"
+name|N_
+argument_list|(
+literal|"remove all matches: name [value-regex]"
+argument_list|)
 argument_list|,
 name|ACTION_UNSET_ALL
 argument_list|)
@@ -493,7 +538,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"rename section: old-name new-name"
+argument_list|)
 argument_list|,
 name|ACTION_RENAME_SECTION
 argument_list|)
@@ -507,7 +555,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"remove a section: name"
+argument_list|)
 argument_list|,
 name|ACTION_REMOVE_SECTION
 argument_list|)
@@ -521,7 +572,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
+name|N_
+argument_list|(
 literal|"list all"
+argument_list|)
 argument_list|,
 name|ACTION_LIST
 argument_list|)
@@ -535,7 +589,10 @@ argument_list|,
 operator|&
 name|actions
 argument_list|,
-literal|"opens an editor"
+name|N_
+argument_list|(
+literal|"open an editor"
+argument_list|)
 argument_list|,
 name|ACTION_EDIT
 argument_list|)
@@ -549,9 +606,15 @@ argument_list|,
 operator|&
 name|get_color_slot
 argument_list|,
+name|N_
+argument_list|(
 literal|"slot"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"find the color configured: [default]"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -563,14 +626,23 @@ argument_list|,
 operator|&
 name|get_colorbool_slot
 argument_list|,
+name|N_
+argument_list|(
 literal|"slot"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"find the color setting: [stdout-is-tty]"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Type"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -582,7 +654,10 @@ argument_list|,
 operator|&
 name|types
 argument_list|,
+name|N_
+argument_list|(
 literal|"value is \"true\" or \"false\""
+argument_list|)
 argument_list|,
 name|TYPE_BOOL
 argument_list|)
@@ -596,7 +671,10 @@ argument_list|,
 operator|&
 name|types
 argument_list|,
+name|N_
+argument_list|(
 literal|"value is decimal number"
+argument_list|)
 argument_list|,
 name|TYPE_INT
 argument_list|)
@@ -610,7 +688,10 @@ argument_list|,
 operator|&
 name|types
 argument_list|,
+name|N_
+argument_list|(
 literal|"value is --bool or --int"
+argument_list|)
 argument_list|,
 name|TYPE_BOOL_OR_INT
 argument_list|)
@@ -624,14 +705,20 @@ argument_list|,
 operator|&
 name|types
 argument_list|,
+name|N_
+argument_list|(
 literal|"value is a path (file or directory name)"
+argument_list|)
 argument_list|,
 name|TYPE_PATH
 argument_list|)
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Other"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -643,7 +730,10 @@ argument_list|,
 operator|&
 name|end_null
 argument_list|,
+name|N_
+argument_list|(
 literal|"terminate values with NUL byte"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -655,7 +745,10 @@ argument_list|,
 operator|&
 name|respect_includes
 argument_list|,
+name|N_
+argument_list|(
 literal|"respect include directives on lookup"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END

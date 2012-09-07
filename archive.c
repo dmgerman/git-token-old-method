@@ -45,13 +45,25 @@ name|archive_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git archive [options]<tree-ish> [<path>...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git archive --list"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git archive --remote<repo> [--exec<cmd>] [options]<tree-ish> [<path>...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git archive --remote<repo> [--exec<cmd>] --list"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -1903,9 +1915,15 @@ argument_list|,
 operator|&
 name|format
 argument_list|,
+name|N_
+argument_list|(
 literal|"fmt"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"archive format"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -1917,9 +1935,15 @@ argument_list|,
 operator|&
 name|base
 argument_list|,
+name|N_
+argument_list|(
 literal|"prefix"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"prepend prefix to each pathname in the archive"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -1931,9 +1955,15 @@ argument_list|,
 operator|&
 name|output
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"write the archive to this file"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -1945,7 +1975,10 @@ argument_list|,
 operator|&
 name|worktree_attributes
 argument_list|,
+name|N_
+argument_list|(
 literal|"read .gitattributes in working directory"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__VERBOSE
@@ -1953,7 +1986,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"report archived files on stderr"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__COMPR
@@ -1963,7 +1999,10 @@ argument_list|,
 operator|&
 name|compression_level
 argument_list|,
+name|N_
+argument_list|(
 literal|"store only"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -1975,7 +2014,10 @@ argument_list|,
 operator|&
 name|compression_level
 argument_list|,
+name|N_
+argument_list|(
 literal|"compress faster"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -2057,7 +2099,10 @@ argument_list|,
 operator|&
 name|compression_level
 argument_list|,
+name|N_
+argument_list|(
 literal|"compress better"
+argument_list|)
 argument_list|,
 literal|9
 argument_list|)
@@ -2076,7 +2121,10 @@ argument_list|,
 operator|&
 name|list
 argument_list|,
+name|N_
+argument_list|(
 literal|"list supported archive formats"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -2093,9 +2141,15 @@ argument_list|,
 operator|&
 name|remote
 argument_list|,
+name|N_
+argument_list|(
 literal|"repo"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"retrieve the archive from remote repository<repo>"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -2107,9 +2161,15 @@ argument_list|,
 operator|&
 name|exec
 argument_list|,
-literal|"cmd"
+name|N_
+argument_list|(
+literal|"command"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"path to the remote git-upload-archive command"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END

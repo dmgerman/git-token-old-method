@@ -120,9 +120,15 @@ name|checkout_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git checkout [options]<branch>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git checkout [options] [<branch>] --<file>..."
+argument_list|)
 block|,
 name|NULL
 block|, }
@@ -5040,7 +5046,10 @@ name|opts
 operator|.
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress progress reporting"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -5054,9 +5063,15 @@ name|opts
 operator|.
 name|new_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"create and checkout a new branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -5070,9 +5085,15 @@ name|opts
 operator|.
 name|new_branch_force
 argument_list|,
+name|N_
+argument_list|(
 literal|"branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"create/reset and checkout a branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5086,7 +5107,10 @@ name|opts
 operator|.
 name|new_branch_log
 argument_list|,
+name|N_
+argument_list|(
 literal|"create reflog for new branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5100,7 +5124,10 @@ name|opts
 operator|.
 name|force_detach
 argument_list|,
+name|N_
+argument_list|(
 literal|"detach the HEAD at named commit"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -5114,7 +5141,10 @@ name|opts
 operator|.
 name|track
 argument_list|,
+name|N_
+argument_list|(
 literal|"set upstream info for new branch"
+argument_list|)
 argument_list|,
 name|BRANCH_TRACK_EXPLICIT
 argument_list|)
@@ -5130,9 +5160,15 @@ name|opts
 operator|.
 name|new_orphan_branch
 argument_list|,
+name|N_
+argument_list|(
 literal|"new branch"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"new unparented branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -5146,7 +5182,10 @@ name|opts
 operator|.
 name|writeout_stage
 argument_list|,
+name|N_
+argument_list|(
 literal|"checkout our version for unmerged files"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -5162,7 +5201,10 @@ name|opts
 operator|.
 name|writeout_stage
 argument_list|,
+name|N_
+argument_list|(
 literal|"checkout their version for unmerged files"
+argument_list|)
 argument_list|,
 literal|3
 argument_list|)
@@ -5174,7 +5216,10 @@ name|opts
 operator|.
 name|force
 argument_list|,
+name|N_
+argument_list|(
 literal|"force checkout (throw away local modifications)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5188,7 +5233,10 @@ name|opts
 operator|.
 name|merge
 argument_list|,
+name|N_
+argument_list|(
 literal|"perform a 3-way merge with the new branch"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5202,7 +5250,10 @@ name|opts
 operator|.
 name|overwrite_ignore
 argument_list|,
+name|N_
+argument_list|(
 literal|"update ignored files (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -5214,9 +5265,15 @@ argument_list|,
 operator|&
 name|conflict_style
 argument_list|,
+name|N_
+argument_list|(
 literal|"style"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"conflict style (merge or diff3)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5228,7 +5285,10 @@ argument_list|,
 operator|&
 name|patch_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"select hunks interactively"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -5243,7 +5303,10 @@ name|dwim_new_local_branch
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"second guess 'git checkout no-such-branch'"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||

@@ -45,9 +45,15 @@ name|show_ref_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git show-ref [-q|--quiet] [--verify] [--head] [-d|--dereference] [-s|--hash[=<n>]] [--abbrev[=<n>]] [--tags] [--heads] [--] [pattern*] "
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git show-ref --exclude-existing[=pattern]< ref-list"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -951,7 +957,10 @@ argument_list|,
 operator|&
 name|tags_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"only show tags (can be combined with heads)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -963,7 +972,10 @@ argument_list|,
 operator|&
 name|heads_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"only show heads (can be combined with tags)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -975,8 +987,11 @@ argument_list|,
 operator|&
 name|verify
 argument_list|,
+name|N_
+argument_list|(
 literal|"stricter reference checking, "
 literal|"requires exact ref path"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -991,7 +1006,10 @@ name|show_head
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"show the HEAD reference"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -1007,7 +1025,10 @@ argument_list|,
 operator|&
 name|show_head
 argument_list|,
+name|N_
+argument_list|(
 literal|"show the HEAD reference"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1019,7 +1040,10 @@ argument_list|,
 operator|&
 name|deref_tags
 argument_list|,
+name|N_
+argument_list|(
 literal|"dereference tags into object IDs"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -1032,9 +1056,15 @@ block|,
 operator|&
 name|abbrev
 block|,
+name|N_
+argument_list|(
 literal|"n"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"only show SHA1 hash using<n> digits"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -1053,7 +1083,10 @@ argument_list|(
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"do not print results to stdout (useful with --verify)"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -1066,9 +1099,15 @@ block|,
 operator|&
 name|exclude_existing_arg
 block|,
+name|N_
+argument_list|(
 literal|"pattern"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"show refs from stdin that aren't in local repository"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 operator||
@@ -1088,7 +1127,10 @@ name|NULL
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"show usage"
+argument_list|)
 block|,
 name|PARSE_OPT_HIDDEN
 operator||

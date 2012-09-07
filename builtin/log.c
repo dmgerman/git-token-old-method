@@ -167,8 +167,14 @@ name|builtin_log_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git log [<options>] [<since>..<until>] [[--]<path>...]\n"
+argument_list|)
+name|N_
+argument_list|(
 literal|"   or: git show [options]<object>..."
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -481,7 +487,10 @@ argument_list|,
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"suppress diff output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -493,7 +502,10 @@ argument_list|,
 operator|&
 name|source
 argument_list|,
+name|N_
+argument_list|(
 literal|"show source"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -507,7 +519,10 @@ name|NULL
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"decorate options"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -4880,7 +4895,10 @@ name|builtin_format_patch_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git format-patch [options] [<since> |<revision range>]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -5896,7 +5914,10 @@ name|numbered
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"use [PATCH n/m] even with a single patch"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 block|,
@@ -5915,7 +5936,10 @@ name|numbered
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"use [PATCH] even with multiple patches"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 block|,
@@ -5931,7 +5955,10 @@ argument_list|,
 operator|&
 name|do_signoff
 argument_list|,
+name|N_
+argument_list|(
 literal|"add Signed-off-by:"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5943,7 +5970,10 @@ argument_list|,
 operator|&
 name|use_stdout
 argument_list|,
+name|N_
+argument_list|(
 literal|"print patches to standard out"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5955,7 +5985,10 @@ argument_list|,
 operator|&
 name|cover_letter
 argument_list|,
+name|N_
+argument_list|(
 literal|"generate a cover letter"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -5967,7 +6000,10 @@ argument_list|,
 operator|&
 name|numbered_files
 argument_list|,
+name|N_
+argument_list|(
 literal|"use simple number sequence for output file names"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -5979,9 +6015,15 @@ argument_list|,
 operator|&
 name|fmt_patch_suffix
 argument_list|,
+name|N_
+argument_list|(
 literal|"sfx"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"use<sfx> instead of '.patch'"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_INTEGER
@@ -5993,7 +6035,10 @@ argument_list|,
 operator|&
 name|start_number
 argument_list|,
+name|N_
+argument_list|(
 literal|"start numbering patches at<n> instead of 1"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -6006,9 +6051,15 @@ block|,
 operator|&
 name|rev
 block|,
+name|N_
+argument_list|(
 literal|"prefix"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"Use [<prefix>] instead of [PATCH]"
+argument_list|)
 block|,
 name|PARSE_OPT_NONEG
 block|,
@@ -6025,9 +6076,15 @@ block|,
 operator|&
 name|output_directory
 block|,
+name|N_
+argument_list|(
 literal|"dir"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"store resulting files in<dir>"
+argument_list|)
 block|,
 name|PARSE_OPT_NONEG
 block|,
@@ -6046,7 +6103,10 @@ name|rev
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"don't strip/add [PATCH]"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -6064,7 +6124,10 @@ argument_list|,
 operator|&
 name|no_binary_diff
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't output binary diffs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -6076,7 +6139,10 @@ argument_list|,
 operator|&
 name|ignore_if_in_upstream
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't include a patch matching a commit upstream"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -6091,7 +6157,10 @@ name|use_patch_format
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"show patch format instead of default (patch + stat)"
+argument_list|)
 block|,
 name|PARSE_OPT_NONEG
 operator||
@@ -6100,7 +6169,10 @@ block|}
 block|,
 name|OPT_GROUP
 argument_list|(
+name|N_
+argument_list|(
 literal|"Messaging"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -6112,9 +6184,15 @@ literal|"add-header"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"header"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"add email header"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -6130,9 +6208,15 @@ literal|"to"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"email"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"add To: header"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -6148,9 +6232,15 @@ literal|"cc"
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"email"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"add Cc: header"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -6166,9 +6256,15 @@ argument_list|,
 operator|&
 name|in_reply_to
 argument_list|,
+name|N_
+argument_list|(
 literal|"message-id"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"make first mail a reply to<message-id>"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -6181,9 +6277,15 @@ block|,
 operator|&
 name|rev
 block|,
+name|N_
+argument_list|(
 literal|"boundary"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"attach the patch"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -6200,9 +6302,15 @@ block|,
 operator|&
 name|rev
 block|,
+name|N_
+argument_list|(
 literal|"boundary"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"inline the patch"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 operator||
@@ -6221,9 +6329,15 @@ block|,
 operator|&
 name|thread
 block|,
+name|N_
+argument_list|(
 literal|"style"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"enable message threading, styles: shallow, deep"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -6239,9 +6353,15 @@ argument_list|,
 operator|&
 name|signature
 argument_list|,
+name|N_
+argument_list|(
 literal|"signature"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"add a signature"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -6253,7 +6373,10 @@ argument_list|,
 operator|&
 name|quiet
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't print the patch filenames"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
@@ -7862,7 +7985,10 @@ name|cherry_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git cherry [-v] [<upstream> [<head> [<limit>]]]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -8053,7 +8179,10 @@ argument_list|(
 operator|&
 name|verbose
 argument_list|,
+name|N_
+argument_list|(
 literal|"be verbose"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END

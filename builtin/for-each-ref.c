@@ -5540,7 +5540,10 @@ name|for_each_ref_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git for-each-ref [options] [<pattern>]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -5626,7 +5629,10 @@ argument_list|,
 operator|&
 name|quote_style
 argument_list|,
+name|N_
+argument_list|(
 literal|"quote placeholders suitably for shells"
+argument_list|)
 argument_list|,
 name|QUOTE_SHELL
 argument_list|)
@@ -5640,7 +5646,10 @@ argument_list|,
 operator|&
 name|quote_style
 argument_list|,
+name|N_
+argument_list|(
 literal|"quote placeholders suitably for perl"
+argument_list|)
 argument_list|,
 name|QUOTE_PERL
 argument_list|)
@@ -5654,7 +5663,10 @@ argument_list|,
 operator|&
 name|quote_style
 argument_list|,
+name|N_
+argument_list|(
 literal|"quote placeholders suitably for python"
+argument_list|)
 argument_list|,
 name|QUOTE_PYTHON
 argument_list|)
@@ -5668,7 +5680,10 @@ argument_list|,
 operator|&
 name|quote_style
 argument_list|,
+name|N_
+argument_list|(
 literal|"quote placeholders suitably for tcl"
+argument_list|)
 argument_list|,
 name|QUOTE_TCL
 argument_list|)
@@ -5687,7 +5702,10 @@ argument_list|,
 operator|&
 name|maxcount
 argument_list|,
+name|N_
+argument_list|(
 literal|"show only<n> matched refs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -5699,9 +5717,15 @@ argument_list|,
 operator|&
 name|format
 argument_list|,
+name|N_
+argument_list|(
 literal|"format"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"format to use for the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_CALLBACK
@@ -5712,9 +5736,15 @@ literal|"sort"
 argument_list|,
 name|sort_tail
 argument_list|,
+name|N_
+argument_list|(
 literal|"key"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"field name to sort on"
+argument_list|)
 argument_list|,
 operator|&
 name|opt_parse_sort

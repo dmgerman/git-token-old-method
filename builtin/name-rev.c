@@ -956,11 +956,20 @@ name|name_rev_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git name-rev [options]<commit>..."
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git name-rev [options] --all"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git name-rev [options] --stdin"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -1274,7 +1283,10 @@ name|data
 operator|.
 name|name_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"print only names (no SHA-1)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1288,7 +1300,10 @@ name|data
 operator|.
 name|tags_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"only use tags to name the commits"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -1302,9 +1317,15 @@ name|data
 operator|.
 name|ref_filter
 argument_list|,
+name|N_
+argument_list|(
 literal|"pattern"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"only use refs matching<pattern>"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_GROUP
@@ -1321,7 +1342,10 @@ argument_list|,
 operator|&
 name|all
 argument_list|,
+name|N_
+argument_list|(
 literal|"list all commits reachable from all refs"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1333,7 +1357,10 @@ argument_list|,
 operator|&
 name|transform_stdin
 argument_list|,
+name|N_
+argument_list|(
 literal|"read from stdin"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1345,7 +1372,10 @@ argument_list|,
 operator|&
 name|allow_undefined
 argument_list|,
+name|N_
+argument_list|(
 literal|"allow to print `undefined` names"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1357,7 +1387,10 @@ argument_list|,
 operator|&
 name|always
 argument_list|,
+name|N_
+argument_list|(
 literal|"show abbreviated commit object as fallback"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END

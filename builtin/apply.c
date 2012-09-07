@@ -21087,7 +21087,7 @@ name|numstat
 argument_list|,
 name|N_
 argument_list|(
-literal|"shows number of added and deleted lines in decimal notation"
+literal|"show number of added and deleted lines in decimal notation"
 argument_list|)
 argument_list|)
 block|,

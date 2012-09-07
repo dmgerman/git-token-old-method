@@ -2223,7 +2223,10 @@ name|ls_files_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git ls-files [options] [<file>...]"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -2458,7 +2461,10 @@ name|NULL
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"paths are separated with NUL character"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 block|,
@@ -2474,7 +2480,10 @@ argument_list|,
 operator|&
 name|show_tag
 argument_list|,
+name|N_
+argument_list|(
 literal|"identify the file status with tags"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2486,7 +2495,10 @@ argument_list|,
 operator|&
 name|show_valid_bit
 argument_list|,
+name|N_
+argument_list|(
 literal|"use lowercase letters for 'assume unchanged' files"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2498,7 +2510,10 @@ argument_list|,
 operator|&
 name|show_cached
 argument_list|,
+name|N_
+argument_list|(
 literal|"show cached files in the output (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2510,7 +2525,10 @@ argument_list|,
 operator|&
 name|show_deleted
 argument_list|,
+name|N_
+argument_list|(
 literal|"show deleted files in the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2522,7 +2540,10 @@ argument_list|,
 operator|&
 name|show_modified
 argument_list|,
+name|N_
+argument_list|(
 literal|"show modified files in the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2534,7 +2555,10 @@ argument_list|,
 operator|&
 name|show_others
 argument_list|,
+name|N_
+argument_list|(
 literal|"show other files in the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -2548,7 +2572,10 @@ name|dir
 operator|.
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"show ignored files in the output"
+argument_list|)
 argument_list|,
 name|DIR_SHOW_IGNORED
 argument_list|)
@@ -2562,7 +2589,10 @@ argument_list|,
 operator|&
 name|show_stage
 argument_list|,
+name|N_
+argument_list|(
 literal|"show staged contents' object name in the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2574,7 +2604,10 @@ argument_list|,
 operator|&
 name|show_killed
 argument_list|,
+name|N_
+argument_list|(
 literal|"show files on the filesystem that need to be removed"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BIT
@@ -2588,7 +2621,10 @@ name|dir
 operator|.
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"show 'other' directories' name only"
+argument_list|)
 argument_list|,
 name|DIR_SHOW_OTHER_DIRECTORIES
 argument_list|)
@@ -2604,7 +2640,10 @@ name|dir
 operator|.
 name|flags
 argument_list|,
+name|N_
+argument_list|(
 literal|"don't show empty directories"
+argument_list|)
 argument_list|,
 name|DIR_HIDE_EMPTY_DIRECTORIES
 argument_list|)
@@ -2618,7 +2657,10 @@ argument_list|,
 operator|&
 name|show_unmerged
 argument_list|,
+name|N_
+argument_list|(
 literal|"show unmerged files in the output"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -2630,7 +2672,10 @@ argument_list|,
 operator|&
 name|show_resolve_undo
 argument_list|,
+name|N_
+argument_list|(
 literal|"show resolve-undo information"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -2648,9 +2693,15 @@ index|[
 name|EXC_CMDL
 index|]
 block|,
+name|N_
+argument_list|(
 literal|"pattern"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"skip files matching pattern"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -2667,9 +2718,15 @@ block|,
 operator|&
 name|dir
 block|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"exclude patterns are read from<file>"
+argument_list|)
 block|,
 literal|0
 block|,
@@ -2687,9 +2744,15 @@ name|dir
 operator|.
 name|exclude_per_dir
 argument_list|,
+name|N_
+argument_list|(
 literal|"file"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"read additional per-directory exclude patterns in<file>"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -2704,7 +2767,10 @@ name|dir
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"add the standard git exclusions"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 block|,
@@ -2723,7 +2789,10 @@ name|prefix_len
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"make the output relative to the project top directory"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 operator||
@@ -2741,7 +2810,10 @@ argument_list|,
 operator|&
 name|error_unmatch
 argument_list|,
+name|N_
+argument_list|(
 literal|"if any<file> is not in the index, treat this as an error"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_STRING
@@ -2753,9 +2825,15 @@ argument_list|,
 operator|&
 name|with_tree
 argument_list|,
+name|N_
+argument_list|(
 literal|"tree-ish"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"pretend that paths removed since<tree-ish> are still present"
+argument_list|)
 argument_list|)
 block|,
 name|OPT__ABBREV
@@ -2773,7 +2851,10 @@ argument_list|,
 operator|&
 name|debug_mode
 argument_list|,
+name|N_
+argument_list|(
 literal|"show debugging data"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END

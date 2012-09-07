@@ -169,11 +169,20 @@ name|builtin_merge_usage
 index|[]
 init|=
 block|{
+name|N_
+argument_list|(
 literal|"git merge [options] [<commit>...]"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git merge [options]<msg> HEAD<commit>"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"git merge --abort"
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -1102,7 +1111,10 @@ name|NULL
 block|,
 name|NULL
 block|,
+name|N_
+argument_list|(
 literal|"do not show a diffstat at the end of the merge"
+argument_list|)
 block|,
 name|PARSE_OPT_NOARG
 block|,
@@ -1118,7 +1130,10 @@ argument_list|,
 operator|&
 name|show_diffstat
 argument_list|,
+name|N_
+argument_list|(
 literal|"show a diffstat at the end of the merge"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1130,7 +1145,10 @@ argument_list|,
 operator|&
 name|show_diffstat
 argument_list|,
+name|N_
+argument_list|(
 literal|"(synonym to --stat)"
+argument_list|)
 argument_list|)
 block|,
 block|{
@@ -1143,9 +1161,15 @@ block|,
 operator|&
 name|shortlog_len
 block|,
+name|N_
+argument_list|(
 literal|"n"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"add (at most<n>) entries from shortlog to merge commit message"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -1163,7 +1187,10 @@ argument_list|,
 operator|&
 name|squash
 argument_list|,
+name|N_
+argument_list|(
 literal|"create a single commit instead of doing a merge"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1175,7 +1202,10 @@ argument_list|,
 operator|&
 name|option_commit
 argument_list|,
+name|N_
+argument_list|(
 literal|"perform a commit if the merge succeeds (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -1187,7 +1217,10 @@ argument_list|,
 operator|&
 name|option_edit
 argument_list|,
+name|N_
+argument_list|(
 literal|"edit message before committing"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1199,7 +1232,10 @@ argument_list|,
 operator|&
 name|allow_fast_forward
 argument_list|,
+name|N_
+argument_list|(
 literal|"allow fast-forward (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOLEAN
@@ -1211,7 +1247,10 @@ argument_list|,
 operator|&
 name|fast_forward_only
 argument_list|,
+name|N_
+argument_list|(
 literal|"abort if fast-forward is not possible"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_RERERE_AUTOUPDATE
@@ -1229,9 +1268,15 @@ argument_list|,
 operator|&
 name|use_strategies
 argument_list|,
+name|N_
+argument_list|(
 literal|"strategy"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"merge strategy to use"
+argument_list|)
 argument_list|,
 name|option_parse_strategy
 argument_list|)
@@ -1245,9 +1290,15 @@ argument_list|,
 operator|&
 name|xopts
 argument_list|,
+name|N_
+argument_list|(
 literal|"option=value"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"option for selected merge strategy"
+argument_list|)
 argument_list|,
 name|option_parse_x
 argument_list|)
@@ -1261,9 +1312,15 @@ argument_list|,
 operator|&
 name|merge_msg
 argument_list|,
+name|N_
+argument_list|(
 literal|"message"
+argument_list|)
 argument_list|,
+name|N_
+argument_list|(
 literal|"merge commit message (for a non-fast-forward merge)"
+argument_list|)
 argument_list|,
 name|option_parse_message
 argument_list|)
@@ -1283,7 +1340,10 @@ argument_list|,
 operator|&
 name|abort_current_merge
 argument_list|,
+name|N_
+argument_list|(
 literal|"abort the current in-progress merge"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -1295,7 +1355,10 @@ argument_list|,
 operator|&
 name|show_progress
 argument_list|,
+name|N_
+argument_list|(
 literal|"force progress reporting"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1310,9 +1373,15 @@ block|,
 operator|&
 name|sign_commit
 block|,
+name|N_
+argument_list|(
 literal|"key id"
+argument_list|)
 block|,
+name|N_
+argument_list|(
 literal|"GPG sign commit"
+argument_list|)
 block|,
 name|PARSE_OPT_OPTARG
 block|,
@@ -1333,7 +1402,10 @@ argument_list|,
 operator|&
 name|overwrite_ignore
 argument_list|,
+name|N_
+argument_list|(
 literal|"update ignored files (default)"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_END
