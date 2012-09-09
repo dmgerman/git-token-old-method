@@ -3036,11 +3036,19 @@ literal|0
 condition|)
 block|{
 comment|/* definitely have it */
+name|return_refs
+index|[
+name|sought_pos
+index|]
+operator|=
+name|ref
+expr_stmt|;
 name|sought
 operator|->
 name|items
 index|[
 name|sought_pos
+operator|++
 index|]
 operator|.
 name|string
@@ -3049,13 +3057,6 @@ literal|0
 index|]
 operator|=
 literal|'\0'
-expr_stmt|;
-name|return_refs
-index|[
-name|sought_pos
-index|]
-operator|=
-name|ref
 expr_stmt|;
 break|break;
 block|}
