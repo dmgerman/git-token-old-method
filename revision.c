@@ -1741,6 +1741,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|int
+name|sha1_valid
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1808,6 +1811,12 @@ name|unsigned
 name|char
 modifier|*
 name|new_sha1
+parameter_list|,
+name|int
+name|old_sha1_valid
+parameter_list|,
+name|int
+name|new_sha1_valid
 parameter_list|,
 specifier|const
 name|char
