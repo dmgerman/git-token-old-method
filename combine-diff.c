@@ -754,6 +754,8 @@ name|df
 argument_list|,
 name|sha1
 argument_list|,
+literal|1
+argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
@@ -4536,6 +4538,8 @@ argument_list|(
 name|df
 argument_list|,
 name|null_sha1
+argument_list|,
+literal|0
 argument_list|,
 name|st
 operator|.
