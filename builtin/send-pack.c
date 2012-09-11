@@ -49,6 +49,11 @@ include|#
 directive|include
 file|"transport.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"version.h"
+end_include
 begin_decl_stmt
 DECL|variable|send_pack_usage
 specifier|static
@@ -1240,6 +1245,11 @@ name|quiet_supported
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|agent_supported
+init|=
+literal|0
+decl_stmt|;
 name|unsigned
 name|cmds_sent
 init|=
@@ -1307,6 +1317,17 @@ literal|"quiet"
 argument_list|)
 condition|)
 name|quiet_supported
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|server_supports
+argument_list|(
+literal|"agent"
+argument_list|)
+condition|)
+name|agent_supported
 operator|=
 literal|1
 expr_stmt|;
@@ -1472,9 +1493,9 @@ name|status_report
 operator|||
 name|use_sideband
 operator|||
-name|args
-operator|->
 name|quiet
+operator|||
+name|agent_supported
 operator|)
 condition|)
 block|{
@@ -1483,7 +1504,7 @@ argument_list|(
 operator|&
 name|req_buf
 argument_list|,
-literal|"%s %s %s%c%s%s%s"
+literal|"%s %s %s%c%s%s%s%s%s"
 argument_list|,
 name|old_hex
 argument_list|,
@@ -1510,6 +1531,19 @@ argument_list|,
 name|quiet
 condition|?
 literal|" quiet"
+else|:
+literal|""
+argument_list|,
+name|agent_supported
+condition|?
+literal|" agent="
+else|:
+literal|""
+argument_list|,
+name|agent_supported
+condition|?
+name|git_user_agent_sanitized
+argument_list|()
 else|:
 literal|""
 argument_list|)
