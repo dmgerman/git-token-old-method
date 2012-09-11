@@ -1121,8 +1121,7 @@ block|{
 name|int
 name|ret
 init|=
-operator|-
-literal|1
+name|CONFIG_GENERIC_ERROR
 decl_stmt|;
 name|char
 modifier|*
@@ -1331,6 +1330,10 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
+name|CONFIG_INVALID_PATTERN
+expr_stmt|;
 goto|goto
 name|free_strings
 goto|;
@@ -1350,9 +1353,15 @@ argument_list|,
 name|NULL
 argument_list|)
 condition|)
+block|{
+name|ret
+operator|=
+name|CONFIG_INVALID_KEY
+expr_stmt|;
 goto|goto
 name|free_strings
 goto|;
+block|}
 block|}
 if|if
 condition|(
@@ -1411,6 +1420,10 @@ literal|"Invalid pattern: %s\n"
 argument_list|,
 name|regex_
 argument_list|)
+expr_stmt|;
+name|ret
+operator|=
+name|CONFIG_INVALID_PATTERN
 expr_stmt|;
 goto|goto
 name|free_strings
