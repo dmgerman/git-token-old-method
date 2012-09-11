@@ -15,6 +15,11 @@ struct_decl|struct
 name|diff_options
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|argv_array
+struct_decl|;
+end_struct_decl
 begin_enum
 enum|enum
 block|{
@@ -205,12 +210,9 @@ begin_function_decl
 name|int
 name|fetch_populated_submodules
 parameter_list|(
-name|int
-name|num_options
-parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|argv_array
 modifier|*
 name|options
 parameter_list|,
