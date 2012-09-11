@@ -7419,6 +7419,13 @@ directive|define
 name|CONFIG_INVALID_PATTERN
 value|6
 end_define
+begin_define
+DECL|macro|CONFIG_GENERIC_ERROR
+define|#
+directive|define
+name|CONFIG_GENERIC_ERROR
+value|7
+end_define
 begin_typedef
 DECL|typedef|config_fn_t
 typedef|typedef

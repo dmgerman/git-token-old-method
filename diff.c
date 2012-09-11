@@ -3399,6 +3399,17 @@ argument_list|,
 name|DIFF_PLAIN
 argument_list|)
 decl_stmt|;
+name|putc
+argument_list|(
+literal|'\n'
+argument_list|,
+name|ecb
+operator|->
+name|opt
+operator|->
+name|file
+argument_list|)
+expr_stmt|;
 name|emit_line_0
 argument_list|(
 name|ecb
@@ -18242,7 +18253,7 @@ block|}
 end_function
 begin_function
 DECL|function|diff_setup_done
-name|int
+name|void
 name|diff_setup_done
 parameter_list|(
 name|struct
@@ -18585,9 +18596,6 @@ name|EXIT_WITH_STATUS
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|0
-return|;
 block|}
 end_function
 begin_function
