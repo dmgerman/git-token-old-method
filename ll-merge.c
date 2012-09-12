@@ -156,7 +156,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|path_unused
+name|path
 parameter_list|,
 name|mmfile_t
 modifier|*
@@ -227,6 +227,18 @@ name|variant
 condition|)
 block|{
 default|default:
+name|warning
+argument_list|(
+literal|"Cannot merge binary files: %s (%s vs. %s)\n"
+argument_list|,
+name|path
+argument_list|,
+name|name1
+argument_list|,
+name|name2
+argument_list|)
+expr_stmt|;
+comment|/* fallthru */
 case|case
 name|XDL_MERGE_FAVOR_OURS
 case|:
@@ -383,17 +395,6 @@ name|size
 argument_list|)
 condition|)
 block|{
-name|warning
-argument_list|(
-literal|"Cannot merge binary files: %s (%s vs. %s)\n"
-argument_list|,
-name|path
-argument_list|,
-name|name1
-argument_list|,
-name|name2
-argument_list|)
-expr_stmt|;
 return|return
 name|ll_binary_merge
 argument_list|(
