@@ -5663,13 +5663,16 @@ literal|1
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Skip p_value leading components from "line"; as we do not accept  * absolute paths, return NULL in that case.  */
+end_comment
 begin_function
-DECL|function|stop_at_slash
+DECL|function|skip_tree_prefix
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|stop_at_slash
+name|skip_tree_prefix
 parameter_list|(
 specifier|const
 name|char
@@ -5682,12 +5685,35 @@ parameter_list|)
 block|{
 name|int
 name|nslash
-init|=
-name|p_value
 decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|p_value
+condition|)
+return|return
+operator|(
+name|llen
+operator|&&
+name|line
+index|[
+literal|0
+index|]
+operator|==
+literal|'/'
+operator|)
+condition|?
+name|NULL
+else|:
+name|line
+return|;
+name|nslash
+operator|=
+name|p_value
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -5722,10 +5748,20 @@ operator|<=
 literal|0
 condition|)
 return|return
+operator|(
+name|i
+operator|==
+literal|0
+operator|)
+condition|?
+name|NULL
+else|:
 operator|&
 name|line
 index|[
 name|i
+operator|+
+literal|1
 index|]
 return|;
 block|}
@@ -5825,10 +5861,10 @@ condition|)
 goto|goto
 name|free_and_fail1
 goto|;
-comment|/* advance to the first slash */
+comment|/* strip the a/b prefix including trailing slash */
 name|cp
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|first
 operator|.
@@ -5839,17 +5875,10 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-comment|/* we do not accept absolute paths */
 if|if
 condition|(
 operator|!
 name|cp
-operator|||
-name|cp
-operator|==
-name|first
-operator|.
-name|buf
 condition|)
 goto|goto
 name|free_and_fail1
@@ -5862,8 +5891,6 @@ argument_list|,
 literal|0
 argument_list|,
 name|cp
-operator|+
-literal|1
 operator|-
 name|first
 operator|.
@@ -5926,7 +5953,7 @@ name|free_and_fail1
 goto|;
 name|cp
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|sp
 operator|.
@@ -5941,12 +5968,6 @@ if|if
 condition|(
 operator|!
 name|cp
-operator|||
-name|cp
-operator|==
-name|sp
-operator|.
-name|buf
 condition|)
 goto|goto
 name|free_and_fail1
@@ -5957,8 +5978,6 @@ condition|(
 name|strcmp
 argument_list|(
 name|cp
-operator|+
-literal|1
 argument_list|,
 name|first
 operator|.
@@ -5987,7 +6006,7 @@ block|}
 comment|/* unquoted second */
 name|cp
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|second
 argument_list|,
@@ -6002,17 +6021,10 @@ if|if
 condition|(
 operator|!
 name|cp
-operator|||
-name|cp
-operator|==
-name|second
 condition|)
 goto|goto
 name|free_and_fail1
 goto|;
-name|cp
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|line
@@ -6024,8 +6036,6 @@ operator|!=
 name|first
 operator|.
 name|len
-operator|+
-literal|1
 operator|||
 name|memcmp
 argument_list|(
@@ -6073,7 +6083,7 @@ block|}
 comment|/* unquoted first name */
 name|name
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|line
 argument_list|,
@@ -6084,17 +6094,10 @@ if|if
 condition|(
 operator|!
 name|name
-operator|||
-name|name
-operator|==
-name|line
 condition|)
 return|return
 name|NULL
 return|;
-name|name
-operator|++
-expr_stmt|;
 comment|/* 	 * since the first name is unquoted, a dq if exists must be 	 * the beginning of the second name. 	 */
 for|for
 control|(
@@ -6148,7 +6151,7 @@ name|free_and_fail2
 goto|;
 name|np
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|sp
 operator|.
@@ -6163,19 +6166,10 @@ if|if
 condition|(
 operator|!
 name|np
-operator|||
-name|np
-operator|==
-name|sp
-operator|.
-name|buf
 condition|)
 goto|goto
 name|free_and_fail2
 goto|;
-name|np
-operator|++
-expr_stmt|;
 name|len
 operator|=
 name|sp
@@ -6310,17 +6304,38 @@ case|:
 case|case
 literal|' '
 case|:
+comment|/* 			 * Is this the separator between the preimage 			 * and the postimage pathname?  Again, we are 			 * only interested in the case where there is 			 * no rename, as this is only to set def_name 			 * and a rename patch has the names elsewhere 			 * in an unambiguous form. 			 */
+if|if
+condition|(
+operator|!
+name|name
+index|[
+name|len
+operator|+
+literal|1
+index|]
+condition|)
+return|return
+name|NULL
+return|;
+comment|/* no postimage name */
 name|second
 operator|=
-name|stop_at_slash
+name|skip_tree_prefix
 argument_list|(
 name|name
 operator|+
 name|len
+operator|+
+literal|1
 argument_list|,
 name|line_len
 operator|-
+operator|(
 name|len
+operator|+
+literal|1
+operator|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6331,9 +6346,7 @@ condition|)
 return|return
 name|NULL
 return|;
-name|second
-operator|++
-expr_stmt|;
+comment|/* 			 * Does len bytes starting at "name" and "second" 			 * (that are separated by one HT or SP we just 			 * found) exactly match? 			 */
 if|if
 condition|(
 name|second
@@ -6353,7 +6366,6 @@ argument_list|,
 name|len
 argument_list|)
 condition|)
-block|{
 return|return
 name|xmemdupz
 argument_list|(
@@ -6362,7 +6374,6 @@ argument_list|,
 name|len
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 block|}
