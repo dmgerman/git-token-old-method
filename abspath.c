@@ -141,6 +141,17 @@ name|path
 return|;
 if|if
 condition|(
+operator|!
+operator|*
+name|path
+condition|)
+name|die
+argument_list|(
+literal|"The empty string is not a valid path"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|strlcpy
 argument_list|(
 name|buf
@@ -190,11 +201,6 @@ condition|(
 name|last_slash
 condition|)
 block|{
-operator|*
-name|last_slash
-operator|=
-literal|'\0'
-expr_stmt|;
 name|last_elem
 operator|=
 name|xstrdup
@@ -203,6 +209,13 @@ name|last_slash
 operator|+
 literal|1
 argument_list|)
+expr_stmt|;
+name|last_slash
+index|[
+literal|1
+index|]
+operator|=
+literal|'\0'
 expr_stmt|;
 block|}
 else|else
@@ -613,6 +626,20 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|*
+name|path
+condition|)
+block|{
+name|die
+argument_list|(
+literal|"The empty string is not a valid path"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|is_absolute_path
