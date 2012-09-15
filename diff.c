@@ -124,6 +124,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|diff_use_color_default
+specifier|static
 name|int
 name|diff_use_color_default
 init|=
