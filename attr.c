@@ -1491,7 +1491,7 @@ name|builtin_attr
 index|[]
 init|=
 block|{
-literal|"[attr]binary -diff -text"
+literal|"[attr]binary -diff -merge -text"
 block|,
 name|NULL
 block|, }
