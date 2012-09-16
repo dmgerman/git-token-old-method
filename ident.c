@@ -441,6 +441,7 @@ block|}
 end_function
 begin_function
 DECL|function|ident_default_name
+specifier|static
 specifier|const
 name|char
 modifier|*
@@ -557,6 +558,7 @@ block|}
 end_function
 begin_function
 DECL|function|ident_default_date
+specifier|static
 specifier|const
 name|char
 modifier|*
