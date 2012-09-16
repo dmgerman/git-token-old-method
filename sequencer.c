@@ -88,6 +88,7 @@ value|"GIT_REFLOG_ACTION"
 end_define
 begin_function
 DECL|function|remove_sequencer_state
+specifier|static
 name|void
 name|remove_sequencer_state
 parameter_list|(
