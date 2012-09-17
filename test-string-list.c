@@ -14,6 +14,7 @@ comment|/*  * Parse an argument into a string list.  arg should either be a  * '
 end_comment
 begin_function
 DECL|function|parse_string_list
+specifier|static
 name|void
 name|parse_string_list
 parameter_list|(
@@ -58,6 +59,7 @@ block|}
 end_function
 begin_function
 DECL|function|write_list
+specifier|static
 name|void
 name|write_list
 parameter_list|(
@@ -106,6 +108,7 @@ block|}
 end_function
 begin_function
 DECL|function|write_list_compact
+specifier|static
 name|void
 name|write_list_compact
 parameter_list|(
@@ -186,6 +189,7 @@ block|}
 end_function
 begin_function
 DECL|function|prefix_cb
+specifier|static
 name|int
 name|prefix_cb
 parameter_list|(
