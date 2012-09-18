@@ -574,6 +574,7 @@ block|}
 end_function
 begin_function
 DECL|function|status_printf_more
+specifier|static
 name|void
 name|status_printf_more
 parameter_list|(

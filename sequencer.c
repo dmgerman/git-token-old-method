@@ -98,6 +98,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|remove_sequencer_state
+specifier|static
 name|void
 name|remove_sequencer_state
 parameter_list|(

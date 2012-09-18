@@ -222,6 +222,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|trace_vprintf
+specifier|static
 name|void
 name|trace_vprintf
 parameter_list|(
