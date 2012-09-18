@@ -2320,7 +2320,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|access
+name|access_or_warn
 argument_list|(
 name|user_config
 argument_list|,
@@ -2330,7 +2330,7 @@ operator|&&
 name|xdg_config
 operator|&&
 operator|!
-name|access
+name|access_or_warn
 argument_list|(
 name|xdg_config
 argument_list|,
