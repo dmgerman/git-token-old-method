@@ -1499,7 +1499,10 @@ specifier|static
 name|void
 name|end_revision
 parameter_list|(
-name|void
+specifier|const
+name|char
+modifier|*
+name|note_ref
 parameter_list|)
 block|{
 name|struct
@@ -1535,6 +1538,8 @@ argument_list|,
 name|rev_ctx
 operator|.
 name|timestamp
+argument_list|,
+name|note_ref
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -1584,6 +1589,11 @@ specifier|const
 name|char
 modifier|*
 name|local_ref
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|notes_ref
 parameter_list|)
 block|{
 name|char
@@ -1781,7 +1791,9 @@ operator|!=
 name|DUMP_CTX
 condition|)
 name|end_revision
-argument_list|()
+argument_list|(
+name|notes_ref
+argument_list|)
 expr_stmt|;
 name|active_ctx
 operator|=
@@ -2478,7 +2490,9 @@ operator|!=
 name|DUMP_CTX
 condition|)
 name|end_revision
-argument_list|()
+argument_list|(
+name|notes_ref
+argument_list|)
 expr_stmt|;
 block|}
 end_function

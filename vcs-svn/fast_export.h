@@ -103,6 +103,11 @@ parameter_list|,
 name|unsigned
 name|long
 name|timestamp
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|note_ref
 parameter_list|)
 function_decl|;
 end_function_decl
