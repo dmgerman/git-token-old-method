@@ -2104,7 +2104,7 @@ name|curl
 argument_list|,
 name|CURLOPT_ENCODING
 argument_list|,
-literal|""
+name|NULL
 argument_list|)
 expr_stmt|;
 name|curl_easy_setopt
@@ -2386,7 +2386,7 @@ name|curl
 argument_list|,
 name|CURLOPT_ENCODING
 argument_list|,
-literal|""
+literal|"gzip"
 argument_list|)
 expr_stmt|;
 name|headers
