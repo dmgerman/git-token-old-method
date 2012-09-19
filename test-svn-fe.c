@@ -232,6 +232,8 @@ return|;
 name|svndump_read
 argument_list|(
 name|NULL
+argument_list|,
+literal|"refs/heads/master"
 argument_list|)
 expr_stmt|;
 name|svndump_deinit
