@@ -2173,6 +2173,10 @@ argument_list|(
 operator|&
 name|argv
 argument_list|,
+name|debug
+condition|?
+literal|"--stats"
+else|:
 literal|"--quiet"
 argument_list|)
 expr_stmt|;
