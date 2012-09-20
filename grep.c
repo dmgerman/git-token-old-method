@@ -8045,6 +8045,7 @@ block|}
 end_function
 begin_function
 DECL|function|grep_source_load
+specifier|static
 name|int
 name|grep_source_load
 parameter_list|(
@@ -8164,6 +8165,7 @@ block|}
 end_function
 begin_function
 DECL|function|grep_source_is_binary
+specifier|static
 name|int
 name|grep_source_is_binary
 parameter_list|(
