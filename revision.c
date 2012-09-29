@@ -11073,6 +11073,24 @@ argument_list|(
 literal|"cannot combine --walk-reflogs with --graph"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|reflog_info
+operator|&&
+name|revs
+operator|->
+name|grep_filter
+operator|.
+name|use_reflog_filter
+condition|)
+name|die
+argument_list|(
+literal|"cannot use --grep-reflog without --walk-reflogs"
+argument_list|)
+expr_stmt|;
 return|return
 name|left
 return|;
@@ -12575,11 +12593,14 @@ condition|)
 return|return
 literal|1
 return|;
+comment|/* Prepend "fake" headers as needed */
 if|if
 condition|(
 name|opt
 operator|->
-name|reflog_info
+name|grep_filter
+operator|.
+name|use_reflog_filter
 condition|)
 block|{
 name|strbuf_addstr
@@ -12608,6 +12629,14 @@ argument_list|,
 literal|'\n'
 argument_list|)
 expr_stmt|;
+block|}
+comment|/* Copy the commit to temporary if we are using "fake" headers */
+if|if
+condition|(
+name|buf
+operator|.
+name|len
+condition|)
 name|strbuf_addstr
 argument_list|(
 operator|&
@@ -12618,7 +12647,7 @@ operator|->
 name|buffer
 argument_list|)
 expr_stmt|;
-block|}
+comment|/* Find either in the commit object, or in the temporary */
 if|if
 condition|(
 name|buf
