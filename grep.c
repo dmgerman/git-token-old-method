@@ -3919,6 +3919,12 @@ literal|"committer "
 block|,
 literal|10
 block|}
+block|,
+block|{
+literal|"reflog "
+block|,
+literal|7
+block|}
 block|, }
 struct|;
 end_struct
