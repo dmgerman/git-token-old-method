@@ -112,20 +112,6 @@ DECL|variable|transfer_encoding
 name|transfer_encoding
 enum|;
 end_enum
-begin_enum
-specifier|static
-enum|enum
-block|{
-DECL|enumerator|TYPE_TEXT
-DECL|enumerator|TYPE_OTHER
-name|TYPE_TEXT
-block|,
-name|TYPE_OTHER
-block|}
-DECL|variable|message_type
-name|message_type
-enum|;
-end_enum
 begin_decl_stmt
 DECL|variable|charset
 specifier|static
@@ -928,22 +914,6 @@ name|line
 operator|->
 name|len
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|strcasestr
-argument_list|(
-name|line
-operator|->
-name|buf
-argument_list|,
-literal|"text/"
-argument_list|)
-condition|)
-name|message_type
-operator|=
-name|TYPE_OTHER
 expr_stmt|;
 if|if
 condition|(
@@ -3376,10 +3346,6 @@ operator|&
 name|charset
 argument_list|)
 expr_stmt|;
-name|message_type
-operator|=
-name|TYPE_TEXT
-expr_stmt|;
 comment|/* slurp in this section's info */
 while|while
 condition|(
@@ -4288,22 +4254,6 @@ operator|&
 name|prev
 argument_list|)
 expr_stmt|;
-comment|/* binary data most likely doesn't have newlines */
-if|if
-condition|(
-name|message_type
-operator|!=
-name|TYPE_TEXT
-condition|)
-block|{
-name|handle_filter
-argument_list|(
-operator|&
-name|line
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
 comment|/* 			 * This is a decoded line that may contain 			 * multiple new lines.  Pass only one chunk 			 * at a time to handle_filter() 			 */
 name|lines
 operator|=
