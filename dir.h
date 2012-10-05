@@ -44,13 +44,6 @@ name|EXC_FLAG_NODIR
 value|1
 end_define
 begin_define
-DECL|macro|EXC_FLAG_NOWILDCARD
-define|#
-directive|define
-name|EXC_FLAG_NOWILDCARD
-value|2
-end_define
-begin_define
 DECL|macro|EXC_FLAG_ENDSWITH
 define|#
 directive|define
@@ -90,6 +83,10 @@ decl_stmt|;
 DECL|member|patternlen
 name|int
 name|patternlen
+decl_stmt|;
+DECL|member|nowildcardlen
+name|int
+name|nowildcardlen
 decl_stmt|;
 DECL|member|base
 specifier|const
