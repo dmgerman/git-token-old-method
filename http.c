@@ -3711,11 +3711,6 @@ name|int
 name|handle_curl_result
 parameter_list|(
 name|struct
-name|active_request_slot
-modifier|*
-name|slot
-parameter_list|,
-name|struct
 name|slot_results
 modifier|*
 name|results
@@ -3788,13 +3783,6 @@ name|credential_fill
 argument_list|(
 operator|&
 name|http_auth
-argument_list|)
-expr_stmt|;
-name|init_curl_http_auth
-argument_list|(
-name|slot
-operator|->
-name|curl
 argument_list|)
 expr_stmt|;
 return|return
@@ -4112,8 +4100,6 @@ name|ret
 operator|=
 name|handle_curl_result
 argument_list|(
-name|slot
-argument_list|,
 operator|&
 name|results
 argument_list|)

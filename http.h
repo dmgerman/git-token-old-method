@@ -427,11 +427,6 @@ name|int
 name|handle_curl_result
 parameter_list|(
 name|struct
-name|active_request_slot
-modifier|*
-name|slot
-parameter_list|,
-name|struct
 name|slot_results
 modifier|*
 name|results
