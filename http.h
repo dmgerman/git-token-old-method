@@ -430,6 +430,11 @@ name|struct
 name|active_request_slot
 modifier|*
 name|slot
+parameter_list|,
+name|struct
+name|slot_results
+modifier|*
+name|results
 parameter_list|)
 function_decl|;
 end_function_decl

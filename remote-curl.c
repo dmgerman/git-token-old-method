@@ -1969,6 +1969,9 @@ operator|=
 name|handle_curl_result
 argument_list|(
 name|slot
+argument_list|,
+operator|&
+name|results
 argument_list|)
 expr_stmt|;
 if|if
