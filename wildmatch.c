@@ -373,7 +373,7 @@ block|{
 case|case
 literal|'\\'
 case|:
-comment|/* Literal match with following character.  Note that the test 	     * in "default" handles the p[1] == '\0' failure case. */
+comment|/* Literal match with following character.  Note that the test 			 * in "default" handles the p[1] == '\0' failure case. */
 name|p_ch
 operator|=
 operator|*
@@ -445,7 +445,7 @@ operator|==
 literal|'\0'
 condition|)
 block|{
-comment|/* Trailing "**" matches everything.  Trailing "*" matches 		 * only if there are no more slash characters. */
+comment|/* Trailing "**" matches everything.  Trailing "*" matches 				 * only if there are no more slash characters. */
 if|if
 condition|(
 operator|!
