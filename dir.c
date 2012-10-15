@@ -2950,9 +2950,6 @@ block|}
 if|if
 condition|(
 operator|!
-name|namelen
-operator|||
-operator|!
 name|fnmatch_icase
 argument_list|(
 name|exclude
