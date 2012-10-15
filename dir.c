@@ -1341,7 +1341,6 @@ block|}
 end_function
 begin_function
 DECL|function|parse_exclude_pattern
-specifier|static
 name|void
 name|parse_exclude_pattern
 parameter_list|(
@@ -2643,7 +2642,6 @@ block|}
 end_function
 begin_function
 DECL|function|match_basename
-specifier|static
 name|int
 name|match_basename
 parameter_list|(
@@ -2753,7 +2751,6 @@ block|}
 end_function
 begin_function
 DECL|function|match_pathname
-specifier|static
 name|int
 name|match_pathname
 parameter_list|(
