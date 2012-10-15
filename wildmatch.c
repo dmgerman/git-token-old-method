@@ -5,8 +5,21 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"rsync.h"
+file|"cache.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"wildmatch.h"
+end_include
+begin_typedef
+DECL|typedef|uchar
+typedef|typedef
+name|unsigned
+name|char
+name|uchar
+typedef|;
+end_typedef
 begin_comment
 comment|/* What character marks an inverted character class? */
 end_comment
