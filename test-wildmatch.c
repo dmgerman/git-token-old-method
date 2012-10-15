@@ -37,6 +37,8 @@ literal|"wildmatch"
 argument_list|)
 condition|)
 return|return
+operator|!
+operator|!
 name|wildmatch
 argument_list|(
 name|argv
@@ -49,10 +51,6 @@ index|[
 literal|2
 index|]
 argument_list|)
-condition|?
-literal|0
-else|:
-literal|1
 return|;
 elseif|else
 if|if
@@ -69,6 +67,8 @@ literal|"iwildmatch"
 argument_list|)
 condition|)
 return|return
+operator|!
+operator|!
 name|iwildmatch
 argument_list|(
 name|argv
@@ -81,10 +81,6 @@ index|[
 literal|2
 index|]
 argument_list|)
-condition|?
-literal|0
-else|:
-literal|1
 return|;
 elseif|else
 if|if
