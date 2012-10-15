@@ -47,6 +47,7 @@ enum|;
 end_enum
 begin_decl_stmt
 DECL|variable|sane_ctype
+specifier|const
 name|unsigned
 name|char
 name|sane_ctype
