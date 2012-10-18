@@ -5849,7 +5849,7 @@ argument_list|,
 name|get_log_output_encoding
 argument_list|()
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -7751,9 +7751,7 @@ name|sb
 argument_list|,
 name|encoding
 argument_list|,
-name|NOTES_SHOW_HEADER
-operator||
-name|NOTES_INDENT
+literal|0
 argument_list|)
 expr_stmt|;
 name|free
