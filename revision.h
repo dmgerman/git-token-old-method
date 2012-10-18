@@ -506,6 +506,11 @@ name|shown_one
 range|:
 literal|1
 decl_stmt|,
+DECL|member|shown_dashes
+name|shown_dashes
+range|:
+literal|1
+decl_stmt|,
 DECL|member|show_merge
 name|show_merge
 range|:
