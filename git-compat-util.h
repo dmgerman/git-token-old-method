@@ -2839,6 +2839,12 @@ directive|undef
 name|isalnum
 end_undef
 begin_undef
+DECL|macro|isprint
+undef|#
+directive|undef
+name|isprint
+end_undef
+begin_undef
 DECL|macro|islower
 undef|#
 directive|undef
@@ -2975,6 +2981,16 @@ parameter_list|(
 name|x
 parameter_list|)
 value|sane_istest(x,GIT_ALPHA | GIT_DIGIT)
+end_define
+begin_define
+DECL|macro|isprint
+define|#
+directive|define
+name|isprint
+parameter_list|(
+name|x
+parameter_list|)
+value|((x)>= 0x20&& (x)<= 0x7e)
 end_define
 begin_define
 DECL|macro|islower
