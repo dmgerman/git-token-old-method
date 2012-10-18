@@ -1181,7 +1181,7 @@ name|name
 argument_list|,
 name|sha1
 argument_list|,
-literal|0
+name|REF_NODEREF
 argument_list|)
 condition|)
 block|{
