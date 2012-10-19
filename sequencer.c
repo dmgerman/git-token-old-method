@@ -299,7 +299,7 @@ name|buffer
 expr_stmt|;
 if|if
 condition|(
-name|strcmp
+name|same_encoding
 argument_list|(
 name|encoding
 argument_list|,
