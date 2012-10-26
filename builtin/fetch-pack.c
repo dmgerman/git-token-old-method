@@ -137,19 +137,6 @@ name|agent_supported
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|args
-specifier|static
-name|struct
-name|fetch_pack_args
-name|args
-init|=
-block|{
-comment|/* .uploadpack = */
-literal|"git-upload-pack"
-block|, }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|fetch_pack_usage
 specifier|static
 specifier|const
@@ -863,6 +850,11 @@ specifier|static
 name|void
 name|consume_shallow_list
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|fd
 parameter_list|)
@@ -870,11 +862,11 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 operator|&&
 name|args
-operator|.
+operator|->
 name|depth
 operator|>
 literal|0
@@ -1257,6 +1249,11 @@ specifier|static
 name|void
 name|send_request
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|fd
 parameter_list|,
@@ -1269,7 +1266,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|)
 block|{
@@ -1372,6 +1369,11 @@ specifier|static
 name|int
 name|next_flush
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|count
 parameter_list|)
@@ -1380,7 +1382,7 @@ name|int
 name|flush_limit
 init|=
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|?
 name|LARGE_FLUSH
@@ -1413,6 +1415,11 @@ specifier|static
 name|int
 name|find_common
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|fd
 index|[
@@ -1483,7 +1490,7 @@ decl_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 operator|&&
 name|multi_ack
@@ -1676,7 +1683,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|use_thin_pack
 condition|)
 name|strbuf_addstr
@@ -1690,7 +1697,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|no_progress
 condition|)
 name|strbuf_addstr
@@ -1704,7 +1711,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|include_tag
 condition|)
 name|strbuf_addstr
@@ -1818,7 +1825,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|depth
 operator|>
 literal|0
@@ -1831,7 +1838,7 @@ argument_list|,
 literal|"deepen %d"
 argument_list|,
 name|args
-operator|.
+operator|->
 name|depth
 argument_list|)
 expr_stmt|;
@@ -1850,7 +1857,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|depth
 operator|>
 literal|0
@@ -1871,6 +1878,8 @@ index|]
 decl_stmt|;
 name|send_request
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|1
@@ -2024,11 +2033,13 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|)
 name|send_request
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|1
@@ -2042,7 +2053,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|)
 block|{
@@ -2095,7 +2106,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -2132,6 +2143,8 @@ argument_list|)
 expr_stmt|;
 name|send_request
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|1
@@ -2156,6 +2169,8 @@ name|flush_at
 operator|=
 name|next_flush
 argument_list|(
+name|args
+argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
@@ -2164,7 +2179,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 operator|&&
 name|count
@@ -2174,6 +2189,8 @@ condition|)
 continue|continue;
 name|consume_shallow_list
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|0
@@ -2197,7 +2214,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 operator|&&
 name|ack
@@ -2277,7 +2294,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 operator|&&
 name|ack
@@ -2385,7 +2402,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -2421,6 +2438,8 @@ argument_list|)
 expr_stmt|;
 name|send_request
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|1
@@ -2434,7 +2453,7 @@ block|}
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -2467,6 +2486,8 @@ argument_list|)
 expr_stmt|;
 name|consume_shallow_list
 argument_list|(
+name|args
+argument_list|,
 name|fd
 index|[
 literal|0
@@ -2501,7 +2522,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -2707,6 +2728,11 @@ specifier|static
 name|void
 name|mark_recent_complete_commits
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|unsigned
 name|long
 name|cutoff
@@ -2728,7 +2754,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -2805,6 +2831,11 @@ specifier|static
 name|void
 name|filter_refs
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|struct
 name|ref
 modifier|*
@@ -2978,13 +3009,13 @@ operator|!
 name|keep
 operator|&&
 name|args
-operator|.
+operator|->
 name|fetch_all
 operator|&&
 operator|(
 operator|!
 name|args
-operator|.
+operator|->
 name|depth
 operator|||
 name|prefixcmp
@@ -3090,6 +3121,11 @@ specifier|static
 name|int
 name|everything_local
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|struct
 name|ref
 modifier|*
@@ -3201,7 +3237,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|depth
 condition|)
 block|{
@@ -3225,6 +3261,8 @@ name|cutoff
 condition|)
 name|mark_recent_complete_commits
 argument_list|(
+name|args
+argument_list|,
 name|cutoff
 argument_list|)
 expr_stmt|;
@@ -3330,6 +3368,8 @@ block|}
 block|}
 name|filter_refs
 argument_list|(
+name|args
+argument_list|,
 name|refs
 argument_list|,
 name|sought
@@ -3407,7 +3447,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 continue|continue;
@@ -3442,7 +3482,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 continue|continue;
@@ -3522,6 +3562,11 @@ specifier|static
 name|int
 name|get_pack
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|xd
 index|[
@@ -3568,7 +3613,7 @@ name|int
 name|do_keep
 init|=
 name|args
-operator|.
+operator|->
 name|keep_pack
 decl_stmt|;
 name|struct
@@ -3670,7 +3715,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|keep_pack
 operator|&&
 name|unpack_limit
@@ -3779,12 +3824,12 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|quiet
 operator|&&
 operator|!
 name|args
-operator|.
+operator|->
 name|no_progress
 condition|)
 operator|*
@@ -3796,7 +3841,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|use_thin_pack
 condition|)
 operator|*
@@ -3808,7 +3853,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|lock_pack
 operator|||
 name|unpack_limit
@@ -3876,11 +3921,11 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|quiet
 operator|||
 name|args
-operator|.
+operator|->
 name|no_progress
 condition|)
 operator|*
@@ -4032,6 +4077,11 @@ name|ref
 modifier|*
 name|do_fetch_pack
 parameter_list|(
+name|struct
+name|fetch_pack_args
+modifier|*
+name|args
+parameter_list|,
 name|int
 name|fd
 index|[
@@ -4115,7 +4165,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4140,7 +4190,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4153,7 +4203,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|)
 name|no_done
@@ -4174,7 +4224,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4200,7 +4250,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4227,7 +4277,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4251,7 +4301,7 @@ literal|"thin-pack"
 argument_list|)
 condition|)
 name|args
-operator|.
+operator|->
 name|use_thin_pack
 operator|=
 literal|0
@@ -4265,7 +4315,7 @@ literal|"no-progress"
 argument_list|)
 condition|)
 name|args
-operator|.
+operator|->
 name|no_progress
 operator|=
 literal|0
@@ -4279,7 +4329,7 @@ literal|"include-tag"
 argument_list|)
 condition|)
 name|args
-operator|.
+operator|->
 name|include_tag
 operator|=
 literal|0
@@ -4295,7 +4345,7 @@ block|{
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 condition|)
 name|fprintf
@@ -4333,7 +4383,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|verbose
 operator|&&
 name|agent_len
@@ -4354,6 +4404,8 @@ if|if
 condition|(
 name|everything_local
 argument_list|(
+name|args
+argument_list|,
 operator|&
 name|ref
 argument_list|,
@@ -4377,6 +4429,8 @@ if|if
 condition|(
 name|find_common
 argument_list|(
+name|args
+argument_list|,
 name|fd
 argument_list|,
 name|sha1
@@ -4390,7 +4444,7 @@ if|if
 condition|(
 operator|!
 name|args
-operator|.
+operator|->
 name|keep_pack
 condition|)
 comment|/* When cloning, it is not unusual to have 			 * no common commit. 			 */
@@ -4402,7 +4456,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|stateless_rpc
 condition|)
 name|packet_flush
@@ -4417,6 +4471,8 @@ if|if
 condition|(
 name|get_pack
 argument_list|(
+name|args
+argument_list|,
 name|fd
 argument_list|,
 name|pack_lockfile
@@ -4719,10 +4775,33 @@ name|child_process
 modifier|*
 name|conn
 decl_stmt|;
+name|struct
+name|fetch_pack_args
+name|args
+decl_stmt|;
 name|packet_trace_identity
 argument_list|(
 literal|"fetch-pack"
 argument_list|)
+expr_stmt|;
+name|memset
+argument_list|(
+operator|&
+name|args
+argument_list|,
+literal|0
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|args
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|uploadpack
+operator|=
+literal|"git-upload-pack"
 expr_stmt|;
 for|for
 control|(
@@ -5431,7 +5510,7 @@ parameter_list|(
 name|struct
 name|fetch_pack_args
 modifier|*
-name|my_args
+name|args
 parameter_list|,
 name|int
 name|fd
@@ -5478,28 +5557,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|&
 name|args
-operator|!=
-name|my_args
-condition|)
-name|memcpy
-argument_list|(
-operator|&
-name|args
-argument_list|,
-name|my_args
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|args
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|args
-operator|.
+operator|->
 name|depth
 operator|>
 literal|0
@@ -5569,6 +5628,8 @@ name|ref_cpy
 operator|=
 name|do_fetch_pack
 argument_list|(
+name|args
+argument_list|,
 name|fd
 argument_list|,
 name|ref
@@ -5581,7 +5642,7 @@ expr_stmt|;
 if|if
 condition|(
 name|args
-operator|.
+operator|->
 name|depth
 operator|>
 literal|0
