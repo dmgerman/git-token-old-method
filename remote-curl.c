@@ -2224,6 +2224,9 @@ name|gzip_body
 init|=
 name|NULL
 decl_stmt|;
+name|size_t
+name|gzip_size
+decl_stmt|;
 name|int
 name|err
 decl_stmt|,
@@ -2533,9 +2536,6 @@ name|len
 condition|)
 block|{
 comment|/* The client backend isn't giving us compressed data so 		 * we can try to deflate it ourselves, this may save on. 		 * the transfer time. 		 */
-name|size_t
-name|size
-decl_stmt|;
 name|git_zstream
 name|stream
 decl_stmt|;
@@ -2563,7 +2563,7 @@ argument_list|,
 name|Z_BEST_COMPRESSION
 argument_list|)
 expr_stmt|;
-name|size
+name|gzip_size
 operator|=
 name|git_deflate_bound
 argument_list|(
@@ -2579,7 +2579,7 @@ name|gzip_body
 operator|=
 name|xmalloc
 argument_list|(
-name|size
+name|gzip_size
 argument_list|)
 expr_stmt|;
 name|stream
@@ -2618,7 +2618,7 @@ name|stream
 operator|.
 name|avail_out
 operator|=
-name|size
+name|gzip_size
 expr_stmt|;
 name|ret
 operator|=
@@ -2664,7 +2664,7 @@ argument_list|,
 name|ret
 argument_list|)
 expr_stmt|;
-name|size
+name|gzip_size
 operator|=
 name|stream
 operator|.
@@ -2698,7 +2698,7 @@ name|curl
 argument_list|,
 name|CURLOPT_POSTFIELDSIZE
 argument_list|,
-name|size
+name|gzip_size
 argument_list|)
 expr_stmt|;
 if|if
@@ -2732,7 +2732,7 @@ operator|(
 name|unsigned
 name|long
 operator|)
-name|size
+name|gzip_size
 argument_list|)
 expr_stmt|;
 name|fflush
