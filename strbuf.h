@@ -329,7 +329,7 @@ parameter_list|,
 name|size_t
 parameter_list|,
 name|int
-name|delim
+name|terminator
 parameter_list|,
 name|int
 name|max
@@ -352,7 +352,7 @@ modifier|*
 name|str
 parameter_list|,
 name|int
-name|delim
+name|terminator
 parameter_list|,
 name|int
 name|max
@@ -368,7 +368,7 @@ argument_list|(
 name|str
 argument_list|)
 argument_list|,
-name|delim
+name|terminator
 argument_list|,
 name|max
 argument_list|)
@@ -392,7 +392,7 @@ modifier|*
 name|sb
 parameter_list|,
 name|int
-name|delim
+name|terminator
 parameter_list|,
 name|int
 name|max
@@ -409,7 +409,7 @@ name|sb
 operator|->
 name|len
 argument_list|,
-name|delim
+name|terminator
 argument_list|,
 name|max
 argument_list|)
@@ -433,7 +433,7 @@ modifier|*
 name|sb
 parameter_list|,
 name|int
-name|delim
+name|terminator
 parameter_list|)
 block|{
 return|return
@@ -441,7 +441,7 @@ name|strbuf_split_max
 argument_list|(
 name|sb
 argument_list|,
-name|delim
+name|terminator
 argument_list|,
 literal|0
 argument_list|)
