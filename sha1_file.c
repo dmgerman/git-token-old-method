@@ -1461,10 +1461,8 @@ name|char
 modifier|*
 name|alt
 parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|ep
+name|int
+name|len
 parameter_list|,
 name|int
 name|sep
@@ -1513,9 +1511,7 @@ name|xmemdupz
 argument_list|(
 name|alt
 argument_list|,
-name|ep
-operator|-
-name|alt
+name|len
 argument_list|)
 expr_stmt|;
 name|string_list_split_in_place
@@ -1760,8 +1756,6 @@ name|link_alt_odb_entries
 argument_list|(
 name|map
 argument_list|,
-name|map
-operator|+
 name|mapsz
 argument_list|,
 literal|'\n'
@@ -1865,8 +1859,6 @@ name|link_alt_odb_entries
 argument_list|(
 name|alt
 argument_list|,
-name|alt
-operator|+
 name|strlen
 argument_list|(
 name|alt
@@ -1971,8 +1963,6 @@ name|link_alt_odb_entries
 argument_list|(
 name|alt
 argument_list|,
-name|alt
-operator|+
 name|strlen
 argument_list|(
 name|alt
