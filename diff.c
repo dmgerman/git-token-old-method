@@ -12884,7 +12884,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|set
+name|meta
 init|=
 name|diff_get_color_opt
 argument_list|(
@@ -13234,7 +13234,7 @@ literal|"%s%sdiff --git %s %s%s\n"
 argument_list|,
 name|line_prefix
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|a_one
 argument_list|,
@@ -13266,7 +13266,7 @@ literal|"%s%snew file mode %06o%s\n"
 argument_list|,
 name|line_prefix
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|two
 operator|->
@@ -13315,7 +13315,7 @@ literal|"%s%sdeleted file mode %06o%s\n"
 argument_list|,
 name|line_prefix
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|one
 operator|->
@@ -13363,7 +13363,7 @@ literal|"%s%sold mode %06o%s\n"
 argument_list|,
 name|line_prefix
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|one
 operator|->
@@ -13381,7 +13381,7 @@ literal|"%s%snew mode %06o%s\n"
 argument_list|,
 name|line_prefix
 argument_list|,
-name|set
+name|meta
 argument_list|,
 name|two
 operator|->
