@@ -1937,9 +1937,16 @@ index|[
 literal|0
 index|]
 operator|.
-name|use_wildcard
+name|nowildcard_len
 operator|=
+name|pathspec
+operator|.
+name|items
+index|[
 literal|0
+index|]
+operator|.
+name|len
 expr_stmt|;
 block|}
 else|else
