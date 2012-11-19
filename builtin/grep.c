@@ -312,6 +312,11 @@ modifier|*
 name|name
 parameter_list|,
 specifier|const
+name|char
+modifier|*
+name|path
+parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|id
@@ -359,6 +364,8 @@ argument_list|,
 name|type
 argument_list|,
 name|name
+argument_list|,
+name|path
 argument_list|,
 name|id
 argument_list|)
@@ -1298,6 +1305,11 @@ name|filename
 parameter_list|,
 name|int
 name|tree_name_len
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|path
 parameter_list|)
 block|{
 name|struct
@@ -1376,6 +1388,8 @@ name|pathbuf
 operator|.
 name|buf
 argument_list|,
+name|path
+argument_list|,
 name|sha1
 argument_list|)
 expr_stmt|;
@@ -1410,6 +1424,8 @@ argument_list|,
 name|pathbuf
 operator|.
 name|buf
+argument_list|,
+name|path
 argument_list|,
 name|sha1
 argument_list|)
@@ -1518,6 +1534,8 @@ operator|.
 name|buf
 argument_list|,
 name|filename
+argument_list|,
+name|filename
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -1551,6 +1569,8 @@ argument_list|,
 name|buf
 operator|.
 name|buf
+argument_list|,
+name|filename
 argument_list|,
 name|filename
 argument_list|)
@@ -1911,6 +1931,10 @@ operator|->
 name|name
 argument_list|,
 literal|0
+argument_list|,
+name|ce
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -2011,6 +2035,9 @@ name|base
 parameter_list|,
 name|int
 name|tn_len
+parameter_list|,
+name|int
+name|check_attr
 parameter_list|)
 block|{
 name|int
@@ -2127,6 +2154,16 @@ operator|->
 name|buf
 argument_list|,
 name|tn_len
+argument_list|,
+name|check_attr
+condition|?
+name|base
+operator|->
+name|buf
+operator|+
+name|tn_len
+else|:
+name|NULL
 argument_list|)
 expr_stmt|;
 block|}
@@ -2223,6 +2260,8 @@ argument_list|,
 name|base
 argument_list|,
 name|tn_len
+argument_list|,
+name|check_attr
 argument_list|)
 expr_stmt|;
 name|free
@@ -2301,6 +2340,8 @@ argument_list|,
 name|name
 argument_list|,
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 if|if
@@ -2455,6 +2496,12 @@ argument_list|,
 name|base
 operator|.
 name|len
+argument_list|,
+name|obj
+operator|->
+name|type
+operator|==
+name|OBJ_COMMIT
 argument_list|)
 expr_stmt|;
 name|strbuf_release
