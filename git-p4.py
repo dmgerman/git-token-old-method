@@ -14980,7 +14980,7 @@ indent|'                        '
 name|'print'
 string|'"Could not convert label time %s"'
 op|'%'
-name|'labelDetail'
+name|'labelDetails'
 op|'['
 string|"'Update'"
 op|']'
