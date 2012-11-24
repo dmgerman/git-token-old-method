@@ -459,7 +459,7 @@ name|'join'
 op|'('
 name|'dirname'
 op|','
-string|"'testgit.marks'"
+string|"'git.marks'"
 op|')'
 newline|'\n'
 nl|'\n'

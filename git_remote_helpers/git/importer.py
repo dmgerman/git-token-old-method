@@ -223,7 +223,7 @@ name|'join'
 op|'('
 name|'dirname'
 op|','
-string|"'git.marks'"
+string|"'testgit.marks'"
 op|')'
 op|')'
 newline|'\n'
