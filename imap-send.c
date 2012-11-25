@@ -228,11 +228,13 @@ DECL|struct|msg_data
 struct|struct
 name|msg_data
 block|{
+comment|/* NUL-terminated data: */
 DECL|member|data
 name|char
 modifier|*
 name|data
 decl_stmt|;
+comment|/* length of data (not including NUL): */
 DECL|member|len
 name|int
 name|len
@@ -7263,6 +7265,8 @@ operator|->
 name|len
 operator|+
 name|lfnum
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -7394,6 +7398,13 @@ operator|=
 literal|'\n'
 expr_stmt|;
 block|}
+name|new
+index|[
+name|j
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
 name|msg
 operator|->
 name|len
