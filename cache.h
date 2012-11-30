@@ -6560,10 +6560,15 @@ name|char
 modifier|*
 name|symref
 decl_stmt|;
-DECL|member|force
 name|unsigned
 name|int
+DECL|member|force
 name|force
+range|:
+literal|1
+decl_stmt|,
+DECL|member|requires_force
+name|requires_force
 range|:
 literal|1
 decl_stmt|,
