@@ -374,10 +374,9 @@ decl_stmt|;
 name|int
 name|flags
 decl_stmt|;
+name|unsigned
 name|int
-name|nonfastforward
-init|=
-literal|0
+name|reject_reasons
 decl_stmt|;
 name|int
 name|progress
@@ -1024,7 +1023,7 @@ argument_list|,
 literal|0
 argument_list|,
 operator|&
-name|nonfastforward
+name|reject_reasons
 argument_list|)
 expr_stmt|;
 if|if
