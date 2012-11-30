@@ -956,7 +956,7 @@ init|=
 name|N_
 argument_list|(
 literal|"Updates were rejected because the destination reference already exists\n"
-literal|"in the remote and the update is not a fast-forward."
+literal|"in the remote."
 argument_list|)
 decl_stmt|;
 end_decl_stmt
