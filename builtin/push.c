@@ -975,7 +975,7 @@ operator|!
 name|advice_push_non_ff_current
 operator|||
 operator|!
-name|advice_push_nonfastforward
+name|advice_push_update_rejected
 condition|)
 return|return;
 name|advise
@@ -1003,7 +1003,7 @@ operator|!
 name|advice_push_non_ff_default
 operator|||
 operator|!
-name|advice_push_nonfastforward
+name|advice_push_update_rejected
 condition|)
 return|return;
 name|advise
@@ -1031,7 +1031,7 @@ operator|!
 name|advice_push_non_ff_matching
 operator|||
 operator|!
-name|advice_push_nonfastforward
+name|advice_push_update_rejected
 condition|)
 return|return;
 name|advise
