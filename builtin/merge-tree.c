@@ -27,7 +27,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"merge-file.h"
+file|"merge-blobs.h"
 end_include
 begin_decl_stmt
 DECL|variable|merge_tree_usage
@@ -385,7 +385,7 @@ operator|->
 name|blob
 expr_stmt|;
 return|return
-name|merge_file
+name|merge_blobs
 argument_list|(
 name|path
 argument_list|,

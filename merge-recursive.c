@@ -5466,11 +5466,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|merge_file
+DECL|function|merge_file_one
 specifier|static
 name|struct
 name|merge_file_info
-name|merge_file
+name|merge_file_one
 parameter_list|(
 name|struct
 name|merge_options
@@ -6653,7 +6653,7 @@ name|add
 decl_stmt|;
 name|mfi
 operator|=
-name|merge_file
+name|merge_file_one
 argument_list|(
 name|o
 argument_list|,
@@ -8229,7 +8229,7 @@ name|mfi
 decl_stmt|;
 name|mfi
 operator|=
-name|merge_file
+name|merge_file_one
 argument_list|(
 name|o
 argument_list|,
