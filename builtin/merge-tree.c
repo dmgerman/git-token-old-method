@@ -995,7 +995,7 @@ parameter_list|,
 name|struct
 name|name_entry
 modifier|*
-name|branch1
+name|ours
 parameter_list|,
 name|struct
 name|name_entry
@@ -1016,11 +1016,11 @@ name|char
 modifier|*
 name|path
 decl_stmt|;
-comment|/* If it's already branch1, don't bother showing it */
+comment|/* If it's already ours, don't bother showing it */
 if|if
 condition|(
 operator|!
-name|branch1
+name|ours
 condition|)
 return|return;
 name|path
@@ -1038,11 +1038,11 @@ name|create_entry
 argument_list|(
 literal|2
 argument_list|,
-name|branch1
+name|ours
 operator|->
 name|mode
 argument_list|,
-name|branch1
+name|ours
 operator|->
 name|sha1
 argument_list|,
@@ -1164,6 +1164,7 @@ condition|)
 return|return
 literal|0
 return|;
+comment|/* 	 * NEEDSWORK: this is broken. The path can originally be a file 	 * and then one side may have turned it into a directory, in which 	 * case we return and let the three-way merge as if the tree were 	 * a regular file.  If the path that was originally a tree is 	 * now a file in either branch, fill_tree_descriptor() below will 	 * die when fed a blob sha1. 	 */
 name|newbase
 operator|=
 name|traverse_path
@@ -1495,6 +1496,7 @@ operator|.
 name|sha1
 condition|)
 block|{
+comment|/* Modified identically */
 name|resolve
 argument_list|(
 name|info
@@ -1510,6 +1512,7 @@ return|return
 name|mask
 return|;
 block|}
+comment|/* "Both added the same" is left unresolved */
 block|}
 if|if
 condition|(
@@ -1546,6 +1549,7 @@ name|mode
 argument_list|)
 condition|)
 block|{
+comment|/* We did not touch, they modified -- take theirs */
 name|resolve
 argument_list|(
 name|info
@@ -1563,6 +1567,7 @@ return|return
 name|mask
 return|;
 block|}
+comment|/* 		 * If we did not touch a directory but they made it 		 * into a file, we fall through and unresolved() 		 * recurses down.  Likewise for the opposite case. 		 */
 block|}
 if|if
 condition|(
@@ -1599,6 +1604,7 @@ name|mode
 argument_list|)
 condition|)
 block|{
+comment|/* We modified, they did not touch -- take ours */
 name|resolve
 argument_list|(
 name|info
