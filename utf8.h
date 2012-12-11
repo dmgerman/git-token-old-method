@@ -72,7 +72,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
+name|void
 name|strbuf_add_wrapped_text
 parameter_list|(
 name|struct
@@ -97,7 +97,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
+name|void
 name|strbuf_add_wrapped_bytes
 parameter_list|(
 name|struct
