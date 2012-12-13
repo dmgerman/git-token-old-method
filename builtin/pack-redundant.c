@@ -1611,9 +1611,6 @@ modifier|*
 name|new_pll
 init|=
 name|NULL
-decl_stmt|,
-modifier|*
-name|pll
 decl_stmt|;
 if|if
 condition|(
@@ -1653,7 +1650,8 @@ name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
-name|pll
+operator|*
+name|new_pll
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1725,7 +1723,8 @@ name|xmalloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
-name|pll
+operator|*
+name|new_pll
 argument_list|)
 argument_list|)
 expr_stmt|;
