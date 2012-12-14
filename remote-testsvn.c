@@ -544,6 +544,9 @@ name|rev_nr
 operator|=
 name|i
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 name|msg
 operator|+=
@@ -552,8 +555,10 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+comment|/* didn't find it */
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
