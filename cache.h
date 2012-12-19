@@ -1770,6 +1770,13 @@ directive|define
 name|GIT_NOTES_REWRITE_MODE_ENVIRONMENT
 value|"GIT_NOTES_REWRITE_MODE"
 end_define
+begin_define
+DECL|macro|GIT_LITERAL_PATHSPECS_ENVIRONMENT
+define|#
+directive|define
+name|GIT_LITERAL_PATHSPECS_ENVIRONMENT
+value|"GIT_LITERAL_PATHSPECS"
+end_define
 begin_comment
 comment|/*  * Repository-local GIT_* environment variables  * The array is NULL-terminated to simplify its usage in contexts such  * environment creation or simple walk of the list.  * The number of non-NULL entries is available as a macro.  */
 end_comment
@@ -2851,6 +2858,15 @@ name|struct
 name|pathspec
 modifier|*
 name|pathspec
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|limit_pathspec_to_literal
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl
