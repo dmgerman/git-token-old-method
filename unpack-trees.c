@@ -8575,6 +8575,10 @@ name|o
 operator|->
 name|reset
 operator|&&
+name|o
+operator|->
+name|update
+operator|&&
 operator|!
 name|ce_uptodate
 argument_list|(
