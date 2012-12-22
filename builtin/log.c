@@ -3674,7 +3674,9 @@ name|suffix_len
 init|=
 name|strlen
 argument_list|(
-name|fmt_patch_suffix
+name|rev
+operator|->
+name|patch_suffix
 argument_list|)
 operator|+
 literal|1
@@ -3747,7 +3749,9 @@ name|rev
 operator|->
 name|nr
 argument_list|,
-name|fmt_patch_suffix
+name|rev
+operator|->
+name|patch_suffix
 argument_list|,
 operator|&
 name|filename
