@@ -4252,9 +4252,6 @@ parameter_list|,
 name|int
 name|use_stdout
 parameter_list|,
-name|int
-name|numbered_files
-parameter_list|,
 name|struct
 name|commit
 modifier|*
@@ -4369,6 +4366,8 @@ name|reopen_stdout
 argument_list|(
 name|NULL
 argument_list|,
+name|rev
+operator|->
 name|numbered_files
 condition|?
 name|NULL
@@ -5816,11 +5815,10 @@ operator|-
 literal|1
 decl_stmt|;
 name|int
-name|numbered_files
+name|just_numbers
 init|=
 literal|0
 decl_stmt|;
-comment|/* _just_ numbers */
 name|int
 name|ignore_if_in_upstream
 init|=
@@ -5995,7 +5993,7 @@ argument_list|,
 literal|"numbered-files"
 argument_list|,
 operator|&
-name|numbered_files
+name|just_numbers
 argument_list|,
 name|N_
 argument_list|(
@@ -7565,7 +7563,7 @@ name|rev
 operator|.
 name|numbered_files
 operator|=
-name|numbered_files
+name|just_numbers
 expr_stmt|;
 name|rev
 operator|.
@@ -7596,8 +7594,6 @@ operator|&
 name|rev
 argument_list|,
 name|use_stdout
-argument_list|,
-name|numbered_files
 argument_list|,
 name|origin
 argument_list|,
@@ -7740,6 +7736,8 @@ name|use_stdout
 operator|&&
 name|reopen_stdout
 argument_list|(
+name|rev
+operator|.
 name|numbered_files
 condition|?
 name|NULL
