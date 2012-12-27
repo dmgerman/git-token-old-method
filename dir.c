@@ -3354,9 +3354,9 @@ begin_comment
 comment|/*  * Is this name excluded?  This is for a caller like show_files() that  * do not honor directory hierarchy and iterate through paths that are  * possibly in an ignored directory.  *  * A path to a directory known to be excluded is left in check->path to  * optimize for repeated checks for files in the same excluded directory.  */
 end_comment
 begin_function
-DECL|function|path_excluded
+DECL|function|is_path_excluded
 name|int
-name|path_excluded
+name|is_path_excluded
 parameter_list|(
 name|struct
 name|path_exclude_check
