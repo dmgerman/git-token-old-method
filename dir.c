@@ -3174,10 +3174,10 @@ comment|/* undecided */
 block|}
 end_function
 begin_function
-DECL|function|excluded
+DECL|function|is_excluded
 specifier|static
 name|int
-name|excluded
+name|is_excluded
 parameter_list|(
 name|struct
 name|dir_struct
@@ -3389,7 +3389,7 @@ name|check
 operator|->
 name|path
 decl_stmt|;
-comment|/* 	 * we allow the caller to pass namelen as an optimization; it 	 * must match the length of the name, as we eventually call 	 * excluded() on the whole name string. 	 */
+comment|/* 	 * we allow the caller to pass namelen as an optimization; it 	 * must match the length of the name, as we eventually call 	 * is_excluded() on the whole name string. 	 */
 if|if
 condition|(
 name|namelen
@@ -3495,7 +3495,7 @@ name|DT_DIR
 decl_stmt|;
 if|if
 condition|(
-name|excluded
+name|is_excluded
 argument_list|(
 name|check
 operator|->
@@ -3530,7 +3530,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-name|excluded
+name|is_excluded
 argument_list|(
 name|check
 operator|->
@@ -4705,7 +4705,7 @@ block|{
 name|int
 name|exclude
 init|=
-name|excluded
+name|is_excluded
 argument_list|(
 name|dir
 argument_list|,
