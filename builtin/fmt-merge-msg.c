@@ -1435,7 +1435,9 @@ specifier|const
 name|char
 modifier|*
 name|field
-init|=
+decl_stmt|;
+name|field
+operator|=
 operator|(
 name|which
 operator|==
@@ -1445,7 +1447,7 @@ condition|?
 literal|"\nauthor "
 else|:
 literal|"\ncommitter "
-decl_stmt|;
+expr_stmt|;
 name|name
 operator|=
 name|strstr
@@ -2013,8 +2015,10 @@ name|rev_info
 modifier|*
 name|rev
 parameter_list|,
-name|int
-name|limit
+name|struct
+name|fmt_merge_msg_opts
+modifier|*
+name|opts
 parameter_list|,
 name|struct
 name|strbuf
@@ -2085,6 +2089,13 @@ init|=
 name|origin_data
 operator|->
 name|sha1
+decl_stmt|;
+name|int
+name|limit
+init|=
+name|opts
+operator|->
+name|shortlog_len
 decl_stmt|;
 name|branch
 operator|=
@@ -2203,6 +2214,12 @@ name|next
 condition|)
 block|{
 comment|/* do not list a merge but count committer */
+if|if
+condition|(
+name|opts
+operator|->
+name|credit_people
+condition|)
 name|record_person
 argument_list|(
 literal|'c'
@@ -2219,6 +2236,10 @@ if|if
 condition|(
 operator|!
 name|count
+operator|&&
+name|opts
+operator|->
+name|credit_people
 condition|)
 comment|/* the 'tip' committer */
 name|record_person
@@ -2231,6 +2252,12 @@ argument_list|,
 name|commit
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|opts
+operator|->
+name|credit_people
+condition|)
 name|record_person
 argument_list|(
 literal|'a'
@@ -2310,6 +2337,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|opts
+operator|->
+name|credit_people
+condition|)
 name|add_people_info
 argument_list|(
 name|out
@@ -3901,8 +3934,6 @@ operator|&
 name|rev
 argument_list|,
 name|opts
-operator|->
-name|shortlog_len
 argument_list|,
 name|out
 argument_list|)
@@ -4215,6 +4246,12 @@ name|add_title
 operator|=
 operator|!
 name|message
+expr_stmt|;
+name|opts
+operator|.
+name|credit_people
+operator|=
+literal|1
 expr_stmt|;
 name|opts
 operator|.
