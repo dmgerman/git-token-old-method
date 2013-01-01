@@ -2917,9 +2917,11 @@ name|name
 argument_list|,
 name|ignore_case
 condition|?
-name|FNM_CASEFOLD
+name|WM_CASEFOLD
 else|:
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 operator|==
 literal|0

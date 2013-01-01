@@ -38,20 +38,6 @@ name|NEGATE_CLASS2
 value|'^'
 end_define
 begin_define
-DECL|macro|FALSE
-define|#
-directive|define
-name|FALSE
-value|0
-end_define
-begin_define
-DECL|macro|TRUE
-define|#
-directive|define
-name|TRUE
-value|1
-end_define
-begin_define
 DECL|macro|CC_EQ
 define|#
 directive|define
@@ -349,7 +335,7 @@ operator|!=
 literal|'*'
 condition|)
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 if|if
 condition|(
@@ -407,7 +393,7 @@ operator|!=
 name|p_ch
 condition|)
 return|return
-name|NOMATCH
+name|WM_NOMATCH
 return|;
 continue|continue;
 case|case
@@ -421,7 +407,7 @@ operator|==
 literal|'/'
 condition|)
 return|return
-name|NOMATCH
+name|WM_NOMATCH
 return|;
 continue|continue;
 case|case
@@ -517,25 +503,25 @@ argument_list|,
 name|force_lower_case
 argument_list|)
 operator|==
-name|MATCH
+name|WM_MATCH
 condition|)
 return|return
-name|MATCH
+name|WM_MATCH
 return|;
 name|match_slash
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 else|else
 return|return
-name|ABORT_MALFORMED
+name|WM_ABORT_MALFORMED
 return|;
 block|}
 else|else
 name|match_slash
 operator|=
-name|FALSE
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -568,11 +554,11 @@ operator|!=
 name|NULL
 condition|)
 return|return
-name|NOMATCH
+name|WM_NOMATCH
 return|;
 block|}
 return|return
-name|MATCH
+name|WM_MATCH
 return|;
 block|}
 while|while
@@ -602,7 +588,7 @@ name|force_lower_case
 argument_list|)
 operator|)
 operator|!=
-name|NOMATCH
+name|WM_NOMATCH
 condition|)
 block|{
 if|if
@@ -612,7 +598,7 @@ name|match_slash
 operator|||
 name|matched
 operator|!=
-name|ABORT_TO_STARSTAR
+name|WM_ABORT_TO_STARSTAR
 condition|)
 return|return
 name|matched
@@ -629,7 +615,7 @@ operator|==
 literal|'/'
 condition|)
 return|return
-name|ABORT_TO_STARSTAR
+name|WM_ABORT_TO_STARSTAR
 return|;
 name|t_ch
 operator|=
@@ -639,7 +625,7 @@ name|text
 expr_stmt|;
 block|}
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 case|case
 literal|'['
@@ -665,16 +651,16 @@ name|NEGATE_CLASS
 expr_stmt|;
 endif|#
 directive|endif
-comment|/* Assign literal TRUE/FALSE because of "matched" comparison. */
+comment|/* Assign literal 1/0 because of "matched" comparison. */
 name|negated
 operator|=
 name|p_ch
 operator|==
 name|NEGATE_CLASS
 condition|?
-name|TRUE
+literal|1
 else|:
-name|FALSE
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -695,7 +681,7 @@ literal|0
 expr_stmt|;
 name|matched
 operator|=
-name|FALSE
+literal|0
 expr_stmt|;
 do|do
 block|{
@@ -705,7 +691,7 @@ operator|!
 name|p_ch
 condition|)
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 if|if
 condition|(
@@ -726,7 +712,7 @@ operator|!
 name|p_ch
 condition|)
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 if|if
 condition|(
@@ -736,7 +722,7 @@ name|p_ch
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -786,7 +772,7 @@ operator|!
 name|p_ch
 condition|)
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 block|}
 if|if
@@ -801,7 +787,7 @@ name|prev_ch
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 name|p_ch
 operator|=
@@ -862,7 +848,7 @@ operator|!
 name|p_ch
 condition|)
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 name|i
 operator|=
@@ -906,7 +892,7 @@ name|p_ch
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 continue|continue;
 block|}
@@ -931,7 +917,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -956,7 +942,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -981,7 +967,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1006,7 +992,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1031,7 +1017,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1056,7 +1042,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1081,7 +1067,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1106,7 +1092,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1131,7 +1117,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1156,7 +1142,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1181,7 +1167,7 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 elseif|else
@@ -1206,13 +1192,13 @@ argument_list|)
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 else|else
 comment|/* malformed [:class:] string */
 return|return
-name|ABORT_ALL
+name|WM_ABORT_ALL
 return|;
 name|p_ch
 operator|=
@@ -1229,7 +1215,7 @@ name|p_ch
 condition|)
 name|matched
 operator|=
-name|TRUE
+literal|1
 expr_stmt|;
 block|}
 do|while
@@ -1260,7 +1246,7 @@ operator|==
 literal|'/'
 condition|)
 return|return
-name|NOMATCH
+name|WM_NOMATCH
 return|;
 continue|continue;
 block|}
@@ -1269,9 +1255,9 @@ return|return
 operator|*
 name|text
 condition|?
-name|NOMATCH
+name|WM_NOMATCH
 else|:
-name|MATCH
+name|WM_MATCH
 return|;
 block|}
 end_function
@@ -1293,8 +1279,14 @@ name|char
 modifier|*
 name|text
 parameter_list|,
+name|unsigned
 name|int
 name|flags
+parameter_list|,
+name|struct
+name|wildopts
+modifier|*
+name|wo
 parameter_list|)
 block|{
 return|return
@@ -1316,7 +1308,7 @@ name|text
 argument_list|,
 name|flags
 operator|&
-name|FNM_CASEFOLD
+name|WM_CASEFOLD
 condition|?
 literal|1
 else|:
