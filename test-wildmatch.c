@@ -1,4 +1,23 @@
 begin_unit
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|USE_WILDMATCH
+end_ifdef
+begin_undef
+DECL|macro|USE_WILDMATCH
+undef|#
+directive|undef
+name|USE_WILDMATCH
+end_undef
+begin_comment
+DECL|macro|USE_WILDMATCH
+comment|/* We need real fnmatch implementation here */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
