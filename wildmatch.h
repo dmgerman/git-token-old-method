@@ -18,6 +18,13 @@ name|WM_CASEFOLD
 value|1
 end_define
 begin_define
+DECL|macro|WM_PATHNAME
+define|#
+directive|define
+name|WM_PATHNAME
+value|2
+end_define
+begin_define
 DECL|macro|WM_ABORT_MALFORMED
 define|#
 directive|define
