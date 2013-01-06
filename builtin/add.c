@@ -624,7 +624,7 @@ name|dir
 operator|->
 name|entries
 expr_stmt|;
-name|fill_pathspec_matches
+name|add_pathspec_matches_against_index
 argument_list|(
 name|pathspec
 argument_list|,
@@ -2449,7 +2449,7 @@ name|seen
 condition|)
 name|seen
 operator|=
-name|find_used_pathspec
+name|find_pathspecs_matching_against_index
 argument_list|(
 name|pathspec
 argument_list|)
