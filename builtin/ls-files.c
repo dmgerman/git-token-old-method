@@ -193,6 +193,13 @@ name|exc_given
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|exclude_args
+specifier|static
+name|int
+name|exclude_args
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|tag_cached
 specifier|static
 specifier|const
@@ -2312,6 +2319,9 @@ name|el
 index|[
 literal|0
 index|]
+argument_list|,
+operator|--
+name|exclude_args
 argument_list|)
 expr_stmt|;
 return|return
@@ -2863,6 +2873,8 @@ operator|&
 name|dir
 argument_list|,
 name|EXC_CMDL
+argument_list|,
+literal|"--exclude option"
 argument_list|)
 expr_stmt|;
 name|argc
