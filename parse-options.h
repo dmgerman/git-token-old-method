@@ -698,6 +698,29 @@ name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__GNUC__
+end_ifdef
+begin_define
+DECL|macro|opterror
+define|#
+directive|define
+name|opterror
+parameter_list|(
+name|o
+parameter_list|,
+name|r
+parameter_list|,
+name|f
+parameter_list|)
+value|(opterror((o),(r),(f)), -1)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*----- incremental advanced APIs -----*/
 end_comment
