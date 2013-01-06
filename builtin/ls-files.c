@@ -2285,9 +2285,9 @@ name|unset
 parameter_list|)
 block|{
 name|struct
-name|exclude_list
+name|exclude_list_group
 modifier|*
-name|list
+name|group
 init|=
 name|opt
 operator|->
@@ -2305,7 +2305,13 @@ literal|""
 argument_list|,
 literal|0
 argument_list|,
-name|list
+operator|&
+name|group
+operator|->
+name|el
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 return|return
@@ -2643,7 +2649,7 @@ block|,
 operator|&
 name|dir
 operator|.
-name|exclude_list
+name|exclude_list_group
 index|[
 name|EXC_CMDL
 index|]
@@ -2849,6 +2855,14 @@ condition|)
 name|die
 argument_list|(
 literal|"index file corrupt"
+argument_list|)
+expr_stmt|;
+name|add_exclude_list
+argument_list|(
+operator|&
+name|dir
+argument_list|,
+name|EXC_CMDL
 argument_list|)
 expr_stmt|;
 name|argc
