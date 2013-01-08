@@ -12939,6 +12939,12 @@ if|if
 condition|(
 name|opt
 operator|->
+name|grep_filter
+operator|.
+name|header_list
+operator|&&
+name|opt
+operator|->
 name|mailmap
 condition|)
 block|{
