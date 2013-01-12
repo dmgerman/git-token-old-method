@@ -263,10 +263,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|merge_file
+DECL|function|merge_one_path
 specifier|static
 name|void
-name|merge_file
+name|merge_one_path
 parameter_list|(
 specifier|const
 name|char
@@ -545,7 +545,7 @@ name|arg
 argument_list|)
 expr_stmt|;
 block|}
-name|merge_file
+name|merge_one_path
 argument_list|(
 name|arg
 argument_list|)
