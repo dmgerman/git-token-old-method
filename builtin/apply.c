@@ -10347,6 +10347,8 @@ name|int
 name|i
 decl_stmt|,
 name|ctx
+decl_stmt|,
+name|reduced
 decl_stmt|;
 name|char
 modifier|*
@@ -10377,10 +10379,20 @@ argument_list|)
 expr_stmt|;
 name|assert
 argument_list|(
+name|postlen
+condition|?
 name|fixed_preimage
 operator|.
 name|nr
 operator|==
+name|preimage
+operator|->
+name|nr
+else|:
+name|fixed_preimage
+operator|.
+name|nr
+operator|<=
 name|preimage
 operator|->
 name|nr
@@ -10394,8 +10406,8 @@ literal|0
 init|;
 name|i
 operator|<
-name|preimage
-operator|->
+name|fixed_preimage
+operator|.
 name|nr
 condition|;
 name|i
@@ -10467,6 +10479,8 @@ expr_stmt|;
 for|for
 control|(
 name|i
+operator|=
+name|reduced
 operator|=
 name|ctx
 operator|=
@@ -10575,6 +10589,7 @@ name|ctx
 operator|++
 expr_stmt|;
 block|}
+comment|/* 		 * preimage is expected to run out, if the caller 		 * fixed addition of trailing blank lines. 		 */
 if|if
 condition|(
 name|preimage
@@ -10583,14 +10598,12 @@ name|nr
 operator|<=
 name|ctx
 condition|)
-name|die
-argument_list|(
-name|_
-argument_list|(
-literal|"oops"
-argument_list|)
-argument_list|)
+block|{
+name|reduced
+operator|++
 expr_stmt|;
+continue|continue;
+block|}
 comment|/* and copy it in, while fixing the line length */
 name|len
 operator|=
@@ -10645,6 +10658,12 @@ operator|-
 name|postimage
 operator|->
 name|buf
+expr_stmt|;
+name|postimage
+operator|->
+name|nr
+operator|-=
+name|reduced
 expr_stmt|;
 block|}
 end_function
