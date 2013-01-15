@@ -53,26 +53,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_struct
-DECL|struct|store
-struct|struct
-name|store
-block|{
-comment|/* currently open mailbox */
-DECL|member|name
-specifier|const
-name|char
-modifier|*
-name|name
-decl_stmt|;
-comment|/* foreign! maybe preset? */
-DECL|member|uidvalidity
-name|int
-name|uidvalidity
-decl_stmt|;
-block|}
-struct|;
-end_struct
 begin_decl_stmt
 DECL|variable|imap_send_usage
 specifier|static
@@ -504,10 +484,17 @@ DECL|struct|imap_store
 struct|struct
 name|imap_store
 block|{
-DECL|member|gen
-name|struct
-name|store
-name|gen
+comment|/* currently open mailbox */
+DECL|member|name
+specifier|const
+name|char
+modifier|*
+name|name
+decl_stmt|;
+comment|/* foreign! maybe preset? */
+DECL|member|uidvalidity
+name|int
+name|uidvalidity
 decl_stmt|;
 DECL|member|imap
 name|struct
@@ -3160,8 +3147,6 @@ operator|!
 operator|(
 name|ctx
 operator|->
-name|gen
-operator|.
 name|uidvalidity
 operator|=
 name|atoi
@@ -3328,8 +3313,6 @@ operator|!
 operator|(
 name|ctx
 operator|->
-name|gen
-operator|.
 name|uidvalidity
 operator|=
 name|atoi
@@ -6458,8 +6441,6 @@ name|box
 operator|=
 name|ctx
 operator|->
-name|gen
-operator|.
 name|name
 expr_stmt|;
 name|prefix
@@ -7588,8 +7569,6 @@ argument_list|)
 expr_stmt|;
 name|ctx
 operator|->
-name|gen
-operator|.
 name|name
 operator|=
 name|imap_folder
