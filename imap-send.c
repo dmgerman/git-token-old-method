@@ -525,13 +525,6 @@ name|char
 modifier|*
 name|prefix
 decl_stmt|;
-DECL|member|trashnc
-name|unsigned
-comment|/*currentnc:1,*/
-name|trashnc
-range|:
-literal|1
-decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -6128,12 +6121,6 @@ operator|->
 name|prefix
 operator|=
 literal|""
-expr_stmt|;
-name|ctx
-operator|->
-name|trashnc
-operator|=
-literal|1
 expr_stmt|;
 return|return
 operator|(
