@@ -642,9 +642,6 @@ name|int
 name|flags
 parameter_list|)
 block|{
-name|int
-name|result
-decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -674,8 +671,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|result
-operator|=
 name|refresh_index
 argument_list|(
 operator|&
@@ -694,10 +689,6 @@ argument_list|(
 literal|"Unstaged changes after reset:"
 argument_list|)
 argument_list|)
-condition|?
-literal|1
-else|:
-literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -722,7 +713,7 @@ literal|"Could not refresh index"
 argument_list|)
 return|;
 return|return
-name|result
+literal|0
 return|;
 block|}
 end_function
