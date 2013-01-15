@@ -1828,7 +1828,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|pathspec
+name|reset_type
+operator|==
+name|MIXED
 condition|)
 block|{
 if|if
