@@ -258,7 +258,7 @@ argument_list|(
 operator|&
 name|sb
 argument_list|,
-literal|'#'
+name|comment_line_char
 argument_list|)
 expr_stmt|;
 if|if
@@ -352,7 +352,7 @@ argument_list|(
 operator|&
 name|linebuf
 argument_list|,
-literal|'#'
+name|comment_line_char
 argument_list|)
 expr_stmt|;
 if|if
@@ -4554,7 +4554,9 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"# %.*s"
+literal|"%c %.*s"
+argument_list|,
+name|comment_line_char
 argument_list|,
 call|(
 name|int
@@ -4581,7 +4583,9 @@ argument_list|,
 name|s
 argument_list|)
 argument_list|,
-literal|"#"
+literal|"%c"
+argument_list|,
+name|comment_line_char
 argument_list|)
 expr_stmt|;
 block|}
