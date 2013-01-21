@@ -472,6 +472,12 @@ name|char
 modifier|*
 name|output_encoding
 decl_stmt|;
+DECL|member|mailmap
+name|struct
+name|string_list
+modifier|*
+name|mailmap
+decl_stmt|;
 DECL|member|color
 name|int
 name|color
