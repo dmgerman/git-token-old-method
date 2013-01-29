@@ -3359,7 +3359,7 @@ argument_list|,
 literal|':'
 argument_list|)
 expr_stmt|;
-comment|/* 		 * Before going on, special case ":" (or "+:") as a refspec 		 * for matching refs. 		 */
+comment|/* 		 * Before going on, special case ":" (or "+:") as a refspec 		 * for pushing matching refs. 		 */
 if|if
 condition|(
 operator|!
@@ -3543,7 +3543,7 @@ condition|(
 name|fetch
 condition|)
 block|{
-comment|/* 			 * LHS 			 * - empty is allowed; it means HEAD. 			 * - otherwise it must be a valid looking ref. 			 */
+comment|/* LHS */
 if|if
 condition|(
 operator|!
@@ -3556,10 +3556,11 @@ operator|.
 name|src
 condition|)
 empty_stmt|;
-comment|/* empty is ok */
+comment|/* empty is ok; it means "HEAD" */
 elseif|else
 if|if
 condition|(
+operator|!
 name|check_refname_format
 argument_list|(
 name|rs
@@ -3572,10 +3573,13 @@ argument_list|,
 name|flags
 argument_list|)
 condition|)
+empty_stmt|;
+comment|/* valid looking ref is ok */
+else|else
 goto|goto
 name|invalid
 goto|;
-comment|/* 			 * RHS 			 * - missing is ok, and is same as empty. 			 * - empty is ok; it means not to store. 			 * - otherwise it must be a valid looking ref. 			 */
+comment|/* RHS */
 if|if
 condition|(
 operator|!
@@ -3587,7 +3591,7 @@ operator|.
 name|dst
 condition|)
 empty_stmt|;
-comment|/* ok */
+comment|/* missing is ok; it is the same as empty */
 elseif|else
 if|if
 condition|(
@@ -3601,10 +3605,11 @@ operator|.
 name|dst
 condition|)
 empty_stmt|;
-comment|/* ok */
+comment|/* empty is ok; it means "do not store" */
 elseif|else
 if|if
 condition|(
+operator|!
 name|check_refname_format
 argument_list|(
 name|rs
@@ -3617,6 +3622,9 @@ argument_list|,
 name|flags
 argument_list|)
 condition|)
+empty_stmt|;
+comment|/* valid looking ref is ok */
+else|else
 goto|goto
 name|invalid
 goto|;
