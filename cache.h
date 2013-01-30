@@ -3301,6 +3301,12 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
+name|check_stat
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
 name|quote_path_fully
 decl_stmt|;
 end_decl_stmt
