@@ -569,7 +569,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"could not create temporary file '%s': %s"
+argument_list|)
 argument_list|,
 name|path
 argument_list|,
@@ -595,7 +598,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"failed writing detached signature to '%s': %s"
+argument_list|)
 argument_list|,
 name|path
 argument_list|,
@@ -671,7 +677,10 @@ expr_stmt|;
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"could not run gpg."
+argument_list|)
 argument_list|)
 return|;
 block|}
