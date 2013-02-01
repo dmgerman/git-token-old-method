@@ -5422,6 +5422,21 @@ name|result
 init|=
 literal|0
 decl_stmt|;
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|argv_gc_auto
+index|[]
+init|=
+block|{
+literal|"gc"
+block|,
+literal|"--auto"
+block|,
+name|NULL
+block|, 	}
+decl_stmt|;
 name|packet_trace_identity
 argument_list|(
 literal|"fetch"
@@ -5852,6 +5867,13 @@ operator|&
 name|list
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|run_command_v_opt
+argument_list|(
+name|argv_gc_auto
+argument_list|,
+name|RUN_GIT_CMD
 argument_list|)
 expr_stmt|;
 return|return
