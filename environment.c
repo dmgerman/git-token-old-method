@@ -441,6 +441,17 @@ name|pack_size_limit_cfg
 decl_stmt|;
 end_decl_stmt
 begin_comment
+comment|/*  * The character that begins a commented line in user-editable file  * that is subject to stripspace.  */
+end_comment
+begin_decl_stmt
+DECL|variable|comment_line_char
+name|char
+name|comment_line_char
+init|=
+literal|'#'
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|/* Parallel index stat data preload? */
 end_comment
 begin_decl_stmt
