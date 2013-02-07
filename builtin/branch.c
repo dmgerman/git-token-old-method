@@ -2471,7 +2471,10 @@ name|char
 modifier|*
 name|sub
 init|=
+name|_
+argument_list|(
 literal|" **** invalid ref ****"
+argument_list|)
 decl_stmt|;
 name|struct
 name|commit
@@ -3224,7 +3227,10 @@ name|filter
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"object '%s' does not point to a commit"
+argument_list|)
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -4754,6 +4760,18 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
+name|with_commit
+operator|||
+name|merge_filter
+operator|!=
+name|NO_FILTER
+condition|)
+name|list
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
 operator|!
 operator|!
 name|delete
@@ -4836,6 +4854,20 @@ if|if
 condition|(
 name|delete
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|argc
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"branch name required"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|delete_branches
 argument_list|(
@@ -4852,6 +4884,7 @@ argument_list|,
 name|quiet
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -4927,7 +4960,10 @@ name|detached
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot give description to detached HEAD"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|branch_name
@@ -4950,11 +4986,12 @@ literal|0
 index|]
 expr_stmt|;
 else|else
-name|usage_with_options
+name|die
 argument_list|(
-name|builtin_branch_usage
-argument_list|,
-name|options
+name|_
+argument_list|(
+literal|"cannot edit description of more than one branch"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -4992,7 +5029,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"No commit on branch '%s' yet."
+argument_list|)
 argument_list|,
 name|branch_name
 argument_list|)
@@ -5001,7 +5041,10 @@ else|else
 return|return
 name|error
 argument_list|(
-literal|"No such branch '%s'."
+name|_
+argument_list|(
+literal|"No branch named '%s'."
+argument_list|)
 argument_list|,
 name|branch_name
 argument_list|)
@@ -5075,11 +5118,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 else|else
-name|usage_with_options
+name|die
 argument_list|(
-name|builtin_branch_usage
-argument_list|,
-name|options
+name|_
+argument_list|(
+literal|"too many branches for a rename operation"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
