@@ -12221,6 +12221,7 @@ name|mmfile_t
 modifier|*
 name|two
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|prefix
@@ -12556,6 +12557,7 @@ name|mmfile_t
 modifier|*
 name|two
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|prefix
