@@ -5781,6 +5781,23 @@ operator|=
 name|ch
 expr_stmt|;
 block|}
+comment|/* require at least one blank line */
+if|if
+condition|(
+name|prev
+operator|!=
+literal|'\n'
+operator|||
+name|buf
+index|[
+name|i
+index|]
+operator|!=
+literal|'\n'
+condition|)
+return|return
+literal|0
+return|;
 comment|/* advance to start of last paragraph */
 while|while
 condition|(
@@ -5984,9 +6001,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|i
-operator|||
 operator|!
 name|has_conforming_footer
 argument_list|(
