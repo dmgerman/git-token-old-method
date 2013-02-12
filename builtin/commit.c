@@ -135,7 +135,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git commit [options] [--]<filepattern>..."
+literal|"git commit [options] [--]<pathspec>..."
 argument_list|)
 block|,
 name|NULL
@@ -155,7 +155,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git status [options] [--]<filepattern>..."
+literal|"git status [options] [--]<pathspec>..."
 argument_list|)
 block|,
 name|NULL
