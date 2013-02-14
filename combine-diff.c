@@ -2789,6 +2789,11 @@ name|sline
 modifier|*
 name|sline
 parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|line_prefix
+parameter_list|,
 name|unsigned
 name|long
 name|cnt
@@ -3086,11 +3091,13 @@ operator|-=
 name|null_context
 expr_stmt|;
 block|}
-name|fputs
+name|printf
 argument_list|(
-name|c_frag
+literal|"%s%s"
 argument_list|,
-name|stdout
+name|line_prefix
+argument_list|,
+name|c_frag
 argument_list|)
 expr_stmt|;
 for|for
@@ -3321,11 +3328,13 @@ condition|(
 name|ll
 condition|)
 block|{
-name|fputs
+name|printf
 argument_list|(
-name|c_old
+literal|"%s%s"
 argument_list|,
-name|stdout
+name|line_prefix
+argument_list|,
+name|c_old
 argument_list|)
 expr_stmt|;
 for|for
@@ -3395,6 +3404,13 @@ break|break;
 name|p_mask
 operator|=
 literal|1
+expr_stmt|;
+name|fputs
+argument_list|(
+name|line_prefix
+argument_list|,
+name|stdout
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3659,6 +3675,11 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
+name|line_prefix
+parameter_list|,
+specifier|const
+name|char
+modifier|*
 name|c_meta
 parameter_list|,
 specifier|const
@@ -3678,6 +3699,14 @@ name|strbuf_reset
 argument_list|(
 operator|&
 name|buf
+argument_list|)
+expr_stmt|;
+name|strbuf_addstr
+argument_list|(
+operator|&
+name|buf
+argument_list|,
+name|line_prefix
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
@@ -3746,6 +3775,11 @@ name|struct
 name|rev_info
 modifier|*
 name|rev
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|line_prefix
 parameter_list|,
 name|int
 name|mode_differs
@@ -3880,6 +3914,8 @@ name|elem
 operator|->
 name|path
 argument_list|,
+name|line_prefix
+argument_list|,
 name|c_meta
 argument_list|,
 name|c_reset
@@ -3887,7 +3923,9 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"%sindex "
+literal|"%s%sindex "
+argument_list|,
+name|line_prefix
 argument_list|,
 name|c_meta
 argument_list|)
@@ -4012,7 +4050,9 @@ name|added
 condition|)
 name|printf
 argument_list|(
-literal|"%snew file mode %06o"
+literal|"%s%snew file mode %06o"
+argument_list|,
+name|line_prefix
 argument_list|,
 name|c_meta
 argument_list|,
@@ -4029,7 +4069,9 @@ name|deleted
 condition|)
 name|printf
 argument_list|(
-literal|"%sdeleted file "
+literal|"%s%sdeleted file "
+argument_list|,
+name|line_prefix
 argument_list|,
 name|c_meta
 argument_list|)
@@ -4116,6 +4158,8 @@ literal|""
 argument_list|,
 literal|"/dev/null"
 argument_list|,
+name|line_prefix
+argument_list|,
 name|c_meta
 argument_list|,
 name|c_reset
@@ -4131,6 +4175,8 @@ argument_list|,
 name|elem
 operator|->
 name|path
+argument_list|,
+name|line_prefix
 argument_list|,
 name|c_meta
 argument_list|,
@@ -4149,6 +4195,8 @@ literal|""
 argument_list|,
 literal|"/dev/null"
 argument_list|,
+name|line_prefix
+argument_list|,
 name|c_meta
 argument_list|,
 name|c_reset
@@ -4164,6 +4212,8 @@ argument_list|,
 name|elem
 operator|->
 name|path
+argument_list|,
+name|line_prefix
 argument_list|,
 name|c_meta
 argument_list|,
@@ -4261,6 +4311,16 @@ name|NULL
 decl_stmt|;
 name|int
 name|is_binary
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|line_prefix
+init|=
+name|diff_line_prefix
+argument_list|(
+name|opt
+argument_list|)
 decl_stmt|;
 name|context
 operator|=
@@ -4980,6 +5040,8 @@ name|dense
 argument_list|,
 name|rev
 argument_list|,
+name|line_prefix
+argument_list|,
 name|mode_differs
 argument_list|,
 literal|0
@@ -5430,6 +5492,8 @@ name|dense
 argument_list|,
 name|rev
 argument_list|,
+name|line_prefix
+argument_list|,
 name|mode_differs
 argument_list|,
 literal|1
@@ -5438,6 +5502,8 @@ expr_stmt|;
 name|dump_sline
 argument_list|(
 name|sline
+argument_list|,
+name|line_prefix
 argument_list|,
 name|cnt
 argument_list|,
@@ -5572,6 +5638,16 @@ name|inter_name_termination
 decl_stmt|,
 name|i
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|line_prefix
+init|=
+name|diff_line_prefix
+argument_list|(
+name|opt
+argument_list|)
+decl_stmt|;
 name|line_termination
 operator|=
 name|opt
@@ -5616,6 +5692,13 @@ operator|&
 name|DIFF_FORMAT_RAW
 condition|)
 block|{
+name|printf
+argument_list|(
+literal|"%s"
+argument_list|,
+name|line_prefix
+argument_list|)
+expr_stmt|;
 comment|/* As many colons as there are parents */
 for|for
 control|(
@@ -6506,8 +6589,15 @@ name|opt
 operator|->
 name|output_format
 condition|)
-name|putchar
+name|printf
 argument_list|(
+literal|"%s%c"
+argument_list|,
+name|diff_line_prefix
+argument_list|(
+name|opt
+argument_list|)
+argument_list|,
 name|opt
 operator|->
 name|line_termination
@@ -6657,8 +6747,15 @@ if|if
 condition|(
 name|needsep
 condition|)
-name|putchar
+name|printf
 argument_list|(
+literal|"%s%c"
+argument_list|,
+name|diff_line_prefix
+argument_list|(
+name|opt
+argument_list|)
+argument_list|,
 name|opt
 operator|->
 name|line_termination
