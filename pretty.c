@@ -4839,6 +4839,8 @@ name|len
 argument_list|,
 operator|&
 name|gpg_output
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

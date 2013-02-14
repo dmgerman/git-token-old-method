@@ -129,6 +129,8 @@ operator|-
 name|len
 argument_list|,
 name|NULL
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 block|}
