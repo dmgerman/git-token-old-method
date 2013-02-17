@@ -12856,6 +12856,15 @@ block|{
 name|int
 name|retval
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|encoding
+decl_stmt|;
+name|char
+modifier|*
+name|message
+decl_stmt|;
 name|struct
 name|strbuf
 name|buf
@@ -12918,6 +12927,21 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* 	 * We grep in the user's output encoding, under the assumption that it 	 * is the encoding they are most likely to write their grep pattern 	 * for. In addition, it means we will match the "notes" encoding below, 	 * so we will not end up with a buffer that has two different encodings 	 * in it. 	 */
+name|encoding
+operator|=
+name|get_log_output_encoding
+argument_list|()
+expr_stmt|;
+name|message
+operator|=
+name|logmsg_reencode
+argument_list|(
+name|commit
+argument_list|,
+name|encoding
+argument_list|)
+expr_stmt|;
 comment|/* Copy the commit to temporary if we are using "fake" headers */
 if|if
 condition|(
@@ -12930,9 +12954,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-name|commit
-operator|->
-name|buffer
+name|message
 argument_list|)
 expr_stmt|;
 if|if
@@ -12960,9 +12982,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-name|commit
-operator|->
-name|buffer
+name|message
 argument_list|)
 expr_stmt|;
 name|commit_rewrite_person
@@ -13010,9 +13030,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-name|commit
-operator|->
-name|buffer
+name|message
 argument_list|)
 expr_stmt|;
 name|format_display_notes
@@ -13026,14 +13044,13 @@ argument_list|,
 operator|&
 name|buf
 argument_list|,
-name|get_log_output_encoding
-argument_list|()
+name|encoding
 argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* Find either in the commit object, or in the temporary */
+comment|/* Find either in the original commit message, or in the temporary */
 if|if
 condition|(
 name|buf
@@ -13068,15 +13085,11 @@ name|opt
 operator|->
 name|grep_filter
 argument_list|,
-name|commit
-operator|->
-name|buffer
+name|message
 argument_list|,
 name|strlen
 argument_list|(
-name|commit
-operator|->
-name|buffer
+name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13084,6 +13097,13 @@ name|strbuf_release
 argument_list|(
 operator|&
 name|buf
+argument_list|)
+expr_stmt|;
+name|logmsg_free
+argument_list|(
+name|message
+argument_list|,
+name|commit
 argument_list|)
 expr_stmt|;
 return|return
