@@ -376,8 +376,7 @@ return|return
 name|sz
 return|;
 block|}
-return|return
-name|safe_write
+name|write_or_die
 argument_list|(
 name|fd
 argument_list|,
@@ -385,6 +384,9 @@ name|data
 argument_list|,
 name|sz
 argument_list|)
+expr_stmt|;
+return|return
+name|sz
 return|;
 block|}
 end_function

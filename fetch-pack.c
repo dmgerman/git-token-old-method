@@ -1291,7 +1291,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|safe_write
+name|write_or_die
 argument_list|(
 name|fd
 argument_list|,

@@ -4946,7 +4946,7 @@ name|use_sideband
 argument_list|)
 expr_stmt|;
 else|else
-name|safe_write
+name|write_or_die
 argument_list|(
 literal|1
 argument_list|,
