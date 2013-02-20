@@ -574,17 +574,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|len
-operator|<
-literal|10
-operator|||
-name|memcmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"unpack "
-argument_list|,
-literal|7
 argument_list|)
 condition|)
 return|return
@@ -595,13 +589,11 @@ argument_list|)
 return|;
 if|if
 condition|(
-name|memcmp
+name|strcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"unpack ok\n"
-argument_list|,
-literal|10
 argument_list|)
 condition|)
 block|{
@@ -684,36 +676,24 @@ condition|)
 break|break;
 if|if
 condition|(
-name|len
-operator|<
-literal|3
-operator|||
-operator|(
-name|memcmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"ok "
-argument_list|,
-literal|3
 argument_list|)
 operator|&&
-name|memcmp
+name|prefixcmp
 argument_list|(
 name|line
 argument_list|,
 literal|"ng "
-argument_list|,
-literal|3
 argument_list|)
-operator|)
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"protocol error: %s\n"
+literal|"invalid ref status from remote: %s"
 argument_list|,
 name|line
 argument_list|)
