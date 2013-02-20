@@ -1176,6 +1176,15 @@ condition|)
 block|{
 if|if
 condition|(
+name|len
+operator|<
+literal|45
+condition|)
+return|return
+name|ACK
+return|;
+if|if
+condition|(
 name|strstr
 argument_list|(
 name|line
