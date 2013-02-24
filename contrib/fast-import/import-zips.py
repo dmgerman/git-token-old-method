@@ -82,9 +82,9 @@ op|'<'
 number|'2'
 op|':'
 newline|'\n'
-indent|'\t'
+indent|'        '
 name|'print'
-string|"'Usage:'"
+string|"'usage:'"
 op|','
 name|'argv'
 op|'['
