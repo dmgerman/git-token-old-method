@@ -712,6 +712,11 @@ parameter_list|,
 name|struct
 name|strbuf
 modifier|*
+name|content_type
+parameter_list|,
+name|struct
+name|strbuf
+modifier|*
 name|result
 parameter_list|,
 name|int
