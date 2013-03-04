@@ -7038,13 +7038,6 @@ name|char
 modifier|*
 name|dst_name
 decl_stmt|;
-if|if
-condition|(
-name|ref
-operator|->
-name|peer_ref
-condition|)
-continue|continue;
 name|dst_name
 operator|=
 name|get_ref_match
