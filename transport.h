@@ -346,6 +346,13 @@ name|TRANSPORT_RECURSE_SUBMODULES_ON_DEMAND
 value|256
 end_define
 begin_define
+DECL|macro|TRANSPORT_PUSH_FOLLOW_TAGS
+define|#
+directive|define
+name|TRANSPORT_PUSH_FOLLOW_TAGS
+value|1024
+end_define
+begin_define
 DECL|macro|TRANSPORT_SUMMARY_WIDTH
 define|#
 directive|define
