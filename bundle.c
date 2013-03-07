@@ -1140,6 +1140,13 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|r
+operator|=
+operator|&
+name|header
+operator|->
+name|prerequisites
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1159,13 +1166,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|r
-operator|=
-operator|&
-name|header
-operator|->
-name|prerequisites
-expr_stmt|;
 name|printf_ln
 argument_list|(
 name|Q_
