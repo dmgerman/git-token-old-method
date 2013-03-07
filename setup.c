@@ -818,15 +818,8 @@ index|[
 name|len
 index|]
 operator|==
-literal|')'
+literal|','
 condition|)
-name|nextat
-operator|=
-name|copyfrom
-operator|+
-name|len
-expr_stmt|;
-else|else
 name|nextat
 operator|=
 name|copyfrom
@@ -834,6 +827,14 @@ operator|+
 name|len
 operator|+
 literal|1
+expr_stmt|;
+else|else
+comment|/* handle ')' and '\0' */
+name|nextat
+operator|=
+name|copyfrom
+operator|+
+name|len
 expr_stmt|;
 if|if
 condition|(
