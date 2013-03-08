@@ -503,7 +503,7 @@ name|git_graft_file
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*  * Repository-local GIT_* environment variables  * Remember to update local_repo_env_size in cache.h when  * the size of the list changes  */
+comment|/*  * Repository-local GIT_* environment variables; see cache.h for details.  */
 end_comment
 begin_decl_stmt
 DECL|variable|local_repo_env
@@ -512,11 +512,7 @@ name|char
 modifier|*
 specifier|const
 name|local_repo_env
-index|[
-name|LOCAL_REPO_ENV_SIZE
-operator|+
-literal|1
-index|]
+index|[]
 init|=
 block|{
 name|ALTERNATE_DB_ENVIRONMENT
