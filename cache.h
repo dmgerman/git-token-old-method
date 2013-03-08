@@ -1648,6 +1648,13 @@ name|GIT_WORK_TREE_ENVIRONMENT
 value|"GIT_WORK_TREE"
 end_define
 begin_define
+DECL|macro|GIT_PREFIX_ENVIRONMENT
+define|#
+directive|define
+name|GIT_PREFIX_ENVIRONMENT
+value|"GIT_PREFIX"
+end_define
+begin_define
 DECL|macro|DEFAULT_GIT_DIR_ENVIRONMENT
 define|#
 directive|define
