@@ -1472,20 +1472,12 @@ DECL|variable|refresh_only
 specifier|static
 name|int
 name|verbose
-init|=
-literal|0
 decl_stmt|,
 name|show_only
-init|=
-literal|0
 decl_stmt|,
 name|ignored_too
-init|=
-literal|0
 decl_stmt|,
 name|refresh_only
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1502,8 +1494,6 @@ decl_stmt|,
 name|intent_to_add
 decl_stmt|,
 name|ignore_missing
-init|=
-literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1542,7 +1532,7 @@ argument_list|(
 literal|""
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'i'
 argument_list|,
@@ -1557,7 +1547,7 @@ literal|"interactive picking"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'p'
 argument_list|,
@@ -1572,7 +1562,7 @@ literal|"select hunks interactively"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'e'
 argument_list|,
@@ -1598,7 +1588,7 @@ literal|"allow adding otherwise ignored files"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'u'
 argument_list|,
@@ -1613,7 +1603,7 @@ literal|"update tracked files"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'N'
 argument_list|,
@@ -1628,7 +1618,7 @@ literal|"record only the fact that the path will be added later"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'A'
 argument_list|,
@@ -1643,7 +1633,7 @@ literal|"add changes from all tracked and untracked files"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -1658,7 +1648,7 @@ literal|"don't add, only refresh the index"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -1673,7 +1663,7 @@ literal|"just skip files which cannot be added because of errors"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
