@@ -3398,7 +3398,7 @@ literal|1
 expr_stmt|;
 name|o
 operator|=
-name|lookup_object
+name|parse_object
 argument_list|(
 name|sha1_buf
 argument_list|)
@@ -3407,14 +3407,6 @@ if|if
 condition|(
 operator|!
 name|o
-operator|||
-operator|!
-name|parse_object
-argument_list|(
-name|o
-operator|->
-name|sha1
-argument_list|)
 condition|)
 name|die
 argument_list|(
