@@ -5921,6 +5921,9 @@ specifier|const
 name|char
 modifier|*
 name|object_name
+parameter_list|,
+name|int
+name|object_name_len
 parameter_list|)
 block|{
 name|struct
@@ -5959,9 +5962,11 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"Path '%s' exists on disk, but not in '%s'."
+literal|"Path '%s' exists on disk, but not in '%.*s'."
 argument_list|,
 name|filename
+argument_list|,
+name|object_name_len
 argument_list|,
 name|object_name
 argument_list|)
@@ -6029,15 +6034,19 @@ block|{
 name|die
 argument_list|(
 literal|"Path '%s' exists, but not '%s'.\n"
-literal|"Did you mean '%s:%s' aka '%s:./%s'?"
+literal|"Did you mean '%.*s:%s' aka '%.*s:./%s'?"
 argument_list|,
 name|fullname
 argument_list|,
 name|filename
 argument_list|,
+name|object_name_len
+argument_list|,
 name|object_name
 argument_list|,
 name|fullname
+argument_list|,
+name|object_name_len
 argument_list|,
 name|object_name
 argument_list|,
@@ -6047,9 +6056,11 @@ expr_stmt|;
 block|}
 name|die
 argument_list|(
-literal|"Path '%s' does not exist in '%s'"
+literal|"Path '%s' does not exist in '%.*s'"
 argument_list|,
 name|filename
+argument_list|,
+name|object_name_len
 argument_list|,
 name|object_name
 argument_list|)
@@ -6927,49 +6938,13 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|char
-modifier|*
-name|object_name
+name|int
+name|len
 init|=
-name|NULL
+name|cp
+operator|-
+name|name
 decl_stmt|;
-if|if
-condition|(
-name|only_to_die
-condition|)
-block|{
-name|object_name
-operator|=
-name|xmalloc
-argument_list|(
-name|cp
-operator|-
-name|name
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-name|strncpy
-argument_list|(
-name|object_name
-argument_list|,
-name|name
-argument_list|,
-name|cp
-operator|-
-name|name
-argument_list|)
-expr_stmt|;
-name|object_name
-index|[
-name|cp
-operator|-
-name|name
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -6977,9 +6952,7 @@ name|get_sha1_1
 argument_list|(
 name|name
 argument_list|,
-name|cp
-operator|-
-name|name
+name|len
 argument_list|,
 name|tree_sha1
 argument_list|,
@@ -7048,12 +7021,9 @@ name|filename
 argument_list|,
 name|tree_sha1
 argument_list|,
-name|object_name
-argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
-name|object_name
+name|name
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 block|}
@@ -7115,9 +7085,11 @@ name|only_to_die
 condition|)
 name|die
 argument_list|(
-literal|"Invalid object name '%s'."
+literal|"Invalid object name '%.*s'."
 argument_list|,
-name|object_name
+name|len
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
