@@ -663,7 +663,7 @@ name|cbdata
 operator|.
 name|refs_file
 argument_list|,
-literal|"# pack-refs with: peeled \n"
+literal|"# pack-refs with: peeled fully-peeled \n"
 argument_list|)
 expr_stmt|;
 name|for_each_ref
