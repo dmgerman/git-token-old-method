@@ -135,7 +135,7 @@ argument_list|,
 operator|(
 name|off_t
 operator|)
-name|strtoull
+name|strtoumax
 argument_list|(
 name|argv
 index|[
