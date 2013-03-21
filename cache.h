@@ -6637,6 +6637,11 @@ DECL|member|deletion
 name|deletion
 range|:
 literal|1
+decl_stmt|,
+DECL|member|matched
+name|matched
+range|:
+literal|1
 decl_stmt|;
 enum|enum
 block|{

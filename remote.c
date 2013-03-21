@@ -76,6 +76,8 @@ literal|1
 block|,
 literal|0
 block|,
+literal|0
+block|,
 literal|"refs/tags/*"
 block|,
 literal|"refs/tags/*"
@@ -3359,7 +3361,7 @@ argument_list|,
 literal|':'
 argument_list|)
 expr_stmt|;
-comment|/* 		 * Before going on, special case ":" (or "+:") as a refspec 		 * for matching refs. 		 */
+comment|/* 		 * Before going on, special case ":" (or "+:") as a refspec 		 * for pushing matching refs. 		 */
 if|if
 condition|(
 operator|!
@@ -3543,7 +3545,14 @@ condition|(
 name|fetch
 condition|)
 block|{
-comment|/* 			 * LHS 			 * - empty is allowed; it means HEAD. 			 * - otherwise it must be a valid looking ref. 			 */
+name|unsigned
+name|char
+name|unused
+index|[
+literal|40
+index|]
+decl_stmt|;
+comment|/* LHS */
 if|if
 condition|(
 operator|!
@@ -3556,10 +3565,41 @@ operator|.
 name|src
 condition|)
 empty_stmt|;
-comment|/* empty is ok */
+comment|/* empty is ok; it means "HEAD" */
 elseif|else
 if|if
 condition|(
+name|llen
+operator|==
+literal|40
+operator|&&
+operator|!
+name|get_sha1_hex
+argument_list|(
+name|rs
+index|[
+name|i
+index|]
+operator|.
+name|src
+argument_list|,
+name|unused
+argument_list|)
+condition|)
+name|rs
+index|[
+name|i
+index|]
+operator|.
+name|exact_sha1
+operator|=
+literal|1
+expr_stmt|;
+comment|/* ok */
+elseif|else
+if|if
+condition|(
+operator|!
 name|check_refname_format
 argument_list|(
 name|rs
@@ -3572,10 +3612,13 @@ argument_list|,
 name|flags
 argument_list|)
 condition|)
+empty_stmt|;
+comment|/* valid looking ref is ok */
+else|else
 goto|goto
 name|invalid
 goto|;
-comment|/* 			 * RHS 			 * - missing is ok, and is same as empty. 			 * - empty is ok; it means not to store. 			 * - otherwise it must be a valid looking ref. 			 */
+comment|/* RHS */
 if|if
 condition|(
 operator|!
@@ -3587,7 +3630,7 @@ operator|.
 name|dst
 condition|)
 empty_stmt|;
-comment|/* ok */
+comment|/* missing is ok; it is the same as empty */
 elseif|else
 if|if
 condition|(
@@ -3601,10 +3644,11 @@ operator|.
 name|dst
 condition|)
 empty_stmt|;
-comment|/* ok */
+comment|/* empty is ok; it means "do not store" */
 elseif|else
 if|if
 condition|(
+operator|!
 name|check_refname_format
 argument_list|(
 name|rs
@@ -3617,6 +3661,9 @@ argument_list|,
 name|flags
 argument_list|)
 condition|)
+empty_stmt|;
+comment|/* valid looking ref is ok */
+else|else
 goto|goto
 name|invalid
 goto|;
@@ -8269,6 +8316,32 @@ name|src
 else|:
 literal|"HEAD"
 decl_stmt|;
+if|if
+condition|(
+name|refspec
+operator|->
+name|exact_sha1
+condition|)
+block|{
+name|ref_map
+operator|=
+name|alloc_ref
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|get_sha1_hex
+argument_list|(
+name|name
+argument_list|,
+name|ref_map
+operator|->
+name|old_sha1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ref_map
 operator|=
 name|get_remote_ref
@@ -8278,6 +8351,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
