@@ -3323,6 +3323,8 @@ operator|->
 name|size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|unpack_trees
 argument_list|(
 literal|1
@@ -3332,6 +3334,16 @@ name|t
 argument_list|,
 operator|&
 name|opts
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"unable to checkout working tree"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
