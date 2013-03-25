@@ -755,6 +755,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|setenv
+argument_list|(
+name|GIT_IMPLICIT_WORK_TREE_ENVIRONMENT
+argument_list|,
+literal|"0"
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|envchanged
