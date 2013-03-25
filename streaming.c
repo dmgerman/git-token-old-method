@@ -2502,6 +2502,15 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|readlen
+operator|<
+literal|0
+condition|)
+goto|goto
+name|close_and_exit
+goto|;
+if|if
+condition|(
 operator|!
 name|readlen
 condition|)
