@@ -3379,6 +3379,12 @@ if|if
 condition|(
 name|force
 operator|&&
+operator|!
+name|is_null_sha1
+argument_list|(
+name|prev
+argument_list|)
+operator|&&
 name|hashcmp
 argument_list|(
 name|prev
