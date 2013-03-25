@@ -1466,9 +1466,15 @@ name|status
 operator|!=
 name|Z_OK
 operator|&&
+operator|(
 name|status
 operator|!=
 name|Z_BUF_ERROR
+operator|||
+name|total_read
+operator|<
+name|sz
+operator|)
 condition|)
 block|{
 name|git_inflate_end
