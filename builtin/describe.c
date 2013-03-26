@@ -2358,7 +2358,7 @@ name|all
 argument_list|,
 name|N_
 argument_list|(
-literal|"use any ref in .git/refs"
+literal|"use any ref"
 argument_list|)
 argument_list|)
 block|,
@@ -2373,7 +2373,7 @@ name|tags
 argument_list|,
 name|N_
 argument_list|(
-literal|"use any tag in .git/refs/tags"
+literal|"use any tag, even unannotated"
 argument_list|)
 argument_list|)
 block|,
