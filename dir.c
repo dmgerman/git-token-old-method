@@ -2966,6 +2966,9 @@ block|{
 name|pattern
 operator|++
 expr_stmt|;
+name|patternlen
+operator|--
+expr_stmt|;
 name|prefix
 operator|--
 expr_stmt|;
