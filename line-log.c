@@ -72,6 +72,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"userdiff.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"line-log.h"
 end_include
 begin_function
@@ -3125,6 +3130,10 @@ name|begin
 argument_list|,
 operator|&
 name|end
+argument_list|,
+name|spec
+operator|->
+name|path
 argument_list|)
 condition|)
 name|die
