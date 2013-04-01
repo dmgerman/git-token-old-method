@@ -902,6 +902,8 @@ decl_stmt|;
 name|void
 modifier|*
 name|contents
+init|=
+name|NULL
 decl_stmt|;
 if|if
 condition|(
