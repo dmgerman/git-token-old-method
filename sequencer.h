@@ -38,6 +38,13 @@ directive|define
 name|SEQ_OPTS_FILE
 value|"sequencer/opts"
 end_define
+begin_define
+DECL|macro|APPEND_SIGNOFF_DEDUP
+define|#
+directive|define
+name|APPEND_SIGNOFF_DEDUP
+value|(1u<< 0)
+end_define
 begin_enum
 DECL|enum|replay_action
 enum|enum
@@ -187,6 +194,9 @@ name|msgbuf
 parameter_list|,
 name|int
 name|ignore_footer
+parameter_list|,
+name|unsigned
+name|flag
 parameter_list|)
 function_decl|;
 end_function_decl
