@@ -34,6 +34,11 @@ include|#
 directive|include
 file|"version.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pkt-line.h"
+end_include
 begin_decl_stmt
 DECL|variable|active_requests
 name|int
