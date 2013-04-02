@@ -998,7 +998,7 @@ index|[]
 init|=
 name|N_
 argument_list|(
-literal|"Cannot setup tracking information; starting point is not a branch."
+literal|"Cannot setup tracking information; starting point '%s' is not a branch."
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1012,7 +1012,7 @@ index|[]
 init|=
 name|N_
 argument_list|(
-literal|"Cannot setup tracking information; starting point does not exist"
+literal|"Cannot setup tracking information; starting point '%s' does not exist"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1176,6 +1176,8 @@ name|_
 argument_list|(
 name|upstream_missing
 argument_list|)
+argument_list|,
+name|start_name
 argument_list|)
 expr_stmt|;
 name|die
@@ -1218,6 +1220,8 @@ name|_
 argument_list|(
 name|upstream_not_branch
 argument_list|)
+argument_list|,
+name|start_name
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1252,6 +1256,8 @@ name|_
 argument_list|(
 name|upstream_not_branch
 argument_list|)
+argument_list|,
+name|start_name
 argument_list|)
 expr_stmt|;
 else|else
