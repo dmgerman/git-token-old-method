@@ -340,6 +340,14 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+DECL|member|revert_head_sha1
+name|unsigned
+name|char
+name|revert_head_sha1
+index|[
+literal|20
+index|]
+decl_stmt|;
 block|}
 struct|;
 end_struct
