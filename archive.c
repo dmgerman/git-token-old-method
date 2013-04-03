@@ -1462,6 +1462,10 @@ condition|)
 block|{
 if|if
 condition|(
+operator|*
+operator|*
+name|pathspec
+operator|&&
 operator|!
 name|path_exists
 argument_list|(
