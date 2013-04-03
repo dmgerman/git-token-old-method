@@ -653,6 +653,16 @@ name|CE_NEW_SKIP_WORKTREE
 value|(1<< 25)
 end_define
 begin_comment
+comment|/* used to temporarily mark paths matched by pathspecs */
+end_comment
+begin_define
+DECL|macro|CE_MATCHED
+define|#
+directive|define
+name|CE_MATCHED
+value|(1<< 26)
+end_define
+begin_comment
 comment|/*  * Extended on-disk flags  */
 end_comment
 begin_define
