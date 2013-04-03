@@ -3071,6 +3071,8 @@ name|len
 argument_list|,
 operator|&
 name|sig
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 block|{
