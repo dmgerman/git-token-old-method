@@ -1138,6 +1138,9 @@ break|break;
 case|case
 name|HTTP_MISSING_TARGET
 case|:
+if|if
+condition|(
+operator|!
 name|show_http_message
 argument_list|(
 operator|&
@@ -1145,6 +1148,13 @@ name|type
 argument_list|,
 operator|&
 name|buffer
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"repository '%s' not found"
+argument_list|,
+name|url
 argument_list|)
 expr_stmt|;
 name|die
