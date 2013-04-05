@@ -1186,8 +1186,6 @@ expr_stmt|;
 name|http_error
 argument_list|(
 name|url
-argument_list|,
-name|http_ret
 argument_list|)
 expr_stmt|;
 name|die

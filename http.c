@@ -4242,11 +4242,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|error
+name|snprintf
 argument_list|(
-literal|"Unable to start HTTP request for %s"
+name|curl_errorstr
 argument_list|,
-name|url
+sizeof|sizeof
+argument_list|(
+name|curl_errorstr
+argument_list|)
+argument_list|,
+literal|"failed to start HTTP request"
 argument_list|)
 expr_stmt|;
 name|ret
@@ -4582,25 +4587,15 @@ block|}
 end_function
 begin_function
 DECL|function|http_error
-name|int
+name|void
 name|http_error
 parameter_list|(
 specifier|const
 name|char
 modifier|*
 name|url
-parameter_list|,
-name|int
-name|ret
 parameter_list|)
 block|{
-comment|/* http_request has already handled HTTP_START_FAILED. */
-if|if
-condition|(
-name|ret
-operator|!=
-name|HTTP_START_FAILED
-condition|)
 name|error
 argument_list|(
 literal|"%s while accessing %s"
@@ -4610,9 +4605,6 @@ argument_list|,
 name|url
 argument_list|)
 expr_stmt|;
-return|return
-name|ret
-return|;
 block|}
 end_function
 begin_function
