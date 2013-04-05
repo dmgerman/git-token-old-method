@@ -20948,13 +20948,19 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+operator|(
+name|argcount
+operator|=
+name|parse_long_opt
 argument_list|(
-name|arg
+literal|"diff-algorithm"
 argument_list|,
-literal|"--diff-algorithm="
+name|av
+argument_list|,
+operator|&
+name|optarg
 argument_list|)
+operator|)
 condition|)
 block|{
 name|long
@@ -20962,9 +20968,7 @@ name|value
 init|=
 name|parse_algorithm_value
 argument_list|(
-name|arg
-operator|+
-literal|17
+name|optarg
 argument_list|)
 decl_stmt|;
 if|if
@@ -21001,6 +21005,9 @@ name|xdl_opts
 operator||=
 name|value
 expr_stmt|;
+return|return
+name|argcount
+return|;
 block|}
 comment|/* flags options */
 elseif|else
