@@ -1168,7 +1168,9 @@ argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
-literal|"Authentication failed"
+literal|"Authentication failed for '%s'"
+argument_list|,
+name|url
 argument_list|)
 expr_stmt|;
 default|default:
@@ -1183,7 +1185,7 @@ argument_list|)
 expr_stmt|;
 name|http_error
 argument_list|(
-name|refs_url
+name|url
 argument_list|,
 name|http_ret
 argument_list|)
