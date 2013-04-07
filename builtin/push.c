@@ -1384,7 +1384,7 @@ name|remote
 modifier|*
 name|remote
 init|=
-name|remote_get
+name|pushremote_get
 argument_list|(
 name|repo
 argument_list|)
