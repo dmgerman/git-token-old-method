@@ -1810,7 +1810,7 @@ condition|)
 block|{
 name|label
 operator|=
-literal|"\n# By "
+literal|"By"
 expr_stmt|;
 name|me
 operator|=
@@ -1824,7 +1824,7 @@ else|else
 block|{
 name|label
 operator|=
-literal|"\n# Via "
+literal|"Via"
 expr_stmt|;
 name|me
 operator|=
@@ -1876,9 +1876,13 @@ argument_list|)
 operator|)
 condition|)
 return|return;
-name|strbuf_addstr
+name|strbuf_addf
 argument_list|(
 name|out
+argument_list|,
+literal|"\n%c %s "
+argument_list|,
+name|comment_line_char
 argument_list|,
 name|label
 argument_list|)
