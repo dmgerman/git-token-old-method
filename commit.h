@@ -1014,7 +1014,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/* largest postive number a signed 32-bit integer can contain */
+comment|/* largest positive number a signed 32-bit integer can contain */
 end_comment
 begin_define
 DECL|macro|INFINITE_DEPTH
