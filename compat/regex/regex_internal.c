@@ -6671,7 +6671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Insert the new element ELEM to the re_node_set* SET.    SET should not already have ELEM.    return -1 if an error is occured, return 1 otherwise.  */
+comment|/* Insert the new element ELEM to the re_node_set* SET.    SET should not already have ELEM.    return -1 if an error has occurred, return 1 otherwise.  */
 end_comment
 begin_function
 specifier|static
@@ -6933,7 +6933,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Insert the new element ELEM to the re_node_set* SET.    SET should not already have any element greater than or equal to ELEM.    Return -1 if an error is occured, return 1 otherwise.  */
+comment|/* Insert the new element ELEM to the re_node_set* SET.    SET should not already have any element greater than or equal to ELEM.    Return -1 if an error has occurred, return 1 otherwise.  */
 end_comment
 begin_function
 specifier|static
@@ -7305,7 +7305,7 @@ end_function
 begin_escape
 end_escape
 begin_comment
-comment|/* Add the token TOKEN to dfa->nodes, and return the index of the token.    Or return -1, if an error will be occured.  */
+comment|/* Add the token TOKEN to dfa->nodes, and return the index of the token.    Or return -1, if an error has occurred.  */
 end_comment
 begin_function
 specifier|static
