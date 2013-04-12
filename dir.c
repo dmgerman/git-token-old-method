@@ -7492,6 +7492,8 @@ argument_list|(
 name|path
 argument_list|,
 name|R_OK
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 name|add_excludes_from_file
@@ -7511,6 +7513,8 @@ argument_list|(
 name|excludes_file
 argument_list|,
 name|R_OK
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 name|add_excludes_from_file
