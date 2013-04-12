@@ -6364,18 +6364,25 @@ name|pairdiff
 init|=
 name|NULL
 decl_stmt|;
-if|if
-condition|(
-name|process_diff_filepair
-argument_list|(
-name|rev
-argument_list|,
+name|struct
+name|diff_filepair
+modifier|*
+name|pair
+init|=
 name|queue
 operator|->
 name|queue
 index|[
 name|i
 index|]
+decl_stmt|;
+if|if
+condition|(
+name|process_diff_filepair
+argument_list|(
+name|rev
+argument_list|,
+name|pair
 argument_list|,
 operator|*
 name|range_out
@@ -6385,6 +6392,7 @@ name|pairdiff
 argument_list|)
 condition|)
 block|{
+comment|/* 			 * Store away the diff for later output.  We 			 * tuck it in the ranges we got as _input_, 			 * since that's the commit that caused the 			 * diff. 			 * 			 * NEEDSWORK not enough when we get around to 			 * doing something interesting with merges; 			 * currently each invocation on a merge parent 			 * trashes the previous one's diff. 			 * 			 * NEEDSWORK tramples over data structures not owned here 			 */
 name|struct
 name|line_log_data
 modifier|*
@@ -6395,7 +6403,6 @@ decl_stmt|;
 name|changed
 operator|++
 expr_stmt|;
-comment|/* NEEDSWORK tramples over data structures not owned here */
 while|while
 condition|(
 name|rg
@@ -6406,12 +6413,7 @@ name|rg
 operator|->
 name|path
 argument_list|,
-name|queue
-operator|->
-name|queue
-index|[
-name|i
-index|]
+name|pair
 operator|->
 name|two
 operator|->
