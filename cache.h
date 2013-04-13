@@ -1536,6 +1536,16 @@ name|pathspec
 parameter_list|)
 value|unmerge_index(&the_index, pathspec)
 end_define
+begin_define
+DECL|macro|read_blob_data_from_cache
+define|#
+directive|define
+name|read_blob_data_from_cache
+parameter_list|(
+name|path
+parameter_list|)
+value|read_blob_data_from_index(&the_index, (path))
+end_define
 begin_endif
 endif|#
 directive|endif
@@ -2669,6 +2679,22 @@ name|char
 modifier|*
 parameter_list|,
 name|int
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+modifier|*
+name|read_blob_data_from_index
+parameter_list|(
+name|struct
+name|index_state
+modifier|*
+parameter_list|,
+specifier|const
+name|char
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
