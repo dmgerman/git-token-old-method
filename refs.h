@@ -50,6 +50,12 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|/*  * Bit values set in the flags argument passed to each_ref_fn():  */
+end_comment
+begin_comment
+comment|/* Reference is a symbolic reference. */
+end_comment
 begin_define
 DECL|macro|REF_ISSYMREF
 define|#
@@ -57,6 +63,9 @@ directive|define
 name|REF_ISSYMREF
 value|0x01
 end_define
+begin_comment
+comment|/* Reference is a packed reference. */
+end_comment
 begin_define
 DECL|macro|REF_ISPACKED
 define|#
@@ -64,6 +73,9 @@ directive|define
 name|REF_ISPACKED
 value|0x02
 end_define
+begin_comment
+comment|/*  * Reference cannot be resolved to an object name: dangling symbolic  * reference (directly or indirectly), corrupt reference file, or  * symbolic reference refers to ill-formatted reference name.  */
+end_comment
 begin_define
 DECL|macro|REF_ISBROKEN
 define|#
