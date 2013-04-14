@@ -2312,7 +2312,7 @@ name|argv
 operator|=
 name|xcalloc
 argument_list|(
-literal|5
+literal|6
 operator|+
 name|revlist_args
 operator|->
@@ -2346,6 +2346,16 @@ operator|++
 index|]
 operator|=
 literal|"--use-done-feature"
+expr_stmt|;
+name|fastexport
+operator|->
+name|argv
+index|[
+name|argc
+operator|++
+index|]
+operator|=
+literal|"--signed-tags=warn-strip"
 expr_stmt|;
 if|if
 condition|(
