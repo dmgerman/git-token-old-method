@@ -451,6 +451,7 @@ DECL|struct|ref_value
 struct|struct
 name|ref_value
 block|{
+comment|/* 	 * The name of the object to which this reference resolves 	 * (which may be a tag object).  If REF_ISBROKEN, this is 	 * null.  If REF_ISSYMREF, then this is the name of the object 	 * referred to by the last reference in the symlink chain. 	 */
 DECL|member|sha1
 name|unsigned
 name|char
@@ -459,6 +460,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+comment|/* 	 * If REF_KNOWS_PEELED, then this field holds the peeled value 	 * of this reference, or null if the reference is known not to 	 * be peelable. 	 */
 DECL|member|peeled
 name|unsigned
 name|char
