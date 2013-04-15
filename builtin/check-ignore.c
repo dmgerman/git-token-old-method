@@ -364,10 +364,6 @@ decl_stmt|,
 name|i
 decl_stmt|;
 name|struct
-name|path_exclude_check
-name|check
-decl_stmt|;
-name|struct
 name|exclude
 modifier|*
 name|exclude
@@ -439,15 +435,6 @@ return|return
 literal|0
 return|;
 block|}
-name|path_exclude_check_init
-argument_list|(
-operator|&
-name|check
-argument_list|,
-operator|&
-name|dir
-argument_list|)
-expr_stmt|;
 comment|/* 	 * look for pathspecs matching entries in the index, since these 	 * should not be ignored, in order to be consistent with 	 * 'git status', 'git add' etc. 	 */
 name|seen
 operator|=
@@ -521,15 +508,12 @@ condition|)
 block|{
 name|exclude
 operator|=
-name|last_exclude_matching_path
+name|last_exclude_matching
 argument_list|(
 operator|&
-name|check
+name|dir
 argument_list|,
 name|full_path
-argument_list|,
-operator|-
-literal|1
 argument_list|,
 operator|&
 name|dtype
@@ -567,12 +551,6 @@ name|clear_directory
 argument_list|(
 operator|&
 name|dir
-argument_list|)
-expr_stmt|;
-name|path_exclude_check_clear
-argument_list|(
-operator|&
-name|check
 argument_list|)
 expr_stmt|;
 return|return
