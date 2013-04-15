@@ -1332,6 +1332,11 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
+name|line_prefix
+parameter_list|,
+specifier|const
+name|char
+modifier|*
 name|del
 parameter_list|,
 specifier|const
@@ -1398,6 +1403,14 @@ operator|&
 name|sb
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|strbuf_addstr
+argument_list|(
+operator|&
+name|sb
+argument_list|,
+name|line_prefix
 argument_list|)
 expr_stmt|;
 if|if
@@ -1567,6 +1580,11 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|line_prefix
 parameter_list|,
 name|unsigned
 name|char
@@ -1741,7 +1759,9 @@ name|fprintf
 argument_list|(
 name|f
 argument_list|,
-literal|"Submodule %s contains untracked content\n"
+literal|"%sSubmodule %s contains untracked content\n"
+argument_list|,
+name|line_prefix
 argument_list|,
 name|path
 argument_list|)
@@ -1756,7 +1776,9 @@ name|fprintf
 argument_list|(
 name|f
 argument_list|,
-literal|"Submodule %s contains modified content\n"
+literal|"%sSubmodule %s contains modified content\n"
+argument_list|,
+name|line_prefix
 argument_list|,
 name|path
 argument_list|)
@@ -1785,7 +1807,9 @@ argument_list|(
 operator|&
 name|sb
 argument_list|,
-literal|"%sSubmodule %s %s.."
+literal|"%s%sSubmodule %s %s.."
+argument_list|,
+name|line_prefix
 argument_list|,
 name|meta
 argument_list|,
@@ -1890,6 +1914,8 @@ operator|&
 name|rev
 argument_list|,
 name|f
+argument_list|,
+name|line_prefix
 argument_list|,
 name|del
 argument_list|,

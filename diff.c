@@ -12945,6 +12945,8 @@ name|two
 operator|->
 name|path
 argument_list|,
+name|line_prefix
+argument_list|,
 name|one
 operator|->
 name|sha1
