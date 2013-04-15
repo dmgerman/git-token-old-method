@@ -6198,7 +6198,7 @@ name|path
 operator|.
 name|len
 argument_list|,
-literal|0
+name|check_only
 argument_list|,
 name|simplify
 argument_list|)
