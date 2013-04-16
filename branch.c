@@ -292,7 +292,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"Not setting branch %s as its own upstream."
+argument_list|)
 argument_list|,
 name|local
 argument_list|)
@@ -397,13 +400,19 @@ name|remote_is_branch
 operator|&&
 name|origin
 condition|)
-name|printf
+name|printf_ln
 argument_list|(
 name|rebasing
 condition|?
-literal|"Branch %s set up to track remote branch %s from %s by rebasing.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track remote branch %s from %s by rebasing."
+argument_list|)
 else|:
-literal|"Branch %s set up to track remote branch %s from %s.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track remote branch %s from %s."
+argument_list|)
 argument_list|,
 name|local
 argument_list|,
@@ -420,13 +429,19 @@ operator|&&
 operator|!
 name|origin
 condition|)
-name|printf
+name|printf_ln
 argument_list|(
 name|rebasing
 condition|?
-literal|"Branch %s set up to track local branch %s by rebasing.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track local branch %s by rebasing."
+argument_list|)
 else|:
-literal|"Branch %s set up to track local branch %s.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track local branch %s."
+argument_list|)
 argument_list|,
 name|local
 argument_list|,
@@ -441,13 +456,19 @@ name|remote_is_branch
 operator|&&
 name|origin
 condition|)
-name|printf
+name|printf_ln
 argument_list|(
 name|rebasing
 condition|?
-literal|"Branch %s set up to track remote ref %s by rebasing.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track remote ref %s by rebasing."
+argument_list|)
 else|:
-literal|"Branch %s set up to track remote ref %s.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track remote ref %s."
+argument_list|)
 argument_list|,
 name|local
 argument_list|,
@@ -463,13 +484,19 @@ operator|&&
 operator|!
 name|origin
 condition|)
-name|printf
+name|printf_ln
 argument_list|(
 name|rebasing
 condition|?
-literal|"Branch %s set up to track local ref %s by rebasing.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track local ref %s by rebasing."
+argument_list|)
 else|:
-literal|"Branch %s set up to track local ref %s.\n"
+name|_
+argument_list|(
+literal|"Branch %s set up to track local ref %s."
+argument_list|)
 argument_list|,
 name|local
 argument_list|,
@@ -547,7 +574,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Tracking not set up: name too long: %s"
+argument_list|)
 argument_list|,
 name|new_ref
 argument_list|)
@@ -628,7 +658,10 @@ condition|)
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"Not tracking: ambiguous information for ref %s"
+argument_list|)
 argument_list|,
 name|orig_ref
 argument_list|)
@@ -887,7 +920,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"'%s' is not a valid branch name."
+argument_list|)
 argument_list|,
 name|name
 argument_list|)
@@ -916,7 +952,10 @@ name|attr_only
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"A branch named '%s' already exists."
+argument_list|)
 argument_list|,
 name|ref
 operator|->
@@ -979,7 +1018,10 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Cannot force update the current branch."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1234,7 +1276,10 @@ expr_stmt|;
 block|}
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Not a valid object name: '%s'."
+argument_list|)
 argument_list|,
 name|start_name
 argument_list|)
@@ -1322,7 +1367,10 @@ break|break;
 default|default:
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Ambiguous object name: '%s'."
+argument_list|)
 argument_list|,
 name|start_name
 argument_list|)
@@ -1344,7 +1392,10 @@ name|NULL
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"Not a valid branch point: '%s'."
+argument_list|)
 argument_list|,
 name|start_name
 argument_list|)
@@ -1386,7 +1437,10 @@ name|lock
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to lock ref for update"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1473,7 +1527,10 @@ literal|0
 condition|)
 name|die_errno
 argument_list|(
+name|_
+argument_list|(
 literal|"Failed to write ref"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_release
