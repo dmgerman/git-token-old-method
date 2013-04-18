@@ -4120,6 +4120,18 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|data
+operator|->
+name|refspecs
+condition|)
+name|die
+argument_list|(
+literal|"remote-helper doesn't support push; refspec needed"
+argument_list|)
+expr_stmt|;
 name|helper
 operator|=
 name|get_helper
@@ -4168,14 +4180,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|data
-operator|->
-name|refspecs
-condition|)
-continue|continue;
 name|private
 operator|=
 name|apply_refspecs
