@@ -23,6 +23,17 @@ DECL|typedef|ucs_char_t
 comment|/* assuming 32bit int */
 end_comment
 begin_function_decl
+name|size_t
+name|display_mode_esc_sequence_len
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|int
 name|utf8_width
 parameter_list|(

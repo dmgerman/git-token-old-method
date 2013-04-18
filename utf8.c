@@ -35,7 +35,6 @@ struct|;
 end_struct
 begin_function
 DECL|function|display_mode_esc_sequence_len
-specifier|static
 name|size_t
 name|display_mode_esc_sequence_len
 parameter_list|(
