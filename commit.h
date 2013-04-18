@@ -536,6 +536,11 @@ name|commit
 modifier|*
 name|commit
 parameter_list|,
+name|char
+modifier|*
+modifier|*
+name|commit_encoding
+parameter_list|,
 specifier|const
 name|char
 modifier|*
