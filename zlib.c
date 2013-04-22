@@ -899,7 +899,6 @@ name|level
 parameter_list|)
 block|{
 comment|/* 	 * Use default 15 bits, +16 is to generate gzip header/trailer 	 * instead of the zlib wrapper. 	 */
-return|return
 name|do_git_deflate_init
 argument_list|(
 name|strm
@@ -910,7 +909,7 @@ literal|15
 operator|+
 literal|16
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -927,7 +926,6 @@ name|level
 parameter_list|)
 block|{
 comment|/* 	 * Use default 15 bits, negate the value to get raw compressed 	 * data without zlib header and trailer. 	 */
-return|return
 name|do_git_deflate_init
 argument_list|(
 name|strm
@@ -937,7 +935,7 @@ argument_list|,
 operator|-
 literal|15
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_function
