@@ -3558,7 +3558,7 @@ name|p
 operator|->
 name|field
 operator|<
-literal|0
+name|GREP_HEADER_FIELD_MIN
 operator|||
 name|GREP_HEADER_FIELD_MAX
 operator|<=
