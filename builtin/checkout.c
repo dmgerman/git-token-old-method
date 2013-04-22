@@ -167,6 +167,10 @@ DECL|member|overwrite_ignore
 name|int
 name|overwrite_ignore
 decl_stmt|;
+DECL|member|ignore_skipworktree
+name|int
+name|ignore_skipworktree
+decl_stmt|;
 DECL|member|new_branch
 specifier|const
 name|char
@@ -1554,6 +1558,19 @@ operator|&=
 operator|~
 name|CE_MATCHED
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|opts
+operator|->
+name|ignore_skipworktree
+operator|&&
+name|ce_skip_worktree
+argument_list|(
+name|ce
+argument_list|)
+condition|)
+continue|continue;
 if|if
 condition|(
 name|opts
@@ -5721,6 +5738,23 @@ argument_list|,
 name|N_
 argument_list|(
 literal|"select hunks interactively"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"ignore-skip-worktree-bits"
+argument_list|,
+operator|&
+name|opts
+operator|.
+name|ignore_skipworktree
+argument_list|,
+name|N_
+argument_list|(
+literal|"do not limit pathspecs to sparse entries only"
 argument_list|)
 argument_list|)
 block|,
