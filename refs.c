@@ -6412,7 +6412,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * Call fn for each reference in the specified submodule, omitting  * references not in the containing_dir of base.  fn is called for all  * references, including broken ones.  If fn ever returns a non-zero  * value, stop the iteration and return that value; otherwise, return  * 0.  */
+comment|/*  * Call fn for each reference in the specified ref_cache, omitting  * references not in the containing_dir of base.  fn is called for all  * references, including broken ones.  If fn ever returns a non-zero  * value, stop the iteration and return that value; otherwise, return  * 0.  */
 end_comment
 begin_function
 DECL|function|do_for_each_entry
@@ -6420,10 +6420,10 @@ specifier|static
 name|int
 name|do_for_each_entry
 parameter_list|(
-specifier|const
-name|char
+name|struct
+name|ref_cache
 modifier|*
-name|submodule
+name|refs
 parameter_list|,
 specifier|const
 name|char
@@ -6438,16 +6438,6 @@ modifier|*
 name|cb_data
 parameter_list|)
 block|{
-name|struct
-name|ref_cache
-modifier|*
-name|refs
-init|=
-name|get_ref_cache
-argument_list|(
-name|submodule
-argument_list|)
-decl_stmt|;
 name|struct
 name|ref_dir
 modifier|*
@@ -6591,7 +6581,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Call fn for each reference in the specified submodule for which the  * refname begins with base.  If trim is non-zero, then trim that many  * characters off the beginning of each refname before passing the  * refname to fn.  flags can be DO_FOR_EACH_INCLUDE_BROKEN to include  * broken references in the iteration.  If fn ever returns a non-zero  * value, stop the iteration and return that value; otherwise, return  * 0.  */
+comment|/*  * Call fn for each reference in the specified ref_cache for which the  * refname begins with base.  If trim is non-zero, then trim that many  * characters off the beginning of each refname before passing the  * refname to fn.  flags can be DO_FOR_EACH_INCLUDE_BROKEN to include  * broken references in the iteration.  If fn ever returns a non-zero  * value, stop the iteration and return that value; otherwise, return  * 0.  */
 end_comment
 begin_function
 DECL|function|do_for_each_ref
@@ -6599,10 +6589,10 @@ specifier|static
 name|int
 name|do_for_each_ref
 parameter_list|(
-specifier|const
-name|char
+name|struct
+name|ref_cache
 modifier|*
-name|submodule
+name|refs
 parameter_list|,
 specifier|const
 name|char
@@ -6660,7 +6650,7 @@ expr_stmt|;
 return|return
 name|do_for_each_entry
 argument_list|(
-name|submodule
+name|refs
 argument_list|,
 name|base
 argument_list|,
@@ -6838,7 +6828,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 literal|""
 argument_list|,
@@ -6874,7 +6867,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|submodule
+argument_list|)
 argument_list|,
 literal|""
 argument_list|,
@@ -6910,7 +6906,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 name|prefix
 argument_list|,
@@ -6954,7 +6953,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|submodule
+argument_list|)
 argument_list|,
 name|prefix
 argument_list|,
@@ -7159,7 +7161,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 literal|"refs/replace/"
 argument_list|,
@@ -7299,7 +7304,10 @@ name|ret
 operator|=
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 name|buf
 operator|.
@@ -7534,7 +7542,10 @@ block|{
 return|return
 name|do_for_each_ref
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 literal|""
 argument_list|,
@@ -9660,7 +9671,10 @@ argument_list|)
 expr_stmt|;
 name|do_for_each_entry
 argument_list|(
+name|get_ref_cache
+argument_list|(
 name|NULL
+argument_list|)
 argument_list|,
 literal|""
 argument_list|,
