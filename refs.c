@@ -9086,7 +9086,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|path
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -9134,7 +9134,7 @@ operator|=
 operator|!
 name|prefixcmp
 argument_list|(
-name|path
+name|refname
 argument_list|,
 literal|"refs/tags/"
 argument_list|)
@@ -9177,7 +9177,7 @@ argument_list|(
 name|sha1
 argument_list|)
 argument_list|,
-name|path
+name|refname
 argument_list|)
 expr_stmt|;
 name|o
@@ -9186,7 +9186,7 @@ name|parse_object_or_die
 argument_list|(
 name|sha1
 argument_list|,
-name|path
+name|refname
 argument_list|)
 expr_stmt|;
 if|if
@@ -9204,7 +9204,7 @@ name|deref_tag
 argument_list|(
 name|o
 argument_list|,
-name|path
+name|refname
 argument_list|,
 literal|0
 argument_list|)
@@ -9252,7 +9252,7 @@ name|namelen
 init|=
 name|strlen
 argument_list|(
-name|path
+name|refname
 argument_list|)
 operator|+
 literal|1
@@ -9290,7 +9290,7 @@ name|n
 operator|->
 name|name
 argument_list|,
-name|path
+name|refname
 argument_list|)
 expr_stmt|;
 name|n
