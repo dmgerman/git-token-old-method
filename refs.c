@@ -9556,11 +9556,11 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|packed
+DECL|variable|packlock
 specifier|static
 name|struct
 name|lock_file
-name|packed
+name|packlock
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -9604,7 +9604,7 @@ operator|=
 name|hold_lock_file_for_update
 argument_list|(
 operator|&
-name|packed
+name|packlock
 argument_list|,
 name|git_path
 argument_list|(
@@ -9696,7 +9696,7 @@ literal|"failed to write ref-pack file"
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Since the lock file was fdopen()'ed and then fclose()'ed above, 	 * assign -1 to the lock file descriptor so that commit_lock_file() 	 * won't try to close() it. 	 */
-name|packed
+name|packlock
 operator|.
 name|fd
 operator|=
@@ -9708,7 +9708,7 @@ condition|(
 name|commit_lock_file
 argument_list|(
 operator|&
-name|packed
+name|packlock
 argument_list|)
 operator|<
 literal|0
@@ -9903,14 +9903,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_decl_stmt
-DECL|variable|packlock
-specifier|static
-name|struct
-name|lock_file
-name|packlock
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|repack_without_ref
 specifier|static
