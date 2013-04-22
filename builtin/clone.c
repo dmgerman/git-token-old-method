@@ -55,11 +55,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"pack-refs.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"sigchain.h"
 end_include
 begin_include
