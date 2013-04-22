@@ -9054,30 +9054,6 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|do_not_prune
-specifier|static
-name|int
-name|do_not_prune
-parameter_list|(
-name|int
-name|flags
-parameter_list|)
-block|{
-comment|/* If it is already packed or if it is a symref, 	 * do not prune it. 	 */
-return|return
-operator|(
-name|flags
-operator|&
-operator|(
-name|REF_ISSYMREF
-operator||
-name|REF_ISPACKED
-operator|)
-operator|)
-return|;
-block|}
-end_function
-begin_function
 DECL|function|pack_one_ref
 specifier|static
 name|int
@@ -9251,6 +9227,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* If the ref was already packed, there is no need to prune it. */
 if|if
 condition|(
 operator|(
@@ -9262,12 +9239,13 @@ name|PACK_REFS_PRUNE
 operator|)
 operator|&&
 operator|!
-name|do_not_prune
-argument_list|(
+operator|(
 name|entry
 operator|->
 name|flag
-argument_list|)
+operator|&
+name|REF_ISPACKED
+operator|)
 condition|)
 block|{
 name|int
