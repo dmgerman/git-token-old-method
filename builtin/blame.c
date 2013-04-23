@@ -6998,6 +6998,8 @@ name|logmsg_reencode
 argument_list|(
 name|commit
 argument_list|,
+name|NULL
+argument_list|,
 name|encoding
 argument_list|)
 expr_stmt|;
