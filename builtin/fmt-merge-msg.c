@@ -1810,7 +1810,7 @@ condition|)
 block|{
 name|label
 operator|=
-literal|"\n# By "
+literal|"By"
 expr_stmt|;
 name|me
 operator|=
@@ -1824,7 +1824,7 @@ else|else
 block|{
 name|label
 operator|=
-literal|"\n# Via "
+literal|"Via"
 expr_stmt|;
 name|me
 operator|=
@@ -1876,9 +1876,13 @@ argument_list|)
 operator|)
 condition|)
 return|return;
-name|strbuf_addstr
+name|strbuf_addf
 argument_list|(
 name|out
+argument_list|,
+literal|"\n%c %s "
+argument_list|,
+name|comment_line_char
 argument_list|,
 name|label
 argument_list|)
@@ -3132,12 +3136,18 @@ name|tagline
 init|=
 name|STRBUF_INIT
 decl_stmt|;
-name|strbuf_addf
+name|strbuf_addch
 argument_list|(
 operator|&
 name|tagline
 argument_list|,
-literal|"\n# %s\n"
+literal|'\n'
+argument_list|)
+expr_stmt|;
+name|strbuf_add_commented_lines
+argument_list|(
+operator|&
+name|tagline
 argument_list|,
 name|origins
 operator|.
@@ -3147,6 +3157,18 @@ name|first_tag
 index|]
 operator|.
 name|string
+argument_list|,
+name|strlen
+argument_list|(
+name|origins
+operator|.
+name|items
+index|[
+name|first_tag
+index|]
+operator|.
+name|string
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|strbuf_insert
@@ -3172,12 +3194,18 @@ name|tagline
 argument_list|)
 expr_stmt|;
 block|}
-name|strbuf_addf
+name|strbuf_addch
 argument_list|(
 operator|&
 name|tagbuf
 argument_list|,
-literal|"\n# %s\n"
+literal|'\n'
+argument_list|)
+expr_stmt|;
+name|strbuf_add_commented_lines
+argument_list|(
+operator|&
+name|tagbuf
 argument_list|,
 name|origins
 operator|.
@@ -3187,6 +3215,18 @@ name|i
 index|]
 operator|.
 name|string
+argument_list|,
+name|strlen
+argument_list|(
+name|origins
+operator|.
+name|items
+index|[
+name|i
+index|]
+operator|.
+name|string
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fmt_tag_signature
