@@ -38,6 +38,11 @@ end_endif
 begin_include
 include|#
 directive|include
+file|<stddef.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<errno.h>
 end_include
 begin_include
@@ -493,7 +498,12 @@ specifier|extern
 name|char
 modifier|*
 name|getenv
-parameter_list|()
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_endif
