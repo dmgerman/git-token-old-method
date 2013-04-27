@@ -4601,12 +4601,11 @@ name|HANDLE
 name|proc
 decl_stmt|;
 block|}
-DECL|variable|pinfo_t
-name|pinfo_t
 struct|;
 end_struct
 begin_decl_stmt
 DECL|variable|pinfo
+specifier|static
 name|struct
 name|pinfo_t
 modifier|*
@@ -6805,7 +6804,7 @@ name|ai
 operator|->
 name|ai_next
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 return|return
 literal|0
