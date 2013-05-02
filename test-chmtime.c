@@ -330,7 +330,7 @@ return|;
 block|}
 ifdef|#
 directive|ifdef
-name|WIN32
+name|GIT_WINDOWS_NATIVE
 if|if
 condition|(
 operator|!

@@ -941,7 +941,7 @@ index|]
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|WIN32
+name|GIT_WINDOWS_NATIVE
 if|if
 condition|(
 operator|!

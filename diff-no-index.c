@@ -207,7 +207,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|_WIN32
+name|GIT_WINDOWS_NATIVE
 elseif|else
 if|if
 condition|(
