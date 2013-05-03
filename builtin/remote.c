@@ -973,7 +973,7 @@ expr_stmt|;
 if|if
 condition|(
 name|argc
-operator|<
+operator|!=
 literal|2
 condition|)
 name|usage_with_options
