@@ -1460,15 +1460,17 @@ operator|<<
 name|i
 operator|)
 expr_stmt|;
+comment|/* 		 * Treat missing entries as directories so that we return 		 * after unresolved_directory has handled this. 		 */
 if|if
 condition|(
+operator|!
 name|n
 index|[
 name|i
 index|]
 operator|.
 name|mode
-operator|&&
+operator|||
 name|S_ISDIR
 argument_list|(
 name|n
