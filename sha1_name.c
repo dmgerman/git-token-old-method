@@ -2262,7 +2262,7 @@ name|at
 operator|=
 name|len
 operator|-
-literal|2
+literal|4
 init|;
 name|at
 operator|>=
