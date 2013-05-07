@@ -2368,8 +2368,6 @@ operator|=
 name|interpret_branch_name
 argument_list|(
 name|str
-operator|+
-name|at
 argument_list|,
 operator|&
 name|buf
