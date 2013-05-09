@@ -1235,7 +1235,6 @@ condition|;
 name|i
 operator|++
 control|)
-block|{
 name|free
 argument_list|(
 operator|(
@@ -1248,7 +1247,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-block|}
 name|free
 argument_list|(
 name|refspecs
