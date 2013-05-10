@@ -511,6 +511,18 @@ parameter_list|)
 value|((opts)->flags& DIFF_OPT_##flag)
 end_define
 begin_define
+DECL|macro|DIFF_OPT_TOUCHED
+define|#
+directive|define
+name|DIFF_OPT_TOUCHED
+parameter_list|(
+name|opts
+parameter_list|,
+name|flag
+parameter_list|)
+value|((opts)->touched_flags& DIFF_OPT_##flag)
+end_define
+begin_define
 DECL|macro|DIFF_OPT_SET
 define|#
 directive|define
@@ -520,7 +532,7 @@ name|opts
 parameter_list|,
 name|flag
 parameter_list|)
-value|((opts)->flags |= DIFF_OPT_##flag)
+value|(((opts)->flags |= DIFF_OPT_##flag),((opts)->touched_flags |= DIFF_OPT_##flag))
 end_define
 begin_define
 DECL|macro|DIFF_OPT_CLR
@@ -532,7 +544,7 @@ name|opts
 parameter_list|,
 name|flag
 parameter_list|)
-value|((opts)->flags&= ~DIFF_OPT_##flag)
+value|(((opts)->flags&= ~DIFF_OPT_##flag),((opts)->touched_flags |= DIFF_OPT_##flag))
 end_define
 begin_define
 DECL|macro|DIFF_XDL_TST
@@ -645,6 +657,10 @@ decl_stmt|;
 DECL|member|flags
 name|unsigned
 name|flags
+decl_stmt|;
+DECL|member|touched_flags
+name|unsigned
+name|touched_flags
 decl_stmt|;
 DECL|member|use_color
 name|int
@@ -775,6 +791,18 @@ DECL|member|found_follow
 name|int
 name|found_follow
 decl_stmt|;
+DECL|member|set_default
+name|void
+function_decl|(
+modifier|*
+name|set_default
+function_decl|)
+parameter_list|(
+name|struct
+name|diff_options
+modifier|*
+parameter_list|)
+function_decl|;
 DECL|member|file
 name|FILE
 modifier|*
