@@ -307,7 +307,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|base
+name|decoration
 condition|)
 continue|continue;
 name|insert_decoration
