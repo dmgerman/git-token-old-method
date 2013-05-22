@@ -5345,15 +5345,14 @@ condition|(
 operator|!
 name|upstream
 condition|)
-return|return
-name|error
+name|die
 argument_list|(
 name|_
 argument_list|(
 literal|"HEAD does not point to a branch"
 argument_list|)
 argument_list|)
-return|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5382,8 +5381,7 @@ operator|->
 name|refname
 argument_list|)
 condition|)
-return|return
-name|error
+name|die
 argument_list|(
 name|_
 argument_list|(
@@ -5392,7 +5390,7 @@ argument_list|)
 argument_list|,
 name|cp
 argument_list|)
-return|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5400,8 +5398,8 @@ name|upstream
 operator|->
 name|merge
 condition|)
-return|return
-name|error
+block|{
+name|die
 argument_list|(
 name|_
 argument_list|(
@@ -5412,9 +5410,9 @@ name|upstream
 operator|->
 name|name
 argument_list|)
-return|;
-return|return
-name|error
+expr_stmt|;
+block|}
+name|die
 argument_list|(
 name|_
 argument_list|(
@@ -5430,7 +5428,7 @@ index|]
 operator|->
 name|src
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 name|free
 argument_list|(
