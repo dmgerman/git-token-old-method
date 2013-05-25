@@ -433,6 +433,9 @@ name|cb_data
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Remove from array all but the first entry with a given name.  * Warning: this function uses an O(N^2) algorithm.  */
+end_comment
 begin_function_decl
 name|void
 name|object_array_remove_duplicates
@@ -440,6 +443,7 @@ parameter_list|(
 name|struct
 name|object_array
 modifier|*
+name|array
 parameter_list|)
 function_decl|;
 end_function_decl
