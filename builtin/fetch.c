@@ -3424,7 +3424,7 @@ name|struct
 name|string_list
 name|existing_refs
 init|=
-name|STRING_LIST_INIT_NODUP
+name|STRING_LIST_INIT_DUP
 decl_stmt|;
 name|struct
 name|string_list
@@ -3905,7 +3905,7 @@ name|struct
 name|string_list
 name|existing_refs
 init|=
-name|STRING_LIST_INIT_NODUP
+name|STRING_LIST_INIT_DUP
 decl_stmt|;
 name|struct
 name|string_list_item
