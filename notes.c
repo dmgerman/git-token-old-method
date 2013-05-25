@@ -4536,7 +4536,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|path
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -4566,14 +4566,14 @@ name|unsorted_string_list_has_string
 argument_list|(
 name|refs
 argument_list|,
-name|path
+name|refname
 argument_list|)
 condition|)
 name|string_list_append
 argument_list|(
 name|refs
 argument_list|,
-name|path
+name|refname
 argument_list|)
 expr_stmt|;
 return|return
