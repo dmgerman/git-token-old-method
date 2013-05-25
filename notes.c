@@ -4581,6 +4581,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * The list argument must have strdup_strings set on it.  */
+end_comment
 begin_function
 DECL|function|string_list_add_refs_by_glob
 name|void
@@ -4597,6 +4600,13 @@ modifier|*
 name|glob
 parameter_list|)
 block|{
+name|assert
+argument_list|(
+name|list
+operator|->
+name|strdup_strings
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|has_glob_specials
