@@ -2206,7 +2206,7 @@ condition|)
 block|{
 name|unsigned
 name|char
-name|sha1
+name|unused
 index|[
 literal|20
 index|]
@@ -2220,7 +2220,7 @@ name|resolve_ref_unsafe
 argument_list|(
 name|name
 argument_list|,
-name|sha1
+name|unused
 argument_list|,
 literal|1
 argument_list|,
