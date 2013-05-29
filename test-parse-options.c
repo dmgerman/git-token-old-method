@@ -218,7 +218,6 @@ parameter_list|(
 name|int
 name|argc
 parameter_list|,
-specifier|const
 name|char
 modifier|*
 modifier|*
@@ -649,6 +648,12 @@ name|parse_options
 argument_list|(
 name|argc
 argument_list|,
+operator|(
+specifier|const
+name|char
+operator|*
+operator|*
+operator|)
 name|argv
 argument_list|,
 name|prefix
