@@ -654,7 +654,7 @@ argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
-literal|"invalid log-grep regex: %s"
+literal|"invalid regex: %s"
 argument_list|,
 name|errbuf
 argument_list|)
@@ -1329,7 +1329,7 @@ argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
-literal|"invalid pickaxe regex: %s"
+literal|"invalid regex: %s"
 argument_list|,
 name|errbuf
 argument_list|)
