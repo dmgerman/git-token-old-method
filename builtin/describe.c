@@ -124,6 +124,13 @@ name|longformat
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|first_parent
+specifier|static
+name|int
+name|first_parent
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|abbrev
 specifier|static
 name|int
@@ -1973,6 +1980,11 @@ name|parents
 operator|->
 name|next
 expr_stmt|;
+if|if
+condition|(
+name|first_parent
+condition|)
+break|break;
 block|}
 block|}
 if|if
@@ -2379,6 +2391,21 @@ argument_list|,
 name|N_
 argument_list|(
 literal|"always use long format"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOLEAN
+argument_list|(
+literal|0
+argument_list|,
+literal|"first-parent"
+argument_list|,
+operator|&
+name|first_parent
+argument_list|,
+name|N_
+argument_list|(
+literal|"only follow first parent"
 argument_list|)
 argument_list|)
 block|,
