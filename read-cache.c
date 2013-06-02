@@ -480,6 +480,7 @@ specifier|static
 name|int
 name|ce_compare_data
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -567,6 +568,7 @@ specifier|static
 name|int
 name|ce_compare_link
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -682,6 +684,7 @@ specifier|static
 name|int
 name|ce_compare_gitlink
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -732,6 +735,7 @@ specifier|static
 name|int
 name|ce_modified_check_fs
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -827,6 +831,7 @@ specifier|static
 name|int
 name|ce_match_stat_basic
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1213,6 +1218,7 @@ name|index_state
 modifier|*
 name|istate
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1308,6 +1314,7 @@ name|index_state
 modifier|*
 name|istate
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1452,6 +1459,7 @@ name|index_state
 modifier|*
 name|istate
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

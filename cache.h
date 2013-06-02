@@ -2795,6 +2795,7 @@ name|struct
 name|index_state
 modifier|*
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -2818,6 +2819,7 @@ name|struct
 name|index_state
 modifier|*
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
