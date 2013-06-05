@@ -8269,6 +8269,10 @@ name|merge
 operator|=
 name|xcalloc
 argument_list|(
+name|ret
+operator|->
+name|merge_nr
+argument_list|,
 sizeof|sizeof
 argument_list|(
 operator|*
@@ -8276,10 +8280,6 @@ name|ret
 operator|->
 name|merge
 argument_list|)
-argument_list|,
-name|ret
-operator|->
-name|merge_nr
 argument_list|)
 expr_stmt|;
 for|for
