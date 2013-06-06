@@ -5087,9 +5087,9 @@ name|file_change
 expr_stmt|;
 name|revs
 operator|->
-name|lifo
+name|sort_order
 operator|=
-literal|1
+name|REV_SORT_IN_GRAPH_ORDER
 expr_stmt|;
 name|revs
 operator|->
@@ -7366,9 +7366,9 @@ condition|)
 block|{
 name|revs
 operator|->
-name|lifo
+name|sort_order
 operator|=
-literal|1
+name|REV_SORT_IN_GRAPH_ORDER
 expr_stmt|;
 name|revs
 operator|->
@@ -7494,9 +7494,9 @@ condition|)
 block|{
 name|revs
 operator|->
-name|lifo
+name|sort_order
 operator|=
-literal|0
+name|REV_SORT_BY_COMMIT_DATE
 expr_stmt|;
 name|revs
 operator|->
@@ -12317,7 +12317,7 @@ name|commits
 argument_list|,
 name|revs
 operator|->
-name|lifo
+name|sort_order
 argument_list|)
 expr_stmt|;
 if|if
@@ -13939,7 +13939,7 @@ name|commits
 argument_list|,
 name|revs
 operator|->
-name|lifo
+name|sort_order
 argument_list|)
 expr_stmt|;
 block|}
