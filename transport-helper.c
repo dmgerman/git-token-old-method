@@ -64,6 +64,11 @@ include|#
 directive|include
 file|"argv-array.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"refs.h"
+end_include
 begin_decl_stmt
 DECL|variable|debug
 specifier|static
@@ -245,6 +250,11 @@ name|struct
 name|strbuf
 modifier|*
 name|buffer
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|name
 parameter_list|)
 block|{
 name|strbuf_reset
@@ -288,9 +298,11 @@ argument_list|,
 literal|"Debug: Remote helper quit.\n"
 argument_list|)
 expr_stmt|;
-name|exit
+name|die
 argument_list|(
-literal|128
+literal|"Reading from helper 'git-remote-%s' failed"
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -339,6 +351,10 @@ operator|->
 name|out
 argument_list|,
 name|buffer
+argument_list|,
+name|helper
+operator|->
+name|name
 argument_list|)
 return|;
 block|}
@@ -1274,6 +1290,28 @@ expr_stmt|;
 name|free
 argument_list|(
 name|refspecs
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|data
+operator|->
+name|import
+operator|||
+name|data
+operator|->
+name|bidi_import
+operator|||
+name|data
+operator|->
+name|export
+condition|)
+block|{
+name|warning
+argument_list|(
+literal|"This remote helper should implement refspec capability."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2624,7 +2662,7 @@ operator|.
 name|argv
 argument_list|)
 expr_stmt|;
-comment|/* 	 * The fast-import stream of a remote helper that advertises 	 * the "refspec" capability writes to the refs named after the 	 * right hand side of the first refspec matching each ref we 	 * were fetching. 	 * 	 * (If no "refspec" capability was specified, for historical 	 * reasons we default to *:*.) 	 * 	 * Store the result in to_fetch[i].old_sha1.  Callers such 	 * as "git fetch" can use the value to write feedback to the 	 * terminal, populate FETCH_HEAD, and determine what new value 	 * should be written to peer_ref if the update is a 	 * fast-forward or this is a forced update. 	 */
+comment|/* 	 * The fast-import stream of a remote helper that advertises 	 * the "refspec" capability writes to the refs named after the 	 * right hand side of the first refspec matching each ref we 	 * were fetching. 	 * 	 * (If no "refspec" capability was specified, for historical 	 * reasons we default to the equivalent of *:*.) 	 * 	 * Store the result in to_fetch[i].old_sha1.  Callers such 	 * as "git fetch" can use the value to write feedback to the 	 * terminal, populate FETCH_HEAD, and determine what new value 	 * should be written to peer_ref if the update is a 	 * fast-forward or this is a forced update. 	 */
 for|for
 control|(
 name|i
@@ -2907,6 +2945,8 @@ name|input
 argument_list|,
 operator|&
 name|cmdbuf
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 if|if
@@ -3316,7 +3356,7 @@ end_function
 begin_function
 DECL|function|push_update_ref_status
 specifier|static
-name|void
+name|int
 name|push_update_ref_status
 parameter_list|(
 name|struct
@@ -3680,7 +3720,9 @@ argument_list|,
 name|refname
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|1
+return|;
 block|}
 if|if
 condition|(
@@ -3701,7 +3743,9 @@ name|status
 operator|==
 name|REF_STATUS_NONE
 condition|)
-return|return;
+return|return
+literal|1
+return|;
 block|}
 operator|(
 operator|*
@@ -3721,6 +3765,9 @@ name|remote_status
 operator|=
 name|msg
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
@@ -3759,6 +3806,10 @@ init|;
 condition|;
 control|)
 block|{
+name|char
+modifier|*
+name|private
+decl_stmt|;
 name|recvline
 argument_list|(
 name|data
@@ -3775,6 +3826,8 @@ operator|.
 name|len
 condition|)
 break|break;
+if|if
+condition|(
 name|push_update_ref_status
 argument_list|(
 operator|&
@@ -3784,6 +3837,61 @@ operator|&
 name|ref
 argument_list|,
 name|remote_refs
+argument_list|)
+condition|)
+continue|continue;
+if|if
+condition|(
+operator|!
+name|data
+operator|->
+name|refspecs
+condition|)
+continue|continue;
+comment|/* propagate back the update to the remote namespace */
+name|private
+operator|=
+name|apply_refspecs
+argument_list|(
+name|data
+operator|->
+name|refspecs
+argument_list|,
+name|data
+operator|->
+name|refspec_nr
+argument_list|,
+name|ref
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|private
+condition|)
+continue|continue;
+name|update_ref
+argument_list|(
+literal|"update by helper"
+argument_list|,
+name|private
+argument_list|,
+name|ref
+operator|->
+name|new_sha1
+argument_list|,
+name|NULL
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|private
 argument_list|)
 expr_stmt|;
 block|}
@@ -4145,6 +4253,18 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|data
+operator|->
+name|refspecs
+condition|)
+name|die
+argument_list|(
+literal|"remote-helper doesn't support push; refspec needed"
+argument_list|)
+expr_stmt|;
 name|helper
 operator|=
 name|get_helper
@@ -4195,12 +4315,15 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|data
+name|ref
 operator|->
-name|refspecs
+name|deletion
 condition|)
-continue|continue;
+name|die
+argument_list|(
+literal|"remote-helpers do not support ref deletion"
+argument_list|)
+expr_stmt|;
 name|private
 operator|=
 name|apply_refspecs
@@ -4270,19 +4393,6 @@ argument_list|(
 name|private
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ref
-operator|->
-name|deletion
-condition|)
-block|{
-name|die
-argument_list|(
-literal|"remote-helpers do not support ref deletion"
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|ref
