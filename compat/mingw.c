@@ -8939,8 +8939,6 @@ parameter_list|)
 block|{
 name|sig_handler_t
 name|old
-init|=
-name|timer_fn
 decl_stmt|;
 switch|switch
 condition|(
@@ -8950,6 +8948,10 @@ block|{
 case|case
 name|SIGALRM
 case|:
+name|old
+operator|=
+name|timer_fn
+expr_stmt|;
 name|timer_fn
 operator|=
 name|handler
@@ -8958,6 +8960,10 @@ break|break;
 case|case
 name|SIGINT
 case|:
+name|old
+operator|=
+name|sigint_fn
+expr_stmt|;
 name|sigint_fn
 operator|=
 name|handler
