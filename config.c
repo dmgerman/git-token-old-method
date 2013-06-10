@@ -243,6 +243,8 @@ argument_list|(
 name|path
 argument_list|,
 name|R_OK
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 block|{
@@ -4810,6 +4812,8 @@ name|git_etc_gitconfig
 argument_list|()
 argument_list|,
 name|R_OK
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 block|{
@@ -4840,6 +4844,8 @@ argument_list|(
 name|xdg_config
 argument_list|,
 name|R_OK
+argument_list|,
+name|ACCESS_EACCES_OK
 argument_list|)
 condition|)
 block|{
@@ -4869,6 +4875,8 @@ argument_list|(
 name|user_config
 argument_list|,
 name|R_OK
+argument_list|,
+name|ACCESS_EACCES_OK
 argument_list|)
 condition|)
 block|{
@@ -4898,6 +4906,8 @@ argument_list|(
 name|repo_config
 argument_list|,
 name|R_OK
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 block|{
