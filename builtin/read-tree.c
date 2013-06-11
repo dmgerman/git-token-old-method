@@ -291,6 +291,7 @@ name|char
 modifier|*
 name|label
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -367,9 +368,11 @@ specifier|static
 name|int
 name|debug_merge
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
+specifier|const
 modifier|*
 name|stages
 parameter_list|,
