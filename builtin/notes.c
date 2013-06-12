@@ -2371,6 +2371,11 @@ name|struct
 name|notes_rewrite_cfg
 modifier|*
 name|c
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|msg
 parameter_list|)
 block|{
 name|int
@@ -2402,7 +2407,7 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|"Notes added by 'git notes copy'"
+name|msg
 argument_list|)
 expr_stmt|;
 name|free_notes
@@ -2469,6 +2474,13 @@ name|int
 name|ret
 init|=
 literal|0
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|msg
+init|=
+literal|"Notes added by 'git notes copy'"
 decl_stmt|;
 if|if
 condition|(
@@ -2735,7 +2747,7 @@ name|commit_notes
 argument_list|(
 name|t
 argument_list|,
-literal|"Notes added by 'git notes copy'"
+name|msg
 argument_list|)
 expr_stmt|;
 name|free_notes
@@ -2749,6 +2761,8 @@ block|{
 name|finish_copy_notes_for_rewrite
 argument_list|(
 name|c
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
