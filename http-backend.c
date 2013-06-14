@@ -2174,7 +2174,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|name
+name|refname
 parameter_list|,
 specifier|const
 name|unsigned
@@ -2206,7 +2206,7 @@ condition|)
 block|{
 name|unsigned
 name|char
-name|sha1
+name|unused
 index|[
 literal|20
 index|]
@@ -2218,9 +2218,9 @@ name|target
 init|=
 name|resolve_ref_unsafe
 argument_list|(
-name|name
+name|refname
 argument_list|,
-name|sha1
+name|unused
 argument_list|,
 literal|1
 argument_list|,

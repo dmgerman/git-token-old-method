@@ -55,8 +55,8 @@ name|object
 modifier|*
 name|item
 decl_stmt|;
+comment|/* 		 * name or NULL.  If non-NULL, the memory pointed to 		 * is owned by this object *except* if it points at 		 * object_array_slopbuf, which is a static copy of the 		 * empty string. 		 */
 DECL|member|name
-specifier|const
 name|char
 modifier|*
 name|name
@@ -394,6 +394,48 @@ name|mode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_typedef
+DECL|typedef|object_array_each_func_t
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|object_array_each_func_t
+function_decl|)
+parameter_list|(
+name|struct
+name|object_array_entry
+modifier|*
+parameter_list|,
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+end_typedef
+begin_comment
+comment|/*  * Apply want to each entry in array, retaining only the entries for  * which the function returns true.  Preserve the order of the entries  * that are retained.  */
+end_comment
+begin_function_decl
+name|void
+name|object_array_filter
+parameter_list|(
+name|struct
+name|object_array
+modifier|*
+name|array
+parameter_list|,
+name|object_array_each_func_t
+name|want
+parameter_list|,
+name|void
+modifier|*
+name|cb_data
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/*  * Remove from array all but the first entry with a given name.  * Warning: this function uses an O(N^2) algorithm.  */
+end_comment
 begin_function_decl
 name|void
 name|object_array_remove_duplicates
@@ -401,6 +443,7 @@ parameter_list|(
 name|struct
 name|object_array
 modifier|*
+name|array
 parameter_list|)
 function_decl|;
 end_function_decl
