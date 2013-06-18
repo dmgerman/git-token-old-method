@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * builtin-help.c  *  * Builtin help command  */
+comment|/*  * Builtin help command  */
 end_comment
 begin_include
 include|#
