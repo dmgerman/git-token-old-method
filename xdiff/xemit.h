@@ -52,6 +52,7 @@ name|xdl_get_hunk
 parameter_list|(
 name|xdchange_t
 modifier|*
+modifier|*
 name|xscr
 parameter_list|,
 name|xdemitconf_t
