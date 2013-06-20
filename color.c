@@ -15,7 +15,7 @@ specifier|static
 name|int
 name|git_use_color_default
 init|=
-literal|0
+name|GIT_COLOR_AUTO
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
