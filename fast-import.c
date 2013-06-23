@@ -8614,6 +8614,9 @@ name|struct
 name|tree_entry
 modifier|*
 name|backup_leaf
+parameter_list|,
+name|int
+name|allow_root
 parameter_list|)
 block|{
 name|struct
@@ -8676,6 +8679,23 @@ argument_list|(
 name|root
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|*
+name|p
+operator|&&
+name|allow_root
+condition|)
+block|{
+name|e
+operator|=
+name|root
+expr_stmt|;
+goto|goto
+name|del_entry
+goto|;
+block|}
 name|t
 operator|=
 name|root
@@ -8797,6 +8817,8 @@ operator|+
 literal|1
 argument_list|,
 name|backup_leaf
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 block|{
@@ -11944,6 +11966,8 @@ name|fullpath
 argument_list|,
 operator|&
 name|leaf
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 name|die
@@ -12591,6 +12615,8 @@ argument_list|,
 name|p
 argument_list|,
 name|NULL
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12919,6 +12945,8 @@ argument_list|,
 name|p
 argument_list|,
 name|NULL
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -13151,6 +13179,8 @@ name|s
 argument_list|,
 operator|&
 name|leaf
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 else|else
@@ -13809,6 +13839,8 @@ argument_list|,
 name|path
 argument_list|,
 name|NULL
+argument_list|,
+literal|0
 argument_list|)
 condition|)
 name|b
