@@ -124,6 +124,14 @@ init|=
 literal|1
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|advice_rm_hints
+name|int
+name|advice_rm_hints
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_struct
 specifier|static
 struct|struct
@@ -248,6 +256,13 @@ literal|"object_name_warning"
 block|,
 operator|&
 name|advice_object_name_warning
+block|}
+block|,
+block|{
+literal|"rmhints"
+block|,
+operator|&
+name|advice_rm_hints
 block|}
 block|,
 comment|/* make this an alias for backward compatibility */
