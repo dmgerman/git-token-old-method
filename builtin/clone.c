@@ -2782,6 +2782,11 @@ name|ref
 modifier|*
 name|r
 decl_stmt|;
+name|lock_packed_refs
+argument_list|(
+name|LOCK_DIE_ON_ERROR
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|r
@@ -2819,9 +2824,14 @@ name|old_sha1
 argument_list|)
 expr_stmt|;
 block|}
-name|pack_refs
+if|if
+condition|(
+name|commit_packed_refs
+argument_list|()
+condition|)
+name|die_errno
 argument_list|(
-name|PACK_REFS_ALL
+literal|"unable to overwrite old ref-pack file"
 argument_list|)
 expr_stmt|;
 block|}
