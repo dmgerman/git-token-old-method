@@ -70,10 +70,10 @@ name|void
 modifier|*
 name|util
 decl_stmt|;
-DECL|member|indegree
+DECL|member|index
 name|unsigned
 name|int
-name|indegree
+name|index
 decl_stmt|;
 DECL|member|date
 name|unsigned
