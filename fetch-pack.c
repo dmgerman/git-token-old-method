@@ -2691,7 +2691,7 @@ name|flags
 operator||=
 name|COMPLETE
 expr_stmt|;
-name|commit_list_insert_by_date
+name|commit_list_insert
 argument_list|(
 name|commit
 argument_list|,
@@ -3270,6 +3270,12 @@ argument_list|(
 name|mark_alternate_complete
 argument_list|,
 name|NULL
+argument_list|)
+expr_stmt|;
+name|commit_list_sort_by_date
+argument_list|(
+operator|&
+name|complete
 argument_list|)
 expr_stmt|;
 if|if
