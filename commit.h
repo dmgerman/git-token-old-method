@@ -420,6 +420,7 @@ DECL|struct|pretty_print_context
 struct|struct
 name|pretty_print_context
 block|{
+comment|/* 	 * Callers should tweak these to change the behavior of pp_* functions. 	 */
 DECL|member|fmt
 name|enum
 name|cmit_fmt
@@ -487,6 +488,7 @@ DECL|member|color
 name|int
 name|color
 decl_stmt|;
+comment|/* 	 * Fields below here are manipulated internally by pp_* functions and 	 * should not be counted on by callers. 	 */
 block|}
 struct|;
 end_struct
@@ -656,7 +658,6 @@ specifier|extern
 name|void
 name|pretty_print_commit
 parameter_list|(
-specifier|const
 name|struct
 name|pretty_print_context
 modifier|*
@@ -701,7 +702,6 @@ begin_function_decl
 name|void
 name|pp_user_info
 parameter_list|(
-specifier|const
 name|struct
 name|pretty_print_context
 modifier|*
@@ -733,7 +733,6 @@ begin_function_decl
 name|void
 name|pp_title_line
 parameter_list|(
-specifier|const
 name|struct
 name|pretty_print_context
 modifier|*
@@ -764,7 +763,6 @@ begin_function_decl
 name|void
 name|pp_remainder
 parameter_list|(
-specifier|const
 name|struct
 name|pretty_print_context
 modifier|*
