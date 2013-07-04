@@ -6901,6 +6901,23 @@ name|offset
 init|=
 literal|0
 decl_stmt|;
+specifier|static
+specifier|const
+name|unsigned
+name|int
+name|max_codepoint
+index|[]
+init|=
+block|{
+literal|0x7f
+block|,
+literal|0x7ff
+block|,
+literal|0xffff
+block|,
+literal|0x10ffff
+block|}
+decl_stmt|;
 while|while
 condition|(
 name|len
@@ -6922,6 +6939,12 @@ decl_stmt|;
 name|unsigned
 name|int
 name|codepoint
+decl_stmt|;
+name|unsigned
+name|int
+name|min_val
+decl_stmt|,
+name|max_val
 decl_stmt|;
 name|len
 operator|--
@@ -6987,7 +7010,7 @@ condition|)
 return|return
 name|bad_offset
 return|;
-comment|/* Place the encoded bits at the bottom of the value. */
+comment|/* 		 * Place the encoded bits at the bottom of the value and compute the 		 * valid range. 		 */
 name|codepoint
 operator|=
 operator|(
@@ -6997,6 +7020,24 @@ literal|0x7f
 operator|)
 operator|>>
 name|bytes
+expr_stmt|;
+name|min_val
+operator|=
+name|max_codepoint
+index|[
+name|bytes
+operator|-
+literal|1
+index|]
+operator|+
+literal|1
+expr_stmt|;
+name|max_val
+operator|=
+name|max_codepoint
+index|[
+name|bytes
+index|]
 expr_stmt|;
 name|offset
 operator|+=
@@ -7042,12 +7083,16 @@ operator|--
 name|bytes
 condition|)
 do|;
-comment|/* No codepoints can ever be allocated beyond U+10FFFF. */
+comment|/* Reject codepoints that are out of range for the sequence length. */
 if|if
 condition|(
 name|codepoint
+operator|<
+name|min_val
+operator|||
+name|codepoint
 operator|>
-literal|0x10ffff
+name|max_val
 condition|)
 return|return
 name|bad_offset
@@ -7088,7 +7133,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * This verifies that the buffer is in proper utf8 format.  *  * If it isn't, it assumes any non-utf8 characters are Latin1,  * and does the conversion.  *  * Fixme: we should probably also disallow overlong forms.  * But we don't do that currently.  */
+comment|/*  * This verifies that the buffer is in proper utf8 format.  *  * If it isn't, it assumes any non-utf8 characters are Latin1,  * and does the conversion.  */
 end_comment
 begin_function
 DECL|function|verify_utf8
