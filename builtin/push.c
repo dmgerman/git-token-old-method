@@ -1973,7 +1973,7 @@ name|TRANSPORT_PUSH_FORCE
 operator|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -1988,7 +1988,7 @@ literal|"delete refs"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -2079,7 +2079,7 @@ block|,
 name|option_parse_recurse_submodules
 block|}
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
