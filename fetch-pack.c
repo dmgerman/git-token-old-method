@@ -57,6 +57,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"connect.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"transport.h"
 end_include
 begin_include

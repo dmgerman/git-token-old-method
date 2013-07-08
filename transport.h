@@ -18,6 +18,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"run-command.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"remote.h"
 end_include
 begin_struct
