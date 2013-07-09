@@ -6406,6 +6406,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

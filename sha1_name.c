@@ -6324,6 +6324,7 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -6779,6 +6780,7 @@ name|stage
 init|=
 literal|0
 decl_stmt|;
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

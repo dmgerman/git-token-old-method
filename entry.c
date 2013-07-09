@@ -401,6 +401,7 @@ name|void
 modifier|*
 name|read_blob_entry
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -467,6 +468,7 @@ name|char
 modifier|*
 name|path
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -591,6 +593,7 @@ specifier|static
 name|int
 name|streaming_write_entry
 parameter_list|(
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

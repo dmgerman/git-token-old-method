@@ -735,6 +735,7 @@ name|char
 modifier|*
 name|tag
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -954,6 +955,7 @@ condition|(
 name|debug_mode
 condition|)
 block|{
+specifier|const
 name|struct
 name|stat_data
 modifier|*
@@ -1202,6 +1204,7 @@ name|dir_struct
 modifier|*
 name|dir
 parameter_list|,
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1301,6 +1304,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1396,6 +1400,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -1595,6 +1600,7 @@ operator|)
 operator|>>
 literal|1
 decl_stmt|;
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

@@ -4450,6 +4450,7 @@ name|int
 name|len
 parameter_list|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -4585,6 +4586,7 @@ operator|<
 name|active_nr
 condition|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -5031,6 +5033,7 @@ block|{
 name|int
 name|pos
 decl_stmt|;
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

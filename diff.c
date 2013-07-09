@@ -14982,6 +14982,7 @@ name|int
 name|want_file
 parameter_list|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*

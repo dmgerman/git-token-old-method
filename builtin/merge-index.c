@@ -116,6 +116,7 @@ literal|0
 expr_stmt|;
 do|do
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
@@ -332,6 +333,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
 name|struct
 name|cache_entry
 modifier|*
