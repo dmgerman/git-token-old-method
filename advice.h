@@ -115,6 +115,16 @@ name|value
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 name|void
 name|advise

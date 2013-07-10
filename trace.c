@@ -287,6 +287,16 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|2
+argument|,
+literal|3
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|trace_printf_key
 specifier|static
