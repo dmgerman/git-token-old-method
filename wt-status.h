@@ -420,6 +420,16 @@ name|s
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 name|void
 name|status_printf_ln
@@ -443,6 +453,16 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|3
+argument|,
+literal|4
+argument|))
+argument_list|)
+end_macro
 begin_function_decl
 name|void
 name|status_printf
