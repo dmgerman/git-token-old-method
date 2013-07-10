@@ -162,6 +162,12 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(sentinel)
+argument_list|)
+end_macro
 begin_function_decl
 specifier|extern
 name|int
