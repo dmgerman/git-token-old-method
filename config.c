@@ -72,6 +72,10 @@ name|char
 modifier|*
 name|name
 decl_stmt|;
+DECL|member|die_on_error
+name|int
+name|die_on_error
+decl_stmt|;
 DECL|member|linenr
 name|int
 name|linenr
@@ -2104,6 +2108,12 @@ literal|0
 condition|)
 break|break;
 block|}
+if|if
+condition|(
+name|cf
+operator|->
+name|die_on_error
+condition|)
 name|die
 argument_list|(
 literal|"bad config file line %d in %s"
@@ -2117,6 +2127,21 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+else|else
+return|return
+name|error
+argument_list|(
+literal|"bad config file line %d in %s"
+argument_list|,
+name|cf
+operator|->
+name|linenr
+argument_list|,
+name|cf
+operator|->
+name|name
+argument_list|)
+return|;
 block|}
 end_function
 begin_function
@@ -4766,7 +4791,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * All source specific fields in the union, name and the callbacks  * fgetc, ungetc, ftell of top need to be initialized before calling  * this function.  */
+comment|/*  * All source specific fields in the union, die_on_error, name and the callbacks  * fgetc, ungetc, ftell of top need to be initialized before calling  * this function.  */
 end_comment
 begin_function
 DECL|function|do_config_from
@@ -4932,6 +4957,12 @@ name|filename
 expr_stmt|;
 name|top
 operator|.
+name|die_on_error
+operator|=
+literal|1
+expr_stmt|;
+name|top
+operator|.
 name|fgetc
 operator|=
 name|config_file_fgetc
@@ -5036,6 +5067,12 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+name|top
+operator|.
+name|die_on_error
+operator|=
+literal|0
 expr_stmt|;
 name|top
 operator|.
