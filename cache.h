@@ -3435,6 +3435,12 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
+name|warn_on_object_refname_ambiguity
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
 name|shared_repository
 decl_stmt|;
 end_decl_stmt

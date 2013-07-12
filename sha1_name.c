@@ -2259,6 +2259,11 @@ name|sha1
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|warn_on_object_refname_ambiguity
+condition|)
+block|{
 name|refs_found
 operator|=
 name|dwim_ref
@@ -2313,6 +2318,7 @@ argument_list|(
 name|real_ref
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
