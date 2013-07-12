@@ -490,6 +490,12 @@ name|status
 decl_stmt|;
 name|oi
 operator|->
+name|typep
+operator|=
+name|type
+expr_stmt|;
+name|oi
+operator|->
 name|sizep
 operator|=
 operator|&
@@ -513,11 +519,6 @@ condition|)
 return|return
 name|stream_error
 return|;
-operator|*
-name|type
-operator|=
-name|status
-expr_stmt|;
 switch|switch
 condition|(
 name|oi
