@@ -130,6 +130,10 @@ DECL|member|mirror
 name|int
 name|mirror
 decl_stmt|;
+DECL|member|prune
+name|int
+name|prune
+decl_stmt|;
 DECL|member|receivepack
 specifier|const
 name|char
