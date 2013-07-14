@@ -10,6 +10,11 @@ define|#
 directive|define
 name|ARCHIVE_H
 end_define
+begin_include
+include|#
+directive|include
+file|"pathspec.h"
+end_include
 begin_struct
 DECL|struct|archiver_args
 struct|struct
@@ -50,10 +55,8 @@ name|time_t
 name|time
 decl_stmt|;
 DECL|member|pathspec
-specifier|const
-name|char
-modifier|*
-modifier|*
+name|struct
+name|pathspec
 name|pathspec
 decl_stmt|;
 DECL|member|verbose
