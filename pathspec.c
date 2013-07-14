@@ -240,6 +240,13 @@ modifier|*
 name|elt
 parameter_list|)
 block|{
+specifier|static
+name|int
+name|literal_global
+init|=
+operator|-
+literal|1
+decl_stmt|;
 name|unsigned
 name|magic
 init|=
@@ -273,6 +280,21 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+if|if
+condition|(
+name|literal_global
+operator|<
+literal|0
+condition|)
+name|literal_global
+operator|=
+name|git_env_bool
+argument_list|(
+name|GIT_LITERAL_PATHSPECS_ENVIRONMENT
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|elt
@@ -773,8 +795,7 @@ condition|(
 name|prefixlen
 operator|&&
 operator|!
-name|limit_pathspec_to_literal
-argument_list|()
+name|literal_global
 condition|)
 block|{
 comment|/* Preserve the actual prefix length of each pattern */
@@ -1088,8 +1109,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|limit_pathspec_to_literal
-argument_list|()
+name|literal_global
 condition|)
 name|item
 operator|->
