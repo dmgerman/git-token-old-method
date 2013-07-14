@@ -1366,7 +1366,7 @@ literal|1
 expr_stmt|;
 name|pathspec
 operator|->
-name|raw
+name|_raw
 operator|=
 name|raw
 expr_stmt|;
@@ -1411,7 +1411,7 @@ argument_list|)
 expr_stmt|;
 name|pathspec
 operator|->
-name|raw
+name|_raw
 operator|=
 name|argv
 expr_stmt|;
@@ -1666,7 +1666,7 @@ expr_stmt|;
 return|return
 name|ps
 operator|.
-name|raw
+name|_raw
 return|;
 block|}
 end_function
