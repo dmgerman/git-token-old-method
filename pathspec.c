@@ -1807,6 +1807,18 @@ name|magic
 operator|&
 name|PATHSPEC_MAXDEPTH
 condition|)
+block|{
+if|if
+condition|(
+name|flags
+operator|&
+name|PATHSPEC_KEEP_ORDER
+condition|)
+name|die
+argument_list|(
+literal|"BUG: PATHSPEC_MAXDEPTH_VALID and PATHSPEC_KEEP_ORDER are incompatible"
+argument_list|)
+expr_stmt|;
 name|qsort
 argument_list|(
 name|pathspec
@@ -1826,6 +1838,7 @@ argument_list|,
 name|pathspec_item_cmp
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
