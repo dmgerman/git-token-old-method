@@ -589,8 +589,8 @@ modifier|*
 name|prefix
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|,
@@ -624,7 +624,11 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|init_pathspec
+if|if
+condition|(
+name|pathspec
+condition|)
+name|copy_pathspec
 argument_list|(
 operator|&
 name|rev
@@ -686,8 +690,8 @@ modifier|*
 name|prefix
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|,
@@ -2872,9 +2876,8 @@ name|update_files_in_cache
 argument_list|(
 name|prefix
 argument_list|,
+operator|&
 name|pathspec
-operator|.
-name|raw
 argument_list|,
 operator|&
 name|update_data
