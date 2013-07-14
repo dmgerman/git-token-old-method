@@ -706,8 +706,8 @@ modifier|*
 name|dir
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)
@@ -721,6 +721,8 @@ operator|=
 name|common_prefix_len
 argument_list|(
 name|pathspec
+operator|->
+name|raw
 argument_list|)
 expr_stmt|;
 comment|/* Read the directory and prune it */
@@ -729,9 +731,15 @@ argument_list|(
 name|dir
 argument_list|,
 name|pathspec
+operator|->
+name|nr
 condition|?
-operator|*
 name|pathspec
+operator|->
+name|raw
+index|[
+literal|0
+index|]
 else|:
 literal|""
 argument_list|,
@@ -6386,8 +6394,8 @@ name|int
 name|len
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)
@@ -6397,6 +6405,20 @@ name|path_simplify
 modifier|*
 name|simplify
 decl_stmt|;
+comment|/* 	 * Check out create_simplify() 	 */
+if|if
+condition|(
+name|pathspec
+condition|)
+name|GUARD_PATHSPEC
+argument_list|(
+name|pathspec
+argument_list|,
+name|PATHSPEC_FROMTOP
+operator||
+name|PATHSPEC_MAXDEPTH
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|has_symlink_leading_path
@@ -6416,6 +6438,12 @@ operator|=
 name|create_simplify
 argument_list|(
 name|pathspec
+condition|?
+name|pathspec
+operator|->
+name|raw
+else|:
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if

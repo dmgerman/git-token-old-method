@@ -481,8 +481,8 @@ modifier|*
 name|dir
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)
@@ -506,8 +506,8 @@ name|int
 name|len
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)

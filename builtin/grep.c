@@ -2720,8 +2720,6 @@ operator|&
 name|dir
 argument_list|,
 name|pathspec
-operator|->
-name|raw
 argument_list|)
 expr_stmt|;
 for|for
