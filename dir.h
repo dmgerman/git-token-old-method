@@ -1002,33 +1002,22 @@ end_function_decl
 begin_comment
 comment|/*  * The prefix part of pattern must not contains wildcards.  */
 end_comment
-begin_define
-DECL|macro|GFNM_PATHNAME
-define|#
-directive|define
-name|GFNM_PATHNAME
-value|1
-end_define
-begin_comment
-DECL|macro|GFNM_PATHNAME
-comment|/* similar to FNM_PATHNAME */
-end_comment
-begin_define
-DECL|macro|GFNM_ONESTAR
-define|#
-directive|define
-name|GFNM_ONESTAR
-value|2
-end_define
-begin_comment
-DECL|macro|GFNM_ONESTAR
-comment|/* there is only _one_ wildcard, a star */
-end_comment
+begin_struct_decl
+struct_decl|struct
+name|pathspec_item
+struct_decl|;
+end_struct_decl
 begin_function_decl
 specifier|extern
 name|int
 name|git_fnmatch
 parameter_list|(
+specifier|const
+name|struct
+name|pathspec_item
+modifier|*
+name|item
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1038,9 +1027,6 @@ specifier|const
 name|char
 modifier|*
 name|string
-parameter_list|,
-name|int
-name|flags
 parameter_list|,
 name|int
 name|prefix
