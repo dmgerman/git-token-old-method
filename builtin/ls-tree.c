@@ -37,6 +37,11 @@ include|#
 directive|include
 file|"parse-options.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pathspec.h"
+end_include
 begin_decl_stmt
 DECL|variable|line_termination
 specifier|static

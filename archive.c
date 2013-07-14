@@ -34,6 +34,11 @@ include|#
 directive|include
 file|"unpack-trees.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pathspec.h"
+end_include
 begin_decl_stmt
 DECL|variable|archive_usage
 specifier|static
