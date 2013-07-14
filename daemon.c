@@ -3907,8 +3907,6 @@ elseif|else
 if|if
 condition|(
 name|addr
-operator|&&
-name|addr
 operator|->
 name|sa_family
 operator|==
