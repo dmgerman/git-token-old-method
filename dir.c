@@ -7528,6 +7528,12 @@ name|path
 expr_stmt|;
 name|item
 operator|->
+name|original
+operator|=
+name|path
+expr_stmt|;
+name|item
+operator|->
 name|len
 operator|=
 name|strlen

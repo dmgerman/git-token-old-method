@@ -837,6 +837,12 @@ name|match
 expr_stmt|;
 name|item
 operator|->
+name|original
+operator|=
+name|elt
+expr_stmt|;
+name|item
+operator|->
 name|len
 operator|=
 name|strlen
@@ -1243,6 +1249,12 @@ expr_stmt|;
 name|item
 operator|->
 name|match
+operator|=
+name|prefix
+expr_stmt|;
+name|item
+operator|->
+name|original
 operator|=
 name|prefix
 expr_stmt|;
