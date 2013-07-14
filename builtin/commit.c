@@ -1367,9 +1367,8 @@ if|if
 condition|(
 name|read_cache_preload
 argument_list|(
+operator|&
 name|pathspec
-operator|.
-name|raw
 argument_list|)
 operator|<
 literal|0
@@ -6531,11 +6530,10 @@ argument_list|)
 expr_stmt|;
 name|read_cache_preload
 argument_list|(
+operator|&
 name|s
 operator|.
 name|pathspec
-operator|.
-name|raw
 argument_list|)
 expr_stmt|;
 name|refresh_index
