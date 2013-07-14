@@ -39,6 +39,11 @@ include|#
 directive|include
 file|"attr.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"pathspec.h"
+end_include
 begin_define
 DECL|macro|RESOLVED
 define|#
@@ -3929,9 +3934,8 @@ DECL|function|rerere_forget
 name|int
 name|rerere_forget
 parameter_list|(
-specifier|const
-name|char
-modifier|*
+name|struct
+name|pathspec
 modifier|*
 name|pathspec
 parameter_list|)
@@ -3979,6 +3983,8 @@ expr_stmt|;
 name|unmerge_cache
 argument_list|(
 name|pathspec
+operator|->
+name|raw
 argument_list|)
 expr_stmt|;
 name|find_conflict
@@ -4019,7 +4025,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|match_pathspec
+name|match_pathspec_depth
 argument_list|(
 name|pathspec
 argument_list|,
