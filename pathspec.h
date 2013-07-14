@@ -21,11 +21,19 @@ name|PATHSPEC_FROMTOP
 value|(1<<0)
 end_define
 begin_define
+DECL|macro|PATHSPEC_MAXDEPTH
+define|#
+directive|define
+name|PATHSPEC_MAXDEPTH
+value|(1<<1)
+end_define
+begin_define
 DECL|macro|PATHSPEC_ALL_MAGIC
 define|#
 directive|define
 name|PATHSPEC_ALL_MAGIC
-value|PATHSPEC_FROMTOP
+define|\
+value|(PATHSPEC_FROMTOP	| \ 	 PATHSPEC_MAXDEPTH)
 end_define
 begin_define
 DECL|macro|PATHSPEC_ONESTAR
@@ -141,6 +149,17 @@ end_define
 begin_comment
 DECL|macro|PATHSPEC_PREFER_FULL
 comment|/* No args means match everything */
+end_comment
+begin_define
+DECL|macro|PATHSPEC_MAXDEPTH_VALID
+define|#
+directive|define
+name|PATHSPEC_MAXDEPTH_VALID
+value|(1<<2)
+end_define
+begin_comment
+DECL|macro|PATHSPEC_MAXDEPTH_VALID
+comment|/* max_depth field is valid */
 end_comment
 begin_function_decl
 specifier|extern

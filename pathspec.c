@@ -1192,6 +1192,18 @@ name|pathspec
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|&
+name|PATHSPEC_MAXDEPTH_VALID
+condition|)
+name|pathspec
+operator|->
+name|magic
+operator||=
+name|PATHSPEC_MAXDEPTH
+expr_stmt|;
 comment|/* No arguments, no prefix -> no pathspec */
 if|if
 condition|(
@@ -1507,6 +1519,14 @@ operator|.
 name|magic
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|pathspec
+operator|->
+name|magic
+operator|&
+name|PATHSPEC_MAXDEPTH
+condition|)
 name|qsort
 argument_list|(
 name|pathspec
