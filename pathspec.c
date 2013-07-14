@@ -323,6 +323,8 @@ literal|0
 index|]
 operator|!=
 literal|':'
+operator|||
+name|literal_global
 condition|)
 block|{
 empty_stmt|;
