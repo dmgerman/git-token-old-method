@@ -2671,6 +2671,8 @@ operator||
 name|PATHSPEC_LITERAL
 operator||
 name|PATHSPEC_GLOB
+operator||
+name|PATHSPEC_ICASE
 argument_list|)
 expr_stmt|;
 for|for
@@ -2722,7 +2724,11 @@ index|]
 operator|.
 name|magic
 operator|&
+operator|(
 name|PATHSPEC_GLOB
+operator||
+name|PATHSPEC_ICASE
+operator|)
 operator|)
 operator|||
 operator|!
