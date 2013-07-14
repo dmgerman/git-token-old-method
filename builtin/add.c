@@ -2667,6 +2667,8 @@ operator|&
 name|pathspec
 argument_list|,
 name|PATHSPEC_FROMTOP
+operator||
+name|PATHSPEC_LITERAL
 argument_list|)
 expr_stmt|;
 for|for
