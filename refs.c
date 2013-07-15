@@ -2389,6 +2389,11 @@ name|data
 init|=
 name|cb_data
 decl_stmt|;
+name|struct
+name|ref_entry
+modifier|*
+name|old_current_ref
+decl_stmt|;
 name|int
 name|retval
 decl_stmt|;
@@ -2428,6 +2433,11 @@ condition|)
 return|return
 literal|0
 return|;
+comment|/* Store the old value, in case this is a recursive call: */
+name|old_current_ref
+operator|=
+name|current_ref
+expr_stmt|;
 name|current_ref
 operator|=
 name|entry
@@ -2465,7 +2475,7 @@ argument_list|)
 expr_stmt|;
 name|current_ref
 operator|=
-name|NULL
+name|old_current_ref
 expr_stmt|;
 return|return
 name|retval
