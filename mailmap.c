@@ -756,7 +756,7 @@ name|name
 operator|=
 operator|(
 name|nstart
-operator|<
+operator|<=
 name|nend
 condition|?
 name|nstart
