@@ -1632,12 +1632,18 @@ name|debug_mm
 argument_list|(
 literal|"map_user: map '%.*s'<%.*s>\n"
 argument_list|,
+operator|(
+name|int
+operator|)
 operator|*
 name|namelen
 argument_list|,
 operator|*
 name|name
 argument_list|,
+operator|(
+name|int
+operator|)
 operator|*
 name|emaillen
 argument_list|,
@@ -1815,12 +1821,18 @@ name|debug_mm
 argument_list|(
 literal|"map_user:  to '%.*s'<%.*s>\n"
 argument_list|,
+operator|(
+name|int
+operator|)
 operator|*
 name|namelen
 argument_list|,
 operator|*
 name|name
 argument_list|,
+operator|(
+name|int
+operator|)
 operator|*
 name|emaillen
 argument_list|,
