@@ -19978,8 +19978,12 @@ condition|(
 operator|!
 name|bit
 condition|)
-continue|continue;
-comment|/* ignore unknown ones, like we always have */
+return|return
+name|optarg
+index|[
+name|i
+index|]
+return|;
 name|opt
 operator|->
 name|filter
