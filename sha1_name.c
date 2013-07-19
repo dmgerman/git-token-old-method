@@ -1143,7 +1143,7 @@ name|obj
 operator|=
 name|deref_tag
 argument_list|(
-name|lookup_object
+name|parse_object
 argument_list|(
 name|sha1
 argument_list|)
