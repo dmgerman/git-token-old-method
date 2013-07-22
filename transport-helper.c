@@ -5217,6 +5217,16 @@ end_define
 begin_comment
 comment|/* Print bidirectional transfer loop debug message. */
 end_comment
+begin_macro
+name|__attribute__
+argument_list|(
+argument|(format (printf,
+literal|1
+argument|,
+literal|2
+argument|))
+argument_list|)
+end_macro
 begin_function
 DECL|function|transfer_debug
 specifier|static
@@ -5614,6 +5624,9 @@ name|t
 operator|->
 name|src_name
 argument_list|,
+operator|(
+name|int
+operator|)
 name|t
 operator|->
 name|bufuse

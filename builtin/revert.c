@@ -233,6 +233,7 @@ return|;
 block|}
 end_function
 begin_function
+name|LAST_ARG_MUST_BE_NULL
 DECL|function|verify_opt_compatible
 specifier|static
 name|void
@@ -319,6 +320,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+name|LAST_ARG_MUST_BE_NULL
 DECL|function|verify_opt_mutually_compatible
 specifier|static
 name|void
