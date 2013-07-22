@@ -204,6 +204,21 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+name|show_head
+operator|&&
+operator|!
+name|strcmp
+argument_list|(
+name|refname
+argument_list|,
+literal|"HEAD"
+argument_list|)
+condition|)
+goto|goto
+name|match
+goto|;
+if|if
+condition|(
 name|tags_only
 operator|||
 name|heads_only
@@ -902,7 +917,7 @@ name|NULL
 block|,
 name|N_
 argument_list|(
-literal|"show the HEAD reference"
+literal|"show the HEAD reference, even if it would be filtered out"
 argument_list|)
 block|,
 name|PARSE_OPT_NOARG
@@ -921,7 +936,7 @@ name|show_head
 argument_list|,
 name|N_
 argument_list|(
-literal|"show the HEAD reference"
+literal|"show the HEAD reference, even if it would be filtered out"
 argument_list|)
 argument_list|)
 block|,
