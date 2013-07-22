@@ -234,7 +234,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*****************************************************************  *  * Streaming converison support  *  *****************************************************************/
+comment|/*****************************************************************  *  * Streaming conversion support  *  *****************************************************************/
 end_comment
 begin_struct_decl
 struct_decl|struct
