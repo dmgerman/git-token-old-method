@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * Builtin "git notes"  *  * Copyright (c) 2010 Johan Herland<johan@herland.net>  *  * Based on git-notes.sh by Johannes Schindelin,  * and builtin-tag.c by Kristian HÃ¸gsberg and Carlos Rica.  */
+comment|/*  * Builtin "git notes"  *  * Copyright (c) 2010 Johan Herland<johan@herland.net>  *  * Based on git-notes.sh by Johannes Schindelin,  * and builtin/tag.c by Kristian HÃ¸gsberg and Carlos Rica.  */
 end_comment
 begin_include
 include|#
