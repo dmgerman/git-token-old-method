@@ -18600,7 +18600,7 @@ name|die
 argument_list|(
 name|_
 argument_list|(
-literal|"corrupt patch for subproject %s"
+literal|"corrupt patch for submodule %s"
 argument_list|)
 argument_list|,
 name|path
