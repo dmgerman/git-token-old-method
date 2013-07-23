@@ -650,7 +650,7 @@ decl_stmt|;
 name|int
 name|o
 init|=
-literal|1
+literal|0
 decl_stmt|;
 comment|/* output cursor */
 name|qsort
@@ -676,7 +676,7 @@ for|for
 control|(
 name|i
 operator|=
-literal|1
+literal|0
 init|;
 name|i
 operator|<
@@ -690,6 +690,10 @@ control|)
 block|{
 if|if
 condition|(
+name|o
+operator|>
+literal|0
+operator|&&
 name|rs
 operator|->
 name|ranges
