@@ -1404,10 +1404,6 @@ argument_list|)
 expr_stmt|;
 name|seen
 operator|=
-name|NULL
-expr_stmt|;
-name|seen
-operator|=
 name|xcalloc
 argument_list|(
 name|pathspec
