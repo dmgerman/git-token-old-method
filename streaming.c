@@ -490,6 +490,12 @@ name|status
 decl_stmt|;
 name|oi
 operator|->
+name|typep
+operator|=
+name|type
+expr_stmt|;
+name|oi
+operator|->
 name|sizep
 operator|=
 operator|&
@@ -513,11 +519,6 @@ condition|)
 return|return
 name|stream_error
 return|;
-operator|*
-name|type
-operator|=
-name|status
-expr_stmt|;
 switch|switch
 condition|(
 name|oi
@@ -599,7 +600,7 @@ name|object_info
 name|oi
 init|=
 block|{
-literal|0
+name|NULL
 block|}
 decl_stmt|;
 specifier|const
