@@ -1365,7 +1365,7 @@ op|','
 name|'date'
 op|')'
 op|'+'
-string|"'git commit --allow-empty -a -F %s'"
+string|"'git commit --allow-empty --allow-empty-message -a -F %s'"
 op|'%'
 name|'filecomment'
 op|')'
