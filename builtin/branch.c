@@ -4532,7 +4532,7 @@ argument_list|,
 literal|"change the upstream info"
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -4735,7 +4735,7 @@ argument_list|,
 literal|2
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -4750,7 +4750,7 @@ literal|"list branch names"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'l'
 argument_list|,
@@ -4765,7 +4765,7 @@ literal|"create the branch's reflog"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,

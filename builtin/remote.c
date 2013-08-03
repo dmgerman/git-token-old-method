@@ -835,7 +835,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'f'
 argument_list|,
@@ -6802,7 +6802,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'n'
 argument_list|,
@@ -7543,7 +7543,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'a'
 argument_list|,
@@ -7558,7 +7558,7 @@ literal|"set refs/remotes/<name>/HEAD according to remote"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
@@ -8349,7 +8349,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'p'
 argument_list|,
@@ -8831,7 +8831,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'\0'
 argument_list|,
@@ -9004,7 +9004,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'\0'
 argument_list|,
@@ -9019,7 +9019,7 @@ literal|"manipulate push URLs"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'\0'
 argument_list|,
@@ -9034,7 +9034,7 @@ literal|"add URL"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'\0'
 argument_list|,

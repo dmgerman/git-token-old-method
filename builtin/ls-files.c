@@ -2449,7 +2449,7 @@ block|,
 name|option_parse_z
 block|}
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'t'
 argument_list|,
@@ -2464,7 +2464,7 @@ literal|"identify the file status with tags"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'v'
 argument_list|,
@@ -2479,7 +2479,7 @@ literal|"use lowercase letters for 'assume unchanged' files"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'c'
 argument_list|,
@@ -2494,7 +2494,7 @@ literal|"show cached files in the output (default)"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
@@ -2509,7 +2509,7 @@ literal|"show deleted files in the output"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'m'
 argument_list|,
@@ -2524,7 +2524,7 @@ literal|"show modified files in the output"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'o'
 argument_list|,
@@ -2558,7 +2558,7 @@ argument_list|,
 name|DIR_SHOW_IGNORED
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'s'
 argument_list|,
@@ -2573,7 +2573,7 @@ literal|"show staged contents' object name in the output"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'k'
 argument_list|,
@@ -2626,7 +2626,7 @@ argument_list|,
 name|DIR_HIDE_EMPTY_DIRECTORIES
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'u'
 argument_list|,
@@ -2641,7 +2641,7 @@ literal|"show unmerged files in the output"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -2774,7 +2774,7 @@ block|,
 name|NULL
 block|}
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -2815,7 +2815,7 @@ operator|&
 name|abbrev
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,

@@ -1433,7 +1433,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'n'
 argument_list|,
@@ -1450,7 +1450,7 @@ literal|"sort output according to the number of commits per author"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'s'
 argument_list|,
@@ -1467,7 +1467,7 @@ literal|"Suppress commit descriptions, only provides commit count"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'e'
 argument_list|,

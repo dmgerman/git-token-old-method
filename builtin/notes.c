@@ -2778,7 +2778,7 @@ literal|"replace existing notes"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -4895,7 +4895,7 @@ argument_list|,
 name|IGNORE_MISSING
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
