@@ -4233,7 +4233,7 @@ argument_list|)
 argument_list|)
 block|,
 block|{
-name|OPTION_BOOLEAN
+name|OPTION_SET_INT
 block|,
 literal|0
 block|,
@@ -4252,6 +4252,10 @@ block|,
 name|PARSE_OPT_NOARG
 operator||
 name|PARSE_OPT_NONEG
+block|,
+name|NULL
+block|,
+literal|1
 block|}
 block|,
 name|OPT_GROUP
@@ -4263,7 +4267,7 @@ argument_list|)
 argument_list|)
 block|,
 block|{
-name|OPTION_BOOLEAN
+name|OPTION_SET_INT
 block|,
 literal|0
 block|,
@@ -4282,6 +4286,10 @@ block|,
 name|PARSE_OPT_NOARG
 operator||
 name|PARSE_OPT_NONEG
+block|,
+name|NULL
+block|,
+literal|1
 block|}
 block|,
 name|OPT_END
