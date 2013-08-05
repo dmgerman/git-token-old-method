@@ -7117,7 +7117,7 @@ condition|(
 operator|(
 name|codepoint
 operator|&
-literal|0xffffe
+literal|0xfffe
 operator|)
 operator|==
 literal|0xfffe
