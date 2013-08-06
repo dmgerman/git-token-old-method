@@ -12908,6 +12908,8 @@ name|sb
 argument_list|,
 name|lno
 argument_list|,
+literal|1
+argument_list|,
 operator|&
 name|bottom
 argument_list|,
