@@ -125,7 +125,6 @@ value|{0}
 end_define
 begin_function
 DECL|function|range_set_init
-specifier|static
 name|void
 name|range_set_init
 parameter_list|(
@@ -169,7 +168,6 @@ block|}
 end_function
 begin_function
 DECL|function|range_set_release
-specifier|static
 name|void
 name|range_set_release
 parameter_list|(
@@ -333,7 +331,6 @@ comment|/* tack on a _new_ range _at the end_ */
 end_comment
 begin_function
 DECL|function|range_set_append_unsafe
-specifier|static
 name|void
 name|range_set_append_unsafe
 parameter_list|(
@@ -398,7 +395,6 @@ block|}
 end_function
 begin_function
 DECL|function|range_set_append
-specifier|static
 name|void
 name|range_set_append
 parameter_list|(
@@ -634,7 +630,6 @@ comment|/*  * In-place pass of sorting and merging the ranges in the range set, 
 end_comment
 begin_function
 DECL|function|sort_and_merge_range_set
-specifier|static
 name|void
 name|sort_and_merge_range_set
 parameter_list|(
