@@ -11944,6 +11944,9 @@ name|unsigned
 name|int
 name|range_i
 decl_stmt|;
+name|long
+name|anchor
+decl_stmt|;
 name|git_config
 argument_list|(
 name|git_blame_config
@@ -12857,6 +12860,10 @@ literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|anchor
+operator|=
+literal|1
+expr_stmt|;
 name|range_set_init
 argument_list|(
 operator|&
@@ -12908,7 +12915,7 @@ name|sb
 argument_list|,
 name|lno
 argument_list|,
-literal|1
+name|anchor
 argument_list|,
 operator|&
 name|bottom
@@ -12985,6 +12992,12 @@ name|bottom
 argument_list|,
 name|top
 argument_list|)
+expr_stmt|;
+name|anchor
+operator|=
+name|top
+operator|+
+literal|1
 expr_stmt|;
 block|}
 name|sort_and_merge_range_set
