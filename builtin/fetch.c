@@ -214,12 +214,12 @@ name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|transport
+DECL|variable|gtransport
 specifier|static
 name|struct
 name|transport
 modifier|*
-name|transport
+name|gtransport
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -630,11 +630,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|transport
+name|gtransport
 condition|)
 name|transport_unlock_pack
 argument_list|(
-name|transport
+name|gtransport
 argument_list|)
 expr_stmt|;
 block|}
@@ -4517,7 +4517,7 @@ name|r
 init|=
 name|transport_set_option
 argument_list|(
-name|transport
+name|gtransport
 argument_list|,
 name|name
 argument_list|,
@@ -4541,7 +4541,7 @@ name|name
 argument_list|,
 name|value
 argument_list|,
-name|transport
+name|gtransport
 operator|->
 name|url
 argument_list|)
@@ -4561,7 +4561,7 @@ argument_list|)
 argument_list|,
 name|name
 argument_list|,
-name|transport
+name|gtransport
 operator|->
 name|url
 argument_list|)
@@ -5234,7 +5234,7 @@ literal|"remote name from which new revisions should be fetched."
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|transport
+name|gtransport
 operator|=
 name|transport_get
 argument_list|(
@@ -5245,7 +5245,7 @@ argument_list|)
 expr_stmt|;
 name|transport_set_verbosity
 argument_list|(
-name|transport
+name|gtransport
 argument_list|,
 name|verbosity
 argument_list|,
@@ -5470,7 +5470,7 @@ name|exit_code
 operator|=
 name|do_fetch
 argument_list|(
-name|transport
+name|gtransport
 argument_list|,
 name|refspec
 argument_list|,
@@ -5486,10 +5486,10 @@ argument_list|)
 expr_stmt|;
 name|transport_disconnect
 argument_list|(
-name|transport
+name|gtransport
 argument_list|)
 expr_stmt|;
-name|transport
+name|gtransport
 operator|=
 name|NULL
 expr_stmt|;
