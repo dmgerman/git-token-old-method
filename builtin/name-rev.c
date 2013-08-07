@@ -1917,12 +1917,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-operator|!
 name|all
 operator|+
-operator|!
-operator|!
 name|transform_stdin
 operator|+
 operator|!
