@@ -12926,6 +12926,8 @@ operator|->
 name|file
 argument_list|,
 name|one
+operator|->
+name|path
 condition|?
 name|one
 operator|->
