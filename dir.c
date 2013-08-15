@@ -2108,14 +2108,6 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-name|struct
-name|index_state
-modifier|*
-name|istate
-init|=
-operator|&
-name|the_index
-decl_stmt|;
 name|len
 operator|=
 name|strlen
@@ -2125,10 +2117,8 @@ argument_list|)
 expr_stmt|;
 name|pos
 operator|=
-name|index_name_pos
+name|cache_name_pos
 argument_list|(
-name|istate
-argument_list|,
 name|path
 argument_list|,
 name|len
@@ -2148,9 +2138,7 @@ condition|(
 operator|!
 name|ce_skip_worktree
 argument_list|(
-name|istate
-operator|->
-name|cache
+name|active_cache
 index|[
 name|pos
 index|]
@@ -2163,9 +2151,7 @@ name|data
 operator|=
 name|read_sha1_file
 argument_list|(
-name|istate
-operator|->
-name|cache
+name|active_cache
 index|[
 name|pos
 index|]
@@ -4412,7 +4398,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/*  * Do not use the alphabetically stored index to look up  * the directory name; instead, use the case insensitive  * name hash.  */
+comment|/*  * Do not use the alphabetically sorted index to look up  * the directory name; instead, use the case insensitive  * name hash.  */
 end_comment
 begin_function
 DECL|function|directory_exists_in_index_icase
@@ -4435,11 +4421,8 @@ name|cache_entry
 modifier|*
 name|ce
 init|=
-name|index_name_exists
+name|cache_name_exists
 argument_list|(
-operator|&
-name|the_index
-argument_list|,
 name|dirname
 argument_list|,
 name|len
