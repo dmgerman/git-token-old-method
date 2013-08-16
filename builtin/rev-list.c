@@ -1608,10 +1608,6 @@ name|tree_objects
 condition|)
 name|mark_edges_uninteresting
 argument_list|(
-name|revs
-operator|.
-name|commits
-argument_list|,
 operator|&
 name|revs
 argument_list|,
