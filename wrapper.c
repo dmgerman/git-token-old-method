@@ -659,6 +659,16 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*  * Limit size of IO chunks, because huge chunks only cause pain.  OS X  * 64-bit is buggy, returning EINVAL if len>= INT_MAX; and even in  * the absense of bugs, large chunks can result in bad latencies when  * you decide to kill the process.  */
+end_comment
+begin_define
+DECL|macro|MAX_IO_SIZE
+define|#
+directive|define
+name|MAX_IO_SIZE
+value|(8*1024*1024)
+end_define
+begin_comment
 comment|/*  * xread() is the same a read(), but it automatically restarts read()  * operations with a recoverable error (EAGAIN and EINTR). xread()  * DOES NOT GUARANTEE that "len" bytes is read even if the data is available.  */
 end_comment
 begin_function
@@ -680,6 +690,16 @@ block|{
 name|ssize_t
 name|nr
 decl_stmt|;
+if|if
+condition|(
+name|len
+operator|>
+name|MAX_IO_SIZE
+condition|)
+name|len
+operator|=
+name|MAX_IO_SIZE
+expr_stmt|;
 while|while
 condition|(
 literal|1
@@ -744,6 +764,16 @@ block|{
 name|ssize_t
 name|nr
 decl_stmt|;
+if|if
+condition|(
+name|len
+operator|>
+name|MAX_IO_SIZE
+condition|)
+name|len
+operator|=
+name|MAX_IO_SIZE
+expr_stmt|;
 while|while
 condition|(
 literal|1
