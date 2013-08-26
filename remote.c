@@ -9569,7 +9569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Return true if there is anything to report, otherwise false.  */
+comment|/*  * Compare a branch with its upstream, and save their differences (number  * of commits) in *num_ours and *num_theirs.  *  * Return 0 if branch has no upstream (no base), -1 if upstream is missing  * (with "gone" base), otherwise 1 (with base).  */
 end_comment
 begin_function
 DECL|function|stat_tracking_info
@@ -9629,7 +9629,7 @@ decl_stmt|;
 name|int
 name|rev_argc
 decl_stmt|;
-comment|/* 	 * Nothing to report unless we are marked to build on top of 	 * somebody else. 	 */
+comment|/* Cannot stat unless we are marked to build on top of somebody else. */
 if|if
 condition|(
 operator|!
@@ -9661,7 +9661,7 @@ condition|)
 return|return
 literal|0
 return|;
-comment|/* 	 * If what we used to build on no longer exists, there is 	 * nothing to report. 	 */
+comment|/* Cannot stat if what we used to build on no longer exists */
 name|base
 operator|=
 name|branch
@@ -9683,7 +9683,8 @@ name|sha1
 argument_list|)
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 name|theirs
 operator|=
@@ -9698,7 +9699,8 @@ operator|!
 name|theirs
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 if|if
 condition|(
@@ -9712,7 +9714,8 @@ name|sha1
 argument_list|)
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 name|ours
 operator|=
@@ -9727,7 +9730,8 @@ operator|!
 name|ours
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 comment|/* are we the same? */
 if|if
@@ -9736,9 +9740,19 @@ name|theirs
 operator|==
 name|ours
 condition|)
-return|return
+block|{
+operator|*
+name|num_theirs
+operator|=
+operator|*
+name|num_ours
+operator|=
 literal|0
+expr_stmt|;
+return|return
+literal|1
 return|;
+block|}
 comment|/* Run "rev-list --left-right ours...theirs" internally... */
 name|rev_argc
 operator|=
@@ -9945,32 +9959,67 @@ name|sb
 parameter_list|)
 block|{
 name|int
-name|num_ours
+name|ours
 decl_stmt|,
-name|num_theirs
+name|theirs
 decl_stmt|;
 specifier|const
 name|char
 modifier|*
 name|base
 decl_stmt|;
-if|if
+name|int
+name|upstream_is_gone
+init|=
+literal|0
+decl_stmt|;
+switch|switch
 condition|(
-operator|!
 name|stat_tracking_info
 argument_list|(
 name|branch
 argument_list|,
 operator|&
-name|num_ours
+name|ours
 argument_list|,
 operator|&
-name|num_theirs
+name|theirs
 argument_list|)
+condition|)
+block|{
+case|case
+literal|0
+case|:
+comment|/* no base */
+return|return
+literal|0
+return|;
+case|case
+operator|-
+literal|1
+case|:
+comment|/* with "gone" base */
+name|upstream_is_gone
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+default|default:
+comment|/* Nothing to report if neither side has changes. */
+if|if
+condition|(
+operator|!
+name|ours
+operator|&&
+operator|!
+name|theirs
 condition|)
 return|return
 literal|0
 return|;
+comment|/* with base */
+break|break;
+block|}
 name|base
 operator|=
 name|branch
@@ -9993,8 +10042,41 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|upstream_is_gone
+condition|)
+block|{
+name|strbuf_addf
+argument_list|(
+name|sb
+argument_list|,
+name|_
+argument_list|(
+literal|"Your branch is based on '%s', but the upstream is gone.\n"
+argument_list|)
+argument_list|,
+name|base
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|advice_status_hints
+condition|)
+name|strbuf_addf
+argument_list|(
+name|sb
+argument_list|,
+name|_
+argument_list|(
+literal|"  (use \"git branch --unset-upstream\" to fixup)\n"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
-name|num_theirs
+name|theirs
 condition|)
 block|{
 name|strbuf_addf
@@ -10007,12 +10089,12 @@ literal|"Your branch is ahead of '%s' by %d commit.\n"
 argument_list|,
 literal|"Your branch is ahead of '%s' by %d commits.\n"
 argument_list|,
-name|num_ours
+name|ours
 argument_list|)
 argument_list|,
 name|base
 argument_list|,
-name|num_ours
+name|ours
 argument_list|)
 expr_stmt|;
 if|if
@@ -10034,7 +10116,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|num_ours
+name|ours
 condition|)
 block|{
 name|strbuf_addf
@@ -10049,12 +10131,12 @@ argument_list|,
 literal|"Your branch is behind '%s' by %d commits, "
 literal|"and can be fast-forwarded.\n"
 argument_list|,
-name|num_theirs
+name|theirs
 argument_list|)
 argument_list|,
 name|base
 argument_list|,
-name|num_theirs
+name|theirs
 argument_list|)
 expr_stmt|;
 if|if
@@ -10088,14 +10170,14 @@ literal|"Your branch and '%s' have diverged,\n"
 literal|"and have %d and %d different commits each, "
 literal|"respectively.\n"
 argument_list|,
-name|num_theirs
+name|theirs
 argument_list|)
 argument_list|,
 name|base
 argument_list|,
-name|num_ours
+name|ours
 argument_list|,
-name|num_theirs
+name|theirs
 argument_list|)
 expr_stmt|;
 if|if
