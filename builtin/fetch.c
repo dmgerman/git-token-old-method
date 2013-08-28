@@ -4080,6 +4080,7 @@ block|}
 end_function
 begin_function
 DECL|function|prepare_transport
+specifier|static
 name|struct
 name|transport
 modifier|*
