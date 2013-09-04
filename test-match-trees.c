@@ -106,7 +106,7 @@ name|one
 condition|)
 name|die
 argument_list|(
-literal|"not a treeish %s"
+literal|"not a tree-ish %s"
 argument_list|,
 name|av
 index|[
@@ -128,7 +128,7 @@ name|two
 condition|)
 name|die
 argument_list|(
-literal|"not a treeish %s"
+literal|"not a tree-ish %s"
 argument_list|,
 name|av
 index|[

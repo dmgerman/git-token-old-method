@@ -16449,7 +16449,7 @@ break|break;
 default|default:
 name|die
 argument_list|(
-literal|"Not a treeish: %s"
+literal|"Not a tree-ish: %s"
 argument_list|,
 name|command_buf
 operator|.
@@ -16926,7 +16926,7 @@ block|{
 name|NULL
 block|}
 decl_stmt|;
-comment|/* ls SP (<treeish> SP)?<path> */
+comment|/* ls SP (<tree-ish> SP)?<path> */
 name|p
 operator|=
 name|command_buf
