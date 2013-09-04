@@ -4376,7 +4376,7 @@ literal|"interactive cleaning"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
@@ -4416,7 +4416,7 @@ block|,
 name|exclude_cb
 block|}
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'x'
 argument_list|,
@@ -4431,7 +4431,7 @@ literal|"remove ignored files, too"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'X'
 argument_list|,

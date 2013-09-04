@@ -128,7 +128,7 @@ literal|"reason of the update"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
@@ -143,7 +143,7 @@ literal|"delete the reference"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,

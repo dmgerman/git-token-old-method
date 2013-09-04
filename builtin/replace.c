@@ -623,7 +623,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'l'
 argument_list|,
@@ -638,7 +638,7 @@ literal|"list replace refs"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
@@ -653,7 +653,7 @@ literal|"delete replace refs"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'f'
 argument_list|,

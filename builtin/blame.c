@@ -11651,7 +11651,7 @@ name|options
 index|[]
 init|=
 block|{
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -11666,7 +11666,7 @@ literal|"Show blame entries as we find them, incrementally"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|'b'
 argument_list|,
@@ -11681,7 +11681,7 @@ literal|"Show blank SHA-1 for boundary commits (Default: off)"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
@@ -11696,7 +11696,7 @@ literal|"Do not treat root commits as boundaries (Default: off)"
 argument_list|)
 argument_list|)
 block|,
-name|OPT_BOOLEAN
+name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
