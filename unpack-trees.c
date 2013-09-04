@@ -5499,6 +5499,14 @@ name|o
 operator|->
 name|dst_index
 condition|)
+block|{
+name|discard_index
+argument_list|(
+name|o
+operator|->
+name|dst_index
+argument_list|)
+expr_stmt|;
 operator|*
 name|o
 operator|->
@@ -5508,6 +5516,7 @@ name|o
 operator|->
 name|result
 expr_stmt|;
+block|}
 name|done
 label|:
 name|clear_exclude_list
