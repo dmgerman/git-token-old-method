@@ -2900,8 +2900,6 @@ name|void
 name|release_pack_memory
 parameter_list|(
 name|size_t
-parameter_list|,
-name|int
 parameter_list|)
 function_decl|;
 end_function_decl
