@@ -681,7 +681,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'l'
 argument_list|,
-name|NULL
+literal|"list"
 argument_list|,
 operator|&
 name|list
@@ -696,7 +696,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'d'
 argument_list|,
-name|NULL
+literal|"delete"
 argument_list|,
 operator|&
 name|delete
@@ -711,7 +711,7 @@ name|OPT_BOOLEAN
 argument_list|(
 literal|'f'
 argument_list|,
-name|NULL
+literal|"force"
 argument_list|,
 operator|&
 name|force
