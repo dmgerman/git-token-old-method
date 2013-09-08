@@ -248,8 +248,7 @@ specifier|static
 name|int
 name|keepalive
 init|=
-operator|-
-literal|1
+literal|5
 decl_stmt|;
 end_decl_stmt
 begin_comment
