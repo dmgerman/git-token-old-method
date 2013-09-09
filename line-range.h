@@ -11,7 +11,7 @@ directive|define
 name|LINE_RANGE_H
 end_define
 begin_comment
-comment|/*  * Parse one item in an -L begin,end option w.r.t. the notional file  * object 'cb_data' consisting of 'lines' lines.  *  * The 'nth_line_cb' callback is used to determine the start of the  * line 'lno' inside the 'cb_data'.  The caller is expected to already  * have a suitable map at hand to make this a constant-time lookup.  *  * Returns 0 in case of success and -1 if there was an error.  The  * actual range is stored in *begin and *end.  The counting starts  * at 1!  In case of error, the caller should show usage message.  */
+comment|/*  * Parse one item in an -L begin,end option w.r.t. the notional file  * object 'cb_data' consisting of 'lines' lines.  *  * The 'nth_line_cb' callback is used to determine the start of the  * line 'lno' inside the 'cb_data'.  The caller is expected to already  * have a suitable map at hand to make this a constant-time lookup.  *  * 'anchor' is the 1-based line at which relative range specifications  * should be anchored. Absolute ranges are unaffected by this value.  *  * Returns 0 in case of success and -1 if there was an error.  The  * actual range is stored in *begin and *end.  The counting starts  * at 1!  In case of error, the caller should show usage message.  */
 end_comment
 begin_typedef
 DECL|typedef|nth_line_fn_t
@@ -52,6 +52,9 @@ name|cb_data
 parameter_list|,
 name|long
 name|lines
+parameter_list|,
+name|long
+name|anchor
 parameter_list|,
 name|long
 modifier|*
