@@ -15,6 +15,11 @@ include|#
 directive|include
 file|"string-list.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"run-command.h"
+end_include
 begin_struct
 DECL|struct|fetch_pack_args
 struct|struct

@@ -18,6 +18,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"run-command.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"remote.h"
 end_include
 begin_struct
@@ -70,6 +75,12 @@ specifier|const
 name|char
 modifier|*
 name|receivepack
+decl_stmt|;
+DECL|member|cas
+name|struct
+name|push_cas_option
+modifier|*
+name|cas
 decl_stmt|;
 block|}
 struct|;
@@ -439,6 +450,16 @@ define|#
 directive|define
 name|TRANS_OPT_THIN
 value|"thin"
+end_define
+begin_comment
+comment|/* Check the current value of the remote ref */
+end_comment
+begin_define
+DECL|macro|TRANS_OPT_CAS
+define|#
+directive|define
+name|TRANS_OPT_CAS
+value|"cas"
 end_define
 begin_comment
 comment|/* Keep the pack that was transferred if not null */

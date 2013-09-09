@@ -37,6 +37,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"connect.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"send-pack.h"
 end_include
 begin_include
@@ -1111,6 +1116,9 @@ name|REF_STATUS_REJECT_FETCH_FIRST
 case|:
 case|case
 name|REF_STATUS_REJECT_NEEDS_FORCE
+case|:
+case|case
+name|REF_STATUS_REJECT_STALE
 case|:
 case|case
 name|REF_STATUS_UPTODATE
