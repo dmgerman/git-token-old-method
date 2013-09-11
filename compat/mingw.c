@@ -2665,12 +2665,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_undef
-DECL|macro|fstat
-undef|#
-directive|undef
-name|fstat
-end_undef
 begin_function
 DECL|function|mingw_fstat
 name|int
