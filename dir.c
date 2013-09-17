@@ -4034,7 +4034,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|cache_name_exists
+name|cache_file_exists
 argument_list|(
 name|pathname
 argument_list|,
@@ -4173,7 +4173,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/*  * Do not use the alphabetically sorted index to look up  * the directory name; instead, use the case insensitive  * name hash.  */
+comment|/*  * Do not use the alphabetically sorted index to look up  * the directory name; instead, use the case insensitive  * directory hash.  */
 end_comment
 begin_function
 DECL|function|directory_exists_in_index_icase
@@ -4197,15 +4197,13 @@ name|cache_entry
 modifier|*
 name|ce
 init|=
-name|cache_name_exists
+name|cache_dir_exists
 argument_list|(
 name|dirname
 argument_list|,
 name|len
 operator|+
 literal|1
-argument_list|,
-name|ignore_case
 argument_list|)
 decl_stmt|;
 name|unsigned
@@ -4768,7 +4766,7 @@ name|ce
 decl_stmt|;
 name|ce
 operator|=
-name|cache_name_exists
+name|cache_file_exists
 argument_list|(
 name|path
 argument_list|,
@@ -5065,7 +5063,7 @@ name|has_path_in_index
 init|=
 operator|!
 operator|!
-name|cache_name_exists
+name|cache_file_exists
 argument_list|(
 name|path
 operator|->

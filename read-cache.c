@@ -3227,7 +3227,7 @@ name|ptr
 expr_stmt|;
 name|foundce
 operator|=
-name|index_name_exists
+name|index_dir_exists
 argument_list|(
 name|istate
 argument_list|,
@@ -3240,8 +3240,6 @@ operator|-
 name|ce
 operator|->
 name|name
-argument_list|,
-name|ignore_case
 argument_list|)
 expr_stmt|;
 if|if
@@ -3284,7 +3282,7 @@ block|}
 block|}
 name|alias
 operator|=
-name|index_name_exists
+name|index_file_exists
 argument_list|(
 name|istate
 argument_list|,
