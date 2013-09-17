@@ -4202,8 +4202,6 @@ argument_list|(
 name|dirname
 argument_list|,
 name|len
-operator|+
-literal|1
 argument_list|)
 decl_stmt|;
 name|unsigned
