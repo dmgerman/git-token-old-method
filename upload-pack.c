@@ -3938,7 +3938,7 @@ name|sha1
 argument_list|,
 name|flag
 argument_list|,
-name|cb_data
+name|NULL
 argument_list|)
 condition|)
 return|return
