@@ -2257,8 +2257,10 @@ literal|0
 operator|<=
 name|option_verbosity
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"done.\n"
@@ -3076,8 +3078,10 @@ literal|0
 operator|<=
 name|option_verbosity
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Checking connectivity... "
@@ -3112,8 +3116,10 @@ literal|0
 operator|<=
 name|option_verbosity
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"done\n"
@@ -4677,8 +4683,10 @@ if|if
 condition|(
 name|option_bare
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Cloning into bare repository '%s'...\n"
@@ -4688,8 +4696,10 @@ name|dir
 argument_list|)
 expr_stmt|;
 else|else
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Cloning into '%s'...\n"
