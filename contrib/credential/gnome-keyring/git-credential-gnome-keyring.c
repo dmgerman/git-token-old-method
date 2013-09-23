@@ -463,6 +463,7 @@ block|}
 end_function
 begin_function
 DECL|function|keyring_get
+specifier|static
 name|int
 name|keyring_get
 parameter_list|(
@@ -652,6 +653,7 @@ block|}
 end_function
 begin_function
 DECL|function|keyring_store
+specifier|static
 name|int
 name|keyring_store
 parameter_list|(
@@ -757,6 +759,7 @@ block|}
 end_function
 begin_function
 DECL|function|keyring_erase
+specifier|static
 name|int
 name|keyring_erase
 parameter_list|(
@@ -952,6 +955,7 @@ comment|/*  * Table with helper operation callbacks, used by generic  * credenti
 end_comment
 begin_decl_stmt
 DECL|variable|credential_helper_ops
+specifier|static
 name|struct
 name|credential_operation
 specifier|const
@@ -986,6 +990,7 @@ comment|/* ------------------ credential functions ------------------ */
 end_comment
 begin_function
 DECL|function|credential_init
+specifier|static
 name|void
 name|credential_init
 parameter_list|(
@@ -1012,6 +1017,7 @@ block|}
 end_function
 begin_function
 DECL|function|credential_clear
+specifier|static
 name|void
 name|credential_clear
 parameter_list|(
@@ -1065,6 +1071,7 @@ block|}
 end_function
 begin_function
 DECL|function|credential_read
+specifier|static
 name|int
 name|credential_read
 parameter_list|(
@@ -1371,6 +1378,7 @@ block|}
 end_function
 begin_function
 DECL|function|credential_write_item
+specifier|static
 name|void
 name|credential_write_item
 parameter_list|(
@@ -1410,6 +1418,7 @@ block|}
 end_function
 begin_function
 DECL|function|credential_write
+specifier|static
 name|void
 name|credential_write
 parameter_list|(
