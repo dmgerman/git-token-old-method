@@ -470,6 +470,12 @@ name|defined
 argument_list|(
 name|_MSC_VER
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|_WIN32_WINNT
+argument_list|)
 end_if
 begin_define
 DECL|macro|_WIN32_WINNT
