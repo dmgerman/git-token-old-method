@@ -415,6 +415,12 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+name|enum
+name|object_type
+name|obj_type
+decl_stmt|,
+name|repl_type
+decl_stmt|;
 name|char
 name|ref
 index|[
@@ -507,6 +513,54 @@ argument_list|(
 literal|"'%s' is not a valid ref name."
 argument_list|,
 name|ref
+argument_list|)
+expr_stmt|;
+name|obj_type
+operator|=
+name|sha1_object_info
+argument_list|(
+name|object
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+name|repl_type
+operator|=
+name|sha1_object_info
+argument_list|(
+name|repl
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|force
+operator|&&
+name|obj_type
+operator|!=
+name|repl_type
+condition|)
+name|die
+argument_list|(
+literal|"Objects must be of the same type.\n"
+literal|"'%s' points to a replaced object of type '%s'\n"
+literal|"while '%s' points to a replacement object of type '%s'."
+argument_list|,
+name|object_ref
+argument_list|,
+name|typename
+argument_list|(
+name|obj_type
+argument_list|)
+argument_list|,
+name|replace_ref
+argument_list|,
+name|typename
+argument_list|(
+name|repl_type
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -629,7 +683,7 @@ name|OPT_BOOL
 argument_list|(
 literal|'l'
 argument_list|,
-name|NULL
+literal|"list"
 argument_list|,
 operator|&
 name|list
@@ -644,7 +698,7 @@ name|OPT_BOOL
 argument_list|(
 literal|'d'
 argument_list|,
-name|NULL
+literal|"delete"
 argument_list|,
 operator|&
 name|delete
@@ -659,7 +713,7 @@ name|OPT_BOOL
 argument_list|(
 literal|'f'
 argument_list|,
-name|NULL
+literal|"force"
 argument_list|,
 operator|&
 name|force
