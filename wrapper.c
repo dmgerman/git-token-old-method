@@ -1691,6 +1691,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|NO_MKSTEMPS
+end_ifdef
 begin_function
 DECL|function|gitmkstemps
 name|int
@@ -1716,6 +1721,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|xmkstemp_mode
 name|int
