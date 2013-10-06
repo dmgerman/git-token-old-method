@@ -15307,7 +15307,7 @@ name|oldval
 argument_list|,
 name|flags
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 name|onerr
 argument_list|)
