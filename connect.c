@@ -2789,6 +2789,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|host
+operator|!=
+name|url
+operator|||
 name|path
 operator|<
 name|strchrnul
