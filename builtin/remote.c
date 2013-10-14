@@ -72,7 +72,7 @@ argument_list|)
 block|,
 name|N_
 argument_list|(
-literal|"git remote set-head<name> (-a | -d |<branch>)"
+literal|"git remote set-head<name> (-a | --auto | -d | --delete |<branch>)"
 argument_list|)
 block|,
 name|N_
@@ -187,7 +187,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git remote set-head<name> (-a | -d |<branch>)"
+literal|"git remote set-head<name> (-a | --auto | -d | --delete |<branch>)"
 argument_list|)
 block|,
 name|NULL
