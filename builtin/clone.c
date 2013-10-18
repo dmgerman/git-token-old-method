@@ -2250,8 +2250,10 @@ literal|0
 operator|<=
 name|option_verbosity
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"done.\n"
@@ -3065,12 +3067,14 @@ condition|)
 block|{
 if|if
 condition|(
-literal|0
-operator|<=
-name|option_verbosity
+name|transport
+operator|->
+name|progress
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Checking connectivity... "
@@ -3101,12 +3105,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|0
-operator|<=
-name|option_verbosity
+name|transport
+operator|->
+name|progress
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"done.\n"
@@ -4670,8 +4676,10 @@ if|if
 condition|(
 name|option_bare
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Cloning into bare repository '%s'...\n"
@@ -4681,8 +4689,10 @@ name|dir
 argument_list|)
 expr_stmt|;
 else|else
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 name|_
 argument_list|(
 literal|"Cloning into '%s'...\n"
@@ -4848,20 +4858,19 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|is_local
-condition|)
-block|{
-if|if
-condition|(
-operator|!
 name|transport
 operator|->
 name|get_refs_list
 operator|||
+operator|(
+operator|!
+name|is_local
+operator|&&
 operator|!
 name|transport
 operator|->
 name|fetch
+operator|)
 condition|)
 name|die
 argument_list|(
@@ -4949,7 +4958,6 @@ name|check_self_contained_and_connected
 operator|=
 literal|1
 expr_stmt|;
-block|}
 name|refs
 operator|=
 name|transport_get_remote_refs
