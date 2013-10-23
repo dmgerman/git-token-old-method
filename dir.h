@@ -259,6 +259,13 @@ init|=
 literal|1
 operator|<<
 literal|5
+block|,
+DECL|enumerator|DIR_COLLECT_KILLED_ONLY
+name|DIR_COLLECT_KILLED_ONLY
+init|=
+literal|1
+operator|<<
+literal|6
 block|}
 DECL|member|flags
 name|flags
