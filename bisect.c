@@ -3044,10 +3044,6 @@ condition|)
 name|mark_edges_uninteresting
 argument_list|(
 name|revs
-operator|->
-name|commits
-argument_list|,
-name|revs
 argument_list|,
 name|NULL
 argument_list|)
