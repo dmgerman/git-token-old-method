@@ -7624,15 +7624,6 @@ name|suspect
 operator|->
 name|commit
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|commit
-operator|->
-name|object
-operator|.
-name|parsed
-condition|)
 name|parse_commit
 argument_list|(
 name|commit
