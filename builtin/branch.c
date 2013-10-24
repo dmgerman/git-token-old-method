@@ -2604,8 +2604,6 @@ name|commit
 decl_stmt|;
 if|if
 condition|(
-name|commit
-operator|&&
 operator|!
 name|parse_commit
 argument_list|(
