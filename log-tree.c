@@ -3935,7 +3935,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 name|commit
 argument_list|)
@@ -4038,7 +4038,7 @@ name|first_parent_only
 condition|)
 block|{
 comment|/* 			 * Generate merge log entry only for the first 			 * parent, showing summary diff of the others 			 * we merged _in_. 			 */
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 name|parents
 operator|->
@@ -4108,7 +4108,7 @@ name|parents
 operator|->
 name|item
 decl_stmt|;
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 name|parent
 argument_list|)
