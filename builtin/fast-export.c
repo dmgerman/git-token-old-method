@@ -1590,7 +1590,7 @@ name|output_format
 operator|=
 name|DIFF_FORMAT_CALLBACK
 expr_stmt|;
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 name|commit
 argument_list|)
@@ -1727,7 +1727,7 @@ operator|!
 name|full_tree
 condition|)
 block|{
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 name|commit
 operator|->
