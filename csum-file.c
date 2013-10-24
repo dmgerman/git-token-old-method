@@ -28,6 +28,7 @@ name|sha1file
 modifier|*
 name|f
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|buf
@@ -485,6 +486,7 @@ name|sha1file
 modifier|*
 name|f
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|buf
@@ -529,6 +531,7 @@ name|left
 else|:
 name|count
 decl_stmt|;
+specifier|const
 name|void
 modifier|*
 name|data
