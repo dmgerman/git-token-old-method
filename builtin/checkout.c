@@ -2104,11 +2104,14 @@ name|sb
 init|=
 name|STRBUF_INIT
 decl_stmt|;
+if|if
+condition|(
+operator|!
 name|parse_commit
 argument_list|(
 name|commit
 argument_list|)
-expr_stmt|;
+condition|)
 name|pp_commit_easy
 argument_list|(
 name|CMIT_FMT_ONELINE
@@ -3764,11 +3767,6 @@ modifier|*
 name|commit
 parameter_list|)
 block|{
-name|parse_commit
-argument_list|(
-name|commit
-argument_list|)
-expr_stmt|;
 name|strbuf_addstr
 argument_list|(
 name|sb
@@ -3799,6 +3797,14 @@ argument_list|,
 literal|' '
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|parse_commit
+argument_list|(
+name|commit
+argument_list|)
+condition|)
 name|pp_commit_easy
 argument_list|(
 name|CMIT_FMT_ONELINE
