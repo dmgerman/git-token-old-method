@@ -12077,9 +12077,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/* returns enum object_type or negative */
-end_comment
 begin_function
 DECL|function|sha1_object_info_extended
 name|int
@@ -12352,6 +12349,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/* returns enum object_type or negative */
+end_comment
 begin_function
 DECL|function|sha1_object_info
 name|int
