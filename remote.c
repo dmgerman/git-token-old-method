@@ -3135,10 +3135,7 @@ comment|/* did this already */
 return|return;
 name|default_remote_name
 operator|=
-name|xstrdup
-argument_list|(
 literal|"origin"
-argument_list|)
 expr_stmt|;
 name|current_branch
 operator|=
