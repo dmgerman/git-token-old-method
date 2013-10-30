@@ -70,7 +70,7 @@ index|[
 literal|4
 index|]
 index|[
-name|PATH_MAX
+name|TEMPORARY_FILENAME_LENGTH
 operator|+
 literal|1
 index|]

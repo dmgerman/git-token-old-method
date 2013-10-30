@@ -6404,6 +6404,13 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_define
+DECL|macro|TEMPORARY_FILENAME_LENGTH
+define|#
+directive|define
+name|TEMPORARY_FILENAME_LENGTH
+value|25
+end_define
 begin_function_decl
 specifier|extern
 name|int
