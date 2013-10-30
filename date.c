@@ -4984,7 +4984,6 @@ name|end
 argument_list|)
 condition|)
 empty_stmt|;
-empty_stmt|;
 for|for
 control|(
 name|i
