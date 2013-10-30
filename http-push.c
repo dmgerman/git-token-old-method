@@ -8318,8 +8318,6 @@ argument_list|,
 name|NULL
 argument_list|,
 name|NULL
-argument_list|,
-literal|0
 argument_list|)
 condition|)
 block|{
@@ -8438,12 +8436,10 @@ name|http_get_strbuf
 argument_list|(
 name|url
 argument_list|,
-name|NULL
-argument_list|,
 operator|&
 name|buffer
 argument_list|,
-literal|0
+name|NULL
 argument_list|)
 operator|!=
 name|HTTP_OK
