@@ -4296,7 +4296,7 @@ name|pathspec
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+name|PATHSPEC_PREFER_FULL
 argument_list|,
 literal|""
 argument_list|,
