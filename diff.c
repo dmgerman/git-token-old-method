@@ -19093,7 +19093,7 @@ operator|==
 literal|'='
 condition|)
 block|{
-comment|/* sticked form: --option=value */
+comment|/* stuck form: --option=value */
 operator|*
 name|optarg
 operator|=
