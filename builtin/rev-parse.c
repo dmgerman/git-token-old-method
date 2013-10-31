@@ -151,6 +151,13 @@ name|int
 name|output_sq
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|stuck_long
+specifier|static
+name|int
+name|stuck_long
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * Some arguments are relevant "revision" arguments,  * others are about output format or other details.  * This sorts it all out.  */
 end_comment
@@ -1494,6 +1501,17 @@ condition|(
 name|o
 operator|->
 name|short_name
+operator|&&
+operator|(
+name|o
+operator|->
+name|long_name
+operator|==
+name|NULL
+operator|||
+operator|!
+name|stuck_long
+operator|)
 condition|)
 name|strbuf_addf
 argument_list|(
@@ -1523,11 +1541,30 @@ condition|(
 name|arg
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|stuck_long
+condition|)
 name|strbuf_addch
 argument_list|(
 name|parsed
 argument_list|,
 literal|' '
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|o
+operator|->
+name|long_name
+condition|)
+name|strbuf_addch
+argument_list|(
+name|parsed
+argument_list|,
+literal|'='
 argument_list|)
 expr_stmt|;
 name|sq_quote_buf
@@ -1656,6 +1693,21 @@ name|N_
 argument_list|(
 literal|"stop parsing after the "
 literal|"first non-option argument"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"stuck-long"
+argument_list|,
+operator|&
+name|stuck_long
+argument_list|,
+name|N_
+argument_list|(
+literal|"output in stuck long form"
 argument_list|)
 argument_list|)
 block|,
