@@ -1922,6 +1922,11 @@ name|struct
 name|active_request_slot
 modifier|*
 name|slot
+parameter_list|,
+name|struct
+name|slot_results
+modifier|*
+name|results
 parameter_list|)
 block|{
 name|int
@@ -1929,13 +1934,22 @@ name|err
 decl_stmt|;
 name|struct
 name|slot_results
-name|results
+name|results_buf
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|results
+condition|)
+name|results
+operator|=
+operator|&
+name|results_buf
+expr_stmt|;
 name|slot
 operator|->
 name|results
 operator|=
-operator|&
 name|results
 expr_stmt|;
 name|slot
@@ -1958,7 +1972,6 @@ name|err
 operator|=
 name|handle_curl_result
 argument_list|(
-operator|&
 name|results
 argument_list|)
 expr_stmt|;
@@ -1978,11 +1991,11 @@ argument_list|(
 literal|"RPC failed; result=%d, HTTP code = %ld"
 argument_list|,
 name|results
-operator|.
+operator|->
 name|curl_result
 argument_list|,
 name|results
-operator|.
+operator|->
 name|http_code
 argument_list|)
 expr_stmt|;
@@ -2002,6 +2015,11 @@ name|struct
 name|rpc_state
 modifier|*
 name|rpc
+parameter_list|,
+name|struct
+name|slot_results
+modifier|*
+name|results
 parameter_list|)
 block|{
 name|struct
@@ -2159,6 +2177,8 @@ operator|=
 name|run_slot
 argument_list|(
 name|slot
+argument_list|,
+name|results
 argument_list|)
 expr_stmt|;
 name|curl_slist_free_all
@@ -2319,6 +2339,8 @@ operator|=
 name|probe_rpc
 argument_list|(
 name|rpc
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 block|}
@@ -2872,6 +2894,8 @@ operator|=
 name|run_slot
 argument_list|(
 name|slot
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
