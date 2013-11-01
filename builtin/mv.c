@@ -337,6 +337,13 @@ name|lock_file
 name|lock_file
 decl_stmt|;
 end_decl_stmt
+begin_define
+DECL|macro|SUBMODULE_WITH_GITDIR
+define|#
+directive|define
+name|SUBMODULE_WITH_GITDIR
+value|((const char *)1)
+end_define
 begin_function
 DECL|function|cmd_mv
 name|int
@@ -972,6 +979,14 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+else|else
+name|submodule_gitfile
+index|[
+name|i
+index|]
+operator|=
+name|SUBMODULE_WITH_GITDIR
+expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
@@ -1588,6 +1603,16 @@ index|[
 name|i
 index|]
 condition|)
+block|{
+if|if
+condition|(
+name|submodule_gitfile
+index|[
+name|i
+index|]
+operator|!=
+name|SUBMODULE_WITH_GITDIR
+condition|)
 name|connect_work_tree_and_git_dir
 argument_list|(
 name|dst
@@ -1612,6 +1637,7 @@ name|gitmodules_modified
 operator|=
 literal|1
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
