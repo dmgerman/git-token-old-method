@@ -2009,7 +2009,6 @@ name|cmd
 operator|->
 name|git_cmd
 condition|)
-block|{
 name|execv_git_cmd
 argument_list|(
 name|cmd
@@ -2017,7 +2016,6 @@ operator|->
 name|argv
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -2025,7 +2023,6 @@ name|cmd
 operator|->
 name|use_shell
 condition|)
-block|{
 name|execv_shell_cmd
 argument_list|(
 name|cmd
@@ -2033,9 +2030,7 @@ operator|->
 name|argv
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|sane_execvp
 argument_list|(
 name|cmd
@@ -2056,7 +2051,6 @@ operator|->
 name|argv
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|errno
@@ -2425,7 +2419,6 @@ name|cmd
 operator|->
 name|git_cmd
 condition|)
-block|{
 name|cmd
 operator|->
 name|argv
@@ -2437,7 +2430,6 @@ operator|->
 name|argv
 argument_list|)
 expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -2445,7 +2437,6 @@ name|cmd
 operator|->
 name|use_shell
 condition|)
-block|{
 name|cmd
 operator|->
 name|argv
@@ -2457,7 +2448,6 @@ operator|->
 name|argv
 argument_list|)
 expr_stmt|;
-block|}
 name|cmd
 operator|->
 name|pid

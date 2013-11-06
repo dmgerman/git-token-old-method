@@ -30,6 +30,11 @@ include|#
 directive|include
 file|"commit.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"diff.h"
+end_include
 begin_define
 DECL|macro|SEEN
 define|#
