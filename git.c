@@ -2760,12 +2760,6 @@ name|RUN_SETUP
 block|}
 block|,
 block|{
-literal|"tar-tree"
-block|,
-name|cmd_tar_tree
-block|}
-block|,
-block|{
 literal|"unpack-file"
 block|,
 name|cmd_unpack_file
