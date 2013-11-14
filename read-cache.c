@@ -204,6 +204,11 @@ argument_list|,
 name|old
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|old
+argument_list|)
+expr_stmt|;
 name|set_index_entry
 argument_list|(
 name|istate
@@ -2276,6 +2281,11 @@ argument_list|,
 name|ce
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|ce
+argument_list|)
+expr_stmt|;
 name|istate
 operator|->
 name|cache_changed
@@ -2394,6 +2404,7 @@ name|ce_flags
 operator|&
 name|CE_REMOVE
 condition|)
+block|{
 name|remove_name_hash
 argument_list|(
 name|istate
@@ -2404,6 +2415,15 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|ce_array
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 name|ce_array
 index|[
@@ -9526,7 +9546,7 @@ name|error
 argument_list|(
 literal|"%s: cannot drop to stage #0"
 argument_list|,
-name|ce
+name|new_ce
 operator|->
 name|name
 argument_list|)

@@ -1401,9 +1401,12 @@ index|]
 operator|.
 name|name
 operator|=
+name|xstrdup
+argument_list|(
 name|ce
 operator|->
 name|name
+argument_list|)
 expr_stmt|;
 name|list
 operator|.
