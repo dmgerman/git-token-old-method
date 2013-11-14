@@ -285,7 +285,7 @@ operator|->
 name|ce_flags
 operator|&=
 operator|~
-name|CE_STATE_MASK
+name|CE_HASHED
 expr_stmt|;
 name|new
 operator|->
