@@ -2215,6 +2215,11 @@ name|upstream_is_gone
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|added_decoration
+init|=
+literal|1
+decl_stmt|;
 switch|switch
 condition|(
 name|stat_tracking_info
@@ -2329,6 +2334,11 @@ operator|.
 name|buf
 argument_list|)
 expr_stmt|;
+else|else
+name|added_decoration
+operator|=
+literal|0
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -2357,6 +2367,11 @@ name|fancy
 operator|.
 name|buf
 argument_list|)
+expr_stmt|;
+else|else
+name|added_decoration
+operator|=
+literal|0
 expr_stmt|;
 block|}
 elseif|else
@@ -2487,6 +2502,10 @@ operator|&
 name|fancy
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|added_decoration
+condition|)
 name|strbuf_addch
 argument_list|(
 name|stat
