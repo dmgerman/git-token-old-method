@@ -2935,7 +2935,7 @@ modifier|*
 name|end
 decl_stmt|;
 name|int
-name|c
+name|separator
 decl_stmt|;
 name|enum
 name|protocol
@@ -3006,7 +3006,7 @@ name|host
 operator|+=
 literal|3
 expr_stmt|;
-name|c
+name|separator
 operator|=
 literal|'/'
 expr_stmt|;
@@ -3017,7 +3017,7 @@ name|host
 operator|=
 name|url
 expr_stmt|;
-name|c
+name|separator
 operator|=
 literal|':'
 expr_stmt|;
@@ -3086,7 +3086,7 @@ name|strchr
 argument_list|(
 name|end
 argument_list|,
-name|c
+name|separator
 argument_list|)
 expr_stmt|;
 if|if
@@ -3102,7 +3102,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|c
+name|separator
 operator|==
 literal|':'
 condition|)
@@ -3167,10 +3167,6 @@ condition|(
 name|protocol
 operator|!=
 name|PROTO_LOCAL
-operator|&&
-name|host
-operator|!=
-name|url
 condition|)
 block|{
 name|char
@@ -3218,9 +3214,9 @@ name|protocol
 operator|==
 name|PROTO_SSH
 operator|&&
-name|host
-operator|!=
-name|url
+name|separator
+operator|==
+literal|'/'
 condition|)
 name|port
 operator|=
