@@ -159,8 +159,7 @@ name|transport
 operator|->
 name|pack_lockfile
 operator|&&
-operator|!
-name|suffixcmp
+name|ends_with
 argument_list|(
 name|transport
 operator|->

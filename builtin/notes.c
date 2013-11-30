@@ -1975,7 +1975,8 @@ name|default_notes_tree
 expr_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|t
 operator|->

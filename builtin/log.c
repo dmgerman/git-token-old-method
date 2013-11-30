@@ -1907,8 +1907,7 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -2486,8 +2485,7 @@ empty_stmt|;
 comment|/* do nothing */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|buf
 operator|+
@@ -4934,8 +4932,7 @@ operator|&
 name|full_ref
 argument_list|)
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|full_ref
 argument_list|,
@@ -7894,8 +7891,7 @@ if|if
 condition|(
 name|ref
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|ref
 argument_list|,

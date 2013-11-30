@@ -2474,7 +2474,8 @@ argument_list|,
 literal|"email"
 argument_list|)
 operator|&&
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|name
 operator|+
@@ -2574,8 +2575,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 operator|+
@@ -2695,8 +2695,7 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -3766,8 +3765,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -3783,8 +3781,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -3806,8 +3803,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -3823,7 +3819,8 @@ decl_stmt|;
 comment|/* only local branches may have an upstream */
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|ref
 operator|->

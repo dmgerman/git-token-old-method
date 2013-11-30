@@ -174,8 +174,7 @@ index|[
 literal|0
 index|]
 operator|&&
-operator|!
-name|suffixcmp
+name|ends_with
 argument_list|(
 name|argv
 index|[
@@ -233,8 +232,7 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,

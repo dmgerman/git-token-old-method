@@ -205,8 +205,7 @@ break|break;
 comment|/* 		 * Check remaining flags. 		 */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cmd
 argument_list|,
@@ -484,8 +483,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cmd
 argument_list|,
@@ -587,8 +585,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cmd
 argument_list|,
@@ -690,8 +687,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cmd
 argument_list|,
@@ -3288,8 +3284,7 @@ expr_stmt|;
 comment|/* 	 * "git-xxxx" is the same as "git xxxx", but we obviously: 	 * 	 *  - cannot take flags in between the "git" and the "xxxx". 	 *  - cannot execute it externally (since it would just do 	 *    the same thing over again) 	 * 	 * So we just directly call the internal command handler, and 	 * die if that one cannot handle it. 	 */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cmd
 argument_list|,
@@ -3350,8 +3345,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|argv
 index|[

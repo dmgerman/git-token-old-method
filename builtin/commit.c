@@ -3630,8 +3630,7 @@ name|len
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sb
 operator|.
@@ -4432,8 +4431,7 @@ name|eol
 operator|-
 name|i
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sb
 operator|->
@@ -5966,8 +5964,7 @@ name|cb
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|k
 argument_list|,
@@ -6161,16 +6158,14 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|k
 argument_list|,
 literal|"status.color."
 argument_list|)
 operator|||
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|k
 argument_list|,
@@ -7180,8 +7175,7 @@ name|printf
 argument_list|(
 literal|"[%s%s "
 argument_list|,
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|head
 argument_list|,

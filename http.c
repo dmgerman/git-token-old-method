@@ -2362,8 +2362,7 @@ argument_list|(
 literal|"GIT_SSL_CERT_PASSWORD_PROTECTED"
 argument_list|)
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|url
 argument_list|,
@@ -4757,7 +4756,8 @@ literal|0
 return|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|asked
 argument_list|,
@@ -5264,8 +5264,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|buffer
 operator|.
@@ -5782,8 +5781,7 @@ name|buf
 operator|.
 name|len
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|data
 operator|+
@@ -5792,8 +5790,7 @@ argument_list|,
 literal|" pack-"
 argument_list|)
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|data
 operator|+

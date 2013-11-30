@@ -1456,8 +1456,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|key
 argument_list|,
@@ -1502,8 +1501,7 @@ literal|7
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|suffixcmp
+name|ends_with
 argument_list|(
 name|key
 argument_list|,
@@ -1533,8 +1531,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|suffixcmp
+name|ends_with
 argument_list|(
 name|key
 argument_list|,
@@ -1564,8 +1561,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|suffixcmp
+name|ends_with
 argument_list|(
 name|key
 argument_list|,
@@ -3163,7 +3159,8 @@ block|}
 comment|/* don't delete non-remote-tracking refs */
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -3174,8 +3171,7 @@ block|{
 comment|/* advise user how to delete local branches */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -3349,8 +3345,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,

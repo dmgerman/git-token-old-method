@@ -427,8 +427,7 @@ name|cb
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|k
 argument_list|,
@@ -545,8 +544,7 @@ block|{
 comment|/* note that a refs/ prefix is implied in the 		 * underlying for_each_glob_ref */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|v
 argument_list|,

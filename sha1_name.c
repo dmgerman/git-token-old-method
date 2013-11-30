@@ -2831,8 +2831,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|real_ref
 argument_list|,
@@ -3489,8 +3488,7 @@ expr_stmt|;
 comment|/* beginning of type name, or closing brace for empty */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sp
 argument_list|,
@@ -3504,8 +3502,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sp
 argument_list|,
@@ -3519,8 +3516,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sp
 argument_list|,
@@ -3534,8 +3530,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sp
 argument_list|,
@@ -3549,8 +3544,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|sp
 argument_list|,
@@ -4729,8 +4723,7 @@ name|len
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|message
 argument_list|,
@@ -6669,14 +6662,16 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|rel
 argument_list|,
 literal|"./"
 argument_list|)
 operator|&&
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|rel
 argument_list|,

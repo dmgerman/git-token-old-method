@@ -416,7 +416,8 @@ argument_list|,
 literal|"HEAD"
 argument_list|)
 operator|&&
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|argv
 index|[

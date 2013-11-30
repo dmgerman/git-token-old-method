@@ -1761,8 +1761,7 @@ continue|continue;
 comment|/* negated and abbreviated very much? */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 literal|"no-"
 argument_list|,
@@ -1781,7 +1780,8 @@ block|}
 comment|/* negated? */
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -1791,8 +1791,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|long_name
 argument_list|,
@@ -1835,8 +1834,7 @@ condition|(
 operator|!
 name|rest
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|long_name
 argument_list|,
@@ -2079,8 +2077,7 @@ condition|)
 return|return;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -2124,8 +2121,7 @@ condition|)
 continue|continue;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|options
 operator|->

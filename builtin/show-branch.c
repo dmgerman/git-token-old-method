@@ -1364,8 +1364,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|pretty_str
 argument_list|,
@@ -1950,7 +1949,8 @@ literal|11
 decl_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -2036,7 +2036,8 @@ literal|13
 decl_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -2110,7 +2111,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -2281,8 +2283,7 @@ literal|0
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -2303,8 +2304,7 @@ argument_list|)
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,
@@ -2456,8 +2456,7 @@ literal|0
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|head
 argument_list|,
@@ -2470,8 +2469,7 @@ literal|11
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -2485,8 +2483,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -4301,8 +4298,7 @@ block|{
 name|int
 name|offset
 init|=
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|head
 argument_list|,

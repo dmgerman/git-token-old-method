@@ -959,7 +959,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|namespaced_ref
 argument_list|,

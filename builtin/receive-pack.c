@@ -2269,7 +2269,8 @@ decl_stmt|;
 comment|/* only refs/... are allowed */
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -2421,8 +2422,7 @@ if|if
 condition|(
 name|deny_deletes
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,
@@ -2514,8 +2514,7 @@ argument_list|(
 name|old_sha1
 argument_list|)
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,

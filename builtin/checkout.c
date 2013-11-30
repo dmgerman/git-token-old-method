@@ -4261,8 +4261,7 @@ name|old
 operator|.
 name|path
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|old
 operator|.
@@ -4485,8 +4484,7 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -6119,8 +6117,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|argv0
 argument_list|,
@@ -6133,8 +6130,7 @@ literal|5
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|argv0
 argument_list|,
