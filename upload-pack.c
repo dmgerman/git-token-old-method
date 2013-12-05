@@ -3287,9 +3287,7 @@ name|parsed
 operator|=
 literal|0
 expr_stmt|;
-if|if
-condition|(
-name|parse_commit
+name|parse_commit_or_die
 argument_list|(
 operator|(
 expr|struct
@@ -3297,11 +3295,6 @@ name|commit
 operator|*
 operator|)
 name|object
-argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"invalid commit"
 argument_list|)
 expr_stmt|;
 name|parents
