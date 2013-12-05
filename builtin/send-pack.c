@@ -404,6 +404,12 @@ init|=
 name|SHA1_ARRAY_INIT
 decl_stmt|;
 name|struct
+name|sha1_array
+name|shallow
+init|=
+name|SHA1_ARRAY_INIT
+decl_stmt|;
+name|struct
 name|ref
 modifier|*
 name|remote_refs
@@ -1067,7 +1073,8 @@ argument_list|,
 operator|&
 name|extra_have
 argument_list|,
-name|NULL
+operator|&
+name|shallow
 argument_list|)
 expr_stmt|;
 name|transport_verify_remote_names
