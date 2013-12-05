@@ -1660,6 +1660,8 @@ operator|&
 name|req_buf
 argument_list|,
 literal|1
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -4558,6 +4560,8 @@ name|shallow_lock
 argument_list|,
 operator|&
 name|alternate_shallow_file
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 else|else
