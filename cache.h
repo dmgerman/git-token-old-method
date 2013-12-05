@@ -1762,6 +1762,13 @@ name|GRAFT_ENVIRONMENT
 value|"GIT_GRAFT_FILE"
 end_define
 begin_define
+DECL|macro|GIT_SHALLOW_FILE_ENVIRONMENT
+define|#
+directive|define
+name|GIT_SHALLOW_FILE_ENVIRONMENT
+value|"GIT_SHALLOW_FILE"
+end_define
+begin_define
 DECL|macro|TEMPLATE_DIR_ENVIRONMENT
 define|#
 directive|define
