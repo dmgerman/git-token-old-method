@@ -1069,6 +1069,18 @@ return|return
 literal|0
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|args
+operator|->
+name|dry_run
+condition|)
+name|advertise_shallow_grafts
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 comment|/* 	 * Finally, tell the other end! 	 */
 name|new_refs
 operator|=
