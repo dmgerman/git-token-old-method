@@ -1234,6 +1234,15 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+specifier|extern
+name|void
+name|advertise_shallow_grafts
+parameter_list|(
+name|int
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|int
 name|is_descendant_of
 parameter_list|(

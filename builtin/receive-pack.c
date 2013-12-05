@@ -930,6 +930,11 @@ argument_list|,
 name|null_sha1
 argument_list|)
 expr_stmt|;
+name|advertise_shallow_grafts
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|/* EOF */
 name|packet_flush
 argument_list|(
@@ -5233,6 +5238,8 @@ if|if
 condition|(
 name|is_repository_shallow
 argument_list|()
+operator|&&
+name|stateless_rpc
 condition|)
 name|die
 argument_list|(
