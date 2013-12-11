@@ -13091,7 +13091,7 @@ init|=
 operator|(
 name|flag
 operator|&
-name|READ_SHA1_FILE_REPLACE
+name|LOOKUP_REPLACE_OBJECT
 operator|)
 condition|?
 name|lookup_replace_object
