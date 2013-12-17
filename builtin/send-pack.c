@@ -483,8 +483,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -502,8 +501,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -521,8 +519,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -807,8 +804,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,

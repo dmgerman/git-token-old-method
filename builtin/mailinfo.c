@@ -1803,8 +1803,7 @@ block|}
 comment|/* for inbody stuff */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -1835,8 +1834,7 @@ goto|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -1949,16 +1947,14 @@ decl_stmt|;
 comment|/* Count mbox From headers as headers */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cp
 argument_list|,
 literal|"From "
 argument_list|)
 operator|||
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|cp
 argument_list|,
@@ -3421,8 +3417,7 @@ decl_stmt|;
 comment|/* Beginning of a "diff -" header? */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -3437,8 +3432,7 @@ return|;
 comment|/* CVS "Index: " line? */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -3464,8 +3458,7 @@ literal|0
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -4854,7 +4847,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -5045,8 +5039,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|argv
 index|[

@@ -7080,8 +7080,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|p
 argument_list|,
@@ -7246,7 +7245,8 @@ name|len
 operator|<
 literal|5
 operator|||
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|data
 argument_list|,
@@ -7481,8 +7481,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|val
 argument_list|,
@@ -7496,8 +7495,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|val
 argument_list|,
@@ -7518,8 +7516,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|val
 argument_list|,

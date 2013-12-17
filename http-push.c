@@ -3988,8 +3988,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|ctx
 operator|->
@@ -8486,8 +8485,7 @@ return|return;
 comment|/* If it's a symref, set the refname; otherwise try for a sha1 */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 operator|(
 name|char

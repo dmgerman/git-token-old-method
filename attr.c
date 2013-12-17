@@ -1031,8 +1031,7 @@ argument_list|)
 operator|<
 name|namelen
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|name
 argument_list|,

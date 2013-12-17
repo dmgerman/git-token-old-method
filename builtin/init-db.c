@@ -1384,7 +1384,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|git_dir
 argument_list|,

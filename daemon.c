@@ -1135,8 +1135,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -3152,8 +3151,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -5959,8 +5957,7 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -5985,8 +5982,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6126,8 +6122,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6145,8 +6140,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6167,8 +6161,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6189,8 +6182,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6239,8 +6231,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6275,8 +6266,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6328,8 +6318,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6347,8 +6336,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6387,8 +6375,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6406,8 +6393,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6425,8 +6411,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6447,8 +6432,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6469,8 +6453,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6491,8 +6474,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6513,8 +6495,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -6530,8 +6511,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,

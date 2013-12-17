@@ -483,8 +483,7 @@ literal|"Revision-number: "
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|msg
 argument_list|,
@@ -880,8 +879,7 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|.
@@ -1401,7 +1399,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|batch_cmd
 operator|->
@@ -1456,8 +1455,7 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|->
@@ -1657,8 +1655,7 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|url_in
 argument_list|,

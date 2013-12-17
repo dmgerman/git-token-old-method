@@ -892,7 +892,8 @@ name|entlen
 decl_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|de
 operator|->
@@ -1530,8 +1531,7 @@ expr_stmt|;
 comment|/* Also use aliases for command lookup */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -2034,8 +2034,7 @@ expr_stmt|;
 comment|/* use the entry from common_cmds[] */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|candidate
 argument_list|,
@@ -2486,8 +2485,7 @@ decl_stmt|;
 comment|/* A remote branch of the same name is deemed similar */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|refname
 argument_list|,

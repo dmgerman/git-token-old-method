@@ -252,8 +252,7 @@ decl_stmt|;
 name|int
 name|remote_is_branch
 init|=
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|remote
 argument_list|,
@@ -1408,7 +1407,8 @@ case|:
 comment|/* Unique completion -- good, only if it is a real branch */
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|real_ref
 argument_list|,

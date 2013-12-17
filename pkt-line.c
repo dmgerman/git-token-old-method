@@ -129,8 +129,7 @@ name|len
 operator|>=
 literal|4
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|buf
 argument_list|,
@@ -143,8 +142,7 @@ name|len
 operator|>=
 literal|5
 operator|&&
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|buf
 operator|+

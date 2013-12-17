@@ -646,8 +646,7 @@ literal|1
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 operator|+
@@ -863,8 +862,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -904,8 +902,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -939,8 +936,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -3742,8 +3738,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|current_branch
 argument_list|,

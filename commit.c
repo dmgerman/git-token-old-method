@@ -3105,7 +3105,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|buf
 argument_list|,
@@ -6106,8 +6107,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -6466,8 +6466,7 @@ name|next
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|buf
 argument_list|,

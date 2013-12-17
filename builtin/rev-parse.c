@@ -2701,8 +2701,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -2967,8 +2966,7 @@ argument_list|,
 literal|"--short"
 argument_list|)
 operator|||
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3108,8 +3106,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3216,8 +3213,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3271,8 +3267,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3329,8 +3324,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3387,8 +3381,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3417,8 +3410,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3475,8 +3467,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3905,8 +3896,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3927,8 +3917,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3949,8 +3938,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -3971,8 +3959,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,

@@ -232,7 +232,8 @@ name|i
 decl_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|var
 argument_list|,
@@ -394,16 +395,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|fmt
 argument_list|,
 literal|"format:"
 argument_list|)
 operator|||
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|fmt
 argument_list|,
@@ -657,7 +656,8 @@ name|match_len
 decl_stmt|;
 if|if
 condition|(
-name|prefixcmp
+operator|!
+name|starts_with
 argument_list|(
 name|commit_formats
 index|[
@@ -818,16 +818,14 @@ return|return;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
 literal|"format:"
 argument_list|)
 operator|||
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|arg
 argument_list|,
@@ -4078,8 +4076,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|msg
 operator|+
@@ -4115,8 +4112,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|msg
 operator|+
@@ -4925,8 +4921,7 @@ literal|0
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|begin
 argument_list|,
@@ -4988,8 +4983,7 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|placeholder
 operator|+
@@ -5013,8 +5007,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|placeholder
 operator|+
@@ -5038,8 +5031,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|placeholder
 operator|+
@@ -5063,8 +5055,7 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|placeholder
 operator|+
@@ -5337,8 +5328,7 @@ literal|0
 return|;
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|start
 argument_list|,
@@ -5354,8 +5344,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|start
 argument_list|,
@@ -5371,8 +5360,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|start
 argument_list|,
@@ -5482,8 +5470,7 @@ literal|'C'
 case|:
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|placeholder
 operator|+
@@ -8043,8 +8030,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -8132,8 +8118,7 @@ block|}
 comment|/* 		 * MEDIUM == DEFAULT shows only author with dates. 		 * FULL shows both authors but not dates. 		 * FULLER shows both authors and dates. 		 */
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
@@ -8168,8 +8153,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|prefixcmp
+name|starts_with
 argument_list|(
 name|line
 argument_list|,
