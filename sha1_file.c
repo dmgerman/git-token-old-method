@@ -12089,7 +12089,7 @@ index|[
 literal|32
 index|]
 decl_stmt|;
-comment|/* 	 * If we don't care about type or size, then we don't 	 * need to look inside the object at all. 	 */
+comment|/* 	 * If we don't care about type or size, then we don't 	 * need to look inside the object at all. Note that we 	 * do not optimize out the stat call, even if the 	 * caller doesn't care about the disk-size, since our 	 * return value implicitly indicates whether the 	 * object even exists. 	 */
 if|if
 condition|(
 operator|!
@@ -12101,13 +12101,6 @@ operator|!
 name|oi
 operator|->
 name|sizep
-condition|)
-block|{
-if|if
-condition|(
-name|oi
-operator|->
-name|disk_sizep
 condition|)
 block|{
 name|struct
@@ -12130,6 +12123,12 @@ return|return
 operator|-
 literal|1
 return|;
+if|if
+condition|(
+name|oi
+operator|->
+name|disk_sizep
+condition|)
 operator|*
 name|oi
 operator|->
@@ -12139,7 +12138,6 @@ name|st
 operator|.
 name|st_size
 expr_stmt|;
-block|}
 return|return
 literal|0
 return|;
