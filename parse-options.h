@@ -607,16 +607,6 @@ define|\
 value|{ OPTION_CALLBACK, (s), (l), NULL, NULL, \ 	  N_("no-op (backward compatibility)"),		\ 	  PARSE_OPT_HIDDEN | PARSE_OPT_NOARG, parse_opt_noop_cb }
 end_define
 begin_comment
-comment|/* Deprecated synonym */
-end_comment
-begin_define
-DECL|macro|OPT_BOOLEAN
-define|#
-directive|define
-name|OPT_BOOLEAN
-value|OPT_COUNTUP
-end_define
-begin_comment
 comment|/* parse_options() will filter out the processed options and leave the  * non-option arguments in argv[]. usagestr strings should be marked  * for translation with N_().  * Returns the number of arguments left in argv[].  */
 end_comment
 begin_function_decl
@@ -1111,7 +1101,7 @@ name|var
 parameter_list|,
 name|h
 parameter_list|)
-value|OPT_BOOLEAN('v', "verbose", (var), (h))
+value|OPT_COUNTUP('v', "verbose", (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__QUIET
@@ -1123,7 +1113,7 @@ name|var
 parameter_list|,
 name|h
 parameter_list|)
-value|OPT_BOOLEAN('q', "quiet",   (var), (h))
+value|OPT_COUNTUP('q', "quiet",   (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__VERBOSITY
@@ -1146,7 +1136,7 @@ name|var
 parameter_list|,
 name|h
 parameter_list|)
-value|OPT_BOOLEAN('n', "dry-run", (var), (h))
+value|OPT_BOOL('n', "dry-run", (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__FORCE
@@ -1158,7 +1148,7 @@ name|var
 parameter_list|,
 name|h
 parameter_list|)
-value|OPT_BOOLEAN('f', "force",   (var), (h))
+value|OPT_COUNTUP('f', "force",   (var), (h))
 end_define
 begin_define
 DECL|macro|OPT__ABBREV
