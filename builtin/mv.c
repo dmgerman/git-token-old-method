@@ -57,6 +57,20 @@ name|NULL
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_define
+DECL|macro|DUP_BASENAME
+define|#
+directive|define
+name|DUP_BASENAME
+value|1
+end_define
+begin_define
+DECL|macro|KEEP_TRAILING_SLASH
+define|#
+directive|define
+name|KEEP_TRAILING_SLASH
+value|2
+end_define
 begin_function
 DECL|function|internal_copy_pathspec
 specifier|static
@@ -80,8 +94,8 @@ parameter_list|,
 name|int
 name|count
 parameter_list|,
-name|int
-name|base_name
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -164,6 +178,13 @@ name|length
 decl_stmt|;
 while|while
 condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|KEEP_TRAILING_SLASH
+operator|)
+operator|&&
 name|to_copy
 operator|>
 literal|0
@@ -190,7 +211,9 @@ name|to_copy
 operator|!=
 name|length
 operator|||
-name|base_name
+name|flags
+operator|&
+name|DUP_BASENAME
 condition|)
 block|{
 name|char
@@ -209,7 +232,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|base_name
+name|flags
+operator|&
+name|DUP_BASENAME
 condition|)
 block|{
 name|result
@@ -582,6 +607,7 @@ name|update_mode
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/* 	 * Keep trailing slash, needed to let 	 * "git mv file no-such-dir/" error out. 	 */
 name|dest_path
 operator|=
 name|internal_copy_pathspec
@@ -594,7 +620,7 @@ name|argc
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+name|KEEP_TRAILING_SLASH
 argument_list|)
 expr_stmt|;
 name|submodule_gitfile
@@ -636,7 +662,7 @@ name|argv
 argument_list|,
 name|argc
 argument_list|,
-literal|1
+name|DUP_BASENAME
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -688,7 +714,7 @@ name|argv
 argument_list|,
 name|argc
 argument_list|,
-literal|1
+name|DUP_BASENAME
 argument_list|)
 expr_stmt|;
 block|}
