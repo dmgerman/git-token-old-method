@@ -230,6 +230,7 @@ name|void
 modifier|*
 name|entry
 parameter_list|,
+name|unsigned
 name|int
 name|hash
 parameter_list|)
