@@ -1086,8 +1086,6 @@ argument_list|(
 name|nr_entries
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|sha1write
 argument_list|(
 name|f
@@ -1100,10 +1098,7 @@ argument_list|(
 name|hdr
 argument_list|)
 argument_list|)
-condition|)
-return|return
-literal|0
-return|;
+expr_stmt|;
 return|return
 sizeof|sizeof
 argument_list|(
