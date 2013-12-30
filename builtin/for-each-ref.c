@@ -380,14 +380,11 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|used_atom_cnt
-DECL|variable|sort_atom_limit
 DECL|variable|need_tagged
 DECL|variable|need_symref
 specifier|static
 name|int
 name|used_atom_cnt
-decl_stmt|,
-name|sort_atom_limit
 decl_stmt|,
 name|need_tagged
 decl_stmt|,
@@ -5930,10 +5927,6 @@ name|sort
 operator|=
 name|default_sort
 argument_list|()
-expr_stmt|;
-name|sort_atom_limit
-operator|=
-name|used_atom_cnt
 expr_stmt|;
 comment|/* for warn_ambiguous_refs */
 name|git_config
