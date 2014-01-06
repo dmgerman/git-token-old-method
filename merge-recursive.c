@@ -3864,8 +3864,7 @@ if|if
 condition|(
 name|status
 operator|==
-operator|-
-literal|3
+name|SCLD_EXISTS
 condition|)
 block|{
 comment|/* something else exists */
