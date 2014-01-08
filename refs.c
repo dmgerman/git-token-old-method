@@ -16087,6 +16087,11 @@ name|total_len
 init|=
 literal|0
 decl_stmt|;
+name|size_t
+name|offset
+init|=
+literal|0
+decl_stmt|;
 comment|/* the rule list is NULL terminated, count them first */
 for|for
 control|(
@@ -16128,7 +16133,7 @@ operator|+
 name|total_len
 argument_list|)
 expr_stmt|;
-name|total_len
+name|offset
 operator|=
 literal|0
 expr_stmt|;
@@ -16161,7 +16166,7 @@ index|[
 name|nr_rules
 index|]
 operator|+
-name|total_len
+name|offset
 expr_stmt|;
 name|gen_scanf_fmt
 argument_list|(
@@ -16176,7 +16181,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|total_len
+name|offset
 operator|+=
 name|strlen
 argument_list|(
