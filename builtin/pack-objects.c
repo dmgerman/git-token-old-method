@@ -3909,16 +3909,6 @@ argument_list|,
 name|nr_remaining
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|offset
-condition|)
-name|die_errno
-argument_list|(
-literal|"unable to write pack header"
-argument_list|)
-expr_stmt|;
 name|nr_written
 operator|=
 literal|0
