@@ -2733,6 +2733,11 @@ index|[
 name|i
 index|]
 operator|&&
+name|path
+index|[
+literal|0
+index|]
+operator|&&
 operator|(
 operator|(
 name|pathspec
