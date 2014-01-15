@@ -5785,7 +5785,7 @@ parameter_list|)
 block|{
 name|char
 modifier|*
-name|cp
+name|at
 decl_stmt|;
 name|int
 name|len
@@ -5852,7 +5852,7 @@ name|buf
 argument_list|)
 return|;
 block|}
-name|cp
+name|at
 operator|=
 name|strchr
 argument_list|(
@@ -5864,7 +5864,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|cp
+name|at
 condition|)
 return|return
 operator|-
@@ -5878,7 +5878,7 @@ name|name
 argument_list|,
 name|namelen
 argument_list|,
-name|cp
+name|at
 operator|-
 name|name
 argument_list|,
@@ -5911,7 +5911,7 @@ name|name
 argument_list|,
 name|namelen
 argument_list|,
-name|cp
+name|at
 operator|-
 name|name
 argument_list|,
