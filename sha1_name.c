@@ -2184,6 +2184,9 @@ name|char
 modifier|*
 name|name
 parameter_list|,
+name|int
+name|namelen
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -2502,6 +2505,8 @@ condition|(
 name|interpret_nth_prior_checkout
 argument_list|(
 name|str
+argument_list|,
+name|len
 argument_list|,
 operator|&
 name|buf
@@ -4830,6 +4835,9 @@ name|char
 modifier|*
 name|name
 parameter_list|,
+name|int
+name|namelen
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -4855,6 +4863,16 @@ name|char
 modifier|*
 name|num_end
 decl_stmt|;
+if|if
+condition|(
+name|namelen
+operator|<
+literal|4
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 if|if
 condition|(
 name|name
@@ -4884,11 +4902,13 @@ literal|1
 return|;
 name|brace
 operator|=
-name|strchr
+name|memchr
 argument_list|(
 name|name
 argument_list|,
 literal|'}'
+argument_list|,
+name|namelen
 argument_list|)
 expr_stmt|;
 if|if
@@ -5311,7 +5331,7 @@ return|;
 comment|/* make sure it's a single @, or @@{.*}, not @foo */
 name|next
 operator|=
-name|strchr
+name|memchr
 argument_list|(
 name|name
 operator|+
@@ -5320,6 +5340,12 @@ operator|+
 literal|1
 argument_list|,
 literal|'@'
+argument_list|,
+name|namelen
+operator|-
+name|len
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -5794,6 +5820,8 @@ name|interpret_nth_prior_checkout
 argument_list|(
 name|name
 argument_list|,
+name|namelen
+argument_list|,
 name|buf
 argument_list|)
 decl_stmt|;
@@ -5854,11 +5882,13 @@ return|;
 block|}
 name|at
 operator|=
-name|strchr
+name|memchr
 argument_list|(
 name|name
 argument_list|,
 literal|'@'
+argument_list|,
+name|namelen
 argument_list|)
 expr_stmt|;
 if|if
