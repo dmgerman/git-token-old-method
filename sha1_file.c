@@ -6303,9 +6303,6 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|discard_revindex
-argument_list|()
-expr_stmt|;
 name|prepare_packed_git_run_once
 operator|=
 literal|0
