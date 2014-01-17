@@ -103,12 +103,6 @@ name|void
 modifier|*
 name|cnt_data
 decl_stmt|;
-DECL|member|funcname_pattern_ident
-specifier|const
-name|char
-modifier|*
-name|funcname_pattern_ident
-decl_stmt|;
 DECL|member|size
 name|unsigned
 name|long
