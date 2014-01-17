@@ -5938,7 +5938,7 @@ argument_list|)
 expr_stmt|;
 name|bytes
 operator|=
-name|write
+name|xwrite
 argument_list|(
 name|t
 operator|->
@@ -5962,14 +5962,6 @@ operator|&&
 name|errno
 operator|!=
 name|EWOULDBLOCK
-operator|&&
-name|errno
-operator|!=
-name|EAGAIN
-operator|&&
-name|errno
-operator|!=
-name|EINTR
 condition|)
 block|{
 name|error
