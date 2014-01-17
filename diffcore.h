@@ -171,12 +171,6 @@ range|:
 literal|2
 decl_stmt|;
 comment|/* For submodules: its work tree is dirty */
-DECL|member|is_stdin
-name|unsigned
-name|is_stdin
-range|:
-literal|1
-decl_stmt|;
 DECL|macro|DIRTY_SUBMODULE_UNTRACKED
 define|#
 directive|define
@@ -187,6 +181,12 @@ define|#
 directive|define
 name|DIRTY_SUBMODULE_MODIFIED
 value|2
+DECL|member|is_stdin
+name|unsigned
+name|is_stdin
+range|:
+literal|1
+decl_stmt|;
 DECL|member|has_more_entries
 name|unsigned
 name|has_more_entries
