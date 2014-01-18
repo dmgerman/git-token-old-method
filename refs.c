@@ -11177,6 +11177,13 @@ modifier|*
 name|newrefname
 parameter_list|)
 block|{
+name|int
+name|attempts_remaining
+init|=
+literal|3
+decl_stmt|;
+name|retry
+label|:
 if|if
 condition|(
 name|safe_create_leading_directories
@@ -11202,8 +11209,6 @@ operator|-
 literal|1
 return|;
 block|}
-name|retry
-label|:
 if|if
 condition|(
 name|rename
@@ -11259,6 +11264,24 @@ operator|-
 literal|1
 return|;
 block|}
+goto|goto
+name|retry
+goto|;
+block|}
+elseif|else
+if|if
+condition|(
+name|errno
+operator|==
+name|ENOENT
+operator|&&
+operator|--
+name|attempts_remaining
+operator|>
+literal|0
+condition|)
+block|{
+comment|/* 			 * Maybe another process just deleted one of 			 * the directories in the path to newrefname. 			 * Try again from the beginning. 			 */
 goto|goto
 name|retry
 goto|;
