@@ -8922,6 +8922,11 @@ name|missing
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|attempts_remaining
+init|=
+literal|3
+decl_stmt|;
 name|lock
 operator|=
 name|xcalloc
@@ -9182,7 +9187,9 @@ name|force_write
 operator|=
 literal|1
 expr_stmt|;
-if|if
+name|retry
+label|:
+switch|switch
 condition|(
 name|safe_create_leading_directories
 argument_list|(
@@ -9190,6 +9197,26 @@ name|ref_file
 argument_list|)
 condition|)
 block|{
+case|case
+name|SCLD_OK
+case|:
+break|break;
+comment|/* success */
+case|case
+name|SCLD_VANISHED
+case|:
+if|if
+condition|(
+operator|--
+name|attempts_remaining
+operator|>
+literal|0
+condition|)
+goto|goto
+name|retry
+goto|;
+comment|/* fall through */
+default|default:
 name|last_errno
 operator|=
 name|errno
