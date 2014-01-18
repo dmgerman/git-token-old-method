@@ -11180,7 +11180,7 @@ block|{
 name|int
 name|attempts_remaining
 init|=
-literal|3
+literal|4
 decl_stmt|;
 name|retry
 label|:
@@ -11229,6 +11229,7 @@ condition|)
 block|{
 if|if
 condition|(
+operator|(
 name|errno
 operator|==
 name|EISDIR
@@ -11236,6 +11237,12 @@ operator|||
 name|errno
 operator|==
 name|ENOTDIR
+operator|)
+operator|&&
+operator|--
+name|attempts_remaining
+operator|>
+literal|0
 condition|)
 block|{
 comment|/* 			 * rename(a, b) when b is an existing 			 * directory ought to result in ISDIR, but 			 * Solaris 5.8 gives ENOTDIR.  Sheesh. 			 */
