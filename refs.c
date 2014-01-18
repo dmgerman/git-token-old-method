@@ -11184,7 +11184,7 @@ literal|4
 decl_stmt|;
 name|retry
 label|:
-if|if
+switch|switch
 condition|(
 name|safe_create_leading_directories
 argument_list|(
@@ -11197,6 +11197,26 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+case|case
+name|SCLD_OK
+case|:
+break|break;
+comment|/* success */
+case|case
+name|SCLD_VANISHED
+case|:
+if|if
+condition|(
+operator|--
+name|attempts_remaining
+operator|>
+literal|0
+condition|)
+goto|goto
+name|retry
+goto|;
+comment|/* fall through */
+default|default:
 name|error
 argument_list|(
 literal|"unable to create directory for %s"
