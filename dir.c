@@ -6704,6 +6704,21 @@ if|if
 condition|(
 name|errno
 operator|==
+name|ENOENT
+condition|)
+return|return
+name|keep_toplevel
+condition|?
+operator|-
+literal|1
+else|:
+literal|0
+return|;
+elseif|else
+if|if
+condition|(
+name|errno
+operator|==
 name|EACCES
 operator|&&
 operator|!
@@ -6806,8 +6821,17 @@ operator|&
 name|st
 argument_list|)
 condition|)
-empty_stmt|;
+block|{
+if|if
+condition|(
+name|errno
+operator|==
+name|ENOENT
+condition|)
+comment|/* 				 * file disappeared, which is what we 				 * wanted anyway 				 */
+continue|continue;
 comment|/* fall thru */
+block|}
 elseif|else
 if|if
 condition|(
@@ -6841,6 +6865,7 @@ condition|(
 operator|!
 name|only_empty
 operator|&&
+operator|(
 operator|!
 name|unlink
 argument_list|(
@@ -6848,9 +6873,16 @@ name|path
 operator|->
 name|buf
 argument_list|)
+operator|||
+name|errno
+operator|==
+name|ENOENT
+operator|)
 condition|)
+block|{
 continue|continue;
 comment|/* happy, too */
+block|}
 comment|/* path too long, stat fails, or non-directory still exists */
 name|ret
 operator|=
@@ -6884,12 +6916,24 @@ name|kept_down
 condition|)
 name|ret
 operator|=
+operator|(
+operator|!
 name|rmdir
 argument_list|(
 name|path
 operator|->
 name|buf
 argument_list|)
+operator|||
+name|errno
+operator|==
+name|ENOENT
+operator|)
+condition|?
+literal|0
+else|:
+operator|-
+literal|1
 expr_stmt|;
 elseif|else
 if|if
