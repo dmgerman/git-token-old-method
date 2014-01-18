@@ -6700,12 +6700,16 @@ operator|!
 name|dir
 condition|)
 block|{
-comment|/* an empty dir could be removed even if it is unreadble */
 if|if
 condition|(
+name|errno
+operator|==
+name|EACCES
+operator|&&
 operator|!
 name|keep_toplevel
 condition|)
+comment|/* 			 * An empty dir could be removable even if it 			 * is unreadable: 			 */
 return|return
 name|rmdir
 argument_list|(
