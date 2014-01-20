@@ -543,12 +543,6 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-name|dpath
-operator|->
-name|len
-operator|=
-name|path_len
-expr_stmt|;
 name|memcpy
 argument_list|(
 name|dpath
@@ -1624,12 +1618,6 @@ operator|->
 name|next
 operator|=
 name|NULL
-expr_stmt|;
-name|p
-operator|->
-name|len
-operator|=
-name|pathlen
 expr_stmt|;
 name|memcpy
 argument_list|(

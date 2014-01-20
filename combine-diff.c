@@ -237,12 +237,6 @@ literal|0
 expr_stmt|;
 name|p
 operator|->
-name|len
-operator|=
-name|len
-expr_stmt|;
-name|p
-operator|->
 name|next
 operator|=
 name|NULL
@@ -6998,14 +6992,6 @@ name|diffopt
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|p
-operator|->
-name|len
-condition|)
-return|return;
-if|if
-condition|(
 name|opt
 operator|->
 name|output_format
@@ -7396,15 +7382,6 @@ name|p
 operator|->
 name|next
 control|)
-block|{
-if|if
-condition|(
-operator|!
-name|p
-operator|->
-name|len
-condition|)
-continue|continue;
 name|q
 operator|.
 name|queue
@@ -7420,7 +7397,6 @@ argument_list|,
 name|num_parent
 argument_list|)
 expr_stmt|;
-block|}
 name|opt
 operator|->
 name|format_callback
@@ -7782,7 +7758,7 @@ name|diffopts
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* find out surviving paths */
+comment|/* find out number of surviving paths */
 for|for
 control|(
 name|num_paths
@@ -7801,17 +7777,9 @@ name|p
 operator|->
 name|next
 control|)
-block|{
-if|if
-condition|(
-name|p
-operator|->
-name|len
-condition|)
 name|num_paths
 operator|++
 expr_stmt|;
-block|}
 comment|/* order paths according to diffcore_order */
 if|if
 condition|(
@@ -7988,13 +7956,6 @@ name|p
 operator|->
 name|next
 control|)
-block|{
-if|if
-condition|(
-name|p
-operator|->
-name|len
-condition|)
 name|show_raw_diff
 argument_list|(
 name|p
@@ -8004,7 +7965,6 @@ argument_list|,
 name|rev
 argument_list|)
 expr_stmt|;
-block|}
 name|needsep
 operator|=
 literal|1
@@ -8088,13 +8048,6 @@ name|p
 operator|->
 name|next
 control|)
-block|{
-if|if
-condition|(
-name|p
-operator|->
-name|len
-condition|)
 name|show_patch_diff
 argument_list|(
 name|p
@@ -8108,7 +8061,6 @@ argument_list|,
 name|rev
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/* Clean things up */
