@@ -89,6 +89,11 @@ include|#
 directive|include
 file|"commit-slab.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"dir.h"
+end_include
 begin_decl_stmt
 DECL|variable|show_early_output
 specifier|volatile
@@ -6619,6 +6624,8 @@ operator|&
 name|revs
 operator|->
 name|prune_data
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 block|{
