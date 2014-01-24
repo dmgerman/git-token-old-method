@@ -756,7 +756,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|match_pathspec_depth
+name|match_pathspec
 argument_list|(
 operator|&
 name|pathspec
@@ -1100,7 +1100,7 @@ comment|/* outside of the prefix */
 if|if
 condition|(
 operator|!
-name|match_pathspec_depth
+name|match_pathspec
 argument_list|(
 operator|&
 name|pathspec

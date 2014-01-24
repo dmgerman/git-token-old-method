@@ -965,7 +965,7 @@ name|len
 operator|-
 name|prefix
 decl_stmt|;
-comment|/* 	 * The normal call pattern is: 	 * 1. prefix = common_prefix_len(ps); 	 * 2. prune something, or fill_directory 	 * 3. match_pathspec_depth() 	 * 	 * 'prefix' at #1 may be shorter than the command's prefix and 	 * it's ok for #2 to match extra files. Those extras will be 	 * trimmed at #3. 	 * 	 * Suppose the pathspec is 'foo' and '../bar' running from 	 * subdir 'xyz'. The common prefix at #1 will be empty, thanks 	 * to "../". We may have xyz/foo _and_ XYZ/foo after #2. The 	 * user does not want XYZ/foo, only the "foo" part should be 	 * case-insensitive. We need to filter out XYZ/foo here. In 	 * other words, we do not trust the caller on comparing the 	 * prefix part when :(icase) is involved. We do exact 	 * comparison ourselves. 	 * 	 * Normally the caller (common_prefix_len() in fact) does 	 * _exact_ matching on name[-prefix+1..-1] and we do not need 	 * to check that part. Be defensive and check it anyway, in 	 * case common_prefix_len is changed, or a new caller is 	 * introduced that does not use common_prefix_len. 	 * 	 * If the penalty turns out too high when prefix is really 	 * long, maybe change it to 	 * strncmp(match, name, item->prefix - prefix) 	 */
+comment|/* 	 * The normal call pattern is: 	 * 1. prefix = common_prefix_len(ps); 	 * 2. prune something, or fill_directory 	 * 3. match_pathspec() 	 * 	 * 'prefix' at #1 may be shorter than the command's prefix and 	 * it's ok for #2 to match extra files. Those extras will be 	 * trimmed at #3. 	 * 	 * Suppose the pathspec is 'foo' and '../bar' running from 	 * subdir 'xyz'. The common prefix at #1 will be empty, thanks 	 * to "../". We may have xyz/foo _and_ XYZ/foo after #2. The 	 * user does not want XYZ/foo, only the "foo" part should be 	 * case-insensitive. We need to filter out XYZ/foo here. In 	 * other words, we do not trust the caller on comparing the 	 * prefix part when :(icase) is involved. We do exact 	 * comparison ourselves. 	 * 	 * Normally the caller (common_prefix_len() in fact) does 	 * _exact_ matching on name[-prefix+1..-1] and we do not need 	 * to check that part. Be defensive and check it anyway, in 	 * case common_prefix_len is changed, or a new caller is 	 * introduced that does not use common_prefix_len. 	 * 	 * If the penalty turns out too high when prefix is really 	 * long, maybe change it to 	 * strncmp(match, name, item->prefix - prefix) 	 */
 if|if
 condition|(
 name|item
@@ -1096,10 +1096,10 @@ begin_comment
 comment|/*  * Given a name and a list of pathspecs, returns the nature of the  * closest (i.e. most specific) match of the name to any of the  * pathspecs.  *  * The caller typically calls this multiple times with the same  * pathspec and seen[] array but with different name/namelen  * (e.g. entries from the index) and is interested in seeing if and  * how each pathspec matches all the names it calls this function  * with.  A mark is left in the seen[] array for each pathspec element  * indicating the closest type of match that element achieved, so if  * seen[n] remains zero after multiple invocations, that means the nth  * pathspec did not match any names, which could indicate that the  * user mistyped the nth pathspec.  */
 end_comment
 begin_function
-DECL|function|match_pathspec_depth_1
+DECL|function|do_match_pathspec
 specifier|static
 name|int
-name|match_pathspec_depth_1
+name|do_match_pathspec
 parameter_list|(
 specifier|const
 name|struct
@@ -1447,9 +1447,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|match_pathspec_depth
+DECL|function|match_pathspec
 name|int
-name|match_pathspec_depth
+name|match_pathspec
 parameter_list|(
 specifier|const
 name|struct
@@ -1480,7 +1480,7 @@ name|negative
 decl_stmt|;
 name|positive
 operator|=
-name|match_pathspec_depth_1
+name|do_match_pathspec
 argument_list|(
 name|ps
 argument_list|,
@@ -1514,7 +1514,7 @@ name|positive
 return|;
 name|negative
 operator|=
-name|match_pathspec_depth_1
+name|do_match_pathspec
 argument_list|(
 name|ps
 argument_list|,
