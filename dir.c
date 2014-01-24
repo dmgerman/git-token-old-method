@@ -917,6 +917,13 @@ literal|1
 return|;
 block|}
 end_function
+begin_define
+DECL|macro|DO_MATCH_EXCLUDE
+define|#
+directive|define
+name|DO_MATCH_EXCLUDE
+value|1
+end_define
 begin_comment
 comment|/*  * Does 'match' match the given name?  * A match is found if  *  * (1) the 'match' string is leading directory of 'name', or  * (2) the 'match' string is a wildcard and matches 'name', or  * (3) the 'match' string is exactly the same as 'name'.  *  * and the return value tells which case it was.  *  * It returns 0 when there is no match.  */
 end_comment
@@ -942,6 +949,9 @@ name|name
 parameter_list|,
 name|int
 name|namelen
+parameter_list|,
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 comment|/* name/namelen has prefix cut off by caller */
@@ -1122,8 +1132,8 @@ name|char
 modifier|*
 name|seen
 parameter_list|,
-name|int
-name|exclude
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -1132,6 +1142,12 @@ decl_stmt|,
 name|retval
 init|=
 literal|0
+decl_stmt|,
+name|exclude
+init|=
+name|flags
+operator|&
+name|DO_MATCH_EXCLUDE
 decl_stmt|;
 name|GUARD_PATHSPEC
 argument_list|(
@@ -1323,6 +1339,8 @@ argument_list|,
 name|name
 argument_list|,
 name|namelen
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -1478,6 +1496,11 @@ name|positive
 decl_stmt|,
 name|negative
 decl_stmt|;
+name|unsigned
+name|flags
+init|=
+literal|0
+decl_stmt|;
 name|positive
 operator|=
 name|do_match_pathspec
@@ -1492,7 +1515,7 @@ name|prefix
 argument_list|,
 name|seen
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -1526,7 +1549,9 @@ name|prefix
 argument_list|,
 name|seen
 argument_list|,
-literal|1
+name|flags
+operator||
+name|DO_MATCH_EXCLUDE
 argument_list|)
 expr_stmt|;
 return|return
