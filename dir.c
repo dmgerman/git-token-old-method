@@ -1535,6 +1535,9 @@ parameter_list|,
 name|char
 modifier|*
 name|seen
+parameter_list|,
+name|int
+name|is_dir
 parameter_list|)
 block|{
 name|int
@@ -1545,6 +1548,10 @@ decl_stmt|;
 name|unsigned
 name|flags
 init|=
+name|is_dir
+condition|?
+name|DO_MATCH_DIRECTORY
+else|:
 literal|0
 decl_stmt|;
 name|positive
