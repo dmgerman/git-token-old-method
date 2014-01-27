@@ -2550,18 +2550,21 @@ argument_list|)
 condition|)
 block|{
 case|case
-operator|-
-literal|3
+name|SCLD_OK
+case|:
+case|case
+name|SCLD_PERMS
+case|:
+break|break;
+case|case
+name|SCLD_EXISTS
 case|:
 name|errno
 operator|=
 name|EEXIST
 expr_stmt|;
 comment|/* fallthru */
-case|case
-operator|-
-literal|1
-case|:
+default|default:
 name|die_errno
 argument_list|(
 name|_
@@ -2575,8 +2578,6 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
-break|break;
-default|default:
 break|break;
 block|}
 name|shared_repository
