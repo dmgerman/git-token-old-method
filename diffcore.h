@@ -103,12 +103,6 @@ name|void
 modifier|*
 name|cnt_data
 decl_stmt|;
-DECL|member|funcname_pattern_ident
-specifier|const
-name|char
-modifier|*
-name|funcname_pattern_ident
-decl_stmt|;
 DECL|member|size
 name|unsigned
 name|long
@@ -119,11 +113,6 @@ name|int
 name|count
 decl_stmt|;
 comment|/* Reference count */
-DECL|member|xfrm_flags
-name|int
-name|xfrm_flags
-decl_stmt|;
-comment|/* for use by the xfrm */
 DECL|member|rename_used
 name|int
 name|rename_used
@@ -171,12 +160,6 @@ range|:
 literal|2
 decl_stmt|;
 comment|/* For submodules: its work tree is dirty */
-DECL|member|is_stdin
-name|unsigned
-name|is_stdin
-range|:
-literal|1
-decl_stmt|;
 DECL|macro|DIRTY_SUBMODULE_UNTRACKED
 define|#
 directive|define
@@ -187,6 +170,12 @@ define|#
 directive|define
 name|DIRTY_SUBMODULE_MODIFIED
 value|2
+DECL|member|is_stdin
+name|unsigned
+name|is_stdin
+range|:
+literal|1
+decl_stmt|;
 DECL|member|has_more_entries
 name|unsigned
 name|has_more_entries
@@ -194,16 +183,18 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* only appear in combined diff */
+comment|/* data should be considered "binary"; -1 means "don't know yet" */
+DECL|member|is_binary
+name|int
+name|is_binary
+range|:
+literal|2
+decl_stmt|;
 DECL|member|driver
 name|struct
 name|userdiff_driver
 modifier|*
 name|driver
-decl_stmt|;
-comment|/* data should be considered "binary"; -1 means "don't know yet" */
-DECL|member|is_binary
-name|int
-name|is_binary
 decl_stmt|;
 block|}
 struct|;

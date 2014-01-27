@@ -23971,7 +23971,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"queue[%d] %s size %lu flags %d\n"
+literal|"queue[%d] %s size %lu\n"
 argument_list|,
 name|x
 argument_list|,
@@ -23984,10 +23984,6 @@ argument_list|,
 name|s
 operator|->
 name|size
-argument_list|,
-name|s
-operator|->
-name|xfrm_flags
 argument_list|)
 expr_stmt|;
 block|}
