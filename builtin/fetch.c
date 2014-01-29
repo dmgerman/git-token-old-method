@@ -5449,9 +5449,6 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 specifier|static
 specifier|const
 name|char
@@ -5549,6 +5546,9 @@ name|int
 name|j
 init|=
 literal|0
+decl_stmt|;
+name|int
+name|i
 decl_stmt|;
 name|refs
 operator|=
