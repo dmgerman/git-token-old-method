@@ -3360,9 +3360,6 @@ name|int
 name|no_checkout
 parameter_list|)
 block|{
-name|int
-name|res
-decl_stmt|;
 name|mark_expected_rev
 argument_list|(
 name|bisect_rev_hex
@@ -3406,6 +3403,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|int
+name|res
+decl_stmt|;
 name|res
 operator|=
 name|run_command_v_opt
