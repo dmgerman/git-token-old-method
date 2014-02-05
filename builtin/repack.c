@@ -1432,7 +1432,7 @@ name|fname
 operator|=
 name|mkpathdup
 argument_list|(
-literal|"%s/%s%s"
+literal|"%s/pack-%s%s"
 argument_list|,
 name|packdir
 argument_list|,
@@ -1851,7 +1851,7 @@ name|fname
 operator|=
 name|mkpath
 argument_list|(
-literal|"%s/old-pack-%s%s"
+literal|"%s/old-%s%s"
 argument_list|,
 name|packdir
 argument_list|,
