@@ -217,7 +217,10 @@ name|entry
 operator|.
 name|mode
 operator|=
+name|canon_mode
+argument_list|(
 name|mode
+argument_list|)
 expr_stmt|;
 name|desc
 operator|->
