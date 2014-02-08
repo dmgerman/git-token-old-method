@@ -8804,7 +8804,6 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 name|int
-operator|*
 argument_list|)
 operator|*
 operator|(
@@ -8863,7 +8862,6 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 name|int
-operator|*
 argument_list|)
 operator|*
 operator|(
