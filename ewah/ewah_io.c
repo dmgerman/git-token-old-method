@@ -570,6 +570,9 @@ name|ptr
 init|=
 name|map
 decl_stmt|;
+name|size_t
+name|i
+decl_stmt|;
 name|self
 operator|->
 name|bit_size
@@ -667,15 +670,6 @@ argument_list|(
 name|uint64_t
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|__BYTE_ORDER
-operator|!=
-name|__BIG_ENDIAN
-block|{
-name|size_t
-name|i
-decl_stmt|;
 for|for
 control|(
 name|i
@@ -708,9 +702,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|self
 operator|->
 name|rlw
