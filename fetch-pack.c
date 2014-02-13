@@ -2727,8 +2727,6 @@ argument_list|(
 name|ref
 operator|->
 name|name
-operator|+
-literal|5
 argument_list|,
 literal|0
 argument_list|)
