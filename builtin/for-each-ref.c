@@ -4950,13 +4950,15 @@ break|break;
 if|if
 condition|(
 operator|!
-name|fnmatch
+name|wildmatch
 argument_list|(
 name|p
 argument_list|,
 name|refname
 argument_list|,
-name|FNM_PATHNAME
+name|WM_PATHNAME
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 break|break;

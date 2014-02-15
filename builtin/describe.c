@@ -851,7 +851,7 @@ operator|(
 operator|!
 name|is_tag
 operator|||
-name|fnmatch
+name|wildmatch
 argument_list|(
 name|pattern
 argument_list|,
@@ -860,6 +860,8 @@ operator|+
 literal|10
 argument_list|,
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 operator|)
 condition|)

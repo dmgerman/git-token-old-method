@@ -219,7 +219,7 @@ name|flags
 parameter_list|)
 block|{
 return|return
-name|fnmatch
+name|wildmatch
 argument_list|(
 name|pattern
 argument_list|,
@@ -230,10 +230,12 @@ operator||
 operator|(
 name|ignore_case
 condition|?
-name|FNM_CASEFOLD
+name|WM_CASEFOLD
 else|:
 literal|0
 operator|)
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 block|}
@@ -285,7 +287,7 @@ name|prefix
 argument_list|)
 condition|)
 return|return
-name|FNM_NOMATCH
+name|WM_NOMATCH
 return|;
 name|pattern
 operator|+=
@@ -376,7 +378,7 @@ return|;
 else|else
 comment|/* wildmatch has not learned no FNM_PATHNAME mode yet */
 return|return
-name|fnmatch
+name|wildmatch
 argument_list|(
 name|pattern
 argument_list|,
@@ -388,9 +390,11 @@ name|magic
 operator|&
 name|PATHSPEC_ICASE
 condition|?
-name|FNM_CASEFOLD
+name|WM_CASEFOLD
 else|:
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 block|}
