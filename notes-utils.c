@@ -481,11 +481,12 @@ condition|(
 operator|!
 name|v
 condition|)
+return|return
 name|config_error_nonbool
 argument_list|(
 name|k
 argument_list|)
-expr_stmt|;
+return|;
 name|c
 operator|->
 name|combine
