@@ -3059,6 +3059,9 @@ if|if
 condition|(
 name|cnt
 operator|==
+operator|(
+name|size_t
+operator|)
 operator|-
 literal|1
 condition|)
