@@ -7401,6 +7401,13 @@ DECL|struct|git_config_source
 struct|struct
 name|git_config_source
 block|{
+DECL|member|use_stdin
+name|unsigned
+name|int
+name|use_stdin
+range|:
+literal|1
+decl_stmt|;
 DECL|member|file
 specifier|const
 name|char
