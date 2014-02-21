@@ -253,6 +253,9 @@ literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/*  * A pointer to the last packed_git in which an object was found.  * When an object is sought, we look in this packfile first, because  * objects that are looked up at similar times are often in the same  * packfile as one another.  */
+end_comment
 begin_decl_stmt
 DECL|variable|last_found_pack
 specifier|static
@@ -12020,8 +12023,11 @@ condition|(
 name|p
 operator|==
 name|last_found_pack
-operator|||
-operator|!
+condition|)
+continue|continue;
+comment|/* we already checked this one */
+if|if
+condition|(
 name|fill_pack_entry
 argument_list|(
 name|sha1
@@ -12031,7 +12037,7 @@ argument_list|,
 name|p
 argument_list|)
 condition|)
-continue|continue;
+block|{
 name|last_found_pack
 operator|=
 name|p
@@ -12039,6 +12045,7 @@ expr_stmt|;
 return|return
 literal|1
 return|;
+block|}
 block|}
 return|return
 literal|0
