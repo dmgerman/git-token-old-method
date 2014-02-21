@@ -3914,7 +3914,7 @@ name|ref
 operator|)
 operator|->
 name|forced_update
-operator|=
+operator||=
 name|forced
 expr_stmt|;
 operator|(
