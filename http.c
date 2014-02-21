@@ -6792,6 +6792,7 @@ argument_list|(
 name|sha1
 argument_list|)
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|filename

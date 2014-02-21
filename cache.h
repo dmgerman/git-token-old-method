@@ -4051,6 +4051,7 @@ empty_stmt|;
 end_empty_stmt
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|sha1_file_name
