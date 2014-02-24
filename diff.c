@@ -27396,6 +27396,7 @@ modifier|*
 name|options
 parameter_list|)
 block|{
+comment|/* NOTE please keep the following in sync with diff_tree_combined() */
 if|if
 condition|(
 name|options
