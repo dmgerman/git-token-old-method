@@ -1419,6 +1419,8 @@ argument_list|)
 return|;
 if|if
 condition|(
+name|date_overflows
+argument_list|(
 name|strtoul
 argument_list|(
 operator|*
@@ -1429,8 +1431,7 @@ name|end
 argument_list|,
 literal|10
 argument_list|)
-operator|==
-name|ULONG_MAX
+argument_list|)
 condition|)
 return|return
 name|error_func
