@@ -432,8 +432,6 @@ block|{
 name|clear
 operator||=
 name|CE_HASHED
-operator||
-name|CE_UNHASHED
 expr_stmt|;
 if|if
 condition|(
@@ -444,12 +442,6 @@ condition|)
 name|set
 operator||=
 name|CE_WT_REMOVE
-expr_stmt|;
-name|ce
-operator|->
-name|next
-operator|=
-name|NULL
 expr_stmt|;
 name|ce
 operator|->
