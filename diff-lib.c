@@ -52,6 +52,11 @@ include|#
 directive|include
 file|"submodule.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"dir.h"
+end_include
 begin_comment
 comment|/*  * diff-files  */
 end_comment
@@ -465,6 +470,8 @@ operator|&
 name|revs
 operator|->
 name|prune_data
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 continue|continue;
@@ -2141,6 +2148,8 @@ operator|&
 name|revs
 operator|->
 name|prune_data
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 block|{
