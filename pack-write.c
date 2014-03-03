@@ -1745,7 +1745,8 @@ DECL|function|finish_tmp_packfile
 name|void
 name|finish_tmp_packfile
 parameter_list|(
-name|char
+name|struct
+name|strbuf
 modifier|*
 name|name_buffer
 parameter_list|,
@@ -1779,16 +1780,12 @@ name|char
 modifier|*
 name|idx_tmp_name
 decl_stmt|;
-name|char
-modifier|*
-name|end_of_name_prefix
+name|int
+name|basename_len
 init|=
-name|strrchr
-argument_list|(
 name|name_buffer
-argument_list|,
-literal|0
-argument_list|)
+operator|->
+name|len
 decl_stmt|;
 if|if
 condition|(
@@ -1829,9 +1826,9 @@ argument_list|(
 literal|"unable to make temporary index file readable"
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_addf
 argument_list|(
-name|end_of_name_prefix
+name|name_buffer
 argument_list|,
 literal|"%s.pack"
 argument_list|,
@@ -1844,6 +1841,8 @@ expr_stmt|;
 name|free_pack_by_name
 argument_list|(
 name|name_buffer
+operator|->
+name|buf
 argument_list|)
 expr_stmt|;
 if|if
@@ -1853,6 +1852,8 @@ argument_list|(
 name|pack_tmp_name
 argument_list|,
 name|name_buffer
+operator|->
+name|buf
 argument_list|)
 condition|)
 name|die_errno
@@ -1860,9 +1861,16 @@ argument_list|(
 literal|"unable to rename temporary pack file"
 argument_list|)
 expr_stmt|;
-name|sprintf
+name|strbuf_setlen
 argument_list|(
-name|end_of_name_prefix
+name|name_buffer
+argument_list|,
+name|basename_len
+argument_list|)
+expr_stmt|;
+name|strbuf_addf
+argument_list|(
+name|name_buffer
 argument_list|,
 literal|"%s.idx"
 argument_list|,
@@ -1879,6 +1887,8 @@ argument_list|(
 name|idx_tmp_name
 argument_list|,
 name|name_buffer
+operator|->
+name|buf
 argument_list|)
 condition|)
 name|die_errno
@@ -1886,10 +1896,12 @@ argument_list|(
 literal|"unable to rename temporary index file"
 argument_list|)
 expr_stmt|;
-operator|*
-name|end_of_name_prefix
-operator|=
-literal|'\0'
+name|strbuf_setlen
+argument_list|(
+name|name_buffer
+argument_list|,
+name|basename_len
+argument_list|)
 expr_stmt|;
 name|free
 argument_list|(
