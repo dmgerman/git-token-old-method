@@ -2896,10 +2896,6 @@ name|sub
 operator|->
 name|cache_tree
 expr_stmt|;
-if|if
-condition|(
-name|slash
-condition|)
 while|while
 condition|(
 operator|*
@@ -2915,9 +2911,6 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|slash
-operator|||
 operator|!
 operator|*
 name|slash
