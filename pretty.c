@@ -1798,7 +1798,7 @@ name|date
 init|=
 literal|0
 decl_stmt|;
-name|int
+name|long
 name|tz
 init|=
 literal|0
@@ -1865,12 +1865,12 @@ expr_stmt|;
 if|if
 condition|(
 name|tz
-operator|==
-name|LONG_MAX
+operator|>=
+name|INT_MAX
 operator|||
 name|tz
-operator|==
-name|LONG_MIN
+operator|<=
+name|INT_MIN
 condition|)
 name|tz
 operator|=
