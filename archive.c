@@ -1567,7 +1567,7 @@ name|char
 modifier|*
 name|colon
 init|=
-name|strchr
+name|strchrnul
 argument_list|(
 name|name
 argument_list|,
@@ -1578,15 +1578,8 @@ name|int
 name|refnamelen
 init|=
 name|colon
-condition|?
-name|colon
 operator|-
 name|name
-else|:
-name|strlen
-argument_list|(
-name|name
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
