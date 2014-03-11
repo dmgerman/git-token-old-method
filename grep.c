@@ -8440,6 +8440,13 @@ index|[
 literal|32
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|opt
+operator|->
+name|pathname
+condition|)
+block|{
 name|output_color
 argument_list|(
 name|opt
@@ -8467,6 +8474,7 @@ argument_list|,
 literal|':'
 argument_list|)
 expr_stmt|;
+block|}
 name|snprintf
 argument_list|(
 name|buf
