@@ -1218,6 +1218,7 @@ specifier|static
 name|int
 name|fsck_ident
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 modifier|*
@@ -1561,6 +1562,7 @@ name|fsck_error
 name|error_func
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|buffer
