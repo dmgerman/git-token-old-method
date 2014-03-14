@@ -23,11 +23,11 @@ struct|struct
 name|interval
 block|{
 DECL|member|first
-name|int
+name|ucs_char_t
 name|first
 decl_stmt|;
 DECL|member|last
-name|int
+name|ucs_char_t
 name|last
 decl_stmt|;
 block|}
@@ -3059,6 +3059,9 @@ if|if
 condition|(
 name|cnt
 operator|==
+operator|(
+name|size_t
+operator|)
 operator|-
 literal|1
 condition|)

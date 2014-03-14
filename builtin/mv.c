@@ -1121,6 +1121,12 @@ argument_list|)
 condition|)
 break|break;
 block|}
+if|if
+condition|(
+name|src_w_slash
+operator|!=
+name|src
+condition|)
 name|free
 argument_list|(
 operator|(
