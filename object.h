@@ -168,6 +168,9 @@ name|str
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the current number of buckets in the object hashmap.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|unsigned
@@ -178,6 +181,9 @@ name|void
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the object from the specified bucket in the object hashmap.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|struct

@@ -198,6 +198,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * Return a numerical hash value between 0 and n-1 for the object with  * the specified sha1.  n must be a power of 2.  Please note that the  * return value is *not* consistent across computer architectures.  */
+end_comment
 begin_function
 DECL|function|hash_obj
 specifier|static
@@ -220,6 +223,7 @@ name|unsigned
 name|int
 name|hash
 decl_stmt|;
+comment|/* 	 * Since the sha1 is essentially random, we just take the 	 * required number of bits directly from the first 	 * sizeof(unsigned int) bytes of sha1.  First we have to copy 	 * the bytes into a properly aligned integer.  If we cared 	 * about getting consistent results across architectures, we 	 * would have to call ntohl() here, too. 	 */
 name|memcpy
 argument_list|(
 operator|&
@@ -234,7 +238,6 @@ name|int
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* Assumes power-of-2 hash sizes in grow_object_hash */
 return|return
 name|hash
 operator|&
@@ -246,6 +249,9 @@ operator|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Insert obj into the hash table hash, which has length size (which  * must be a power of 2).  On collisions, simply overflow to the next  * empty bucket.  */
+end_comment
 begin_function
 DECL|function|insert_obj_hash
 specifier|static
@@ -312,6 +318,9 @@ name|obj
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * Look up the record for the given sha1 in the hash map stored in  * obj_hash.  Return NULL if it was not found.  */
+end_comment
 begin_function
 DECL|function|lookup_object
 name|struct
@@ -440,6 +449,9 @@ name|obj
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Increase the size of the hash map stored in obj_hash to the next  * power of 2 (but at least 32).  Copy the existing values to the new  * hash map.  */
+end_comment
 begin_function
 DECL|function|grow_object_hash
 specifier|static
