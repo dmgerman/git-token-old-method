@@ -528,10 +528,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|pretty_print_string_list
+DECL|function|pretty_print_cmdnames
 specifier|static
 name|void
-name|pretty_print_string_list
+name|pretty_print_cmdnames
 parameter_list|(
 name|struct
 name|cmdnames
@@ -1237,7 +1237,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-name|pretty_print_string_list
+name|pretty_print_cmdnames
 argument_list|(
 name|main_cmds
 argument_list|,
@@ -1270,7 +1270,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-name|pretty_print_string_list
+name|pretty_print_cmdnames
 argument_list|(
 name|other_cmds
 argument_list|,
