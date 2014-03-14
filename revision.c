@@ -5267,7 +5267,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|fnmatch
+name|wildmatch
 argument_list|(
 name|item
 operator|->
@@ -5276,6 +5276,8 @@ argument_list|,
 name|path
 argument_list|,
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 return|return
