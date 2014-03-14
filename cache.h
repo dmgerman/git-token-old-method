@@ -4021,8 +4021,12 @@ begin_empty_stmt
 unit|)))
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|/*  * Return the name of the file in the local object database that would  * be used to store a loose object with the specified sha1.  The  * return value is a pointer to a statically allocated buffer that is  * overwritten each time the function is called.  */
+end_comment
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|sha1_file_name
@@ -4035,6 +4039,9 @@ name|sha1
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the name of the (local) packfile with the specified sha1 in  * its name.  The return value is a pointer to memory that is  * overwritten each time this function is called.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|char
@@ -4049,6 +4056,9 @@ name|sha1
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the name of the (local) pack index file with the specified  * sha1 in its name.  The return value is a pointer to memory that is  * overwritten each time this function is called.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|char
@@ -5184,6 +5194,9 @@ name|sha1
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return true iff we have an object named sha1, whether local or in  * an alternate object database, and whether packed or loose.  This  * function does not respect replace references.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|int
@@ -5197,6 +5210,9 @@ name|sha1
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return true iff an alternate object database has a loose object  * with the specified name.  This function does not respect replace  * references.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|int
@@ -6963,6 +6979,9 @@ name|void
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * mmap the index file for the specified packfile (if it is not  * already mmapped).  Return 0 on success.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|int
@@ -6974,6 +6993,9 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * munmap the index file for the specified packfile (if it is  * currently mmapped).  */
+end_comment
 begin_function_decl
 specifier|extern
 name|void
@@ -7069,6 +7091,9 @@ name|int
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the SHA-1 of the nth object within the specified packfile.  * Open the index if it is not already open.  The return value points  * at the SHA-1 within the mmapped index.  Return NULL if there is an  * error.  */
+end_comment
 begin_function_decl
 specifier|extern
 specifier|const
@@ -7082,9 +7107,13 @@ name|packed_git
 modifier|*
 parameter_list|,
 name|uint32_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * Return the offset of the nth object within the specified packfile.  * The index must already be opened.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|off_t
@@ -7096,9 +7125,13 @@ name|packed_git
 modifier|*
 parameter_list|,
 name|uint32_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * If the object named sha1 is present in the specified packfile,  * return its offset within the packfile; otherwise, return 0.  */
+end_comment
 begin_function_decl
 specifier|extern
 name|off_t
@@ -7108,6 +7141,7 @@ specifier|const
 name|unsigned
 name|char
 modifier|*
+name|sha1
 parameter_list|,
 name|struct
 name|packed_git

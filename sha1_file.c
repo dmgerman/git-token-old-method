@@ -253,6 +253,9 @@ literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/*  * A pointer to the last packed_git in which an object was found.  * When an object is sought, we look in this packfile first, because  * objects that are looked up at similar times are often in the same  * packfile as one another.  */
+end_comment
 begin_decl_stmt
 DECL|variable|last_found_pack
 specifier|static
@@ -808,11 +811,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*  * NOTE! This returns a statically allocated buffer, so you have to be  * careful about using it. Do an "xstrdup()" if you need to save the  * filename.  *  * Also note that this returns the location for creating.  Reading  * SHA1 file can happen from any alternate directory listed in the  * DB_ENVIRONMENT environment variable if it is not found in  * the primary object database.  */
-end_comment
 begin_function
 DECL|function|sha1_file_name
+specifier|const
 name|char
 modifier|*
 name|sha1_file_name
@@ -917,6 +918,9 @@ name|buf
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Return the name of the pack or index file with the specified sha1  * in its filename.  *base and *name are scratch space that must be  * provided by the caller.  which should be "pack" or "idx".  */
+end_comment
 begin_function
 DECL|function|sha1_get_pack_name
 specifier|static
@@ -2070,20 +2074,14 @@ modifier|*
 name|sha1
 parameter_list|)
 block|{
-name|char
-modifier|*
-name|name
-init|=
-name|sha1_file_name
-argument_list|(
-name|sha1
-argument_list|)
-decl_stmt|;
 return|return
 operator|!
 name|access
 argument_list|(
-name|name
+name|sha1_file_name
+argument_list|(
+name|sha1
+argument_list|)
 argument_list|,
 name|F_OK
 argument_list|)
@@ -2325,6 +2323,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*  * Open and mmap the index file at path, perform a couple of  * consistency checks, then record its information to p.  Return 0 on  * success.  */
+end_comment
 begin_function
 DECL|function|check_packed_git_idx
 specifier|static
@@ -6847,15 +6848,6 @@ modifier|*
 name|st
 parameter_list|)
 block|{
-name|char
-modifier|*
-name|name
-init|=
-name|sha1_file_name
-argument_list|(
-name|sha1
-argument_list|)
-decl_stmt|;
 name|struct
 name|alternate_object_database
 modifier|*
@@ -6866,7 +6858,10 @@ condition|(
 operator|!
 name|lstat
 argument_list|(
-name|name
+name|sha1_file_name
+argument_list|(
+name|sha1
+argument_list|)
 argument_list|,
 name|st
 argument_list|)
@@ -6896,14 +6891,10 @@ operator|->
 name|next
 control|)
 block|{
-name|name
-operator|=
-name|alt
-operator|->
-name|name
-expr_stmt|;
 name|fill_sha1_path
 argument_list|(
+name|alt
+operator|->
 name|name
 argument_list|,
 name|sha1
@@ -6947,15 +6938,6 @@ block|{
 name|int
 name|fd
 decl_stmt|;
-name|char
-modifier|*
-name|name
-init|=
-name|sha1_file_name
-argument_list|(
-name|sha1
-argument_list|)
-decl_stmt|;
 name|struct
 name|alternate_object_database
 modifier|*
@@ -6965,7 +6947,10 @@ name|fd
 operator|=
 name|git_open_noatime
 argument_list|(
-name|name
+name|sha1_file_name
+argument_list|(
+name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -6999,14 +6984,10 @@ operator|->
 name|next
 control|)
 block|{
-name|name
-operator|=
-name|alt
-operator|->
-name|name
-expr_stmt|;
 name|fill_sha1_path
 argument_list|(
+name|alt
+operator|->
 name|name
 argument_list|,
 name|sha1
@@ -11943,6 +11924,9 @@ literal|1
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Iff a pack file contains the object named by sha1, return true and  * store its location to e.  */
+end_comment
 begin_function
 DECL|function|find_pack_entry
 specifier|static
@@ -12013,8 +11997,11 @@ condition|(
 name|p
 operator|==
 name|last_found_pack
-operator|||
-operator|!
+condition|)
+continue|continue;
+comment|/* we already checked this one */
+if|if
+condition|(
 name|fill_pack_entry
 argument_list|(
 name|sha1
@@ -12024,7 +12011,7 @@ argument_list|,
 name|p
 argument_list|)
 condition|)
-continue|continue;
+block|{
 name|last_found_pack
 operator|=
 name|p
@@ -12032,6 +12019,7 @@ expr_stmt|;
 return|return
 literal|1
 return|;
+block|}
 block|}
 return|return
 literal|0
@@ -13162,10 +13150,6 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-name|char
-modifier|*
-name|path
-decl_stmt|;
 specifier|const
 name|struct
 name|packed_git
@@ -13255,13 +13239,16 @@ name|repl
 argument_list|)
 condition|)
 block|{
+specifier|const
+name|char
+modifier|*
 name|path
-operator|=
+init|=
 name|sha1_file_name
 argument_list|(
 name|sha1
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|die
 argument_list|(
 literal|"loose object %s (stored in %s) is corrupt"
@@ -14158,10 +14145,6 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|char
-modifier|*
-name|filename
-decl_stmt|;
 specifier|static
 name|char
 name|tmp_file
@@ -14169,13 +14152,16 @@ index|[
 name|PATH_MAX
 index|]
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
 name|filename
-operator|=
+init|=
 name|sha1_file_name
 argument_list|(
 name|sha1
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|fd
 operator|=
 name|create_tmpfile
