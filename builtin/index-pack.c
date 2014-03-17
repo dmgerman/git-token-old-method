@@ -7120,6 +7120,10 @@ literal|"cannot write keep file '%s'"
 argument_list|)
 argument_list|,
 name|keep_name
+condition|?
+name|keep_name
+else|:
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -7168,6 +7172,10 @@ literal|"cannot close written keep file '%s'"
 argument_list|)
 argument_list|,
 name|keep_name
+condition|?
+name|keep_name
+else|:
+name|name
 argument_list|)
 expr_stmt|;
 name|report
