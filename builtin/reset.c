@@ -1791,9 +1791,14 @@ name|reset_type
 operator|!=
 name|SOFT
 operator|&&
+operator|(
 name|reset_type
 operator|!=
 name|MIXED
+operator|||
+name|get_git_work_tree
+argument_list|()
+operator|)
 condition|)
 name|setup_work_tree
 argument_list|()
@@ -1901,6 +1906,11 @@ condition|)
 return|return
 literal|1
 return|;
+if|if
+condition|(
+name|get_git_work_tree
+argument_list|()
+condition|)
 name|refresh_index
 argument_list|(
 operator|&
