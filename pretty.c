@@ -2744,7 +2744,7 @@ name|char
 modifier|*
 name|eol
 init|=
-name|strchr
+name|strchrnul
 argument_list|(
 name|line
 argument_list|,
@@ -2766,6 +2766,7 @@ return|;
 if|if
 condition|(
 operator|!
+operator|*
 name|eol
 condition|)
 block|{
@@ -2781,15 +2782,6 @@ name|object
 operator|.
 name|sha1
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|eol
-operator|=
-name|line
-operator|+
-name|strlen
-argument_list|(
-name|line
 argument_list|)
 expr_stmt|;
 name|next
