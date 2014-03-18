@@ -2,6 +2,11 @@ begin_unit
 begin_include
 include|#
 directive|include
+file|"git-compat-util.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"cache.h"
 end_include
 begin_include
@@ -245,14 +250,7 @@ name|char
 modifier|*
 name|shortname
 init|=
-name|remote
-operator|+
-literal|11
-decl_stmt|;
-name|int
-name|remote_is_branch
-init|=
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|remote
 argument_list|,
@@ -275,7 +273,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|remote_is_branch
+name|shortname
 operator|&&
 operator|!
 name|strcmp
@@ -395,7 +393,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|remote_is_branch
+name|shortname
 operator|&&
 name|origin
 condition|)
@@ -423,7 +421,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|remote_is_branch
+name|shortname
 operator|&&
 operator|!
 name|origin
@@ -451,7 +449,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|remote_is_branch
+name|shortname
 operator|&&
 name|origin
 condition|)
@@ -478,7 +476,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|remote_is_branch
+name|shortname
 operator|&&
 operator|!
 name|origin
@@ -505,9 +503,9 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
-literal|"BUG: impossible combination of %d and %p"
+literal|"BUG: impossible combination of %p and %p"
 argument_list|,
-name|remote_is_branch
+name|shortname
 argument_list|,
 name|origin
 argument_list|)
