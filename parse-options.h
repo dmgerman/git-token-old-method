@@ -522,7 +522,7 @@ parameter_list|,
 name|h
 parameter_list|)
 define|\
-value|{ OPTION_CALLBACK, (s), (l), (v), N_("expiry date"),(h), 0,	\ 	  parse_opt_expiry_date_cb }
+value|{ OPTION_CALLBACK, (s), (l), (v), N_("expiry-date"),(h), 0,	\ 	  parse_opt_expiry_date_cb }
 end_define
 begin_define
 DECL|macro|OPT_CALLBACK
