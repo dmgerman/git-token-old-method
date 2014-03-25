@@ -35,6 +35,9 @@ include|#
 directive|include
 file|"diff.h"
 end_include
+begin_comment
+comment|/* Remember to update object flag allocation in object.h */
+end_comment
 begin_define
 DECL|macro|SEEN
 define|#
