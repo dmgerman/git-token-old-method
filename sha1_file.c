@@ -5353,7 +5353,7 @@ literal|0
 case|:
 name|msg
 operator|=
-literal|"no corresponding .idx nor .pack"
+literal|"no corresponding .idx or .pack"
 expr_stmt|;
 break|break;
 case|case
