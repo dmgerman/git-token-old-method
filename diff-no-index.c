@@ -1312,8 +1312,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|j
+operator|<=
+literal|0
 condition|)
 name|die
 argument_list|(
