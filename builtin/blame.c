@@ -345,7 +345,7 @@ name|BLAME_DEFAULT_COPY_SCORE
 value|40
 end_define
 begin_comment
-comment|/* bits #0..7 in revision.h, #8..11 used for merge_bases() in commit.c */
+comment|/* Remember to update object flag allocation in object.h */
 end_comment
 begin_define
 DECL|macro|METAINFO_SHOWN
