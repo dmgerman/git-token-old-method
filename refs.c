@@ -15224,7 +15224,7 @@ name|onerr
 condition|)
 block|{
 case|case
-name|MSG_ON_ERR
+name|UPDATE_REFS_MSG_ON_ERR
 case|:
 name|error
 argument_list|(
@@ -15235,7 +15235,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 case|:
 name|die
 argument_list|(
@@ -15246,7 +15246,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QUIET_ON_ERR
+name|UPDATE_REFS_QUIET_ON_ERR
 case|:
 break|break;
 block|}
@@ -15315,7 +15315,7 @@ name|onerr
 condition|)
 block|{
 case|case
-name|MSG_ON_ERR
+name|UPDATE_REFS_MSG_ON_ERR
 case|:
 name|error
 argument_list|(
@@ -15326,7 +15326,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 case|:
 name|die
 argument_list|(
@@ -15337,7 +15337,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QUIET_ON_ERR
+name|UPDATE_REFS_QUIET_ON_ERR
 case|:
 break|break;
 block|}
@@ -15558,7 +15558,7 @@ name|onerr
 condition|)
 block|{
 case|case
-name|MSG_ON_ERR
+name|UPDATE_REFS_MSG_ON_ERR
 case|:
 name|error
 argument_list|(
@@ -15574,7 +15574,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 case|:
 name|die
 argument_list|(
@@ -15590,7 +15590,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QUIET_ON_ERR
+name|UPDATE_REFS_QUIET_ON_ERR
 case|:
 break|break;
 block|}

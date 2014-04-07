@@ -4093,7 +4093,7 @@ name|parent_sha1
 argument_list|,
 literal|0
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 name|free_notes
@@ -4673,7 +4673,7 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 else|else
@@ -4694,7 +4694,7 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 comment|/* Store ref-to-be-updated into .git/NOTES_MERGE_REF */
