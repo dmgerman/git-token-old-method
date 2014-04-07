@@ -170,6 +170,11 @@ specifier|static
 name|void
 name|update_store_new_sha1
 parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|command
+parameter_list|,
 name|struct
 name|ref_update
 modifier|*
@@ -197,7 +202,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"invalid new value for ref %s: %s"
+literal|"%s %s: invalid new value: %s"
+argument_list|,
+name|command
 argument_list|,
 name|update
 operator|->
@@ -214,6 +221,11 @@ specifier|static
 name|void
 name|update_store_old_sha1
 parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|command
+parameter_list|,
 name|struct
 name|ref_update
 modifier|*
@@ -241,7 +253,9 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"invalid old value for ref %s: %s"
+literal|"%s %s: invalid old value: %s"
+argument_list|,
+name|command
 argument_list|,
 name|update
 operator|->
@@ -716,6 +730,8 @@ argument_list|)
 condition|)
 name|update_store_new_sha1
 argument_list|(
+literal|"update"
+argument_list|,
 name|update
 argument_list|,
 name|newvalue
@@ -750,6 +766,8 @@ condition|)
 block|{
 name|update_store_old_sha1
 argument_list|(
+literal|"update"
+argument_list|,
 name|update
 argument_list|,
 name|oldvalue
@@ -871,6 +889,8 @@ argument_list|)
 condition|)
 name|update_store_new_sha1
 argument_list|(
+literal|"create"
+argument_list|,
 name|update
 argument_list|,
 name|newvalue
@@ -1005,6 +1025,8 @@ condition|)
 block|{
 name|update_store_old_sha1
 argument_list|(
+literal|"delete"
+argument_list|,
 name|update
 argument_list|,
 name|oldvalue
@@ -1149,6 +1171,8 @@ condition|)
 block|{
 name|update_store_old_sha1
 argument_list|(
+literal|"verify"
+argument_list|,
 name|update
 argument_list|,
 name|value
