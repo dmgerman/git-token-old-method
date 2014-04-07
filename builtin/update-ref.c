@@ -202,7 +202,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"%s %s: invalid new value: %s"
+literal|"%s %s: invalid<newvalue>: %s"
 argument_list|,
 name|command
 argument_list|,
@@ -253,7 +253,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"%s %s: invalid old value: %s"
+literal|"%s %s: invalid<oldvalue>: %s"
 argument_list|,
 name|command
 argument_list|,
@@ -919,7 +919,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"create %s given zero new value"
+literal|"create %s given zero<newvalue>"
 argument_list|,
 name|update
 operator|->
@@ -1049,7 +1049,7 @@ argument_list|)
 condition|)
 name|die
 argument_list|(
-literal|"delete %s given zero old value"
+literal|"delete %s given zero<oldvalue>"
 argument_list|,
 name|update
 operator|->
