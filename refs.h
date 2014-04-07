@@ -715,7 +715,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|ref_name
+name|refname
 parameter_list|,
 name|char
 modifier|*
