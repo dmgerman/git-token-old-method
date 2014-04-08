@@ -305,6 +305,14 @@ argument_list|)
 operator|<
 literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|revs
+operator|->
+name|ignore_missing_links
+condition|)
+return|return;
 name|die
 argument_list|(
 literal|"bad tree object %s"
@@ -317,6 +325,7 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|obj
 operator|->
 name|flags

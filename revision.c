@@ -15832,6 +15832,14 @@ argument_list|)
 operator|<
 literal|0
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|revs
+operator|->
+name|ignore_missing_links
+condition|)
 name|die
 argument_list|(
 literal|"Failed to traverse parents of commit %s"
@@ -15846,6 +15854,7 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 switch|switch
 condition|(
