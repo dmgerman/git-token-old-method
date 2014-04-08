@@ -5744,7 +5744,7 @@ name|new_orphan_branch
 argument_list|,
 name|N_
 argument_list|(
-literal|"new branch"
+literal|"new-branch"
 argument_list|)
 argument_list|,
 name|N_
