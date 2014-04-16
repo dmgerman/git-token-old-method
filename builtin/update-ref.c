@@ -927,6 +927,8 @@ argument_list|,
 name|next
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|ref_transaction_create
 argument_list|(
 name|transaction
@@ -936,6 +938,18 @@ argument_list|,
 name|new_sha1
 argument_list|,
 name|update_flags
+argument_list|,
+operator|&
+name|err
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"%s"
+argument_list|,
+name|err
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 name|update_flags
