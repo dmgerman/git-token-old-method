@@ -8664,7 +8664,6 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* 		 * TRANSLATORS: "+" in (+) is a line addition marker; 		 * do not translate it. 		 */
 name|strbuf_addf
 argument_list|(
 operator|&
@@ -8693,7 +8692,6 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* 		 * TRANSLATORS: "-" in (-) is a line removal marker; 		 * do not translate it. 		 */
 name|strbuf_addf
 argument_list|(
 operator|&
