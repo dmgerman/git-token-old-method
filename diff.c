@@ -16676,11 +16676,6 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-name|fflush
-argument_list|(
-name|NULL
-argument_list|)
-expr_stmt|;
 name|argv_array_pushf
 argument_list|(
 operator|&
