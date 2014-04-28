@@ -3553,6 +3553,10 @@ condition|(
 name|the_index
 operator|.
 name|cache_changed
+operator|&&
+name|index_fd
+operator|>=
+literal|0
 condition|)
 block|{
 if|if
