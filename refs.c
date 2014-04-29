@@ -15936,6 +15936,26 @@ block|}
 struct|;
 end_struct
 begin_comment
+comment|/*  * Transaction states.  * OPEN:   The transaction is in a valid state and can accept new updates.  *         An OPEN transaction can be committed.  * CLOSED: A closed transaction is no longer active and no other operations  *         than free can be used on it in this state.  *         A transaction can either become closed by successfully committing  *         an active transaction or if there is a failure while building  *         the transaction thus rendering it failed/inactive.  */
+end_comment
+begin_enum
+DECL|enum|ref_transaction_state
+enum|enum
+name|ref_transaction_state
+block|{
+DECL|enumerator|REF_TRANSACTION_OPEN
+name|REF_TRANSACTION_OPEN
+init|=
+literal|0
+block|,
+DECL|enumerator|REF_TRANSACTION_CLOSED
+name|REF_TRANSACTION_CLOSED
+init|=
+literal|1
+block|}
+enum|;
+end_enum
+begin_comment
 comment|/*  * Data structure for holding a reference transaction, which can  * consist of checks and updates to multiple references, carried out  * as atomically as possible.  This structure is opaque to callers.  */
 end_comment
 begin_struct
@@ -15957,6 +15977,11 @@ decl_stmt|;
 DECL|member|nr
 name|size_t
 name|nr
+decl_stmt|;
+DECL|member|state
+name|enum
+name|ref_transaction_state
+name|state
 decl_stmt|;
 block|}
 struct|;
@@ -16187,6 +16212,19 @@ name|update
 decl_stmt|;
 if|if
 condition|(
+name|transaction
+operator|->
+name|state
+operator|!=
+name|REF_TRANSACTION_OPEN
+condition|)
+name|die
+argument_list|(
+literal|"BUG: update called for transaction that is not open"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|have_old
 operator|&&
 operator|!
@@ -16282,6 +16320,19 @@ name|update
 decl_stmt|;
 if|if
 condition|(
+name|transaction
+operator|->
+name|state
+operator|!=
+name|REF_TRANSACTION_OPEN
+condition|)
+name|die
+argument_list|(
+literal|"BUG: create called for transaction that is not open"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|new_sha1
 operator|||
@@ -16375,6 +16426,19 @@ name|ref_update
 modifier|*
 name|update
 decl_stmt|;
+if|if
+condition|(
+name|transaction
+operator|->
+name|state
+operator|!=
+name|REF_TRANSACTION_OPEN
+condition|)
+name|die
+argument_list|(
+literal|"BUG: delete called for transaction that is not open"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|have_old
@@ -16726,12 +16790,33 @@ name|updates
 decl_stmt|;
 if|if
 condition|(
+name|transaction
+operator|->
+name|state
+operator|!=
+name|REF_TRANSACTION_OPEN
+condition|)
+name|die
+argument_list|(
+literal|"BUG: commit called for transaction that is not open"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|n
 condition|)
+block|{
+name|transaction
+operator|->
+name|state
+operator|=
+name|REF_TRANSACTION_CLOSED
+expr_stmt|;
 return|return
 literal|0
 return|;
+block|}
 comment|/* Allocate work space */
 name|delnames
 operator|=
@@ -17050,6 +17135,12 @@ argument_list|)
 expr_stmt|;
 name|cleanup
 label|:
+name|transaction
+operator|->
+name|state
+operator|=
+name|REF_TRANSACTION_CLOSED
+expr_stmt|;
 for|for
 control|(
 name|i
