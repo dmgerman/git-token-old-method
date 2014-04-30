@@ -4432,6 +4432,8 @@ literal|0
 argument_list|,
 literal|1
 argument_list|,
+literal|"push"
+argument_list|,
 operator|&
 name|err
 argument_list|)
@@ -4439,8 +4441,6 @@ operator|||
 name|ref_transaction_commit
 argument_list|(
 name|transaction
-argument_list|,
-literal|"push"
 argument_list|,
 operator|&
 name|err

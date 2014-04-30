@@ -75,6 +75,15 @@ name|int
 name|update_flags
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|msg
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|msg
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * Parse one whitespace- or NUL-terminated, possibly C-quoted argument  * and append the result to arg.  Return a pointer to the terminator.  * Die if there is an error in how the argument is C-quoted.  This  * function is only used if not -z.  */
 end_comment
@@ -787,6 +796,8 @@ name|update_flags
 argument_list|,
 name|have_old
 argument_list|,
+name|msg
+argument_list|,
 operator|&
 name|err
 argument_list|)
@@ -947,6 +958,8 @@ argument_list|,
 name|new_sha1
 argument_list|,
 name|update_flags
+argument_list|,
+name|msg
 argument_list|,
 operator|&
 name|err
@@ -1119,6 +1132,8 @@ argument_list|,
 name|update_flags
 argument_list|,
 name|have_old
+argument_list|,
+name|msg
 argument_list|,
 operator|&
 name|err
@@ -1298,6 +1313,8 @@ argument_list|,
 name|update_flags
 argument_list|,
 name|have_old
+argument_list|,
+name|msg
 argument_list|,
 operator|&
 name|err
@@ -1644,11 +1661,6 @@ name|refname
 decl_stmt|,
 modifier|*
 name|oldval
-decl_stmt|,
-modifier|*
-name|msg
-init|=
-name|NULL
 decl_stmt|;
 name|unsigned
 name|char
@@ -1883,8 +1895,6 @@ condition|(
 name|ref_transaction_commit
 argument_list|(
 name|transaction
-argument_list|,
-name|msg
 argument_list|,
 operator|&
 name|err

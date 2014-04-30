@@ -9924,6 +9924,10 @@ operator|!
 operator|!
 name|current_head
 argument_list|,
+name|sb
+operator|.
+name|buf
+argument_list|,
 operator|&
 name|err
 argument_list|)
@@ -9931,10 +9935,6 @@ operator|||
 name|ref_transaction_commit
 argument_list|(
 name|transaction
-argument_list|,
-name|sb
-operator|.
-name|buf
 argument_list|,
 operator|&
 name|err
