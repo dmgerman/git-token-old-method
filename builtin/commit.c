@@ -3948,6 +3948,8 @@ name|s
 argument_list|,
 name|GIT_COLOR_NORMAL
 argument_list|,
+literal|"%s"
+argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
