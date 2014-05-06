@@ -1798,6 +1798,22 @@ argument_list|(
 name|__clang__
 argument_list|)
 end_if
+begin_function
+DECL|function|const_error
+specifier|static
+specifier|inline
+name|int
+name|const_error
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+end_function
 begin_define
 DECL|macro|error
 define|#
@@ -1806,7 +1822,7 @@ name|error
 parameter_list|(
 modifier|...
 parameter_list|)
-value|(error(__VA_ARGS__), -1)
+value|(error(__VA_ARGS__), const_error())
 end_define
 begin_endif
 endif|#
