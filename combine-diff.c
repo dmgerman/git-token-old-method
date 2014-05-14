@@ -7688,6 +7688,12 @@ operator|&&
 name|opt
 operator|->
 name|output_format
+operator|&&
+name|opt
+operator|->
+name|output_format
+operator|!=
+name|DIFF_FORMAT_NO_OUTPUT
 condition|)
 name|printf
 argument_list|(
