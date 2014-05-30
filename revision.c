@@ -7970,6 +7970,14 @@ name|prefixcmp
 argument_list|(
 name|arg
 argument_list|,
+literal|"--exclude="
+argument_list|)
+operator|||
+operator|!
+name|prefixcmp
+argument_list|(
+name|arg
+argument_list|,
 literal|"--branches="
 argument_list|)
 operator|||
