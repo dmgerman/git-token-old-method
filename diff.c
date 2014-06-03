@@ -18342,6 +18342,7 @@ argument_list|,
 name|RENAME_EMPTY
 argument_list|)
 expr_stmt|;
+comment|/* pathchange left =NULL by default */
 name|options
 operator|->
 name|change
@@ -27380,6 +27381,7 @@ modifier|*
 name|options
 parameter_list|)
 block|{
+comment|/* NOTE please keep the following in sync with diff_tree_combined() */
 if|if
 condition|(
 name|options
