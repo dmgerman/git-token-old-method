@@ -2976,7 +2976,7 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 block|}
@@ -3328,7 +3328,7 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 name|install_branch_config
@@ -3381,7 +3381,7 @@ name|NULL
 argument_list|,
 name|REF_NODEREF
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 block|}
@@ -3406,7 +3406,7 @@ name|NULL
 argument_list|,
 name|REF_NODEREF
 argument_list|,
-name|DIE_ON_ERR
+name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)
 expr_stmt|;
 block|}
