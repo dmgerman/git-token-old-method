@@ -2751,8 +2751,12 @@ operator|==
 name|INFTIM
 condition|)
 block|{
-name|SwitchToThread
-argument_list|()
+name|SleepEx
+argument_list|(
+literal|1
+argument_list|,
+name|TRUE
+argument_list|)
 expr_stmt|;
 goto|goto
 name|restart
