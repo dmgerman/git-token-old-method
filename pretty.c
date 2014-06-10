@@ -3045,6 +3045,7 @@ block|}
 end_function
 begin_function
 DECL|function|logmsg_reencode
+specifier|const
 name|char
 modifier|*
 name|logmsg_reencode
@@ -3338,6 +3339,7 @@ DECL|function|logmsg_free
 name|void
 name|logmsg_free
 parameter_list|(
+specifier|const
 name|char
 modifier|*
 name|msg
@@ -3359,6 +3361,10 @@ name|buffer
 condition|)
 name|free
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|msg
 argument_list|)
 expr_stmt|;
@@ -3891,6 +3897,7 @@ name|trunc_type
 name|truncate
 decl_stmt|;
 DECL|member|message
+specifier|const
 name|char
 modifier|*
 name|message
@@ -8786,6 +8793,7 @@ name|char
 modifier|*
 name|msg
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|reencoded

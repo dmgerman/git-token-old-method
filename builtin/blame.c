@@ -6828,6 +6828,7 @@ decl_stmt|,
 modifier|*
 name|encoding
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|message
