@@ -104,13 +104,6 @@ init|=
 literal|"commit"
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|commit_count
-specifier|static
-name|int
-name|commit_count
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|check_commit
 specifier|static
@@ -374,13 +367,6 @@ init|=
 name|alloc_commit_node
 argument_list|()
 decl_stmt|;
-name|c
-operator|->
-name|index
-operator|=
-name|commit_count
-operator|++
-expr_stmt|;
 return|return
 name|create_object
 argument_list|(
