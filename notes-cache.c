@@ -371,8 +371,13 @@ if|if
 condition|(
 name|commit_tree
 argument_list|(
-operator|&
 name|msg
+operator|.
+name|buf
+argument_list|,
+name|msg
+operator|.
+name|len
 argument_list|,
 name|tree_sha1
 argument_list|,
