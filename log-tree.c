@@ -3202,9 +3202,10 @@ block|}
 if|if
 condition|(
 operator|!
+name|get_cached_commit_buffer
+argument_list|(
 name|commit
-operator|->
-name|buffer
+argument_list|)
 condition|)
 return|return;
 if|if
