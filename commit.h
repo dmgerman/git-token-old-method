@@ -285,6 +285,10 @@ parameter_list|,
 name|void
 modifier|*
 name|buffer
+parameter_list|,
+name|unsigned
+name|long
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -301,6 +305,11 @@ specifier|const
 name|struct
 name|commit
 modifier|*
+parameter_list|,
+name|unsigned
+name|long
+modifier|*
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -317,6 +326,11 @@ specifier|const
 name|struct
 name|commit
 modifier|*
+parameter_list|,
+name|unsigned
+name|long
+modifier|*
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -364,6 +378,11 @@ parameter_list|(
 name|struct
 name|commit
 modifier|*
+parameter_list|,
+name|unsigned
+name|long
+modifier|*
+name|sizep
 parameter_list|)
 function_decl|;
 end_function_decl

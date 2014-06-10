@@ -3751,6 +3751,8 @@ init|=
 name|get_commit_buffer
 argument_list|(
 name|partial_commit
+argument_list|,
+name|NULL
 argument_list|)
 decl_stmt|;
 specifier|const

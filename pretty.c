@@ -3092,6 +3092,8 @@ init|=
 name|get_commit_buffer
 argument_list|(
 name|commit
+argument_list|,
+name|NULL
 argument_list|)
 decl_stmt|;
 name|char
@@ -3183,6 +3185,8 @@ operator|==
 name|get_cached_commit_buffer
 argument_list|(
 name|commit
+argument_list|,
+name|NULL
 argument_list|)
 condition|)
 name|out
