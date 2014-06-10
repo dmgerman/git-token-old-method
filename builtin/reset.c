@@ -584,11 +584,11 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-name|logmsg_free
+name|unuse_commit_buffer
 argument_list|(
-name|msg
-argument_list|,
 name|commit
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
