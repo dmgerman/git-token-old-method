@@ -1559,6 +1559,11 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+name|commit_buffer
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
 name|author
 decl_stmt|,
 modifier|*
@@ -1605,13 +1610,18 @@ argument_list|(
 name|commit
 argument_list|)
 expr_stmt|;
+name|commit_buffer
+operator|=
+name|get_commit_buffer
+argument_list|(
+name|commit
+argument_list|)
+expr_stmt|;
 name|author
 operator|=
 name|strstr
 argument_list|(
-name|commit
-operator|->
-name|buffer
+name|commit_buffer
 argument_list|,
 literal|"\nauthor "
 argument_list|)
@@ -1965,6 +1975,13 @@ expr_stmt|;
 name|free
 argument_list|(
 name|reencoded
+argument_list|)
+expr_stmt|;
+name|unuse_commit_buffer
+argument_list|(
+name|commit
+argument_list|,
+name|commit_buffer
 argument_list|)
 expr_stmt|;
 for|for

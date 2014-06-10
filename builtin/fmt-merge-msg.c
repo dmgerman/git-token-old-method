@@ -1415,6 +1415,11 @@ modifier|*
 name|commit
 parameter_list|)
 block|{
+specifier|const
+name|char
+modifier|*
+name|buffer
+decl_stmt|;
 name|char
 modifier|*
 name|name_buf
@@ -1447,12 +1452,17 @@ literal|"\nauthor "
 else|:
 literal|"\ncommitter "
 expr_stmt|;
+name|buffer
+operator|=
+name|get_commit_buffer
+argument_list|(
+name|commit
+argument_list|)
+expr_stmt|;
 name|name
 operator|=
 name|strstr
 argument_list|(
-name|commit
-operator|->
 name|buffer
 argument_list|,
 name|field
@@ -1521,6 +1531,13 @@ operator|-
 name|name
 operator|+
 literal|1
+argument_list|)
+expr_stmt|;
+name|unuse_commit_buffer
+argument_list|(
+name|commit
+argument_list|,
+name|buffer
 argument_list|)
 expr_stmt|;
 name|elem
