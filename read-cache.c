@@ -145,7 +145,7 @@ DECL|macro|EXTMASK
 define|#
 directive|define
 name|EXTMASK
-value|(RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | \ 		 CE_ENTRY_ADDED | CE_ENTRY_REMOVED)
+value|(RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | \ 		 CE_ENTRY_ADDED | CE_ENTRY_REMOVED | CE_ENTRY_CHANGED)
 end_define
 begin_decl_stmt
 DECL|variable|the_index
@@ -233,6 +233,15 @@ index|[
 name|nr
 index|]
 decl_stmt|;
+name|replace_index_entry_in_base
+argument_list|(
+name|istate
+argument_list|,
+name|old
+argument_list|,
+name|ce
+argument_list|)
+expr_stmt|;
 name|remove_name_hash
 argument_list|(
 name|istate
@@ -253,6 +262,12 @@ name|nr
 argument_list|,
 name|ce
 argument_list|)
+expr_stmt|;
+name|ce
+operator|->
+name|ce_flags
+operator||=
+name|CE_UPDATE_IN_BASE
 expr_stmt|;
 name|istate
 operator|->
@@ -5714,6 +5729,12 @@ name|ce_flags
 operator|&=
 operator|~
 name|CE_VALID
+expr_stmt|;
+name|ce
+operator|->
+name|ce_flags
+operator||=
+name|CE_UPDATE_IN_BASE
 expr_stmt|;
 name|istate
 operator|->
