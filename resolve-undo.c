@@ -649,8 +649,8 @@ expr_stmt|;
 name|istate
 operator|->
 name|cache_changed
-operator|=
-name|SOMETHING_CHANGED
+operator||=
+name|RESOLVE_UNDO_CHANGED
 expr_stmt|;
 block|}
 end_function
