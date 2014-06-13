@@ -535,6 +535,12 @@ name|unsigned
 name|int
 name|ce_namelen
 decl_stmt|;
+DECL|member|index
+name|unsigned
+name|int
+name|index
+decl_stmt|;
+comment|/* for link extension */
 DECL|member|sha1
 name|unsigned
 name|char
@@ -1205,6 +1211,11 @@ directive|define
 name|CACHE_TREE_CHANGED
 value|(1<< 5)
 end_define
+begin_struct_decl
+struct_decl|struct
+name|split_index
+struct_decl|;
+end_struct_decl
 begin_struct
 DECL|struct|index_state
 struct|struct
@@ -1244,6 +1255,12 @@ name|struct
 name|cache_tree
 modifier|*
 name|cache_tree
+decl_stmt|;
+DECL|member|split_index
+name|struct
+name|split_index
+modifier|*
+name|split_index
 decl_stmt|;
 DECL|member|timestamp
 name|struct
