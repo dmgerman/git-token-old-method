@@ -145,7 +145,7 @@ DECL|macro|EXTMASK
 define|#
 directive|define
 name|EXTMASK
-value|(RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED)
+value|(RESOLVE_UNDO_CHANGED | CACHE_TREE_CHANGED | \ 		 CE_ENTRY_ADDED)
 end_define
 begin_decl_stmt
 DECL|variable|the_index
