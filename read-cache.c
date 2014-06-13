@@ -7101,7 +7101,6 @@ comment|/* remember to discard_cache() before reading a different cache! */
 end_comment
 begin_function
 DECL|function|do_read_index
-specifier|static
 name|int
 name|do_read_index
 parameter_list|(
