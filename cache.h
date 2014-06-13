@@ -583,7 +583,7 @@ name|CE_STAGESHIFT
 value|12
 end_define
 begin_comment
-comment|/*  * Range 0xFFFF0000 in ce_flags is divided into  * two parts: in-memory flags and on-disk ones.  * Flags in CE_EXTENDED_FLAGS will get saved on-disk  * if you want to save a new flag, add it in  * CE_EXTENDED_FLAGS  *  * In-memory only flags  */
+comment|/*  * Range 0xFFFF0FFF in ce_flags is divided into  * two parts: in-memory flags and on-disk ones.  * Flags in CE_EXTENDED_FLAGS will get saved on-disk  * if you want to save a new flag, add it in  * CE_EXTENDED_FLAGS  *  * In-memory only flags  */
 end_comment
 begin_define
 DECL|macro|CE_UPDATE
