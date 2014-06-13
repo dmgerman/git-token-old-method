@@ -287,8 +287,7 @@ name|void
 name|prime_cache_tree
 parameter_list|(
 name|struct
-name|cache_tree
-modifier|*
+name|index_state
 modifier|*
 parameter_list|,
 name|struct
