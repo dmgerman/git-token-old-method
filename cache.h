@@ -1198,6 +1198,13 @@ directive|define
 name|RESOLVE_UNDO_CHANGED
 value|(1<< 4)
 end_define
+begin_define
+DECL|macro|CACHE_TREE_CHANGED
+define|#
+directive|define
+name|CACHE_TREE_CHANGED
+value|(1<< 5)
+end_define
 begin_struct
 DECL|struct|index_state
 struct|struct

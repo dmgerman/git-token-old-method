@@ -324,8 +324,6 @@ expr_stmt|;
 name|cache_tree_invalidate_path
 argument_list|(
 name|istate
-operator|->
-name|cache_tree
 argument_list|,
 name|old
 operator|->
@@ -2517,8 +2515,6 @@ expr_stmt|;
 name|cache_tree_invalidate_path
 argument_list|(
 name|istate
-operator|->
-name|cache_tree
 argument_list|,
 name|path
 argument_list|)
@@ -4510,8 +4506,6 @@ decl_stmt|;
 name|cache_tree_invalidate_path
 argument_list|(
 name|istate
-operator|->
-name|cache_tree
 argument_list|,
 name|ce
 operator|->

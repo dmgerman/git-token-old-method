@@ -253,7 +253,8 @@ name|flag
 expr_stmt|;
 name|cache_tree_invalidate_path
 argument_list|(
-name|active_cache_tree
+operator|&
+name|the_index
 argument_list|,
 name|path
 argument_list|)
@@ -1215,7 +1216,8 @@ goto|;
 block|}
 name|cache_tree_invalidate_path
 argument_list|(
-name|active_cache_tree
+operator|&
+name|the_index
 argument_list|,
 name|path
 argument_list|)
