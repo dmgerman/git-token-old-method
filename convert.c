@@ -5161,11 +5161,14 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|str
 argument_list|,
 literal|"$Id: "
+argument_list|,
+operator|&
+name|str
 argument_list|)
 condition|)
 return|return
@@ -5175,7 +5178,7 @@ for|for
 control|(
 name|i
 operator|=
-literal|5
+literal|0
 init|;
 name|str
 index|[
