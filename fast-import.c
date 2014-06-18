@@ -12292,6 +12292,7 @@ if|if
 condition|(
 operator|*
 name|end
+operator|++
 operator|!=
 literal|' '
 condition|)
@@ -12467,11 +12468,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|p
 argument_list|,
 literal|"inline "
+argument_list|,
+operator|&
+name|p
 argument_list|)
 condition|)
 block|{
@@ -12484,14 +12488,6 @@ operator|=
 name|NULL
 expr_stmt|;
 comment|/* not used with inline_data, but makes gcc happy */
-name|p
-operator|+=
-name|strlen
-argument_list|(
-literal|"inline"
-argument_list|)
-expr_stmt|;
-comment|/* advance to space */
 block|}
 else|else
 block|{
@@ -12528,6 +12524,7 @@ if|if
 condition|(
 operator|*
 name|p
+operator|++
 operator|!=
 literal|' '
 condition|)
@@ -12541,18 +12538,6 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
-name|assert
-argument_list|(
-operator|*
-name|p
-operator|==
-literal|' '
-argument_list|)
-expr_stmt|;
-name|p
-operator|++
-expr_stmt|;
-comment|/* skip space */
 name|strbuf_reset
 argument_list|(
 operator|&
@@ -13435,11 +13420,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|p
 argument_list|,
 literal|"inline "
+argument_list|,
+operator|&
+name|p
 argument_list|)
 condition|)
 block|{
@@ -13452,14 +13440,6 @@ operator|=
 name|NULL
 expr_stmt|;
 comment|/* not used with inline_data, but makes gcc happy */
-name|p
-operator|+=
-name|strlen
-argument_list|(
-literal|"inline"
-argument_list|)
-expr_stmt|;
-comment|/* advance to space */
 block|}
 else|else
 block|{
@@ -13496,6 +13476,7 @@ if|if
 condition|(
 operator|*
 name|p
+operator|++
 operator|!=
 literal|' '
 condition|)
@@ -13509,18 +13490,6 @@ name|buf
 argument_list|)
 expr_stmt|;
 block|}
-name|assert
-argument_list|(
-operator|*
-name|p
-operator|==
-literal|' '
-argument_list|)
-expr_stmt|;
-name|p
-operator|++
-expr_stmt|;
-comment|/* skip space */
 comment|/*<commit-ish> */
 name|s
 operator|=
@@ -16724,6 +16693,26 @@ name|p
 operator|+=
 literal|40
 expr_stmt|;
+if|if
+condition|(
+operator|*
+operator|(
+operator|*
+name|p
+operator|)
+operator|++
+operator|!=
+literal|' '
+condition|)
+name|die
+argument_list|(
+literal|"Missing space after tree-ish: %s"
+argument_list|,
+name|command_buf
+operator|.
+name|buf
+argument_list|)
+expr_stmt|;
 block|}
 while|while
 condition|(
@@ -17033,23 +17022,6 @@ expr_stmt|;
 name|load_tree
 argument_list|(
 name|root
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|*
-name|p
-operator|++
-operator|!=
-literal|' '
-condition|)
-name|die
-argument_list|(
-literal|"Missing space after tree-ish: %s"
-argument_list|,
-name|command_buf
-operator|.
-name|buf
 argument_list|)
 expr_stmt|;
 block|}
