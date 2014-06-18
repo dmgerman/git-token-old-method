@@ -828,6 +828,9 @@ specifier|const
 name|char
 modifier|*
 name|capname
+decl_stmt|,
+modifier|*
+name|arg
 decl_stmt|;
 name|int
 name|mandatory
@@ -1027,11 +1030,14 @@ name|data
 operator|->
 name|refspecs
 operator|&&
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|capname
 argument_list|,
 literal|"refspec "
+argument_list|,
+operator|&
+name|arg
 argument_list|)
 condition|)
 block|{
@@ -1054,12 +1060,7 @@ index|]
 operator|=
 name|xstrdup
 argument_list|(
-name|capname
-operator|+
-name|strlen
-argument_list|(
-literal|"refspec "
-argument_list|)
+name|arg
 argument_list|)
 expr_stmt|;
 block|}
@@ -1104,11 +1105,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|capname
 argument_list|,
 literal|"export-marks "
+argument_list|,
+operator|&
+name|arg
 argument_list|)
 condition|)
 block|{
@@ -1118,23 +1122,21 @@ name|export_marks
 operator|=
 name|xstrdup
 argument_list|(
-name|capname
-operator|+
-name|strlen
-argument_list|(
-literal|"export-marks "
-argument_list|)
+name|arg
 argument_list|)
 expr_stmt|;
 block|}
 elseif|else
 if|if
 condition|(
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|capname
 argument_list|,
-literal|"import-marks"
+literal|"import-marks "
+argument_list|,
+operator|&
+name|arg
 argument_list|)
 condition|)
 block|{
@@ -1144,12 +1146,7 @@ name|import_marks
 operator|=
 name|xstrdup
 argument_list|(
-name|capname
-operator|+
-name|strlen
-argument_list|(
-literal|"import-marks "
-argument_list|)
+name|arg
 argument_list|)
 expr_stmt|;
 block|}
