@@ -1856,13 +1856,14 @@ name|suffix
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*  * If the string "str" begins with the string found in "prefix", return 1.  * The "out" parameter is set to "str + strlen(prefix)" (i.e., to the point in  * the string right after the prefix).  *  * Otherwise, return 0 and leave "out" untouched.  *  * Examples:  *  *   [extract branch name, fail if not a branch]  *   if (!skip_prefix(ref, "refs/heads/",&branch)  *	return -1;  *  *   [skip prefix if present, otherwise use whole string]  *   skip_prefix(name, "refs/heads/",&name);  */
+end_comment
 begin_function
 DECL|function|skip_prefix
 specifier|static
 specifier|inline
-specifier|const
-name|char
-modifier|*
+name|int
 name|skip_prefix
 parameter_list|(
 specifier|const
@@ -1874,6 +1875,12 @@ specifier|const
 name|char
 modifier|*
 name|prefix
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+modifier|*
+name|out
 parameter_list|)
 block|{
 do|do
@@ -1884,9 +1891,16 @@ operator|!
 operator|*
 name|prefix
 condition|)
-return|return
+block|{
+operator|*
+name|out
+operator|=
 name|str
+expr_stmt|;
+return|return
+literal|1
 return|;
+block|}
 block|}
 do|while
 condition|(
@@ -1900,7 +1914,7 @@ operator|++
 condition|)
 do|;
 return|return
-name|NULL
+literal|0
 return|;
 block|}
 end_function

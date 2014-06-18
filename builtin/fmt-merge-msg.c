@@ -1846,9 +1846,6 @@ literal|1
 operator|&&
 name|me
 operator|&&
-operator|(
-name|me
-operator|=
 name|skip_prefix
 argument_list|(
 name|me
@@ -1858,10 +1855,10 @@ operator|->
 name|items
 operator|->
 name|string
+argument_list|,
+operator|&
+name|me
 argument_list|)
-operator|)
-operator|!=
-name|NULL
 operator|&&
 name|starts_with
 argument_list|(
