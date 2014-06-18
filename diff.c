@@ -281,9 +281,6 @@ specifier|const
 name|char
 modifier|*
 name|var
-parameter_list|,
-name|int
-name|ofs
 parameter_list|)
 block|{
 if|if
@@ -292,8 +289,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"plain"
 argument_list|)
@@ -307,8 +302,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"meta"
 argument_list|)
@@ -322,8 +315,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"frag"
 argument_list|)
@@ -337,8 +328,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"old"
 argument_list|)
@@ -352,8 +341,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"new"
 argument_list|)
@@ -367,8 +354,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"commit"
 argument_list|)
@@ -382,8 +367,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"whitespace"
 argument_list|)
@@ -397,8 +380,6 @@ operator|!
 name|strcasecmp
 argument_list|(
 name|var
-operator|+
-name|ofs
 argument_list|,
 literal|"func"
 argument_list|)
@@ -1438,7 +1419,7 @@ init|=
 name|parse_diff_color_slot
 argument_list|(
 name|var
-argument_list|,
+operator|+
 literal|11
 argument_list|)
 decl_stmt|;
