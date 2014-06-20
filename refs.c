@@ -8446,6 +8446,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/* This function should make sure errno is meaningful on error */
+end_comment
 begin_function
 DECL|function|verify_lock
 specifier|static
@@ -8487,6 +8490,11 @@ name|NULL
 argument_list|)
 condition|)
 block|{
+name|int
+name|save_errno
+init|=
+name|errno
+decl_stmt|;
 name|error
 argument_list|(
 literal|"Can't verify ref %s"
@@ -8500,6 +8508,10 @@ name|unlock_ref
 argument_list|(
 name|lock
 argument_list|)
+expr_stmt|;
+name|errno
+operator|=
+name|save_errno
 expr_stmt|;
 return|return
 name|NULL
@@ -8542,6 +8554,10 @@ name|unlock_ref
 argument_list|(
 name|lock
 argument_list|)
+expr_stmt|;
+name|errno
+operator|=
+name|EBUSY
 expr_stmt|;
 return|return
 name|NULL
