@@ -911,8 +911,7 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|memcmp
+name|starts_with
 argument_list|(
 name|used_atom
 index|[
@@ -920,8 +919,6 @@ name|at
 index|]
 argument_list|,
 literal|"color:"
-argument_list|,
-literal|6
 argument_list|)
 condition|)
 name|need_color_reset_at_eol
