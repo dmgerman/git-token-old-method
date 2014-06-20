@@ -749,7 +749,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/** Setup reflog before using. **/
+comment|/*  * Setup reflog before using. Set errno to something meaningful on failure.  */
 end_comment
 begin_function_decl
 name|int
