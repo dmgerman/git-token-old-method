@@ -1203,10 +1203,6 @@ name|struct
 name|strbuf
 modifier|*
 name|err
-parameter_list|,
-name|enum
-name|action_on_err
-name|onerr
 parameter_list|)
 function_decl|;
 end_function_decl
