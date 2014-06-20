@@ -1175,7 +1175,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  */
+comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  * If err is non-NULL we will add an error string to it to explain why  * the transaction failed. The string does not end in newline.  */
 end_comment
 begin_function_decl
 name|int
@@ -1190,6 +1190,11 @@ specifier|const
 name|char
 modifier|*
 name|msg
+parameter_list|,
+name|struct
+name|strbuf
+modifier|*
+name|err
 parameter_list|,
 name|enum
 name|action_on_err
