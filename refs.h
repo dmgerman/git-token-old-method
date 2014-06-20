@@ -1063,7 +1063,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/*  * Begin a reference transaction.  The reference transaction must  * eventually be commited using ref_transaction_commit() or freed by  * calling ref_transaction_free().  */
+comment|/*  * Begin a reference transaction.  The reference transaction must  * be freed by calling ref_transaction_free().  */
 end_comment
 begin_function_decl
 name|struct
@@ -1171,7 +1171,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  The ref_transaction is freed by this function.  */
+comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  */
 end_comment
 begin_function_decl
 name|int
