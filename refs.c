@@ -15795,6 +15795,11 @@ name|ref_lock
 modifier|*
 name|lock
 parameter_list|,
+name|struct
+name|strbuf
+modifier|*
+name|err
+parameter_list|,
 name|enum
 name|action_on_err
 name|onerr
@@ -15821,6 +15826,19 @@ name|str
 init|=
 literal|"Cannot update the ref '%s'."
 decl_stmt|;
+if|if
+condition|(
+name|err
+condition|)
+name|strbuf_addf
+argument_list|(
+name|err
+argument_list|,
+name|str
+argument_list|,
+name|refname
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|onerr
@@ -16430,6 +16448,8 @@ name|sha1
 argument_list|,
 name|lock
 argument_list|,
+name|NULL
+argument_list|,
 name|onerr
 argument_list|)
 return|;
@@ -16893,6 +16913,8 @@ argument_list|,
 name|update
 operator|->
 name|lock
+argument_list|,
+name|err
 argument_list|,
 name|onerr
 argument_list|)
