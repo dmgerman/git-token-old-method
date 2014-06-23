@@ -15,6 +15,11 @@ DECL|struct|signature_check
 struct|struct
 name|signature_check
 block|{
+DECL|member|payload
+name|char
+modifier|*
+name|payload
+decl_stmt|;
 DECL|member|gpg_output
 name|char
 modifier|*
