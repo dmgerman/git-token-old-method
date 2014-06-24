@@ -4058,11 +4058,6 @@ argument_list|,
 name|addrlen
 argument_list|)
 expr_stmt|;
-name|close
-argument_list|(
-name|incoming
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

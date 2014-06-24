@@ -1086,11 +1086,6 @@ argument_list|(
 literal|"cat-file reported failure"
 argument_list|)
 expr_stmt|;
-name|close
-argument_list|(
-name|fd
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_comment
