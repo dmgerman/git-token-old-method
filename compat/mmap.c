@@ -85,7 +85,7 @@ block|{
 name|ssize_t
 name|count
 init|=
-name|pread
+name|xpread
 argument_list|(
 name|fd
 argument_list|,
@@ -139,17 +139,6 @@ operator|<
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|errno
-operator|==
-name|EAGAIN
-operator|||
-name|errno
-operator|==
-name|EINTR
-condition|)
-continue|continue;
 name|free
 argument_list|(
 name|start
