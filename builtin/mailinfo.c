@@ -1872,7 +1872,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|memcmp
+name|strcmp
 argument_list|(
 literal|"Subject"
 argument_list|,
@@ -1880,8 +1880,6 @@ name|header
 index|[
 name|i
 index|]
-argument_list|,
-literal|7
 argument_list|)
 condition|)
 block|{
@@ -4526,7 +4524,7 @@ continue|continue;
 if|if
 condition|(
 operator|!
-name|memcmp
+name|strcmp
 argument_list|(
 name|header
 index|[
@@ -4534,8 +4532,6 @@ name|i
 index|]
 argument_list|,
 literal|"Subject"
-argument_list|,
-literal|7
 argument_list|)
 condition|)
 block|{
@@ -4570,7 +4566,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|memcmp
+name|strcmp
 argument_list|(
 name|header
 index|[
@@ -4578,8 +4574,6 @@ name|i
 index|]
 argument_list|,
 literal|"From"
-argument_list|,
-literal|4
 argument_list|)
 condition|)
 block|{
