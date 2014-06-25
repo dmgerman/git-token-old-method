@@ -1472,7 +1472,7 @@ argument_list|)
 condition|)
 name|exit
 argument_list|(
-literal|1
+literal|128
 argument_list|)
 expr_stmt|;
 comment|/* the callee should have complained already */
