@@ -2530,8 +2530,11 @@ name|len
 operator|>
 name|payload_size
 condition|)
+block|{
+comment|/* could have a good signature */
 if|if
 condition|(
+operator|!
 name|verify_signed_buffer
 argument_list|(
 name|extra
@@ -2558,7 +2561,12 @@ argument_list|,
 name|NULL
 argument_list|)
 condition|)
-block|{
+name|status
+operator|=
+literal|0
+expr_stmt|;
+comment|/* good */
+elseif|else
 if|if
 condition|(
 name|verify_message
@@ -2575,11 +2583,7 @@ argument_list|,
 literal|"No signature\n"
 argument_list|)
 expr_stmt|;
-else|else
-name|status
-operator|=
-literal|0
-expr_stmt|;
+comment|/* otherwise we couldn't verify, which is shown as bad */
 block|}
 name|show_sig_lines
 argument_list|(
