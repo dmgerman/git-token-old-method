@@ -134,7 +134,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|has_extension
+name|ends_with
 argument_list|(
 name|arg
 operator|.
@@ -165,7 +165,7 @@ elseif|else
 if|if
 condition|(
 operator|!
-name|has_extension
+name|ends_with
 argument_list|(
 name|arg
 operator|.
