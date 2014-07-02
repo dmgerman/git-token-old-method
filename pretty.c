@@ -1348,7 +1348,7 @@ name|RFC2047_SUBJECT
 block|,
 DECL|enumerator|RFC2047_ADDRESS
 name|RFC2047_ADDRESS
-block|, }
+block|}
 enum|;
 end_enum
 begin_function
