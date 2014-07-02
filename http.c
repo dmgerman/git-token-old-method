@@ -4481,6 +4481,11 @@ argument_list|(
 operator|*
 name|raw
 argument_list|)
+operator|&&
+operator|*
+name|raw
+operator|!=
+literal|';'
 condition|)
 name|strbuf_addch
 argument_list|(
@@ -4613,6 +4618,11 @@ argument_list|(
 operator|*
 name|p
 argument_list|)
+operator|||
+operator|*
+name|p
+operator|==
+literal|';'
 condition|)
 name|p
 operator|++
