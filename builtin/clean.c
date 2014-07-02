@@ -256,7 +256,7 @@ DECL|enumerator|CLEAN_COLOR_ERROR
 name|CLEAN_COLOR_ERROR
 init|=
 literal|5
-block|, }
+block|}
 enum|;
 end_enum
 begin_define
