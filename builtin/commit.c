@@ -9574,8 +9574,13 @@ if|if
 condition|(
 name|commit_tree_extended
 argument_list|(
-operator|&
 name|sb
+operator|.
+name|buf
+argument_list|,
+name|sb
+operator|.
+name|len
 argument_list|,
 name|active_cache_tree
 operator|->
