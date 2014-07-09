@@ -2180,11 +2180,9 @@ return|return
 name|CURLIOE_OK
 return|;
 block|}
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Unable to rewind rpc post data - try increasing http.postBuffer\n"
+literal|"unable to rewind rpc post data - try increasing http.postBuffer"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3940,7 +3938,7 @@ name|ret
 condition|?
 name|error
 argument_list|(
-literal|"Fetch failed."
+literal|"fetch failed."
 argument_list|)
 else|:
 literal|0
@@ -5421,11 +5419,9 @@ operator|<
 literal|2
 condition|)
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Remote needed\n"
+literal|"remote needed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5535,11 +5531,9 @@ argument_list|(
 name|stdin
 argument_list|)
 condition|)
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Error reading command stream\n"
+literal|"error reading command stream"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5796,11 +5790,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|fprintf
+name|error
 argument_list|(
-name|stderr
-argument_list|,
-literal|"Unknown command '%s'\n"
+literal|"unknown command '%s'"
 argument_list|,
 name|buf
 operator|.
