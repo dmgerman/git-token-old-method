@@ -644,6 +644,11 @@ name|buffer
 init|=
 name|packet_buffer
 decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|arg
+decl_stmt|;
 name|len
 operator|=
 name|packet_read
@@ -691,20 +696,21 @@ name|len
 operator|>
 literal|4
 operator|&&
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|buffer
 argument_list|,
 literal|"ERR "
+argument_list|,
+operator|&
+name|arg
 argument_list|)
 condition|)
 name|die
 argument_list|(
 literal|"remote error: %s"
 argument_list|,
-name|buffer
-operator|+
-literal|4
+name|arg
 argument_list|)
 expr_stmt|;
 if|if
@@ -713,11 +719,14 @@ name|len
 operator|==
 literal|48
 operator|&&
-name|starts_with
+name|skip_prefix
 argument_list|(
 name|buffer
 argument_list|,
 literal|"shallow "
+argument_list|,
+operator|&
+name|arg
 argument_list|)
 condition|)
 block|{
@@ -725,9 +734,7 @@ if|if
 condition|(
 name|get_sha1_hex
 argument_list|(
-name|buffer
-operator|+
-literal|8
+name|arg
 argument_list|,
 name|old_sha1
 argument_list|)
@@ -736,9 +743,7 @@ name|die
 argument_list|(
 literal|"protocol error: expected shallow sha-1, got '%s'"
 argument_list|,
-name|buffer
-operator|+
-literal|8
+name|arg
 argument_list|)
 expr_stmt|;
 if|if
