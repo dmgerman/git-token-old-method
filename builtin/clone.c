@@ -3898,7 +3898,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|strstr
+name|starts_with
 argument_list|(
 name|our_head_points_at
 operator|->
