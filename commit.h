@@ -1435,6 +1435,13 @@ name|show_only
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_decl_stmt
+specifier|extern
+name|struct
+name|trace_key
+name|trace_shallow
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 name|int
 name|is_descendant_of
