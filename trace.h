@@ -196,7 +196,7 @@ specifier|const
 name|struct
 name|strbuf
 modifier|*
-name|buf
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
