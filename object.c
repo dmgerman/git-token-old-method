@@ -565,9 +565,6 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
-name|int
-name|type
-parameter_list|,
 name|void
 modifier|*
 name|o
@@ -591,12 +588,6 @@ operator|->
 name|used
 operator|=
 literal|0
-expr_stmt|;
-name|obj
-operator|->
-name|type
-operator|=
-name|type
 expr_stmt|;
 name|obj
 operator|->
@@ -677,8 +668,6 @@ operator|=
 name|create_object
 argument_list|(
 name|sha1
-argument_list|,
-name|OBJ_NONE
 argument_list|,
 name|alloc_object_node
 argument_list|()

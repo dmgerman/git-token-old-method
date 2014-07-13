@@ -262,8 +262,6 @@ name|create_object
 argument_list|(
 name|sha1
 argument_list|,
-name|OBJ_TAG
-argument_list|,
 name|alloc_tag_node
 argument_list|()
 argument_list|)
