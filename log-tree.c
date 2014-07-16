@@ -2078,10 +2078,6 @@ condition|(
 name|parse_signed_commit
 argument_list|(
 name|commit
-operator|->
-name|object
-operator|.
-name|sha1
 argument_list|,
 operator|&
 name|payload
@@ -3202,9 +3198,12 @@ block|}
 if|if
 condition|(
 operator|!
+name|get_cached_commit_buffer
+argument_list|(
 name|commit
-operator|->
-name|buffer
+argument_list|,
+name|NULL
+argument_list|)
 condition|)
 return|return;
 if|if
