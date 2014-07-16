@@ -486,8 +486,6 @@ block|{
 name|int
 name|i
 decl_stmt|,
-name|newfd
-decl_stmt|,
 name|stage
 init|=
 literal|0
@@ -863,8 +861,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|newfd
-operator|=
 name|hold_locked_index
 argument_list|(
 operator|&
@@ -902,6 +898,7 @@ argument_list|(
 literal|"Which one? -m, --reset, or --prefix?"
 argument_list|)
 expr_stmt|;
+comment|/* 	 * NEEDSWORK 	 * 	 * The old index should be read anyway even if we're going to 	 * destroy all index entries because we still need to preserve 	 * certain information such as index version or split-index 	 * mode. 	 */
 if|if
 condition|(
 name|opts
@@ -1321,7 +1318,7 @@ condition|)
 name|prime_cache_tree
 argument_list|(
 operator|&
-name|active_cache_tree
+name|the_index
 argument_list|,
 name|trees
 index|[
@@ -1331,19 +1328,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|write_cache
-argument_list|(
-name|newfd
-argument_list|,
-name|active_cache
-argument_list|,
-name|active_nr
-argument_list|)
-operator|||
-name|commit_locked_index
+name|write_locked_index
 argument_list|(
 operator|&
+name|the_index
+argument_list|,
+operator|&
 name|lock_file
+argument_list|,
+name|COMMIT_LOCK
 argument_list|)
 condition|)
 name|die

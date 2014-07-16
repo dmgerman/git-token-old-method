@@ -556,6 +556,7 @@ name|ewah_bitmap
 modifier|*
 name|self
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|map
@@ -564,6 +565,7 @@ name|size_t
 name|len
 parameter_list|)
 block|{
+specifier|const
 name|uint8_t
 modifier|*
 name|ptr
