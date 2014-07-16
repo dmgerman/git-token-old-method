@@ -11489,10 +11489,6 @@ expr_stmt|;
 if|if
 condition|(
 name|err
-operator|&&
-name|errno
-operator|!=
-name|ENOENT
 condition|)
 return|return
 literal|1
