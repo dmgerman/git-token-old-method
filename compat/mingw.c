@@ -4967,10 +4967,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|env_compare
+DECL|function|compareenv
 specifier|static
 name|int
-name|env_compare
+name|compareenv
 parameter_list|(
 specifier|const
 name|void
@@ -5503,7 +5503,7 @@ operator|*
 name|sorted_env
 argument_list|)
 argument_list|,
-name|env_compare
+name|compareenv
 argument_list|)
 expr_stmt|;
 comment|/* create environment block from temporary environment */
@@ -6613,10 +6613,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|lookup_env
+DECL|function|lookupenv
 specifier|static
 name|int
-name|lookup_env
+name|lookupenv
 parameter_list|(
 name|char
 modifier|*
@@ -6690,12 +6690,12 @@ begin_comment
 comment|/*  * If name contains '=', then sets the variable, otherwise it unsets it  */
 end_comment
 begin_function
-DECL|function|env_setenv
+DECL|function|do_putenv
 specifier|static
 name|char
 modifier|*
 modifier|*
-name|env_setenv
+name|do_putenv
 parameter_list|(
 name|char
 modifier|*
@@ -6722,7 +6722,7 @@ decl_stmt|;
 name|int
 name|i
 init|=
-name|lookup_env
+name|lookupenv
 argument_list|(
 name|env
 argument_list|,
@@ -6901,7 +6901,7 @@ operator|++
 decl_stmt|;
 name|env
 operator|=
-name|env_setenv
+name|do_putenv
 argument_list|(
 name|env
 argument_list|,
@@ -7006,7 +7006,7 @@ parameter_list|)
 block|{
 name|environ
 operator|=
-name|env_setenv
+name|do_putenv
 argument_list|(
 name|environ
 argument_list|,
