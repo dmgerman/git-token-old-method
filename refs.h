@@ -478,7 +478,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Lock the packed-refs file for writing.  Flags is passed to  * hold_lock_file_for_update().  Return 0 on success.  */
+comment|/*  * Lock the packed-refs file for writing.  Flags is passed to  * hold_lock_file_for_update().  Return 0 on success.  * Errno is set to something meaningful on error.  */
 end_comment
 begin_function_decl
 specifier|extern
@@ -512,7 +512,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Write the current version of the packed refs cache from memory to  * disk.  The packed-refs file must already be locked for writing (see  * lock_packed_refs()).  Return zero on success.  */
+comment|/*  * Write the current version of the packed refs cache from memory to  * disk.  The packed-refs file must already be locked for writing (see  * lock_packed_refs()).  Return zero on success.  * Sets errno to something meaningful on error.  */
 end_comment
 begin_function_decl
 specifier|extern
@@ -578,6 +578,11 @@ name|refnames
 parameter_list|,
 name|int
 name|n
+parameter_list|,
+name|struct
+name|strbuf
+modifier|*
+name|err
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -613,7 +618,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/** Locks a "refs/" ref returning the lock on success and NULL on failure. **/
+comment|/*  * Locks a "refs/" ref returning the lock on success and NULL on failure.  * On failure errno is set to something meaningful.  */
 end_comment
 begin_function_decl
 specifier|extern
@@ -645,6 +650,9 @@ directive|define
 name|REF_NODEREF
 value|0x01
 end_define
+begin_comment
+comment|/* errno is set to something meaningful on failure */
+end_comment
 begin_function_decl
 specifier|extern
 name|struct
@@ -744,7 +752,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/** Setup reflog before using. **/
+comment|/*  * Setup reflog before using. Set errno to something meaningful on failure.  */
 end_comment
 begin_function_decl
 name|int
@@ -1063,7 +1071,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|/*  * Begin a reference transaction.  The reference transaction must  * eventually be commited using ref_transaction_commit() or rolled  * back using ref_transaction_rollback().  */
+comment|/*  * Begin a reference transaction.  The reference transaction must  * be freed by calling ref_transaction_free().  */
 end_comment
 begin_function_decl
 name|struct
@@ -1076,27 +1084,13 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Roll back a ref_transaction and free all associated data.  */
-end_comment
-begin_function_decl
-name|void
-name|ref_transaction_rollback
-parameter_list|(
-name|struct
-name|ref_transaction
-modifier|*
-name|transaction
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
 comment|/*  * The following functions add a reference check or update to a  * ref_transaction.  In all of them, refname is the name of the  * reference to be affected.  The functions make internal copies of  * refname, so the caller retains ownership of the parameter.  flags  * can be REF_NODEREF; it is passed to update_ref_lock().  */
 end_comment
 begin_comment
-comment|/*  * Add a reference update to transaction.  new_sha1 is the value that  * the reference should have after the update, or zeros if it should  * be deleted.  If have_old is true, then old_sha1 holds the value  * that the reference should have had before the update, or zeros if  * it must not have existed beforehand.  */
+comment|/*  * Add a reference update to transaction.  new_sha1 is the value that  * the reference should have after the update, or zeros if it should  * be deleted.  If have_old is true, then old_sha1 holds the value  * that the reference should have had before the update, or zeros if  * it must not have existed beforehand.  * Function returns 0 on success and non-zero on failure. A failure to update  * means that the transaction as a whole has failed and will need to be  * rolled back. On failure the err buffer will be updated.  */
 end_comment
 begin_function_decl
-name|void
+name|int
 name|ref_transaction_update
 parameter_list|(
 name|struct
@@ -1109,11 +1103,13 @@ name|char
 modifier|*
 name|refname
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
 name|new_sha1
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -1124,6 +1120,11 @@ name|flags
 parameter_list|,
 name|int
 name|have_old
+parameter_list|,
+name|struct
+name|strbuf
+modifier|*
+name|err
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1144,6 +1145,7 @@ name|char
 modifier|*
 name|refname
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -1171,6 +1173,7 @@ name|char
 modifier|*
 name|refname
 parameter_list|,
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -1185,7 +1188,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  The ref_transaction is freed by this function.  */
+comment|/*  * Commit all of the changes that have been queued in transaction, as  * atomically as possible.  Return a nonzero value if there is a  * problem.  * If err is non-NULL we will add an error string to it to explain why  * the transaction failed. The string does not end in newline.  */
 end_comment
 begin_function_decl
 name|int
@@ -1201,9 +1204,24 @@ name|char
 modifier|*
 name|msg
 parameter_list|,
-name|enum
-name|action_on_err
-name|onerr
+name|struct
+name|strbuf
+modifier|*
+name|err
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|/*  * Free an existing transaction and all associated data.  */
+end_comment
+begin_function_decl
+name|void
+name|ref_transaction_free
+parameter_list|(
+name|struct
+name|ref_transaction
+modifier|*
+name|transaction
 parameter_list|)
 function_decl|;
 end_function_decl
