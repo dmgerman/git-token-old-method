@@ -2333,7 +2333,8 @@ name|i
 decl_stmt|;
 name|trace_printf_key
 argument_list|(
-literal|"GIT_TRACE_SHALLOW"
+operator|&
+name|trace_shallow
 argument_list|,
 literal|"shallow: update_shallow_ref %s\n"
 argument_list|,
