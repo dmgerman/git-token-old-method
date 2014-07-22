@@ -11282,14 +11282,6 @@ name|date
 operator|=
 name|now
 expr_stmt|;
-name|commit
-operator|->
-name|object
-operator|.
-name|type
-operator|=
-name|OBJ_COMMIT
-expr_stmt|;
 name|parent_tail
 operator|=
 operator|&
