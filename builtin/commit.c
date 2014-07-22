@@ -3465,7 +3465,7 @@ if|if
 condition|(
 name|buffer
 condition|)
-name|strbuf_add
+name|strbuf_addstr
 argument_list|(
 operator|&
 name|sb
@@ -3473,13 +3473,6 @@ argument_list|,
 name|buffer
 operator|+
 literal|2
-argument_list|,
-name|strlen
-argument_list|(
-name|buffer
-operator|+
-literal|2
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|hook_arg1
