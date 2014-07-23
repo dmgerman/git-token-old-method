@@ -483,6 +483,11 @@ name|struct
 name|unix_sockaddr_context
 name|ctx
 decl_stmt|;
+name|unlink
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|unix_sockaddr_init
@@ -506,11 +511,6 @@ name|fd
 operator|=
 name|unix_stream_socket
 argument_list|()
-expr_stmt|;
-name|unlink
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
