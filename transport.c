@@ -7692,9 +7692,9 @@ argument_list|,
 literal|8
 argument_list|)
 condition|)
-return|return
-literal|0
-return|;
+goto|goto
+name|out
+goto|;
 comment|/* Is this a git repository with refs? */
 name|memcpy
 argument_list|(
@@ -7717,9 +7717,9 @@ argument_list|(
 name|other
 argument_list|)
 condition|)
-return|return
-literal|0
-return|;
+goto|goto
+name|out
+goto|;
 name|other
 index|[
 name|len
@@ -7778,6 +7778,8 @@ argument_list|(
 name|transport
 argument_list|)
 expr_stmt|;
+name|out
+label|:
 name|free
 argument_list|(
 name|other
