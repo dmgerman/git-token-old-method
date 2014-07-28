@@ -2798,10 +2798,17 @@ if|if
 condition|(
 name|errors
 condition|)
+block|{
+name|free
+argument_list|(
+name|real_ref
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
+block|}
 block|}
 if|if
 condition|(

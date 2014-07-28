@@ -5574,7 +5574,7 @@ argument_list|)
 expr_stmt|;
 name|eol
 operator|=
-name|strchr
+name|strchrnul
 argument_list|(
 name|line
 argument_list|,
