@@ -1344,13 +1344,13 @@ name|memchr
 argument_list|(
 name|line
 argument_list|,
+literal|'\n'
+argument_list|,
 name|buf
 operator|+
 name|size
 operator|-
 name|line
-argument_list|,
-literal|'\n'
 argument_list|)
 expr_stmt|;
 name|line
@@ -1358,6 +1358,8 @@ operator|=
 name|memchr
 argument_list|(
 name|line
+argument_list|,
+literal|'>'
 argument_list|,
 name|lineend
 condition|?
@@ -1370,8 +1372,6 @@ operator|+
 name|size
 operator|-
 name|line
-argument_list|,
-literal|'>'
 argument_list|)
 expr_stmt|;
 if|if
