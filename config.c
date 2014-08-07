@@ -2147,7 +2147,10 @@ name|die_on_error
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad config file line %d in %s"
+argument_list|)
 argument_list|,
 name|cf
 operator|->
@@ -2162,7 +2165,10 @@ else|else
 return|return
 name|error
 argument_list|(
+name|_
+argument_list|(
 literal|"bad config file line %d in %s"
+argument_list|)
 argument_list|,
 name|cf
 operator|->
@@ -2733,7 +2739,10 @@ name|name
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad numeric config value '%s' for '%s' in %s: %s"
+argument_list|)
 argument_list|,
 name|value
 argument_list|,
@@ -2748,7 +2757,10 @@ argument_list|)
 expr_stmt|;
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad numeric config value '%s' for '%s': %s"
+argument_list|)
 argument_list|,
 name|value
 argument_list|,
@@ -3231,7 +3243,10 @@ name|dest
 condition|)
 name|die
 argument_list|(
-literal|"Failed to expand user dir in: '%s'"
+name|_
+argument_list|(
+literal|"failed to expand user dir in: '%s'"
+argument_list|)
 argument_list|,
 name|value
 argument_list|)
@@ -3649,7 +3664,10 @@ name|Z_BEST_COMPRESSION
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad zlib compression level %d"
+argument_list|)
 argument_list|,
 name|level
 argument_list|)
@@ -3711,7 +3729,10 @@ name|Z_BEST_COMPRESSION
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"bad zlib compression level %d"
+argument_list|)
 argument_list|,
 name|level
 argument_list|)
@@ -4367,7 +4388,10 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
-literal|"Invalid mode for object creation: %s"
+name|_
+argument_list|(
+literal|"invalid mode for object creation: %s"
+argument_list|)
 argument_list|,
 name|value
 argument_list|)
@@ -5941,7 +5965,10 @@ case|:
 comment|/* error */
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to parse command-line config"
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -7759,7 +7786,10 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|_
+argument_list|(
 literal|"%s has multiple values"
+argument_list|)
 argument_list|,
 name|key
 argument_list|)
