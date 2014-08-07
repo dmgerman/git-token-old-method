@@ -1256,6 +1256,11 @@ name|eof
 operator|=
 literal|1
 expr_stmt|;
+name|cf
+operator|->
+name|linenr
+operator|++
+expr_stmt|;
 name|c
 operator|=
 literal|'\n'
@@ -1557,6 +1562,9 @@ name|char
 modifier|*
 name|value
 decl_stmt|;
+name|int
+name|ret
+decl_stmt|;
 comment|/* Get the full name */
 for|for
 control|(
@@ -1647,7 +1655,14 @@ operator|-
 literal|1
 return|;
 block|}
-return|return
+comment|/* 	 * We already consumed the \n, but we need linenr to point to 	 * the line we just parsed during the call to fn to get 	 * accurate line number in error messages. 	 */
+name|cf
+operator|->
+name|linenr
+operator|--
+expr_stmt|;
+name|ret
+operator|=
 name|fn
 argument_list|(
 name|name
@@ -1658,6 +1673,14 @@ name|value
 argument_list|,
 name|data
 argument_list|)
+expr_stmt|;
+name|cf
+operator|->
+name|linenr
+operator|++
+expr_stmt|;
+return|return
+name|ret
 return|;
 block|}
 end_function
