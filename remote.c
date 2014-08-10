@@ -10625,7 +10625,6 @@ name|ours
 decl_stmt|,
 name|theirs
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|base
@@ -10672,6 +10671,8 @@ break|break;
 block|}
 name|base
 operator|=
+name|shorten_unambiguous_ref
+argument_list|(
 name|branch
 operator|->
 name|merge
@@ -10680,12 +10681,6 @@ literal|0
 index|]
 operator|->
 name|dst
-expr_stmt|;
-name|base
-operator|=
-name|shorten_unambiguous_ref
-argument_list|(
-name|base
 argument_list|,
 literal|0
 argument_list|)
@@ -10868,6 +10863,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|free
+argument_list|(
+name|base
+argument_list|)
+expr_stmt|;
 return|return
 literal|1
 return|;
