@@ -1873,10 +1873,7 @@ expr_stmt|;
 if|if
 condition|(
 name|active_cache_changed
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|write_locked_index
 argument_list|(
 operator|&
@@ -1896,7 +1893,6 @@ literal|"Unable to write new index file"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|0
 return|;
