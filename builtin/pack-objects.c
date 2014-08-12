@@ -12258,6 +12258,10 @@ argument_list|(
 name|sha1
 argument_list|)
 expr_stmt|;
+name|use_bitmap_index
+operator|=
+literal|0
+expr_stmt|;
 continue|continue;
 block|}
 name|die
