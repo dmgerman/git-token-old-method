@@ -30,11 +30,11 @@ name|char
 modifier|*
 name|gpg_status
 decl_stmt|;
+comment|/* 	 * possible "result": 	 * 0 (not checked) 	 * N (checked but no further result) 	 * U (untrusted good) 	 * G (good) 	 * B (bad) 	 */
 DECL|member|result
 name|char
 name|result
 decl_stmt|;
-comment|/* 0 (not checked), 		      * N (checked but no further result), 		      * U (untrusted good), 		      * G (good) 		      * B (bad) */
 DECL|member|signer
 name|char
 modifier|*
@@ -57,6 +57,17 @@ name|struct
 name|signature_check
 modifier|*
 name|sigc
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|void
+name|parse_gpg_output
+parameter_list|(
+name|struct
+name|signature_check
+modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
