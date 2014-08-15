@@ -1380,18 +1380,7 @@ if|if
 condition|(
 operator|!
 name|cmds_sent
-operator|&&
-operator|(
-name|status_report
-operator|||
-name|use_sideband
-operator|||
-name|quiet
-operator|||
-name|agent_supported
-operator|)
 condition|)
-block|{
 name|packet_buf_write
 argument_list|(
 operator|&
@@ -1441,7 +1430,6 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
-block|}
 else|else
 name|packet_buf_write
 argument_list|(
