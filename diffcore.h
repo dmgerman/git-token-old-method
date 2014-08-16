@@ -245,6 +245,13 @@ name|short
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_define
+DECL|macro|CHECK_SIZE_ONLY
+define|#
+directive|define
+name|CHECK_SIZE_ONLY
+value|1
+end_define
 begin_function_decl
 specifier|extern
 name|int
@@ -254,6 +261,7 @@ name|struct
 name|diff_filespec
 modifier|*
 parameter_list|,
+name|unsigned
 name|int
 parameter_list|)
 function_decl|;
