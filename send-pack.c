@@ -1832,6 +1832,10 @@ condition|(
 name|args
 operator|->
 name|dry_run
+operator|||
+name|args
+operator|->
+name|push_cert
 condition|)
 continue|continue;
 if|if
