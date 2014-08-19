@@ -1476,6 +1476,7 @@ condition|(
 operator|!
 name|cmds_sent
 condition|)
+block|{
 name|packet_buf_write
 argument_list|(
 operator|&
@@ -1498,7 +1499,13 @@ operator|.
 name|buf
 argument_list|)
 expr_stmt|;
+name|cmds_sent
+operator|=
+literal|1
+expr_stmt|;
+block|}
 else|else
+block|{
 name|packet_buf_write
 argument_list|(
 operator|&
@@ -1515,9 +1522,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
-name|cmds_sent
-operator|++
-expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
