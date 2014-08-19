@@ -441,6 +441,8 @@ block|{
 name|struct
 name|child_process
 name|pack_objects
+init|=
+name|CHILD_PROCESS_INIT
 decl_stmt|;
 name|char
 name|data
@@ -590,19 +592,6 @@ operator|++
 index|]
 operator|=
 name|NULL
-expr_stmt|;
-name|memset
-argument_list|(
-operator|&
-name|pack_objects
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|pack_objects
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|pack_objects
 operator|.
@@ -2270,6 +2259,8 @@ specifier|static
 name|struct
 name|child_process
 name|cmd
+init|=
+name|CHILD_PROCESS_INIT
 decl_stmt|;
 name|struct
 name|object

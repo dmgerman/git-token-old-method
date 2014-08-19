@@ -975,6 +975,8 @@ decl_stmt|;
 name|struct
 name|child_process
 name|child
+init|=
+name|CHILD_PROCESS_INIT
 decl_stmt|;
 name|struct
 name|rev_info
@@ -1182,19 +1184,6 @@ argument_list|(
 name|_
 argument_list|(
 literal|"Empty patch. Aborted."
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|memset
-argument_list|(
-operator|&
-name|child
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|child
 argument_list|)
 argument_list|)
 expr_stmt|;

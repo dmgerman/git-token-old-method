@@ -538,6 +538,8 @@ decl_stmt|;
 name|struct
 name|child_process
 name|show
+init|=
+name|CHILD_PROCESS_INIT
 decl_stmt|;
 name|struct
 name|strbuf
@@ -552,19 +554,6 @@ init|=
 name|STRBUF_INIT
 decl_stmt|;
 comment|/* Invoke "git show --stat --no-notes $object" */
-name|memset
-argument_list|(
-operator|&
-name|show
-argument_list|,
-literal|0
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|show
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|show
 operator|.
 name|argv
