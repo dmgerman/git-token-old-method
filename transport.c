@@ -4826,6 +4826,14 @@ operator|&
 name|TRANSPORT_PUSH_CERT
 operator|)
 expr_stmt|;
+name|args
+operator|.
+name|url
+operator|=
+name|transport
+operator|->
+name|url
+expr_stmt|;
 name|ret
 operator|=
 name|send_pack
