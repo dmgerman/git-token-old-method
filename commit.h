@@ -122,13 +122,6 @@ end_decl_stmt
 begin_comment
 comment|/* While we can decorate any object with a name, it's only used for commits.. */
 end_comment
-begin_decl_stmt
-specifier|extern
-name|struct
-name|decoration
-name|name_decoration
-decl_stmt|;
-end_decl_stmt
 begin_struct
 DECL|struct|name_decoration
 struct|struct
@@ -197,6 +190,21 @@ name|char
 modifier|*
 name|name
 parameter_list|,
+name|struct
+name|object
+modifier|*
+name|obj
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|const
+name|struct
+name|name_decoration
+modifier|*
+name|get_name_decoration
+parameter_list|(
+specifier|const
 name|struct
 name|object
 modifier|*
