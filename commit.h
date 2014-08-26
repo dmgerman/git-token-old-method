@@ -141,7 +141,7 @@ DECL|member|name
 name|char
 name|name
 index|[
-literal|1
+name|FLEX_ARRAY
 index|]
 decl_stmt|;
 block|}
