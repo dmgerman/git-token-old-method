@@ -1122,7 +1122,7 @@ name|error
 argument_list|(
 name|_
 argument_list|(
-literal|"The note contents has been left in %s"
+literal|"The note contents have been left in %s"
 argument_list|)
 argument_list|,
 name|path
