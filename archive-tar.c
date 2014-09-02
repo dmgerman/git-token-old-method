@@ -1042,6 +1042,9 @@ expr_stmt|;
 name|mode
 operator|=
 literal|0100666
+operator|&
+operator|~
+name|tar_umask
 expr_stmt|;
 name|sprintf
 argument_list|(
@@ -1740,6 +1743,9 @@ expr_stmt|;
 name|mode
 operator|=
 literal|0100666
+operator|&
+operator|~
+name|tar_umask
 expr_stmt|;
 name|strcpy
 argument_list|(
