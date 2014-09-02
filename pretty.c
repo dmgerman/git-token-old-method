@@ -398,6 +398,8 @@ name|format
 operator|=
 name|CMIT_FMT_USERFORMAT
 expr_stmt|;
+if|if
+condition|(
 name|git_config_string
 argument_list|(
 operator|&
@@ -407,7 +409,11 @@ name|var
 argument_list|,
 name|value
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 if|if
 condition|(
 name|starts_with
