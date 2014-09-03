@@ -1167,6 +1167,8 @@ argument_list|,
 name|RESOLVE_REF_READING
 operator||
 name|RESOLVE_REF_NO_RECURSE
+operator||
+name|RESOLVE_REF_ALLOW_BAD_NAME
 argument_list|,
 name|sha1
 argument_list|,
@@ -1211,7 +1213,11 @@ operator|!
 operator|(
 name|flags
 operator|&
+operator|(
 name|REF_ISSYMREF
+operator||
+name|REF_ISBROKEN
+operator|)
 operator|)
 operator|&&
 name|check_branch_commit
@@ -1299,6 +1305,14 @@ name|bname
 operator|.
 name|buf
 argument_list|,
+operator|(
+name|flags
+operator|&
+name|REF_ISBROKEN
+operator|)
+condition|?
+literal|"broken"
+else|:
 operator|(
 name|flags
 operator|&
