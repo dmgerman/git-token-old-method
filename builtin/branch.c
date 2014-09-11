@@ -1164,7 +1164,7 @@ name|resolve_ref_unsafe
 argument_list|(
 name|name
 argument_list|,
-literal|0
+name|RESOLVE_REF_NO_RECURSE
 argument_list|,
 name|sha1
 argument_list|,
