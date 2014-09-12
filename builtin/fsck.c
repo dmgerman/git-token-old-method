@@ -2534,6 +2534,10 @@ name|sha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|errors_found
+operator||=
+name|ERROR_REACHABLE
+expr_stmt|;
 comment|/* We'll continue with the rest despite the error.. */
 return|return
 literal|0
@@ -2608,7 +2612,7 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|for_each_ref
+name|for_each_rawref
 argument_list|(
 name|fsck_handle_ref
 argument_list|,
