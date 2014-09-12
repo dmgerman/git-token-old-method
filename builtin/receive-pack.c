@@ -84,6 +84,11 @@ include|#
 directive|include
 file|"version.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sigchain.h"
+end_include
 begin_decl_stmt
 DECL|variable|receive_pack_usage
 specifier|static
@@ -1579,6 +1584,13 @@ return|return
 name|code
 return|;
 block|}
+name|sigchain_push
+argument_list|(
+name|SIGPIPE
+argument_list|,
+name|SIG_IGN
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 literal|1
@@ -1638,6 +1650,11 @@ name|finish_async
 argument_list|(
 operator|&
 name|muxer
+argument_list|)
+expr_stmt|;
+name|sigchain_pop
+argument_list|(
+name|SIGPIPE
 argument_list|)
 expr_stmt|;
 return|return
