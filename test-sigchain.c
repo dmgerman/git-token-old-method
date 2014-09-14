@@ -2,12 +2,12 @@ begin_unit
 begin_include
 include|#
 directive|include
-file|"sigchain.h"
+file|"cache.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"sigchain.h"
 end_include
 begin_define
 DECL|macro|X

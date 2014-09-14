@@ -10,11 +10,6 @@ define|#
 directive|define
 name|VARINT_H
 end_define
-begin_include
-include|#
-directive|include
-file|"git-compat-util.h"
-end_include
 begin_function_decl
 specifier|extern
 name|int

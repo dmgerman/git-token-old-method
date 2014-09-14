@@ -13,11 +13,6 @@ define|#
 directive|define
 name|BULK_CHECKIN_H
 end_define
-begin_include
-include|#
-directive|include
-file|"cache.h"
-end_include
 begin_function_decl
 specifier|extern
 name|int
