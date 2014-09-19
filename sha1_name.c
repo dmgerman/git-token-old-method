@@ -2212,6 +2212,10 @@ name|unsigned
 name|char
 modifier|*
 name|sha1
+parameter_list|,
+name|unsigned
+name|int
+name|flags
 parameter_list|)
 block|{
 specifier|static
@@ -2619,6 +2623,13 @@ if|if
 condition|(
 name|warn_ambiguous_refs
 operator|&&
+operator|!
+operator|(
+name|flags
+operator|&
+name|GET_SHA1_QUIETLY
+operator|)
+operator|&&
 operator|(
 name|refs_found
 operator|>
@@ -2816,6 +2827,8 @@ name|read_ref_at
 argument_list|(
 name|real_ref
 argument_list|,
+name|flags
+argument_list|,
 name|at_time
 argument_list|,
 name|nth
@@ -2884,6 +2897,17 @@ if|if
 condition|(
 name|at_time
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|GET_SHA1_QUIETLY
+operator|)
+condition|)
+block|{
 name|warning
 argument_list|(
 literal|"Log for '%.*s' only goes "
@@ -2903,8 +2927,23 @@ name|DATE_RFC2822
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 else|else
 block|{
+if|if
+condition|(
+name|flags
+operator|&
+name|GET_SHA1_QUIETLY
+condition|)
+block|{
+name|exit
+argument_list|(
+literal|128
+argument_list|)
+expr_stmt|;
+block|}
 name|die
 argument_list|(
 literal|"Log for '%.*s' only has %d entries."
@@ -4155,6 +4194,8 @@ argument_list|,
 name|len
 argument_list|,
 name|sha1
+argument_list|,
+name|lookup_flags
 argument_list|)
 expr_stmt|;
 if|if
