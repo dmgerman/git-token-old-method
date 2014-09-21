@@ -6710,7 +6710,7 @@ name|a
 operator|.
 name|buf
 argument_list|,
-name|o
+name|a
 operator|.
 name|len
 argument_list|,
