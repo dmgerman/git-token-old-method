@@ -1645,10 +1645,8 @@ name|hmac_sha1
 parameter_list|(
 name|unsigned
 name|char
+modifier|*
 name|out
-index|[
-literal|20
-index|]
 parameter_list|,
 specifier|const
 name|char
@@ -1856,10 +1854,7 @@ name|ctx
 argument_list|,
 name|out
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|out
-argument_list|)
+literal|20
 argument_list|)
 expr_stmt|;
 name|git_SHA1_Final
