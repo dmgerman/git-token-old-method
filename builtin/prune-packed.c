@@ -408,6 +408,12 @@ operator|&
 name|progress
 argument_list|)
 expr_stmt|;
+name|strbuf_release
+argument_list|(
+operator|&
+name|pathname
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
