@@ -1851,7 +1851,6 @@ comment|/*  * Returns nanoseconds since the epoch (01/01/1970), for performance 
 end_comment
 begin_function
 DECL|function|getnanotime
-specifier|inline
 name|uint64_t
 name|getnanotime
 parameter_list|(
