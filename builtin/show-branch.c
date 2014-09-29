@@ -3818,6 +3818,12 @@ name|base
 init|=
 literal|0
 decl_stmt|;
+name|unsigned
+name|int
+name|flags
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|ac
@@ -3962,6 +3968,8 @@ name|read_ref_at
 argument_list|(
 name|ref
 argument_list|,
+name|flags
+argument_list|,
 name|at
 argument_list|,
 operator|-
@@ -4016,6 +4024,8 @@ condition|(
 name|read_ref_at
 argument_list|(
 name|ref
+argument_list|,
+name|flags
 argument_list|,
 literal|0
 argument_list|,
