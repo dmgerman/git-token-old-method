@@ -3470,7 +3470,7 @@ index|]
 argument_list|,
 name|value
 argument_list|,
-literal|"^$"
+name|CONFIG_REGEX_NONE
 argument_list|,
 literal|0
 argument_list|)

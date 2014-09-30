@@ -6201,8 +6201,8 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-return|return
-operator|!
+if|if
+condition|(
 name|strcmp
 argument_list|(
 name|key
@@ -6211,19 +6211,42 @@ name|store
 operator|.
 name|key
 argument_list|)
-operator|&&
-operator|(
+condition|)
+return|return
+literal|0
+return|;
+comment|/* not ours */
+if|if
+condition|(
+operator|!
+name|store
+operator|.
+name|value_regex
+condition|)
+return|return
+literal|1
+return|;
+comment|/* always matches */
+if|if
+condition|(
 name|store
 operator|.
 name|value_regex
 operator|==
-name|NULL
-operator|||
-operator|(
+name|CONFIG_REGEX_NONE
+condition|)
+return|return
+literal|0
+return|;
+comment|/* never matches */
+return|return
 name|store
 operator|.
 name|do_not_match
 operator|^
+operator|(
+name|value
+operator|&&
 operator|!
 name|regexec
 argument_list|(
@@ -6239,7 +6262,6 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|)
-operator|)
 operator|)
 return|;
 block|}
@@ -7510,7 +7532,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * If value==NULL, unset in (remove from) config,  * if value_regex!=NULL, disregard key/value pairs where value does not match.  * if multi_replace==0, nothing, or only one matching key/value is replaced,  *     else all matching key/values (regardless how many) are removed,  *     before the new pair is written.  *  * Returns 0 on success.  *  * This function does this:  *  * - it locks the config file by creating ".git/config.lock"  *  * - it then parses the config using store_aux() as validator to find  *   the position on the key/value pair to replace. If it is to be unset,  *   it must be found exactly once.  *  * - the config file is mmap()ed and the part before the match (if any) is  *   written to the lock file, then the changed part and the rest.  *  * - the config file is removed and the lock file rename()d to it.  *  */
+comment|/*  * If value==NULL, unset in (remove from) config,  * if value_regex!=NULL, disregard key/value pairs where value does not match.  * if value_regex==CONFIG_REGEX_NONE, do not match any existing values  *     (only add a new one)  * if multi_replace==0, nothing, or only one matching key/value is replaced,  *     else all matching key/values (regardless how many) are removed,  *     before the new pair is written.  *  * Returns 0 on success.  *  * This function does this:  *  * - it locks the config file by creating ".git/config.lock"  *  * - it then parses the config using store_aux() as validator to find  *   the position on the key/value pair to replace. If it is to be unset,  *   it must be found exactly once.  *  * - the config file is mmap()ed and the part before the match (if any) is  *   written to the lock file, then the changed part and the rest.  *  * - the config file is removed and the lock file rename()d to it.  *  */
 end_comment
 begin_function
 DECL|function|git_config_set_multivar_in_file
@@ -7809,6 +7831,19 @@ name|value_regex
 operator|=
 name|NULL
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|value_regex
+operator|==
+name|CONFIG_REGEX_NONE
+condition|)
+name|store
+operator|.
+name|value_regex
+operator|=
+name|CONFIG_REGEX_NONE
+expr_stmt|;
 else|else
 block|{
 if|if
@@ -7959,6 +7994,12 @@ operator|.
 name|value_regex
 operator|!=
 name|NULL
+operator|&&
+name|store
+operator|.
+name|value_regex
+operator|!=
+name|CONFIG_REGEX_NONE
 condition|)
 block|{
 name|regfree
@@ -7998,6 +8039,12 @@ operator|.
 name|value_regex
 operator|!=
 name|NULL
+operator|&&
+name|store
+operator|.
+name|value_regex
+operator|!=
+name|CONFIG_REGEX_NONE
 condition|)
 block|{
 name|regfree
