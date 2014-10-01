@@ -1105,9 +1105,6 @@ index|[
 name|PATH_MAX
 index|]
 decl_stmt|;
-name|size_t
-name|i
-decl_stmt|;
 if|if
 condition|(
 name|close_lock_file
@@ -1128,19 +1125,15 @@ operator|->
 name|filename
 argument_list|)
 expr_stmt|;
-name|i
-operator|=
+comment|/* remove ".lock": */
+name|result_file
+index|[
 name|strlen
 argument_list|(
 name|result_file
 argument_list|)
 operator|-
 name|LOCK_SUFFIX_LEN
-expr_stmt|;
-comment|/* .lock */
-name|result_file
-index|[
-name|i
 index|]
 operator|=
 literal|0
