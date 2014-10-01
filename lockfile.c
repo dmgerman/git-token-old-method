@@ -412,7 +412,7 @@ name|int
 name|flags
 parameter_list|)
 block|{
-comment|/* 	 * subtract 5 from size to make sure there's room for adding 	 * ".lock" for the lock file name 	 */
+comment|/* 	 * subtract LOCK_SUFFIX_LEN from size to make sure there's 	 * room for adding ".lock" for the lock file name: 	 */
 specifier|static
 specifier|const
 name|size_t
@@ -425,7 +425,7 @@ operator|->
 name|filename
 argument_list|)
 operator|-
-literal|5
+name|LOCK_SUFFIX_LEN
 decl_stmt|;
 if|if
 condition|(
@@ -545,7 +545,7 @@ name|lk
 operator|->
 name|filename
 argument_list|,
-literal|".lock"
+name|LOCK_SUFFIX
 argument_list|)
 expr_stmt|;
 name|lk
@@ -1158,7 +1158,7 @@ argument_list|(
 name|result_file
 argument_list|)
 operator|-
-literal|5
+name|LOCK_SUFFIX_LEN
 expr_stmt|;
 comment|/* .lock */
 name|result_file

@@ -479,18 +479,18 @@ name|cp
 operator|-
 name|refname
 operator|>=
-literal|5
+name|LOCK_SUFFIX_LEN
 operator|&&
 operator|!
 name|memcmp
 argument_list|(
 name|cp
 operator|-
-literal|5
+name|LOCK_SUFFIX_LEN
 argument_list|,
-literal|".lock"
+name|LOCK_SUFFIX
 argument_list|,
-literal|5
+name|LOCK_SUFFIX_LEN
 argument_list|)
 condition|)
 return|return
@@ -11494,9 +11494,8 @@ operator|->
 name|filename
 argument_list|)
 operator|-
-literal|5
+name|LOCK_SUFFIX_LEN
 decl_stmt|;
-comment|/* .lock */
 name|lock
 operator|->
 name|lk
@@ -11528,7 +11527,10 @@ index|[
 name|i
 index|]
 operator|=
-literal|'.'
+name|LOCK_SUFFIX
+index|[
+literal|0
+index|]
 expr_stmt|;
 if|if
 condition|(
