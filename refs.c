@@ -9618,7 +9618,7 @@ name|orig_refname
 expr_stmt|;
 name|lflags
 operator||=
-name|LOCK_NODEREF
+name|LOCK_NO_DEREF
 expr_stmt|;
 block|}
 name|lock
