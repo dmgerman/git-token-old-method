@@ -10331,6 +10331,12 @@ literal|1
 return|;
 name|lk
 operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
+name|lk
+operator|->
 name|filename
 index|[
 literal|0
