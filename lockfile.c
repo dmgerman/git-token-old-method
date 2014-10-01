@@ -844,6 +844,11 @@ operator|!=
 name|ENOENT
 condition|)
 block|{
+name|int
+name|save_errno
+init|=
+name|errno
+decl_stmt|;
 if|if
 condition|(
 name|flags
@@ -862,13 +867,20 @@ argument_list|(
 name|lk
 argument_list|)
 expr_stmt|;
-return|return
 name|error
 argument_list|(
 literal|"cannot open '%s' for copying"
 argument_list|,
 name|path
 argument_list|)
+expr_stmt|;
+name|errno
+operator|=
+name|save_errno
+expr_stmt|;
+return|return
+operator|-
+literal|1
 return|;
 block|}
 block|}
@@ -883,6 +895,11 @@ name|fd
 argument_list|)
 condition|)
 block|{
+name|int
+name|save_errno
+init|=
+name|errno
+decl_stmt|;
 if|if
 condition|(
 name|flags
@@ -898,6 +915,10 @@ name|rollback_lock_file
 argument_list|(
 name|lk
 argument_list|)
+expr_stmt|;
+name|errno
+operator|=
+name|save_errno
 expr_stmt|;
 return|return
 operator|-
