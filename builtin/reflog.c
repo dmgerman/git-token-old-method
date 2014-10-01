@@ -2245,6 +2245,8 @@ operator|->
 name|lk
 operator|->
 name|filename
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 name|unlink
