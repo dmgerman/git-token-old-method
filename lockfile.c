@@ -21,6 +21,7 @@ specifier|static
 name|struct
 name|lock_file
 modifier|*
+specifier|volatile
 name|lock_file_list
 decl_stmt|;
 end_decl_stmt
