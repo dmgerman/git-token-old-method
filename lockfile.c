@@ -726,10 +726,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|unable_to_lock_index_die
+DECL|function|unable_to_lock_die
 name|NORETURN
 name|void
-name|unable_to_lock_index_die
+name|unable_to_lock_die
 parameter_list|(
 specifier|const
 name|char
@@ -813,7 +813,7 @@ operator|&
 name|LOCK_DIE_ON_ERROR
 operator|)
 condition|)
-name|unable_to_lock_index_die
+name|unable_to_lock_die
 argument_list|(
 name|path
 argument_list|,
@@ -873,7 +873,7 @@ name|flags
 operator|&
 name|LOCK_DIE_ON_ERROR
 condition|)
-name|unable_to_lock_index_die
+name|unable_to_lock_die
 argument_list|(
 name|path
 argument_list|,
