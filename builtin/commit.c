@@ -1403,6 +1403,7 @@ end_function
 begin_function
 DECL|function|prepare_index
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|prepare_index
