@@ -7,6 +7,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"lockfile.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"credential.h"
 end_include
 begin_include
