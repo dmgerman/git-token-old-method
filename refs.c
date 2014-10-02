@@ -9345,7 +9345,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Locks a "refs/" ref returning the lock on success and NULL on failure.  * On failure errno is set to something meaningful.  */
+comment|/*  * Locks a ref returning the lock on success and NULL on failure.  * On failure errno is set to something meaningful.  */
 end_comment
 begin_function
 DECL|function|lock_ref_sha1_basic
