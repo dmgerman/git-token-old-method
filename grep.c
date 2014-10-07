@@ -635,15 +635,14 @@ argument_list|(
 name|var
 argument_list|)
 return|;
+return|return
 name|color_parse
 argument_list|(
 name|value
 argument_list|,
-name|var
-argument_list|,
 name|color
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
 literal|0
