@@ -959,6 +959,11 @@ argument_list|)
 expr_stmt|;
 name|close
 argument_list|(
+name|orig_fd
+argument_list|)
+expr_stmt|;
+name|close
+argument_list|(
 name|fd
 argument_list|)
 expr_stmt|;
@@ -966,6 +971,14 @@ return|return
 operator|-
 literal|1
 return|;
+block|}
+else|else
+block|{
+name|close
+argument_list|(
+name|orig_fd
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|fd
