@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"lockfile.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"quote.h"
 end_include
 begin_include
@@ -4778,7 +4783,7 @@ argument_list|(
 literal|128
 argument_list|)
 expr_stmt|;
-name|unable_to_lock_index_die
+name|unable_to_lock_die
 argument_list|(
 name|get_index_file
 argument_list|()

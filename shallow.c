@@ -7,6 +7,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"lockfile.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"commit.h"
 end_include
 begin_include
@@ -1473,6 +1478,8 @@ argument_list|,
 name|shallow_lock
 operator|->
 name|filename
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 operator|*
@@ -1481,6 +1488,8 @@ operator|=
 name|shallow_lock
 operator|->
 name|filename
+operator|.
+name|buf
 expr_stmt|;
 block|}
 else|else
@@ -1691,6 +1700,8 @@ argument_list|,
 name|shallow_lock
 operator|.
 name|filename
+operator|.
+name|buf
 argument_list|)
 expr_stmt|;
 name|commit_lock_file
