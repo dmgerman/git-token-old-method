@@ -2,6 +2,11 @@ begin_unit
 begin_include
 include|#
 directive|include
+file|"git-compat-util.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"varint.h"
 end_include
 begin_function

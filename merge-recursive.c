@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"advice.h"
+file|"cache.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"cache.h"
+file|"advice.h"
 end_include
 begin_include
 include|#
