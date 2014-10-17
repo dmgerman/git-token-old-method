@@ -4306,6 +4306,10 @@ argument_list|(
 name|fd
 argument_list|)
 expr_stmt|;
+name|write_bitmap_index
+operator|=
+literal|0
+expr_stmt|;
 block|}
 if|if
 condition|(
