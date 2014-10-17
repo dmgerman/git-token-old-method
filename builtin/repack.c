@@ -1182,6 +1182,14 @@ argument_list|,
 literal|"--reflog"
 argument_list|)
 expr_stmt|;
+name|argv_array_push
+argument_list|(
+operator|&
+name|cmd_args
+argument_list|,
+literal|"--indexed-objects"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|window
