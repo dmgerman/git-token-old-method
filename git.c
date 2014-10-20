@@ -2508,6 +2508,14 @@ name|NO_SETUP
 block|}
 block|,
 block|{
+literal|"interpret-trailers"
+block|,
+name|cmd_interpret_trailers
+block|,
+name|RUN_SETUP
+block|}
+block|,
+block|{
 literal|"log"
 block|,
 name|cmd_log
