@@ -1928,8 +1928,6 @@ argument_list|(
 name|var
 argument_list|,
 name|slot_name
-operator|-
-name|var
 argument_list|,
 name|value
 argument_list|)
