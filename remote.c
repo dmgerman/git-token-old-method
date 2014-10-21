@@ -3261,9 +3261,9 @@ name|resolve_ref_unsafe
 argument_list|(
 literal|"HEAD"
 argument_list|,
-name|sha1
-argument_list|,
 literal|0
+argument_list|,
+name|sha1
 argument_list|,
 operator|&
 name|flag
@@ -6670,9 +6670,9 @@ name|peer
 operator|->
 name|name
 argument_list|,
-name|sha1
+name|RESOLVE_REF_READING
 argument_list|,
-literal|1
+name|sha1
 argument_list|,
 name|NULL
 argument_list|)
@@ -6969,9 +6969,9 @@ name|matched_src
 operator|->
 name|name
 argument_list|,
-name|sha1
+name|RESOLVE_REF_READING
 argument_list|,
-literal|1
+name|sha1
 argument_list|,
 operator|&
 name|flag
@@ -9320,9 +9320,9 @@ name|resolve_ref_unsafe
 argument_list|(
 name|refname
 argument_list|,
-name|sha1
-argument_list|,
 literal|0
+argument_list|,
+name|sha1
 argument_list|,
 operator|&
 name|flag

@@ -2763,9 +2763,9 @@ name|resolve_ref_unsafe
 argument_list|(
 literal|"HEAD"
 argument_list|,
-name|head_sha1
-argument_list|,
 literal|0
+argument_list|,
+name|head_sha1
 argument_list|,
 operator|&
 name|flag

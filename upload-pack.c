@@ -3832,9 +3832,9 @@ name|resolve_ref_unsafe
 argument_list|(
 name|refname
 argument_list|,
-name|unused
-argument_list|,
 literal|0
+argument_list|,
+name|unused
 argument_list|,
 operator|&
 name|flag
