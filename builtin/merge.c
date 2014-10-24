@@ -5483,8 +5483,7 @@ specifier|static
 name|int
 name|suggest_conflicts
 parameter_list|(
-name|int
-name|renormalizing
+name|void
 parameter_list|)
 block|{
 specifier|const
@@ -8834,9 +8833,7 @@ else|else
 name|ret
 operator|=
 name|suggest_conflicts
-argument_list|(
-name|option_renormalize
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|done
 label|:
