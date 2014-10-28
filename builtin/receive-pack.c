@@ -2839,12 +2839,6 @@ name|stdout_to_stderr
 operator|=
 literal|1
 expr_stmt|;
-name|prepare_push_cert_sha1
-argument_list|(
-operator|&
-name|proc
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|use_sideband
@@ -2900,6 +2894,12 @@ operator|.
 name|in
 expr_stmt|;
 block|}
+name|prepare_push_cert_sha1
+argument_list|(
+operator|&
+name|proc
+argument_list|)
+expr_stmt|;
 name|code
 operator|=
 name|start_command
