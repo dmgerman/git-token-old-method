@@ -2771,6 +2771,11 @@ argument_list|(
 name|hostname
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hent
+condition|)
+block|{
 name|ap
 operator|=
 name|hent
@@ -2865,6 +2870,7 @@ argument_list|(
 name|addrbuf
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}
@@ -4239,12 +4245,6 @@ name|socknum
 init|=
 literal|0
 decl_stmt|;
-name|int
-name|maxfd
-init|=
-operator|-
-literal|1
-decl_stmt|;
 name|char
 name|pbuf
 index|[
@@ -4629,16 +4629,6 @@ expr_stmt|;
 name|socknum
 operator|++
 expr_stmt|;
-if|if
-condition|(
-name|maxfd
-operator|<
-name|sockfd
-condition|)
-name|maxfd
-operator|=
-name|sockfd
-expr_stmt|;
 block|}
 name|freeaddrinfo
 argument_list|(
@@ -4824,7 +4814,7 @@ condition|)
 block|{
 name|logerror
 argument_list|(
-literal|"Could not listen to %s: %s"
+literal|"Could not bind to %s: %s"
 argument_list|,
 name|ip2str
 argument_list|(
