@@ -10919,8 +10919,6 @@ argument_list|(
 name|h1
 argument_list|,
 name|h2
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|ca

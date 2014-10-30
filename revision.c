@@ -6491,8 +6491,6 @@ argument_list|(
 name|head
 argument_list|,
 name|other
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|add_rev_cmdline_list
@@ -7088,8 +7086,6 @@ argument_list|(
 name|a
 argument_list|,
 name|b
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|add_rev_cmdline_list
