@@ -3776,7 +3776,7 @@ name|rev
 operator|+
 literal|1
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 for|for
