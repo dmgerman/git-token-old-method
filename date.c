@@ -2564,7 +2564,7 @@ name|num2
 argument_list|,
 name|num3
 argument_list|,
-name|refuse_future
+name|NULL
 argument_list|,
 name|now
 argument_list|,
@@ -2583,7 +2583,7 @@ name|num3
 argument_list|,
 name|num2
 argument_list|,
-name|refuse_future
+name|NULL
 argument_list|,
 name|now
 argument_list|,
