@@ -2337,7 +2337,7 @@ return|;
 block|}
 name|uval
 operator|=
-name|abs
+name|labs
 argument_list|(
 name|val
 argument_list|)
@@ -2352,7 +2352,7 @@ name|uval
 operator|>
 name|max
 operator|||
-name|abs
+name|labs
 argument_list|(
 name|val
 argument_list|)
