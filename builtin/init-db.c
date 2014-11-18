@@ -1324,6 +1324,16 @@ operator|!=
 name|st2
 operator|.
 name|st_mode
+operator|&&
+operator|!
+name|chmod
+argument_list|(
+name|path
+argument_list|,
+name|st1
+operator|.
+name|st_mode
+argument_list|)
 operator|)
 expr_stmt|;
 block|}
