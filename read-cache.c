@@ -3825,6 +3825,9 @@ comment|/* 	 * ".git" followed by  NUL or slash is bad. This 	 * shares the path
 case|case
 literal|'g'
 case|:
+case|case
+literal|'G'
+case|:
 if|if
 condition|(
 name|rest
@@ -3833,6 +3836,13 @@ literal|1
 index|]
 operator|!=
 literal|'i'
+operator|&&
+name|rest
+index|[
+literal|1
+index|]
+operator|!=
+literal|'I'
 condition|)
 break|break;
 if|if
@@ -3843,6 +3853,13 @@ literal|2
 index|]
 operator|!=
 literal|'t'
+operator|&&
+name|rest
+index|[
+literal|2
+index|]
+operator|!=
+literal|'T'
 condition|)
 break|break;
 name|rest
