@@ -8393,6 +8393,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|states
 operator|.
 name|stale
@@ -8400,6 +8401,16 @@ operator|.
 name|nr
 condition|)
 block|{
+name|free_remote_ref_states
+argument_list|(
+operator|&
+name|states
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
 name|printf_ln
 argument_list|(
 name|_
@@ -8539,7 +8550,6 @@ argument_list|(
 name|delete_refs
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|i
