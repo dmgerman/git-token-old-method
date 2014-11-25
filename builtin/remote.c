@@ -8507,7 +8507,7 @@ index|]
 operator|=
 name|refname
 expr_stmt|;
-name|string_list_insert
+name|string_list_append
 argument_list|(
 operator|&
 name|delete_refs_list
@@ -8516,6 +8516,12 @@ name|refname
 argument_list|)
 expr_stmt|;
 block|}
+name|sort_string_list
+argument_list|(
+operator|&
+name|delete_refs_list
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
