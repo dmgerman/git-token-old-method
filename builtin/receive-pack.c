@@ -5088,7 +5088,7 @@ operator|)
 name|cmd
 expr_stmt|;
 block|}
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|ref_list

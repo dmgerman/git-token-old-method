@@ -5684,7 +5684,7 @@ operator|!
 name|report_garbage
 condition|)
 return|return;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 name|list
 argument_list|)

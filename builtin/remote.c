@@ -2090,7 +2090,7 @@ argument_list|(
 name|fetch_map
 argument_list|)
 expr_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|states
@@ -2098,7 +2098,7 @@ operator|->
 name|new
 argument_list|)
 expr_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|states
@@ -2106,7 +2106,7 @@ operator|->
 name|tracked
 argument_list|)
 expr_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|states
@@ -5653,7 +5653,7 @@ argument_list|,
 name|states
 argument_list|)
 expr_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|states
@@ -6964,7 +6964,7 @@ block|{
 name|int
 name|i
 decl_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|list
@@ -8403,7 +8403,7 @@ operator|->
 name|util
 argument_list|)
 expr_stmt|;
-name|sort_string_list
+name|string_list_sort
 argument_list|(
 operator|&
 name|refs_to_prune
