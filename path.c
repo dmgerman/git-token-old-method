@@ -567,6 +567,8 @@ literal|"/refs"
 block|,
 literal|"/remotes"
 block|,
+literal|"/worktrees"
+block|,
 literal|"/rr-cache"
 block|,
 literal|"/svn"
