@@ -305,10 +305,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|vsnpath
+DECL|function|do_git_path
 specifier|static
 name|void
-name|vsnpath
+name|do_git_path
 parameter_list|(
 name|struct
 name|strbuf
@@ -411,7 +411,7 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
-name|vsnpath
+name|do_git_path
 argument_list|(
 name|sb
 argument_list|,
@@ -457,7 +457,7 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
-name|vsnpath
+name|do_git_path
 argument_list|(
 operator|&
 name|path
@@ -635,7 +635,7 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
-name|vsnpath
+name|do_git_path
 argument_list|(
 name|pathname
 argument_list|,
