@@ -3947,6 +3947,7 @@ comment|/* Return a statically allocated filename matching the sha1 signature */
 end_comment
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|mkpath
@@ -3974,6 +3975,7 @@ empty_stmt|;
 end_empty_stmt
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|git_path
@@ -4001,6 +4003,7 @@ empty_stmt|;
 end_empty_stmt
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|git_path_submodule

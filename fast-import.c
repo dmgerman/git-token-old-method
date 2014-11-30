@@ -1504,6 +1504,7 @@ modifier|*
 name|err
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|loc

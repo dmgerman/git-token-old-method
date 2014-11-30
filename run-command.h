@@ -183,6 +183,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+specifier|const
 name|char
 modifier|*
 name|find_hook

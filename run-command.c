@@ -4142,6 +4142,7 @@ block|}
 end_function
 begin_function
 DECL|function|find_hook
+specifier|const
 name|char
 modifier|*
 name|find_hook
@@ -4152,6 +4153,7 @@ modifier|*
 name|name
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|path

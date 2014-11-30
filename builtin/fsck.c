@@ -1103,6 +1103,7 @@ condition|(
 name|write_lost_and_found
 condition|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|filename
@@ -1135,7 +1136,7 @@ name|f
 decl_stmt|;
 if|if
 condition|(
-name|safe_create_leading_directories
+name|safe_create_leading_directories_const
 argument_list|(
 name|filename
 argument_list|)

@@ -4521,6 +4521,7 @@ name|proc
 init|=
 name|CHILD_PROCESS_INIT
 decl_stmt|;
+specifier|const
 name|char
 modifier|*
 name|hook

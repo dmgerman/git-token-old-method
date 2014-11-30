@@ -599,6 +599,7 @@ block|}
 end_function
 begin_function
 DECL|function|mkpath
+specifier|const
 name|char
 modifier|*
 name|mkpath
@@ -655,6 +656,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_path
+specifier|const
 name|char
 modifier|*
 name|git_path
@@ -841,6 +843,7 @@ block|}
 end_function
 begin_function
 DECL|function|git_path_submodule
+specifier|const
 name|char
 modifier|*
 name|git_path_submodule
