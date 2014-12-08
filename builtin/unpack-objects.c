@@ -465,7 +465,7 @@ name|void
 modifier|*
 name|buf
 init|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|size
 argument_list|)
