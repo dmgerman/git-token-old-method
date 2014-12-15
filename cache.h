@@ -3615,6 +3615,12 @@ name|int
 name|precomposed_unicode
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|protect_hfs
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * The character that begins a commented line in user-editable file  * that is subject to stripspace.  */
 end_comment
