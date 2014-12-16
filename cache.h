@@ -4757,6 +4757,18 @@ name|path
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|is_ntfs_dotgit
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/* object replacement */
 end_comment
