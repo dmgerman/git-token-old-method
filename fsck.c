@@ -39,6 +39,11 @@ include|#
 directive|include
 file|"fsck.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"utf8.h"
+end_include
 begin_function
 DECL|function|fsck_walk_tree
 specifier|static
@@ -882,6 +887,7 @@ argument_list|)
 expr_stmt|;
 name|has_dotgit
 operator||=
+operator|(
 operator|!
 name|strcmp
 argument_list|(
@@ -889,6 +895,17 @@ name|name
 argument_list|,
 literal|".git"
 argument_list|)
+operator|||
+name|is_hfs_dotgit
+argument_list|(
+name|name
+argument_list|)
+operator|||
+name|is_ntfs_dotgit
+argument_list|(
+name|name
+argument_list|)
+operator|)
 expr_stmt|;
 name|has_zero_pad
 operator||=
