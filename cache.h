@@ -3605,6 +3605,18 @@ name|int
 name|precomposed_unicode
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|protect_hfs
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|extern
+name|int
+name|protect_ntfs
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * The character that begins a commented line in user-editable file  * that is subject to stripspace.  */
 end_comment
@@ -4789,6 +4801,18 @@ specifier|const
 name|char
 modifier|*
 name|path
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
+name|is_ntfs_dotgit
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
 parameter_list|)
 function_decl|;
 end_function_decl
