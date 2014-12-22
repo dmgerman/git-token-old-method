@@ -4438,7 +4438,7 @@ name|rename
 init|=
 literal|0
 decl_stmt|,
-name|force_create
+name|force
 init|=
 literal|0
 decl_stmt|,
@@ -4836,11 +4836,11 @@ block|,
 name|OPT__FORCE
 argument_list|(
 operator|&
-name|force_create
+name|force
 argument_list|,
 name|N_
 argument_list|(
-literal|"force creation (when already exists)"
+literal|"force creation, move/rename, deletion"
 argument_list|)
 argument_list|)
 block|,
@@ -5097,10 +5097,6 @@ name|rename
 operator|+
 operator|!
 operator|!
-name|force_create
-operator|+
-operator|!
-operator|!
 name|new_upstream
 operator|+
 name|list
@@ -5159,6 +5155,20 @@ expr_stmt|;
 name|colopts
 operator|=
 literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|force
+condition|)
+block|{
+name|delete
+operator|*=
+literal|2
+expr_stmt|;
+name|rename
+operator|*=
+literal|2
 expr_stmt|;
 block|}
 if|if
@@ -5911,7 +5921,7 @@ index|]
 else|:
 name|head
 argument_list|,
-name|force_create
+name|force
 argument_list|,
 name|reflog
 argument_list|,
