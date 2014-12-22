@@ -6153,7 +6153,7 @@ name|quote_style
 argument_list|,
 name|N_
 argument_list|(
-literal|"quote placeholders suitably for tcl"
+literal|"quote placeholders suitably for Tcl"
 argument_list|)
 argument_list|,
 name|QUOTE_TCL
