@@ -12819,6 +12819,11 @@ init|=
 literal|0
 decl_stmt|;
 name|int
+name|shallow
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|all_progress_implied
 init|=
 literal|0
@@ -13315,6 +13320,21 @@ name|OPT_BOOL
 argument_list|(
 literal|0
 argument_list|,
+literal|"shallow"
+argument_list|,
+operator|&
+name|shallow
+argument_list|,
+name|N_
+argument_list|(
+literal|"create packs suitable for shallow fetches"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
 literal|"honor-pack-keep"
 argument_list|,
 operator|&
@@ -13498,7 +13518,11 @@ argument_list|(
 operator|&
 name|rp
 argument_list|,
+name|shallow
+condition|?
 literal|"--objects-edge-aggressive"
+else|:
+literal|"--objects-edge"
 argument_list|)
 expr_stmt|;
 block|}

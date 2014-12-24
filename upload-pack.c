@@ -476,7 +476,7 @@ name|char
 modifier|*
 name|argv
 index|[
-literal|12
+literal|13
 index|]
 decl_stmt|;
 name|int
@@ -547,6 +547,18 @@ operator|++
 index|]
 operator|=
 literal|"--stdout"
+expr_stmt|;
+if|if
+condition|(
+name|shallow_nr
+condition|)
+name|argv
+index|[
+name|arg
+operator|++
+index|]
+operator|=
+literal|"--shallow"
 expr_stmt|;
 if|if
 condition|(
