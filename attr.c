@@ -3418,7 +3418,7 @@ name|int
 name|macroexpand_one
 parameter_list|(
 name|int
-name|attr_nr
+name|nr
 parameter_list|,
 name|int
 name|rem
@@ -3443,7 +3443,7 @@ if|if
 condition|(
 name|check_all_attr
 index|[
-name|attr_nr
+name|nr
 index|]
 operator|.
 name|value
@@ -3521,7 +3521,7 @@ name|attr
 operator|->
 name|attr_nr
 operator|==
-name|attr_nr
+name|nr
 condition|)
 name|a
 operator|=
