@@ -7822,8 +7822,6 @@ argument_list|,
 name|remoteheads
 operator|->
 name|item
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 else|else
@@ -8266,8 +8264,6 @@ argument_list|,
 name|j
 operator|->
 name|item
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 if|if
