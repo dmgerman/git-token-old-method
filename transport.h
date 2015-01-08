@@ -416,6 +416,13 @@ name|TRANSPORT_PUSH_CERT
 value|2048
 end_define
 begin_define
+DECL|macro|TRANSPORT_PUSH_ATOMIC
+define|#
+directive|define
+name|TRANSPORT_PUSH_ATOMIC
+value|4096
+end_define
+begin_define
 DECL|macro|TRANSPORT_SUMMARY_WIDTH
 define|#
 directive|define
