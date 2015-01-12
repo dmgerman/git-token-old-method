@@ -95,8 +95,10 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|int
-name|prefix_length
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 block|{
 name|int
@@ -178,11 +180,11 @@ argument_list|(
 literal|'\t'
 argument_list|)
 expr_stmt|;
-name|write_name_quoted
+name|write_name_quoted_relative
 argument_list|(
 name|name
-operator|+
-name|prefix_length
+argument_list|,
+name|prefix
 argument_list|,
 name|stdout
 argument_list|,
@@ -227,8 +229,10 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|int
-name|prefix_length
+specifier|const
+name|char
+modifier|*
+name|prefix
 parameter_list|)
 block|{
 name|int
@@ -389,7 +393,7 @@ name|write_tempfile_record
 argument_list|(
 name|name
 argument_list|,
-name|prefix_length
+name|prefix
 argument_list|)
 expr_stmt|;
 return|return
@@ -612,7 +616,7 @@ name|last_ce
 operator|->
 name|name
 argument_list|,
-name|prefix_length
+name|prefix
 argument_list|)
 expr_stmt|;
 block|}
@@ -660,7 +664,7 @@ name|last_ce
 operator|->
 name|name
 argument_list|,
-name|prefix_length
+name|prefix
 argument_list|)
 expr_stmt|;
 if|if
@@ -1355,7 +1359,7 @@ name|checkout_file
 argument_list|(
 name|p
 argument_list|,
-name|prefix_length
+name|prefix
 argument_list|)
 expr_stmt|;
 if|if
@@ -1493,7 +1497,7 @@ name|checkout_file
 argument_list|(
 name|p
 argument_list|,
-name|prefix_length
+name|prefix
 argument_list|)
 expr_stmt|;
 if|if
