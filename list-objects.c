@@ -738,7 +738,7 @@ if|if
 condition|(
 name|revs
 operator|->
-name|edge_hint
+name|edge_hint_aggressive
 operator|&&
 operator|!
 operator|(
@@ -782,7 +782,7 @@ if|if
 condition|(
 name|revs
 operator|->
-name|edge_hint
+name|edge_hint_aggressive
 condition|)
 block|{
 for|for

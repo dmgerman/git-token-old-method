@@ -210,6 +210,8 @@ block|,
 name|NULL
 block|,
 name|NULL
+block|,
+name|NULL
 block|, 	}
 decl_stmt|;
 name|struct
@@ -285,6 +287,19 @@ operator|++
 index|]
 operator|=
 literal|"--progress"
+expr_stmt|;
+if|if
+condition|(
+name|is_repository_shallow
+argument_list|()
+condition|)
+name|argv
+index|[
+name|i
+operator|++
+index|]
+operator|=
+literal|"--shallow"
 expr_stmt|;
 name|po
 operator|.
