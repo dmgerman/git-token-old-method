@@ -8412,6 +8412,13 @@ operator|==
 literal|0
 condition|)
 return|return;
+comment|/* Cut off trailing newline. */
+name|strbuf_rtrim
+argument_list|(
+operator|&
+name|buffer
+argument_list|)
+expr_stmt|;
 comment|/* If it's a symref, set the refname; otherwise try for a sha1 */
 if|if
 condition|(
