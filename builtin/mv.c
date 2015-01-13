@@ -50,7 +50,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git mv [options]<source>...<destination>"
+literal|"git mv [<options>]<source>...<destination>"
 argument_list|)
 block|,
 name|NULL

@@ -281,7 +281,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git help [--all] [--guides] [--man|--web|--info] [command]"
+literal|"git help [--all] [--guides] [--man | --web | --info] [<command>]"
 argument_list|)
 block|,
 name|NULL

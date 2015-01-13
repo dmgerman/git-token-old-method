@@ -692,7 +692,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git checkout-index [options] [--] [<file>...]"
+literal|"git checkout-index [<options>] [--] [<file>...]"
 argument_list|)
 block|,
 name|NULL
