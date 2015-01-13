@@ -11838,7 +11838,6 @@ end_function
 begin_function
 DECL|function|prepare_final
 specifier|static
-specifier|const
 name|char
 modifier|*
 name|prepare_final
@@ -12005,14 +12004,16 @@ name|name
 expr_stmt|;
 block|}
 return|return
+name|xstrdup_or_null
+argument_list|(
 name|final_commit_name
+argument_list|)
 return|;
 block|}
 end_function
 begin_function
 DECL|function|prepare_initial
 specifier|static
-specifier|const
 name|char
 modifier|*
 name|prepare_initial
@@ -12192,7 +12193,10 @@ literal|"No commit to dig down to?"
 argument_list|)
 expr_stmt|;
 return|return
+name|xstrdup
+argument_list|(
 name|final_commit_name
+argument_list|)
 return|;
 block|}
 end_function
@@ -12373,7 +12377,6 @@ name|dashdash_pos
 decl_stmt|,
 name|lno
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|final_commit_name
@@ -14103,6 +14106,11 @@ operator|&
 name|sb
 argument_list|,
 name|opt
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|final_commit_name
 argument_list|)
 expr_stmt|;
 if|if
