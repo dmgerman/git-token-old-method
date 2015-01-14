@@ -1821,6 +1821,7 @@ block|}
 end_function
 begin_function
 DECL|function|match_urls
+specifier|static
 name|int
 name|match_urls
 parameter_list|(
