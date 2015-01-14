@@ -7868,6 +7868,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|server
 operator|.
 name|use_ssl
@@ -7881,7 +7882,7 @@ argument_list|,
 operator|(
 name|long
 operator|)
-name|CURLUSESSL_ALL
+name|CURLUSESSL_TRY
 argument_list|)
 expr_stmt|;
 name|curl_easy_setopt
@@ -7929,6 +7930,11 @@ condition|(
 literal|0
 operator|<
 name|verbosity
+operator|||
+name|getenv
+argument_list|(
+literal|"GIT_CURL_VERBOSE"
+argument_list|)
 condition|)
 name|curl_easy_setopt
 argument_list|(
