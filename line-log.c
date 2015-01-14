@@ -1461,6 +1461,7 @@ block|}
 end_function
 begin_function
 DECL|function|line_log_data_init
+specifier|static
 name|void
 name|line_log_data_init
 parameter_list|(
