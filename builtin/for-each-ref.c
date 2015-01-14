@@ -4175,6 +4175,8 @@ index|[
 literal|40
 index|]
 decl_stmt|;
+if|if
+condition|(
 name|stat_tracking_info
 argument_list|(
 name|branch
@@ -4185,7 +4187,10 @@ argument_list|,
 operator|&
 name|num_theirs
 argument_list|)
-expr_stmt|;
+operator|!=
+literal|1
+condition|)
+continue|continue;
 if|if
 condition|(
 operator|!
@@ -4301,6 +4306,8 @@ argument_list|(
 name|branch
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|stat_tracking_info
 argument_list|(
 name|branch
@@ -4311,7 +4318,10 @@ argument_list|,
 operator|&
 name|num_theirs
 argument_list|)
-expr_stmt|;
+operator|!=
+literal|1
+condition|)
+continue|continue;
 if|if
 condition|(
 operator|!
