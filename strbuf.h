@@ -1166,7 +1166,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Split str (of length slen) at the specified terminator character.  * Return a null-terminated array of pointers to strbuf objects  * holding the substrings.  The substrings include the terminator,  * except for the last substring, which might be unterminated if the  * original string did not end with a terminator.  If max is positive,  * then split the string into at most max substrings (with the last  * substring containing everything following the (max-1)th terminator  * character).  *  * For lighter-weight alternatives, see string_list_split() and  * string_list_split_in_place().  */
+comment|/**  * Split str (of length slen) at the specified terminator character.  * Return a null-terminated array of pointers to strbuf objects  * holding the substrings.  The substrings include the terminator,  * except for the last substring, which might be unterminated if the  * original string did not end with a terminator.  If max is positive,  * then split the string into at most max substrings (with the last  * substring containing everything following the (max-1)th terminator  * character).  *  * The most generic form is `strbuf_split_buf`, which takes an arbitrary  * pointer/len buffer. The `_str` variant takes a NUL-terminated string,  * the `_max` variant takes a strbuf, and just `strbuf_split` is a convenience  * wrapper to drop the `max` parameter.  *  * For lighter-weight alternatives, see string_list_split() and  * string_list_split_in_place().  */
 end_comment
 begin_function_decl
 specifier|extern
@@ -1190,9 +1190,6 @@ name|max
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/**  * Split a NUL-terminated string at the specified terminator  * character.  See strbuf_split_buf() for more information.  */
-end_comment
 begin_function
 DECL|function|strbuf_split_str
 specifier|static
@@ -1232,9 +1229,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/**  * Split a strbuf at the specified terminator character.  See  * strbuf_split_buf() for more information.  */
-end_comment
 begin_function
 DECL|function|strbuf_split_max
 specifier|static
@@ -1276,9 +1270,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/**  * Split a strbuf at the specified terminator character.  See  * strbuf_split_buf() for more information.  */
-end_comment
 begin_function
 DECL|function|strbuf_split
 specifier|static
