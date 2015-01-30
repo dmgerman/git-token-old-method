@@ -14843,6 +14843,8 @@ block|{
 if|if
 condition|(
 name|cached
+operator|||
+name|check_index
 condition|)
 block|{
 if|if
