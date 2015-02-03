@@ -1634,6 +1634,11 @@ argument_list|,
 name|curl_http_proxy
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|LIBCURL_VERSION_NUM
+operator|>=
+literal|0x070a07
 name|curl_easy_setopt
 argument_list|(
 name|result
@@ -1643,6 +1648,8 @@ argument_list|,
 name|CURLAUTH_ANY
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 return|return
 name|result
