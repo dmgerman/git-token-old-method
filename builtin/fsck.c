@@ -3001,7 +3001,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git fsck [options] [<object>...]"
+literal|"git fsck [<options>] [<object>...]"
 argument_list|)
 block|,
 name|NULL

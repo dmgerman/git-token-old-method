@@ -2329,7 +2329,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [directory]"
+literal|"git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]"
 argument_list|)
 block|,
 name|NULL

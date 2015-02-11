@@ -95,7 +95,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git repack [options]"
+literal|"git repack [<options>]"
 argument_list|)
 block|,
 name|NULL

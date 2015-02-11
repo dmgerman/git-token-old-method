@@ -37,7 +37,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git merge-file [options] [-L name1 [-L orig [-L name2]]] file1 orig_file file2"
+literal|"git merge-file [<options>] [-L<name1> [-L<orig> [-L<name2>]]]<file1><orig-file><file2>"
 argument_list|)
 block|,
 name|NULL
@@ -335,7 +335,7 @@ argument_list|)
 argument_list|,
 name|N_
 argument_list|(
-literal|"set labels for file1/orig_file/file2"
+literal|"set labels for file1/orig-file/file2"
 argument_list|)
 argument_list|,
 operator|&

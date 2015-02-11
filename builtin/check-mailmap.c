@@ -39,7 +39,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git check-mailmap [options]<contact>..."
+literal|"git check-mailmap [<options>]<contact>..."
 argument_list|)
 block|,
 name|NULL

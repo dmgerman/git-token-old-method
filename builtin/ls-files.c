@@ -2101,7 +2101,7 @@ init|=
 block|{
 name|N_
 argument_list|(
-literal|"git ls-files [options] [<file>...]"
+literal|"git ls-files [<options>] [<file>...]"
 argument_list|)
 block|,
 name|NULL
