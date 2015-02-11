@@ -11725,6 +11725,7 @@ comment|/*  * Compare-and-swap  */
 end_comment
 begin_function
 DECL|function|clear_cas_option
+specifier|static
 name|void
 name|clear_cas_option
 parameter_list|(

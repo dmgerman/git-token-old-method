@@ -780,6 +780,7 @@ block|}
 end_function
 begin_function
 DECL|function|check_shallow_file_for_update
+specifier|static
 name|void
 name|check_shallow_file_for_update
 parameter_list|(
