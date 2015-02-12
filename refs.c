@@ -364,7 +364,7 @@ DECL|macro|REF_ISPRUNING
 define|#
 directive|define
 name|REF_ISPRUNING
-value|0x0100
+value|0x04
 end_define
 begin_comment
 comment|/*  * Try to read one refname component from the front of refname.  * Return the length of the component found, or -1 if the component is  * not legal.  It is legal if it is something reasonable to have under  * ".git/refs/"; We do not like it if:  *  * - any path component of it begins with ".", or  * - it has double dots "..", or  * - it has ASCII control character, "~", "^", ":" or SP, anywhere, or  * - it ends with a "/".  * - it ends with ".lock"  * - it contains a "\" (backslash)  */
