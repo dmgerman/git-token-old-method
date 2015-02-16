@@ -2643,7 +2643,8 @@ name|git_config
 argument_list|(
 name|git_push_config
 argument_list|,
-name|NULL
+operator|&
+name|flags
 argument_list|)
 expr_stmt|;
 name|argc
