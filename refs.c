@@ -357,7 +357,7 @@ name|REF_DELETING
 value|0x02
 end_define
 begin_comment
-comment|/*  * Used as a flag to ref_transaction_delete when a loose ref is being  * pruned.  */
+comment|/*  * Used as a flag in ref_update::flags when a loose ref is being  * pruned.  */
 end_comment
 begin_define
 DECL|macro|REF_ISPRUNING
@@ -365,6 +365,16 @@ define|#
 directive|define
 name|REF_ISPRUNING
 value|0x04
+end_define
+begin_comment
+comment|/*  * Used as a flag in ref_update::flags when old_sha1 should be  * checked.  */
+end_comment
+begin_define
+DECL|macro|REF_HAVE_OLD
+define|#
+directive|define
+name|REF_HAVE_OLD
+value|0x08
 end_define
 begin_comment
 comment|/*  * Try to read one refname component from the front of refname.  * Return the length of the component found, or -1 if the component is  * not legal.  It is legal if it is something reasonable to have under  * ".git/refs/"; We do not like it if:  *  * - any path component of it begins with ".", or  * - it has double dots "..", or  * - it has ASCII control character, "~", "^", ":" or SP, anywhere, or  * - it ends with a "/".  * - it ends with ".lock"  * - it contains a "\" (backslash)  */
@@ -16260,7 +16270,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Information needed for a single ref update.  Set new_sha1 to the  * new value or to zero to delete the ref.  To check the old value  * while locking the ref, set have_old to 1 and set old_sha1 to the  * value or to zero to ensure the ref does not exist before update.  */
+comment|/**  * Information needed for a single ref update. Set new_sha1 to the new  * value or to null_sha1 to delete the ref. To check the old value  * while the ref is locked, set (flags& REF_HAVE_OLD) and set  * old_sha1 to the old value, or to null_sha1 to ensure the ref does  * not exist before update.  */
 end_comment
 begin_struct
 DECL|struct|ref_update
@@ -16283,17 +16293,12 @@ index|[
 literal|20
 index|]
 decl_stmt|;
+comment|/* 	 * One or more of REF_HAVE_OLD, REF_NODEREF, 	 * REF_DELETING, and REF_ISPRUNING: 	 */
 DECL|member|flags
 name|unsigned
 name|int
 name|flags
 decl_stmt|;
-comment|/* REF_NODEREF? */
-DECL|member|have_old
-name|int
-name|have_old
-decl_stmt|;
-comment|/* 1 if old_sha1 is valid, 0 otherwise */
 DECL|member|lock
 name|struct
 name|ref_lock
@@ -16698,22 +16703,11 @@ argument_list|,
 name|new_sha1
 argument_list|)
 expr_stmt|;
-name|update
-operator|->
-name|flags
-operator|=
-name|flags
-expr_stmt|;
-name|update
-operator|->
-name|have_old
-operator|=
-name|have_old
-expr_stmt|;
 if|if
 condition|(
 name|have_old
 condition|)
+block|{
 name|hashcpy
 argument_list|(
 name|update
@@ -16722,6 +16716,17 @@ name|old_sha1
 argument_list|,
 name|old_sha1
 argument_list|)
+expr_stmt|;
+name|flags
+operator||=
+name|REF_HAVE_OLD
+expr_stmt|;
+block|}
+name|update
+operator|->
+name|flags
+operator|=
+name|flags
 expr_stmt|;
 if|if
 condition|(
@@ -17352,9 +17357,13 @@ operator|->
 name|refname
 argument_list|,
 operator|(
+operator|(
 name|update
 operator|->
-name|have_old
+name|flags
+operator|&
+name|REF_HAVE_OLD
+operator|)
 condition|?
 name|update
 operator|->
