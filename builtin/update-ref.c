@@ -1674,7 +1674,9 @@ decl_stmt|,
 name|end_null
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|unsigned
+name|int
 name|flags
 init|=
 literal|0

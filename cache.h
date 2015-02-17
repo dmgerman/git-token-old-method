@@ -3403,8 +3403,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|unsigned
 name|int
-name|delopt
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -9755,6 +9755,7 @@ name|string_list
 modifier|*
 name|skip
 parameter_list|,
+name|unsigned
 name|int
 name|flags
 parameter_list|,
@@ -11900,8 +11901,9 @@ name|char
 modifier|*
 name|sha1
 parameter_list|,
+name|unsigned
 name|int
-name|delopt
+name|flags
 parameter_list|)
 block|{
 name|struct
@@ -11936,7 +11938,7 @@ name|refname
 argument_list|,
 name|sha1
 argument_list|,
-name|delopt
+name|flags
 argument_list|,
 name|sha1
 operator|&&
@@ -16282,6 +16284,7 @@ literal|20
 index|]
 decl_stmt|;
 DECL|member|flags
+name|unsigned
 name|int
 name|flags
 decl_stmt|;
@@ -16594,6 +16597,7 @@ name|char
 modifier|*
 name|old_sha1
 parameter_list|,
+name|unsigned
 name|int
 name|flags
 parameter_list|,
@@ -16758,6 +16762,7 @@ name|char
 modifier|*
 name|new_sha1
 parameter_list|,
+name|unsigned
 name|int
 name|flags
 parameter_list|,
@@ -16815,6 +16820,7 @@ name|char
 modifier|*
 name|old_sha1
 parameter_list|,
+name|unsigned
 name|int
 name|flags
 parameter_list|,
@@ -16881,6 +16887,7 @@ name|char
 modifier|*
 name|oldval
 parameter_list|,
+name|unsigned
 name|int
 name|flags
 parameter_list|,
@@ -17313,6 +17320,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|unsigned
 name|int
 name|flags
 init|=
