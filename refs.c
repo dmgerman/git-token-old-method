@@ -11252,8 +11252,6 @@ name|sha1
 argument_list|,
 name|REF_ISPRUNING
 argument_list|,
-literal|1
-argument_list|,
 name|NULL
 argument_list|,
 operator|&
@@ -11946,10 +11944,7 @@ name|transaction
 argument_list|,
 name|refname
 argument_list|,
-name|sha1
-argument_list|,
-name|flags
-argument_list|,
+operator|(
 name|sha1
 operator|&&
 operator|!
@@ -11957,6 +11952,13 @@ name|is_null_sha1
 argument_list|(
 name|sha1
 argument_list|)
+operator|)
+condition|?
+name|sha1
+else|:
+name|NULL
+argument_list|,
+name|flags
 argument_list|,
 name|NULL
 argument_list|,
@@ -16812,9 +16814,6 @@ name|unsigned
 name|int
 name|flags
 parameter_list|,
-name|int
-name|have_old
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -16835,11 +16834,7 @@ name|refname
 argument_list|,
 name|null_sha1
 argument_list|,
-name|have_old
-condition|?
 name|old_sha1
-else|:
-name|NULL
 argument_list|,
 name|flags
 argument_list|,

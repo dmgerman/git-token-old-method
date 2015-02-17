@@ -1031,7 +1031,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*  * Add a reference deletion to transaction.  If have_old is true, then  * old_sha1 holds the value that the reference should have had before  * the update (which must not be the null SHA-1).  * Function returns 0 on success and non-zero on failure. A failure to delete  * means that the transaction as a whole has failed and will need to be  * rolled back.  */
+comment|/*  * Add a reference deletion to transaction.  If old_sha1 is non-NULL, then  * it holds the value that the reference should have had before  * the update (which must not be the null SHA-1).  * Function returns 0 on success and non-zero on failure. A failure to delete  * means that the transaction as a whole has failed and will need to be  * rolled back.  */
 end_comment
 begin_function_decl
 name|int
@@ -1056,9 +1056,6 @@ parameter_list|,
 name|unsigned
 name|int
 name|flags
-parameter_list|,
-name|int
-name|have_old
 parameter_list|,
 specifier|const
 name|char
