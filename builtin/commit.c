@@ -9647,10 +9647,6 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|,
-operator|!
-operator|!
-name|current_head
-argument_list|,
 name|sb
 operator|.
 name|buf

@@ -947,7 +947,7 @@ begin_comment
 comment|/*  * The following functions add a reference check or update to a  * ref_transaction.  In all of them, refname is the name of the  * reference to be affected.  The functions make internal copies of  * refname and msg, so the caller retains ownership of these parameters.  * flags can be REF_NODEREF; it is passed to update_ref_lock().  */
 end_comment
 begin_comment
-comment|/*  * Add a reference update to transaction.  new_sha1 is the value that  * the reference should have after the update, or null_sha1 if it should  * be deleted.  If have_old is true, then old_sha1 holds the value  * that the reference should have had before the update, or zeros if  * it must not have existed beforehand.  * Function returns 0 on success and non-zero on failure. A failure to update  * means that the transaction as a whole has failed and will need to be  * rolled back.  */
+comment|/*  * Add a reference update to transaction.  new_sha1 is the value that  * the reference should have after the update, or null_sha1 if it should  * be deleted.  If old_sha1 is non-NULL, then it is the value  * that the reference should have had before the update, or null_sha1 if  * it must not have existed beforehand.  * Function returns 0 on success and non-zero on failure. A failure to update  * means that the transaction as a whole has failed and will need to be  * rolled back.  */
 end_comment
 begin_function_decl
 name|int
@@ -978,9 +978,6 @@ parameter_list|,
 name|unsigned
 name|int
 name|flags
-parameter_list|,
-name|int
-name|have_old
 parameter_list|,
 specifier|const
 name|char

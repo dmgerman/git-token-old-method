@@ -9460,8 +9460,6 @@ name|old_sha1
 argument_list|,
 literal|0
 argument_list|,
-literal|1
-argument_list|,
 name|msg
 argument_list|,
 operator|&
@@ -9693,8 +9691,6 @@ operator|->
 name|sha1
 argument_list|,
 name|NULL
-argument_list|,
-literal|0
 argument_list|,
 literal|0
 argument_list|,
