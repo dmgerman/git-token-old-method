@@ -4532,7 +4532,7 @@ literal|0
 condition|)
 name|die
 argument_list|(
-literal|"helper %s does not support dry-run"
+literal|"helper %s does not support --signed"
 argument_list|,
 name|data
 operator|->
