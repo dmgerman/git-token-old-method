@@ -6447,7 +6447,6 @@ name|got_nothing
 goto|;
 while|while
 condition|(
-operator|&
 name|sb
 operator|.
 name|len
