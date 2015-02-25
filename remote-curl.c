@@ -4310,11 +4310,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|ref
-operator|->
-name|name
-operator|||
-operator|!
 operator|*
 name|ref
 operator|->
