@@ -311,6 +311,17 @@ name|msgid
 parameter_list|)
 value|msgid
 end_define
+begin_function_decl
+DECL|macro|N_
+unit|const
+name|char
+modifier|*
+name|get_preferred_languages
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
