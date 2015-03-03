@@ -18731,7 +18731,7 @@ name|EXPIRE_REFLOGS_DRY_RUN
 operator|)
 condition|)
 block|{
-comment|/* 		 * It doesn't make sense to adjust a reference pointed 		 * to by a symbolic ref based on expiring entries in 		 * the symbolic reference's reflog. 		 */
+comment|/* 		 * It doesn't make sense to adjust a reference pointed 		 * to by a symbolic ref based on expiring entries in 		 * the symbolic reference's reflog. Nor can we update 		 * a reference if there are no remaining reflog 		 * entries. 		 */
 name|int
 name|update
 init|=
@@ -18747,6 +18747,14 @@ name|type
 operator|&
 name|REF_ISSYMREF
 operator|)
+operator|&&
+operator|!
+name|is_null_sha1
+argument_list|(
+name|cb
+operator|.
+name|last_kept_sha1
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
