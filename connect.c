@@ -3672,6 +3672,11 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|conn
+argument_list|)
+expr_stmt|;
 return|return
 name|NULL
 return|;
