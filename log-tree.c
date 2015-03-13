@@ -720,7 +720,9 @@ name|lookup_commit
 argument_list|(
 name|graft
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 decl_stmt|;
 if|if
