@@ -227,6 +227,7 @@ name|mind2
 decl_stmt|;
 comment|/* Used in Boyer-Moore search for one string. */
 DECL|member|trans
+name|unsigned
 name|char
 specifier|const
 modifier|*
@@ -244,6 +245,7 @@ name|kwset_t
 DECL|function|kwsalloc
 name|kwsalloc
 parameter_list|(
+name|unsigned
 name|char
 specifier|const
 modifier|*
@@ -1859,6 +1861,7 @@ modifier|*
 name|curr
 decl_stmt|;
 specifier|register
+name|unsigned
 name|char
 specifier|const
 modifier|*
@@ -3190,6 +3193,7 @@ modifier|*
 name|tree
 decl_stmt|;
 specifier|register
+name|unsigned
 name|char
 specifier|const
 modifier|*
