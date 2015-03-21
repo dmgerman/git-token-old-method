@@ -2708,6 +2708,11 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|old
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|save_nr
