@@ -973,6 +973,8 @@ parameter_list|)
 block|{
 name|int
 name|i
+decl_stmt|,
+name|ret
 decl_stmt|;
 name|char
 modifier|*
@@ -1108,7 +1110,8 @@ name|item
 expr_stmt|;
 comment|/* better a valid pointer than a fake one */
 block|}
-return|return
+name|ret
+operator|=
 name|report_path_error
 argument_list|(
 name|m
@@ -1117,6 +1120,14 @@ name|pattern
 argument_list|,
 name|prefix
 argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+return|return
+name|ret
 return|;
 block|}
 end_function
