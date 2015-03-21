@@ -13295,10 +13295,14 @@ argument_list|,
 name|first
 argument_list|)
 expr_stmt|;
-return|return
+name|applied_pos
+operator|=
 operator|-
 literal|1
-return|;
+expr_stmt|;
+goto|goto
+name|out
+goto|;
 block|}
 if|if
 condition|(
@@ -13814,6 +13818,8 @@ name|oldlines
 argument_list|)
 expr_stmt|;
 block|}
+name|out
+label|:
 name|free
 argument_list|(
 name|oldlines
