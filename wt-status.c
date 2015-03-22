@@ -4136,9 +4136,6 @@ name|char
 modifier|*
 name|summary_content
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
 name|argv_array_pushf
 argument_list|(
 operator|&
@@ -4267,8 +4264,6 @@ operator|&
 name|sm_summary
 argument_list|)
 expr_stmt|;
-name|len
-operator|=
 name|strbuf_read
 argument_list|(
 operator|&
@@ -4284,6 +4279,8 @@ expr_stmt|;
 comment|/* prepend header, only if there's an actual output */
 if|if
 condition|(
+name|cmd_stdout
+operator|.
 name|len
 condition|)
 block|{
@@ -4345,6 +4342,9 @@ operator|->
 name|display_comment_prefix
 condition|)
 block|{
+name|size_t
+name|len
+decl_stmt|;
 name|summary_content
 operator|=
 name|strbuf_detach
