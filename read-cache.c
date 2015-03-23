@@ -3581,7 +3581,11 @@ if|if
 condition|(
 name|pretend
 condition|)
-empty_stmt|;
+name|free
+argument_list|(
+name|ce
+argument_list|)
+expr_stmt|;
 elseif|else
 if|if
 condition|(
@@ -3594,6 +3598,12 @@ argument_list|,
 name|add_option
 argument_list|)
 condition|)
+block|{
+name|free
+argument_list|(
+name|ce
+argument_list|)
+expr_stmt|;
 return|return
 name|error
 argument_list|(
@@ -3602,6 +3612,7 @@ argument_list|,
 name|path
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|verbose
