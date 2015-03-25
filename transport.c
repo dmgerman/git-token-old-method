@@ -2939,7 +2939,6 @@ name|transport
 operator|->
 name|data
 decl_stmt|;
-specifier|const
 name|struct
 name|ref
 modifier|*
@@ -3216,10 +3215,17 @@ operator|->
 name|conn
 argument_list|)
 condition|)
+block|{
+name|free_refs
+argument_list|(
+name|refs
+argument_list|)
+expr_stmt|;
 name|refs
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 name|data
 operator|->
 name|conn
@@ -3245,6 +3251,11 @@ expr_stmt|;
 name|free_refs
 argument_list|(
 name|refs_tmp
+argument_list|)
+expr_stmt|;
+name|free_refs
+argument_list|(
+name|refs
 argument_list|)
 expr_stmt|;
 name|free
