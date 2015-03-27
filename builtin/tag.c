@@ -3370,6 +3370,14 @@ literal|"replace the tag if exists"
 argument_list|)
 argument_list|)
 block|,
+name|OPT_GROUP
+argument_list|(
+name|N_
+argument_list|(
+literal|"Tag listing options"
+argument_list|)
+argument_list|)
+block|,
 name|OPT_COLUMN
 argument_list|(
 literal|0
@@ -3409,14 +3417,6 @@ name|PARSE_OPT_NONEG
 block|,
 name|parse_opt_sort
 block|}
-block|,
-name|OPT_GROUP
-argument_list|(
-name|N_
-argument_list|(
-literal|"Tag listing options"
-argument_list|)
-argument_list|)
 block|,
 block|{
 name|OPTION_CALLBACK
