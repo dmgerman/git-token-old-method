@@ -6395,6 +6395,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|free
+argument_list|(
+name|pairdiff
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|changed
