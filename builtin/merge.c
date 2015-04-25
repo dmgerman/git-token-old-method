@@ -6512,11 +6512,13 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+comment|/* 	 * Is the current HEAD reachable from another commit being 	 * merged?  If so we do not want to record it as a parent of 	 * the resulting merge, unless --no-ff is given.  We will flip 	 * this variable to 0 when we find HEAD among the independent 	 * tips being merged. 	 */
 operator|*
-name|remotes
+name|head_subsumed
 operator|=
-name|NULL
+literal|1
 expr_stmt|;
+comment|/* Find what parents to record by checking independent ones. */
 name|parents
 operator|=
 name|reduce_heads
@@ -6524,12 +6526,6 @@ argument_list|(
 name|remoteheads
 argument_list|)
 expr_stmt|;
-operator|*
-name|head_subsumed
-operator|=
-literal|1
-expr_stmt|;
-comment|/* we will flip this to 0 when we find it */
 for|for
 control|(
 name|remoteheads
@@ -6586,6 +6582,11 @@ name|remotes
 argument_list|)
 operator|->
 name|next
+expr_stmt|;
+name|free
+argument_list|(
+name|parents
+argument_list|)
 expr_stmt|;
 block|}
 return|return
