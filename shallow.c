@@ -173,7 +173,9 @@ name|hashcpy
 argument_list|(
 name|graft
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|sha1
 argument_list|)
@@ -889,11 +891,12 @@ name|char
 modifier|*
 name|hex
 init|=
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|graft
 operator|->
-name|sha1
+name|oid
 argument_list|)
 decl_stmt|;
 if|if
@@ -926,7 +929,9 @@ name|lookup_commit
 argument_list|(
 name|graft
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 decl_stmt|;
 if|if
@@ -1535,11 +1540,12 @@ name|fd
 argument_list|,
 literal|"shallow %s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|graft
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
