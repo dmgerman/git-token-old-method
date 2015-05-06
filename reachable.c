@@ -641,6 +641,8 @@ name|add_recent_loose
 argument_list|,
 operator|&
 name|data
+argument_list|,
+name|FOR_EACH_OBJECT_LOCAL_ONLY
 argument_list|)
 expr_stmt|;
 if|if
@@ -657,6 +659,8 @@ name|add_recent_packed
 argument_list|,
 operator|&
 name|data
+argument_list|,
+name|FOR_EACH_OBJECT_LOCAL_ONLY
 argument_list|)
 return|;
 block|}
