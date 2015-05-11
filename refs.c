@@ -3580,7 +3580,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * Return true iff a reference named refname could be created without  * conflicting with the name of an existing reference in dir.  If  * skip is non-NULL, ignore potential conflicts with refs in skip  * (e.g., because they are scheduled for deletion in the same  * operation).  *  * Two reference names conflict if one of them exactly matches the  * leading components of the other; e.g., "foo/bar" conflicts with  * both "foo" and with "foo/bar/baz" but not with "foo/bar" or  * "foo/barbados".  *  * skip must be sorted.  */
+comment|/*  * Return true iff a reference named refname could be created without  * conflicting with the name of an existing reference in dir.  If  * skip is non-NULL, ignore potential conflicts with refs in skip  * (e.g., because they are scheduled for deletion in the same  * operation).  *  * Two reference names conflict if one of them exactly matches the  * leading components of the other; e.g., "refs/foo/bar" conflicts  * with both "refs/foo" and with "refs/foo/bar/baz" but not with  * "refs/foo/bar" or "refs/foo/barbados".  *  * skip must be sorted.  */
 end_comment
 begin_function
 DECL|function|is_refname_available
@@ -3620,6 +3620,7 @@ name|char
 modifier|*
 name|dirname
 decl_stmt|;
+comment|/* 	 * For the sake of comments in this function, suppose that 	 * refname is "refs/foo/bar". 	 */
 for|for
 control|(
 name|slash
@@ -3645,7 +3646,7 @@ literal|'/'
 argument_list|)
 control|)
 block|{
-comment|/* 		 * We are still at a leading dir of the refname; we are 		 * looking for a conflict with a leaf entry. 		 * 		 * If we find one, we still must make sure it is 		 * not in "skip". 		 */
+comment|/* 		 * We are still at a leading dir of the refname (e.g., 		 * "refs/foo"; if there is a reference with that name, 		 * it is a conflict, *unless* it is in skip. 		 */
 name|pos
 operator|=
 name|search_ref_dir
@@ -3666,6 +3667,7 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|/* 			 * We found a reference whose name is a proper 			 * prefix of refname; e.g., "refs/foo". 			 */
 name|struct
 name|ref_entry
 modifier|*
@@ -3687,9 +3689,12 @@ argument_list|,
 name|skip
 argument_list|)
 condition|)
+block|{
+comment|/* 				 * The reference we just found, e.g., 				 * "refs/foo", is also in skip, so it 				 * is not considered a conflict. 				 * Moreover, the fact that "refs/foo" 				 * exists means that there cannot be 				 * any references anywhere under the 				 * "refs/foo/" namespace (because they 				 * would have conflicted with 				 * "refs/foo"). So we can stop looking 				 * now and return true. 				 */
 return|return
 literal|1
 return|;
+block|}
 name|report_refname_conflict
 argument_list|(
 name|entry
@@ -3701,7 +3706,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/* 		 * Otherwise, we can try to continue our search with 		 * the next component; if we come up empty, we know 		 * there is nothing under this whole prefix. 		 */
+comment|/* 		 * Otherwise, we can try to continue our search with 		 * the next component. So try to look up the 		 * directory, e.g., "refs/foo/". 		 */
 name|pos
 operator|=
 name|search_ref_dir
@@ -3723,9 +3728,12 @@ name|pos
 operator|<
 literal|0
 condition|)
+block|{
+comment|/* 			 * There was no directory "refs/foo/", so 			 * there is nothing under this whole prefix, 			 * and we are OK. 			 */
 return|return
 literal|1
 return|;
+block|}
 name|dir
 operator|=
 name|get_ref_dir
@@ -3739,7 +3747,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * We are at the leaf of our refname; we want to 	 * make sure there are no directories which match it. 	 */
+comment|/* 	 * We are at the leaf of our refname (e.g., "refs/foo/bar"). 	 * There is no point in searching for a reference with that 	 * name, because a refname isn't considered to conflict with 	 * itself. But we still need to check for references whose 	 * names are in the "refs/foo/bar/" namespace, because they 	 * *do* conflict. 	 */
 name|len
 operator|=
 name|strlen
@@ -3790,7 +3798,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-comment|/* 		 * We found a directory named "refname". It is a 		 * problem iff it contains any ref that is not 		 * in "skip". 		 */
+comment|/* 		 * We found a directory named "$refname/" (e.g., 		 * "refs/foo/bar/"). It is a problem iff it contains 		 * any ref that is not in "skip". 		 */
 name|struct
 name|ref_entry
 modifier|*
@@ -3859,7 +3867,6 @@ return|return
 literal|0
 return|;
 block|}
-comment|/* 	 * There is no point in searching for another leaf 	 * node which matches it; such an entry would be the 	 * ref we are looking for, not a conflict. 	 */
 return|return
 literal|1
 return|;
