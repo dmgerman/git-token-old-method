@@ -3228,7 +3228,9 @@ decl_stmt|;
 name|char
 modifier|*
 name|url
-decl_stmt|,
+decl_stmt|;
+specifier|const
+name|char
 modifier|*
 name|filename
 init|=
@@ -4456,6 +4458,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+specifier|const
 name|char
 modifier|*
 name|filename
