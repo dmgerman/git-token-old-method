@@ -205,7 +205,7 @@ name|conf
 parameter_list|)
 block|{
 return|return
-name|fgetc
+name|getc_unlocked
 argument_list|(
 name|conf
 operator|->
@@ -5428,6 +5428,11 @@ condition|(
 name|f
 condition|)
 block|{
+name|flockfile
+argument_list|(
+name|f
+argument_list|)
+expr_stmt|;
 name|ret
 operator|=
 name|do_config_from_file
@@ -5441,6 +5446,11 @@ argument_list|,
 name|f
 argument_list|,
 name|data
+argument_list|)
+expr_stmt|;
+name|funlockfile
+argument_list|(
+name|f
 argument_list|)
 expr_stmt|;
 name|fclose
