@@ -3847,7 +3847,7 @@ operator|+=
 name|match
 expr_stmt|;
 block|}
-comment|/* mktime uses local timezone */
+comment|/* do not use mktime(), which uses local timezone, here */
 operator|*
 name|timestamp
 operator|=
@@ -3860,6 +3860,18 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
+name|timestamp
+operator|==
+operator|-
+literal|1
+condition|)
+return|return
+operator|-
+literal|1
+return|;
+if|if
+condition|(
+operator|*
 name|offset
 operator|==
 operator|-
@@ -3868,13 +3880,23 @@ condition|)
 block|{
 name|time_t
 name|temp_time
-init|=
+decl_stmt|;
+comment|/* gmtime_r() in match_digit() may have clobbered it */
+name|tm
+operator|.
+name|tm_isdst
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|temp_time
+operator|=
 name|mktime
 argument_list|(
 operator|&
 name|tm
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -3927,18 +3949,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-operator|*
-name|timestamp
-operator|==
-operator|-
-literal|1
-condition|)
-return|return
-operator|-
-literal|1
-return|;
 if|if
 condition|(
 operator|!
