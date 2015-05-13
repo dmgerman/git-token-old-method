@@ -4544,6 +4544,11 @@ argument_list|,
 literal|"Mismatch!\n"
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
