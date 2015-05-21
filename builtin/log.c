@@ -9100,6 +9100,8 @@ operator|=
 name|branch_get_upstream
 argument_list|(
 name|current_branch
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
