@@ -977,12 +977,6 @@ name|char
 modifier|*
 name|remote_name
 decl_stmt|;
-DECL|member|remote
-name|struct
-name|remote
-modifier|*
-name|remote
-decl_stmt|;
 DECL|member|merge_name
 specifier|const
 name|char

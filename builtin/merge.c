@@ -5788,7 +5788,7 @@ condition|(
 operator|!
 name|branch
 operator|->
-name|remote
+name|remote_name
 condition|)
 name|die
 argument_list|(
