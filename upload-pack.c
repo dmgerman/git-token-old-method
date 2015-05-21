@@ -211,6 +211,16 @@ directive|define
 name|ALLOW_TIP_SHA1
 value|01
 end_define
+begin_comment
+comment|/* Allow request of a sha1 if it is reachable from a ref (possibly hidden ref). */
+end_comment
+begin_define
+DECL|macro|ALLOW_REACHABLE_SHA1
+define|#
+directive|define
+name|ALLOW_REACHABLE_SHA1
+value|02
+end_define
 begin_decl_stmt
 DECL|variable|allow_unadvertised_object_request
 specifier|static
@@ -2248,7 +2258,11 @@ init|=
 operator|(
 name|allow_unadvertised_object_request
 operator|&
+operator|(
 name|ALLOW_TIP_SHA1
+operator||
+name|ALLOW_REACHABLE_SHA1
+operator|)
 operator|)
 decl_stmt|;
 return|return
@@ -2316,11 +2330,18 @@ comment|/* ^ + SHA-1 + LF */
 name|int
 name|i
 decl_stmt|;
-comment|/* In the normal in-process case non-tip request can never happen */
+comment|/* 	 * In the normal in-process case without 	 * uploadpack.allowReachableSHA1InWant, 	 * non-tip requests can never happen. 	 */
 if|if
 condition|(
 operator|!
 name|stateless_rpc
+operator|&&
+operator|!
+operator|(
+name|allow_unadvertised_object_request
+operator|&
+name|ALLOW_REACHABLE_SHA1
+operator|)
 condition|)
 goto|goto
 name|error
@@ -3724,7 +3745,7 @@ name|packet_write
 argument_list|(
 literal|1
 argument_list|,
-literal|"%s %s%c%s%s%s%s agent=%s\n"
+literal|"%s %s%c%s%s%s%s%s agent=%s\n"
 argument_list|,
 name|sha1_to_hex
 argument_list|(
@@ -3744,6 +3765,16 @@ name|ALLOW_TIP_SHA1
 operator|)
 condition|?
 literal|" allow-tip-sha1-in-want"
+else|:
+literal|""
+argument_list|,
+operator|(
+name|allow_unadvertised_object_request
+operator|&
+name|ALLOW_REACHABLE_SHA1
+operator|)
+condition|?
+literal|" allow-reachable-sha1-in-want"
 else|:
 literal|""
 argument_list|,
@@ -4090,6 +4121,38 @@ name|allow_unadvertised_object_request
 operator|&=
 operator|~
 name|ALLOW_TIP_SHA1
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+literal|"uploadpack.allowreachablesha1inwant"
+argument_list|,
+name|var
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|git_config_bool
+argument_list|(
+name|var
+argument_list|,
+name|value
+argument_list|)
+condition|)
+name|allow_unadvertised_object_request
+operator||=
+name|ALLOW_REACHABLE_SHA1
+expr_stmt|;
+else|else
+name|allow_unadvertised_object_request
+operator|&=
+operator|~
+name|ALLOW_REACHABLE_SHA1
 expr_stmt|;
 block|}
 elseif|else
