@@ -9348,14 +9348,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* This function should make sure errno is meaningful on error */
+comment|/*  * Verify that the reference locked by lock has the value old_sha1.  * Fail if the reference doesn't exist and mustexist is set. Return 0  * on success or a negative value on error. This function should make  * sure errno is meaningful on error.  */
 end_comment
 begin_function
 DECL|function|verify_lock
 specifier|static
-name|struct
-name|ref_lock
-modifier|*
+name|int
 name|verify_lock
 parameter_list|(
 name|struct
@@ -9419,7 +9417,8 @@ operator|=
 name|save_errno
 expr_stmt|;
 return|return
-name|NULL
+operator|-
+literal|1
 return|;
 block|}
 if|if
@@ -9465,11 +9464,12 @@ operator|=
 name|EBUSY
 expr_stmt|;
 return|return
-name|NULL
+operator|-
+literal|1
 return|;
 block|}
 return|return
-name|lock
+literal|0
 return|;
 block|}
 end_function
@@ -10536,9 +10536,10 @@ name|error_return
 goto|;
 block|}
 block|}
-return|return
+if|if
+condition|(
 name|old_sha1
-condition|?
+operator|&&
 name|verify_lock
 argument_list|(
 name|lock
@@ -10547,7 +10548,11 @@ name|old_sha1
 argument_list|,
 name|mustexist
 argument_list|)
-else|:
+condition|)
+return|return
+name|NULL
+return|;
+return|return
 name|lock
 return|;
 name|error_return
