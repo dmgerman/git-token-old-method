@@ -4156,9 +4156,9 @@ name|num_ours
 argument_list|,
 operator|&
 name|num_theirs
+argument_list|,
+name|NULL
 argument_list|)
-operator|!=
-literal|1
 condition|)
 continue|continue;
 if|if
@@ -4287,9 +4287,9 @@ name|num_ours
 argument_list|,
 operator|&
 name|num_theirs
+argument_list|,
+name|NULL
 argument_list|)
-operator|!=
-literal|1
 condition|)
 continue|continue;
 if|if
