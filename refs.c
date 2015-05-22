@@ -9412,7 +9412,7 @@ name|strbuf_addf
 argument_list|(
 name|err
 argument_list|,
-literal|"Can't verify ref %s"
+literal|"can't verify ref %s"
 argument_list|,
 name|lock
 operator|->
@@ -9444,7 +9444,7 @@ name|strbuf_addf
 argument_list|(
 name|err
 argument_list|,
-literal|"Ref %s is at %s but expected %s"
+literal|"ref %s is at %s but expected %s"
 argument_list|,
 name|lock
 operator|->
