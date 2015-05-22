@@ -9348,7 +9348,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * Verify that the reference locked by lock has the value old_sha1.  * Fail if the reference doesn't exist and mustexist is set. Return 0  * on success or a negative value on error. This function should make  * sure errno is meaningful on error.  */
+comment|/*  * Verify that the reference locked by lock has the value old_sha1.  * Fail if the reference doesn't exist and mustexist is set. Return 0  * on success. On error, write an error message to err, set errno, and  * return a negative value.  */
 end_comment
 begin_function
 DECL|function|verify_lock
@@ -9369,8 +9369,18 @@ name|old_sha1
 parameter_list|,
 name|int
 name|mustexist
+parameter_list|,
+name|struct
+name|strbuf
+modifier|*
+name|err
 parameter_list|)
 block|{
+name|assert
+argument_list|(
+name|err
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|read_ref_full
@@ -9398,8 +9408,10 @@ name|save_errno
 init|=
 name|errno
 decl_stmt|;
-name|error
+name|strbuf_addf
 argument_list|(
+name|err
+argument_list|,
 literal|"Can't verify ref %s"
 argument_list|,
 name|lock
@@ -9428,8 +9440,10 @@ name|old_sha1
 argument_list|)
 condition|)
 block|{
-name|error
+name|strbuf_addf
 argument_list|(
+name|err
+argument_list|,
 literal|"Ref %s is at %s but expected %s"
 argument_list|,
 name|lock
@@ -10537,6 +10551,8 @@ argument_list|,
 name|old_sha1
 argument_list|,
 name|mustexist
+argument_list|,
+name|err
 argument_list|)
 condition|)
 block|{
