@@ -2750,12 +2750,9 @@ modifier|*
 name|av
 parameter_list|)
 block|{
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|revkey
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -2765,6 +2762,8 @@ argument_list|(
 name|av
 argument_list|,
 name|revkey
+operator|.
+name|hash
 argument_list|)
 condition|)
 block|{
@@ -2773,6 +2772,8 @@ argument_list|(
 name|av
 argument_list|,
 name|revkey
+operator|.
+name|hash
 argument_list|,
 literal|0
 argument_list|)
