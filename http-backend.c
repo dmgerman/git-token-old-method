@@ -2165,12 +2165,9 @@ operator|&
 name|REF_ISSYMREF
 condition|)
 block|{
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|unused
-index|[
-literal|20
-index|]
 decl_stmt|;
 specifier|const
 name|char
@@ -2184,6 +2181,8 @@ argument_list|,
 name|RESOLVE_REF_READING
 argument_list|,
 name|unused
+operator|.
+name|hash
 argument_list|,
 name|NULL
 argument_list|)
