@@ -3830,12 +3830,9 @@ name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|unused
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -3859,6 +3856,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|unused
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|flag
