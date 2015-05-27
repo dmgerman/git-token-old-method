@@ -246,7 +246,7 @@ name|GIT_COLOR_RESET
 block|,
 name|GIT_COLOR_NORMAL
 block|,
-comment|/* PLAIN */
+comment|/* CONTEXT */
 name|GIT_COLOR_BOLD
 block|,
 comment|/* METAINFO */
@@ -302,7 +302,7 @@ literal|"plain"
 argument_list|)
 condition|)
 return|return
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 return|;
 if|if
 condition|(
@@ -2912,7 +2912,7 @@ block|{
 specifier|const
 name|char
 modifier|*
-name|plain
+name|context
 init|=
 name|diff_get_color
 argument_list|(
@@ -2920,7 +2920,7 @@ name|ecbdata
 operator|->
 name|color_diff
 argument_list|,
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -3046,7 +3046,7 @@ name|ecbdata
 operator|->
 name|opt
 argument_list|,
-name|plain
+name|context
 argument_list|,
 name|reset
 argument_list|,
@@ -3166,7 +3166,7 @@ argument_list|(
 operator|&
 name|msgbuf
 argument_list|,
-name|plain
+name|context
 argument_list|)
 expr_stmt|;
 name|strbuf_add
@@ -3645,7 +3645,7 @@ block|{
 specifier|const
 name|char
 modifier|*
-name|plain
+name|context
 init|=
 name|diff_get_color
 argument_list|(
@@ -3653,7 +3653,7 @@ name|ecb
 operator|->
 name|color_diff
 argument_list|,
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 argument_list|)
 decl_stmt|;
 name|putc
@@ -3673,7 +3673,7 @@ name|ecb
 operator|->
 name|opt
 argument_list|,
-name|plain
+name|context
 argument_list|,
 name|reset
 argument_list|,
@@ -6539,7 +6539,7 @@ name|diff_get_color_opt
 argument_list|(
 name|o
 argument_list|,
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 argument_list|)
 expr_stmt|;
 block|}
@@ -6985,7 +6985,7 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
-name|plain
+name|context
 init|=
 name|diff_get_color
 argument_list|(
@@ -6993,7 +6993,7 @@ name|ecbdata
 operator|->
 name|color_diff
 argument_list|,
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -7451,7 +7451,7 @@ name|ecbdata
 operator|->
 name|opt
 argument_list|,
-name|plain
+name|context
 argument_list|,
 name|reset
 argument_list|,
@@ -7498,7 +7498,7 @@ name|ecbdata
 operator|->
 name|opt
 argument_list|,
-name|plain
+name|context
 argument_list|,
 name|reset
 argument_list|,
@@ -7540,7 +7540,7 @@ literal|'-'
 condition|?
 name|DIFF_FILE_OLD
 else|:
-name|DIFF_PLAIN
+name|DIFF_CONTEXT
 argument_list|)
 decl_stmt|;
 name|ecbdata
