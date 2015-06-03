@@ -13,20 +13,20 @@ directive|include
 file|"ewok.h"
 end_include
 begin_define
-DECL|macro|MASK
+DECL|macro|EWAH_MASK
 define|#
 directive|define
-name|MASK
+name|EWAH_MASK
 parameter_list|(
 name|x
 parameter_list|)
 value|((eword_t)1<< (x % BITS_IN_WORD))
 end_define
 begin_define
-DECL|macro|BLOCK
+DECL|macro|EWAH_BLOCK
 define|#
 directive|define
-name|BLOCK
+name|EWAH_BLOCK
 parameter_list|(
 name|x
 parameter_list|)
@@ -98,7 +98,7 @@ block|{
 name|size_t
 name|block
 init|=
-name|BLOCK
+name|EWAH_BLOCK
 argument_list|(
 name|pos
 argument_list|)
@@ -179,7 +179,7 @@ index|[
 name|block
 index|]
 operator||=
-name|MASK
+name|EWAH_MASK
 argument_list|(
 name|pos
 argument_list|)
@@ -203,7 +203,7 @@ block|{
 name|size_t
 name|block
 init|=
-name|BLOCK
+name|EWAH_BLOCK
 argument_list|(
 name|pos
 argument_list|)
@@ -224,7 +224,7 @@ name|block
 index|]
 operator|&=
 operator|~
-name|MASK
+name|EWAH_MASK
 argument_list|(
 name|pos
 argument_list|)
@@ -248,7 +248,7 @@ block|{
 name|size_t
 name|block
 init|=
-name|BLOCK
+name|EWAH_BLOCK
 argument_list|(
 name|pos
 argument_list|)
@@ -268,7 +268,7 @@ index|[
 name|block
 index|]
 operator|&
-name|MASK
+name|EWAH_MASK
 argument_list|(
 name|pos
 argument_list|)
