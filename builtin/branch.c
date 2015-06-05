@@ -1165,7 +1165,7 @@ name|remote_branch
 condition|?
 name|_
 argument_list|(
-literal|"remote branch '%s' not found."
+literal|"remote-tracking branch '%s' not found."
 argument_list|)
 else|:
 name|_
@@ -1239,7 +1239,7 @@ name|remote_branch
 condition|?
 name|_
 argument_list|(
-literal|"Error deleting remote branch '%s'"
+literal|"Error deleting remote-tracking branch '%s'"
 argument_list|)
 else|:
 name|_
@@ -1270,7 +1270,7 @@ name|remote_branch
 condition|?
 name|_
 argument_list|(
-literal|"Deleted remote branch %s (was %s).\n"
+literal|"Deleted remote-tracking branch %s (was %s).\n"
 argument_list|)
 else|:
 name|_
