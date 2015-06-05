@@ -837,10 +837,10 @@ name|void
 name|show_tag_lines
 parameter_list|(
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|lines
@@ -874,7 +874,9 @@ name|buf
 operator|=
 name|read_sha1_file
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 operator|&
 name|type
@@ -892,9 +894,9 @@ name|die_errno
 argument_list|(
 literal|"unable to read object %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -925,9 +927,9 @@ argument_list|(
 name|type
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1076,10 +1078,10 @@ modifier|*
 name|refname
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -1124,7 +1126,9 @@ name|commit
 operator|=
 name|lookup_commit_reference_gently
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 literal|1
 argument_list|)
@@ -1164,7 +1168,9 @@ name|match_points_at
 argument_list|(
 name|refname
 argument_list|,
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 condition|)
 return|return
@@ -1215,7 +1221,7 @@ argument_list|)
 expr_stmt|;
 name|show_tag_lines
 argument_list|(
-name|sha1
+name|oid
 argument_list|,
 name|filter
 operator|->

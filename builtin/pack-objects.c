@@ -3017,10 +3017,10 @@ modifier|*
 name|path
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -3047,7 +3047,9 @@ argument_list|(
 operator|&
 name|to_pack
 argument_list|,
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|NULL
 argument_list|)
@@ -10200,10 +10202,10 @@ modifier|*
 name|path
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -10213,12 +10215,9 @@ modifier|*
 name|cb_data
 parameter_list|)
 block|{
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|peeled
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -10236,6 +10235,8 @@ argument_list|(
 name|path
 argument_list|,
 name|peeled
+operator|.
+name|hash
 argument_list|)
 operator|&&
 comment|/* peelable? */
@@ -10245,6 +10246,8 @@ operator|&
 name|to_pack
 argument_list|,
 name|peeled
+operator|.
+name|hash
 argument_list|,
 name|NULL
 argument_list|)
@@ -10252,7 +10255,9 @@ condition|)
 comment|/* object packed? */
 name|add_object_entry
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|OBJ_TAG
 argument_list|,

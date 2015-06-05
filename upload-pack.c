@@ -3520,10 +3520,10 @@ modifier|*
 name|refname
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|)
 block|{
 name|struct
@@ -3533,7 +3533,9 @@ name|o
 init|=
 name|lookup_unknown_object
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 decl_stmt|;
 if|if
@@ -3577,10 +3579,10 @@ modifier|*
 name|refname
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -3594,7 +3596,7 @@ name|mark_our_ref
 argument_list|(
 name|refname
 argument_list|,
-name|sha1
+name|oid
 argument_list|)
 expr_stmt|;
 return|return
@@ -3671,10 +3673,10 @@ modifier|*
 name|refname
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -3704,12 +3706,9 @@ argument_list|(
 name|refname
 argument_list|)
 decl_stmt|;
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|peeled
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -3717,7 +3716,7 @@ name|mark_our_ref
 argument_list|(
 name|refname
 argument_list|,
-name|sha1
+name|oid
 argument_list|)
 condition|)
 return|return
@@ -3748,9 +3747,9 @@ literal|1
 argument_list|,
 literal|"%s %s%c%s%s%s%s%s agent=%s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|refname_nons
@@ -3808,9 +3807,9 @@ literal|1
 argument_list|,
 literal|"%s %s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|refname_nons
@@ -3829,6 +3828,8 @@ argument_list|(
 name|refname
 argument_list|,
 name|peeled
+operator|.
+name|hash
 argument_list|)
 condition|)
 name|packet_write
@@ -3837,8 +3838,9 @@ literal|1
 argument_list|,
 literal|"%s %s^{}\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|peeled
 argument_list|)
 argument_list|,
@@ -3862,10 +3864,10 @@ modifier|*
 name|refname
 parameter_list|,
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 parameter_list|,
 name|int
 name|flag
@@ -3885,12 +3887,9 @@ name|string_list_item
 modifier|*
 name|item
 decl_stmt|;
-name|unsigned
-name|char
+name|struct
+name|object_id
 name|unused
-index|[
-literal|20
-index|]
 decl_stmt|;
 if|if
 condition|(
@@ -3914,6 +3913,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|unused
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|flag
