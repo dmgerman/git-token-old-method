@@ -713,7 +713,7 @@ init|=
 literal|1
 decl_stmt|;
 name|long
-name|remaining_us
+name|remaining_ms
 init|=
 literal|0
 decl_stmt|;
@@ -766,28 +766,10 @@ name|timeout_ms
 operator|>
 literal|0
 condition|)
-block|{
-comment|/* avoid overflow */
-if|if
-condition|(
-name|timeout_ms
-operator|<=
-name|LONG_MAX
-operator|/
-literal|1000
-condition|)
-name|remaining_us
+name|remaining_ms
 operator|=
 name|timeout_ms
-operator|*
-literal|1000
 expr_stmt|;
-else|else
-name|remaining_us
-operator|=
-name|LONG_MAX
-expr_stmt|;
-block|}
 while|while
 condition|(
 literal|1
@@ -796,7 +778,7 @@ block|{
 name|long
 name|backoff_ms
 decl_stmt|,
-name|wait_us
+name|wait_ms
 decl_stmt|;
 name|int
 name|fd
@@ -841,7 +823,7 @@ name|timeout_ms
 operator|>
 literal|0
 operator|&&
-name|remaining_us
+name|remaining_ms
 operator|<=
 literal|0
 condition|)
@@ -857,7 +839,7 @@ operator|*
 name|INITIAL_BACKOFF_MS
 expr_stmt|;
 comment|/* back off for between 0.75*backoff_ms and 1.25*backoff_ms */
-name|wait_us
+name|wait_ms
 operator|=
 operator|(
 literal|750
@@ -869,15 +851,19 @@ literal|500
 operator|)
 operator|*
 name|backoff_ms
+operator|/
+literal|1000
 expr_stmt|;
 name|sleep_microseconds
 argument_list|(
-name|wait_us
+name|wait_ms
+operator|*
+literal|1000
 argument_list|)
 expr_stmt|;
-name|remaining_us
+name|remaining_ms
 operator|-=
-name|wait_us
+name|wait_ms
 expr_stmt|;
 comment|/* Recursion: (n+1)^2 = n^2 + 2n + 1 */
 name|multiplier
