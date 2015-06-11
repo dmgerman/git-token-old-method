@@ -518,7 +518,9 @@ argument_list|(
 name|ref
 argument_list|)
 argument_list|,
-literal|"refs/replace/%s"
+literal|"%s%s"
+argument_list|,
+name|git_replace_ref_base
 argument_list|,
 name|full_hex
 argument_list|)
@@ -530,7 +532,7 @@ name|ref
 operator|+
 name|strlen
 argument_list|(
-literal|"refs/replace/"
+name|git_replace_ref_base
 argument_list|)
 expr_stmt|;
 if|if
@@ -665,7 +667,9 @@ name|ref
 argument_list|,
 name|ref_size
 argument_list|,
-literal|"refs/replace/%s"
+literal|"%s%s"
+argument_list|,
+name|git_replace_ref_base
 argument_list|,
 name|sha1_to_hex
 argument_list|(
