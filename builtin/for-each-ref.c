@@ -160,15 +160,10 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|refinfo
+DECL|struct|ref_array_item
 struct|struct
-name|refinfo
+name|ref_array_item
 block|{
-DECL|member|refname
-name|char
-modifier|*
-name|refname
-decl_stmt|;
 DECL|member|objectname
 name|unsigned
 name|char
@@ -192,6 +187,11 @@ name|struct
 name|atom_value
 modifier|*
 name|value
+decl_stmt|;
+DECL|member|refname
+name|char
+modifier|*
+name|refname
 decl_stmt|;
 block|}
 struct|;
@@ -375,7 +375,7 @@ block|, }
 struct|;
 end_struct
 begin_comment
-comment|/*  * An atom is a valid field atom listed above, possibly prefixed with  * a "*" to denote deref_tag().  *  * We parse given format string and sort specifiers, and make a list  * of properties that we need to extract out of objects.  refinfo  * structure will hold an array of values extracted that can be  * indexed with the "atom number", which is an index into this  * array.  */
+comment|/*  * An atom is a valid field atom listed above, possibly prefixed with  * a "*" to denote deref_tag().  *  * We parse given format string and sort specifiers, and make a list  * of properties that we need to extract out of objects.  ref_array_item  * structure will hold an array of values extracted that can be  * indexed with the "atom number", which is an index into this  * array.  */
 end_comment
 begin_decl_stmt
 DECL|variable|used_atom
@@ -3591,7 +3591,7 @@ name|void
 name|populate_value
 parameter_list|(
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|ref
 parameter_list|)
@@ -4739,7 +4739,7 @@ name|void
 name|get_value
 parameter_list|(
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|ref
 parameter_list|,
@@ -4794,7 +4794,7 @@ name|grab_ref_cbdata
 block|{
 DECL|member|grab_array
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 modifier|*
 name|grab_array
@@ -4938,15 +4938,15 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Allocate space for a new refinfo and copy the objectname and flag to it */
+comment|/* Allocate space for a new ref_array_item and copy the objectname and flag to it */
 end_comment
 begin_function
-DECL|function|new_refinfo
+DECL|function|new_ref_array_item
 specifier|static
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
-name|new_refinfo
+name|new_ref_array_item
 parameter_list|(
 specifier|const
 name|char
@@ -4964,7 +4964,7 @@ name|flag
 parameter_list|)
 block|{
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|ref
 init|=
@@ -4975,7 +4975,7 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|refinfo
+name|ref_array_item
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5044,7 +5044,7 @@ init|=
 name|cb_data
 decl_stmt|;
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|ref
 decl_stmt|;
@@ -5089,7 +5089,7 @@ return|;
 comment|/* 	 * We do not open the object yet; sort may only need refname 	 * to do its job and the resulting list may yet to be pruned 	 * by maxcount logic. 	 */
 name|ref
 operator|=
-name|new_refinfo
+name|new_ref_array_item
 argument_list|(
 name|refname
 argument_list|,
@@ -5142,12 +5142,12 @@ modifier|*
 name|s
 parameter_list|,
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|a
 parameter_list|,
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|b
 parameter_list|)
@@ -5298,7 +5298,7 @@ name|b_
 parameter_list|)
 block|{
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|a
 init|=
@@ -5306,7 +5306,7 @@ operator|*
 operator|(
 operator|(
 expr|struct
-name|refinfo
+name|ref_array_item
 operator|*
 operator|*
 operator|)
@@ -5314,7 +5314,7 @@ name|a_
 operator|)
 decl_stmt|;
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|b
 init|=
@@ -5322,7 +5322,7 @@ operator|*
 operator|(
 operator|(
 expr|struct
-name|refinfo
+name|ref_array_item
 operator|*
 operator|*
 operator|)
@@ -5386,7 +5386,7 @@ modifier|*
 name|sort
 parameter_list|,
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 modifier|*
 name|refs
@@ -5408,7 +5408,7 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 expr|struct
-name|refinfo
+name|ref_array_item
 operator|*
 argument_list|)
 argument_list|,
@@ -5760,7 +5760,7 @@ name|void
 name|show_ref
 parameter_list|(
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 name|info
 parameter_list|,
@@ -6194,7 +6194,7 @@ init|=
 literal|0
 decl_stmt|;
 name|struct
-name|refinfo
+name|ref_array_item
 modifier|*
 modifier|*
 name|refs
