@@ -158,8 +158,10 @@ name|value
 decl_stmt|;
 DECL|member|refname
 name|char
-modifier|*
 name|refname
+index|[
+name|FLEX_ARRAY
+index|]
 decl_stmt|;
 block|}
 struct|;
