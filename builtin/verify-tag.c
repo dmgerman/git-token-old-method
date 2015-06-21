@@ -72,8 +72,8 @@ name|unsigned
 name|long
 name|size
 parameter_list|,
-name|int
-name|verbose
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 name|struct
@@ -117,7 +117,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|verbose
+name|flags
+operator|&
+name|GPG_VERIFY_VERBOSE
 condition|)
 name|write_in_full
 argument_list|(
@@ -160,11 +162,7 @@ argument_list|(
 operator|&
 name|sigc
 argument_list|,
-name|verbose
-condition|?
-name|GPG_VERIFY_VERBOSE
-else|:
-literal|0
+name|flags
 argument_list|)
 expr_stmt|;
 name|signature_check_clear
@@ -189,8 +187,8 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|int
-name|verbose
+name|unsigned
+name|flags
 parameter_list|)
 block|{
 name|enum
@@ -294,7 +292,7 @@ name|buf
 argument_list|,
 name|size
 argument_list|,
-name|verbose
+name|flags
 argument_list|)
 expr_stmt|;
 name|free
@@ -392,6 +390,11 @@ name|had_error
 init|=
 literal|0
 decl_stmt|;
+name|unsigned
+name|flags
+init|=
+literal|0
+decl_stmt|;
 specifier|const
 name|struct
 name|option
@@ -408,6 +411,23 @@ name|N_
 argument_list|(
 literal|"print tag contents"
 argument_list|)
+argument_list|)
+block|,
+name|OPT_BIT
+argument_list|(
+literal|0
+argument_list|,
+literal|"raw"
+argument_list|,
+operator|&
+name|flags
+argument_list|,
+name|N_
+argument_list|(
+literal|"print raw gpg status output"
+argument_list|)
+argument_list|,
+name|GPG_VERIFY_RAW
 argument_list|)
 block|,
 name|OPT_END
@@ -451,6 +471,14 @@ argument_list|,
 name|verify_tag_options
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|verbose
+condition|)
+name|flags
+operator||=
+name|GPG_VERIFY_VERBOSE
+expr_stmt|;
 comment|/* sometimes the program was terminated because this signal 	 * was received in the process of writing the gpg input: */
 name|signal
 argument_list|(
@@ -475,7 +503,7 @@ name|i
 operator|++
 index|]
 argument_list|,
-name|verbose
+name|flags
 argument_list|)
 condition|)
 name|had_error
