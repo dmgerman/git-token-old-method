@@ -86,6 +86,9 @@ name|struct
 name|signature_check
 name|signature_check
 decl_stmt|;
+name|int
+name|ret
+decl_stmt|;
 name|memset
 argument_list|(
 operator|&
@@ -99,6 +102,8 @@ name|signature_check
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
 name|check_commit_signature
 argument_list|(
 name|lookup_commit
@@ -149,11 +154,7 @@ name|signature_check
 argument_list|)
 expr_stmt|;
 return|return
-name|signature_check
-operator|.
-name|result
-operator|!=
-literal|'G'
+name|ret
 return|;
 block|}
 end_function
