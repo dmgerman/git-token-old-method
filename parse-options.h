@@ -51,6 +51,9 @@ block|,
 DECL|enumerator|OPTION_INTEGER
 name|OPTION_INTEGER
 block|,
+DECL|enumerator|OPTION_MAGNITUDE
+name|OPTION_MAGNITUDE
+block|,
 DECL|enumerator|OPTION_CALLBACK
 name|OPTION_CALLBACK
 block|,
@@ -415,6 +418,22 @@ parameter_list|,
 name|h
 parameter_list|)
 value|{ OPTION_INTEGER, (s), (l), (v), N_("n"), (h) }
+end_define
+begin_define
+DECL|macro|OPT_MAGNITUDE
+define|#
+directive|define
+name|OPT_MAGNITUDE
+parameter_list|(
+name|s
+parameter_list|,
+name|l
+parameter_list|,
+name|v
+parameter_list|,
+name|h
+parameter_list|)
+value|{ OPTION_MAGNITUDE, (s), (l), (v), \ 				      N_("n"), (h), PARSE_OPT_NONEG }
 end_define
 begin_define
 DECL|macro|OPT_STRING
