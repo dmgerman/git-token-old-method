@@ -3474,6 +3474,10 @@ argument_list|,
 literal|"invalid 'object' line format - bad sha1"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ret
+condition|)
 goto|goto
 name|done
 goto|;
