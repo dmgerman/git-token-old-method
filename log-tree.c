@@ -3429,6 +3429,7 @@ name|commit_format
 operator|==
 name|CMIT_FMT_ONELINE
 argument_list|,
+operator|&
 name|opt
 operator|->
 name|date_mode

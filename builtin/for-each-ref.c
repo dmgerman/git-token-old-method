@@ -2183,11 +2183,13 @@ decl_stmt|;
 name|long
 name|tz
 decl_stmt|;
-name|enum
+name|struct
 name|date_mode
 name|date_mode
 init|=
+block|{
 name|DATE_NORMAL
+block|}
 decl_stmt|;
 specifier|const
 name|char
@@ -2214,11 +2216,12 @@ block|{
 name|formatp
 operator|++
 expr_stmt|;
-name|date_mode
-operator|=
 name|parse_date_format
 argument_list|(
 name|formatp
+argument_list|,
+operator|&
+name|date_mode
 argument_list|)
 expr_stmt|;
 block|}
@@ -2295,6 +2298,7 @@ name|timestamp
 argument_list|,
 name|tz
 argument_list|,
+operator|&
 name|date_mode
 argument_list|)
 argument_list|)
