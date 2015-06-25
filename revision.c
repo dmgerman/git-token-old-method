@@ -3595,9 +3595,11 @@ name|UNINTERESTING
 expr_stmt|;
 if|if
 condition|(
-name|parse_commit
+name|parse_commit_gently
 argument_list|(
 name|p
+argument_list|,
+literal|1
 argument_list|)
 operator|<
 literal|0
@@ -3706,9 +3708,13 @@ name|item
 decl_stmt|;
 if|if
 condition|(
-name|parse_commit
+name|parse_commit_gently
 argument_list|(
 name|p
+argument_list|,
+name|revs
+operator|->
+name|ignore_missing_links
 argument_list|)
 operator|<
 literal|0
