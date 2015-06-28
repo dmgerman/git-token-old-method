@@ -1196,10 +1196,10 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|require_end_of_header
+DECL|function|verify_headers
 specifier|static
 name|int
-name|require_end_of_header
+name|verify_headers
 parameter_list|(
 specifier|const
 name|void
@@ -1297,6 +1297,23 @@ literal|0
 return|;
 block|}
 block|}
+comment|/* 	 * We did not find double-LF that separates the header 	 * and the body.  Not having a body is not a crime but 	 * we do want to see the terminating LF for the last header 	 * line. 	 */
+if|if
+condition|(
+name|size
+operator|&&
+name|buffer
+index|[
+name|size
+operator|-
+literal|1
+index|]
+operator|==
+literal|'\n'
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|error_func
 argument_list|(
@@ -1721,7 +1738,7 @@ name|err
 decl_stmt|;
 if|if
 condition|(
-name|require_end_of_header
+name|verify_headers
 argument_list|(
 name|buffer
 argument_list|,
@@ -2270,7 +2287,7 @@ block|}
 block|}
 if|if
 condition|(
-name|require_end_of_header
+name|verify_headers
 argument_list|(
 name|buffer
 argument_list|,
