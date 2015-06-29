@@ -3029,6 +3029,17 @@ argument_list|(
 literal|128
 argument_list|)
 expr_stmt|;
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"Staged '%s' using previous resolution.\n"
+argument_list|,
+name|item
+operator|->
+name|string
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3295,7 +3306,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|merge
 argument_list|(
 name|name
@@ -3303,17 +3313,11 @@ argument_list|,
 name|path
 argument_list|)
 condition|)
-block|{
-specifier|const
-name|char
-modifier|*
-name|msg
-decl_stmt|;
+continue|continue;
 if|if
 condition|(
 name|rerere_autoupdate
 condition|)
-block|{
 name|string_list_insert
 argument_list|(
 operator|&
@@ -3322,21 +3326,12 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|msg
-operator|=
-literal|"Staged '%s' using previous resolution.\n"
-expr_stmt|;
-block|}
 else|else
-name|msg
-operator|=
-literal|"Resolved '%s' using previous resolution.\n"
-expr_stmt|;
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-name|msg
+literal|"Resolved '%s' using previous resolution.\n"
 argument_list|,
 name|path
 argument_list|)
@@ -3344,7 +3339,6 @@ expr_stmt|;
 goto|goto
 name|mark_resolved
 goto|;
-block|}
 block|}
 comment|/* Let's see if we have resolved it. */
 name|ret
