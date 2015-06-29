@@ -151,6 +151,24 @@ name|NULL
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|term_bad
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|term_bad
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|term_good
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|term_good
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/* Remember to update object flag allocation in object.h */
 end_comment
@@ -2000,6 +2018,28 @@ modifier|*
 name|cb_data
 parameter_list|)
 block|{
+name|struct
+name|strbuf
+name|good_prefix
+init|=
+name|STRBUF_INIT
+decl_stmt|;
+name|strbuf_addstr
+argument_list|(
+operator|&
+name|good_prefix
+argument_list|,
+name|term_good
+argument_list|)
+expr_stmt|;
+name|strbuf_addstr
+argument_list|(
+operator|&
+name|good_prefix
+argument_list|,
+literal|"-"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2007,7 +2047,7 @@ name|strcmp
 argument_list|(
 name|refname
 argument_list|,
-literal|"bad"
+name|term_bad
 argument_list|)
 condition|)
 block|{
@@ -2037,7 +2077,9 @@ name|starts_with
 argument_list|(
 name|refname
 argument_list|,
-literal|"good-"
+name|good_prefix
+operator|.
+name|buf
 argument_list|)
 condition|)
 block|{
@@ -2074,6 +2116,12 @@ name|hash
 argument_list|)
 expr_stmt|;
 block|}
+name|strbuf_release
+argument_list|(
+operator|&
+name|good_prefix
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -3074,7 +3122,9 @@ return|return;
 name|printf
 argument_list|(
 literal|"There are only 'skip'ped commits left to test.\n"
-literal|"The first bad commit could be any of:\n"
+literal|"The first %s commit could be any of:\n"
+argument_list|,
+name|term_bad
 argument_list|)
 expr_stmt|;
 name|print_commit_list
@@ -3623,6 +3673,25 @@ argument_list|,
 literal|' '
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|strcmp
+argument_list|(
+name|term_bad
+argument_list|,
+literal|"bad"
+argument_list|)
+operator|&&
+operator|!
+name|strcmp
+argument_list|(
+name|term_good
+argument_list|,
+literal|"good"
+argument_list|)
+condition|)
+block|{
 name|fprintf
 argument_list|(
 name|stderr
@@ -3638,6 +3707,29 @@ argument_list|,
 name|good_hex
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"The merge base %s is %s.\n"
+literal|"This means the first '%s' commit is "
+literal|"between %s and [%s].\n"
+argument_list|,
+name|bad_hex
+argument_list|,
+name|term_bad
+argument_list|,
+name|term_good
+argument_list|,
+name|bad_hex
+argument_list|,
+name|good_hex
+argument_list|)
+expr_stmt|;
+block|}
 name|exit
 argument_list|(
 literal|3
@@ -3648,9 +3740,17 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Some good revs are not ancestor of the bad rev.\n"
+literal|"Some %s revs are not ancestor of the %s rev.\n"
 literal|"git bisect cannot work properly in this case.\n"
-literal|"Maybe you mistook good and bad revs?\n"
+literal|"Maybe you mistook %s and %s revs?\n"
+argument_list|,
+name|term_good
+argument_list|,
+name|term_bad
+argument_list|,
+name|term_good
+argument_list|,
+name|term_bad
 argument_list|)
 expr_stmt|;
 name|exit
@@ -3709,13 +3809,15 @@ name|warning
 argument_list|(
 literal|"the merge base between %s and [%s] "
 literal|"must be skipped.\n"
-literal|"So we cannot be sure the first bad commit is "
+literal|"So we cannot be sure the first %s commit is "
 literal|"between %s and %s.\n"
 literal|"We continue anyway."
 argument_list|,
 name|bad_hex
 argument_list|,
 name|good_hex
+argument_list|,
+name|term_bad
 argument_list|,
 name|mb_hex
 argument_list|,
@@ -4022,7 +4124,9 @@ name|current_bad_oid
 condition|)
 name|die
 argument_list|(
-literal|"a bad revision is needed"
+literal|"a %s revision is needed"
+argument_list|,
+name|term_bad
 argument_list|)
 expr_stmt|;
 comment|/* Check if file BISECT_ANCESTORS_OK exists. */
@@ -4274,6 +4378,14 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
+name|term_bad
+operator|=
+literal|"bad"
+expr_stmt|;
+name|term_good
+operator|=
+literal|"good"
+expr_stmt|;
 if|if
 condition|(
 name|read_bisect_refs
@@ -4372,12 +4484,16 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"%s was both good and bad\n"
+literal|"%s was both %s and %s\n"
 argument_list|,
 name|oid_to_hex
 argument_list|(
 name|current_bad_oid
 argument_list|)
+argument_list|,
+name|term_good
+argument_list|,
+name|term_bad
 argument_list|)
 expr_stmt|;
 name|exit
@@ -4454,9 +4570,11 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"%s is the first bad commit\n"
+literal|"%s is the first %s commit\n"
 argument_list|,
 name|bisect_rev_hex
+argument_list|,
+name|term_bad
 argument_list|)
 expr_stmt|;
 name|show_diff_tree
