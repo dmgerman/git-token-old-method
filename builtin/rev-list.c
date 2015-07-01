@@ -1686,6 +1686,11 @@ expr_stmt|;
 if|if
 condition|(
 name|use_bitmap_index
+operator|&&
+operator|!
+name|revs
+operator|.
+name|prune
 condition|)
 block|{
 if|if
