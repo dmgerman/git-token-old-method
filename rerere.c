@@ -968,6 +968,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Read contents a file with conflicts, normalize the conflicts  * by (1) discarding the common ancestor version in diff3-style,  * (2) reordering our side and their side so that whichever sorts  * alphabetically earlier comes before the other one, while  * computing the "conflict ID", which is just an SHA-1 hash of  * one side of the conflict, NUL, the other side of the conflict,  * and NUL concatenated together.  *  * Return the number of conflict hunks found.  *  * NEEDSWORK: the logic and theory of operation behind this conflict  * normalization may deserve to be documented somewhere, perhaps in  * Documentation/technical/rerere.txt.  */
+end_comment
 begin_function
 DECL|function|handle_path
 specifier|static
@@ -1417,6 +1420,9 @@ name|hunk_no
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Scan the path for conflicts, do the "handle_path()" thing above, and  * return the number of conflict hunks found.  */
+end_comment
 begin_function
 DECL|function|handle_file
 specifier|static
@@ -2678,6 +2684,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * Find the conflict identified by "name"; the change between its  * "preimage" (i.e. a previous contents with conflict markers) and its  * "postimage" (i.e. the corresponding contents with conflicts  * resolved) may apply cleanly to the contents stored in "path", i.e.  * the conflict this time around.  *  * Returns 0 for successful replay of recorded resolution, or non-zero  * for failure.  */
+end_comment
 begin_function
 DECL|function|merge
 specifier|static
@@ -2732,6 +2741,7 @@ block|,
 literal|0
 block|}
 decl_stmt|;
+comment|/* 	 * Normalize the conflicts in path and write it out to 	 * "thisimage" temporary file. 	 */
 if|if
 condition|(
 name|handle_file
@@ -2803,6 +2813,7 @@ goto|goto
 name|out
 goto|;
 block|}
+comment|/* 	 * A three-way merge. Note that this honors user-customizable 	 * low-level merge driver settings. 	 */
 name|ret
 operator|=
 name|ll_merge
@@ -2840,6 +2851,7 @@ name|FILE
 modifier|*
 name|f
 decl_stmt|;
+comment|/* 		 * A successful replay of recorded resolution. 		 * Mark that "postimage" was used to help gc. 		 */
 if|if
 condition|(
 name|utime
@@ -2873,6 +2885,7 @@ name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/* Update "path" with the resolution */
 name|f
 operator|=
 name|fopen
@@ -3144,7 +3157,7 @@ operator|&
 name|conflict
 argument_list|)
 expr_stmt|;
-comment|/* 	 * MERGE_RR records paths with conflicts immediately after merge 	 * failed.  Some of the conflicted paths might have been hand resolved 	 * in the working tree since then, but the initial run would catch all 	 * and register their preimages. 	 */
+comment|/* 	 * MERGE_RR records paths with conflicts immediately after 	 * merge failed.  Some of the conflicted paths might have been 	 * hand resolved in the working tree since then, but the 	 * initial run would catch all and register their preimages. 	 */
 for|for
 control|(
 name|i
@@ -3200,6 +3213,7 @@ decl_stmt|;
 name|int
 name|ret
 decl_stmt|;
+comment|/* 			 * Ask handle_file() to scan and assign a 			 * conflict ID.  No need to write anything out 			 * yet. 			 */
 name|ret
 operator|=
 name|handle_file
@@ -3239,6 +3253,7 @@ name|util
 operator|=
 name|hex
 expr_stmt|;
+comment|/* 			 * If the directory does not exist, create 			 * it.  mkdir_in_gitdir() will fail with 			 * EEXIST if there already is one. 			 * 			 * NEEDSWORK: make sure "gc" does not remove 			 * preimage without removing the directory. 			 */
 if|if
 condition|(
 name|mkdir_in_gitdir
@@ -3252,6 +3267,7 @@ argument_list|)
 argument_list|)
 condition|)
 continue|continue;
+comment|/* 			 * We are the first to encounter this 			 * conflict.  Ask handle_file() to write the 			 * normalized contents to the "preimage" file. 			 */
 name|handle_file
 argument_list|(
 name|path
@@ -3277,7 +3293,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* 	 * Now some of the paths that had conflicts earlier might have been 	 * hand resolved.  Others may be similar to a conflict already that 	 * was resolved before. 	 */
+comment|/* 	 * Some of the paths that had conflicts earlier might have 	 * been resolved by the user.  Others may be similar to a 	 * conflict already that was resolved before. 	 */
 for|for
 control|(
 name|i
@@ -3330,6 +3346,7 @@ index|]
 operator|.
 name|util
 decl_stmt|;
+comment|/* Is there a recorded resolution we could attempt to apply? */
 if|if
 condition|(
 name|has_rerere_resolution
@@ -3374,7 +3391,7 @@ goto|goto
 name|mark_resolved
 goto|;
 block|}
-comment|/* Let's see if we have resolved it. */
+comment|/* Let's see if the user has resolved it. */
 name|ret
 operator|=
 name|handle_file
@@ -3391,15 +3408,6 @@ condition|(
 name|ret
 condition|)
 continue|continue;
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"Recorded resolution for '%s'.\n"
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
 name|copy_file
 argument_list|(
 name|rerere_path
@@ -3412,6 +3420,15 @@ argument_list|,
 name|path
 argument_list|,
 literal|0666
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"Recorded resolution for '%s'.\n"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 name|mark_resolved
@@ -3645,6 +3662,9 @@ name|fd
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * The main entry point that is called internally from codepaths that  * perform mergy operations, possibly leaving conflicted index entries  * and working tree files.  */
+end_comment
 begin_function
 DECL|function|rerere
 name|int
