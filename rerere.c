@@ -3317,6 +3317,20 @@ name|i
 operator|++
 control|)
 block|{
+name|unsigned
+name|char
+name|sha1
+index|[
+literal|20
+index|]
+decl_stmt|;
+name|char
+modifier|*
+name|hex
+decl_stmt|;
+name|int
+name|ret
+decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -3333,7 +3347,6 @@ name|string
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|string_list_has_string
 argument_list|(
 name|rr
@@ -3341,22 +3354,8 @@ argument_list|,
 name|path
 argument_list|)
 condition|)
-block|{
-name|unsigned
-name|char
-name|sha1
-index|[
-literal|20
-index|]
-decl_stmt|;
-name|char
-modifier|*
-name|hex
-decl_stmt|;
-name|int
-name|ret
-decl_stmt|;
-comment|/* 			 * Ask handle_file() to scan and assign a 			 * conflict ID.  No need to write anything out 			 * yet. 			 */
+continue|continue;
+comment|/* 		 * Ask handle_file() to scan and assign a 		 * conflict ID.  No need to write anything out 		 * yet. 		 */
 name|ret
 operator|=
 name|handle_file
@@ -3396,7 +3395,7 @@ name|util
 operator|=
 name|hex
 expr_stmt|;
-comment|/* 			 * If the directory does not exist, create 			 * it.  mkdir_in_gitdir() will fail with 			 * EEXIST if there already is one. 			 * 			 * NEEDSWORK: make sure "gc" does not remove 			 * preimage without removing the directory. 			 */
+comment|/* 		 * If the directory does not exist, create 		 * it.  mkdir_in_gitdir() will fail with 		 * EEXIST if there already is one. 		 * 		 * NEEDSWORK: make sure "gc" does not remove 		 * preimage without removing the directory. 		 */
 if|if
 condition|(
 name|mkdir_in_gitdir
@@ -3410,7 +3409,7 @@ argument_list|)
 argument_list|)
 condition|)
 continue|continue;
-comment|/* 			 * We are the first to encounter this 			 * conflict.  Ask handle_file() to write the 			 * normalized contents to the "preimage" file. 			 */
+comment|/* 		 * We are the first to encounter this 		 * conflict.  Ask handle_file() to write the 		 * normalized contents to the "preimage" file. 		 */
 name|handle_file
 argument_list|(
 name|path
@@ -3434,7 +3433,6 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
