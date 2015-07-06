@@ -76,7 +76,7 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|hex
+name|id
 parameter_list|,
 specifier|const
 name|char
