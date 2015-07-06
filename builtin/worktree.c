@@ -762,6 +762,10 @@ name|int
 name|force
 init|=
 literal|0
+decl_stmt|,
+name|detach
+init|=
+literal|0
 decl_stmt|;
 specifier|const
 name|char
@@ -791,6 +795,21 @@ argument_list|,
 name|N_
 argument_list|(
 literal|"checkout<branch> even if already checked out in other worktree"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"detach"
+argument_list|,
+operator|&
+name|detach
+argument_list|,
+name|N_
+argument_list|(
+literal|"detach HEAD at named commit"
 argument_list|)
 argument_list|)
 block|,
@@ -889,6 +908,18 @@ operator|&
 name|cmd
 argument_list|,
 literal|"--ignore-other-worktrees"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|detach
+condition|)
+name|argv_array_push
+argument_list|(
+operator|&
+name|cmd
+argument_list|,
+literal|"--detach"
 argument_list|)
 expr_stmt|;
 name|argv_array_push
