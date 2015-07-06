@@ -6499,9 +6499,6 @@ argument_list|)
 operator|!=
 name|NULL
 expr_stmt|;
-name|setup_work_tree
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|conflict_style
