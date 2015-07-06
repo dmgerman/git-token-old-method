@@ -3206,13 +3206,11 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-goto|goto
-name|mark_resolved
-goto|;
 block|}
-comment|/* Let's see if the user has resolved it. */
+elseif|else
 if|if
 condition|(
+operator|!
 name|handle_file
 argument_list|(
 name|path
@@ -3222,8 +3220,8 @@ argument_list|,
 name|NULL
 argument_list|)
 condition|)
-return|return;
-comment|/* not yet resolved */
+block|{
+comment|/* The user has resolved it. */
 name|copy_file
 argument_list|(
 name|rerere_path
@@ -3247,8 +3245,11 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|mark_resolved
-label|:
+block|}
+else|else
+block|{
+return|return;
+block|}
 name|free
 argument_list|(
 name|rr_item
