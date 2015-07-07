@@ -4632,7 +4632,7 @@ argument_list|)
 block|,
 name|PARSE_OPT_LASTARG_DEFAULT
 block|,
-name|parse_opt_with_commit
+name|parse_opt_commits
 block|,
 operator|(
 name|intptr_t
@@ -4664,7 +4664,7 @@ name|PARSE_OPT_HIDDEN
 operator||
 name|PARSE_OPT_LASTARG_DEFAULT
 block|,
-name|parse_opt_with_commit
+name|parse_opt_commits
 block|,
 operator|(
 name|intptr_t
