@@ -211,6 +211,12 @@ name|struct
 name|sha1_array
 name|points_at
 decl_stmt|;
+DECL|member|with_commit
+name|struct
+name|commit_list
+modifier|*
+name|with_commit
+decl_stmt|;
 enum|enum
 block|{
 DECL|enumerator|REF_FILTER_MERGED_NONE
@@ -232,6 +238,13 @@ name|struct
 name|commit
 modifier|*
 name|merge_commit
+decl_stmt|;
+DECL|member|with_commit_tag_algo
+name|unsigned
+name|int
+name|with_commit_tag_algo
+range|:
+literal|1
 decl_stmt|;
 block|}
 struct|;

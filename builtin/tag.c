@@ -418,6 +418,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  * The entire code segment for supporting the --contains option has been  * copied over to ref-filter.{c,h}. This will be deleted evetually when  * we port tag.c to use ref-filter APIs.  */
+end_comment
 begin_enum
 DECL|enum|contains_result
 enum|enum
