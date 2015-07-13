@@ -963,7 +963,7 @@ comment|/**  * Read the contents of a file, specified by its path. The third arg
 end_comment
 begin_function_decl
 specifier|extern
-name|int
+name|ssize_t
 name|strbuf_read_file
 parameter_list|(
 name|struct
