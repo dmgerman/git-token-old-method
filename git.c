@@ -2245,6 +2245,8 @@ block|,
 name|cmd_checkout
 block|,
 name|RUN_SETUP
+operator||
+name|NEED_WORK_TREE
 block|}
 block|,
 block|{
