@@ -1873,6 +1873,11 @@ operator|!
 name|opts
 operator|.
 name|new_branch
+operator|&&
+operator|!
+name|opts
+operator|.
+name|detach
 condition|)
 block|{
 name|int
