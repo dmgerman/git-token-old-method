@@ -4980,6 +4980,14 @@ operator|&
 name|branch
 argument_list|)
 expr_stmt|;
+name|strbuf_strip_suffix
+argument_list|(
+operator|&
+name|gitdir
+argument_list|,
+literal|".git"
+argument_list|)
+expr_stmt|;
 name|die
 argument_list|(
 name|_
