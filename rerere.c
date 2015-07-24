@@ -2333,11 +2333,14 @@ name|type
 operator|=
 name|PUNTED
 expr_stmt|;
-if|if
+while|while
 condition|(
 name|ce_stage
 argument_list|(
-name|e
+name|active_cache
+index|[
+name|i
+index|]
 argument_list|)
 operator|==
 literal|1
