@@ -180,7 +180,10 @@ name|t
 argument_list|,
 name|tz
 argument_list|,
-name|DATE_ISO8601
+name|DATE_MODE
+argument_list|(
+name|ISO8601
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -255,7 +258,10 @@ name|t
 argument_list|,
 literal|0
 argument_list|,
-name|DATE_ISO8601
+name|DATE_MODE
+argument_list|(
+name|ISO8601
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -581,13 +581,14 @@ if|if
 condition|(
 name|default_date_mode
 condition|)
-name|rev
-operator|->
-name|date_mode
-operator|=
 name|parse_date_format
 argument_list|(
 name|default_date_mode
+argument_list|,
+operator|&
+name|rev
+operator|->
+name|date_mode
 argument_list|)
 expr_stmt|;
 name|rev
@@ -5413,6 +5414,8 @@ expr_stmt|;
 name|pp
 operator|.
 name|date_mode
+operator|.
+name|type
 operator|=
 name|DATE_RFC2822
 expr_stmt|;

@@ -10763,6 +10763,8 @@ block|{
 name|revs
 operator|->
 name|date_mode
+operator|.
+name|type
 operator|=
 name|DATE_RELATIVE
 expr_stmt|;
@@ -10791,13 +10793,14 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|revs
-operator|->
-name|date_mode
-operator|=
 name|parse_date_format
 argument_list|(
 name|optarg
+argument_list|,
+operator|&
+name|revs
+operator|->
+name|date_mode
 argument_list|)
 expr_stmt|;
 name|revs
