@@ -476,7 +476,7 @@ name|starts_with
 argument_list|(
 name|refname
 argument_list|,
-literal|"refs/replace/"
+name|git_replace_ref_base
 argument_list|)
 condition|)
 block|{
@@ -498,7 +498,10 @@ name|get_oid_hex
 argument_list|(
 name|refname
 operator|+
-literal|13
+name|strlen
+argument_list|(
+name|git_replace_ref_base
+argument_list|)
 argument_list|,
 operator|&
 name|original_oid
