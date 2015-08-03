@@ -76,6 +76,13 @@ name|update_flags
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|create_reflog_flag
+specifier|static
+name|unsigned
+name|create_reflog_flag
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|msg
 specifier|static
 specifier|const
@@ -797,6 +804,8 @@ else|:
 name|NULL
 argument_list|,
 name|update_flags
+operator||
+name|create_reflog_flag
 argument_list|,
 name|msg
 argument_list|,
@@ -960,6 +969,8 @@ argument_list|,
 name|new_sha1
 argument_list|,
 name|update_flags
+operator||
+name|create_reflog_flag
 argument_list|,
 name|msg
 argument_list|,
@@ -1665,6 +1676,11 @@ name|flags
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|create_reflog
+init|=
+literal|0
+decl_stmt|;
 name|struct
 name|option
 name|options
@@ -1751,6 +1767,21 @@ literal|"read updates from stdin"
 argument_list|)
 argument_list|)
 block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"create-reflog"
+argument_list|,
+operator|&
+name|create_reflog
+argument_list|,
+name|N_
+argument_list|(
+literal|"create_reflog"
+argument_list|)
+argument_list|)
+block|,
 name|OPT_END
 argument_list|()
 block|, 	}
@@ -1791,6 +1822,14 @@ name|die
 argument_list|(
 literal|"Refusing to perform update with empty message."
 argument_list|)
+expr_stmt|;
+name|create_reflog_flag
+operator|=
+name|create_reflog
+condition|?
+name|REF_FORCE_CREATE_REFLOG
+else|:
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -2091,6 +2130,8 @@ else|:
 name|NULL
 argument_list|,
 name|flags
+operator||
+name|create_reflog_flag
 argument_list|,
 name|UPDATE_REFS_DIE_ON_ERR
 argument_list|)

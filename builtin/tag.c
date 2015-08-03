@@ -3120,6 +3120,11 @@ operator|-
 literal|1
 decl_stmt|;
 name|int
+name|create_reflog
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|cmdmode
 init|=
 literal|0
@@ -3373,6 +3378,21 @@ argument_list|,
 name|N_
 argument_list|(
 literal|"replace the tag if exists"
+argument_list|)
+argument_list|)
+block|,
+name|OPT_BOOL
+argument_list|(
+literal|0
+argument_list|,
+literal|"create-reflog"
+argument_list|,
+operator|&
+name|create_reflog
+argument_list|,
+name|N_
+argument_list|(
+literal|"create_reflog"
 argument_list|)
 argument_list|)
 block|,
@@ -4169,6 +4189,10 @@ name|object
 argument_list|,
 name|prev
 argument_list|,
+name|create_reflog
+condition|?
+name|REF_FORCE_CREATE_REFLOG
+else|:
 literal|0
 argument_list|,
 name|NULL
