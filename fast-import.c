@@ -4696,7 +4696,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|pack_data
 operator|->
@@ -4734,7 +4734,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|curr_index_name
 argument_list|,
