@@ -2813,10 +2813,8 @@ argument_list|)
 return|;
 name|filename
 operator|=
-name|git_path
-argument_list|(
-literal|"FETCH_HEAD"
-argument_list|)
+name|git_path_fetch_head
+argument_list|()
 expr_stmt|;
 name|fp
 operator|=
@@ -2939,10 +2937,8 @@ argument_list|)
 return|;
 name|filename
 operator|=
-name|git_path
-argument_list|(
-literal|"FETCH_HEAD"
-argument_list|)
+name|git_path_fetch_head
+argument_list|()
 expr_stmt|;
 name|fp
 operator|=
