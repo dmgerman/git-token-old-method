@@ -4884,7 +4884,6 @@ modifier|*
 name|refs
 parameter_list|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|packed_refs_file
@@ -4898,7 +4897,7 @@ name|name
 condition|)
 name|packed_refs_file
 operator|=
-name|git_path_submodule
+name|git_pathdup_submodule
 argument_list|(
 name|refs
 operator|->
@@ -4910,7 +4909,7 @@ expr_stmt|;
 else|else
 name|packed_refs_file
 operator|=
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"packed-refs"
 argument_list|)
@@ -5042,6 +5041,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|free
+argument_list|(
+name|packed_refs_file
+argument_list|)
+expr_stmt|;
 return|return
 name|refs
 operator|->
@@ -5813,7 +5817,6 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|path
@@ -5842,7 +5845,7 @@ name|refs
 operator|->
 name|name
 condition|?
-name|git_path_submodule
+name|git_pathdup_submodule
 argument_list|(
 name|refs
 operator|->
@@ -5853,7 +5856,7 @@ argument_list|,
 name|refname
 argument_list|)
 else|:
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"%s"
 argument_list|,
@@ -5867,6 +5870,11 @@ argument_list|(
 name|path
 argument_list|,
 name|O_RDONLY
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|path
 argument_list|)
 expr_stmt|;
 if|if
