@@ -2146,6 +2146,16 @@ name|NEED_WORK_TREE
 block|}
 block|,
 block|{
+literal|"am"
+block|,
+name|cmd_am
+block|,
+name|RUN_SETUP
+operator||
+name|NEED_WORK_TREE
+block|}
+block|,
+block|{
 literal|"annotate"
 block|,
 name|cmd_annotate
