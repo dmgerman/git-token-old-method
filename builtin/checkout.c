@@ -102,6 +102,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"submodule-config.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"submodule.h"
 end_include
 begin_decl_stmt
