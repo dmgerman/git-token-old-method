@@ -5927,6 +5927,9 @@ name|int
 name|len
 parameter_list|,
 name|int
+name|baselen
+parameter_list|,
+name|int
 name|exclude
 parameter_list|,
 specifier|const
@@ -6043,8 +6046,12 @@ argument_list|,
 name|untracked
 argument_list|,
 name|dirname
+operator|+
+name|baselen
 argument_list|,
 name|len
+operator|-
+name|baselen
 argument_list|)
 expr_stmt|;
 return|return
@@ -6567,6 +6574,9 @@ name|strbuf
 modifier|*
 name|path
 parameter_list|,
+name|int
+name|baselen
+parameter_list|,
 specifier|const
 name|struct
 name|path_simplify
@@ -6742,6 +6752,8 @@ argument_list|,
 name|path
 operator|->
 name|len
+argument_list|,
+name|baselen
 argument_list|,
 name|exclude
 argument_list|,
@@ -7041,6 +7053,8 @@ argument_list|,
 name|untracked
 argument_list|,
 name|path
+argument_list|,
+name|baselen
 argument_list|,
 name|simplify
 argument_list|,
@@ -8449,6 +8463,8 @@ name|NULL
 argument_list|,
 operator|&
 name|sb
+argument_list|,
+name|baselen
 argument_list|,
 name|simplify
 argument_list|,
