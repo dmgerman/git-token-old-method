@@ -6096,7 +6096,7 @@ name|ret
 operator|==
 name|HTTP_OK
 operator|&&
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|tmpfile
 operator|.
@@ -6555,7 +6555,7 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|=
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|tmp_idx
 argument_list|,
@@ -7132,7 +7132,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|preq
 operator|->
@@ -7146,7 +7146,7 @@ name|sha1
 argument_list|)
 argument_list|)
 operator|||
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|tmp_idx
 argument_list|,
@@ -8569,7 +8569,7 @@ name|freq
 operator|->
 name|rename
 operator|=
-name|move_temp_to_file
+name|finalize_object_file
 argument_list|(
 name|freq
 operator|->
