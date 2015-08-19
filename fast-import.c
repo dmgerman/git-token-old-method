@@ -1516,12 +1516,11 @@ modifier|*
 name|err
 parameter_list|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|loc
 init|=
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"fast_import_crash_%"
 name|PRIuMAX
@@ -1574,6 +1573,11 @@ name|strerror
 argument_list|(
 name|errno
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|loc
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2058,6 +2062,11 @@ expr_stmt|;
 name|fclose
 argument_list|(
 name|rpt
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|loc
 argument_list|)
 expr_stmt|;
 block|}

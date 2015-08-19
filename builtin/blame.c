@@ -11014,16 +11014,6 @@ block|{
 name|int
 name|merge_head
 decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|merge_head_file
-init|=
-name|git_path
-argument_list|(
-literal|"MERGE_HEAD"
-argument_list|)
-decl_stmt|;
 name|struct
 name|strbuf
 name|line
@@ -11034,7 +11024,8 @@ name|merge_head
 operator|=
 name|open
 argument_list|(
-name|merge_head_file
+name|git_path_merge_head
+argument_list|()
 argument_list|,
 name|O_RDONLY
 argument_list|)
@@ -11057,7 +11048,8 @@ name|die
 argument_list|(
 literal|"cannot open '%s' for reading"
 argument_list|,
-name|merge_head_file
+name|git_path_merge_head
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -11103,7 +11095,8 @@ name|die
 argument_list|(
 literal|"unknown line in '%s': %s"
 argument_list|,
-name|merge_head_file
+name|git_path_merge_head
+argument_list|()
 argument_list|,
 name|line
 operator|.

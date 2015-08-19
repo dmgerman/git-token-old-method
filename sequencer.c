@@ -112,24 +112,48 @@ init|=
 literal|"(cherry picked from commit "
 decl_stmt|;
 end_decl_stmt
-begin_function
+begin_expr_stmt
+specifier|static
+name|GIT_PATH_FUNC
+argument_list|(
+argument|git_path_todo_file
+argument_list|,
+argument|SEQ_TODO_FILE
+argument_list|)
+specifier|static
+name|GIT_PATH_FUNC
+argument_list|(
+argument|git_path_opts_file
+argument_list|,
+argument|SEQ_OPTS_FILE
+argument_list|)
+specifier|static
+name|GIT_PATH_FUNC
+argument_list|(
+argument|git_path_seq_dir
+argument_list|,
+argument|SEQ_DIR
+argument_list|)
+specifier|static
+name|GIT_PATH_FUNC
+argument_list|(
+argument|git_path_head_file
+argument_list|,
+argument|SEQ_HEAD_FILE
+argument_list|)
 DECL|function|is_rfc2822_line
 specifier|static
 name|int
 name|is_rfc2822_line
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|buf
-parameter_list|,
-name|int
-name|len
-parameter_list|)
+argument_list|(
+argument|const char *buf
+argument_list|,
+argument|int len
+argument_list|)
 block|{
 name|int
 name|i
-decl_stmt|;
+block|;
 for|for
 control|(
 name|i
@@ -175,14 +199,15 @@ literal|'-'
 condition|)
 break|break;
 block|}
+end_expr_stmt
+begin_return
 return|return
 literal|0
 return|;
-block|}
-end_function
+end_return
 begin_function
+unit|}  static
 DECL|function|is_cherry_picked_from_line
-specifier|static
 name|int
 name|is_cherry_picked_from_line
 parameter_list|(
@@ -999,10 +1024,8 @@ expr_stmt|;
 comment|/* 		 * A conflict has occurred but the porcelain 		 * (typically rebase --interactive) wants to take care 		 * of the commit itself so remove CHERRY_PICK_HEAD 		 */
 name|unlink
 argument_list|(
-name|git_path
-argument_list|(
-literal|"CHERRY_PICK_HEAD"
-argument_list|)
+name|git_path_cherry_pick_head
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2340,12 +2363,6 @@ block|,
 name|NULL
 block|}
 decl_stmt|;
-name|char
-modifier|*
-name|defmsg
-init|=
-name|NULL
-decl_stmt|;
 name|struct
 name|strbuf
 name|msgbuf
@@ -2709,13 +2726,6 @@ argument_list|)
 argument_list|)
 return|;
 comment|/* 	 * "commit" is an existing commit.  We would want to apply 	 * the difference it introduces since its first parent "prev" 	 * on top of the current HEAD if we are cherry-pick.  Or the 	 * reverse of it if we are revert. 	 */
-name|defmsg
-operator|=
-name|git_pathdup
-argument_list|(
-literal|"MERGE_MSG"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|opts
@@ -2999,7 +3009,8 @@ argument_list|(
 operator|&
 name|msgbuf
 argument_list|,
-name|defmsg
+name|git_path_merge_msg
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3024,7 +3035,8 @@ argument_list|(
 operator|&
 name|msgbuf
 argument_list|,
-name|defmsg
+name|git_path_merge_msg
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|commit_list_insert
@@ -3236,7 +3248,8 @@ name|res
 operator|=
 name|run_git_commit
 argument_list|(
-name|defmsg
+name|git_path_merge_msg
+argument_list|()
 argument_list|,
 name|opts
 argument_list|,
@@ -3251,11 +3264,6 @@ name|commit
 argument_list|,
 operator|&
 name|msg
-argument_list|)
-expr_stmt|;
-name|free
-argument_list|(
-name|defmsg
 argument_list|)
 expr_stmt|;
 return|return
@@ -3958,16 +3966,6 @@ modifier|*
 name|opts
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|todo_file
-init|=
-name|git_path
-argument_list|(
-name|SEQ_TODO_FILE
-argument_list|)
-decl_stmt|;
 name|struct
 name|strbuf
 name|buf
@@ -3983,7 +3981,8 @@ name|fd
 operator|=
 name|open
 argument_list|(
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|,
 name|O_RDONLY
 argument_list|)
@@ -4001,7 +4000,8 @@ argument_list|(
 literal|"Could not open %s"
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -4037,7 +4037,8 @@ argument_list|(
 literal|"Could not read %s."
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4076,7 +4077,8 @@ argument_list|(
 literal|"Unusable instruction sheet: %s"
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4409,22 +4411,13 @@ modifier|*
 name|opts_ptr
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|opts_file
-init|=
-name|git_path
-argument_list|(
-name|SEQ_OPTS_FILE
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|!
 name|file_exists
 argument_list|(
-name|opts_file
+name|git_path_opts_file
+argument_list|()
 argument_list|)
 condition|)
 return|return;
@@ -4434,7 +4427,8 @@ name|git_config_from_file
 argument_list|(
 name|populate_opts_cb
 argument_list|,
-name|opts_file
+name|git_path_opts_file
+argument_list|()
 argument_list|,
 operator|*
 name|opts_ptr
@@ -4449,7 +4443,8 @@ argument_list|(
 literal|"Malformed options sheet: %s"
 argument_list|)
 argument_list|,
-name|opts_file
+name|git_path_opts_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4525,21 +4520,12 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|seq_dir
-init|=
-name|git_path
-argument_list|(
-name|SEQ_DIR
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|file_exists
 argument_list|(
-name|seq_dir
+name|git_path_seq_dir
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -4569,7 +4555,8 @@ if|if
 condition|(
 name|mkdir
 argument_list|(
-name|seq_dir
+name|git_path_seq_dir
+argument_list|()
 argument_list|,
 literal|0777
 argument_list|)
@@ -4583,7 +4570,8 @@ argument_list|(
 literal|"Could not create sequencer directory %s"
 argument_list|)
 argument_list|,
-name|seq_dir
+name|git_path_seq_dir
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -4603,16 +4591,6 @@ modifier|*
 name|head
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|head_file
-init|=
-name|git_path
-argument_list|(
-name|SEQ_HEAD_FILE
-argument_list|)
-decl_stmt|;
 specifier|static
 name|struct
 name|lock_file
@@ -4634,7 +4612,8 @@ argument_list|(
 operator|&
 name|head_lock
 argument_list|,
-name|head_file
+name|git_path_head_file
+argument_list|()
 argument_list|,
 name|LOCK_DIE_ON_ERROR
 argument_list|)
@@ -4673,7 +4652,8 @@ argument_list|(
 literal|"Could not write to %s"
 argument_list|)
 argument_list|,
-name|head_file
+name|git_path_head_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -4693,7 +4673,8 @@ argument_list|(
 literal|"Error wrapping up %s."
 argument_list|)
 argument_list|,
-name|head_file
+name|git_path_head_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4782,19 +4763,15 @@ condition|(
 operator|!
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"CHERRY_PICK_HEAD"
-argument_list|)
+name|git_path_cherry_pick_head
+argument_list|()
 argument_list|)
 operator|&&
 operator|!
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"REVERT_HEAD"
-argument_list|)
+name|git_path_revert_head
+argument_list|()
 argument_list|)
 condition|)
 return|return
@@ -4864,11 +4841,6 @@ modifier|*
 name|opts
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|filename
-decl_stmt|;
 name|FILE
 modifier|*
 name|f
@@ -4886,18 +4858,12 @@ name|buf
 init|=
 name|STRBUF_INIT
 decl_stmt|;
-name|filename
-operator|=
-name|git_path
-argument_list|(
-name|SEQ_HEAD_FILE
-argument_list|)
-expr_stmt|;
 name|f
 operator|=
 name|fopen
 argument_list|(
-name|filename
+name|git_path_head_file
+argument_list|()
 argument_list|,
 literal|"r"
 argument_list|)
@@ -4931,7 +4897,8 @@ argument_list|(
 literal|"cannot open %s: %s"
 argument_list|)
 argument_list|,
-name|filename
+name|git_path_head_file
+argument_list|()
 argument_list|,
 name|strerror
 argument_list|(
@@ -4959,7 +4926,8 @@ argument_list|(
 literal|"cannot read %s: %s"
 argument_list|)
 argument_list|,
-name|filename
+name|git_path_head_file
+argument_list|()
 argument_list|,
 name|ferror
 argument_list|(
@@ -5019,7 +4987,8 @@ argument_list|(
 literal|"stored pre-cherry-pick HEAD file '%s' is corrupt"
 argument_list|)
 argument_list|,
-name|filename
+name|git_path_head_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -5079,16 +5048,6 @@ modifier|*
 name|opts
 parameter_list|)
 block|{
-specifier|const
-name|char
-modifier|*
-name|todo_file
-init|=
-name|git_path
-argument_list|(
-name|SEQ_TODO_FILE
-argument_list|)
-decl_stmt|;
 specifier|static
 name|struct
 name|lock_file
@@ -5110,7 +5069,8 @@ argument_list|(
 operator|&
 name|todo_lock
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|,
 name|LOCK_DIE_ON_ERROR
 argument_list|)
@@ -5136,7 +5096,8 @@ argument_list|(
 literal|"Could not format %s."
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -5170,7 +5131,8 @@ argument_list|(
 literal|"Could not write to %s"
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5198,7 +5160,8 @@ argument_list|(
 literal|"Error wrapping up %s."
 argument_list|)
 argument_list|,
-name|todo_file
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5227,10 +5190,8 @@ name|char
 modifier|*
 name|opts_file
 init|=
-name|git_path
-argument_list|(
-name|SEQ_OPTS_FILE
-argument_list|)
+name|git_path_opts_file
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -5576,19 +5537,15 @@ condition|(
 operator|!
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"CHERRY_PICK_HEAD"
-argument_list|)
+name|git_path_cherry_pick_head
+argument_list|()
 argument_list|)
 operator|&&
 operator|!
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"REVERT_HEAD"
-argument_list|)
+name|git_path_revert_head
+argument_list|()
 argument_list|)
 condition|)
 return|return
@@ -5634,10 +5591,8 @@ condition|(
 operator|!
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-name|SEQ_TODO_FILE
-argument_list|)
+name|git_path_todo_file
+argument_list|()
 argument_list|)
 condition|)
 return|return
@@ -5663,18 +5618,14 @@ if|if
 condition|(
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"CHERRY_PICK_HEAD"
-argument_list|)
+name|git_path_cherry_pick_head
+argument_list|()
 argument_list|)
 operator|||
 name|file_exists
 argument_list|(
-name|git_path
-argument_list|(
-literal|"REVERT_HEAD"
-argument_list|)
+name|git_path_revert_head
+argument_list|()
 argument_list|)
 condition|)
 block|{

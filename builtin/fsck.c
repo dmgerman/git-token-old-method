@@ -1214,12 +1214,11 @@ condition|(
 name|write_lost_and_found
 condition|)
 block|{
-specifier|const
 name|char
 modifier|*
 name|filename
 init|=
-name|git_path
+name|git_pathdup
 argument_list|(
 literal|"lost-found/%s/%s"
 argument_list|,
@@ -1256,6 +1255,11 @@ block|{
 name|error
 argument_list|(
 literal|"Could not create lost-found"
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|filename
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1342,6 +1346,11 @@ name|die_errno
 argument_list|(
 literal|"Could not finish '%s'"
 argument_list|,
+name|filename
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
 name|filename
 argument_list|)
 expr_stmt|;
