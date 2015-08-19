@@ -4751,6 +4751,8 @@ return|;
 block|}
 if|if
 condition|(
+name|head_name
+operator|&&
 operator|!
 name|strcmp
 argument_list|(
