@@ -7968,6 +7968,17 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
+name|git_parse_maybe_bool
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
+name|int
 name|git_config_int
 parameter_list|(
 specifier|const
