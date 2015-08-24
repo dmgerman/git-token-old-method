@@ -3002,6 +3002,12 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+name|strbuf_complete_line
+argument_list|(
+operator|&
+name|sb
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|write_in_full
