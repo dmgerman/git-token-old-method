@@ -3247,10 +3247,8 @@ name|dry_run
 condition|?
 literal|"/dev/null"
 else|:
-name|git_path
-argument_list|(
-literal|"FETCH_HEAD"
-argument_list|)
+name|git_path_fetch_head
+argument_list|()
 decl_stmt|;
 name|int
 name|want_status
@@ -4503,10 +4501,8 @@ name|char
 modifier|*
 name|filename
 init|=
-name|git_path
-argument_list|(
-literal|"FETCH_HEAD"
-argument_list|)
+name|git_path_fetch_head
+argument_list|()
 decl_stmt|;
 name|FILE
 modifier|*

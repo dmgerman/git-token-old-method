@@ -1613,12 +1613,11 @@ block|{
 name|int
 name|fd
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|path
 init|=
-name|git_path
+name|git_pathdup
 argument_list|(
 name|NOTES_MERGE_WORKTREE
 literal|"/%s"
@@ -1750,6 +1749,11 @@ block|}
 name|close
 argument_list|(
 name|fd
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
+name|path
 argument_list|)
 expr_stmt|;
 block|}
