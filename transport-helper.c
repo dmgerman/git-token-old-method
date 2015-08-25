@@ -2680,6 +2680,8 @@ condition|(
 name|private
 condition|)
 block|{
+if|if
+condition|(
 name|read_ref
 argument_list|(
 name|private
@@ -2687,6 +2689,15 @@ argument_list|,
 name|posn
 operator|->
 name|old_sha1
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+literal|"Could not read ref %s"
+argument_list|,
+name|private
 argument_list|)
 expr_stmt|;
 name|free
@@ -5428,6 +5439,8 @@ name|status
 operator||=
 name|REF_STATUS_UPTODATE
 expr_stmt|;
+if|if
+condition|(
 name|read_ref
 argument_list|(
 operator|(
@@ -5443,6 +5456,23 @@ name|tail
 operator|)
 operator|->
 name|old_sha1
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+name|N_
+argument_list|(
+literal|"Could not read ref %s"
+argument_list|)
+argument_list|,
+operator|(
+operator|*
+name|tail
+operator|)
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
