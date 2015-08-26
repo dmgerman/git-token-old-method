@@ -10230,7 +10230,7 @@ name|binary
 argument_list|,
 name|N_
 argument_list|(
-literal|"(historical option -- no-op"
+literal|"historical option -- no-op"
 argument_list|)
 argument_list|)
 block|,
