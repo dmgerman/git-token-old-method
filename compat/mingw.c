@@ -3779,7 +3779,7 @@ if|if
 condition|(
 name|filedes
 index|[
-literal|0
+literal|1
 index|]
 operator|<
 literal|0
