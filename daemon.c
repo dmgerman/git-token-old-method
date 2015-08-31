@@ -6944,11 +6944,8 @@ name|write_file
 argument_list|(
 name|pid_file
 argument_list|,
-literal|1
-argument_list|,
 literal|"%"
 name|PRIuMAX
-literal|"\n"
 argument_list|,
 operator|(
 name|uintmax_t

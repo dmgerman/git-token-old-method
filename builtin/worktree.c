@@ -1368,9 +1368,7 @@ name|sb
 operator|.
 name|buf
 argument_list|,
-literal|1
-argument_list|,
-literal|"initializing\n"
+literal|"initializing"
 argument_list|)
 expr_stmt|;
 name|strbuf_addf
@@ -1435,9 +1433,7 @@ name|sb
 operator|.
 name|buf
 argument_list|,
-literal|1
-argument_list|,
-literal|"%s\n"
+literal|"%s"
 argument_list|,
 name|real_path
 argument_list|(
@@ -1453,9 +1449,7 @@ name|sb_git
 operator|.
 name|buf
 argument_list|,
-literal|1
-argument_list|,
-literal|"gitdir: %s/worktrees/%s\n"
+literal|"gitdir: %s/worktrees/%s"
 argument_list|,
 name|real_path
 argument_list|(
@@ -1491,9 +1485,7 @@ name|sb
 operator|.
 name|buf
 argument_list|,
-literal|1
-argument_list|,
-literal|"0000000000000000000000000000000000000000\n"
+literal|"0000000000000000000000000000000000000000"
 argument_list|)
 expr_stmt|;
 name|strbuf_reset
@@ -1520,9 +1512,7 @@ name|sb
 operator|.
 name|buf
 argument_list|,
-literal|1
-argument_list|,
-literal|"../..\n"
+literal|"../.."
 argument_list|)
 expr_stmt|;
 name|fprintf_ln
