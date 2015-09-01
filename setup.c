@@ -1728,7 +1728,7 @@ argument_list|(
 operator|&
 name|path
 argument_list|,
-literal|"%s/gitfile"
+literal|"%s/gitdir"
 argument_list|,
 name|gitdir
 argument_list|)
@@ -1758,7 +1758,7 @@ argument_list|(
 name|NULL
 argument_list|)
 condition|)
-name|write_file_gently
+name|write_file
 argument_list|(
 name|path
 operator|.
