@@ -1629,7 +1629,7 @@ literal|0
 argument_list|,
 name|DATE_MODE
 argument_list|(
-name|LOCAL
+name|ISO8601
 argument_list|)
 argument_list|)
 argument_list|)
