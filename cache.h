@@ -6433,9 +6433,6 @@ block|,
 DECL|enumerator|DATE_SHORT
 name|DATE_SHORT
 block|,
-DECL|enumerator|DATE_LOCAL
-name|DATE_LOCAL
-block|,
 DECL|enumerator|DATE_ISO8601
 name|DATE_ISO8601
 block|,
@@ -6459,6 +6456,10 @@ specifier|const
 name|char
 modifier|*
 name|strftime_fmt
+decl_stmt|;
+DECL|member|local
+name|int
+name|local
 decl_stmt|;
 block|}
 struct|;
