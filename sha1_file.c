@@ -7090,7 +7090,13 @@ control|)
 block|{
 name|int
 name|fd
-init|=
+decl_stmt|;
+name|errno
+operator|=
+literal|0
+expr_stmt|;
+name|fd
+operator|=
 name|open
 argument_list|(
 name|name
@@ -7099,7 +7105,7 @@ name|O_RDONLY
 operator||
 name|sha1_file_open_flag
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|fd
