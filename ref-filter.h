@@ -150,6 +150,11 @@ name|unsigned
 name|reverse
 range|:
 literal|1
+decl_stmt|,
+DECL|member|version
+name|version
+range|:
+literal|1
 decl_stmt|;
 block|}
 struct|;
