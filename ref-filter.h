@@ -282,6 +282,11 @@ name|int
 name|with_commit_tag_algo
 range|:
 literal|1
+decl_stmt|,
+DECL|member|match_as_path
+name|match_as_path
+range|:
+literal|1
 decl_stmt|;
 DECL|member|kind
 name|unsigned
