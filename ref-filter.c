@@ -7285,6 +7285,10 @@ operator|||
 name|filter
 operator|->
 name|with_commit
+operator|||
+name|filter
+operator|->
+name|verbose
 condition|)
 block|{
 name|commit
