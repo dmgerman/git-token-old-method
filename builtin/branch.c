@@ -108,6 +108,11 @@ argument_list|(
 literal|"git branch [<options>] (-m | -M) [<old-branch>]<new-branch>"
 argument_list|)
 block|,
+name|N_
+argument_list|(
+literal|"git branch [<options>] [-r | -a] [--points-at]"
+argument_list|)
+block|,
 name|NULL
 block|}
 decl_stmt|;
@@ -3583,6 +3588,33 @@ operator|&
 name|parse_opt_ref_sorting
 argument_list|)
 block|,
+block|{
+name|OPTION_CALLBACK
+block|,
+literal|0
+block|,
+literal|"points-at"
+block|,
+operator|&
+name|filter
+operator|.
+name|points_at
+block|,
+name|N_
+argument_list|(
+literal|"object"
+argument_list|)
+block|,
+name|N_
+argument_list|(
+literal|"print only branches of the object"
+argument_list|)
+block|,
+literal|0
+block|,
+name|parse_opt_object_name
+block|}
+block|,
 name|OPT_END
 argument_list|()
 block|, 	}
@@ -3765,6 +3797,12 @@ operator|.
 name|merge
 operator|!=
 name|REF_FILTER_MERGED_NONE
+operator|||
+name|filter
+operator|.
+name|points_at
+operator|.
+name|nr
 condition|)
 name|list
 operator|=
