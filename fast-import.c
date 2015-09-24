@@ -3319,7 +3319,7 @@ name|str_len
 operator|=
 name|len
 expr_stmt|;
-name|strncpy
+name|memcpy
 argument_list|(
 name|c
 operator|->

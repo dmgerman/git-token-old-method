@@ -1035,7 +1035,7 @@ literal|1
 operator|)
 argument_list|)
 expr_stmt|;
-name|strncpy
+name|memcpy
 argument_list|(
 operator|(
 operator|*
@@ -1049,6 +1049,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+comment|/* NUL-terminated by xcalloc */
 block|}
 end_function
 begin_function
@@ -1141,7 +1142,7 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|strncpy
+name|memcpy
 argument_list|(
 name|new
 operator|->
@@ -1152,6 +1153,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
+comment|/* NUL-terminated by xcalloc */
 name|new
 operator|->
 name|info
