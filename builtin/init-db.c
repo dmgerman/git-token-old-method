@@ -1335,9 +1335,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* This forces creation of new config file */
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|repo_version_string
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|repo_version_string
+argument_list|)
 argument_list|,
 literal|"%d"
 argument_list|,
@@ -2049,9 +2054,14 @@ operator|<
 literal|0
 condition|)
 comment|/* force to the mode value */
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|buf
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|buf
+argument_list|)
 argument_list|,
 literal|"0%o"
 argument_list|,
@@ -2066,9 +2076,14 @@ name|shared_repository
 operator|==
 name|PERM_GROUP
 condition|)
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|buf
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|buf
+argument_list|)
 argument_list|,
 literal|"%d"
 argument_list|,
@@ -2082,9 +2097,14 @@ name|shared_repository
 operator|==
 name|PERM_EVERYBODY
 condition|)
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|buf
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|buf
+argument_list|)
 argument_list|,
 literal|"%d"
 argument_list|,
@@ -2094,7 +2114,7 @@ expr_stmt|;
 else|else
 name|die
 argument_list|(
-literal|"oops"
+literal|"BUG: invalid value for shared_repository"
 argument_list|)
 expr_stmt|;
 name|git_config_set

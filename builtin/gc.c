@@ -863,9 +863,14 @@ name|my_host
 argument_list|)
 argument_list|)
 condition|)
-name|strcpy
+name|xsnprintf
 argument_list|(
 name|my_host
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|my_host
+argument_list|)
 argument_list|,
 literal|"unknown"
 argument_list|)

@@ -6071,11 +6071,18 @@ name|ident
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|ident
 operator|->
 name|ident
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ident
+operator|->
+name|ident
+argument_list|)
 argument_list|,
 literal|": %s $"
 argument_list|,
