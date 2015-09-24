@@ -62,9 +62,14 @@ return|return
 literal|"Non-authoritative \"host not found\", or SERVERFAIL"
 return|;
 block|}
-name|sprintf
+name|snprintf
 argument_list|(
 name|buffer
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|buffer
+argument_list|)
 argument_list|,
 literal|"Name resolution error %d"
 argument_list|,
