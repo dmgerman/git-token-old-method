@@ -320,6 +320,8 @@ name|o
 operator|->
 name|interhunkcontext
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 name|one
@@ -337,7 +339,10 @@ argument_list|,
 operator|&
 name|xecfg
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|ecbdata
 operator|.
