@@ -7064,9 +7064,14 @@ return|;
 comment|/* Generate the header */
 name|hdrlen
 operator|=
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|hdr
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|hdr
+argument_list|)
 argument_list|,
 literal|"%s %lu"
 argument_list|,
@@ -14411,9 +14416,12 @@ comment|/* Generate the header */
 operator|*
 name|hdrlen
 operator|=
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|hdr
+argument_list|,
+operator|*
+name|hdrlen
 argument_list|,
 literal|"%s %lu"
 argument_list|,
@@ -14674,6 +14682,11 @@ index|]
 decl_stmt|;
 name|int
 name|hdrlen
+init|=
+sizeof|sizeof
+argument_list|(
+name|hdr
+argument_list|)
 decl_stmt|;
 name|write_sha1_file_prepare
 argument_list|(
@@ -15497,6 +15510,11 @@ index|]
 decl_stmt|;
 name|int
 name|hdrlen
+init|=
+sizeof|sizeof
+argument_list|(
+name|hdr
+argument_list|)
 decl_stmt|;
 comment|/* Normally if we have it in the pack then we do not bother writing 	 * it out into .git/objects/??/?{38} file. 	 */
 name|write_sha1_file_prepare
@@ -15588,16 +15606,20 @@ init|=
 literal|0
 decl_stmt|;
 comment|/* type string, SP, %lu of the length plus NUL must fit this */
-name|header
+name|hdrlen
 operator|=
-name|xmalloc
-argument_list|(
 name|strlen
 argument_list|(
 name|type
 argument_list|)
 operator|+
 literal|32
+expr_stmt|;
+name|header
+operator|=
+name|xmalloc
+argument_list|(
+name|hdrlen
 argument_list|)
 expr_stmt|;
 name|write_sha1_file_prepare
@@ -15752,9 +15774,14 @@ argument_list|)
 return|;
 name|hdrlen
 operator|=
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|hdr
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|hdr
+argument_list|)
 argument_list|,
 literal|"%s %lu"
 argument_list|,

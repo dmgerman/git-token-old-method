@@ -2264,9 +2264,14 @@ condition|)
 block|{
 name|hdrlen
 operator|=
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|hdr
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|hdr
+argument_list|)
 argument_list|,
 literal|"%s %lu"
 argument_list|,
