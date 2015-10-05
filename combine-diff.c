@@ -2603,6 +2603,8 @@ name|n
 operator|=
 name|n
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -2620,6 +2622,16 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to generate combined diff for %s"
+argument_list|,
+name|oid_to_hex
+argument_list|(
+name|parent
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|free

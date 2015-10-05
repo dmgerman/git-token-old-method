@@ -6104,6 +6104,8 @@ name|ctxlen
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -6121,6 +6123,11 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to generate word diff"
 argument_list|)
 expr_stmt|;
 name|free
@@ -14197,6 +14204,8 @@ argument_list|,
 name|two
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -14215,6 +14224,15 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to generate diff for %s"
+argument_list|,
+name|one
+operator|->
+name|path
 argument_list|)
 expr_stmt|;
 if|if
@@ -14628,6 +14646,8 @@ name|o
 operator|->
 name|interhunkcontext
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -14645,6 +14665,15 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to generate diffstat for %s"
+argument_list|,
+name|one
+operator|->
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -14851,6 +14880,8 @@ name|flags
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -14869,6 +14900,15 @@ name|xpp
 argument_list|,
 operator|&
 name|xecfg
+argument_list|)
+condition|)
+name|die
+argument_list|(
+literal|"unable to generate checkdiff for %s"
+argument_list|,
+name|one
+operator|->
+name|path
 argument_list|)
 expr_stmt|;
 if|if
@@ -26123,6 +26163,8 @@ name|flags
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
 name|xdi_diff_outf
 argument_list|(
 operator|&
@@ -26142,7 +26184,19 @@ argument_list|,
 operator|&
 name|xecfg
 argument_list|)
-expr_stmt|;
+condition|)
+return|return
+name|error
+argument_list|(
+literal|"unable to generate patch-id diff for %s"
+argument_list|,
+name|p
+operator|->
+name|one
+operator|->
+name|path
+argument_list|)
+return|;
 block|}
 name|git_SHA1_Final
 argument_list|(
