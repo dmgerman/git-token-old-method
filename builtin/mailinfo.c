@@ -25,8 +25,6 @@ end_include
 begin_decl_stmt
 DECL|variable|cmitmsg
 DECL|variable|patchfile
-DECL|variable|fin
-DECL|variable|fout
 specifier|static
 name|FILE
 modifier|*
@@ -34,12 +32,6 @@ name|cmitmsg
 decl_stmt|,
 modifier|*
 name|patchfile
-decl_stmt|,
-modifier|*
-name|fin
-decl_stmt|,
-modifier|*
-name|fout
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -56,6 +48,16 @@ DECL|struct|mailinfo
 struct|struct
 name|mailinfo
 block|{
+DECL|member|input
+name|FILE
+modifier|*
+name|input
+decl_stmt|;
+DECL|member|output
+name|FILE
+modifier|*
+name|output
+decl_stmt|;
 DECL|member|name
 name|struct
 name|strbuf
@@ -4069,6 +4071,11 @@ name|int
 name|find_boundary
 parameter_list|(
 name|struct
+name|mailinfo
+modifier|*
+name|mi
+parameter_list|,
+name|struct
 name|strbuf
 modifier|*
 name|line
@@ -4081,7 +4088,9 @@ name|strbuf_getline
 argument_list|(
 name|line
 argument_list|,
-name|fin
+name|mi
+operator|->
+name|input
 argument_list|,
 literal|'\n'
 argument_list|)
@@ -4112,6 +4121,11 @@ specifier|static
 name|int
 name|handle_boundary
 parameter_list|(
+name|struct
+name|mailinfo
+modifier|*
+name|mi
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -4241,6 +4255,8 @@ condition|(
 operator|!
 name|find_boundary
 argument_list|(
+name|mi
+argument_list|,
 name|line
 argument_list|)
 condition|)
@@ -4269,7 +4285,9 @@ name|read_one_header_line
 argument_list|(
 name|line
 argument_list|,
-name|fin
+name|mi
+operator|->
+name|input
 argument_list|)
 condition|)
 name|check_header
@@ -4294,7 +4312,9 @@ name|strbuf_getline
 argument_list|(
 name|line
 argument_list|,
-name|fin
+name|mi
+operator|->
+name|input
 argument_list|,
 literal|'\n'
 argument_list|)
@@ -4320,6 +4340,11 @@ specifier|static
 name|void
 name|handle_body
 parameter_list|(
+name|struct
+name|mailinfo
+modifier|*
+name|mi
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -4354,6 +4379,8 @@ condition|(
 operator|!
 name|find_boundary
 argument_list|(
+name|mi
+argument_list|,
 name|line
 argument_list|)
 condition|)
@@ -4407,6 +4434,8 @@ condition|(
 operator|!
 name|handle_boundary
 argument_list|(
+name|mi
+argument_list|,
 name|line
 argument_list|,
 operator|&
@@ -4580,7 +4609,9 @@ name|strbuf_getwholeline
 argument_list|(
 name|line
 argument_list|,
-name|fin
+name|mi
+operator|->
+name|input
 argument_list|,
 literal|'\n'
 argument_list|)
@@ -4799,7 +4830,9 @@ expr_stmt|;
 block|}
 name|output_header_lines
 argument_list|(
-name|fout
+name|mi
+operator|->
+name|output
 argument_list|,
 literal|"Subject"
 argument_list|,
@@ -4836,7 +4869,9 @@ argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
-name|fout
+name|mi
+operator|->
+name|output
 argument_list|,
 literal|"Author: %s\n"
 argument_list|,
@@ -4849,7 +4884,9 @@ argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
-name|fout
+name|mi
+operator|->
+name|output
 argument_list|,
 literal|"Email: %s\n"
 argument_list|,
@@ -4870,7 +4907,9 @@ argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
-name|fout
+name|mi
+operator|->
+name|output
 argument_list|,
 literal|"%s: %s\n"
 argument_list|,
@@ -4888,7 +4927,9 @@ block|}
 block|}
 name|fprintf
 argument_list|(
-name|fout
+name|mi
+operator|->
+name|output
 argument_list|,
 literal|"\n"
 argument_list|)
@@ -4905,14 +4946,6 @@ name|struct
 name|mailinfo
 modifier|*
 name|mi
-parameter_list|,
-name|FILE
-modifier|*
-name|in
-parameter_list|,
-name|FILE
-modifier|*
-name|out
 parameter_list|,
 specifier|const
 name|char
@@ -4934,14 +4967,6 @@ name|line
 init|=
 name|STRBUF_INIT
 decl_stmt|;
-name|fin
-operator|=
-name|in
-expr_stmt|;
-name|fout
-operator|=
-name|out
-expr_stmt|;
 name|cmitmsg
 operator|=
 name|fopen
@@ -5029,7 +5054,9 @@ name|peek
 operator|=
 name|fgetc
 argument_list|(
-name|in
+name|mi
+operator|->
+name|input
 argument_list|)
 expr_stmt|;
 block|}
@@ -5045,7 +5072,9 @@ name|ungetc
 argument_list|(
 name|peek
 argument_list|,
-name|in
+name|mi
+operator|->
+name|input
 argument_list|)
 expr_stmt|;
 comment|/* process the email header */
@@ -5056,7 +5085,9 @@ argument_list|(
 operator|&
 name|line
 argument_list|,
-name|fin
+name|mi
+operator|->
+name|input
 argument_list|)
 condition|)
 name|check_header
@@ -5071,6 +5102,8 @@ argument_list|)
 expr_stmt|;
 name|handle_body
 argument_list|(
+name|mi
+argument_list|,
 operator|&
 name|line
 argument_list|)
@@ -5532,6 +5565,18 @@ argument_list|(
 name|mailinfo_usage
 argument_list|)
 expr_stmt|;
+name|mi
+operator|.
+name|input
+operator|=
+name|stdin
+expr_stmt|;
+name|mi
+operator|.
+name|output
+operator|=
+name|stdout
+expr_stmt|;
 name|status
 operator|=
 operator|!
@@ -5540,10 +5585,6 @@ name|mailinfo
 argument_list|(
 operator|&
 name|mi
-argument_list|,
-name|stdin
-argument_list|,
-name|stdout
 argument_list|,
 name|argv
 index|[
