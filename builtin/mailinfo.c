@@ -34,15 +34,6 @@ modifier|*
 name|patchfile
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|metainfo_charset
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|metainfo_charset
-decl_stmt|;
-end_decl_stmt
 begin_struct
 DECL|struct|mailinfo
 struct|struct
@@ -87,6 +78,12 @@ decl_stmt|;
 DECL|member|use_inbody_headers
 name|int
 name|use_inbody_headers
+decl_stmt|;
+DECL|member|metainfo_charset
+specifier|const
+name|char
+modifier|*
+name|metainfo_charset
 decl_stmt|;
 DECL|member|message_id
 name|char
@@ -2090,6 +2087,11 @@ name|void
 name|convert_to_utf8
 parameter_list|(
 name|struct
+name|mailinfo
+modifier|*
+name|mi
+parameter_list|,
+name|struct
 name|strbuf
 modifier|*
 name|line
@@ -2118,6 +2120,8 @@ if|if
 condition|(
 name|same_encoding
 argument_list|(
+name|mi
+operator|->
 name|metainfo_charset
 argument_list|,
 name|charset
@@ -2132,6 +2136,8 @@ name|line
 operator|->
 name|buf
 argument_list|,
+name|mi
+operator|->
 name|metainfo_charset
 argument_list|,
 name|charset
@@ -2148,6 +2154,8 @@ literal|"cannot convert from %s to %s"
 argument_list|,
 name|charset
 argument_list|,
+name|mi
+operator|->
 name|metainfo_charset
 argument_list|)
 expr_stmt|;
@@ -2176,6 +2184,11 @@ specifier|static
 name|void
 name|decode_header
 parameter_list|(
+name|struct
+name|mailinfo
+modifier|*
+name|mi
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -2480,10 +2493,14 @@ break|break;
 block|}
 if|if
 condition|(
+name|mi
+operator|->
 name|metainfo_charset
 condition|)
 name|convert_to_utf8
 argument_list|(
+name|mi
+argument_list|,
 name|dec
 argument_list|,
 name|charset_q
@@ -2676,6 +2693,8 @@ argument_list|)
 expr_stmt|;
 name|decode_header
 argument_list|(
+name|mi
+argument_list|,
 operator|&
 name|sb
 argument_list|)
@@ -2739,6 +2758,8 @@ argument_list|)
 expr_stmt|;
 name|decode_header
 argument_list|(
+name|mi
+argument_list|,
 operator|&
 name|sb
 argument_list|)
@@ -2806,6 +2827,8 @@ argument_list|)
 expr_stmt|;
 name|decode_header
 argument_list|(
+name|mi
+argument_list|,
 operator|&
 name|sb
 argument_list|)
@@ -2861,6 +2884,8 @@ argument_list|)
 expr_stmt|;
 name|decode_header
 argument_list|(
+name|mi
+argument_list|,
 operator|&
 name|sb
 argument_list|)
@@ -3592,10 +3617,14 @@ expr_stmt|;
 comment|/* normalize the log message to UTF-8. */
 if|if
 condition|(
+name|mi
+operator|->
 name|metainfo_charset
 condition|)
 name|convert_to_utf8
 argument_list|(
+name|mi
+argument_list|,
 name|line
 argument_list|,
 name|charset
@@ -5368,6 +5397,8 @@ operator|=
 name|get_commit_output_encoding
 argument_list|()
 expr_stmt|;
+name|mi
+operator|.
 name|metainfo_charset
 operator|=
 name|def_charset
@@ -5473,6 +5504,8 @@ argument_list|,
 literal|"-u"
 argument_list|)
 condition|)
+name|mi
+operator|.
 name|metainfo_charset
 operator|=
 name|def_charset
@@ -5491,6 +5524,8 @@ argument_list|,
 literal|"-n"
 argument_list|)
 condition|)
+name|mi
+operator|.
 name|metainfo_charset
 operator|=
 name|NULL
@@ -5508,6 +5543,8 @@ argument_list|,
 literal|"--encoding="
 argument_list|)
 condition|)
+name|mi
+operator|.
 name|metainfo_charset
 operator|=
 name|argv
