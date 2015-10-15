@@ -1956,7 +1956,7 @@ end_function
 begin_function
 DECL|function|convert_to_utf8
 specifier|static
-name|void
+name|int
 name|convert_to_utf8
 parameter_list|(
 name|struct
@@ -1993,7 +1993,9 @@ operator|!
 operator|*
 name|charset
 condition|)
-return|return;
+return|return
+literal|0
+return|;
 if|if
 condition|(
 name|same_encoding
@@ -2005,7 +2007,9 @@ argument_list|,
 name|charset
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|0
+return|;
 name|out
 operator|=
 name|reencode_string
@@ -2026,7 +2030,8 @@ condition|(
 operator|!
 name|out
 condition|)
-name|die
+return|return
+name|error
 argument_list|(
 literal|"cannot convert from %s to %s"
 argument_list|,
@@ -2036,7 +2041,7 @@ name|mi
 operator|->
 name|metainfo_charset
 argument_list|)
-expr_stmt|;
+return|;
 name|strbuf_attach
 argument_list|(
 name|line
@@ -2054,6 +2059,9 @@ name|out
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
@@ -2369,6 +2377,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
 name|convert_to_utf8
 argument_list|(
 name|mi
@@ -2379,7 +2389,10 @@ name|charset_q
 operator|.
 name|buf
 argument_list|)
-expr_stmt|;
+condition|)
+goto|goto
+name|release_return
+goto|;
 name|strbuf_addbuf
 argument_list|(
 operator|&
@@ -3500,6 +3513,8 @@ operator|=
 literal|0
 expr_stmt|;
 comment|/* normalize the log message to UTF-8. */
+if|if
+condition|(
 name|convert_to_utf8
 argument_list|(
 name|mi
@@ -3511,6 +3526,11 @@ operator|->
 name|charset
 operator|.
 name|buf
+argument_list|)
+condition|)
+name|exit
+argument_list|(
+literal|128
 argument_list|)
 expr_stmt|;
 if|if
