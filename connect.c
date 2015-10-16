@@ -1234,7 +1234,7 @@ literal|"git"
 return|;
 default|default:
 return|return
-literal|"unkown protocol"
+literal|"unknown protocol"
 return|;
 block|}
 block|}
