@@ -4287,7 +4287,10 @@ specifier|static
 name|void
 name|handle_body
 parameter_list|(
-name|void
+name|struct
+name|strbuf
+modifier|*
+name|line
 parameter_list|)
 block|{
 name|struct
@@ -4333,7 +4336,6 @@ name|content_top
 operator|&&
 name|is_multipart_boundary
 argument_list|(
-operator|&
 name|line
 argument_list|)
 condition|)
@@ -4384,7 +4386,6 @@ block|}
 comment|/* Unwrap transfer encoding */
 name|decode_transfer_encoding
 argument_list|(
-operator|&
 name|line
 argument_list|)
 expr_stmt|;
@@ -4416,7 +4417,6 @@ decl_stmt|;
 comment|/* Prepend any previous partial lines */
 name|strbuf_insert
 argument_list|(
-operator|&
 name|line
 argument_list|,
 literal|0
@@ -4441,7 +4441,6 @@ name|lines
 operator|=
 name|strbuf_split
 argument_list|(
-operator|&
 name|line
 argument_list|,
 literal|'\n'
@@ -4526,7 +4525,6 @@ block|}
 default|default:
 name|handle_filter
 argument_list|(
-operator|&
 name|line
 argument_list|,
 operator|&
@@ -4543,7 +4541,6 @@ condition|(
 operator|!
 name|strbuf_getwholeline
 argument_list|(
-operator|&
 name|line
 argument_list|,
 name|fin
@@ -5012,7 +5009,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|handle_body
-argument_list|()
+argument_list|(
+operator|&
+name|line
+argument_list|)
 expr_stmt|;
 name|fclose
 argument_list|(
