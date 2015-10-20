@@ -2240,6 +2240,12 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|struct
+name|strbuf
+name|continuation
+init|=
+name|STRBUF_INIT
+decl_stmt|;
 comment|/* Get the first part of the line. */
 if|if
 condition|(
@@ -2296,12 +2302,6 @@ control|)
 block|{
 name|int
 name|peek
-decl_stmt|;
-name|struct
-name|strbuf
-name|continuation
-init|=
-name|STRBUF_INIT
 decl_stmt|;
 name|peek
 operator|=
@@ -2365,6 +2365,12 @@ name|continuation
 argument_list|)
 expr_stmt|;
 block|}
+name|strbuf_release
+argument_list|(
+operator|&
+name|continuation
+argument_list|)
+expr_stmt|;
 return|return
 literal|1
 return|;
