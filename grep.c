@@ -142,7 +142,7 @@ name|extended_regexp_option
 operator|=
 literal|0
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -151,7 +151,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -160,7 +160,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -169,7 +169,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -178,7 +178,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -187,7 +187,7 @@ argument_list|,
 name|GIT_COLOR_BOLD_RED
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -196,7 +196,7 @@ argument_list|,
 name|GIT_COLOR_BOLD_RED
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -205,7 +205,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -875,7 +875,7 @@ name|def
 operator|->
 name|relative
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -886,7 +886,7 @@ operator|->
 name|color_context
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -897,7 +897,7 @@ operator|->
 name|color_filename
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -908,7 +908,7 @@ operator|->
 name|color_function
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -919,7 +919,7 @@ operator|->
 name|color_lineno
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -930,7 +930,7 @@ operator|->
 name|color_match_context
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -941,7 +941,7 @@ operator|->
 name|color_match_selected
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -952,7 +952,7 @@ operator|->
 name|color_selected
 argument_list|)
 expr_stmt|;
-name|strcpy
+name|color_set
 argument_list|(
 name|opt
 operator|->
@@ -1774,9 +1774,14 @@ name|p
 operator|->
 name|no
 condition|)
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|where
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|where
+argument_list|)
 argument_list|,
 literal|"In '%s' at %d, "
 argument_list|,
@@ -1796,9 +1801,14 @@ name|p
 operator|->
 name|origin
 condition|)
-name|sprintf
+name|xsnprintf
 argument_list|(
 name|where
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|where
+argument_list|)
 argument_list|,
 literal|"%s, "
 argument_list|,

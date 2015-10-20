@@ -1021,7 +1021,9 @@ decl_stmt|;
 name|char
 name|hex
 index|[
-literal|41
+name|GIT_SHA1_HEXSZ
+operator|+
+literal|1
 index|]
 init|=
 literal|""
@@ -1095,12 +1097,10 @@ name|revs
 operator|->
 name|commits
 condition|)
-name|strcpy
+name|sha1_to_hex_r
 argument_list|(
 name|hex
 argument_list|,
-name|sha1_to_hex
-argument_list|(
 name|revs
 operator|->
 name|commits
@@ -1110,7 +1110,6 @@ operator|->
 name|object
 operator|.
 name|sha1
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
