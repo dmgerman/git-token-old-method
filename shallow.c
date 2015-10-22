@@ -59,11 +59,6 @@ include|#
 directive|include
 file|"commit-slab.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"sigchain.h"
-end_include
 begin_decl_stmt
 DECL|variable|is_shallow
 specifier|static
