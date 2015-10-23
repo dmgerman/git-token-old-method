@@ -1795,6 +1795,11 @@ argument_list|,
 literal|'\n'
 argument_list|)
 expr_stmt|;
+name|fclose
+argument_list|(
+name|f
+argument_list|)
+expr_stmt|;
 name|strbuf_trim
 argument_list|(
 operator|&
