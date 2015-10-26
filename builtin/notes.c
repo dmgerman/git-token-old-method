@@ -65,7 +65,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"branch.h"
+file|"worktree.h"
 end_include
 begin_decl_stmt
 DECL|variable|git_notes_usage
