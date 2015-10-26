@@ -48,6 +48,9 @@ operator|(
 name|unsigned
 name|long
 operator|)
+operator|(
+name|intptr_t
+operator|)
 name|p
 decl_stmt|;
 name|int
