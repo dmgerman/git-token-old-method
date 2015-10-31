@@ -9095,11 +9095,7 @@ name|branch
 operator|=
 name|branch_get
 argument_list|(
-name|s
-operator|->
-name|branch
-operator|+
-literal|11
+name|branch_name
 argument_list|)
 expr_stmt|;
 name|color_fprintf
