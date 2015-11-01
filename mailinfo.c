@@ -5384,7 +5384,6 @@ name|git_config
 argument_list|(
 name|git_mailinfo_config
 argument_list|,
-operator|&
 name|mi
 argument_list|)
 expr_stmt|;
