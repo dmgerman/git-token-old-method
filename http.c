@@ -5742,10 +5742,10 @@ operator|==
 name|HTTP_REQUEST_FILE
 condition|)
 block|{
-name|long
+name|off_t
 name|posn
 init|=
-name|ftell
+name|ftello
 argument_list|(
 name|result
 argument_list|)
@@ -7511,7 +7511,7 @@ modifier|*
 name|base_url
 parameter_list|)
 block|{
-name|long
+name|off_t
 name|prev_posn
 init|=
 literal|0
@@ -7704,7 +7704,7 @@ expr_stmt|;
 comment|/* 	 * If there is data present from a previous transfer attempt, 	 * resume where it left off 	 */
 name|prev_posn
 operator|=
-name|ftell
+name|ftello
 argument_list|(
 name|preq
 operator|->
@@ -8021,7 +8021,7 @@ name|prev_read
 init|=
 literal|0
 decl_stmt|;
-name|long
+name|off_t
 name|prev_posn
 init|=
 literal|0
