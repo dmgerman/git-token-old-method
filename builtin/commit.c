@@ -3787,7 +3787,7 @@ if|if
 condition|(
 name|clean_message_contents
 condition|)
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|sb
@@ -4875,7 +4875,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|tmpl
@@ -9360,7 +9360,7 @@ name|cleanup_mode
 operator|!=
 name|CLEANUP_NONE
 condition|)
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|sb

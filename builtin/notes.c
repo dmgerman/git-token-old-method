@@ -965,7 +965,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|d
@@ -1124,7 +1124,7 @@ argument_list|,
 name|arg
 argument_list|)
 expr_stmt|;
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|d
@@ -1258,7 +1258,7 @@ argument_list|,
 name|arg
 argument_list|)
 expr_stmt|;
-name|stripspace
+name|strbuf_stripspace
 argument_list|(
 operator|&
 name|d
