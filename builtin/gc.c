@@ -1658,6 +1658,12 @@ literal|1
 return|;
 if|if
 condition|(
+operator|!
+name|repository_format_precious_objects
+condition|)
+block|{
+if|if
+condition|(
 name|run_command_v_opt
 argument_list|(
 name|repack
@@ -1729,6 +1735,7 @@ literal|0
 index|]
 argument_list|)
 return|;
+block|}
 block|}
 if|if
 condition|(
