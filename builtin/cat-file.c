@@ -2118,7 +2118,7 @@ argument_list|)
 block|,
 name|N_
 argument_list|(
-literal|"git cat-file (--batch | --batch-check) [--follow-symlinks]<<list-of-objects>"
+literal|"git cat-file (--batch | --batch-check) [--follow-symlinks]"
 argument_list|)
 block|,
 name|NULL
