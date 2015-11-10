@@ -1952,11 +1952,12 @@ name|buf
 argument_list|,
 literal|"fetch %s %s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|posn
 operator|->
-name|old_sha1
+name|old_oid
 argument_list|)
 argument_list|,
 name|posn
@@ -2686,7 +2687,9 @@ name|private
 argument_list|,
 name|posn
 operator|->
-name|old_sha1
+name|old_oid
+operator|.
+name|hash
 argument_list|)
 operator|<
 literal|0
@@ -3987,7 +3990,9 @@ name|private
 argument_list|,
 name|ref
 operator|->
-name|new_sha1
+name|new_oid
+operator|.
+name|hash
 argument_list|,
 name|NULL
 argument_list|,
@@ -4316,11 +4321,12 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|ref
 operator|->
-name|new_sha1
+name|new_oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4351,7 +4357,7 @@ argument_list|,
 literal|'\n'
 argument_list|)
 expr_stmt|;
-comment|/* 		 * The "--force-with-lease" options without explicit 		 * values to expect have already been expanded into 		 * the ref->old_sha1_expect[] field; we can ignore 		 * transport->smart_options->cas altogether and instead 		 * can enumerate them from the refs. 		 */
+comment|/* 		 * The "--force-with-lease" options without explicit 		 * values to expect have already been expanded into 		 * the ref->old_oid_expect[] field; we can ignore 		 * transport->smart_options->cas altogether and instead 		 * can enumerate them from the refs. 		 */
 if|if
 condition|(
 name|ref
@@ -4376,11 +4382,12 @@ name|ref
 operator|->
 name|name
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|ref
 operator|->
-name|old_sha1_expect
+name|old_oid_expect
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4689,7 +4696,9 @@ name|hashcpy
 argument_list|(
 name|ref
 operator|->
-name|old_sha1
+name|old_oid
+operator|.
+name|hash
 argument_list|,
 name|sha1
 argument_list|)
@@ -5405,18 +5414,19 @@ index|]
 operator|!=
 literal|'?'
 condition|)
-name|get_sha1_hex
+name|get_oid_hex
 argument_list|(
 name|buf
 operator|.
 name|buf
 argument_list|,
+operator|&
 operator|(
 operator|*
 name|tail
 operator|)
 operator|->
-name|old_sha1
+name|old_oid
 argument_list|)
 expr_stmt|;
 if|if
@@ -5461,7 +5471,9 @@ operator|*
 name|tail
 operator|)
 operator|->
-name|old_sha1
+name|old_oid
+operator|.
+name|hash
 argument_list|)
 operator|<
 literal|0
