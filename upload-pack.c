@@ -1630,11 +1630,12 @@ name|parsed
 condition|)
 name|parse_object
 argument_list|(
+name|get_object_hash
+argument_list|(
 name|commit
 operator|->
 name|object
-operator|.
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3260,9 +3261,11 @@ argument_list|)
 expr_stmt|;
 name|register_shallow
 argument_list|(
+name|get_object_hash
+argument_list|(
+operator|*
 name|object
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|shallow_nr
@@ -3349,9 +3352,11 @@ expr_stmt|;
 comment|/* make sure the real parents are parsed */
 name|unregister_shallow
 argument_list|(
+name|get_object_hash
+argument_list|(
+operator|*
 name|object
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|object
@@ -3424,9 +3429,11 @@ block|}
 comment|/* make sure commit traversal conforms to client */
 name|register_shallow
 argument_list|(
+name|get_object_hash
+argument_list|(
+operator|*
 name|object
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3466,6 +3473,9 @@ operator|++
 control|)
 name|register_shallow
 argument_list|(
+name|get_object_hash
+argument_list|(
+operator|*
 name|shallows
 operator|.
 name|objects
@@ -3474,8 +3484,7 @@ name|i
 index|]
 operator|.
 name|item
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

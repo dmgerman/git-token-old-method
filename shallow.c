@@ -599,11 +599,12 @@ name|graft
 operator|=
 name|lookup_commit_graft
 argument_list|(
+name|get_object_hash
+argument_list|(
 name|commit
 operator|->
 name|object
-operator|.
-name|sha1
+argument_list|)
 argument_list|)
 operator|)
 operator|!=

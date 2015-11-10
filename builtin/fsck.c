@@ -1040,9 +1040,11 @@ if|if
 condition|(
 name|has_sha1_pack
 argument_list|(
+name|get_object_hash
+argument_list|(
+operator|*
 name|obj
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 condition|)
 return|return;
@@ -1263,9 +1265,11 @@ argument_list|(
 name|f
 argument_list|)
 argument_list|,
+name|get_object_hash
+argument_list|(
+operator|*
 name|obj
-operator|->
-name|sha1
+argument_list|)
 argument_list|,
 name|NULL
 argument_list|,

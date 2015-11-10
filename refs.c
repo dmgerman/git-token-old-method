@@ -7527,9 +7527,11 @@ name|hashcpy
 argument_list|(
 name|sha1
 argument_list|,
+name|get_object_hash
+argument_list|(
+operator|*
 name|o
-operator|->
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

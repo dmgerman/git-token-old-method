@@ -3332,11 +3332,12 @@ name|it
 operator|->
 name|sha1
 argument_list|,
+name|get_object_hash
+argument_list|(
 name|tree
 operator|->
 name|object
-operator|.
-name|sha1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|init_tree_desc

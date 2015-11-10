@@ -1870,9 +1870,11 @@ name|grab_objectname
 argument_list|(
 name|name
 argument_list|,
+name|get_object_hash
+argument_list|(
+operator|*
 name|obj
-operator|->
-name|sha1
+argument_list|)
 argument_list|,
 name|v
 argument_list|)
@@ -5647,6 +5649,9 @@ return|return;
 comment|/* 	 * If it is a tag object, see if we use a value that derefs 	 * the object, and if we do grab the object it refers to. 	 */
 name|tagged
 operator|=
+name|get_object_hash
+argument_list|(
+operator|*
 operator|(
 operator|(
 expr|struct
@@ -5657,8 +5662,7 @@ name|obj
 operator|)
 operator|->
 name|tagged
-operator|->
-name|sha1
+argument_list|)
 expr_stmt|;
 comment|/* 	 * NEEDSWORK: This derefs tag only once, which 	 * is good to deal with chains of trust, but 	 * is not consistent with what deref_tag() does 	 * which peels the onion to the core. 	 */
 name|buf
@@ -6689,6 +6693,9 @@ name|OBJ_TAG
 condition|)
 name|tagged_sha1
 operator|=
+name|get_object_hash
+argument_list|(
+operator|*
 operator|(
 operator|(
 expr|struct
@@ -6699,8 +6706,7 @@ name|obj
 operator|)
 operator|->
 name|tagged
-operator|->
-name|sha1
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
