@@ -1268,16 +1268,15 @@ modifier|*
 name|name
 decl_stmt|;
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 init|=
-name|get_object_hash
-argument_list|(
-operator|*
+operator|&
 name|obj
-argument_list|)
+operator|->
+name|oid
 decl_stmt|;
 if|if
 condition|(
@@ -1292,9 +1291,9 @@ name|caller_name
 condition|?
 name|caller_name
 else|:
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1337,7 +1336,9 @@ literal|"%s\n"
 argument_list|,
 name|find_unique_abbrev
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|DEFAULT_ABBREV
 argument_list|)
@@ -1348,9 +1349,9 @@ name|die
 argument_list|(
 literal|"cannot describe '%s'"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;

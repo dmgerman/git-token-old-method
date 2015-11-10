@@ -2899,13 +2899,14 @@ name|die
 argument_list|(
 literal|"Could not find author in commit %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2939,13 +2940,14 @@ name|die
 argument_list|(
 literal|"Could not find committer in commit %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3605,13 +3607,14 @@ name|warning
 argument_list|(
 literal|"Omitting tag %s,\nsince tags of trees (or tags of tags of trees, etc.) are not supported."
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3644,13 +3647,14 @@ name|die
 argument_list|(
 literal|"Could not read tag %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3835,13 +3839,14 @@ argument_list|(
 literal|"Encountered signed tag %s; use "
 literal|"--signed-tags=<mode> to handle it."
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3852,13 +3857,14 @@ name|warning
 argument_list|(
 literal|"Exporting signed tag %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3874,13 +3880,14 @@ name|warning
 argument_list|(
 literal|"Stripping signature from tag %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3932,13 +3939,14 @@ argument_list|(
 literal|"Tag %s tags unexported object; use "
 literal|"--tag-of-filtered-object=<mode> to handle it."
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3963,13 +3971,14 @@ name|die
 argument_list|(
 literal|"Tag %s tags unexported %s!"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|typename
@@ -4045,13 +4054,14 @@ name|die
 argument_list|(
 literal|"Can't find replacement commit for tag %s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|tag
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4764,13 +4774,14 @@ literal|" %s\n"
 argument_list|,
 name|mark
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|deco
 operator|->
 name|base
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 operator|<
