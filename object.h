@@ -142,16 +142,6 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_define
-DECL|macro|get_object_hash
-define|#
-directive|define
-name|get_object_hash
-parameter_list|(
-name|x
-parameter_list|)
-value|((x).oid.hash)
-end_define
 begin_function_decl
 specifier|extern
 specifier|const
