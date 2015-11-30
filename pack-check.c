@@ -823,6 +823,8 @@ name|eaten
 init|=
 literal|0
 decl_stmt|;
+name|err
+operator||=
 name|fn
 argument_list|(
 name|entries
