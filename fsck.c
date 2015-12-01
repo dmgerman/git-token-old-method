@@ -3774,8 +3774,8 @@ name|done
 goto|;
 block|}
 block|}
-if|if
-condition|(
+name|ret
+operator|=
 name|verify_headers
 argument_list|(
 name|buffer
@@ -3789,6 +3789,10 @@ name|object
 argument_list|,
 name|options
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ret
 condition|)
 goto|goto
 name|done
