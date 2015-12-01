@@ -84,6 +84,11 @@ include|#
 directive|include
 file|"sha1-array.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sigchain.h"
+end_include
 begin_comment
 comment|/* rsync support */
 end_comment
@@ -6339,6 +6344,13 @@ operator|-
 literal|1
 return|;
 block|}
+name|sigchain_push
+argument_list|(
+name|SIGPIPE
+argument_list|,
+name|SIG_IGN
+argument_list|)
+expr_stmt|;
 name|strbuf_init
 argument_list|(
 operator|&
@@ -6451,12 +6463,17 @@ name|buf
 operator|.
 name|len
 argument_list|)
-operator|!=
-name|buf
-operator|.
-name|len
+operator|<
+literal|0
 condition|)
 block|{
+comment|/* We do not mind if a hook does not read all refs. */
+if|if
+condition|(
+name|errno
+operator|!=
+name|EPIPE
+condition|)
 name|ret
 operator|=
 operator|-
@@ -6488,6 +6505,11 @@ condition|)
 name|ret
 operator|=
 name|x
+expr_stmt|;
+name|sigchain_pop
+argument_list|(
+name|SIGPIPE
+argument_list|)
 expr_stmt|;
 name|x
 operator|=

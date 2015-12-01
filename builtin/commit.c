@@ -137,6 +137,11 @@ include|#
 directive|include
 file|"mailmap.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"sigchain.h"
+end_include
 begin_decl_stmt
 DECL|variable|builtin_commit_usage
 specifier|static
@@ -7969,6 +7974,13 @@ name|newsha1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|sigchain_push
+argument_list|(
+name|SIGPIPE
+argument_list|,
+name|SIG_IGN
+argument_list|)
+expr_stmt|;
 name|write_in_full
 argument_list|(
 name|proc
@@ -7985,6 +7997,11 @@ argument_list|(
 name|proc
 operator|.
 name|in
+argument_list|)
+expr_stmt|;
+name|sigchain_pop
+argument_list|(
+name|SIGPIPE
 argument_list|)
 expr_stmt|;
 return|return
