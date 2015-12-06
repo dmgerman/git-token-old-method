@@ -4571,6 +4571,14 @@ name|GIT_SHA1_RAWSZ
 index|]
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+specifier|extern
+specifier|const
+name|struct
+name|object_id
+name|null_oid
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|hashcmp
 specifier|static
