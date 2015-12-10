@@ -5027,19 +5027,6 @@ name|path
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/* Get the passwd entry for the UID of the current process. */
-end_comment
-begin_function_decl
-name|struct
-name|passwd
-modifier|*
-name|xgetpwuid_self
-parameter_list|(
-name|void
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
