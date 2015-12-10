@@ -3336,7 +3336,9 @@ name|tree
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|init_tree_desc

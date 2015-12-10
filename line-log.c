@@ -2769,7 +2769,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|spec
 operator|->
@@ -4616,7 +4618,9 @@ name|tree
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 else|:
 name|NULL
 argument_list|,
@@ -4626,7 +4630,9 @@ name|tree
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 literal|""
 argument_list|,

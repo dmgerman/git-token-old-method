@@ -986,7 +986,9 @@ name|ent0
 operator|->
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 expr_stmt|;
 name|sha1
 index|[
@@ -999,7 +1001,9 @@ name|ent1
 operator|->
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 expr_stmt|;
 name|diff_tree_sha1
 argument_list|(
@@ -1127,7 +1131,9 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|diff_tree_combined
@@ -1139,7 +1145,9 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|parents
@@ -2054,7 +2062,9 @@ name|parse_object
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|obj
@@ -2170,7 +2180,9 @@ name|sha1
 argument_list|,
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|blob

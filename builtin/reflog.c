@@ -638,7 +638,9 @@ name|c
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 condition|)
 name|c
@@ -804,7 +806,9 @@ name|tree
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 condition|)
 block|{

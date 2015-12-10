@@ -263,11 +263,12 @@ name|die
 argument_list|(
 literal|"object %s tried to add buffer twice!"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|object
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -877,11 +878,12 @@ name|die
 argument_list|(
 literal|"failed to write object %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -984,7 +986,9 @@ name|sha1_object_info
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|size
@@ -1033,11 +1037,12 @@ name|die
 argument_list|(
 literal|"Whoops! Cannot find object '%s'"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1086,11 +1091,12 @@ name|die
 argument_list|(
 literal|"Error on reachable objects of %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -305,7 +305,9 @@ name|hash_obj
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|size
 argument_list|)
@@ -411,7 +413,9 @@ name|sha1
 argument_list|,
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 condition|)
 break|break;
@@ -622,7 +626,9 @@ name|hashcpy
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|sha1
 argument_list|)
@@ -738,11 +744,12 @@ name|error
 argument_list|(
 literal|"object %s is a %s, not a %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|typename

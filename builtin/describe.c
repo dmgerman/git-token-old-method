@@ -1475,7 +1475,9 @@ name|cmit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 if|if
@@ -1519,7 +1521,9 @@ name|tag
 operator|->
 name|tagged
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 else|:
 name|sha1
 argument_list|)
@@ -1554,13 +1558,14 @@ argument_list|(
 literal|"no tag exactly matches '%s'"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|cmit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1874,13 +1879,14 @@ argument_list|(
 literal|"finished search at %s\n"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|c
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1957,17 +1963,17 @@ operator|!
 name|match_cnt
 condition|)
 block|{
-specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 init|=
+operator|&
 name|cmit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 decl_stmt|;
 if|if
 condition|(
@@ -1980,7 +1986,9 @@ literal|"%s"
 argument_list|,
 name|find_unique_abbrev
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|abbrev
 argument_list|)
@@ -2016,9 +2024,9 @@ literal|"No annotated tags can describe '%s'.\n"
 literal|"However, there were unannotated tags: try --tags."
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2031,9 +2039,9 @@ literal|"No tags can describe '%s'.\n"
 literal|"Try --always, or create some tags."
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2179,13 +2187,14 @@ name|max_candidates
 argument_list|,
 name|max_candidates
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|gave_up_on
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2218,7 +2227,9 @@ name|cmit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 if|if

@@ -595,7 +595,9 @@ name|tree
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 block|}
@@ -1128,7 +1130,9 @@ name|item
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|type
@@ -1152,13 +1156,14 @@ name|error
 argument_list|(
 literal|"Could not read %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|item
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 return|;
@@ -1179,13 +1184,14 @@ name|error
 argument_list|(
 literal|"Object %s not a tree"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|item
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 return|;
@@ -1356,7 +1362,9 @@ name|parse_object
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 block|}

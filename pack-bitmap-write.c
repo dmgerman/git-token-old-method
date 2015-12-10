@@ -720,7 +720,9 @@ name|find_object_pos
 argument_list|(
 name|object
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -788,7 +790,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 decl_stmt|;
 if|if
@@ -815,7 +819,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 if|if
@@ -1475,7 +1481,9 @@ name|bitmaps
 argument_list|,
 name|object
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|hash_ret
@@ -1491,11 +1499,12 @@ name|die
 argument_list|(
 literal|"Duplicate entry when writing index: %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|object
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2003,7 +2012,9 @@ name|chosen
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 block|}
@@ -2052,7 +2063,9 @@ name|cm
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 if|if
@@ -2303,7 +2316,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|index
 argument_list|,

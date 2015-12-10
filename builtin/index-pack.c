@@ -1026,11 +1026,12 @@ argument_list|(
 literal|"object type mismatch at %s"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1105,7 +1106,9 @@ name|sha1_object_info
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 operator|&
 name|size
@@ -1124,11 +1127,12 @@ argument_list|(
 literal|"did not receive expected object %s"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1147,11 +1151,12 @@ argument_list|(
 literal|"object %s: expected type %s, found %s"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|typename
@@ -4660,11 +4665,12 @@ argument_list|(
 literal|"Not all child objects of %s are reachable"
 argument_list|)
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -716,8 +716,9 @@ name|pipe_fd
 argument_list|,
 literal|"%s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|want_obj
 operator|.
 name|objects
@@ -727,7 +728,7 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -759,8 +760,9 @@ name|pipe_fd
 argument_list|,
 literal|"%s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|have_obj
 operator|.
 name|objects
@@ -770,7 +772,7 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -795,8 +797,9 @@ name|pipe_fd
 argument_list|,
 literal|"%s\n"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|extra_edge_obj
 operator|.
 name|objects
@@ -806,7 +809,7 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1634,7 +1637,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 if|if
@@ -2443,14 +2448,15 @@ name|namebuf
 operator|+
 literal|1
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|o
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
-literal|40
+name|GIT_SHA1_HEXSZ
 argument_list|)
 expr_stmt|;
 if|if
@@ -2518,14 +2524,15 @@ name|memcpy
 argument_list|(
 name|namebuf
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|o
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
-literal|40
+name|GIT_SHA1_HEXSZ
 argument_list|)
 expr_stmt|;
 if|if
@@ -2643,11 +2650,12 @@ name|die
 argument_list|(
 literal|"git upload-pack: not our ref %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|o
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3250,11 +3258,12 @@ literal|1
 argument_list|,
 literal|"shallow %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|object
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3262,7 +3271,9 @@ name|register_shallow
 argument_list|(
 name|object
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|shallow_nr
@@ -3331,11 +3342,12 @@ literal|1
 argument_list|,
 literal|"unshallow %s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
+operator|&
 name|object
 operator|->
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3351,7 +3363,9 @@ name|unregister_shallow
 argument_list|(
 name|object
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|object
@@ -3426,7 +3440,9 @@ name|register_shallow
 argument_list|(
 name|object
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 block|}
@@ -3475,7 +3491,9 @@ index|]
 operator|.
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 block|}

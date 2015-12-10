@@ -2419,7 +2419,9 @@ name|ent
 operator|->
 name|item
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|ent
 operator|->

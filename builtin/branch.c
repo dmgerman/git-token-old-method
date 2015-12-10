@@ -1754,7 +1754,9 @@ name|commit
 operator|->
 name|object
 operator|.
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|filter
 operator|->

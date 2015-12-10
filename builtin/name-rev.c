@@ -878,7 +878,9 @@ name|t
 operator|->
 name|tagged
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 expr_stmt|;
 name|deref
@@ -1049,7 +1051,9 @@ name|sha1_pos
 argument_list|(
 name|o
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|,
 name|tip_table
 operator|.
@@ -1264,14 +1268,15 @@ modifier|*
 name|name
 decl_stmt|;
 specifier|const
-name|unsigned
-name|char
+name|struct
+name|object_id
 modifier|*
-name|sha1
+name|oid
 init|=
+operator|&
 name|obj
 operator|->
-name|sha1
+name|oid
 decl_stmt|;
 if|if
 condition|(
@@ -1286,9 +1291,9 @@ name|caller_name
 condition|?
 name|caller_name
 else|:
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1331,7 +1336,9 @@ literal|"%s\n"
 argument_list|,
 name|find_unique_abbrev
 argument_list|(
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|DEFAULT_ABBREV
 argument_list|)
@@ -1342,9 +1349,9 @@ name|die
 argument_list|(
 literal|"cannot describe '%s'"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
-name|sha1
+name|oid
 argument_list|)
 argument_list|)
 expr_stmt|;

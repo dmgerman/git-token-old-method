@@ -40,7 +40,9 @@ name|sha1hash
 argument_list|(
 name|obj
 operator|->
-name|sha1
+name|oid
+operator|.
+name|hash
 argument_list|)
 operator|%
 name|n
