@@ -37,6 +37,13 @@ init|=
 name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|default_email_is_bogus
+specifier|static
+name|int
+name|default_email_is_bogus
+decl_stmt|;
+end_decl_stmt
 begin_define
 DECL|macro|IDENT_NAME_GIVEN
 define|#
@@ -398,6 +405,10 @@ name|struct
 name|strbuf
 modifier|*
 name|out
+parameter_list|,
+name|int
+modifier|*
+name|is_bogus
 parameter_list|)
 block|{
 name|char
@@ -440,6 +451,11 @@ name|out
 argument_list|,
 literal|"(none)"
 argument_list|)
+expr_stmt|;
+operator|*
+name|is_bogus
+operator|=
+literal|1
 expr_stmt|;
 return|return;
 block|}
@@ -490,6 +506,7 @@ name|h_name
 argument_list|)
 expr_stmt|;
 else|else
+block|{
 name|strbuf_addf
 argument_list|(
 name|out
@@ -499,6 +516,12 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
+operator|*
+name|is_bogus
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -517,6 +540,10 @@ name|struct
 name|strbuf
 modifier|*
 name|email
+parameter_list|,
+name|int
+modifier|*
+name|is_bogus
 parameter_list|)
 block|{
 comment|/* 	 * Make up a fake email address 	 * (name + '@' + hostname [+ '.' + domainname]) 	 */
@@ -549,6 +576,8 @@ comment|/* read from "/etc/mailname" (Debian) */
 name|add_domainname
 argument_list|(
 name|email
+argument_list|,
+name|is_bogus
 argument_list|)
 expr_stmt|;
 block|}
@@ -657,6 +686,9 @@ argument_list|()
 argument_list|,
 operator|&
 name|git_default_email
+argument_list|,
+operator|&
+name|default_email_is_bogus
 argument_list|)
 expr_stmt|;
 name|strbuf_trim
@@ -1494,12 +1526,7 @@ name|git_default_email
 operator|.
 name|buf
 operator|&&
-name|strstr
-argument_list|(
-name|email
-argument_list|,
-literal|"(none)"
-argument_list|)
+name|default_email_is_bogus
 condition|)
 block|{
 name|fputs
