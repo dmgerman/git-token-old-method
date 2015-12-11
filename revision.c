@@ -732,11 +732,6 @@ name|struct
 name|object
 modifier|*
 name|obj
-init|=
-operator|&
-name|tree
-operator|->
-name|object
 decl_stmt|;
 if|if
 condition|(
@@ -744,6 +739,13 @@ operator|!
 name|tree
 condition|)
 return|return;
+name|obj
+operator|=
+operator|&
+name|tree
+operator|->
+name|object
+expr_stmt|;
 if|if
 condition|(
 name|obj
