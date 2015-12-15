@@ -604,6 +604,11 @@ name|abbrev_commit_given
 range|:
 literal|1
 decl_stmt|,
+DECL|member|zero_commit
+name|zero_commit
+range|:
+literal|1
+decl_stmt|,
 DECL|member|use_terminator
 name|use_terminator
 range|:
