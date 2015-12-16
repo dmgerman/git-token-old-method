@@ -225,6 +225,15 @@ name|update_shallow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|max_children
+specifier|static
+name|int
+name|max_children
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|depth
 specifier|static
 specifier|const
@@ -609,6 +618,21 @@ literal|"do not fetch all tags (--no-tags)"
 argument_list|)
 argument_list|,
 name|TAGS_UNSET
+argument_list|)
+block|,
+name|OPT_INTEGER
+argument_list|(
+literal|'j'
+argument_list|,
+literal|"jobs"
+argument_list|,
+operator|&
+name|max_children
+argument_list|,
+name|N_
+argument_list|(
+literal|"number of submodules fetched in parallel"
+argument_list|)
 argument_list|)
 block|,
 name|OPT_BOOL
@@ -6585,6 +6609,8 @@ argument_list|,
 name|verbosity
 operator|<
 literal|0
+argument_list|,
+name|max_children
 argument_list|)
 expr_stmt|;
 name|argv_array_clear
