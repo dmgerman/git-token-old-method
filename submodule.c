@@ -3847,8 +3847,10 @@ condition|(
 operator|!
 name|quiet
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Fetching submodule %s%s\n"
 argument_list|,
 name|prefix
