@@ -1794,6 +1794,13 @@ name|name
 init|=
 name|oid_to_hex
 argument_list|(
+name|opt
+operator|->
+name|zero_commit
+condition|?
+operator|&
+name|null_oid
+else|:
 operator|&
 name|commit
 operator|->
