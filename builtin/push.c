@@ -2673,10 +2673,7 @@ block|,
 operator|&
 name|recurse_submodules
 block|,
-name|N_
-argument_list|(
 literal|"check|on-demand|no"
-argument_list|)
 block|,
 name|N_
 argument_list|(
