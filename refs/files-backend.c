@@ -12417,6 +12417,17 @@ name|errno
 argument_list|)
 argument_list|)
 return|;
+name|update_symref_reflog
+argument_list|(
+name|lock
+argument_list|,
+name|refname
+argument_list|,
+name|target
+argument_list|,
+name|logmsg
+argument_list|)
+expr_stmt|;
 comment|/* no error check; commit_ref will check ferror */
 name|fprintf
 argument_list|(
@@ -12455,17 +12466,6 @@ name|errno
 argument_list|)
 argument_list|)
 return|;
-name|update_symref_reflog
-argument_list|(
-name|lock
-argument_list|,
-name|refname
-argument_list|,
-name|target
-argument_list|,
-name|logmsg
-argument_list|)
-expr_stmt|;
 return|return
 literal|0
 return|;
