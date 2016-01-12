@@ -2559,7 +2559,7 @@ argument_list|)
 block|,
 name|OPT_BOOL
 argument_list|(
-literal|0
+literal|'d'
 argument_list|,
 literal|"delete"
 argument_list|,
