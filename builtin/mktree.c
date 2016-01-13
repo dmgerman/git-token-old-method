@@ -442,7 +442,7 @@ name|size_t
 name|len
 parameter_list|,
 name|int
-name|line_termination
+name|nul_term_line
 parameter_list|,
 name|int
 name|allow_missing
@@ -597,7 +597,8 @@ expr_stmt|;
 comment|/* at the beginning of name */
 if|if
 condition|(
-name|line_termination
+operator|!
+name|nul_term_line
 operator|&&
 name|path
 index|[
@@ -794,9 +795,9 @@ literal|20
 index|]
 decl_stmt|;
 name|int
-name|line_termination
+name|nul_term_line
 init|=
-literal|'\n'
+literal|0
 decl_stmt|;
 name|int
 name|allow_missing
@@ -813,6 +814,9 @@ name|got_eof
 init|=
 literal|0
 decl_stmt|;
+name|strbuf_getline_fn
+name|getline_fn
+decl_stmt|;
 specifier|const
 name|struct
 name|option
@@ -820,21 +824,19 @@ name|option
 index|[]
 init|=
 block|{
-name|OPT_SET_INT
+name|OPT_BOOL
 argument_list|(
 literal|'z'
 argument_list|,
 name|NULL
 argument_list|,
 operator|&
-name|line_termination
+name|nul_term_line
 argument_list|,
 name|N_
 argument_list|(
 literal|"input is NUL terminated"
 argument_list|)
-argument_list|,
-literal|'\0'
 argument_list|)
 block|,
 name|OPT_SET_INT
@@ -892,6 +894,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|getline_fn
+operator|=
+name|nul_term_line
+condition|?
+name|strbuf_getline_nul
+else|:
+name|strbuf_getline_lf
+expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -905,14 +915,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|strbuf_getline
+name|getline_fn
 argument_list|(
 operator|&
 name|sb
 argument_list|,
 name|stdin
-argument_list|,
-name|line_termination
 argument_list|)
 operator|==
 name|EOF
@@ -958,7 +966,7 @@ name|sb
 operator|.
 name|len
 argument_list|,
-name|line_termination
+name|nul_term_line
 argument_list|,
 name|allow_missing
 argument_list|)
