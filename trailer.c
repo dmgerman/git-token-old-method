@@ -642,6 +642,10 @@ specifier|static
 name|void
 name|print_tok_val
 parameter_list|(
+name|FILE
+modifier|*
+name|outfile
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -676,8 +680,10 @@ argument_list|,
 name|c
 argument_list|)
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|outfile
+argument_list|,
 literal|"%s%s\n"
 argument_list|,
 name|tok
@@ -686,8 +692,10 @@ name|val
 argument_list|)
 expr_stmt|;
 else|else
-name|printf
+name|fprintf
 argument_list|(
+name|outfile
+argument_list|,
 literal|"%s%c %s\n"
 argument_list|,
 name|tok
@@ -708,6 +716,10 @@ specifier|static
 name|void
 name|print_all
 parameter_list|(
+name|FILE
+modifier|*
+name|outfile
+parameter_list|,
 name|struct
 name|trailer_item
 modifier|*
@@ -753,6 +765,8 @@ literal|0
 condition|)
 name|print_tok_val
 argument_list|(
+name|outfile
+argument_list|,
 name|item
 operator|->
 name|token
@@ -4373,6 +4387,10 @@ specifier|static
 name|void
 name|print_lines
 parameter_list|(
+name|FILE
+modifier|*
+name|outfile
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -4407,8 +4425,10 @@ condition|;
 name|i
 operator|++
 control|)
-name|printf
+name|fprintf
 argument_list|(
+name|outfile
+argument_list|,
 literal|"%s"
 argument_list|,
 name|lines
@@ -4427,6 +4447,10 @@ specifier|static
 name|int
 name|process_input_file
 parameter_list|(
+name|FILE
+modifier|*
+name|outfile
+parameter_list|,
 name|struct
 name|strbuf
 modifier|*
@@ -4501,6 +4525,8 @@ expr_stmt|;
 comment|/* Print lines before the trailers as is */
 name|print_lines
 argument_list|(
+name|outfile
+argument_list|,
 name|lines
 argument_list|,
 literal|0
@@ -4520,8 +4546,10 @@ operator|-
 literal|1
 argument_list|)
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|outfile
+argument_list|,
 literal|"\n"
 argument_list|)
 expr_stmt|;
@@ -4670,6 +4698,12 @@ decl_stmt|;
 name|int
 name|trailer_end
 decl_stmt|;
+name|FILE
+modifier|*
+name|outfile
+init|=
+name|stdout
+decl_stmt|;
 comment|/* Default config must be setup first */
 name|git_config
 argument_list|(
@@ -4697,6 +4731,8 @@ name|trailer_end
 operator|=
 name|process_input_file
 argument_list|(
+name|outfile
+argument_list|,
 name|lines
 argument_list|,
 operator|&
@@ -4727,6 +4763,8 @@ argument_list|)
 expr_stmt|;
 name|print_all
 argument_list|(
+name|outfile
+argument_list|,
 name|in_tok_first
 argument_list|,
 name|trim_empty
@@ -4741,6 +4779,8 @@ expr_stmt|;
 comment|/* Print the lines after the trailers as is */
 name|print_lines
 argument_list|(
+name|outfile
+argument_list|,
 name|lines
 argument_list|,
 name|trailer_end
