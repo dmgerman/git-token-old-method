@@ -753,7 +753,7 @@ name|no_disconnect_req
 operator|=
 literal|0
 expr_stmt|;
-comment|/* 	 * Open the output as FILE* so strbuf_getline() can be used. 	 * Do this with duped fd because fclose() will close the fd, 	 * and stuff like taking over will require the fd to remain. 	 */
+comment|/* 	 * Open the output as FILE* so strbuf_getline_*() family of 	 * functions can be used. 	 * Do this with duped fd because fclose() will close the fd, 	 * and stuff like taking over will require the fd to remain. 	 */
 name|duped
 operator|=
 name|dup
