@@ -358,6 +358,9 @@ argument_list|(
 operator|(
 name|DWORD
 operator|)
+operator|(
+name|intptr_t
+operator|)
 name|ret
 argument_list|)
 expr_stmt|;
