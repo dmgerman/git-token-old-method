@@ -124,6 +124,11 @@ name|x
 parameter_list|)
 value|0
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|S_IRWXG
+end_ifndef
 begin_define
 DECL|macro|S_IRGRP
 define|#
@@ -152,6 +157,15 @@ directive|define
 name|S_IRWXG
 value|(S_IRGRP | S_IWGRP | S_IXGRP)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|S_IRWXO
+end_ifndef
 begin_define
 DECL|macro|S_IROTH
 define|#
@@ -180,6 +194,10 @@ directive|define
 name|S_IRWXO
 value|(S_IROTH | S_IWOTH | S_IXOTH)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|S_ISUID
 define|#
