@@ -1830,10 +1830,6 @@ specifier|const
 name|char
 modifier|*
 modifier|*
-parameter_list|,
-specifier|const
-name|char
-modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
