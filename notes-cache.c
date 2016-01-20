@@ -177,7 +177,7 @@ decl_stmt|;
 name|int
 name|flags
 init|=
-literal|0
+name|NOTES_INIT_WRITABLE
 decl_stmt|;
 name|memset
 argument_list|(
@@ -224,7 +224,7 @@ name|validity
 argument_list|)
 condition|)
 name|flags
-operator|=
+operator||=
 name|NOTES_INIT_EMPTY
 expr_stmt|;
 name|init_notes
@@ -293,7 +293,7 @@ name|c
 operator|->
 name|tree
 operator|.
-name|ref
+name|update_ref
 operator|||
 operator|!
 operator|*
@@ -301,7 +301,7 @@ name|c
 operator|->
 name|tree
 operator|.
-name|ref
+name|update_ref
 condition|)
 return|return
 operator|-
@@ -377,7 +377,7 @@ name|c
 operator|->
 name|tree
 operator|.
-name|ref
+name|update_ref
 argument_list|,
 name|commit_sha1
 argument_list|,
