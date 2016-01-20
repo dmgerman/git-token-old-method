@@ -53,6 +53,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"pack-revindex.h"
+end_include
+begin_include
+include|#
+directive|include
 include|SHA1_HEADER
 end_include
 begin_ifndef
@@ -7572,6 +7577,12 @@ name|sha1
 index|[
 literal|20
 index|]
+decl_stmt|;
+DECL|member|revindex
+name|struct
+name|revindex_entry
+modifier|*
+name|revindex
 decl_stmt|;
 comment|/* something like ".git/objects/pack/xxxxx.pack" */
 DECL|member|pack_name
