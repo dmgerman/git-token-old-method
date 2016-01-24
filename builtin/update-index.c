@@ -145,6 +145,33 @@ init|=
 name|STRBUF_INIT
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|/* Untracked cache mode */
+end_comment
+begin_enum
+DECL|enum|uc_mode
+enum|enum
+name|uc_mode
+block|{
+DECL|enumerator|UC_UNSPECIFIED
+name|UC_UNSPECIFIED
+init|=
+operator|-
+literal|1
+block|,
+DECL|enumerator|UC_DISABLE
+name|UC_DISABLE
+init|=
+literal|0
+block|,
+DECL|enumerator|UC_ENABLE
+name|UC_ENABLE
+block|,
+DECL|enumerator|UC_FORCE
+name|UC_FORCE
+block|}
+enum|;
+end_enum
 begin_macro
 name|__attribute__
 argument_list|(
@@ -4419,11 +4446,11 @@ name|line_termination
 init|=
 literal|'\n'
 decl_stmt|;
-name|int
+name|enum
+name|uc_mode
 name|untracked_cache
 init|=
-operator|-
-literal|1
+name|UC_UNSPECIFIED
 decl_stmt|;
 name|int
 name|read_from_stdin
@@ -5095,7 +5122,7 @@ argument_list|(
 literal|"enable untracked cache without testing the filesystem"
 argument_list|)
 argument_list|,
-literal|2
+name|UC_FORCE
 argument_list|)
 block|,
 name|OPT_END
@@ -5602,7 +5629,7 @@ if|if
 condition|(
 name|untracked_cache
 operator|>
-literal|0
+name|UC_DISABLE
 condition|)
 block|{
 name|struct
@@ -5614,7 +5641,7 @@ if|if
 condition|(
 name|untracked_cache
 operator|<
-literal|2
+name|UC_FORCE
 condition|)
 block|{
 name|setup_work_tree
@@ -5700,8 +5727,9 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
 name|untracked_cache
+operator|==
+name|UC_DISABLE
 operator|&&
 name|the_index
 operator|.
