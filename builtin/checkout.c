@@ -3532,6 +3532,8 @@ name|path
 condition|)
 block|{
 comment|/* Switch branches. */
+if|if
+condition|(
 name|create_symref
 argument_list|(
 literal|"HEAD"
@@ -3543,6 +3545,13 @@ argument_list|,
 name|msg
 operator|.
 name|buf
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+literal|"unable to update HEAD"
 argument_list|)
 expr_stmt|;
 if|if
