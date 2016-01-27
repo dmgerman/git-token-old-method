@@ -465,6 +465,9 @@ name|int
 name|count
 parameter_list|,
 name|int
+name|needs_cr
+parameter_list|,
+name|int
 name|add_nl
 parameter_list|,
 name|char
@@ -597,6 +600,26 @@ condition|)
 block|{
 if|if
 condition|(
+name|needs_cr
+condition|)
+block|{
+if|if
+condition|(
+name|dest
+condition|)
+name|dest
+index|[
+name|size
+index|]
+operator|=
+literal|'\r'
+expr_stmt|;
+name|size
+operator|++
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|dest
 condition|)
 name|dest
@@ -633,6 +656,9 @@ name|int
 name|count
 parameter_list|,
 name|int
+name|needs_cr
+parameter_list|,
+name|int
 name|add_nl
 parameter_list|,
 name|char
@@ -650,6 +676,8 @@ argument_list|,
 name|i
 argument_list|,
 name|count
+argument_list|,
+name|needs_cr
 argument_list|,
 name|add_nl
 argument_list|,
@@ -675,6 +703,9 @@ name|int
 name|count
 parameter_list|,
 name|int
+name|needs_cr
+parameter_list|,
+name|int
 name|add_nl
 parameter_list|,
 name|char
@@ -692,6 +723,8 @@ argument_list|,
 name|i
 argument_list|,
 name|count
+argument_list|,
+name|needs_cr
 argument_list|,
 name|add_nl
 argument_list|,
@@ -1114,6 +1147,8 @@ name|i
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 name|dest
 condition|?
 name|dest
@@ -1224,6 +1259,8 @@ argument_list|,
 name|m
 operator|->
 name|chg1
+argument_list|,
+name|needs_cr
 argument_list|,
 literal|1
 argument_list|,
@@ -1345,6 +1382,8 @@ name|m
 operator|->
 name|chg0
 argument_list|,
+name|needs_cr
+argument_list|,
 literal|1
 argument_list|,
 name|dest
@@ -1424,6 +1463,8 @@ argument_list|,
 name|m
 operator|->
 name|chg2
+argument_list|,
+name|needs_cr
 argument_list|,
 literal|1
 argument_list|,
@@ -1674,6 +1715,8 @@ name|i
 argument_list|,
 literal|0
 argument_list|,
+literal|0
+argument_list|,
 name|dest
 condition|?
 name|dest
@@ -1692,6 +1735,19 @@ name|mode
 operator|&
 literal|1
 condition|)
+block|{
+name|int
+name|needs_cr
+init|=
+name|is_cr_needed
+argument_list|(
+name|xe1
+argument_list|,
+name|xe2
+argument_list|,
+name|m
+argument_list|)
+decl_stmt|;
 name|size
 operator|+=
 name|xdl_recs_copy
@@ -1705,6 +1761,8 @@ argument_list|,
 name|m
 operator|->
 name|chg1
+argument_list|,
+name|needs_cr
 argument_list|,
 operator|(
 name|m
@@ -1723,6 +1781,7 @@ else|:
 name|NULL
 argument_list|)
 expr_stmt|;
+block|}
 comment|/* Postimage from side #2 */
 if|if
 condition|(
@@ -1745,6 +1804,8 @@ argument_list|,
 name|m
 operator|->
 name|chg2
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -1786,6 +1847,8 @@ operator|.
 name|nrec
 operator|-
 name|i
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
