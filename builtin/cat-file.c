@@ -2006,14 +2006,12 @@ literal|0
 expr_stmt|;
 while|while
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 operator|&
 name|buf
 argument_list|,
 name|stdin
-argument_list|,
-literal|'\n'
 argument_list|)
 operator|!=
 name|EOF

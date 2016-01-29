@@ -1878,14 +1878,12 @@ control|)
 block|{
 if|if
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 operator|&
 name|sb
 argument_list|,
 name|stdin
-argument_list|,
-literal|'\n'
 argument_list|)
 operator|==
 name|EOF
@@ -1957,14 +1955,12 @@ block|}
 comment|/* parse: (<short>|<short>,<long>|<long>)[*=?!]*<arghint>? SP+<help> */
 while|while
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 operator|&
 name|sb
 argument_list|,
 name|stdin
-argument_list|,
-literal|'\n'
 argument_list|)
 operator|!=
 name|EOF
