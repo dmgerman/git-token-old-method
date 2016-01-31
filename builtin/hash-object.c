@@ -323,8 +323,10 @@ name|strbuf
 name|buf
 init|=
 name|STRBUF_INIT
-decl_stmt|,
-name|nbuf
+decl_stmt|;
+name|struct
+name|strbuf
+name|unquoted
 init|=
 name|STRBUF_INIT
 decl_stmt|;
@@ -356,7 +358,7 @@ block|{
 name|strbuf_reset
 argument_list|(
 operator|&
-name|nbuf
+name|unquoted
 argument_list|)
 expr_stmt|;
 if|if
@@ -364,7 +366,7 @@ condition|(
 name|unquote_c_style
 argument_list|(
 operator|&
-name|nbuf
+name|unquoted
 argument_list|,
 name|buf
 operator|.
@@ -384,7 +386,7 @@ operator|&
 name|buf
 argument_list|,
 operator|&
-name|nbuf
+name|unquoted
 argument_list|)
 expr_stmt|;
 block|}
@@ -419,7 +421,7 @@ expr_stmt|;
 name|strbuf_release
 argument_list|(
 operator|&
-name|nbuf
+name|unquoted
 argument_list|)
 expr_stmt|;
 block|}
