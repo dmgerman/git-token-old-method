@@ -1878,7 +1878,7 @@ control|)
 block|{
 if|if
 condition|(
-name|strbuf_getline_lf
+name|strbuf_getline
 argument_list|(
 operator|&
 name|sb
@@ -1955,7 +1955,7 @@ block|}
 comment|/* parse: (<short>|<short>,<long>|<long>)[*=?!]*<arghint>? SP+<help> */
 while|while
 condition|(
-name|strbuf_getline_lf
+name|strbuf_getline
 argument_list|(
 operator|&
 name|sb
