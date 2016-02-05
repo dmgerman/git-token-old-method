@@ -817,6 +817,14 @@ end_comment
 begin_if
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|NO_UNALIGNED_LOADS
+argument_list|)
+operator|&&
+operator|(
+expr|\
 name|defined
 argument_list|(
 name|__i386__
@@ -870,6 +878,7 @@ name|defined
 argument_list|(
 name|__s390x__
 argument_list|)
+operator|)
 end_if
 begin_define
 DECL|macro|get_be16

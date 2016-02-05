@@ -8473,7 +8473,7 @@ name|j
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 name|k
 operator|)
