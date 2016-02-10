@@ -1945,6 +1945,10 @@ if|if
 condition|(
 operator|!
 name|cmd
+operator|||
+operator|!
+operator|*
+name|cmd
 condition|)
 return|return
 literal|0
