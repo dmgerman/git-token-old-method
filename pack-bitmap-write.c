@@ -689,15 +689,10 @@ name|object
 modifier|*
 name|object
 parameter_list|,
-name|struct
-name|strbuf
-modifier|*
-name|path
-parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|last
+name|name
 parameter_list|,
 name|void
 modifier|*

@@ -192,11 +192,6 @@ name|object
 modifier|*
 name|obj
 parameter_list|,
-name|struct
-name|strbuf
-modifier|*
-name|path
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -236,8 +231,6 @@ operator|&
 name|c
 operator|->
 name|object
-argument_list|,
-name|NULL
 argument_list|,
 name|NULL
 argument_list|,
