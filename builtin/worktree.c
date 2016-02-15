@@ -1130,15 +1130,6 @@ expr_stmt|;
 comment|/* is 'refname' a branch or commit? */
 if|if
 condition|(
-name|opts
-operator|->
-name|force_new_branch
-condition|)
-comment|/* definitely a branch */
-empty_stmt|;
-elseif|else
-if|if
-condition|(
 operator|!
 name|opts
 operator|->
