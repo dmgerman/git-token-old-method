@@ -5789,6 +5789,7 @@ name|url
 argument_list|,
 literal|"git+ssh://"
 argument_list|)
+comment|/* deprecated - do not use */
 operator|||
 name|starts_with
 argument_list|(
@@ -5796,6 +5797,7 @@ name|url
 argument_list|,
 literal|"ssh+git://"
 argument_list|)
+comment|/* deprecated - do not use */
 condition|)
 block|{
 comment|/* 		 * These are builtin smart transports; "allowed" transports 		 * will be checked individually in git_connect. 		 */
