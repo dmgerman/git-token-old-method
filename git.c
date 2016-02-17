@@ -106,10 +106,10 @@ index|]
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|saved_env_before_alias
+DECL|variable|save_restore_env_balance
 specifier|static
 name|int
-name|saved_env_before_alias
+name|save_restore_env_balance
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -124,12 +124,14 @@ block|{
 name|int
 name|i
 decl_stmt|;
-if|if
-condition|(
-name|saved_env_before_alias
-condition|)
-return|return;
-name|saved_env_before_alias
+name|assert
+argument_list|(
+name|save_restore_env_balance
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|save_restore_env_balance
 operator|=
 literal|1
 expr_stmt|;
@@ -204,6 +206,17 @@ block|{
 name|int
 name|i
 decl_stmt|;
+name|assert
+argument_list|(
+name|save_restore_env_balance
+operator|==
+literal|1
+argument_list|)
+expr_stmt|;
+name|save_restore_env_balance
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -268,6 +281,7 @@ index|[
 name|i
 index|]
 condition|)
+block|{
 name|setenv
 argument_list|(
 name|env_names
@@ -283,7 +297,17 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|free
+argument_list|(
+name|orig_env
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 else|else
+block|{
 name|unsetenv
 argument_list|(
 name|env_names
@@ -292,6 +316,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -3334,13 +3359,6 @@ if|if
 condition|(
 name|builtin
 condition|)
-block|{
-comment|/* 		 * XXX: if we can figure out cases where it is _safe_ 		 * to do, we can avoid spawning a new process when 		 * saved_env_before_alias is true 		 * (i.e. setup_git_dir* has been run once) 		 */
-if|if
-condition|(
-operator|!
-name|saved_env_before_alias
-condition|)
 name|exit
 argument_list|(
 name|run_builtin
@@ -3353,7 +3371,6 @@ name|argv
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -3510,7 +3527,12 @@ condition|(
 literal|1
 condition|)
 block|{
-comment|/* See if it's a builtin */
+comment|/* 		 * If we tried alias and futzed with our environment, 		 * it no longer is safe to invoke builtins directly in 		 * general.  We have to spawn them as dashed externals. 		 * 		 * NEEDSWORK: if we can figure out cases 		 * where it is safe to do, we can avoid spawning a new 		 * process. 		 */
+if|if
+condition|(
+operator|!
+name|done_alias
+condition|)
 name|handle_builtin
 argument_list|(
 operator|*
