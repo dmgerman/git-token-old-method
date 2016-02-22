@@ -5125,7 +5125,7 @@ name|opts
 operator|->
 name|no_commit
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5140,7 +5140,7 @@ name|opts
 operator|->
 name|edit
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5155,7 +5155,7 @@ name|opts
 operator|->
 name|signoff
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5170,7 +5170,7 @@ name|opts
 operator|->
 name|record_origin
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5185,7 +5185,7 @@ name|opts
 operator|->
 name|allow_ff
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5219,7 +5219,7 @@ operator|->
 name|mainline
 argument_list|)
 expr_stmt|;
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5243,7 +5243,7 @@ name|opts
 operator|->
 name|strategy
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5260,7 +5260,7 @@ name|opts
 operator|->
 name|gpg_sign
 condition|)
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
@@ -5296,7 +5296,7 @@ condition|;
 name|i
 operator|++
 control|)
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_or_die
 argument_list|(
 name|opts_file
 argument_list|,
