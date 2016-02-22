@@ -9728,7 +9728,7 @@ if|if
 condition|(
 name|add_mode
 condition|)
-name|git_config_set_multivar
+name|git_config_set_multivar_or_die
 argument_list|(
 name|name_buf
 operator|.
@@ -9742,7 +9742,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 else|else
-name|git_config_set
+name|git_config_set_or_die
 argument_list|(
 name|name_buf
 operator|.
@@ -9871,7 +9871,7 @@ condition|(
 operator|!
 name|delete_mode
 condition|)
-name|git_config_set_multivar
+name|git_config_set_multivar_or_die
 argument_list|(
 name|name_buf
 operator|.
@@ -9885,7 +9885,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 else|else
-name|git_config_set_multivar
+name|git_config_set_multivar_or_die
 argument_list|(
 name|name_buf
 operator|.
