@@ -9364,9 +9364,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|git_config_set_in_file
+DECL|function|git_config_set_in_file_gently
 name|int
-name|git_config_set_in_file
+name|git_config_set_in_file_gently
 parameter_list|(
 specifier|const
 name|char
@@ -9385,7 +9385,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|config_filename
 argument_list|,
@@ -9437,9 +9437,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|git_config_set
+DECL|function|git_config_set_gently
 name|int
-name|git_config_set
+name|git_config_set_gently
 parameter_list|(
 specifier|const
 name|char
@@ -9453,7 +9453,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|git_config_set_multivar
+name|git_config_set_multivar_gently
 argument_list|(
 name|key
 argument_list|,
@@ -9870,9 +9870,9 @@ begin_comment
 comment|/*  * If value==NULL, unset in (remove from) config,  * if value_regex!=NULL, disregard key/value pairs where value does not match.  * if value_regex==CONFIG_REGEX_NONE, do not match any existing values  *     (only add a new one)  * if multi_replace==0, nothing, or only one matching key/value is replaced,  *     else all matching key/values (regardless how many) are removed,  *     before the new pair is written.  *  * Returns 0 on success.  *  * This function does this:  *  * - it locks the config file by creating ".git/config.lock"  *  * - it then parses the config using store_aux() as validator to find  *   the position on the key/value pair to replace. If it is to be unset,  *   it must be found exactly once.  *  * - the config file is mmap()ed and the part before the match (if any) is  *   written to the lock file, then the changed part and the rest.  *  * - the config file is removed and the lock file rename()d to it.  *  */
 end_comment
 begin_function
-DECL|function|git_config_set_multivar_in_file
+DECL|function|git_config_set_multivar_in_file_gently
 name|int
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 parameter_list|(
 specifier|const
 name|char
@@ -10973,7 +10973,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|config_filename
 argument_list|,
@@ -11003,9 +11003,9 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|git_config_set_multivar
+DECL|function|git_config_set_multivar_gently
 name|int
-name|git_config_set_multivar
+name|git_config_set_multivar_gently
 parameter_list|(
 specifier|const
 name|char
@@ -11027,7 +11027,7 @@ name|multi_replace
 parameter_list|)
 block|{
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|NULL
 argument_list|,
