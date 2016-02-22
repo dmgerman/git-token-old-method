@@ -4230,6 +4230,18 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_define
+DECL|macro|ALLOC_ARRAY
+define|#
+directive|define
+name|ALLOC_ARRAY
+parameter_list|(
+name|x
+parameter_list|,
+name|alloc
+parameter_list|)
+value|(x) = xmalloc(st_mult(sizeof(*(x)), (alloc)))
+end_define
+begin_define
 DECL|macro|REALLOC_ARRAY
 define|#
 directive|define
@@ -4239,7 +4251,7 @@ name|x
 parameter_list|,
 name|alloc
 parameter_list|)
-value|(x) = xrealloc((x), (alloc) * sizeof(*(x)))
+value|(x) = xrealloc((x), st_mult(sizeof(*(x)), (alloc)))
 end_define
 begin_function
 DECL|function|xstrdup_or_null
