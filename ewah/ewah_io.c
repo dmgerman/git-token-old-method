@@ -684,11 +684,7 @@ argument_list|(
 name|uint32_t
 argument_list|)
 expr_stmt|;
-name|self
-operator|->
-name|buffer
-operator|=
-name|xrealloc
+name|REALLOC_ARRAY
 argument_list|(
 name|self
 operator|->
@@ -697,11 +693,6 @@ argument_list|,
 name|self
 operator|->
 name|alloc_size
-operator|*
-sizeof|sizeof
-argument_list|(
-name|eword_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Copy the raw data for the bitmap as a whole chunk; 	 * if we're in a little-endian platform, we'll perform 	 * the endianness conversion in a separate pass to ensure 	 * we're loading 8-byte aligned words. 	 */
@@ -920,11 +911,7 @@ argument_list|(
 name|word_count
 argument_list|)
 expr_stmt|;
-name|self
-operator|->
-name|buffer
-operator|=
-name|xrealloc
+name|REALLOC_ARRAY
 argument_list|(
 name|self
 operator|->
@@ -933,11 +920,6 @@ argument_list|,
 name|self
 operator|->
 name|alloc_size
-operator|*
-sizeof|sizeof
-argument_list|(
-name|eword_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/** 64 bit x N -- compressed words */
