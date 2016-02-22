@@ -254,7 +254,7 @@ literal|0
 else|:
 literal|1
 expr_stmt|;
-name|git_config_set_or_die
+name|git_config_set
 argument_list|(
 literal|"core.precomposeunicode"
 argument_list|,

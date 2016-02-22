@@ -4299,7 +4299,7 @@ argument_list|,
 name|option_origin
 argument_list|)
 expr_stmt|;
-name|git_config_set_multivar_or_die
+name|git_config_set_multivar
 argument_list|(
 name|key
 operator|.
@@ -4335,7 +4335,7 @@ argument_list|,
 name|option_origin
 argument_list|)
 expr_stmt|;
-name|git_config_set_or_die
+name|git_config_set
 argument_list|(
 name|key
 operator|.
@@ -5145,7 +5145,7 @@ argument_list|,
 name|src_ref_prefix
 argument_list|)
 expr_stmt|;
-name|git_config_set_or_die
+name|git_config_set
 argument_list|(
 literal|"core.bare"
 argument_list|,
@@ -5190,7 +5190,7 @@ argument_list|,
 name|option_origin
 argument_list|)
 expr_stmt|;
-name|git_config_set_or_die
+name|git_config_set
 argument_list|(
 name|key
 operator|.

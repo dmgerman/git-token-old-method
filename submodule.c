@@ -5555,7 +5555,7 @@ argument_list|,
 name|git_dir
 argument_list|)
 expr_stmt|;
-name|git_config_set_in_file_or_die
+name|git_config_set_in_file
 argument_list|(
 name|file_name
 operator|.
