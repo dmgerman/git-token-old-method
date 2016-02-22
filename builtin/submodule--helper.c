@@ -1445,7 +1445,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-name|git_config_set_in_file
+name|git_config_set_in_file_or_die
 argument_list|(
 name|p
 argument_list|,
