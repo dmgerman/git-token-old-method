@@ -4941,14 +4941,12 @@ literal|1
 expr_stmt|;
 name|response_64
 operator|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|ENCODED_SIZE
 argument_list|(
 name|resp_len
 argument_list|)
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|encoded_len
@@ -4982,13 +4980,6 @@ name|die
 argument_list|(
 literal|"EVP_EncodeBlock error"
 argument_list|)
-expr_stmt|;
-name|response_64
-index|[
-name|encoded_len
-index|]
-operator|=
-literal|'\0'
 expr_stmt|;
 return|return
 operator|(
@@ -6603,11 +6594,9 @@ expr_stmt|;
 block|}
 name|new
 operator|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|j
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 comment|/* 	 * Second pass: write the new string.  Note that this loop is 	 * otherwise identical to the first pass. 	 */

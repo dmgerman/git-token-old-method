@@ -5921,11 +5921,9 @@ name|len
 expr_stmt|;
 name|result
 operator|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|done
@@ -5969,13 +5967,6 @@ name|elem
 operator|->
 name|path
 argument_list|)
-expr_stmt|;
-name|result
-index|[
-name|len
-index|]
-operator|=
-literal|0
 expr_stmt|;
 comment|/* If not a fake symlink, apply filters, e.g. autocrlf */
 if|if

@@ -9354,11 +9354,9 @@ name|err_ret
 goto|;
 name|data
 operator|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|size
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -9411,13 +9409,6 @@ name|close
 argument_list|(
 name|i
 argument_list|)
-expr_stmt|;
-name|data
-index|[
-name|size
-index|]
-operator|=
-literal|0
 expr_stmt|;
 name|gs
 operator|->
