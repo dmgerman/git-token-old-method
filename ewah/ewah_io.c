@@ -688,7 +688,7 @@ name|self
 operator|->
 name|buffer
 operator|=
-name|ewah_realloc
+name|xrealloc
 argument_list|(
 name|self
 operator|->
@@ -704,17 +704,6 @@ name|eword_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|self
-operator|->
-name|buffer
-condition|)
-return|return
-operator|-
-literal|1
-return|;
 comment|/* 	 * Copy the raw data for the bitmap as a whole chunk; 	 * if we're in a little-endian platform, we'll perform 	 * the endianness conversion in a separate pass to ensure 	 * we're loading 8-byte aligned words. 	 */
 name|memcpy
 argument_list|(
@@ -935,7 +924,7 @@ name|self
 operator|->
 name|buffer
 operator|=
-name|ewah_realloc
+name|xrealloc
 argument_list|(
 name|self
 operator|->
@@ -951,17 +940,6 @@ name|eword_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|self
-operator|->
-name|buffer
-condition|)
-return|return
-operator|-
-literal|1
-return|;
 comment|/** 64 bit x N -- compressed words */
 name|buffer
 operator|=
