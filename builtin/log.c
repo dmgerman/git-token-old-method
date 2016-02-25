@@ -477,6 +477,20 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|init_log_defaults
+specifier|static
+name|void
+name|init_log_defaults
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+name|init_grep_defaults
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|cmd_log_init_defaults
 specifier|static
 name|void
@@ -2082,7 +2096,7 @@ name|struct
 name|setup_revision_opt
 name|opt
 decl_stmt|;
-name|init_grep_defaults
+name|init_log_defaults
 argument_list|()
 expr_stmt|;
 name|git_config
@@ -2791,7 +2805,7 @@ name|ret
 init|=
 literal|0
 decl_stmt|;
-name|init_grep_defaults
+name|init_log_defaults
 argument_list|()
 expr_stmt|;
 name|git_config
@@ -3296,7 +3310,7 @@ name|struct
 name|setup_revision_opt
 name|opt
 decl_stmt|;
-name|init_grep_defaults
+name|init_log_defaults
 argument_list|()
 expr_stmt|;
 name|git_config
@@ -3513,7 +3527,7 @@ name|struct
 name|setup_revision_opt
 name|opt
 decl_stmt|;
-name|init_grep_defaults
+name|init_log_defaults
 argument_list|()
 expr_stmt|;
 name|git_config
@@ -7390,7 +7404,7 @@ name|strdup_strings
 operator|=
 literal|1
 expr_stmt|;
-name|init_grep_defaults
+name|init_log_defaults
 argument_list|()
 expr_stmt|;
 name|git_config
