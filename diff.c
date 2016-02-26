@@ -29103,11 +29103,6 @@ if|if
 condition|(
 operator|!
 name|driver
-operator|||
-operator|!
-name|driver
-operator|->
-name|textconv
 condition|)
 block|{
 if|if
@@ -29155,6 +29150,18 @@ operator|->
 name|size
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|driver
+operator|->
+name|textconv
+condition|)
+name|die
+argument_list|(
+literal|"BUG: fill_textconv called with non-textconv driver"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|driver
