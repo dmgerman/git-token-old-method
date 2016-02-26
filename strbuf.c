@@ -4197,11 +4197,9 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|=
-name|xmalloc
+name|xmallocz
 argument_list|(
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 for|for
