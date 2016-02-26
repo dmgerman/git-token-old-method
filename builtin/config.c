@@ -3654,7 +3654,7 @@ argument_list|)
 expr_stmt|;
 name|ret
 operator|=
-name|git_config_set_in_file
+name|git_config_set_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -3725,7 +3725,7 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -3783,7 +3783,7 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -3838,7 +3838,7 @@ index|]
 argument_list|)
 expr_stmt|;
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -4031,7 +4031,7 @@ operator|==
 literal|2
 condition|)
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -4054,7 +4054,7 @@ argument_list|)
 return|;
 else|else
 return|return
-name|git_config_set_in_file
+name|git_config_set_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
@@ -4090,7 +4090,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 return|return
-name|git_config_set_multivar_in_file
+name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|given_config_source
 operator|.
