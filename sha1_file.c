@@ -4846,7 +4846,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"offset before end of packfile (broken .idx?)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -11495,7 +11498,10 @@ name|start
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"offset before start of pack index for %s (corrupt index?)"
+argument_list|)
 argument_list|,
 name|p
 operator|->
@@ -11513,7 +11519,10 @@ literal|8
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"offset beyond end of pack index for %s (truncated index?)"
+argument_list|)
 argument_list|,
 name|p
 operator|->
