@@ -1394,8 +1394,6 @@ operator|&&
 name|submodule
 operator|->
 name|path
-operator|!=
-name|NULL
 condition|)
 name|warn_multiple_config
 argument_list|(
@@ -1561,8 +1559,6 @@ operator|&&
 name|submodule
 operator|->
 name|ignore
-operator|!=
-name|NULL
 condition|)
 name|warn_multiple_config
 argument_list|(
@@ -1681,8 +1677,6 @@ operator|&&
 name|submodule
 operator|->
 name|url
-operator|!=
-name|NULL
 condition|)
 block|{
 name|warn_multiple_config
