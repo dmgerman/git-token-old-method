@@ -9148,7 +9148,7 @@ argument_list|(
 operator|&
 name|keep_name_buf
 argument_list|,
-literal|".idx"
+literal|".keep"
 argument_list|)
 expr_stmt|;
 name|keep_name
