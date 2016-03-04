@@ -1832,6 +1832,12 @@ operator|->
 name|xdf1
 argument_list|)
 expr_stmt|;
+name|xdl_free_classifier
+argument_list|(
+operator|&
+name|cf
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
