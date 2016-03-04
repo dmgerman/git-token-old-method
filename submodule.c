@@ -3969,11 +3969,6 @@ name|int
 name|fetch_start_failure
 parameter_list|(
 name|struct
-name|child_process
-modifier|*
-name|cp
-parameter_list|,
-name|struct
 name|strbuf
 modifier|*
 name|err
@@ -4013,11 +4008,6 @@ name|fetch_finish
 parameter_list|(
 name|int
 name|retvalue
-parameter_list|,
-name|struct
-name|child_process
-modifier|*
-name|cp
 parameter_list|,
 name|struct
 name|strbuf
