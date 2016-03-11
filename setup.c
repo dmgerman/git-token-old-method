@@ -4277,13 +4277,12 @@ block|}
 end_function
 begin_function
 DECL|function|check_repository_format
-name|int
+name|void
 name|check_repository_format
 parameter_list|(
 name|void
 parameter_list|)
 block|{
-return|return
 name|check_repository_format_gently
 argument_list|(
 name|get_git_dir
@@ -4291,7 +4290,7 @@ argument_list|()
 argument_list|,
 name|NULL
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_comment
