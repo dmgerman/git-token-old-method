@@ -9028,9 +9028,7 @@ name|LABEL
 argument_list|(
 name|N_
 argument_list|(
-operator|(
 literal|"ahead "
-operator|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -9063,9 +9061,7 @@ name|LABEL
 argument_list|(
 name|N_
 argument_list|(
-operator|(
 literal|"ahead "
-operator|)
 argument_list|)
 argument_list|)
 argument_list|)
