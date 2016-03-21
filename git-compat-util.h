@@ -3619,7 +3619,7 @@ name|b
 parameter_list|,
 name|c
 parameter_list|)
-value|st_add((a),st_add((b),(c)))
+value|st_add(st_add((a),(b)),(c))
 end_define
 begin_define
 DECL|macro|st_add4
@@ -3635,7 +3635,7 @@ name|c
 parameter_list|,
 name|d
 parameter_list|)
-value|st_add((a),st_add3((b),(c),(d)))
+value|st_add(st_add3((a),(b),(c)),(d))
 end_define
 begin_function
 DECL|function|st_mult
