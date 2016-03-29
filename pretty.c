@@ -512,7 +512,7 @@ name|CMIT_FMT_MEDIUM
 block|,
 literal|0
 block|,
-literal|1
+literal|8
 block|}
 block|,
 block|{
@@ -542,7 +542,7 @@ name|CMIT_FMT_FULLER
 block|,
 literal|0
 block|,
-literal|1
+literal|8
 block|}
 block|,
 block|{
@@ -552,7 +552,7 @@ name|CMIT_FMT_FULL
 block|,
 literal|0
 block|,
-literal|1
+literal|8
 block|}
 block|,
 block|{
@@ -8547,6 +8547,9 @@ name|strbuf
 modifier|*
 name|sb
 parameter_list|,
+name|int
+name|tabwidth
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -8616,12 +8619,12 @@ name|sb
 argument_list|,
 literal|' '
 argument_list|,
-literal|8
+name|tabwidth
 operator|-
 operator|(
 name|width
 operator|%
-literal|8
+name|tabwidth
 operator|)
 argument_list|)
 expr_stmt|;
@@ -8702,6 +8705,10 @@ condition|)
 name|strbuf_add_tabexpand
 argument_list|(
 name|sb
+argument_list|,
+name|pp
+operator|->
+name|expand_tabs_in_log
 argument_list|,
 name|line
 argument_list|,
@@ -8851,6 +8858,10 @@ condition|)
 name|strbuf_add_tabexpand
 argument_list|(
 name|sb
+argument_list|,
+name|pp
+operator|->
+name|expand_tabs_in_log
 argument_list|,
 name|line
 argument_list|,
