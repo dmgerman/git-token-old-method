@@ -594,11 +594,6 @@ name|pretty_given
 range|:
 literal|1
 decl_stmt|,
-DECL|member|expand_tabs_in_log
-name|expand_tabs_in_log
-range|:
-literal|1
-decl_stmt|,
 DECL|member|abbrev_commit
 name|abbrev_commit
 range|:
@@ -670,6 +665,15 @@ DECL|member|date_mode
 name|struct
 name|date_mode
 name|date_mode
+decl_stmt|;
+DECL|member|expand_tabs_in_log
+name|int
+name|expand_tabs_in_log
+decl_stmt|;
+comment|/* unset if negative */
+DECL|member|expand_tabs_in_log_default
+name|int
+name|expand_tabs_in_log_default
 decl_stmt|;
 DECL|member|abbrev
 name|unsigned
