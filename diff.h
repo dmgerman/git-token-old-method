@@ -1451,6 +1451,15 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|void
+name|init_diff_ui_defaults
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|int
 name|git_diff_ui_config
 parameter_list|(
