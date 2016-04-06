@@ -1932,7 +1932,7 @@ name|int
 modifier|*
 name|patternlen
 parameter_list|,
-name|int
+name|unsigned
 modifier|*
 name|flags
 parameter_list|,
@@ -2129,7 +2129,7 @@ decl_stmt|;
 name|int
 name|patternlen
 decl_stmt|;
-name|int
+name|unsigned
 name|flags
 decl_stmt|;
 name|int
@@ -3796,7 +3796,7 @@ parameter_list|,
 name|int
 name|patternlen
 parameter_list|,
-name|int
+name|unsigned
 name|flags
 parameter_list|)
 block|{
@@ -3930,7 +3930,7 @@ parameter_list|,
 name|int
 name|patternlen
 parameter_list|,
-name|int
+name|unsigned
 name|flags
 parameter_list|)
 block|{
