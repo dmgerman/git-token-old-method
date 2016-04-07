@@ -14505,7 +14505,7 @@ name|NULL
 argument_list|,
 name|NULL
 argument_list|,
-literal|0
+name|REF_NODEREF
 argument_list|,
 operator|&
 name|type
