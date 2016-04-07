@@ -5678,10 +5678,6 @@ name|struct
 name|stat
 name|st
 decl_stmt|;
-name|char
-modifier|*
-name|buf
-decl_stmt|;
 name|int
 name|fd
 decl_stmt|;
@@ -6076,7 +6072,7 @@ name|flags
 operator||=
 name|REF_ISSYMREF
 expr_stmt|;
-name|buf
+name|refname
 operator|=
 name|sb_contents
 operator|->
@@ -6089,10 +6085,10 @@ condition|(
 name|isspace
 argument_list|(
 operator|*
-name|buf
+name|refname
 argument_list|)
 condition|)
-name|buf
+name|refname
 operator|++
 expr_stmt|;
 name|strbuf_reset
@@ -6104,7 +6100,7 @@ name|strbuf_addstr
 argument_list|(
 name|sb_refname
 argument_list|,
-name|buf
+name|refname
 argument_list|)
 expr_stmt|;
 name|refname
@@ -6133,7 +6129,7 @@ if|if
 condition|(
 name|check_refname_format
 argument_list|(
-name|buf
+name|refname
 argument_list|,
 name|REFNAME_ALLOW_ONELEVEL
 argument_list|)
@@ -6156,7 +6152,7 @@ operator|||
 operator|!
 name|refname_is_safe
 argument_list|(
-name|buf
+name|refname
 argument_list|)
 condition|)
 block|{
