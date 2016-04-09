@@ -173,13 +173,19 @@ name|advice_commit_before_merge
 condition|)
 name|msg
 operator|=
+name|_
+argument_list|(
 literal|"Your local changes to the following files would be overwritten by %s:\n%%s"
 literal|"Please, commit your changes or stash them before you can %s."
+argument_list|)
 expr_stmt|;
 else|else
 name|msg
 operator|=
+name|_
+argument_list|(
 literal|"Your local changes to the following files would be overwritten by %s:\n%%s"
+argument_list|)
 expr_stmt|;
 name|msgs
 index|[
@@ -205,7 +211,10 @@ index|[
 name|ERROR_NOT_UPTODATE_DIR
 index|]
 operator|=
+name|_
+argument_list|(
 literal|"Updating the following directories would lose untracked files in it:\n%s"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -213,13 +222,19 @@ name|advice_commit_before_merge
 condition|)
 name|msg
 operator|=
+name|_
+argument_list|(
 literal|"The following untracked working tree files would be %s by %s:\n%%s"
 literal|"Please move or remove them before you can %s."
+argument_list|)
 expr_stmt|;
 else|else
 name|msg
 operator|=
+name|_
+argument_list|(
 literal|"The following untracked working tree files would be %s by %s:\n%%s"
+argument_list|)
 expr_stmt|;
 name|msgs
 index|[
@@ -259,28 +274,40 @@ index|[
 name|ERROR_BIND_OVERLAP
 index|]
 operator|=
+name|_
+argument_list|(
 literal|"Entry '%s' overlaps with '%s'.  Cannot bind."
+argument_list|)
 expr_stmt|;
 name|msgs
 index|[
 name|ERROR_SPARSE_NOT_UPTODATE_FILE
 index|]
 operator|=
+name|_
+argument_list|(
 literal|"Cannot update sparse checkout: the following entries are not up-to-date:\n%s"
+argument_list|)
 expr_stmt|;
 name|msgs
 index|[
 name|ERROR_WOULD_LOSE_ORPHANED_OVERWRITTEN
 index|]
 operator|=
+name|_
+argument_list|(
 literal|"The following Working tree files would be overwritten by sparse checkout update:\n%s"
+argument_list|)
 expr_stmt|;
 name|msgs
 index|[
 name|ERROR_WOULD_LOSE_ORPHANED_REMOVED
 index|]
 operator|=
+name|_
+argument_list|(
 literal|"The following Working tree files would be removed by sparse checkout update:\n%s"
+argument_list|)
 expr_stmt|;
 name|opts
 operator|->
@@ -685,7 +712,10 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
+name|_
+argument_list|(
 literal|"Aborting\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
