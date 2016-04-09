@@ -504,7 +504,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"Could not expand include path '%s'"
+literal|"could not expand include path '%s'"
 argument_list|,
 name|path
 argument_list|)
@@ -4732,7 +4732,7 @@ else|else
 return|return
 name|error
 argument_list|(
-literal|"Malformed value for %s"
+literal|"malformed value for %s"
 argument_list|,
 name|var
 argument_list|)
@@ -4881,7 +4881,7 @@ else|else
 block|{
 name|error
 argument_list|(
-literal|"Malformed value for %s: %s"
+literal|"malformed value for %s: %s"
 argument_list|,
 name|var
 argument_list|,
@@ -11114,7 +11114,7 @@ name|die
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not set '%s' to '%s'"
+literal|"could not set '%s' to '%s'"
 argument_list|)
 argument_list|,
 name|key
@@ -12015,7 +12015,7 @@ block|{
 return|return
 name|error
 argument_list|(
-literal|"Missing value for '%s'"
+literal|"missing value for '%s'"
 argument_list|,
 name|var
 argument_list|)
