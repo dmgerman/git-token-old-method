@@ -11107,8 +11107,6 @@ name|value_regex
 argument_list|,
 name|multi_replace
 argument_list|)
-operator|<
-literal|0
 condition|)
 name|die
 argument_list|(
