@@ -1880,13 +1880,13 @@ operator|.
 name|detached_from
 condition|)
 block|{
-comment|/* TRANSLATORS: make sure these match _("HEAD detached at ") 		   and _("HEAD detached from ") in wt-status.c */
 if|if
 condition|(
 name|state
 operator|.
 name|detached_at
 condition|)
+comment|/* TRANSLATORS: make sure this matches 			   "HEAD detached at " in wt-status.c */
 name|strbuf_addf
 argument_list|(
 operator|&
@@ -1903,6 +1903,7 @@ name|detached_from
 argument_list|)
 expr_stmt|;
 else|else
+comment|/* TRANSLATORS: make sure this matches 			   "HEAD detached from " in wt-status.c */
 name|strbuf_addf
 argument_list|(
 operator|&
