@@ -3532,6 +3532,8 @@ name|path
 condition|)
 block|{
 comment|/* Switch branches. */
+if|if
+condition|(
 name|create_symref
 argument_list|(
 literal|"HEAD"
@@ -3543,6 +3545,16 @@ argument_list|,
 name|msg
 operator|.
 name|buf
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"unable to update HEAD"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5058,15 +5070,23 @@ name|dwim_new_local_branch_ok
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|has_dash_dash
+operator|&&
+operator|(
 name|check_filename
 argument_list|(
 name|NULL
 argument_list|,
 name|arg
 argument_list|)
-operator|&&
+operator|||
 operator|!
-name|has_dash_dash
+name|no_wildcard
+argument_list|(
+name|arg
+argument_list|)
+operator|)
 condition|)
 name|recover_with_dwim
 operator|=

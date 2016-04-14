@@ -3923,13 +3923,11 @@ decl_stmt|;
 comment|/* Get the first part of the line. */
 if|if
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 name|line
 argument_list|,
 name|in
-argument_list|,
-literal|'\n'
 argument_list|)
 condition|)
 return|return
@@ -4004,14 +4002,12 @@ condition|)
 break|break;
 if|if
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 operator|&
 name|continuation
 argument_list|,
 name|in
-argument_list|,
-literal|'\n'
 argument_list|)
 condition|)
 break|break;
@@ -4070,15 +4066,13 @@ block|{
 while|while
 condition|(
 operator|!
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 name|line
 argument_list|,
 name|mi
 operator|->
 name|input
-argument_list|,
-literal|'\n'
 argument_list|)
 condition|)
 block|{
@@ -4341,15 +4335,13 @@ expr_stmt|;
 comment|/* replenish line */
 if|if
 condition|(
-name|strbuf_getline
+name|strbuf_getline_lf
 argument_list|(
 name|line
 argument_list|,
 name|mi
 operator|->
 name|input
-argument_list|,
-literal|'\n'
 argument_list|)
 condition|)
 return|return

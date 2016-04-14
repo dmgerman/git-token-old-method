@@ -212,6 +212,14 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|family
+specifier|static
+name|enum
+name|transport_family
+name|family
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|option_config
 specifier|static
 name|struct
@@ -612,6 +620,40 @@ name|N_
 argument_list|(
 literal|"set config inside the new repository"
 argument_list|)
+argument_list|)
+block|,
+name|OPT_SET_INT
+argument_list|(
+literal|'4'
+argument_list|,
+literal|"ipv4"
+argument_list|,
+operator|&
+name|family
+argument_list|,
+name|N_
+argument_list|(
+literal|"use IPv4 addresses only"
+argument_list|)
+argument_list|,
+name|TRANSPORT_FAMILY_IPV4
+argument_list|)
+block|,
+name|OPT_SET_INT
+argument_list|(
+literal|'6'
+argument_list|,
+literal|"ipv6"
+argument_list|,
+operator|&
+name|family
+argument_list|,
+name|N_
+argument_list|(
+literal|"use IPv6 addresses only"
+argument_list|)
+argument_list|,
+name|TRANSPORT_FAMILY_IPV6
 argument_list|)
 block|,
 name|OPT_END
@@ -1352,8 +1394,11 @@ operator|)
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"No directory name could be guessed.\n"
 literal|"Please specify a directory on the command line"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1879,8 +1924,6 @@ operator|&
 name|line
 argument_list|,
 name|in
-argument_list|,
-literal|'\n'
 argument_list|)
 operator|!=
 name|EOF
@@ -3496,6 +3539,8 @@ argument_list|,
 literal|"HEAD"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|create_symref
 argument_list|(
 name|head_ref
@@ -3509,6 +3554,26 @@ operator|->
 name|name
 argument_list|,
 name|msg
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"unable to update %s"
+argument_list|)
+argument_list|,
+name|head_ref
+operator|.
+name|buf
+argument_list|)
+expr_stmt|;
+name|strbuf_release
+argument_list|(
+operator|&
+name|head_ref
 argument_list|)
 expr_stmt|;
 block|}
@@ -3561,6 +3626,8 @@ argument_list|)
 condition|)
 block|{
 comment|/* Local default branch link */
+if|if
+condition|(
 name|create_symref
 argument_list|(
 literal|"HEAD"
@@ -3570,6 +3637,16 @@ operator|->
 name|name
 argument_list|,
 name|NULL
+argument_list|)
+operator|<
+literal|0
+condition|)
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"unable to update HEAD"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4077,7 +4154,7 @@ name|data
 parameter_list|)
 block|{
 return|return
-name|git_config_set_multivar
+name|git_config_set_multivar_gently
 argument_list|(
 name|key
 argument_list|,
@@ -4147,7 +4224,10 @@ literal|0
 condition|)
 name|die
 argument_list|(
+name|_
+argument_list|(
 literal|"unable to write parameters to config file"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5317,6 +5397,12 @@ name|option_verbosity
 argument_list|,
 name|option_progress
 argument_list|)
+expr_stmt|;
+name|transport
+operator|->
+name|family
+operator|=
+name|family
 expr_stmt|;
 name|path
 operator|=

@@ -540,6 +540,15 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 begin_comment
+comment|/*  * This is a hack for test programs like test-dump-untracked-cache to  * ensure that they do not modify the untracked cache when reading it.  * Do not use it otherwise!  */
+end_comment
+begin_decl_stmt
+DECL|variable|ignore_untracked_cache_config
+name|int
+name|ignore_untracked_cache_config
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|/* This is set by setup_git_dir_gently() and/or git_default_config() */
 end_comment
 begin_decl_stmt
@@ -1259,24 +1268,6 @@ name|real_path
 argument_list|(
 name|new_work_tree
 argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|setenv
-argument_list|(
-name|GIT_WORK_TREE_ENVIRONMENT
-argument_list|,
-name|work_tree
-argument_list|,
-literal|1
-argument_list|)
-condition|)
-name|die
-argument_list|(
-literal|"could not set GIT_WORK_TREE to '%s'"
-argument_list|,
-name|work_tree
 argument_list|)
 expr_stmt|;
 block|}

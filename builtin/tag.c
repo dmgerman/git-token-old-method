@@ -188,7 +188,7 @@ name|xstrfmt
 argument_list|(
 literal|"%s %%(contents:lines=%d)"
 argument_list|,
-literal|"%(align:15)%(refname:short)%(end)"
+literal|"%(align:15)%(refname:strip=2)%(end)"
 argument_list|,
 name|filter
 operator|->
@@ -203,7 +203,7 @@ block|}
 else|else
 name|format
 operator|=
-literal|"%(refname:short)"
+literal|"%(refname:strip=2)"
 expr_stmt|;
 block|}
 name|verify_ref_format
