@@ -2007,7 +2007,10 @@ condition|(
 name|opts
 operator|->
 name|virtual_ancestor
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|driver
 operator|->
 name|recursive
@@ -2021,6 +2024,11 @@ operator|->
 name|recursive
 argument_list|)
 expr_stmt|;
+name|marker_size
+operator|+=
+literal|2
+expr_stmt|;
+block|}
 return|return
 name|driver
 operator|->
