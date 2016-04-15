@@ -449,14 +449,6 @@ DECL|variable|precomposed_unicode
 comment|/* see probe_utf8_pathname_composition() */
 end_comment
 begin_decl_stmt
-DECL|variable|startup_info
-name|struct
-name|startup_info
-modifier|*
-name|startup_info
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|pack_size_limit_cfg
 name|unsigned
 name|long
