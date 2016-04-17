@@ -3375,7 +3375,9 @@ name|lookup_tree
 argument_list|(
 name|entry
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 decl_stmt|;
 if|if
@@ -3608,7 +3610,9 @@ name|hashcmp
 argument_list|(
 name|ent
 operator|->
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|it
 operator|->

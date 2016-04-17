@@ -226,12 +226,12 @@ name|desc
 operator|->
 name|entry
 operator|.
-name|sha1
+name|oid
 operator|=
 operator|(
 specifier|const
-name|unsigned
-name|char
+expr|struct
+name|object_id
 operator|*
 operator|)
 operator|(
@@ -451,7 +451,9 @@ name|desc
 operator|->
 name|entry
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 operator|+
 literal|20
 decl_stmt|;
@@ -648,7 +650,7 @@ name|info
 operator|->
 name|name
 operator|.
-name|sha1
+name|oid
 operator|=
 operator|(
 name|void
