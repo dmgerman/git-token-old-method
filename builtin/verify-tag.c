@@ -80,8 +80,8 @@ name|struct
 name|signature_check
 name|sigc
 decl_stmt|;
-name|int
-name|len
+name|size_t
+name|payload_size
 decl_stmt|;
 name|int
 name|ret
@@ -99,7 +99,7 @@ name|sigc
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|len
+name|payload_size
 operator|=
 name|parse_signature
 argument_list|(
@@ -112,7 +112,7 @@ if|if
 condition|(
 name|size
 operator|==
-name|len
+name|payload_size
 condition|)
 block|{
 if|if
@@ -127,7 +127,7 @@ literal|1
 argument_list|,
 name|buf
 argument_list|,
-name|len
+name|payload_size
 argument_list|)
 expr_stmt|;
 return|return
@@ -143,15 +143,15 @@ name|check_signature
 argument_list|(
 name|buf
 argument_list|,
-name|len
+name|payload_size
 argument_list|,
 name|buf
 operator|+
-name|len
+name|payload_size
 argument_list|,
 name|size
 operator|-
-name|len
+name|payload_size
 argument_list|,
 operator|&
 name|sigc
