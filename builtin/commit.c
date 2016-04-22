@@ -3351,9 +3351,7 @@ block|}
 block|}
 if|if
 condition|(
-name|message
-operator|.
-name|len
+name|have_option_m
 condition|)
 block|{
 name|strbuf_addbuf
@@ -5738,9 +5736,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|message
-operator|.
-name|len
+name|have_option_m
 operator|&&
 name|f
 operator|>
@@ -5760,9 +5756,7 @@ if|if
 condition|(
 name|f
 operator|||
-name|message
-operator|.
-name|len
+name|have_option_m
 condition|)
 name|template_file
 operator|=
