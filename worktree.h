@@ -46,6 +46,10 @@ DECL|member|is_bare
 name|int
 name|is_bare
 decl_stmt|;
+DECL|member|is_current
+name|int
+name|is_current
+decl_stmt|;
 block|}
 struct|;
 end_struct
