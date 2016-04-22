@@ -1174,7 +1174,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|strcmp_icase
+name|fspathcmp
 parameter_list|(
 specifier|const
 name|char
@@ -1191,7 +1191,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|int
-name|strncmp_icase
+name|fspathncmp
 parameter_list|(
 specifier|const
 name|char

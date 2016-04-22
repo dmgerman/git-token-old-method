@@ -187,13 +187,10 @@ name|len
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/* helper string functions with support for the ignore_case flag */
-end_comment
 begin_function
-DECL|function|strcmp_icase
+DECL|function|fspathcmp
 name|int
-name|strcmp_icase
+name|fspathcmp
 parameter_list|(
 specifier|const
 name|char
@@ -226,9 +223,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|strncmp_icase
+DECL|function|fspathncmp
 name|int
-name|strncmp_icase
+name|fspathncmp
 parameter_list|(
 specifier|const
 name|char
@@ -3814,7 +3811,7 @@ operator|==
 name|basenamelen
 operator|&&
 operator|!
-name|strncmp_icase
+name|fspathncmp
 argument_list|(
 name|pattern
 argument_list|,
@@ -3845,7 +3842,7 @@ operator|<=
 name|basenamelen
 operator|&&
 operator|!
-name|strncmp_icase
+name|fspathncmp
 argument_list|(
 name|pattern
 operator|+
@@ -3981,7 +3978,7 @@ operator|!=
 literal|'/'
 operator|)
 operator|||
-name|strncmp_icase
+name|fspathncmp
 argument_list|(
 name|pathname
 argument_list|,
@@ -4030,7 +4027,7 @@ literal|0
 return|;
 if|if
 condition|(
-name|strncmp_icase
+name|fspathncmp
 argument_list|(
 name|pattern
 argument_list|,
