@@ -1650,6 +1650,9 @@ specifier|const
 name|char
 modifier|*
 name|branch
+parameter_list|,
+name|int
+name|ignore_current_worktree
 parameter_list|)
 block|{
 specifier|const
@@ -1671,6 +1674,14 @@ if|if
 condition|(
 operator|!
 name|wt
+operator|||
+operator|(
+name|ignore_current_worktree
+operator|&&
+name|wt
+operator|->
+name|is_current
+operator|)
 condition|)
 return|return;
 name|skip_prefix
