@@ -9414,7 +9414,7 @@ return|;
 block|}
 end_function
 begin_macro
-name|__attribute
+name|__attribute__
 argument_list|(
 argument|(format (printf,
 literal|2
