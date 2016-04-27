@@ -1090,7 +1090,8 @@ name|curl_slist
 modifier|*
 name|dav_headers
 init|=
-name|NULL
+name|http_copy_default_headers
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2235,7 +2236,8 @@ name|curl_slist
 modifier|*
 name|dav_headers
 init|=
-name|NULL
+name|http_copy_default_headers
+argument_list|()
 decl_stmt|;
 name|slot
 operator|=
@@ -4471,7 +4473,8 @@ name|curl_slist
 modifier|*
 name|dav_headers
 init|=
-name|NULL
+name|http_copy_default_headers
+argument_list|()
 decl_stmt|;
 name|struct
 name|xml_ctx
@@ -6023,7 +6026,8 @@ name|curl_slist
 modifier|*
 name|dav_headers
 init|=
-name|NULL
+name|http_copy_default_headers
+argument_list|()
 decl_stmt|;
 name|struct
 name|xml_ctx
@@ -6461,7 +6465,8 @@ name|curl_slist
 modifier|*
 name|dav_headers
 init|=
-name|NULL
+name|http_copy_default_headers
+argument_list|()
 decl_stmt|;
 name|struct
 name|xml_ctx
