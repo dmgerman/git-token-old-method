@@ -504,7 +504,7 @@ condition|)
 return|return
 name|error
 argument_list|(
-literal|"Could not expand include path '%s'"
+literal|"could not expand include path '%s'"
 argument_list|,
 name|path
 argument_list|)
@@ -4732,7 +4732,7 @@ else|else
 return|return
 name|error
 argument_list|(
-literal|"Malformed value for %s"
+literal|"malformed value for %s"
 argument_list|,
 name|var
 argument_list|)
@@ -4881,7 +4881,7 @@ else|else
 block|{
 name|error
 argument_list|(
-literal|"Malformed value for %s: %s"
+literal|"malformed value for %s: %s"
 argument_list|,
 name|var
 argument_list|,
@@ -11074,6 +11074,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|git_config_set_multivar_in_file_gently
 argument_list|(
 name|config_filename
@@ -11086,19 +11087,33 @@ name|value_regex
 argument_list|,
 name|multi_replace
 argument_list|)
-operator|<
-literal|0
+condition|)
+return|return;
+if|if
+condition|(
+name|value
 condition|)
 name|die
 argument_list|(
 name|_
 argument_list|(
-literal|"Could not set '%s' to '%s'"
+literal|"could not set '%s' to '%s'"
 argument_list|)
 argument_list|,
 name|key
 argument_list|,
 name|value
+argument_list|)
+expr_stmt|;
+else|else
+name|die
+argument_list|(
+name|_
+argument_list|(
+literal|"could not unset '%s'"
+argument_list|)
+argument_list|,
+name|key
 argument_list|)
 expr_stmt|;
 block|}
@@ -11994,7 +12009,7 @@ block|{
 return|return
 name|error
 argument_list|(
-literal|"Missing value for '%s'"
+literal|"missing value for '%s'"
 argument_list|,
 name|var
 argument_list|)
