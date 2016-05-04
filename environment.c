@@ -197,6 +197,14 @@ name|git_attributes_file
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|git_hooks_path
+specifier|const
+name|char
+modifier|*
+name|git_hooks_path
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|zlib_compression_level
 name|int
 name|zlib_compression_level
