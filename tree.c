@@ -458,7 +458,9 @@ name|fn
 argument_list|(
 name|entry
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|base
 argument_list|,
@@ -505,7 +507,9 @@ name|sha1
 argument_list|,
 name|entry
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -530,7 +534,9 @@ name|lookup_commit
 argument_list|(
 name|entry
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 expr_stmt|;
 if|if
@@ -542,11 +548,11 @@ name|die
 argument_list|(
 literal|"Commit %s in submodule path %s%s not found"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
 name|entry
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|base
@@ -569,11 +575,11 @@ name|die
 argument_list|(
 literal|"Invalid commit %s in submodule path %s%s"
 argument_list|,
-name|sha1_to_hex
+name|oid_to_hex
 argument_list|(
 name|entry
 operator|.
-name|sha1
+name|oid
 argument_list|)
 argument_list|,
 name|base

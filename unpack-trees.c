@@ -2315,7 +2315,9 @@ index|[
 name|i
 index|]
 operator|.
-name|sha1
+name|oid
+operator|->
+name|hash
 expr_stmt|;
 name|buf
 index|[
@@ -2875,7 +2877,9 @@ name|sha1
 argument_list|,
 name|n
 operator|->
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|)
 expr_stmt|;
 name|make_traverse_path

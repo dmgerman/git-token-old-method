@@ -842,22 +842,22 @@ block|{
 return|return
 name|a
 operator|->
-name|sha1
+name|oid
 operator|&&
 name|b
 operator|->
-name|sha1
+name|oid
 operator|&&
 operator|!
-name|hashcmp
+name|oidcmp
 argument_list|(
 name|a
 operator|->
-name|sha1
+name|oid
 argument_list|,
 name|b
 operator|->
-name|sha1
+name|oid
 argument_list|)
 operator|&&
 name|a
@@ -892,11 +892,11 @@ operator|!
 operator|(
 name|a
 operator|->
-name|sha1
+name|oid
 operator|||
 name|b
 operator|->
-name|sha1
+name|oid
 operator|)
 return|;
 block|}
@@ -1085,7 +1085,9 @@ name|mode
 argument_list|,
 name|ours
 operator|->
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|path
 argument_list|)
@@ -1102,7 +1104,9 @@ name|mode
 argument_list|,
 name|result
 operator|->
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|path
 argument_list|)
@@ -1223,7 +1227,7 @@ name|ENTRY_SHA1
 parameter_list|(
 name|e
 parameter_list|)
-value|(((e)->mode&& S_ISDIR((e)->mode)) ? (e)->sha1 : NULL)
+value|(((e)->mode&& S_ISDIR((e)->mode)) ? (e)->oid->hash : NULL)
 name|buf0
 operator|=
 name|fill_tree_descriptor
@@ -1385,7 +1389,9 @@ name|mode
 argument_list|,
 name|n
 operator|->
-name|sha1
+name|oid
+operator|->
+name|hash
 argument_list|,
 name|path
 argument_list|)
@@ -1712,7 +1718,7 @@ index|[
 literal|2
 index|]
 operator|.
-name|sha1
+name|oid
 operator|&&
 operator|!
 name|S_ISDIR
