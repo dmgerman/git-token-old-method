@@ -7097,6 +7097,7 @@ condition|;
 name|i
 operator|++
 control|)
+comment|/* TRANSLATORS: the colon ':' should align with 			   the one in "  Fetch URL: %s" translation */
 name|printf_ln
 argument_list|(
 name|_
