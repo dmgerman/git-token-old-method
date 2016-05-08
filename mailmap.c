@@ -1074,16 +1074,11 @@ return|return
 literal|0
 return|;
 return|return
-name|error
+name|error_errno
 argument_list|(
-literal|"unable to open mailmap at %s: %s"
+literal|"unable to open mailmap at %s"
 argument_list|,
 name|filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 return|;
 block|}
