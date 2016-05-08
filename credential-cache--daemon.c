@@ -918,14 +918,9 @@ operator|<
 literal|0
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"accept failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"accept failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -946,14 +941,9 @@ operator|<
 literal|0
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"dup failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"dup failed"
 argument_list|)
 expr_stmt|;
 name|close
