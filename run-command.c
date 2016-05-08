@@ -1103,16 +1103,11 @@ name|failed_errno
 operator|=
 name|errno
 expr_stmt|;
-name|error
+name|error_errno
 argument_list|(
-literal|"waitpid for %s failed: %s"
+literal|"waitpid for %s failed"
 argument_list|,
 name|argv0
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2093,9 +2088,9 @@ name|pid
 operator|<
 literal|0
 condition|)
-name|error
+name|error_errno
 argument_list|(
-literal|"cannot fork() for %s: %s"
+literal|"cannot fork() for %s"
 argument_list|,
 name|cmd
 operator|->
@@ -2103,11 +2098,6 @@ name|argv
 index|[
 literal|0
 index|]
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -2481,9 +2471,9 @@ operator|!=
 name|ENOENT
 operator|)
 condition|)
-name|error
+name|error_errno
 argument_list|(
-literal|"cannot spawn %s: %s"
+literal|"cannot spawn %s"
 argument_list|,
 name|cmd
 operator|->
@@ -2491,11 +2481,6 @@ name|argv
 index|[
 literal|0
 index|]
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3602,14 +3587,9 @@ name|out
 argument_list|)
 expr_stmt|;
 return|return
-name|error
+name|error_errno
 argument_list|(
-literal|"cannot create pipe: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot create pipe"
 argument_list|)
 return|;
 block|}
@@ -3670,14 +3650,9 @@ name|in
 argument_list|)
 expr_stmt|;
 return|return
-name|error
+name|error_errno
 argument_list|(
-literal|"cannot create pipe: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot create pipe"
 argument_list|)
 return|;
 block|}
@@ -3776,14 +3751,9 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"fork (async) failed: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"fork (async) failed"
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -4009,14 +3979,9 @@ condition|(
 name|err
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"cannot create thread: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|err
-argument_list|)
+literal|"cannot create thread"
 argument_list|)
 expr_stmt|;
 goto|goto
