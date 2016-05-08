@@ -2422,14 +2422,9 @@ name|rc
 operator|<
 literal|0
 condition|)
-name|warning
+name|warning_errno
 argument_list|(
-literal|"unable to set SO_KEEPALIVE on socket %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"unable to set SO_KEEPALIVE on socket"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9203,18 +9198,13 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"Couldn't create temporary file %s: %s"
+literal|"Couldn't create temporary file %s"
 argument_list|,
 name|freq
 operator|->
 name|tmpfile
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -9415,18 +9405,13 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"Couldn't truncate temporary file %s: %s"
+literal|"Couldn't truncate temporary file %s"
 argument_list|,
 name|freq
 operator|->
 name|tmpfile
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 goto|goto
