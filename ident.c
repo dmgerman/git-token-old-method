@@ -348,14 +348,9 @@ name|errno
 operator|!=
 name|ENOENT
 condition|)
-name|warning
+name|warning_errno
 argument_list|(
-literal|"cannot open /etc/mailname: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot open /etc/mailname"
 argument_list|)
 expr_stmt|;
 return|return
@@ -383,14 +378,9 @@ argument_list|(
 name|mailname
 argument_list|)
 condition|)
-name|warning
+name|warning_errno
 argument_list|(
-literal|"cannot read /etc/mailname: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot read /etc/mailname"
 argument_list|)
 expr_stmt|;
 name|strbuf_release
@@ -620,14 +610,9 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"cannot get host name: %s"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"cannot get host name"
 argument_list|)
 expr_stmt|;
 name|strbuf_addstr
