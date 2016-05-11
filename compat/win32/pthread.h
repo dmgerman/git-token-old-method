@@ -487,6 +487,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__MINGW64_VERSION_MAJOR
+end_ifndef
 begin_function
 DECL|function|pthread_sigmask
 specifier|static
@@ -512,6 +517,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
