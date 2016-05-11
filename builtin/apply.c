@@ -10752,7 +10752,7 @@ operator|++
 control|)
 block|{
 name|size_t
-name|len
+name|l_len
 init|=
 name|postimage
 operator|->
@@ -10787,23 +10787,23 @@ name|new
 argument_list|,
 name|old
 argument_list|,
-name|len
+name|l_len
 argument_list|)
 expr_stmt|;
 name|old
 operator|+=
-name|len
+name|l_len
 expr_stmt|;
 name|new
 operator|+=
-name|len
+name|l_len
 expr_stmt|;
 continue|continue;
 block|}
 comment|/* a common context -- skip it in the original postimage */
 name|old
 operator|+=
-name|len
+name|l_len
 expr_stmt|;
 comment|/* and find the corresponding one in the fixed preimage */
 while|while
@@ -10860,7 +10860,7 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* and copy it in, while fixing the line length */
-name|len
+name|l_len
 operator|=
 name|preimage
 operator|->
@@ -10877,16 +10877,16 @@ name|new
 argument_list|,
 name|fixed
 argument_list|,
-name|len
+name|l_len
 argument_list|)
 expr_stmt|;
 name|new
 operator|+=
-name|len
+name|l_len
 expr_stmt|;
 name|fixed
 operator|+=
-name|len
+name|l_len
 expr_stmt|;
 name|postimage
 operator|->
@@ -10897,7 +10897,7 @@ index|]
 operator|.
 name|len
 operator|=
-name|len
+name|l_len
 expr_stmt|;
 name|ctx
 operator|++
