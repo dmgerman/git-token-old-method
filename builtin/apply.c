@@ -375,13 +375,6 @@ init|=
 literal|1
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|options
-specifier|static
-name|int
-name|options
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|parse_whitespace_option
 specifier|static
@@ -21862,6 +21855,11 @@ name|have_repository
 decl_stmt|;
 name|int
 name|force_apply
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|options
 init|=
 literal|0
 decl_stmt|;
