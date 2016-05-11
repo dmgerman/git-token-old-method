@@ -4639,8 +4639,7 @@ end_define
 begin_function
 DECL|function|gitdiff_verify_name
 specifier|static
-name|char
-modifier|*
+name|void
 name|gitdiff_verify_name
 parameter_list|(
 specifier|const
@@ -4653,7 +4652,8 @@ name|isnull
 parameter_list|,
 name|char
 modifier|*
-name|orig_name
+modifier|*
+name|name
 parameter_list|,
 name|int
 name|side
@@ -4662,12 +4662,16 @@ block|{
 if|if
 condition|(
 operator|!
-name|orig_name
+operator|*
+name|name
 operator|&&
 operator|!
 name|isnull
 condition|)
-return|return
+block|{
+operator|*
+name|name
+operator|=
 name|find_name
 argument_list|(
 name|line
@@ -4678,10 +4682,13 @@ name|p_value
 argument_list|,
 name|TERM_TAB
 argument_list|)
-return|;
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
-name|orig_name
+operator|*
+name|name
 condition|)
 block|{
 name|int
@@ -4689,7 +4696,8 @@ name|len
 init|=
 name|strlen
 argument_list|(
-name|orig_name
+operator|*
+name|name
 argument_list|)
 decl_stmt|;
 name|char
@@ -4707,7 +4715,8 @@ argument_list|(
 literal|"git apply: bad git-diff - expected /dev/null, got %s on line %d"
 argument_list|)
 argument_list|,
-name|orig_name
+operator|*
+name|name
 argument_list|,
 name|linenr
 argument_list|)
@@ -4734,7 +4743,8 @@ name|memcmp
 argument_list|(
 name|another
 argument_list|,
-name|orig_name
+operator|*
+name|name
 argument_list|,
 name|len
 operator|+
@@ -4767,9 +4777,6 @@ argument_list|(
 name|another
 argument_list|)
 expr_stmt|;
-return|return
-name|orig_name
-return|;
 block|}
 else|else
 block|{
@@ -4802,9 +4809,6 @@ argument_list|,
 name|linenr
 argument_list|)
 expr_stmt|;
-return|return
-name|NULL
-return|;
 block|}
 block|}
 end_function
@@ -4825,10 +4829,6 @@ modifier|*
 name|patch
 parameter_list|)
 block|{
-name|patch
-operator|->
-name|old_name
-operator|=
 name|gitdiff_verify_name
 argument_list|(
 name|line
@@ -4837,6 +4837,7 @@ name|patch
 operator|->
 name|is_new
 argument_list|,
+operator|&
 name|patch
 operator|->
 name|old_name
@@ -4866,10 +4867,6 @@ modifier|*
 name|patch
 parameter_list|)
 block|{
-name|patch
-operator|->
-name|new_name
-operator|=
 name|gitdiff_verify_name
 argument_list|(
 name|line
@@ -4878,6 +4875,7 @@ name|patch
 operator|->
 name|is_delete
 argument_list|,
+operator|&
 name|patch
 operator|->
 name|new_name
