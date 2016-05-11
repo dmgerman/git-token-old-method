@@ -112,10 +112,10 @@ name|unidiff_zero
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|p_value
+DECL|variable|state_p_value
 specifier|static
 name|int
-name|p_value
+name|state_p_value
 init|=
 literal|1
 decl_stmt|;
@@ -4385,7 +4385,7 @@ operator|==
 name|q
 condition|)
 block|{
-name|p_value
+name|state_p_value
 operator|=
 name|p
 expr_stmt|;
@@ -4423,7 +4423,7 @@ name|second
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|)
 expr_stmt|;
 name|patch
@@ -4462,7 +4462,7 @@ name|first
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|)
 expr_stmt|;
 name|patch
@@ -4486,7 +4486,7 @@ name|first
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|)
 expr_stmt|;
 name|name
@@ -4497,7 +4497,7 @@ name|second
 argument_list|,
 name|first_name
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|)
 expr_stmt|;
 name|free
@@ -4678,7 +4678,7 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|,
 name|TERM_TAB
 argument_list|)
@@ -4729,7 +4729,7 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|,
 name|TERM_TAB
 argument_list|)
@@ -5100,9 +5100,9 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 condition|?
-name|p_value
+name|state_p_value
 operator|-
 literal|1
 else|:
@@ -5156,9 +5156,9 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 condition|?
-name|p_value
+name|state_p_value
 operator|-
 literal|1
 else|:
@@ -5212,9 +5212,9 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 condition|?
-name|p_value
+name|state_p_value
 operator|-
 literal|1
 else|:
@@ -5268,9 +5268,9 @@ name|line
 argument_list|,
 name|NULL
 argument_list|,
-name|p_value
+name|state_p_value
 condition|?
-name|p_value
+name|state_p_value
 operator|-
 literal|1
 else|:
@@ -5617,7 +5617,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|p_value
+name|state_p_value
 condition|)
 return|return
 operator|(
@@ -5637,7 +5637,7 @@ name|line
 return|;
 name|nslash
 operator|=
-name|p_value
+name|state_p_value
 expr_stmt|;
 for|for
 control|(
@@ -7466,10 +7466,10 @@ argument_list|,
 literal|"git diff header lacks filename information when removing "
 literal|"%d leading pathname components (line %d)"
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|)
 argument_list|,
-name|p_value
+name|state_p_value
 argument_list|,
 name|linenr
 argument_list|)
@@ -21609,7 +21609,7 @@ name|int
 name|unset
 parameter_list|)
 block|{
-name|p_value
+name|state_p_value
 operator|=
 name|atoi
 argument_list|(
