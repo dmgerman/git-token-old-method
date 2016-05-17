@@ -674,19 +674,14 @@ operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
-name|warning
+name|warning_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"failed to exec '%s': %s"
+literal|"failed to exec '%s'"
 argument_list|)
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -821,19 +816,14 @@ operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
-name|warning
+name|warning_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"failed to exec '%s': %s"
+literal|"failed to exec '%s'"
 argument_list|)
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -880,19 +870,14 @@ operator|)
 name|NULL
 argument_list|)
 expr_stmt|;
-name|warning
+name|warning_errno
 argument_list|(
 name|_
 argument_list|(
-literal|"failed to exec '%s': %s"
+literal|"failed to exec '%s'"
 argument_list|)
 argument_list|,
 name|path
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -955,15 +940,10 @@ name|warning
 argument_list|(
 name|_
 argument_list|(
-literal|"failed to exec '%s': %s"
+literal|"failed to exec '%s'"
 argument_list|)
 argument_list|,
 name|cmd
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

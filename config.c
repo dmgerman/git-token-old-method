@@ -10131,16 +10131,11 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"could not lock config file %s: %s"
+literal|"could not lock config file %s"
 argument_list|,
 name|config_filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|free
@@ -10189,16 +10184,11 @@ operator|!=
 name|errno
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"opening %s: %s"
+literal|"opening %s"
 argument_list|,
 name|config_filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ret
@@ -10615,16 +10605,11 @@ name|errno
 operator|=
 name|EISDIR
 expr_stmt|;
-name|error
+name|error_errno
 argument_list|(
-literal|"unable to mmap '%s': %s"
+literal|"unable to mmap '%s'"
 argument_list|,
 name|config_filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ret
@@ -10668,18 +10653,13 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"chmod on %s failed: %s"
+literal|"chmod on %s failed"
 argument_list|,
 name|get_lock_file_path
 argument_list|(
 name|lock
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10965,16 +10945,11 @@ operator|<
 literal|0
 condition|)
 block|{
-name|error
+name|error_errno
 argument_list|(
-literal|"could not write config file %s: %s"
+literal|"could not write config file %s"
 argument_list|,
 name|config_filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ret
@@ -11704,18 +11679,13 @@ condition|)
 block|{
 name|ret
 operator|=
-name|error
+name|error_errno
 argument_list|(
-literal|"chmod on %s failed: %s"
+literal|"chmod on %s failed"
 argument_list|,
 name|get_lock_file_path
 argument_list|(
 name|lock
-argument_list|)
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11951,16 +11921,11 @@ literal|0
 condition|)
 name|ret
 operator|=
-name|error
+name|error_errno
 argument_list|(
-literal|"could not write config file %s: %s"
+literal|"could not write config file %s"
 argument_list|,
 name|config_filename
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|out

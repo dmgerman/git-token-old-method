@@ -127,14 +127,9 @@ operator|<
 literal|0
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"vsnprintf failed: '%s'"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"vsnprintf failed"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -157,14 +152,9 @@ operator|!
 name|str
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"malloc failed: '%s'"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"malloc failed"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -231,14 +221,9 @@ operator|!
 name|str
 condition|)
 block|{
-name|warning
+name|warning_errno
 argument_list|(
-literal|"realloc failed: '%s'"
-argument_list|,
-name|strerror
-argument_list|(
-name|errno
-argument_list|)
+literal|"realloc failed"
 argument_list|)
 expr_stmt|;
 return|return;
