@@ -6016,7 +6016,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*  * Tries to read read data from source into buffer. If buffer is full,  * no data is read. Returns 0 on success, -1 on error.  */
+comment|/*  * Tries to read data from source into buffer. If buffer is full,  * no data is read. Returns 0 on success, -1 on error.  */
 end_comment
 begin_function
 DECL|function|udt_do_read
