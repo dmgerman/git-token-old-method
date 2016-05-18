@@ -1182,8 +1182,6 @@ name|envw
 argument_list|)
 expr_stmt|;
 return|return
-name|nr
-operator|>
 literal|0
 return|;
 block|}
@@ -5986,10 +5984,6 @@ name|int
 name|ret
 init|=
 literal|0
-decl_stmt|,
-name|found
-init|=
-literal|0
 decl_stmt|;
 name|char
 modifier|*
@@ -6034,7 +6028,6 @@ argument_list|,
 literal|0
 argument_list|)
 condition|)
-block|{
 name|ret
 operator|+=
 name|git_config_from_file
@@ -6047,11 +6040,6 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|found
-operator|+=
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|xdg_config
@@ -6066,7 +6054,6 @@ argument_list|,
 name|ACCESS_EACCES_OK
 argument_list|)
 condition|)
-block|{
 name|ret
 operator|+=
 name|git_config_from_file
@@ -6078,11 +6065,6 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|found
-operator|+=
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|user_config
@@ -6097,7 +6079,6 @@ argument_list|,
 name|ACCESS_EACCES_OK
 argument_list|)
 condition|)
-block|{
 name|ret
 operator|+=
 name|git_config_from_file
@@ -6109,11 +6090,6 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|found
-operator|+=
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|repo_config
@@ -6128,7 +6104,6 @@ argument_list|,
 literal|0
 argument_list|)
 condition|)
-block|{
 name|ret
 operator|+=
 name|git_config_from_file
@@ -6140,12 +6115,7 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|found
-operator|+=
-literal|1
-expr_stmt|;
-block|}
-switch|switch
+if|if
 condition|(
 name|git_config_from_parameters
 argument_list|(
@@ -6153,13 +6123,9 @@ name|fn
 argument_list|,
 name|data
 argument_list|)
+operator|<
+literal|0
 condition|)
-block|{
-case|case
-operator|-
-literal|1
-case|:
-comment|/* error */
 name|die
 argument_list|(
 name|_
@@ -6168,19 +6134,6 @@ literal|"unable to parse command-line config"
 argument_list|)
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-literal|0
-case|:
-comment|/* found nothing */
-break|break;
-default|default:
-comment|/* found at least one item */
-name|found
-operator|++
-expr_stmt|;
-break|break;
-block|}
 name|free
 argument_list|(
 name|xdg_config
@@ -6197,12 +6150,6 @@ name|repo_config
 argument_list|)
 expr_stmt|;
 return|return
-name|ret
-operator|==
-literal|0
-condition|?
-name|found
-else|:
 name|ret
 return|;
 block|}
@@ -6359,7 +6306,7 @@ argument_list|)
 operator|<
 literal|0
 condition|)
-comment|/* 		 * git_config_with_options() normally returns only 		 * positive values, as most errors are fatal, and 		 * non-fatal potential errors are guarded by "if" 		 * statements that are entered only when no error is 		 * possible. 		 * 		 * If we ever encounter a non-fatal error, it means 		 * something went really wrong and we should stop 		 * immediately. 		 */
+comment|/* 		 * git_config_with_options() normally returns only 		 * zero, as most errors are fatal, and 		 * non-fatal potential errors are guarded by "if" 		 * statements that are entered only when no error is 		 * possible. 		 * 		 * If we ever encounter a non-fatal error, it means 		 * something went really wrong and we should stop 		 * immediately. 		 */
 name|die
 argument_list|(
 name|_
