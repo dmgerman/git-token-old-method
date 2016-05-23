@@ -5181,14 +5181,16 @@ operator|.
 name|ptr
 argument_list|)
 expr_stmt|;
-return|return
 name|error
 argument_list|(
 literal|"Failed to update conflicted state in '%s'"
 argument_list|,
 name|path
 argument_list|)
-return|;
+expr_stmt|;
+goto|goto
+name|fail_exit
+goto|;
 block|}
 name|cleanly_resolved
 operator|=
@@ -5238,14 +5240,18 @@ name|id
 operator|->
 name|variant
 condition|)
-return|return
+block|{
 name|error
 argument_list|(
 literal|"no remembered resolution for '%s'"
 argument_list|,
 name|path
 argument_list|)
-return|;
+expr_stmt|;
+goto|goto
+name|fail_exit
+goto|;
+block|}
 name|filename
 operator|=
 name|rerere_path
@@ -5262,27 +5268,32 @@ argument_list|(
 name|filename
 argument_list|)
 condition|)
-return|return
-operator|(
+block|{
+if|if
+condition|(
 name|errno
 operator|==
 name|ENOENT
-condition|?
+condition|)
 name|error
 argument_list|(
 literal|"no remembered resolution for %s"
 argument_list|,
 name|path
 argument_list|)
-else|:
+expr_stmt|;
+else|else
 name|error_errno
 argument_list|(
 literal|"cannot unlink %s"
 argument_list|,
 name|filename
 argument_list|)
-operator|)
-return|;
+expr_stmt|;
+goto|goto
+name|fail_exit
+goto|;
+block|}
 comment|/* 	 * Update the preimage so that the user can resolve the 	 * conflict in the working tree, run us again to record 	 * the postimage. 	 */
 name|handle_cache
 argument_list|(
@@ -5339,6 +5350,17 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|0
+return|;
+name|fail_exit
+label|:
+name|free
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+operator|-
+literal|1
 return|;
 block|}
 end_function
