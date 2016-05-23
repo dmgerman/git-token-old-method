@@ -1166,6 +1166,8 @@ argument_list|(
 name|symref
 operator|.
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -2108,6 +2110,8 @@ argument_list|(
 name|symref
 operator|.
 name|buf
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|strbuf_release
