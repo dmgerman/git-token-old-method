@@ -26,7 +26,6 @@ file|"patch-ids.h"
 end_include
 begin_function
 DECL|function|commit_patch_id
-specifier|static
 name|int
 name|commit_patch_id
 parameter_list|(
