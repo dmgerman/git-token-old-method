@@ -222,6 +222,10 @@ DECL|member|squelch_whitespace_errors
 name|int
 name|squelch_whitespace_errors
 decl_stmt|;
+DECL|member|applied_after_fixing_ws
+name|int
+name|applied_after_fixing_ws
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -279,13 +283,6 @@ init|=
 name|warn_on_ws_error
 enum|;
 end_enum
-begin_decl_stmt
-DECL|variable|applied_after_fixing_ws
-specifier|static
-name|int
-name|applied_after_fixing_ws
-decl_stmt|;
-end_decl_stmt
 begin_enum
 DECL|enum|ws_ignore
 specifier|static
@@ -13547,6 +13544,8 @@ argument_list|,
 name|ws_rule
 argument_list|,
 operator|&
+name|state
+operator|->
 name|applied_after_fixing_ws
 argument_list|)
 expr_stmt|;
@@ -23637,6 +23636,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|.
 name|applied_after_fixing_ws
 operator|&&
 name|state
@@ -23648,8 +23649,12 @@ argument_list|(
 literal|"%d line%s applied after"
 literal|" fixing whitespace errors."
 argument_list|,
+name|state
+operator|.
 name|applied_after_fixing_ws
 argument_list|,
+name|state
+operator|.
 name|applied_after_fixing_ws
 operator|==
 literal|1
