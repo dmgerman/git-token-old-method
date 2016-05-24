@@ -239,6 +239,15 @@ DECL|member|has_include
 name|int
 name|has_include
 decl_stmt|;
+comment|/* 	 * For "diff-stat" like behaviour, we keep track of the biggest change 	 * we've seen, and the longest filename. That allows us to do simple 	 * scaling. 	 */
+DECL|member|max_change
+name|int
+name|max_change
+decl_stmt|;
+DECL|member|max_len
+name|int
+name|max_len
+decl_stmt|;
 comment|/* These control whitespace errors */
 DECL|member|ws_error_action
 name|enum
@@ -585,19 +594,6 @@ operator|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*  * For "diff-stat" like behaviour, we keep track of the biggest change  * we've seen, and the longest filename. That allows us to do simple  * scaling.  */
-end_comment
-begin_decl_stmt
-DECL|variable|max_change
-DECL|variable|max_len
-specifier|static
-name|int
-name|max_change
-decl_stmt|,
-name|max_len
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|/*  * Various "current state", notably line numbers and what  * file (and how) we're patching right now.. The "is_xxxx"  * things are flags, where -1 means "don't know yet".  */
 end_comment
@@ -10500,6 +10496,11 @@ name|void
 name|show_stats
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -10549,6 +10550,8 @@ expr_stmt|;
 comment|/* 	 * "scale" the filename 	 */
 name|max
 operator|=
+name|state
+operator|->
 name|max_len
 expr_stmt|;
 if|if
@@ -10675,6 +10678,8 @@ name|max
 operator|=
 name|max
 operator|+
+name|state
+operator|->
 name|max_change
 operator|>
 literal|70
@@ -10683,6 +10688,8 @@ literal|70
 operator|-
 name|max
 else|:
+name|state
+operator|->
 name|max_change
 expr_stmt|;
 name|add
@@ -10699,6 +10706,8 @@ name|lines_deleted
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|max_change
 operator|>
 literal|0
@@ -10716,11 +10725,15 @@ operator|)
 operator|*
 name|max
 operator|+
+name|state
+operator|->
 name|max_change
 operator|/
 literal|2
 operator|)
 operator|/
+name|state
+operator|->
 name|max_change
 decl_stmt|;
 name|add
@@ -10730,11 +10743,15 @@ name|add
 operator|*
 name|max
 operator|+
+name|state
+operator|->
 name|max_change
 operator|/
 literal|2
 operator|)
 operator|/
+name|state
+operator|->
 name|max_change
 expr_stmt|;
 name|del
@@ -19283,6 +19300,11 @@ name|void
 name|stat_patch_list
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -19331,6 +19353,8 @@ name|lines_deleted
 expr_stmt|;
 name|show_stats
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|)
 expr_stmt|;
@@ -19879,6 +19903,11 @@ name|void
 name|patch_stats
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -19899,8 +19928,12 @@ if|if
 condition|(
 name|lines
 operator|>
+name|state
+operator|->
 name|max_change
 condition|)
+name|state
+operator|->
 name|max_change
 operator|=
 name|lines
@@ -19946,8 +19979,12 @@ if|if
 condition|(
 name|len
 operator|>
+name|state
+operator|->
 name|max_len
 condition|)
+name|state
+operator|->
 name|max_len
 operator|=
 name|len
@@ -19994,8 +20031,12 @@ if|if
 condition|(
 name|len
 operator|>
+name|state
+operator|->
 name|max_len
 condition|)
+name|state
+operator|->
 name|max_len
 operator|=
 name|len
@@ -21937,6 +21978,8 @@ condition|)
 block|{
 name|patch_stats
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|)
 expr_stmt|;
@@ -22162,6 +22205,8 @@ name|diffstat
 condition|)
 name|stat_patch_list
 argument_list|(
+name|state
+argument_list|,
 name|list
 argument_list|)
 expr_stmt|;
