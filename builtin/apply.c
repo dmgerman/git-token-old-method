@@ -239,6 +239,12 @@ DECL|member|has_include
 name|int
 name|has_include
 decl_stmt|;
+comment|/* Various "current state" */
+DECL|member|linenr
+name|int
+name|linenr
+decl_stmt|;
+comment|/* current line number */
 comment|/* 	 * For "diff-stat" like behaviour, we keep track of the biggest change 	 * we've seen, and the longest filename. That allows us to do simple 	 * scaling. 	 */
 DECL|member|max_change
 name|int
@@ -594,18 +600,6 @@ operator|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*  * Various "current state", notably line numbers and what  * file (and how) we're patching right now.. The "is_xxxx"  * things are flags, where -1 means "don't know yet".  */
-end_comment
-begin_decl_stmt
-DECL|variable|state_linenr
-specifier|static
-name|int
-name|state_linenr
-init|=
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|/*  * This represents one "hunk" from a patch, starting with  * "@@ -oldpos,oldlines +newpos,newlines @@" marker.  The  * patch text is pointed at by patch, and its byte length  * is stored in size.  leading and trailing are the number  * of context lines.  */
 end_comment
@@ -4632,7 +4626,9 @@ argument_list|(
 literal|"unable to find filename in patch at line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 block|}
@@ -4773,7 +4769,9 @@ argument_list|,
 operator|*
 name|name
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 name|another
@@ -4828,7 +4826,9 @@ argument_list|(
 literal|"git apply: bad git-diff - inconsistent old filename on line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 name|free
@@ -4865,7 +4865,9 @@ argument_list|(
 literal|"git apply: bad git-diff - expected /dev/null on line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 block|}
@@ -6607,7 +6609,9 @@ name|size
 operator|-=
 name|len
 expr_stmt|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 for|for
@@ -6632,7 +6636,9 @@ name|line
 operator|+=
 name|len
 operator|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 control|)
 block|{
@@ -7517,7 +7523,9 @@ name|line
 operator|+=
 name|len
 operator|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 control|)
 block|{
@@ -7588,7 +7596,9 @@ argument_list|(
 literal|"patch fragment without header at line %d: %.*s"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|,
 operator|(
 name|int
@@ -7686,7 +7696,9 @@ name|state
 operator|->
 name|p_value
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 name|patch
@@ -7729,7 +7741,9 @@ argument_list|(
 literal|"git diff header lacks filename information "
 literal|"(line %d)"
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 name|patch
@@ -7828,7 +7842,9 @@ name|len
 operator|+
 name|nextlen
 expr_stmt|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|+=
 literal|2
 expr_stmt|;
@@ -7984,7 +8000,9 @@ name|len
 operator|-
 literal|2
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 block|}
@@ -8125,7 +8143,9 @@ name|size
 operator|-=
 name|len
 expr_stmt|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 name|added
@@ -8156,7 +8176,9 @@ name|line
 operator|+=
 name|len
 operator|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 control|)
 block|{
@@ -8583,7 +8605,9 @@ name|fragment
 operator|->
 name|linenr
 operator|=
-name|state_linenr
+name|state
+operator|->
+name|linenr
 expr_stmt|;
 name|len
 operator|=
@@ -8613,7 +8637,9 @@ argument_list|(
 literal|"corrupt patch at line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 name|fragment
@@ -9008,6 +9034,11 @@ name|fragment
 modifier|*
 name|parse_binary_hunk
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 name|char
 modifier|*
 modifier|*
@@ -9149,7 +9180,9 @@ else|else
 return|return
 name|NULL
 return|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 name|buffer
@@ -9181,7 +9214,9 @@ name|used
 operator|+=
 name|llen
 expr_stmt|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 if|if
@@ -9437,7 +9472,9 @@ argument_list|(
 literal|"corrupt binary patch at line %d: %.*s"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|-
 literal|1
 argument_list|,
@@ -9462,6 +9499,11 @@ specifier|static
 name|int
 name|parse_binary
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 name|char
 modifier|*
 name|buffer
@@ -9499,6 +9541,8 @@ name|forward
 operator|=
 name|parse_binary_hunk
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|buffer
 argument_list|,
@@ -9529,7 +9573,9 @@ argument_list|(
 literal|"unrecognized binary patch at line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|-
 literal|1
 argument_list|)
@@ -9546,6 +9592,8 @@ name|reverse
 operator|=
 name|parse_binary_hunk
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|buffer
 argument_list|,
@@ -10116,13 +10164,17 @@ block|{
 name|int
 name|used
 decl_stmt|;
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 name|used
 operator|=
 name|parse_binary
 argument_list|(
+name|state
+argument_list|,
 name|buffer
 operator|+
 name|hd
@@ -10252,7 +10304,9 @@ name|len
 argument_list|)
 condition|)
 block|{
-name|state_linenr
+name|state
+operator|->
+name|linenr
 operator|++
 expr_stmt|;
 name|patch
@@ -10302,7 +10356,9 @@ argument_list|(
 literal|"patch with only garbage at line %d"
 argument_list|)
 argument_list|,
-name|state_linenr
+name|state
+operator|->
+name|linenr
 argument_list|)
 expr_stmt|;
 block|}
@@ -22693,6 +22749,12 @@ operator|->
 name|ws_ignore_action
 operator|=
 name|ignore_ws_none
+expr_stmt|;
+name|state
+operator|->
+name|linenr
+operator|=
+literal|1
 expr_stmt|;
 name|strbuf_init
 argument_list|(
