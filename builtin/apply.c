@@ -119,6 +119,11 @@ name|int
 name|numstat
 decl_stmt|;
 comment|/* just show a numeric diffstat, and don't actually apply */
+DECL|member|summary
+name|int
+name|summary
+decl_stmt|;
+comment|/* just report creation, deletion, etc, and don't actually apply */
 comment|/* These boolean parameters control how the apply is done */
 DECL|member|allow_overlap
 name|int
@@ -170,13 +175,6 @@ DECL|variable|p_value_known
 specifier|static
 name|int
 name|p_value_known
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|summary
-specifier|static
-name|int
-name|summary
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -21844,6 +21842,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|summary
 condition|)
 name|summary_patch_list
@@ -22450,6 +22450,8 @@ argument_list|,
 literal|"summary"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|summary
 argument_list|,
 name|N_
@@ -22917,6 +22919,8 @@ name|state
 operator|.
 name|numstat
 operator|||
+name|state
+operator|.
 name|summary
 operator|||
 name|state
