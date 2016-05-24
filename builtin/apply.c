@@ -207,6 +207,11 @@ DECL|member|has_include
 name|int
 name|has_include
 decl_stmt|;
+comment|/* These control whitespace errors */
+DECL|member|whitespace_error
+name|int
+name|whitespace_error
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -264,13 +269,6 @@ init|=
 name|warn_on_ws_error
 enum|;
 end_enum
-begin_decl_stmt
-DECL|variable|whitespace_error
-specifier|static
-name|int
-name|whitespace_error
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 DECL|variable|squelch_whitespace_errors
 specifier|static
@@ -7859,6 +7857,8 @@ operator|!
 name|result
 condition|)
 return|return;
+name|state
+operator|->
 name|whitespace_error
 operator|++
 expr_stmt|;
@@ -7868,6 +7868,8 @@ name|squelch_whitespace_errors
 operator|&&
 name|squelch_whitespace_errors
 operator|<
+name|state
+operator|->
 name|whitespace_error
 condition|)
 return|return;
@@ -13498,6 +13500,8 @@ operator|!=
 literal|'+'
 operator|||
 operator|!
+name|state
+operator|->
 name|whitespace_error
 operator|||
 name|ws_error_action
@@ -21936,6 +21940,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|whitespace_error
 operator|&&
 operator|(
@@ -23551,6 +23557,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|.
 name|whitespace_error
 condition|)
 block|{
@@ -23560,12 +23568,16 @@ name|squelch_whitespace_errors
 operator|&&
 name|squelch_whitespace_errors
 operator|<
+name|state
+operator|.
 name|whitespace_error
 condition|)
 block|{
 name|int
 name|squelched
 init|=
+name|state
+operator|.
 name|whitespace_error
 operator|-
 name|squelch_whitespace_errors
@@ -23599,9 +23611,13 @@ literal|"%d line adds whitespace errors."
 argument_list|,
 literal|"%d lines add whitespace errors."
 argument_list|,
+name|state
+operator|.
 name|whitespace_error
 argument_list|)
 argument_list|,
+name|state
+operator|.
 name|whitespace_error
 argument_list|)
 expr_stmt|;
@@ -23632,6 +23648,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+name|state
+operator|.
 name|whitespace_error
 condition|)
 name|warning
@@ -23642,9 +23660,13 @@ literal|"%d line adds whitespace errors."
 argument_list|,
 literal|"%d lines add whitespace errors."
 argument_list|,
+name|state
+operator|.
 name|whitespace_error
 argument_list|)
 argument_list|,
+name|state
+operator|.
 name|whitespace_error
 argument_list|)
 expr_stmt|;
