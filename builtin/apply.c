@@ -184,6 +184,12 @@ name|unsigned
 name|int
 name|p_context
 decl_stmt|;
+comment|/* Exclude and include path parameters */
+DECL|member|limit_by_name
+name|struct
+name|string_list
+name|limit_by_name
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -9466,14 +9472,6 @@ begin_comment
 comment|/*  * include/exclude  */
 end_comment
 begin_decl_stmt
-DECL|variable|limit_by_name
-specifier|static
-name|struct
-name|string_list
-name|limit_by_name
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|has_include
 specifier|static
 name|int
@@ -9486,6 +9484,11 @@ specifier|static
 name|void
 name|add_name_limit
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -9505,6 +9508,8 @@ operator|=
 name|string_list_append
 argument_list|(
 operator|&
+name|state
+operator|->
 name|limit_by_name
 argument_list|,
 name|name
@@ -9615,6 +9620,8 @@ literal|0
 init|;
 name|i
 operator|<
+name|state
+operator|->
 name|limit_by_name
 operator|.
 name|nr
@@ -9629,6 +9636,8 @@ modifier|*
 name|it
 init|=
 operator|&
+name|state
+operator|->
 name|limit_by_name
 operator|.
 name|items
@@ -21967,8 +21976,19 @@ name|int
 name|unset
 parameter_list|)
 block|{
+name|struct
+name|apply_state
+modifier|*
+name|state
+init|=
+name|opt
+operator|->
+name|value
+decl_stmt|;
 name|add_name_limit
 argument_list|(
+name|state
+argument_list|,
 name|arg
 argument_list|,
 literal|1
@@ -22000,8 +22020,19 @@ name|int
 name|unset
 parameter_list|)
 block|{
+name|struct
+name|apply_state
+modifier|*
+name|state
+init|=
+name|opt
+operator|->
+name|value
+decl_stmt|;
 name|add_name_limit
 argument_list|(
+name|state
+argument_list|,
 name|arg
 argument_list|,
 literal|0
@@ -22292,7 +22323,16 @@ modifier|*
 name|state
 parameter_list|)
 block|{
-comment|/* empty for now */
+name|string_list_clear
+argument_list|(
+operator|&
+name|state
+operator|->
+name|limit_by_name
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -22370,7 +22410,8 @@ literal|0
 block|,
 literal|"exclude"
 block|,
-name|NULL
+operator|&
+name|state
 block|,
 name|N_
 argument_list|(
@@ -22394,7 +22435,8 @@ literal|0
 block|,
 literal|"include"
 block|,
-name|NULL
+operator|&
+name|state
 block|,
 name|N_
 argument_list|(
