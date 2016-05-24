@@ -88,6 +88,11 @@ name|int
 name|prefix_length
 decl_stmt|;
 comment|/* These control what gets looked at and modified */
+DECL|member|cached
+name|int
+name|cached
+decl_stmt|;
+comment|/* apply to the index only */
 DECL|member|check
 name|int
 name|check
@@ -128,7 +133,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --cached updates only the cache without ever touching the working tree.  */
+comment|/*  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  */
 end_comment
 begin_decl_stmt
 DECL|variable|newfd
@@ -154,13 +159,6 @@ DECL|variable|p_value_known
 specifier|static
 name|int
 name|p_value_known
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|cached
-specifier|static
-name|int
-name|cached
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15381,6 +15379,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|cached
 operator|||
 name|state
@@ -16852,6 +16852,8 @@ elseif|else
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|cached
 condition|)
 block|{
@@ -16978,6 +16980,8 @@ block|}
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|cached
 operator|&&
 name|verify_index_match
@@ -17001,6 +17005,8 @@ argument_list|)
 return|;
 if|if
 condition|(
+name|state
+operator|->
 name|cached
 condition|)
 name|st_mode
@@ -17052,6 +17058,8 @@ block|}
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|cached
 operator|&&
 operator|!
@@ -17260,6 +17268,8 @@ name|EXISTS_IN_INDEX
 return|;
 if|if
 condition|(
+name|state
+operator|->
 name|cached
 condition|)
 return|return
@@ -19734,6 +19744,8 @@ block|}
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|cached
 condition|)
 block|{
@@ -19921,6 +19933,8 @@ block|{
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|cached
 condition|)
 block|{
@@ -20209,6 +20223,11 @@ specifier|static
 name|void
 name|create_one_file
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 name|char
 modifier|*
 name|path
@@ -20228,6 +20247,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|cached
 condition|)
 return|return;
@@ -20686,6 +20707,8 @@ literal|0644
 expr_stmt|;
 name|create_one_file
 argument_list|(
+name|state
+argument_list|,
 name|path
 argument_list|,
 name|mode
@@ -22471,6 +22494,8 @@ argument_list|,
 literal|"cached"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|cached
 argument_list|,
 name|N_
@@ -22824,6 +22849,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|.
 name|cached
 operator|&&
 name|threeway
@@ -22912,6 +22939,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|.
 name|cached
 condition|)
 block|{
