@@ -87,6 +87,12 @@ DECL|member|prefix_length
 name|int
 name|prefix_length
 decl_stmt|;
+comment|/* These control what gets looked at and modified */
+DECL|member|check
+name|int
+name|check
+decl_stmt|;
+comment|/* preimage must match working tree, don't actually apply */
 comment|/* These boolean parameters control how the apply is done */
 DECL|member|unidiff_zero
 name|int
@@ -96,7 +102,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*  *  --check turns on checking that the working tree matches the  *    files that are being modified, but doesn't apply the patch  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --index updates the cache as well.  *  --cached updates only the cache without ever touching the working tree.  */
+comment|/*  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --index updates the cache as well.  *  --cached updates only the cache without ever touching the working tree.  */
 end_comment
 begin_decl_stmt
 DECL|variable|newfd
@@ -164,13 +170,6 @@ DECL|variable|summary
 specifier|static
 name|int
 name|summary
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|check
-specifier|static
-name|int
-name|check
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -10022,6 +10021,8 @@ condition|(
 operator|(
 name|apply
 operator|||
+name|state
+operator|->
 name|check
 operator|)
 operator|&&
@@ -21559,6 +21560,8 @@ block|}
 if|if
 condition|(
 operator|(
+name|state
+operator|->
 name|check
 operator|||
 name|apply
@@ -22253,6 +22256,8 @@ argument_list|,
 literal|"check"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|check
 argument_list|,
 name|N_
@@ -22679,6 +22684,8 @@ name|numstat
 operator|||
 name|summary
 operator|||
+name|state
+operator|.
 name|check
 operator|||
 name|fake_ancestor
