@@ -114,6 +114,11 @@ name|int
 name|diffstat
 decl_stmt|;
 comment|/* just show a diffstat, and don't actually apply */
+DECL|member|numstat
+name|int
+name|numstat
+decl_stmt|;
+comment|/* just show a numeric diffstat, and don't actually apply */
 comment|/* These boolean parameters control how the apply is done */
 DECL|member|allow_overlap
 name|int
@@ -139,7 +144,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  */
+comment|/*  *  --index-info shows the old and new index info for paths if available.  */
 end_comment
 begin_decl_stmt
 DECL|variable|newfd
@@ -165,13 +170,6 @@ DECL|variable|p_value_known
 specifier|static
 name|int
 name|p_value_known
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|numstat
-specifier|static
-name|int
-name|numstat
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -21835,6 +21833,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|numstat
 condition|)
 name|numstat_patch_list
@@ -22433,6 +22433,8 @@ argument_list|,
 literal|"numstat"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|numstat
 argument_list|,
 name|N_
@@ -22911,6 +22913,8 @@ name|state
 operator|.
 name|diffstat
 operator|||
+name|state
+operator|.
 name|numstat
 operator|||
 name|summary
