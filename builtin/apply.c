@@ -93,6 +93,11 @@ name|int
 name|check
 decl_stmt|;
 comment|/* preimage must match working tree, don't actually apply */
+DECL|member|check_index
+name|int
+name|check_index
+decl_stmt|;
+comment|/* preimage must match the indexed version */
 comment|/* These boolean parameters control how the apply is done */
 DECL|member|unidiff_zero
 name|int
@@ -102,7 +107,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --index updates the cache as well.  *  --cached updates only the cache without ever touching the working tree.  */
+comment|/*  *  --stat does just a diffstat, and doesn't actually apply  *  --numstat does numeric diffstat, and doesn't actually apply  *  --index-info shows the old and new index info for paths if available.  *  --cached updates only the cache without ever touching the working tree.  */
 end_comment
 begin_decl_stmt
 DECL|variable|newfd
@@ -128,13 +133,6 @@ DECL|variable|p_value_known
 specifier|static
 name|int
 name|p_value_known
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|check_index
-specifier|static
-name|int
-name|check_index
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15309,6 +15307,11 @@ name|int
 name|load_patch_target
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|strbuf
 modifier|*
 name|buf
@@ -15337,6 +15340,8 @@ if|if
 condition|(
 name|cached
 operator|||
+name|state
+operator|->
 name|check_index
 condition|)
 block|{
@@ -15459,6 +15464,11 @@ name|int
 name|load_preimage
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|image
 modifier|*
 name|image
@@ -15555,6 +15565,8 @@ name|status
 operator|=
 name|load_patch_target
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|buf
 argument_list|,
@@ -15837,6 +15849,11 @@ name|int
 name|load_current
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|image
 modifier|*
 name|image
@@ -16017,6 +16034,8 @@ name|status
 operator|=
 name|load_patch_target
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|buf
 argument_list|,
@@ -16312,6 +16331,8 @@ if|if
 condition|(
 name|load_current
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|tmp_image
 argument_list|,
@@ -16335,6 +16356,8 @@ if|if
 condition|(
 name|load_preimage
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|tmp_image
 argument_list|,
@@ -16551,6 +16574,8 @@ if|if
 condition|(
 name|load_preimage
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|image
 argument_list|,
@@ -16676,6 +16701,11 @@ specifier|static
 name|int
 name|check_preimage
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 name|struct
 name|patch
 modifier|*
@@ -16818,6 +16848,8 @@ return|;
 block|}
 if|if
 condition|(
+name|state
+operator|->
 name|check_index
 operator|&&
 operator|!
@@ -17141,6 +17173,11 @@ specifier|static
 name|int
 name|check_to_create
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -17156,6 +17193,8 @@ name|nst
 decl_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|check_index
 operator|&&
 name|cache_name_pos
@@ -17514,6 +17553,11 @@ name|int
 name|path_is_beyond_symlink_1
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|strbuf
 modifier|*
 name|name
@@ -17593,6 +17637,8 @@ continue|continue;
 comment|/* otherwise, check the preimage */
 if|if
 condition|(
+name|state
+operator|->
 name|check_index
 condition|)
 block|{
@@ -17678,6 +17724,11 @@ specifier|static
 name|int
 name|path_is_beyond_symlink
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -17713,6 +17764,8 @@ name|ret
 operator|=
 name|path_is_beyond_symlink_1
 argument_list|(
+name|state
+argument_list|,
 operator|&
 name|name
 argument_list|)
@@ -17922,6 +17975,8 @@ name|status
 operator|=
 name|check_preimage
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|,
 operator|&
@@ -18005,6 +18060,8 @@ name|err
 init|=
 name|check_to_create
 argument_list|(
+name|state
+argument_list|,
 name|new_name
 argument_list|,
 name|ok_if_exists
@@ -18221,6 +18278,8 @@ name|is_delete
 operator|&&
 name|path_is_beyond_symlink
 argument_list|(
+name|state
+argument_list|,
 name|patch
 operator|->
 name|new_name
@@ -21514,6 +21573,8 @@ literal|0
 expr_stmt|;
 name|update_index
 operator|=
+name|state
+operator|->
 name|check_index
 operator|&&
 name|apply
@@ -21538,6 +21599,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|check_index
 condition|)
 block|{
@@ -22273,6 +22336,8 @@ argument_list|,
 literal|"index"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|check_index
 argument_list|,
 name|N_
@@ -22657,6 +22722,8 @@ literal|"--3way outside a repository"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|state
+operator|.
 name|check_index
 operator|=
 literal|1
@@ -22697,6 +22764,8 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|.
 name|check_index
 operator|&&
 name|is_not_gitdir
@@ -22726,6 +22795,8 @@ literal|"--cached outside a repository"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|state
+operator|.
 name|check_index
 operator|=
 literal|1
@@ -22733,6 +22804,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|state
+operator|.
 name|check_index
 condition|)
 name|unsafe_paths
