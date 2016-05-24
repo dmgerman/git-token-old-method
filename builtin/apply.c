@@ -107,6 +107,10 @@ DECL|member|apply_with_reject
 name|int
 name|apply_with_reject
 decl_stmt|;
+DECL|member|apply_verbosely
+name|int
+name|apply_verbosely
+decl_stmt|;
 DECL|member|unidiff_zero
 name|int
 name|unidiff_zero
@@ -185,13 +189,6 @@ name|int
 name|apply
 init|=
 literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|apply_verbosely
-specifier|static
-name|int
-name|apply_verbosely
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -13385,6 +13382,8 @@ break|break;
 default|default:
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 condition|)
 name|error
@@ -13799,6 +13798,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 operator|&&
 name|applied_pos
@@ -13904,6 +13905,8 @@ else|else
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 condition|)
 name|error
@@ -18411,6 +18414,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 condition|)
 name|say_patch_name
@@ -20789,6 +20794,11 @@ name|int
 name|write_out_one_reject
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -20861,6 +20871,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 condition|)
 name|say_patch_name
@@ -21159,6 +21171,11 @@ name|int
 name|write_out_results
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|list
@@ -21236,6 +21253,8 @@ if|if
 condition|(
 name|write_out_one_reject
 argument_list|(
+name|state
+argument_list|,
 name|l
 argument_list|)
 condition|)
@@ -21551,6 +21570,8 @@ else|else
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|apply_verbosely
 condition|)
 name|say_patch_name
@@ -21693,6 +21714,8 @@ name|apply
 operator|&&
 name|write_out_results
 argument_list|(
+name|state
+argument_list|,
 name|list
 argument_list|)
 condition|)
@@ -22632,6 +22655,8 @@ block|,
 name|OPT__VERBOSE
 argument_list|(
 operator|&
+name|state
+operator|.
 name|apply_verbosely
 argument_list|,
 name|N_
@@ -22785,6 +22810,8 @@ name|apply_with_reject
 condition|)
 name|apply
 operator|=
+name|state
+operator|.
 name|apply_verbosely
 operator|=
 literal|1
