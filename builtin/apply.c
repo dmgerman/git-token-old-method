@@ -141,6 +141,10 @@ DECL|member|apply_verbosely
 name|int
 name|apply_verbosely
 decl_stmt|;
+DECL|member|no_add
+name|int
+name|no_add
+decl_stmt|;
 DECL|member|threeway
 name|int
 name|threeway
@@ -188,13 +192,6 @@ name|int
 name|apply
 init|=
 literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|no_add
-specifier|static
-name|int
-name|no_add
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -13251,6 +13248,8 @@ name|first
 operator|==
 literal|'+'
 operator|&&
+name|state
+operator|->
 name|no_add
 condition|)
 break|break;
@@ -22388,6 +22387,8 @@ argument_list|,
 literal|"no-add"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|no_add
 argument_list|,
 name|N_
