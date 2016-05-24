@@ -98,6 +98,11 @@ name|int
 name|check_index
 decl_stmt|;
 comment|/* preimage must match the indexed version */
+DECL|member|update_index
+name|int
+name|update_index
+decl_stmt|;
+comment|/* check_index&& apply */
 comment|/* These boolean parameters control how the apply is done */
 DECL|member|apply_in_reverse
 name|int
@@ -145,13 +150,6 @@ DECL|variable|p_value_known
 specifier|static
 name|int
 name|p_value_known
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|update_index
-specifier|static
-name|int
-name|update_index
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -19683,6 +19681,11 @@ name|void
 name|remove_file
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -19693,6 +19696,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|state
+operator|->
 name|update_index
 condition|)
 block|{
@@ -19760,6 +19765,11 @@ specifier|static
 name|void
 name|add_index_file
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -19805,6 +19815,8 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|update_index
 condition|)
 return|return;
@@ -20415,6 +20427,11 @@ name|void
 name|add_conflicted_stages_file
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -20438,6 +20455,8 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|state
+operator|->
 name|update_index
 condition|)
 return|return;
@@ -20607,6 +20626,11 @@ name|void
 name|create_file
 parameter_list|(
 name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
+name|struct
 name|patch
 modifier|*
 name|patch
@@ -20673,12 +20697,16 @@ name|conflicted_threeway
 condition|)
 name|add_conflicted_stages_file
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|)
 expr_stmt|;
 else|else
 name|add_index_file
 argument_list|(
+name|state
+argument_list|,
 name|path
 argument_list|,
 name|mode
@@ -20699,6 +20727,11 @@ specifier|static
 name|void
 name|write_out_one_result
 parameter_list|(
+name|struct
+name|apply_state
+modifier|*
+name|state
+parameter_list|,
 name|struct
 name|patch
 modifier|*
@@ -20725,6 +20758,8 @@ literal|0
 condition|)
 name|remove_file
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|,
 literal|1
@@ -20753,6 +20788,8 @@ literal|1
 condition|)
 name|create_file
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|)
 expr_stmt|;
@@ -20767,6 +20804,8 @@ literal|0
 condition|)
 name|remove_file
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|,
 name|patch
@@ -20782,6 +20821,8 @@ literal|1
 condition|)
 name|create_file
 argument_list|(
+name|state
+argument_list|,
 name|patch
 argument_list|)
 expr_stmt|;
@@ -21237,6 +21278,8 @@ else|else
 block|{
 name|write_out_one_result
 argument_list|(
+name|state
+argument_list|,
 name|l
 argument_list|,
 name|phase
@@ -21630,6 +21673,8 @@ name|apply
 operator|=
 literal|0
 expr_stmt|;
+name|state
+operator|->
 name|update_index
 operator|=
 name|state
@@ -21640,6 +21685,8 @@ name|apply
 expr_stmt|;
 if|if
 condition|(
+name|state
+operator|->
 name|update_index
 operator|&&
 name|newfd
@@ -23148,6 +23195,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|state
+operator|.
 name|update_index
 condition|)
 block|{
