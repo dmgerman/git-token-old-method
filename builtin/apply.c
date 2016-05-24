@@ -158,6 +158,12 @@ name|int
 name|unsafe_paths
 decl_stmt|;
 comment|/* Other non boolean parameters */
+DECL|member|fake_ancestor
+specifier|const
+name|char
+modifier|*
+name|fake_ancestor
+decl_stmt|;
 DECL|member|line_termination
 name|int
 name|line_termination
@@ -165,9 +171,6 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_comment
-comment|/*  *  --index-info shows the old and new index info for paths if available.  */
-end_comment
 begin_decl_stmt
 DECL|variable|newfd
 specifier|static
@@ -201,15 +204,6 @@ name|int
 name|apply
 init|=
 literal|1
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|fake_ancestor
-specifier|static
-specifier|const
-name|char
-modifier|*
-name|fake_ancestor
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -21811,12 +21805,16 @@ return|;
 block|}
 if|if
 condition|(
+name|state
+operator|->
 name|fake_ancestor
 condition|)
 name|build_fake_ancestor
 argument_list|(
 name|list
 argument_list|,
+name|state
+operator|->
 name|fake_ancestor
 argument_list|)
 expr_stmt|;
@@ -22579,6 +22577,8 @@ argument_list|,
 literal|"build-fake-ancestor"
 argument_list|,
 operator|&
+name|state
+operator|.
 name|fake_ancestor
 argument_list|,
 name|N_
@@ -22951,6 +22951,8 @@ name|state
 operator|.
 name|check
 operator|||
+name|state
+operator|.
 name|fake_ancestor
 operator|)
 condition|)
