@@ -208,6 +208,12 @@ name|int
 name|has_include
 decl_stmt|;
 comment|/* These control whitespace errors */
+DECL|member|whitespace_option
+specifier|const
+name|char
+modifier|*
+name|whitespace_option
+decl_stmt|;
 DECL|member|whitespace_error
 name|int
 name|whitespace_error
@@ -22384,17 +22390,17 @@ name|int
 name|unset
 parameter_list|)
 block|{
-specifier|const
-name|char
+name|struct
+name|apply_state
 modifier|*
-modifier|*
-name|whitespace_option
+name|state
 init|=
 name|opt
 operator|->
 name|value
 decl_stmt|;
-operator|*
+name|state
+operator|->
 name|whitespace_option
 operator|=
 name|arg
@@ -22668,13 +22674,6 @@ decl_stmt|;
 name|struct
 name|apply_state
 name|state
-decl_stmt|;
-specifier|const
-name|char
-modifier|*
-name|whitespace_option
-init|=
-name|NULL
 decl_stmt|;
 name|struct
 name|option
@@ -23001,7 +23000,7 @@ block|,
 literal|"whitespace"
 block|,
 operator|&
-name|whitespace_option
+name|state
 block|,
 name|N_
 argument_list|(
@@ -23506,6 +23505,8 @@ argument_list|(
 operator|&
 name|state
 argument_list|,
+name|state
+operator|.
 name|whitespace_option
 argument_list|)
 expr_stmt|;
@@ -23534,6 +23535,8 @@ argument_list|(
 operator|&
 name|state
 argument_list|,
+name|state
+operator|.
 name|whitespace_option
 argument_list|)
 expr_stmt|;
