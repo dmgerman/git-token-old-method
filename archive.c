@@ -2072,7 +2072,7 @@ operator|&
 name|pathspec
 argument_list|)
 expr_stmt|;
-name|free_pathspec
+name|clear_pathspec
 argument_list|(
 operator|&
 name|pathspec
