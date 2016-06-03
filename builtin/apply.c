@@ -143,6 +143,10 @@ name|lock_file
 modifier|*
 name|lock_file
 decl_stmt|;
+DECL|member|newfd
+name|int
+name|newfd
+decl_stmt|;
 comment|/* These control what gets looked at and modified */
 DECL|member|apply
 name|int
@@ -322,16 +326,6 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_decl_stmt
-DECL|variable|newfd
-specifier|static
-name|int
-name|newfd
-init|=
-operator|-
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 DECL|variable|apply_usage
 specifier|static
@@ -22209,10 +22203,14 @@ name|state
 operator|->
 name|update_index
 operator|&&
+name|state
+operator|->
 name|newfd
 operator|<
 literal|0
 condition|)
+name|state
+operator|->
 name|newfd
 operator|=
 name|hold_locked_index
@@ -22790,6 +22788,13 @@ operator|->
 name|lock_file
 operator|=
 name|lock_file
+expr_stmt|;
+name|state
+operator|->
+name|newfd
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|state
 operator|->
@@ -23466,6 +23471,13 @@ argument_list|(
 literal|"Unable to write new index file"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|state
+operator|->
+name|newfd
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 return|return
