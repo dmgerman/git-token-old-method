@@ -6340,7 +6340,7 @@ name|die
 argument_list|(
 name|_
 argument_list|(
-literal|"unknown error occured while reading the configuration files"
+literal|"unknown error occurred while reading the configuration files"
 argument_list|)
 argument_list|)
 expr_stmt|;
