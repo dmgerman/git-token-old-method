@@ -1140,6 +1140,8 @@ specifier|static
 name|struct
 name|string_list
 name|fn_table
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_function
@@ -9447,6 +9449,8 @@ specifier|static
 name|struct
 name|string_list
 name|limit_by_name
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -17116,6 +17120,8 @@ specifier|static
 name|struct
 name|string_list
 name|symlink_changes
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_define
