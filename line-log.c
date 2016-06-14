@@ -2631,14 +2631,6 @@ operator|&
 name|UNINTERESTING
 condition|)
 continue|continue;
-while|while
-condition|(
-name|obj
-operator|->
-name|type
-operator|==
-name|OBJ_TAG
-condition|)
 name|obj
 operator|=
 name|deref_tag
