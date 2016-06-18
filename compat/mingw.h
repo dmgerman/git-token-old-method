@@ -2774,7 +2774,9 @@ end_comment
 begin_function_decl
 name|void
 name|mingw_startup
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_define
@@ -2787,7 +2789,7 @@ name|c
 parameter_list|,
 name|v
 parameter_list|)
-value|dummy_decl_mingw_main(); \ static int mingw_main(c,v); \ int main(int argc, char **argv) \ { \ 	mingw_startup(); \ 	return mingw_main(__argc, (void *)__argv); \ } \ static int mingw_main(c,v)
+value|dummy_decl_mingw_main(void); \ static int mingw_main(c,v); \ int main(int argc, char **argv) \ { \ 	mingw_startup(); \ 	return mingw_main(__argc, (void *)__argv); \ } \ static int mingw_main(c,v)
 end_define
 begin_comment
 comment|/*  * Used by Pthread API implementation for Windows  */
