@@ -86,7 +86,7 @@ modifier|*
 modifier|*
 name|_raw
 decl_stmt|;
-comment|/* get_pathspec() result, not freed by free_pathspec() */
+comment|/* get_pathspec() result, not freed by clear_pathspec() */
 DECL|member|nr
 name|int
 name|nr
@@ -309,7 +309,7 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|void
-name|free_pathspec
+name|clear_pathspec
 parameter_list|(
 name|struct
 name|pathspec
