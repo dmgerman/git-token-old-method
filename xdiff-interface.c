@@ -602,7 +602,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  * Trim down common substring at the end of the buffers,  * but leave at least ctx lines at the end.  */
+comment|/*  * Trim down common substring at the end of the buffers,  * but end on a complete line.  */
 end_comment
 begin_function
 DECL|function|trim_common_tail
@@ -617,9 +617,6 @@ parameter_list|,
 name|mmfile_t
 modifier|*
 name|b
-parameter_list|,
-name|long
-name|ctx
 parameter_list|)
 block|{
 specifier|const
@@ -682,11 +679,6 @@ name|b
 operator|->
 name|size
 decl_stmt|;
-if|if
-condition|(
-name|ctx
-condition|)
-return|return;
 while|while
 condition|(
 name|blk
@@ -816,6 +808,22 @@ return|return
 operator|-
 literal|1
 return|;
+if|if
+condition|(
+operator|!
+name|xecfg
+operator|->
+name|ctxlen
+operator|&&
+operator|!
+operator|(
+name|xecfg
+operator|->
+name|flags
+operator|&
+name|XDL_EMIT_FUNCCONTEXT
+operator|)
+condition|)
 name|trim_common_tail
 argument_list|(
 operator|&
@@ -823,10 +831,6 @@ name|a
 argument_list|,
 operator|&
 name|b
-argument_list|,
-name|xecfg
-operator|->
-name|ctxlen
 argument_list|)
 expr_stmt|;
 return|return
