@@ -3657,6 +3657,8 @@ specifier|static
 name|struct
 name|string_list
 name|extra_hdr
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -3665,6 +3667,8 @@ specifier|static
 name|struct
 name|string_list
 name|extra_to
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -3673,6 +3677,8 @@ specifier|static
 name|struct
 name|string_list
 name|extra_cc
+init|=
+name|STRING_LIST_INIT_NODUP
 decl_stmt|;
 end_decl_stmt
 begin_function
