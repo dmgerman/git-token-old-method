@@ -542,7 +542,7 @@ comment|/*  * fd is connected to the remote side; send the sideband data  * over
 end_comment
 begin_function
 DECL|function|send_sideband
-name|ssize_t
+name|void
 name|send_sideband
 parameter_list|(
 name|int
@@ -563,11 +563,6 @@ name|int
 name|packet_max
 parameter_list|)
 block|{
-name|ssize_t
-name|ssz
-init|=
-name|sz
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -693,9 +688,6 @@ operator|-=
 name|n
 expr_stmt|;
 block|}
-return|return
-name|ssz
-return|;
 block|}
 end_function
 end_unit

@@ -334,7 +334,7 @@ end_function
 begin_function
 DECL|function|send_client_data
 specifier|static
-name|ssize_t
+name|void
 name|send_client_data
 parameter_list|(
 name|int
@@ -353,7 +353,7 @@ if|if
 condition|(
 name|use_sideband
 condition|)
-return|return
+block|{
 name|send_sideband
 argument_list|(
 literal|1
@@ -366,7 +366,9 @@ name|sz
 argument_list|,
 name|use_sideband
 argument_list|)
-return|;
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|fd
@@ -395,9 +397,7 @@ argument_list|,
 name|sz
 argument_list|)
 expr_stmt|;
-return|return
-name|sz
-return|;
+return|return;
 block|}
 name|write_or_die
 argument_list|(
@@ -408,9 +408,6 @@ argument_list|,
 name|sz
 argument_list|)
 expr_stmt|;
-return|return
-name|sz
-return|;
 block|}
 end_function
 begin_function
@@ -1221,8 +1218,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|sz
-operator|=
 name|send_client_data
 argument_list|(
 literal|1
@@ -1232,15 +1227,6 @@ argument_list|,
 name|sz
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|sz
-operator|<
-literal|0
-condition|)
-goto|goto
-name|fail
-goto|;
 block|}
 comment|/* 		 * We hit the keepalive timeout without saying anything; send 		 * an empty message on the data sideband just to let the other 		 * side know we're still working on it, but don't have any data 		 * yet. 		 * 		 * If we don't have a sideband channel, there's no room in the 		 * protocol to say anything, so those clients are just out of 		 * luck. 		 */
 if|if
@@ -1303,8 +1289,6 @@ index|]
 operator|=
 name|buffered
 expr_stmt|;
-name|sz
-operator|=
 name|send_client_data
 argument_list|(
 literal|1
@@ -1314,15 +1298,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|sz
-operator|<
-literal|0
-condition|)
-goto|goto
-name|fail
-goto|;
 name|fprintf
 argument_list|(
 name|stderr
