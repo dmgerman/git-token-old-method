@@ -1699,7 +1699,7 @@ name|st
 parameter_list|,
 name|flags
 parameter_list|)
-value|add_to_index(&the_index, (path), (st), (flags))
+value|add_to_index(&the_index, (path), (st), (flags), 0)
 end_define
 begin_define
 DECL|macro|add_file_to_cache
@@ -1711,7 +1711,7 @@ name|path
 parameter_list|,
 name|flags
 parameter_list|)
-value|add_file_to_index(&the_index, (path), (flags))
+value|add_file_to_index(&the_index, (path), (flags), 0)
 end_define
 begin_define
 DECL|macro|refresh_cache
@@ -3197,6 +3197,9 @@ modifier|*
 parameter_list|,
 name|int
 name|flags
+parameter_list|,
+name|int
+name|force_mode
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -3216,6 +3219,9 @@ name|path
 parameter_list|,
 name|int
 name|flags
+parameter_list|,
+name|int
+name|force_mode
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -10659,6 +10665,9 @@ name|pathspec
 parameter_list|,
 name|int
 name|flags
+parameter_list|,
+name|int
+name|force_mode
 parameter_list|)
 function_decl|;
 end_function_decl
